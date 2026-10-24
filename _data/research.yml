@@ -1,0 +1,41 @@
+thesis:
+  title: Advancing Deep Learning and Neural Network Techniques for AI and Human Text Classification
+  degree: MS Artificial Intelligence, The Islamia University of Bahawalpur
+  year: 2026
+  supervisor: Prof. Dr. Najia Saher (Chairperson, Department of AI)
+  summary: >-
+    I built and compared deep learning models that separate AI-generated from human-written text
+    on a balanced dataset of about 500,000 samples. A paper based on the thesis is in preparation.
+  models:
+    - LSTM
+    - Fine-tuned BERT
+    - TF-IDF + BERT + LightGBM
+    - Hybrid BERT + LSTM
+  results:
+    - value: "99.65%"
+      label: Accuracy (BERT + LSTM)
+    - value: "0.995"
+      label: F1-score
+    - value: "~500,000"
+      label: Text samples
+
+# Research interests. "now" = what you already work on, "next" = where you want to go.
+interests:
+  - name: AI-generated text detection
+    stage: now
+    note: The subject of my MS thesis.
+  - name: Phishing & scam detection
+    stage: now
+    note: My current project, for English, Urdu and Roman Urdu messages.
+  - name: Fraud detection
+    stage: now
+    note: First-author paper on AI-driven fraud detection in FinTech.
+  - name: Adversarial machine learning
+    stage: next
+    note: How attackers fool ML models, and how to make them robust.
+  - name: LLM security
+    stage: next
+    note: Prompt injection, misuse and safe deployment of language models.
+  - name: AI for the SOC
+    stage: next
+    note: Using ML to triage alerts and logs in security operations.

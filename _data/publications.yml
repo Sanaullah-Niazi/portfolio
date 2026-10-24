@@ -1,0 +1,19 @@
+# Add new papers at the top. role: "First author" or "Co-author".
+- title: "Artificial Intelligence–Driven Fraud Detection in FinTech: Strengthening Cybersecurity Against Digital Financial Scams"
+  authors: "Khan, S. U., Zafar, U., Imran, S., & Ali, M."
+  venue: "Journal of Business Insight and Innovation, 5(6), 72–82"
+  year: 2026
+  doi: 10.63544/jbii.v5i6.116
+  role: First author
+- title: "Artificial Intelligence and Workplace Safety in the Oil and Gas Industry: Transforming Occupational Risk Assessment through Smart Safety Analytics"
+  authors: "Khan, S. U., Zafar, R., Alam, M. M., & Iqbal, M."
+  venue: "Periodicals of Management Studies, 6(1)"
+  year: 2026
+  doi: 10.65181/poms.06.01.0100
+  role: First author
+- title: "GenAI Adoption in Entrepreneurial Education and Digital Entrepreneurial Intention"
+  authors: "Soomro, M. A., Khalid, M. A., Mangi, A. R., & Khan, S. U."
+  venue: "International Journal of Advanced Social Studies, 6(1), 82–93"
+  year: 2026
+  doi: 10.70843/ijass.2026.06107
+  role: Co-author

@@ -1,0 +1,21 @@
+---
+layout: default
+title: Notes
+description: Notes by Sana Ullah Khan on AI, machine learning and cybersecurity.
+---
+<div class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow">Notes</p>
+    <h1>Notes on AI and security</h1>
+    <p class="lede">Short write-ups of what I'm learning and building.</p>
+  </header>
+  {% if site.posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %b %Y' }}</time></li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty">No notes yet. The first one is on its way.</p>
+  {% endif %}
+</div>

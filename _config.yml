@@ -1,0 +1,67 @@
+# ---------------------------------------------------------------
+# Site settings. Change these when you move to your own domain.
+# ---------------------------------------------------------------
+title: Sana Ullah Khan
+tagline: Early-career researcher · MS Artificial Intelligence
+description: >-
+  Sana Ullah Khan is an AI cybersecurity researcher (MS Artificial Intelligence)
+  working on machine learning and NLP for phishing, scam and fraud detection
+  and AI-generated text detection.
+lang: en
+
+# For GitHub Pages at sanaullah-niazi.github.io/portfolio keep these two.
+# On your own domain (e.g. https://sanaullahkhan.com) set url to it and baseurl to "".
+url: https://sanaullah-niazi.github.io
+baseurl: /portfolio
+
+# Contact form. Create a free form at https://formspree.io and paste its
+# endpoint here, e.g. https://formspree.io/f/abcdwxyz
+# While it is empty, the form opens the visitor's email app instead.
+contact_form_endpoint: ""
+
+# Used by search engines and link previews.
+author:
+  name: Sana Ullah Khan
+  url: https://sanaullah-niazi.github.io/portfolio/
+social:
+  name: Sana Ullah Khan
+  links:
+    - https://github.com/Sanaullah-Niazi
+    - https://www.linkedin.com/in/sanaullahkhanniazi
+    - https://scholar.google.com/citations?user=V1nFOOkAAAAJ&hl=en
+
+# ---------------------------------------------------------------
+# You normally don't need to change anything below this line.
+# ---------------------------------------------------------------
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+
+permalink: /blog/:year/:title/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: blog/feed.xml
+
+markdown: kramdown
+sass:
+  style: compressed
+
+exclude:
+  - README.md
+  - assets/cv/README.md
+  - Gemfile
+  - Gemfile.lock
+  - templates/
+  - vendor/
