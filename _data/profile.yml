@@ -1,0 +1,28 @@
+# Your basic details. Everything on the home page header comes from here.
+name: Sana Ullah Khan
+headline: "AI × Cybersecurity: building intelligent systems that detect threats, fraud and AI-generated content."
+intro: >-
+  I am an early-career researcher with an MS in Artificial Intelligence. I build machine learning
+  and NLP models that tell real from fake: AI-generated from human text, fraud from normal
+  transactions, scams from genuine messages. Next, I want to make AI systems themselves secure.
+location: Pakistan
+email: sanaullahkhan.hse@gmail.com
+github: https://github.com/Sanaullah-Niazi
+linkedin: https://www.linkedin.com/in/sanaullahkhanniazi
+scholar: https://scholar.google.com/citations?user=V1nFOOkAAAAJ&hl=en
+
+# Put a public version of your CV (without phone number, address, school results or referee contacts)
+# at this path. The "Download CV" button appears once the file exists.
+cv: assets/cv/Sana_Ullah_Khan_CV.pdf
+
+open_to: "Open to Master's and PhD positions, research collaborations, and SOC / security and ML roles."
+
+highlights:
+  - value: "3.66 / 4.00"
+    label: MS Artificial Intelligence
+  - value: "3"
+    label: Peer-reviewed publications
+  - value: "2+ years"
+    label: University teaching
+  - value: Cisco & NAVTTC
+    label: Cybersecurity training

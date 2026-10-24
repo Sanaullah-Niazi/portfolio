@@ -1,0 +1,7 @@
+- group: AI / ML & NLP
+  items: [Python, PyTorch, TensorFlow / Keras, Hugging Face Transformers, scikit-learn, LightGBM, NumPy, Pandas, Matplotlib, Text classification, LSTM & BERT models]
+- group: Cybersecurity
+  note: Lab and hands-on training level
+  items: [Network security, Threat & vulnerability analysis, Ethical hacking basics, Digital forensics, Incident response, Wireshark, Nmap, Kali Linux]
+- group: Programming & tools
+  items: [Python scripting & automation, Web scraping, Linux (Ubuntu), Git & GitHub, Jupyter, Kaggle, Computer networks, HTML & CSS, Arduino & IoT sensors]
