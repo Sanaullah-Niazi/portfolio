@@ -1,0 +1,47 @@
+# To add a verification link, paste it after verify_url (e.g. a Credly badge URL).
+- group: Cybersecurity & digital forensics
+  items:
+    - name: Digital Forensic & Cyber Security (3-month course, Grade A)
+      issuer: NAVTTC, Govt. of Pakistan
+      date: Feb – May 2024
+      verify_url: ""
+    - name: Junior Cybersecurity Analyst Career Path
+      issuer: Cisco Networking Academy
+      date: Oct 2024
+      verify_url: ""
+    - name: Ethical Hacker
+      issuer: Cisco Networking Academy
+      date: Nov 2024
+      verify_url: ""
+    - name: Introduction to Cybersecurity
+      issuer: Cisco Networking Academy
+      date: Nov 2024
+      verify_url: ""
+- group: AI, programming & IoT
+  items:
+    - name: Programming in Python
+      issuer: Meta (Coursera)
+      date: Feb 2025
+      verify_url: ""
+    - name: Advanced Chatbots with Deep Learning and Python
+      issuer: Packt (Coursera)
+      date: Feb 2025
+      verify_url: ""
+    - name: AI Python for Beginners
+      issuer: DeepLearning.AI (Coursera)
+      date: Mar 2025
+      verify_url: ""
+    - name: IoT for Everyone
+      issuer: UET Peshawar / HEC (Coursera)
+      date: Jul 2026
+      verify_url: ""
+- group: Other training
+  items:
+    - name: IOSH Managing Safely
+      issuer: IOSH
+      date: "2026"
+      verify_url: ""
+    - name: 30-hour General Industry Safety and Health
+      issuer: OSHAcademy
+      date: "2026"
+      verify_url: ""

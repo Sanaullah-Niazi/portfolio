@@ -1,602 +1,238 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sana Ullah Khan — AI Researcher · Cybersecurity</title>
-<meta name="description" content="Sana Ullah Khan — AI Scholar transitioning to Cybersecurity Research. Publications, education, and experience.">
-<meta property="og:title" content="Sana Ullah Khan — AI Researcher · Cybersecurity">
-<meta property="og:description" content="AI Scholar with a peer-reviewed publication record, transitioning into graduate-level Cybersecurity research.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#EEF0EA;
-    --paper-dim:#E4E6DE;
-    --ink:#12203A;
-    --ink-2:#1B2E4D;
-    --ink-soft:#5B6472;
-    --gold:#B8862F;
-    --gold-soft:#D9B876;
-    --teal:#3E7C82;
-    --line:#D3D2C6;
-    --line-dark:#2A3C5C;
-    --radius:2px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;}
-  .mono{font-family:'IBM Plex Mono', monospace;}
-  .wrap{max-width:920px;margin:0 auto;padding:0 32px;}
+---
+layout: default
+title: Sana Ullah Khan · AI × Cybersecurity Researcher
+description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artificial Intelligence. Machine learning and NLP for phishing, scam and fraud detection and AI-generated text detection. Publications, thesis, projects and CV.
+---
+{% assign me = site.data.profile %}
+{% assign cv_path = '/' | append: me.cv %}
+{% assign has_cv = false %}
+{% for f in site.static_files %}{% if f.path == cv_path %}{% assign has_cv = true %}{% endif %}{% endfor %}
 
-  /* ---------- Skip link / focus ---------- */
-  a:focus-visible, button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
-  .skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:10px 16px;z-index:100;}
-  .skip-link:focus{left:16px;top:16px;}
-
-  /* ---------- Nav ---------- */
-  header.nav{
-    position:sticky;top:0;z-index:20;
-    background:rgba(238,240,234,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    max-width:920px;margin:0 auto;padding:16px 32px;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-  .nav-mark{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;letter-spacing:0.01em;}
-  .nav-mark .dot{color:var(--gold);}
-  .nav-links{display:flex;gap:28px;font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase;}
-  .nav-links a{text-decoration:none;color:var(--ink-soft);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s, border-color .15s;}
-  .nav-links a:hover{color:var(--ink);border-color:var(--gold);}
-  @media (max-width:640px){ .nav-links{display:none;} }
-
-  /* ---------- Hero ---------- */
-  .hero{
-    position:relative;
-    background:var(--ink);
-    color:var(--paper);
-    overflow:hidden;
-    padding:96px 0 84px;
-  }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      repeating-linear-gradient(180deg, transparent 0, transparent 34px, rgba(255,255,255,0.028) 35px);
-    pointer-events:none;
-  }
-  .scanline{
-    position:absolute; left:0; right:0; height:1px;
-    background:linear-gradient(90deg, transparent, var(--teal), transparent);
-    opacity:0.55;
-    animation:scan 7s linear infinite;
-  }
-  @media (prefers-reduced-motion: reduce){ .scanline{animation:none; display:none;} }
-  @keyframes scan{
-    0%{ top:0%; opacity:0; }
-    8%{ opacity:0.6; }
-    92%{ opacity:0.6; }
-    100%{ top:100%; opacity:0; }
-  }
-  .hero-inner{position:relative;z-index:2;}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:10px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;
-    color:var(--gold-soft);
-    border:1px solid rgba(217,184,118,0.35);
-    padding:6px 12px;
-    border-radius:var(--radius);
-    margin-bottom:28px;
-  }
-  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(62,124,130,0.25);}
-  h1.name{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    font-size:clamp(2.6rem, 6vw, 4.2rem);
-    line-height:1.02;
-    margin:0 0 18px;
-    letter-spacing:-0.01em;
-  }
-  .role{
-    font-family:'Fraunces',serif;
-    font-style:italic;
-    font-weight:400;
-    font-size:clamp(1.1rem,2.4vw,1.4rem);
-    color:var(--gold-soft);
-    margin:0 0 22px;
-  }
-  .hero-summary{
-    max-width:620px;
-    font-size:1.02rem;
-    line-height:1.65;
-    color:#C9CFDA;
-    margin:0 0 34px;
-  }
-  .hero-meta{
-    display:flex;flex-wrap:wrap;gap:10px 28px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.82rem;
-    color:#9AA6B8;
-  }
-  .hero-meta span{display:inline-flex;align-items:center;gap:8px;}
-  .hero-links{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px;}
-  .btn{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.8rem;letter-spacing:0.03em;
-    text-decoration:none;
-    padding:11px 20px;
-    border-radius:var(--radius);
-    border:1px solid rgba(255,255,255,0.22);
-    color:var(--paper);
-    transition:border-color .15s, background .15s, color .15s;
-  }
-  .btn:hover{border-color:var(--gold); color:var(--gold-soft);}
-  .btn.primary{background:var(--gold); color:var(--ink); border-color:var(--gold); font-weight:500;}
-  .btn.primary:hover{background:var(--gold-soft); color:var(--ink);}
-
-  /* ---------- Section shell ---------- */
-  section{padding:76px 0;}
-  section.alt{background:var(--paper-dim);}
-  .section-head{margin-bottom:40px;}
-  .kicker{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;
-    color:var(--teal);margin:0 0 10px;
-  }
-  h2{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    font-size:clamp(1.5rem, 3vw, 2rem);
-    margin:0;
-    color:var(--ink);
-  }
-  .lede{max-width:680px;font-size:1rem;line-height:1.7;color:var(--ink-soft);margin-top:14px;}
-
-  /* ---------- Research interests ---------- */
-  .tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
-  .tag{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.78rem;
-    padding:8px 14px;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    color:var(--ink-2);
-    background:var(--paper);
-  }
-
-  /* ---------- Timeline (Education & Experience) ---------- */
-  .timeline{position:relative;margin-top:8px;}
-  .timeline::before{
-    content:"";position:absolute;left:112px;top:6px;bottom:6px;width:1px;
-    background:var(--line);
-  }
-  @media (max-width:640px){ .timeline::before{left:14px;} }
-  .t-item{
-    position:relative;
-    display:grid;
-    grid-template-columns:100px 1fr;
-    gap:24px;
-    padding:0 0 40px 0;
-  }
-  .t-item:last-child{padding-bottom:4px;}
-  @media (max-width:640px){
-    .t-item{grid-template-columns:1fr; padding-left:34px;}
-  }
-  .t-date{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.78rem;
-    color:var(--ink-soft);
-    padding-top:2px;
-  }
-  .t-node{
-    position:absolute;left:108px;top:6px;
-    width:9px;height:9px;border-radius:50%;
-    background:var(--paper);
-    border:2px solid var(--teal);
-  }
-  @media (max-width:640px){ .t-node{left:10px;} }
-  .t-title{font-weight:600;font-size:1.02rem;color:var(--ink);margin:0 0 4px;}
-  .t-org{font-size:0.92rem;color:var(--teal);margin:0 0 10px;font-weight:500;}
-  .t-item ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:0.94rem;line-height:1.6;}
-  .t-item li{margin-bottom:4px;}
-  .t-note{font-size:0.88rem;color:var(--ink-soft);font-style:italic;margin:8px 0 0;}
-
-  /* ---------- Publications ---------- */
-  .pub{
-    border:1px solid var(--line);
-    background:var(--paper);
-    border-radius:var(--radius);
-    padding:22px 24px;
-    margin-bottom:16px;
-  }
-  .pub-num{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.75rem;color:var(--gold);
-    margin-bottom:8px;display:block;
-  }
-  .pub-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;line-height:1.4;margin:0 0 8px;color:var(--ink);}
-  .pub-authors{font-size:0.86rem;color:var(--ink-soft);margin:0 0 12px;}
-  .pub-doi{
-    display:inline-block;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.78rem;
-    color:var(--teal);
-    text-decoration:none;
-    border-bottom:1px dotted var(--teal);
-  }
-  .pub-note{margin-top:22px;font-size:0.85rem;color:var(--ink-soft);font-style:italic;}
-
-  /* ---------- Certifications ---------- */
-  .cert-group{margin-bottom:26px;}
-  .cert-group h3{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;
-    color:var(--ink-soft); margin:0 0 14px;
-    padding-bottom:8px; border-bottom:1px solid var(--line);
-  }
-  .cert-list{display:flex;flex-direction:column;gap:0;}
-  .cert-row{
-    display:flex;justify-content:space-between;align-items:baseline;
-    padding:9px 0;border-bottom:1px dashed var(--line);
-    font-size:0.92rem;
-  }
-  .cert-row:last-child{border-bottom:none;}
-  .cert-name{color:var(--ink);}
-  .cert-date{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--ink-soft);white-space:nowrap;padding-left:16px;}
-
-  /* ---------- Skills ---------- */
-  .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:8px;}
-  .skill-card{
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-left:3px solid var(--gold);
-    border-radius:var(--radius);
-    padding:20px 22px;
-  }
-  .skill-card h4{
-    font-family:'Fraunces',serif;font-weight:600;font-size:0.98rem;margin:0 0 10px;color:var(--ink);
-  }
-  .skill-card p{margin:0;font-size:0.88rem;color:var(--ink-soft);line-height:1.6;}
-
-  /* ---------- Footer / Contact ---------- */
-  footer{
-    background:var(--ink);
-    color:var(--paper);
-    padding:64px 0 40px;
-  }
-  footer .kicker{color:var(--gold-soft);}
-  footer h2{color:var(--paper);}
-  .contact-links{
-    display:flex;flex-wrap:wrap;gap:16px;margin-top:28px;
-  }
-  .contact-links a{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.85rem;
-    text-decoration:none;
-    color:#C9CFDA;
-    border:1px solid rgba(255,255,255,0.18);
-    padding:10px 16px;
-    border-radius:var(--radius);
-    transition:border-color .15s,color .15s;
-  }
-  .contact-links a:hover{border-color:var(--gold); color:var(--gold-soft);}
-  .foot-bottom{
-    margin-top:56px;padding-top:24px;
-    border-top:1px solid rgba(255,255,255,0.12);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:0.76rem;color:#7C879B;
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
-  }
-
-  /* ---------- Reveal on scroll ---------- */
-  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} }
-</style>
-</head>
-<body>
-<a href="#main" class="skip-link">Skip to content</a>
-
-<header class="nav">
-  <div class="nav-inner">
-    <div class="nav-mark">Sana Ullah Khan<span class="dot">.</span></div>
-    <nav class="nav-links">
-      <a href="#research">Research</a>
-      <a href="#experience">Experience</a>
-      <a href="#publications">Publications</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-
-  <section class="hero">
-    <div class="scanline" aria-hidden="true"></div>
-    <div class="wrap hero-inner">
-      <div class="eyebrow">Research Profile — Active</div>
-      <h1 class="name">Sana&nbsp;Ullah&nbsp;Khan</h1>
-      <p class="role">AI Scholar, building toward Cybersecurity Research</p>
-      <p class="hero-summary">
-        AI graduate with a peer-reviewed publication record applying machine learning to fraud detection and
-        risk analytics, transitioning into graduate-level cybersecurity research — with hands-on training in
-        digital forensics, ethical hacking, and network defense. Seeking a Master's/PhD path to pursue
-        AI-driven threat detection and secure intelligent systems.
-      </p>
-      <div class="hero-meta">
-        <span>📍 Chaman, Balochistan, Pakistan</span>
-        <span>✉ sanaullahkhan.hse@gmail.com</span>
-        <span>☎ [phone removed]</span>
-      </div>
-      <div class="hero-links">
-        <a class="btn primary" href="#publications">View Publications</a>
-        <a class="btn" href="https://www.linkedin.com/in/sanaullahkhanniazi" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a class="btn" href="https://scholar.google.com/citations?user=V1nFOOkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="research" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">01 — Focus Areas</p>
-        <h2>Research Interests</h2>
-        <p class="lede">The throughline across my academic and applied work: using AI/ML to detect, explain, and defend against threats — in financial systems, networks, and increasingly, secure intelligent systems.</p>
-      </div>
-      <div class="tag-row">
-        <span class="tag">AI/ML-Driven Threat &amp; Fraud Detection</span>
-        <span class="tag">SOC Operations &amp; Security Monitoring</span>
-        <span class="tag">SIEM &amp; Log Analysis</span>
-        <span class="tag">Digital Forensics &amp; Incident Response</span>
-        <span class="tag">Network Security</span>
-        <span class="tag">Secure Intelligent Systems</span>
-        <span class="tag">IoT Security</span>
-        <span class="tag">Applied Deep Learning for Cyber Defense</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">02 — Academic Record</p>
-        <h2>Education</h2>
-      </div>
-      <div class="timeline">
-        <div class="t-item">
-          <div class="t-date mono">2023–2025</div>
-          <div>
-            <div class="t-node"></div>
-            <p class="t-title">MS in Artificial Intelligence</p>
-            <p class="t-org">The Islamia University of Bahawalpur, Pakistan — CGPA 3.66/4.00</p>
-            <p class="t-note">Thesis: "Advancing Deep Learning and Neural Network Techniques for AI and Human Text Classification" · Supervisor: Prof. Dr. Najia Saher</p>
-          </div>
-        </div>
-        <div class="t-item">
-          <div class="t-date mono">2019–2023</div>
-          <div>
-            <div class="t-node"></div>
-            <p class="t-title">BS Information Technology</p>
-            <p class="t-org">BUITEMS, Quetta, Pakistan — CGPA 2.73/4.00</p>
-            <p class="t-note">Final Year Project: "IoT-Based Aqua Utilization for Smart Edifice | IoT based smart water management systems" · Supervisor: Prof. Dr. Raja Asif</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">03 — Applied Work</p>
-        <h2>Work Experience</h2>
-      </div>
-      <div class="timeline">
-        <div class="t-item">
-          <div class="t-date mono">Mar 2024–Jun 2026</div>
-          <div>
-            <div class="t-node"></div>
-            <p class="t-title">Visiting Lecturer</p>
-            <p class="t-org">GC University Faisalabad, Layyah Campus — Dept. of Information Technology</p>
-            <ul>
-              <li>Delivered undergraduate-level instruction as a visiting faculty member.</li>
-              <li>Recognized by the department for excellent and valuable teaching services.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="t-item">
-          <div class="t-date mono">2022–2024</div>
-          <div>
-            <div class="t-node"></div>
-            <p class="t-title">Virtual Assistant &amp; Web Developer</p>
-            <p class="t-org">Bewaji Healthcare Solutions (Freelance)</p>
-            <ul>
-              <li>Owned the organization's web development end-to-end while serving as virtual assistant.</li>
-              <li>Managed social media and LinkedIn presence; designed graphics and infographics for marketing.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="t-item">
-          <div class="t-date mono">2021–Present</div>
-          <div>
-            <div class="t-node"></div>
-            <p class="t-title">Freelance Web Developer &amp; Virtual Assistant</p>
-            <p class="t-org">Fiverr &amp; Upwork — Top Rated</p>
-            <ul>
-              <li>Delivered web development, virtual assistance, graphic design, and social media management for international clients.</li>
-              <li>Maintained Top Rated seller status on both platforms through consistent client satisfaction.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="t-item">
-          <div class="t-date mono">Mar–Aug 2021</div>
-          <div>
-            <div class="t-node"></div>
-            <p class="t-title">IT Intern</p>
-            <p class="t-org">Codonist IT Solutions</p>
-            <ul>
-              <li>Built and styled responsive web pages using HTML, CSS, and Bootstrap, and implemented basic PHP-based functionality under senior developer guidance.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="publications" class="alt reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">04 — Peer-Reviewed</p>
-        <h2>Publications</h2>
-      </div>
-
-      <div class="pub">
-        <span class="pub-num mono">[01]</span>
-        <p class="pub-title">Artificial Intelligence and Workplace Safety in the Oil and Gas Industry: Transforming Occupational Risk Assessment through Smart Safety Analytics</p>
-        <p class="pub-authors">Khan, S.U., Zafar, R., Alam, M.M., Iqbal, M.</p>
-        <a class="pub-doi" href="https://doi.org/10.65181/poms.06.01.0100" target="_blank" rel="noopener">DOI: 10.65181/poms.06.01.0100</a>
-      </div>
-
-      <div class="pub">
-        <span class="pub-num mono">[02]</span>
-        <p class="pub-title">Artificial Intelligence–Driven Fraud Detection in FinTech: Strengthening Cybersecurity Against Digital Financial Scams</p>
-        <p class="pub-authors">Khan, S.U., Zafar, U., Imran, S., Ali, M.</p>
-        <a class="pub-doi" href="https://doi.org/10.63544/jbii.v5i6.116" target="_blank" rel="noopener">DOI: 10.63544/jbii.v5i6.116</a>
-      </div>
-
-      <div class="pub">
-        <span class="pub-num mono">[03]</span>
-        <p class="pub-title">GenAI Adoption in Entrepreneurial Education and Digital Entrepreneurial Intention: A Moderated Mediation Analysis of University Entrepreneurial Climate and Attitudes toward Digital Entrepreneurship</p>
-        <p class="pub-authors">Soomro, M.A., Khalid, M.A., Mangi, A.R., Khan, S.U.</p>
-        <a class="pub-doi" href="https://doi.org/10.70843/ijass.2026.06107" target="_blank" rel="noopener">DOI: 10.70843/ijass.2026.06107</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="certifications" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">05 — Training</p>
-        <h2>Certifications &amp; Professional Training</h2>
-      </div>
-
-      <div class="cert-group">
-        <h3>Cybersecurity &amp; Digital Forensics</h3>
-        <div class="cert-list">
-          <div class="cert-row"><span class="cert-name">Digital Forensics &amp; Cyber Security — NAVTTC, Pakistan</span><span class="cert-date mono">Feb 2024</span></div>
-          <div class="cert-row"><span class="cert-name">Junior Cybersecurity Analyst Career Path — Cisco</span><span class="cert-date mono">Oct 2024</span></div>
-          <div class="cert-row"><span class="cert-name">Ethical Hacker — Cisco</span><span class="cert-date mono">Nov 2024</span></div>
-          <div class="cert-row"><span class="cert-name">Digital Awareness — Cisco</span><span class="cert-date mono">Nov 2024</span></div>
-        </div>
-      </div>
-
-      <div class="cert-group">
-        <h3>Artificial Intelligence &amp; Programming</h3>
-        <div class="cert-list">
-          <div class="cert-row"><span class="cert-name">IoT for Everyone — HEC Pakistan (Coursera)</span><span class="cert-date mono">Jul 2026</span></div>
-          <div class="cert-row"><span class="cert-name">AI Python for Beginners — DeepLearning.AI</span><span class="cert-date mono">Mar 2025</span></div>
-          <div class="cert-row"><span class="cert-name">Advanced Chatbots with Deep Learning and Python — Packt</span><span class="cert-date mono">Feb 2025</span></div>
-          <div class="cert-row"><span class="cert-name">Programming in Python — Meta</span><span class="cert-date mono">Feb 2025</span></div>
-        </div>
-      </div>
-
-      <div class="cert-group">
-        <h3>Occupational Safety</h3>
-        <div class="cert-list">
-          <div class="cert-row"><span class="cert-name">IOSH Managing Safely</span><span class="cert-date mono">—</span></div>
-          <div class="cert-row"><span class="cert-name">OSHA 30-Hour General Industry</span><span class="cert-date mono">—</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">06 — Toolkit</p>
-        <h2>Skills</h2>
-      </div>
-      <div class="skill-grid">
-        <div class="skill-card">
-          <h4>Cybersecurity &amp; Forensics</h4>
-          <p>Digital Forensics, Ethical Hacking, Cybersecurity Fundamentals, Risk &amp; Threat Analysis</p>
-        </div>
-        <div class="skill-card">
-          <h4>AI / Machine Learning</h4>
-          <p>Deep Learning, Neural Networks, Text Classification, Fraud Detection Modeling</p>
-        </div>
-        <div class="skill-card">
-          <h4>Programming &amp; Web Development</h4>
-          <p>Python, HTML, CSS, PHP, Bootstrap</p>
-        </div>
-        <div class="skill-card">
-          <h4>IoT &amp; Embedded Systems</h4>
-          <p>IoT System Design, Sensors, Smart Systems</p>
-        </div>
-        <div class="skill-card">
-          <h4>Digital &amp; Creative</h4>
-          <p>Graphic Design, Infographics, Social Media Management, Virtual Assistance</p>
-        </div>
-        <div class="skill-card">
-          <h4>Research &amp; Teaching</h4>
-          <p>Academic Writing, Statistical Analysis, Literature Review, Peer-Reviewed Publishing, Undergraduate Instruction</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer id="contact">
+<section class="hero">
   <div class="wrap">
-    <p class="kicker">Get in touch</p>
-    <h2>Open to research collaboration &amp; graduate opportunities</h2>
-    <div class="contact-links">
-      <a href="mailto:sanaullahkhan.hse@gmail.com">✉ sanaullahkhan.hse@gmail.com</a>
-      <a href="tel:[phone removed]">☎ [phone removed]</a>
-      <a href="https://www.linkedin.com/in/sanaullahkhanniazi" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="https://scholar.google.com/citations?user=V1nFOOkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
-      <a href="https://github.com/Sanaullah-Niazi" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
-    <div class="foot-bottom">
-      <span>Sana Ullah Khan — Chaman, Balochistan, Pakistan</span>
-      <span>English · Urdu · Pashto</span>
+    <div class="hero-text">
+      <p class="eyebrow">{{ site.tagline }}</p>
+      <h1>{{ me.name }}</h1>
+      <p class="headline">{{ me.headline }}</p>
+      <p class="intro">{{ me.intro }}</p>
+      <div class="btn-row">
+        {% if has_cv %}<a class="btn btn-primary" href="{{ me.cv | relative_url }}" download>Download CV</a>{% endif %}
+        <a class="btn {% unless has_cv %}btn-primary{% endunless %}" href="#research">Research</a>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
     </div>
   </div>
-</footer>
+  <div class="wrap">
+    <ul class="highlights">
+      {% for h in me.highlights %}
+      <li><strong>{{ h.value }}</strong><span>{{ h.label }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
 
-<script>
-  (function(){
-    var els = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){
-      els.forEach(function(e){ e.classList.add('in'); });
-      return;
-    }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    els.forEach(function(e){ io.observe(e); });
-  })();
-</script>
+<section class="section" id="focus" aria-labelledby="focus-title">
+  <div class="wrap">
+    <p class="eyebrow">One focus: AI for security</p>
+    <h2 id="focus-title">Where I fit</h2>
+    <p class="section-lede">Each area below is part of the same goal: using AI to detect and stop attacks, and keeping AI itself safe. Next to each one is what I can show for it today.</p>
+    <ol class="focus-list">
+      {% for f in site.data.focus %}
+      <li>
+        <div class="focus-head"><h3>{{ f.area }}</h3><span class="level">{{ f.level }}</span></div>
+        <p>{{ f.evidence }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
 
-</body>
-</html>
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="wrap two-col">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2 id="about-title">How I got here</h2>
+    </div>
+    <div class="prose">
+      <p>I grew up in Chaman, Balochistan. My path has not been a straight line. After school I completed a three-year diploma in Health, Safety &amp; Environmental Engineering, which taught me to think in terms of risk, hazards and prevention. I now apply the same way of thinking to digital systems.</p>
+      <p>I then studied Information Technology at BUITEMS in Quetta, where I took my first security and networking courses. My bachelor's grades don't show my best work: I spent much of that time on cricket, football and freelance work. Towards the end of my BS I learned to manage my time and take my studies seriously.</p>
+      <p>My MS in Artificial Intelligence at The Islamia University of Bahawalpur was the turning point. I graduated with a CGPA of 3.66, published three peer-reviewed papers with different teams, and wrote a thesis on detecting AI-generated text. At the same time I taught undergraduate IT courses as a visiting lecturer.</p>
+      <p>My university offered no cybersecurity track, so I built those skills myself through Cisco's Junior Cybersecurity Analyst and Ethical Hacker programmes and a NAVTTC course in digital forensics. The motivation is also personal: I have been the victim of an online scam and of a ransomware attack, and I see how weak cyber protection still is in Pakistan. AI is making attacks faster and more convincing, and I want to work on the side that defends against them.</p>
+      <p class="muted">Languages: English (IELTS Academic 6.5), Urdu, Pashto, Saraiki and Punjabi; learning German. Outside work: football, cricket, hiking and cooking.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="research" aria-labelledby="research-title">
+  <div class="wrap">
+    <p class="eyebrow">Research</p>
+    <h2 id="research-title">Thesis and publications</h2>
+
+    {% assign t = site.data.research.thesis %}
+    <article class="card thesis">
+      <p class="label">MS thesis · {{ t.year }}</p>
+      <h3>{{ t.title }}</h3>
+      <p class="meta">{{ t.degree }} · Supervisor: {{ t.supervisor }}</p>
+      <p>{{ t.summary }}</p>
+      <ul class="tags" aria-label="Models compared">{% for m in t.models %}<li>{{ m }}</li>{% endfor %}</ul>
+      <dl class="results">
+        {% for r in t.results %}<div><dt>{{ r.label }}</dt><dd>{{ r.value }}</dd></div>{% endfor %}
+      </dl>
+    </article>
+
+    <h3 class="sub">Peer-reviewed publications</h3>
+    <ol class="pubs">
+      {% for p in site.data.publications %}
+      <li>
+        <p class="pub-title">{{ p.title }}</p>
+        <p class="meta">{{ p.authors }} ({{ p.year }}). <em>{{ p.venue }}</em>.</p>
+        <p class="pub-foot"><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ p.role }}</span>{% if p.doi %}<a href="https://doi.org/{{ p.doi }}">doi:{{ p.doi }}</a>{% endif %}</p>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="more"><a href="{{ me.scholar }}">All citations on Google Scholar →</a></p>
+
+    <h3 class="sub">Research interests</h3>
+    <div class="interests">
+      <div>
+        <p class="label">Working on now</p>
+        <ul>{% for i in site.data.research.interests %}{% if i.stage == 'now' %}<li><strong>{{ i.name }}</strong><span>{{ i.note }}</span></li>{% endif %}{% endfor %}</ul>
+      </div>
+      <div>
+        <p class="label">Want to study next</p>
+        <ul>{% for i in site.data.research.interests %}{% if i.stage == 'next' %}<li><strong>{{ i.name }}</strong><span>{{ i.note }}</span></li>{% endif %}{% endfor %}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects" aria-labelledby="projects-title">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h2 id="projects-title">What I'm building</h2>
+    {% assign projects = site.projects | sort: 'order' %}
+    <div class="grid">
+      {% for p in projects limit: 6 %}{% include project-card.html project=p %}{% endfor %}
+    </div>
+    {% if projects.size > 6 %}<p class="more"><a href="{{ '/projects/' | relative_url }}">All {{ projects.size }} projects →</a></p>{% endif %}
+  </div>
+</section>
+
+<section class="section" id="experience" aria-labelledby="experience-title">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2 id="experience-title">Teaching and work</h2>
+    <ol class="timeline">
+      {% for e in site.data.experience %}
+      <li>
+        <p class="dates">{{ e.dates }}</p>
+        <div>
+          <h3>{{ e.role }}</h3>
+          <p class="meta">{{ e.org }}</p>
+          <ul>{% for pt in e.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="wrap">
+    <p class="eyebrow">Skills</p>
+    <h2 id="skills-title">Tools I use</h2>
+    <div class="grid grid-3">
+      {% for g in site.data.skills %}
+      <div class="skill-group">
+        <h3>{{ g.group }}</h3>
+        {% if g.note %}<p class="level">{{ g.note }}</p>{% endif %}
+        <ul class="tags">{% for s in g.items %}<li>{{ s }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="certifications" aria-labelledby="certs-title">
+  <div class="wrap">
+    <p class="eyebrow">Certifications</p>
+    <h2 id="certs-title">Training</h2>
+    <div class="grid grid-3">
+      {% for g in site.data.certifications %}
+      <div>
+        <h3 class="group-title">{{ g.group }}</h3>
+        <ul class="certs">
+          {% for c in g.items %}
+          <li>
+            <p class="cert-name">{% if c.verify_url and c.verify_url != '' %}<a href="{{ c.verify_url }}">{{ c.name }}</a>{% else %}{{ c.name }}{% endif %}</p>
+            <p class="meta">{{ c.issuer }} · {{ c.date }}</p>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="education" aria-labelledby="education-title">
+  <div class="wrap">
+    <p class="eyebrow">Education</p>
+    <h2 id="education-title">Degrees</h2>
+    <ol class="timeline">
+      {% for e in site.data.education %}
+      <li>
+        <p class="dates">{{ e.dates }}</p>
+        <div>
+          <h3>{{ e.degree }}</h3>
+          <p class="meta">{{ e.school }}</p>
+          <p>{{ e.detail }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{% if site.posts.size > 0 %}
+<section class="section" id="notes" aria-labelledby="notes-title">
+  <div class="wrap">
+    <p class="eyebrow">Notes</p>
+    <h2 id="notes-title">Latest writing</h2>
+    <ul class="post-list">
+      {% for post in site.posts limit: 3 %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %Y' }}</time></li>
+      {% endfor %}
+    </ul>
+    <p class="more"><a href="{{ '/blog/' | relative_url }}">All notes →</a></p>
+  </div>
+</section>
+{% endif %}
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap two-col">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title">Get in touch</h2>
+      <p>{{ me.open_to }}</p>
+      <ul class="contact-list">
+        <li><span class="label">Email</span><a href="mailto:{{ me.email }}">{{ me.email }}</a></li>
+        <li><span class="label">LinkedIn</span><a href="{{ me.linkedin }}">sanaullahkhanniazi</a></li>
+        <li><span class="label">GitHub</span><a href="{{ me.github }}">Sanaullah-Niazi</a></li>
+        <li><span class="label">Scholar</span><a href="{{ me.scholar }}">Google Scholar profile</a></li>
+      </ul>
+    </div>
+    <form class="contact-form" id="contact-form" method="POST"
+      action="{{ site.contact_form_endpoint }}" data-email="{{ me.email }}">
+      <label for="cf-name">Your name</label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" required>
+      <label for="cf-email">Your email</label>
+      <input id="cf-email" name="email" type="email" autocomplete="email" required>
+      <label for="cf-message">Message</label>
+      <textarea id="cf-message" name="message" rows="5" required></textarea>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
