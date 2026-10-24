@@ -1,0 +1,18 @@
+{% assign p = include.project %}
+<article class="card project-card">
+  <div class="card-top">
+    <span class="status {% if p.status == 'Completed' %}status-done{% else %}status-wip{% endif %}">{{ p.status }}</span>
+  </div>
+  <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+  <p>{{ p.summary }}</p>
+  {% if p.tech and p.tech.size > 0 %}
+  <ul class="tags" aria-label="Tech stack">{% for t in p.tech %}<li>{{ t }}</li>{% endfor %}</ul>
+  {% endif %}
+  <div class="card-links">
+    <a href="{{ p.url | relative_url }}">Details →</a>
+    {% if p.links.github and p.links.github != '' %}<a href="{{ p.links.github }}">GitHub</a>{% endif %}
+    {% if p.links.demo and p.links.demo != '' %}<a href="{{ p.links.demo }}">Live demo</a>{% endif %}
+    {% if p.links.paper and p.links.paper != '' %}<a href="{{ p.links.paper }}">Paper</a>{% endif %}
+    {% if p.links.video and p.links.video != '' %}<a href="{{ p.links.video }}">Video</a>{% endif %}
+  </div>
+</article>
