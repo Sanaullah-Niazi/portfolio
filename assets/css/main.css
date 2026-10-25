@@ -183,6 +183,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
 .contact-form button { margin-top: 12px; justify-self: start; }
 .form-status { font-size: 14px; color: var(--muted); min-height: 1.4em; }
+.form-status.is-ok { color: var(--accent); font-weight: 500; }
+.form-status.is-error { color: #b42318; }
+:root[data-theme="dark"] .form-status.is-error { color: #ff8a80; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .form-status.is-error { color: #ff8a80; } }
+.contact-form .hp { display: none; }
+.contact-form button[disabled] { opacity: .6; cursor: progress; }
 
 /* Inner pages */
 .page { padding-block: 48px 88px; display: grid; gap: 28px; }
