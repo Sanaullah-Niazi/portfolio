@@ -1,6 +1,6 @@
 # Sana Ullah Khan · personal website
 
-Live at **https://sanaullah-niazi.github.io/portfolio/**
+Live at **https://sanaullahniazi.com/**
 
 This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs for you. You never need to touch HTML to update it: all the content lives in small text files. Edit them on github.com (open the file, click the pencil icon, then **Commit changes**) and the site updates by itself within a minute or two.
 
@@ -45,12 +45,9 @@ Save a public version of your CV as `assets/cv/Sana_Ullah_Khan_CV.pdf` (on githu
 
 The form works straight away by opening the visitor's email app. To receive messages directly instead, create a free form at [formspree.io](https://formspree.io), copy its endpoint (like `https://formspree.io/f/abcdwxyz`) and paste it into `contact_form_endpoint` in `_config.yml`.
 
-## Move to your own domain later
+## Your domain
 
-1. In `_config.yml`, set `url` to your domain (e.g. `https://sanaullahkhan.com`) and `baseurl` to `""`.
-2. Add the domain under **Settings → Pages → Custom domain** in this repo, and follow GitHub's DNS instructions.
-
-Nothing else needs to change. If you'd rather host somewhere else (Netlify, Cloudflare Pages), connect this repo there and choose Jekyll as the framework.
+The site is served at `sanaullahniazi.com` (registered and DNS-managed on Cloudflare). The domain is set in the `CNAME` file and in `url` in `_config.yml`, with `baseurl` left empty. If you ever change domains, update both. If you'd rather host somewhere else (Netlify, Cloudflare Pages), connect this repo there and choose Jekyll as the framework.
 
 ## Preview on your own computer (optional)
 
@@ -58,4 +55,4 @@ Nothing else needs to change. If you'd rather host somewhere else (Netlify, Clou
 bundle install
 bundle exec jekyll serve
 ```
-Then open http://localhost:4000/portfolio/.
+Then open http://localhost:4000/.
