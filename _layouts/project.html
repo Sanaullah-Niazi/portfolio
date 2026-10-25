@@ -21,7 +21,7 @@ layout: default
 
   {% if p.demo_embed and p.demo_embed != '' %}
   <section class="embed" aria-label="Live demo">
-    <iframe src="{{ p.demo_embed }}" title="Live demo of {{ p.title }}" loading="lazy" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <iframe src="{{ p.demo_embed }}" title="Live demo of {{ p.title }}" loading="lazy" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"></iframe>
   </section>
   {% endif %}
 
