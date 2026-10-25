@@ -224,7 +224,11 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
       </ul>
     </div>
     <form class="contact-form" id="contact-form" method="POST"
-      action="{{ site.contact_form_endpoint }}" data-email="{{ me.email }}">
+      action="https://api.web3forms.com/submit" data-email="{{ me.email }}">
+      <input type="hidden" name="access_key" value="{{ site.web3forms_access_key }}">
+      <input type="hidden" name="subject" value="New message from {{ site.url | remove: 'https://' }}">
+      <input type="hidden" name="from_name" value="{{ site.title }} website">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label for="cf-name">Your name</label>
       <input id="cf-name" name="name" type="text" autocomplete="name" required>
       <label for="cf-email">Your email</label>
