@@ -13,10 +13,10 @@ lang: en
 url: https://sanaullahniazi.com
 baseurl: ""
 
-# Contact form. Create a free form at https://formspree.io and paste its
-# endpoint here, e.g. https://formspree.io/f/abcdwxyz
-# While it is empty, the form opens the visitor's email app instead.
-contact_form_endpoint: ""
+# Contact form, delivered to your inbox by Web3Forms (free).
+# Get an access key at https://web3forms.com (enter your email, the key is
+# emailed to you) and paste it here. The key is meant to be public.
+web3forms_access_key: ""
 
 # Used by search engines and link previews.
 author:

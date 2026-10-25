@@ -43,7 +43,7 @@ Save a public version of your CV as `assets/cv/Sana_Ullah_Khan_CV.pdf` (on githu
 
 ## Turn on the contact form
 
-The form works straight away by opening the visitor's email app. To receive messages directly instead, create a free form at [formspree.io](https://formspree.io), copy its endpoint (like `https://formspree.io/f/abcdwxyz`) and paste it into `contact_form_endpoint` in `_config.yml`.
+Messages sent from the form arrive in your inbox through [Web3Forms](https://web3forms.com) (free, 250 messages a month), without opening the visitor's email app. To turn it on, go to web3forms.com, enter your email under **Create your Access Key**, copy the key they email you and paste it into `web3forms_access_key` in `_config.yml`. The key is designed to be public, so it's fine in this repo. Replies go straight to the visitor, because their address is set as the reply-to. Spam is filtered by Web3Forms plus a hidden honeypot field.
 
 ## Your domain
 
