@@ -1,0 +1,8 @@
+---
+layout: null
+sitemap: false
+---
+Contact: mailto:{{ site.data.profile.email }}
+Expires: 2027-10-25T00:00:00.000Z
+Preferred-Languages: en
+Canonical: {{ '/.well-known/security.txt' | absolute_url }}
