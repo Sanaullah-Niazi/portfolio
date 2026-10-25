@@ -9,10 +9,9 @@ description: >-
   and AI-generated text detection.
 lang: en
 
-# For GitHub Pages at sanaullah-niazi.github.io/portfolio keep these two.
-# On your own domain (e.g. https://sanaullahkhan.com) set url to it and baseurl to "".
-url: https://sanaullah-niazi.github.io
-baseurl: /portfolio
+# The site lives on its own domain (set in the CNAME file), so baseurl is empty.
+url: https://sanaullahniazi.com
+baseurl: ""
 
 # Contact form. Create a free form at https://formspree.io and paste its
 # endpoint here, e.g. https://formspree.io/f/abcdwxyz
@@ -22,7 +21,7 @@ contact_form_endpoint: ""
 # Used by search engines and link previews.
 author:
   name: Sana Ullah Khan
-  url: https://sanaullah-niazi.github.io/portfolio/
+  url: https://sanaullahniazi.com/
 social:
   name: Sana Ullah Khan
   links:
