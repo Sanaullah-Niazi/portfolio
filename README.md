@@ -49,6 +49,12 @@ Messages sent from the form arrive in your inbox through [Web3Forms](https://web
 
 The site is served at `sanaullahniazi.com` (registered and DNS-managed on Cloudflare). The domain is set in the `CNAME` file and in `url` in `_config.yml`, with `baseurl` left empty. If you ever change domains, update both. If you'd rather host somewhere else (Netlify, Cloudflare Pages), connect this repo there and choose Jekyll as the framework.
 
+## Security
+
+- `_includes/head.html` sets a Content Security Policy: only the site's own scripts run, styles and fonts come only from Google Fonts, and the contact form can only send to Web3Forms. If you add a new outside service (an analytics script, a widget), add its domain there or it will be blocked.
+- `.well-known/security.txt` tells people how to report a security problem. Change the `Expires` date before it passes (once a year).
+- `demo_embed` iframes are sandboxed, so an embedded app can't take over the page.
+
 ## Preview on your own computer (optional)
 
 ```

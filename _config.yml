@@ -57,6 +57,10 @@ markdown: kramdown
 sass:
   style: compressed
 
+# Jekyll skips folders that start with a dot, so list the security.txt folder here.
+include:
+  - .well-known
+
 exclude:
   - README.md
   - assets/cv/README.md
