@@ -16,7 +16,7 @@ baseurl: ""
 # Contact form, delivered to your inbox by Web3Forms (free).
 # Get an access key at https://web3forms.com (enter your email, the key is
 # emailed to you) and paste it here. The key is meant to be public.
-web3forms_access_key: ""
+web3forms_access_key: "2b287e6d-2d29-4bf0-ad1d-de6332d90d1c"
 
 # Used by search engines and link previews.
 author:
