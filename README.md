@@ -16,11 +16,14 @@ This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs 
 | Degrees | `_data/education.yml` |
 | Certifications (and verification links) | `_data/certifications.yml` |
 | Skills | `_data/skills.yml` |
-| The "About" story | `index.html`, the section that starts with `id="about"` |
+| The "About" story and the path next to it | `index.html`, the section that starts with `id="about"` |
+| The terminal box in the top section | `index.html`, the part that starts with `class="terminal"` |
 | Projects | one file per project in `_projects/` |
 | Notes / blog posts | one file per post in `_posts/` |
 
 Files ending in `.yml` are lists. Copy an existing entry (everything from its `-` line down), paste it, and change the text. Keep the same indentation (spaces, not tabs).
+
+Some entries (focus areas, skill groups, certification groups) have an `icon:` line. The names you can use are listed in `_includes/icon.html` (for example `shield`, `brain`, `radar`, `lock`, `code`, `chip`, `award`). A project can set `icon:` the same way.
 
 ## Add a project
 
