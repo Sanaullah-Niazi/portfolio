@@ -58,6 +58,10 @@ The site is served at `sanaullahniazi.com` (registered and DNS-managed on Cloudf
 - `.well-known/security.txt` tells people how to report a security problem. Change the `Expires` date before it passes (once a year).
 - `demo_embed` iframes are sandboxed, so an embedded app can't take over the page.
 
+## Copyright
+
+All content and code here is © Sana Ullah Khan, all rights reserved (see `LICENSE`). The repo is public only so GitHub Pages can host it for free; that does not give anyone permission to copy or reuse it. The footer of every page shows the same notice.
+
 ## Preview on your own computer (optional)
 
 ```
