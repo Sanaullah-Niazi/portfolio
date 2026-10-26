@@ -1,5 +1,6 @@
 # To add a verification link, paste it after verify_url (e.g. a Credly badge URL).
 - group: Cybersecurity & digital forensics
+  icon: shield
   items:
     - name: Digital Forensic & Cyber Security (3-month course, Grade A)
       issuer: NAVTTC, Govt. of Pakistan
@@ -18,6 +19,7 @@
       date: Nov 2024
       verify_url: ""
 - group: AI, programming & IoT
+  icon: chip
   items:
     - name: Programming in Python
       issuer: Meta (Coursera)
@@ -36,6 +38,7 @@
       date: Jul 2026
       verify_url: ""
 - group: Other training
+  icon: award
   items:
     - name: IOSH Managing Safely
       issuer: IOSH

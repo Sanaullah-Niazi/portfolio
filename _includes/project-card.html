@@ -1,5 +1,10 @@
 {% assign p = include.project %}
-<article class="card project-card">
+<article class="card project-card reveal spot">
+  <div class="project-visual" aria-hidden="true">
+    <svg class="pv-grid" viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice"><g class="pv-lines"><path d="M0 70h400M0 35h400M0 105h400M50 0v140M100 0v140M150 0v140M200 0v140M250 0v140M300 0v140M350 0v140"/></g><g class="pv-net"><path d="M60 95 130 45 200 80 270 40 340 90M130 45 170 115M270 40 300 115"/><circle cx="60" cy="95" r="4"/><circle cx="130" cy="45" r="4"/><circle cx="200" cy="80" r="5"/><circle cx="270" cy="40" r="4"/><circle cx="340" cy="90" r="4"/><circle cx="170" cy="115" r="3"/><circle class="pv-alert" cx="300" cy="115" r="4"/></g></svg>
+    <span class="icon-tile lg">{% assign picon = p.icon | default: "message" %}{% include icon.html name=picon px=28 %}</span>
+  </div>
+  <div class="project-body">
   <div class="card-top">
     <span class="status {% if p.status == 'Completed' %}status-done{% else %}status-wip{% endif %}">{{ p.status }}</span>
   </div>
@@ -9,10 +14,11 @@
   <ul class="tags" aria-label="Tech stack">{% for t in p.tech %}<li>{{ t }}</li>{% endfor %}</ul>
   {% endif %}
   <div class="card-links">
-    <a href="{{ p.url | relative_url }}">Details →</a>
+    <a class="link-arrow" href="{{ p.url | relative_url }}">Details {% include icon.html name="arrow" px=16 %}</a>
     {% if p.links.github and p.links.github != '' %}<a href="{{ p.links.github }}">GitHub</a>{% endif %}
     {% if p.links.demo and p.links.demo != '' %}<a href="{{ p.links.demo }}">Live demo</a>{% endif %}
     {% if p.links.paper and p.links.paper != '' %}<a href="{{ p.links.paper }}">Paper</a>{% endif %}
     {% if p.links.video and p.links.video != '' %}<a href="{{ p.links.video }}">Video</a>{% endif %}
+  </div>
   </div>
 </article>

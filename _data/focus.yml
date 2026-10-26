@@ -1,16 +1,21 @@
 # "One focus, five angles". Each area says what you can show for it, honestly.
 - area: Machine learning & NLP
+  icon: brain
   level: Research level
   evidence: MS thesis on AI vs. human text classification with LSTM, BERT and hybrid models (99.65% accuracy, ~500,000 texts).
 - area: Threat & fraud detection
+  icon: radar
   level: Published research
   evidence: First author of a peer-reviewed paper on AI-driven fraud detection for FinTech cybersecurity.
 - area: AI security
+  icon: lock
   level: Current direction
   evidence: Detecting AI-generated content today; adversarial ML and LLM security are what I want to study next.
 - area: SOC & blue team
+  icon: monitor
   level: Training & lab level
   evidence: Cisco Junior Cybersecurity Analyst career path and a 3-month NAVTTC course in digital forensics & cyber security (Grade A).
 - area: Penetration testing & ethical hacking
+  icon: bug
   level: Training & lab level
   evidence: Cisco Ethical Hacker programme; hands-on lab work with Kali Linux, Nmap and Wireshark.
