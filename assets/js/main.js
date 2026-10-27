@@ -76,13 +76,10 @@
       var id = a.getAttribute("href").split("#")[1];
       if (document.getElementById(id)) links[id] = a;
     });
-    // Sections without their own menu link light up the nearest one.
-    var alias = { news: null, focus: null, service: "experience", certifications: "skills", education: "experience", notes: null };
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
         var id = en.target.id;
-        if (id in alias) id = alias[id];
         Object.keys(links).forEach(function (k) { links[k].classList.toggle("is-active", k === id); });
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
