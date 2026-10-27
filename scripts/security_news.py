@@ -5,10 +5,11 @@ Run once a day by .github/workflows/security-news.yml. It:
   1. reads the RSS/Atom feeds in SOURCES and keeps the headline, link, date and a short
      excerpt of each story (never the full article) in _data/security_news.json;
   2. adds the newest entries of CISA's Known Exploited Vulnerabilities catalog;
-  3. if an ANTHROPIC_API_KEY is set, asks Claude to write a short daily brief in its own
-     words from today's headlines, saved in _briefs/ with links to every source it used.
+  3. asks an AI model to write a short daily brief in its own words from today's headlines,
+     saved in _briefs/ with links to every source it used. By default it uses the free
+     GitHub Models with the workflow's GITHUB_TOKEN; if an ANTHROPIC_API_KEY is set, Claude.
 
-Only the Python standard library is needed for 1 and 2. Step 3 needs `pip install anthropic`.
+Only the Python standard library is needed, except for Claude (`pip install anthropic`).
 Usage: python3 scripts/security_news.py [--no-brief] [--feed-dir DIR]
   --feed-dir reads saved feeds from DIR/<source id>.xml (and DIR/kev.json) instead of the web.
 """
@@ -52,7 +53,10 @@ KEV_DAYS = 30
 KEV_MAX = 12
 BRIEF_HOURS = 36        # the brief covers stories published in this window
 BRIEF_MAX_STORIES = 30
-BRIEF_MODEL = os.environ.get("NEWS_MODEL", "claude-opus-5-5")
+BRIEF_MODEL = os.environ.get("NEWS_MODEL", "claude-opus-5-5")  # used when an ANTHROPIC_API_KEY is set
+# Free models on GitHub Models, used otherwise. The first one that answers writes the brief.
+GITHUB_MODELS = os.environ.get("GITHUB_MODELS", "openai/gpt-4.1-mini,openai/gpt-4o-mini,meta/Llama-4-Scout-17B-16E-Instruct").split(",")
+GITHUB_MODELS_URL = "https://models.github.ai/inference/chat/completions"
 
 # Topic tags, used by the filter buttons on the page. A story gets every tag whose pattern matches its
 # headline or excerpt. The ids must match sn_topic_<id> in _data/strings.yml (and its translations).
@@ -330,6 +334,55 @@ def clean_md(text, limit):
     return html.escape(clean_text(text, limit), quote=False)
 
 
+def ask_claude(prompt):
+    """The brief from Claude (paid, needs an ANTHROPIC_API_KEY secret)."""
+    import anthropic  # only needed for this option
+
+    client = anthropic.Anthropic()
+    resp = client.beta.messages.create(
+        model=BRIEF_MODEL,
+        max_tokens=16000,
+        betas=["server-side-fallback-2026-07-01"],
+        fallbacks="default",
+        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": BRIEF_SCHEMA}},
+        system=BRIEF_SYSTEM,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    if resp.stop_reason != "end_turn":
+        log(f"No brief today: the model stopped with {resp.stop_reason}.")
+        return None
+    return json.loads("".join(b.text for b in resp.content if b.type == "text"))
+
+
+def ask_github_models(prompt):
+    """The brief from GitHub Models (free, uses the workflow's own GITHUB_TOKEN; no key to set up).
+    Tries each model in GITHUB_MODELS in turn, so a retired or busy model doesn't stop the brief."""
+    token = os.environ["GITHUB_TOKEN"]
+    system = BRIEF_SYSTEM + "\n\nAnswer with one JSON object only, shaped like this JSON Schema:\n" + json.dumps(BRIEF_SCHEMA)
+    for model in GITHUB_MODELS:
+        body = json.dumps({
+            "model": model,
+            "messages": [{"role": "system", "content": system}, {"role": "user", "content": prompt}],
+            "response_format": {"type": "json_object"},
+            "max_tokens": 3000,
+        }).encode()
+        req = urllib.request.Request(GITHUB_MODELS_URL, data=body, method="POST", headers={
+            "Authorization": "Bearer " + token, "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                choice = json.loads(r.read())["choices"][0]
+            brief = json.loads(choice["message"]["content"])
+            if not isinstance(brief.get("stories"), list) or not brief.get("title"):
+                raise ValueError("answer is missing the title or stories")
+            brief.setdefault("summary", "")
+            brief.setdefault("todo", [])
+            return brief, model
+        except Exception as e:
+            log(f"{model}: no brief ({e.__class__.__name__}: {e})")
+    return None, None
+
+
 def write_brief(items, now):
     day = now.date().isoformat()
     path = BRIEFS_DIR / f"{day}.md"
@@ -342,27 +395,19 @@ def write_brief(items, now):
         log("Not enough new stories for a brief today.")
         return False
 
-    import anthropic  # only needed for the brief
-
     payload = [{"id": n, "headline": i["title"], "source": i["source"], "excerpt": i["excerpt"]} for n, i in enumerate(recent)]
-    client = anthropic.Anthropic()
-    resp = client.beta.messages.create(
-        model=BRIEF_MODEL,
-        max_tokens=16000,
-        betas=["server-side-fallback-2026-07-01"],
-        fallbacks="default",
-        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": BRIEF_SCHEMA}},
-        system=BRIEF_SYSTEM,
-        messages=[{"role": "user", "content": f"Today is {day}. Headlines:\n" + json.dumps(payload, ensure_ascii=False, indent=1)}],
-    )
-    if resp.stop_reason != "end_turn":
-        log(f"No brief today: the model stopped with {resp.stop_reason}.")
+    prompt = f"Today is {day}. Headlines:\n" + json.dumps(payload, ensure_ascii=False, indent=1)
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        brief, model = ask_claude(prompt), BRIEF_MODEL
+    else:
+        brief, model = ask_github_models(prompt)
+    if not brief:
         return False
-    brief = json.loads("".join(b.text for b in resp.content if b.type == "text"))
 
     used, body = [], []
     for st in brief["stories"][:8]:
-        refs = [n for n in st.get("sources", []) if isinstance(n, int) and 0 <= n < len(recent)]
+        refs = [int(n) for n in st.get("sources", []) if str(n).strip().isdigit()]
+        refs = [n for n in refs if 0 <= n < len(recent)]
         if not refs:
             continue  # every story on the page must point to where it came from
         links = []
@@ -385,7 +430,7 @@ def write_brief(items, now):
         "title": clean_text(brief["title"], 110) or "Daily security brief",
         "description": clean_text(brief["summary"], 260),
         "date": now.strftime("%Y-%m-%d %H:%M:%S +0000"),
-        "model": BRIEF_MODEL,
+        "model": model,
         "sources": [{"title": recent[n]["title"], "url": recent[n]["url"], "source": recent[n]["source"]} for n in used],
     }
     lines = ["---"]
@@ -429,7 +474,7 @@ def main():
     DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     log(f"Saved {len(items)} headlines and {len(data['kev'])} exploited vulnerabilities.")
 
-    if not args.no_brief and os.environ.get("ANTHROPIC_API_KEY"):
+    if not args.no_brief and (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("GITHUB_TOKEN")):
         try:
             write_brief(items, now)
         except Exception as e:  # the headlines still go live if the brief fails
