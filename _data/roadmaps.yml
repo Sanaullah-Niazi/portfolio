@@ -14,8 +14,8 @@ reviewed: 2026-10-27   # change this date whenever you review the links and cont
 # ---- Page text. Only change the text after the colon. ----
 eyebrow: "Roadmaps"
 title: "Learning roadmaps"
-lede: "Step-by-step paths into computer science, in the order I would learn them again. Every resource is free and comes from a university, an official project or a respected non-profit."
-pill: "Free resources only, links checked every week"
+lede: "Everything in one place: step-by-step learning paths, deep cybersecurity and AI security career roadmaps, and the certifications worth taking."
+pill: "Trusted sources, links checked every week"
 how_title: "How to use these roadmaps"
 how:
   - "New to programming? Start with Foundations. Every other path builds on it."
@@ -48,6 +48,17 @@ foot: "Found a broken link, or want a path added?"
 back: "Back to all paths"
 security_cta: "Cybersecurity & AI security roadmaps"
 security_cta_text: "A career roadmap for each area of security, from Beginner to Expert, with labs, tools and certifications."
+sections_label: "Sections"
+roadmaps_word: "roadmaps"
+specialise: "Specialise: security roadmaps"
+tier_paths_title: "Learning paths"
+tier_paths_text: "Step-by-step routes into a field, in the order I'd learn them again. New to computing? Start with Foundations."
+tier_security_title: "Cybersecurity & AI security roadmaps"
+tier_security_text: "Comfortable with the basics? These [n] career roadmaps go deep into every area of security. Pick a category to explore."
+tier_certs_title: "Certifications"
+tier_certs_text: "Which certification to take, in what order, and what each one really costs."
+security_all: "Browse all [n] roadmaps"
+security_all_text: "Search and filter every security roadmap in one place."
 
 # ---- The paths. "needs" lists the ids of paths (or "foundations") to do first. ----
 paths:
@@ -157,8 +168,9 @@ paths:
 
   - id: cybersecurity
     icon: shield
-    title: "Cybersecurity"
-    summary: "Understand how systems are attacked so you can defend them: networks, web apps, detection and response."
+    title: "Cybersecurity fundamentals"
+    to_security: true
+    summary: "The beginner on-ramp to security: understand how systems are attacked so you can defend them. Specialise afterwards with the security roadmaps below."
     who: "Curious people who like taking things apart and want to protect people and systems."
     needs: ["foundations"]
     note: "Only test systems you own or have written permission to test. Use the practice labs below; attacking other systems is illegal almost everywhere."
