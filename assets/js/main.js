@@ -1,10 +1,9 @@
-// Site behaviour: theme toggle, language menu, mobile menu, scroll effects, the hero network animation,
+// Site behaviour: theme toggle, language menu, mobile menu, scroll effects,
 // project filter, skills chart, BibTeX copy, certificate lightbox and the contact form.
 // Plain JavaScript, no libraries. Anything that moves is skipped when the visitor prefers reduced motion.
 (function () {
   var root = document.documentElement;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var onThemeChange = [];
 
   // Theme toggle: remembers the visitor's choice.
   var themeBtn = document.querySelector(".theme-toggle");
@@ -15,7 +14,6 @@
       var next = current === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
       try { localStorage.setItem("theme", next); } catch (e) {}
-      onThemeChange.forEach(function (fn) { fn(); });
     });
   }
 
@@ -138,209 +136,6 @@
         card.style.setProperty("--my", e.clientY - r.top + "px");
       });
     });
-  }
-
-  // Terminal: type each command, then show its output. Hidden text keeps its space, so nothing below jumps.
-  var term = document.querySelector(".term-body");
-  if (term && !reduceMotion) {
-    var lines = Array.prototype.slice.call(term.children);
-    lines.forEach(function (l) { l.classList.add("pending"); });
-    term.classList.add("typing");
-    var li = 0;
-    function nextLine() {
-      if (li >= lines.length) { term.classList.remove("typing"); return; }
-      var line = lines[li++];
-      if (!line.classList.contains("cmd") || line.classList.contains("cursor-line")) {
-        line.classList.remove("pending");
-        setTimeout(nextLine, 260);
-        return;
-      }
-      var full = line.textContent, c = 0;
-      var typed = document.createElement("span"), rest = document.createElement("span");
-      typed.className = "typing-caret"; rest.className = "rest";
-      line.textContent = "";
-      line.appendChild(typed); line.appendChild(rest);
-      line.classList.remove("pending");
-      (function type() {
-        typed.textContent = full.slice(0, ++c);
-        rest.textContent = full.slice(c);
-        if (c < full.length) setTimeout(type, 38 + Math.random() * 40);
-        else { line.textContent = full; setTimeout(nextLine, 220); }
-      })();
-    }
-    setTimeout(nextLine, 500);
-  }
-
-  // Hero: a slowly drifting network. Packets travel along the links; now and then a node turns
-  // orange (a threat) and a teal ring closes in on it (detected). It pauses when off screen.
-  var canvas = document.querySelector(".hero-canvas");
-  if (canvas && canvas.getContext) {
-    var ctx = canvas.getContext("2d");
-    var W = 0, H = 0, dpr = 1, nodes = [], packets = [], threats = [], colors = {};
-    var pointer = null, running = false, last = 0, nextPacket = 0, nextThreat = 1500;
-    var linkDist = 140;
-
-    function readColors() {
-      var cs = getComputedStyle(root);
-      colors.accent = cs.getPropertyValue("--accent").trim() || "#0b5f6b";
-      colors.accent2 = cs.getPropertyValue("--accent-2").trim() || "#4b49b8";
-      colors.threat = cs.getPropertyValue("--threat").trim() || "#c2410c";
-      if (!running) draw(0);
-    }
-    function rgba(hex, a) {
-      var h = hex.replace("#", "");
-      if (h.length === 3) h = h.replace(/./g, "$&$&");
-      var n = parseInt(h, 16);
-      return "rgba(" + (n >> 16 & 255) + "," + (n >> 8 & 255) + "," + (n & 255) + "," + a + ")";
-    }
-    function resize() {
-      var r = canvas.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      W = r.width; H = r.height;
-      canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      linkDist = W < 640 ? 110 : 140;
-      var count = Math.max(22, Math.min(72, Math.round(W * H / 15000)));
-      while (nodes.length < count) nodes.push({
-        x: Math.random() * W, y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
-        r: 1.3 + Math.random() * 1.6, hub: Math.random() < 0.12
-      });
-      nodes.length = count;
-      // Drop packets and threats that point at nodes removed by a smaller canvas.
-      packets = packets.filter(function (p) { return p.from < count && p.to < count; });
-      threats = threats.filter(function (th) { return th.node < count; });
-      nodes.forEach(function (n) { n.x = Math.min(n.x, W); n.y = Math.min(n.y, H); });
-      if (!running) draw(0);
-    }
-    function neighbours(i) {
-      var a = nodes[i], out = [];
-      for (var j = 0; j < nodes.length; j++) {
-        if (j === i) continue;
-        var dx = a.x - nodes[j].x, dy = a.y - nodes[j].y;
-        if (dx * dx + dy * dy < linkDist * linkDist) out.push(j);
-      }
-      return out;
-    }
-    function draw(dt) {
-      ctx.clearRect(0, 0, W, H);
-      var i, j, a, b, dx, dy, d;
-      for (i = 0; i < nodes.length; i++) {
-        a = nodes[i];
-        if (dt) {
-          a.x += a.vx * dt / 16; a.y += a.vy * dt / 16;
-          if (a.x < 0 || a.x > W) a.vx *= -1;
-          if (a.y < 0 || a.y > H) a.vy *= -1;
-        }
-      }
-      ctx.lineWidth = 1;
-      for (i = 0; i < nodes.length; i++) {
-        a = nodes[i];
-        for (j = i + 1; j < nodes.length; j++) {
-          b = nodes[j]; dx = a.x - b.x; dy = a.y - b.y; d = dx * dx + dy * dy;
-          if (d < linkDist * linkDist) {
-            ctx.strokeStyle = rgba(colors.accent, 0.3 * (1 - Math.sqrt(d) / linkDist));
-            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-          }
-        }
-        if (pointer) {
-          dx = a.x - pointer.x; dy = a.y - pointer.y; d = Math.sqrt(dx * dx + dy * dy);
-          if (d < 170) {
-            ctx.strokeStyle = rgba(colors.accent2, 0.35 * (1 - d / 170));
-            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(pointer.x, pointer.y); ctx.stroke();
-          }
-        }
-      }
-      for (i = 0; i < nodes.length; i++) {
-        a = nodes[i];
-        ctx.fillStyle = rgba(a.hub ? colors.accent2 : colors.accent, a.hub ? 0.75 : 0.55);
-        ctx.beginPath(); ctx.arc(a.x, a.y, a.hub ? a.r + 1.2 : a.r, 0, Math.PI * 2); ctx.fill();
-      }
-      // Packets
-      for (i = packets.length - 1; i >= 0; i--) {
-        var p = packets[i];
-        p.t += dt / p.dur;
-        if (p.t >= 1) { packets.splice(i, 1); continue; }
-        a = nodes[p.from]; b = nodes[p.to];
-        var x = a.x + (b.x - a.x) * p.t, y = a.y + (b.y - a.y) * p.t;
-        ctx.fillStyle = rgba(colors.accent, 0.9);
-        ctx.shadowColor = colors.accent; ctx.shadowBlur = 8;
-        ctx.beginPath(); ctx.arc(x, y, 2.2, 0, Math.PI * 2); ctx.fill();
-        ctx.shadowBlur = 0;
-      }
-      // Threats: orange pulse, then a teal ring closes in and the node turns safe.
-      for (i = threats.length - 1; i >= 0; i--) {
-        var th = threats[i];
-        th.age += dt;
-        if (th.age > 3000) { threats.splice(i, 1); continue; }
-        a = nodes[th.node];
-        var caught = th.age > 1300;
-        var pulse = (th.age % 900) / 900;
-        if (!caught) {
-          ctx.strokeStyle = rgba(colors.threat, 0.6 * (1 - pulse));
-          ctx.beginPath(); ctx.arc(a.x, a.y, 4 + pulse * 18, 0, Math.PI * 2); ctx.stroke();
-          ctx.fillStyle = colors.threat;
-          ctx.beginPath(); ctx.arc(a.x, a.y, 4, 0, Math.PI * 2); ctx.fill();
-          var k = Math.max(0, 1 - (th.age - 500) / 800);
-          if (th.age > 500) {
-            ctx.strokeStyle = rgba(colors.accent, 0.8);
-            ctx.lineWidth = 1.5;
-            ctx.beginPath(); ctx.arc(a.x, a.y, 8 + k * 30, 0, Math.PI * 2); ctx.stroke();
-            ctx.lineWidth = 1;
-          }
-        } else {
-          var fade = 1 - (th.age - 1300) / 1700;
-          ctx.strokeStyle = rgba(colors.accent, 0.8 * fade);
-          ctx.lineWidth = 1.5;
-          ctx.beginPath(); ctx.arc(a.x, a.y, 8, 0, Math.PI * 2); ctx.stroke();
-          ctx.lineWidth = 1;
-          ctx.fillStyle = rgba(colors.accent, fade);
-          ctx.beginPath(); ctx.arc(a.x, a.y, 3.5, 0, Math.PI * 2); ctx.fill();
-        }
-      }
-    }
-    function frame(t) {
-      if (!running) return;
-      var dt = last ? Math.min(t - last, 50) : 16;
-      last = t;
-      nextPacket -= dt; nextThreat -= dt;
-      if (nextPacket <= 0 && nodes.length) {
-        var from = Math.floor(Math.random() * nodes.length), nb = neighbours(from);
-        if (nb.length) packets.push({ from: from, to: nb[Math.floor(Math.random() * nb.length)], t: 0, dur: 900 + Math.random() * 700 });
-        nextPacket = 180 + Math.random() * 260;
-      }
-      if (nextThreat <= 0 && nodes.length) {
-        threats.push({ node: Math.floor(Math.random() * nodes.length), age: 0 });
-        nextThreat = 2200 + Math.random() * 1800;
-      }
-      draw(dt);
-      requestAnimationFrame(frame);
-    }
-    function start() {
-      if (running || reduceMotion || document.hidden) return;
-      running = true; last = 0; requestAnimationFrame(frame);
-    }
-    function stop() { running = false; }
-
-    readColors();
-    resize();
-    onThemeChange.push(readColors);
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", readColors);
-    if ("ResizeObserver" in window) new ResizeObserver(resize).observe(canvas);
-    else window.addEventListener("resize", resize);
-
-    if (!reduceMotion) {
-      var hero = canvas.parentElement;
-      hero.addEventListener("pointermove", function (e) {
-        var r = canvas.getBoundingClientRect();
-        pointer = { x: e.clientX - r.left, y: e.clientY - r.top };
-      });
-      hero.addEventListener("pointerleave", function () { pointer = null; });
-      document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
-      if (hasIO) {
-        new IntersectionObserver(function (en) { en[0].isIntersecting ? start() : stop(); }).observe(canvas);
-      } else start();
-    }
   }
 
   // Project filter: the topic buttons show only the cards tagged with that topic (topics: in each project file).

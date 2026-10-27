@@ -8,7 +8,7 @@ This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs 
 
 | To change… | Edit this file |
 |---|---|
-| Name, headline, intro, email, links, highlight strip | `_data/profile.yml` |
+| Name, the big statement at the top (`hero_title`; words in [square brackets] are highlighted), email, links, highlight bar | `_data/profile.yml` |
 | "Where I fit" areas | `_data/focus.yml` |
 | Thesis and research interests | `_data/research.yml` |
 | Publications (summary, abstract, PDF link; BibTeX is made for you) | `_data/publications.yml` |
@@ -23,7 +23,6 @@ This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs 
 | Certifications (verification links and pictures) | `_data/certifications.yml` |
 | Skills | `_data/skills.yml` |
 | The "About" story, the path next to it and the facts below it | `_data/about.yml` |
-| The terminal box in the top section | `_includes/pages/home.html`, the part that starts with `class="terminal"` |
 | Projects | one file per project in `_projects/` |
 | Notes / blog posts | one file per post in `_posts/` |
 | Tools (`/tools/` and one page per tool, e.g. `/tools/json-formatter/`) | the list and page addresses in `_data/tool_list.yml`; text, guides and FAQs in `_data/tools.yml` and `_data/<code>/tools.yml`; each tool's markup in `_includes/tools/<key>.html`, the pages in `_includes/pages/tools.html` (hub) and `_includes/pages/tool.html`; the code in `assets/js/tools.js`. Everything runs in the visitor's browser; the only outside request is the leaked password checker, which sends 5 characters of a SHA-1 hash to the Pwned Passwords API. To add a tool, add it to `tool_list.yml`, add its text, markup and a page file under `tools/<slug>/` (and `ur/`, `de/`, `zh/`) with its own title and description |
