@@ -55,7 +55,7 @@ stages:
         title: "Medical devices on the network"
         text: "Infusion pumps, monitors, imaging and lab devices run old operating systems and cannot be patched freely. Learn why, and what that means for security."
         res:
-          - { name: "Medical device cybersecurity", by: "US FDA", url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity", type: docs, cost: free }
+          - { name: "Medical device cybersecurity", by: "US CISA", url: "https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors/healthcare-and-public-health-sector", type: docs, cost: free }
       - id: clinical-safety
         title: "Clinical safety and security"
         text: "A control that blocks a clinician in an emergency is a safety risk. Work with clinical engineering and design controls around clinical workflows."
@@ -127,7 +127,7 @@ stages:
         title: "Regulatory requirements for devices"
         text: "The FDA, EU MDR and other regulators require threat modelling, SBOMs, vulnerability handling and update plans before approval. Learn what submissions need."
         res:
-          - { name: "Medical device cybersecurity", by: "US FDA", url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity", type: docs, cost: free }
+          - { name: "Medical device cybersecurity", by: "US CISA", url: "https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors/healthcare-and-public-health-sector", type: docs, cost: free }
       - id: device-threat-modelling
         title: "Threat modelling medical devices"
         text: "Model threats to the device, its connections and the patient. Link security risks to safety risk under ISO 14971."
@@ -142,7 +142,7 @@ stages:
         title: "Postmarket vulnerability management"
         text: "Monitor vulnerabilities in fielded devices, coordinate disclosure, patch safely and tell hospitals what to do. The device's whole life is in scope."
         res:
-          - { name: "Medical device cybersecurity", by: "US FDA", url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity", type: docs, cost: free }
+          - { name: "Medical device cybersecurity", by: "US CISA", url: "https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors/healthcare-and-public-health-sector", type: docs, cost: free }
       - id: health-cloud-apps
         title: "Health cloud, apps and AI"
         text: "Telehealth, patient apps, cloud EHRs and clinical AI bring cloud and app security into care. Apply the same standards and add health privacy."
@@ -209,7 +209,7 @@ certs:
 resources:
   - { name: "Health Industry Cybersecurity Practices (405(d))", by: "US HHS", url: "https://405d.hhs.gov/", type: docs, cost: free }
   - { name: "HIPAA Security Rule", by: "US HHS", url: "https://www.hhs.gov/hipaa/for-professionals/security/index.html", type: docs, cost: free }
-  - { name: "Medical device cybersecurity", by: "US FDA", url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity", type: docs, cost: free }
+  - { name: "Medical device cybersecurity", by: "US CISA", url: "https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors/healthcare-and-public-health-sector", type: docs, cost: free }
   - { name: "Playbook for Threat Modeling Medical Devices", by: "MITRE and MDIC", url: "https://www.mitre.org/news-insights/publication/playbook-threat-modeling-medical-devices", type: docs, cost: free }
   - { name: "FHIR security", by: "HL7 International", url: "https://hl7.org/fhir/security.html", type: docs, cost: free }
 
