@@ -54,6 +54,10 @@
   </section>
 
   <p class="muted tools-foot"><span>{{ T.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
+  {%- if me.support and me.support != '' %}
+  <p class="muted tools-support">{% include icon.html name="heart" px=16 %}<span>{{ T.support_note }}</span> <a href="{{ me.support }}" rel="noopener">{{ T.support }}</a></p>
+  {%- endif %}
+  <p class="muted tools-about-link"><a href="{{ L }}/tools/#about-these-tools">{{ T.about_title }}</a></p>
 </div>
 <script type="application/json" id="tools-text">{{ T.js | jsonify }}</script>
 {%- capture ld_items -%}
@@ -61,8 +65,7 @@
 {%- endcapture %}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
-{"@type":"WebApplication","name":{{ T[title_key] | jsonify }},"url":{{ page.url | absolute_url | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":{{ S.html_lang | jsonify }},"applicationCategory":"{% if tool.group == 'dev' %}DeveloperApplication{% else %}SecurityApplication{% endif %}","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":{{ me.name | jsonify }},"url":{{ site.url | jsonify }}}},
-{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":{{ T.title | jsonify }},"item":{{ L | append: '/tools/' | absolute_url | jsonify }}},{"@type":"ListItem","position":2,"name":{{ T[title_key] | jsonify }},"item":{{ page.url | absolute_url | jsonify }}}]}{% if ld_items != "" %},
+{"@type":"WebApplication","name":{{ T[title_key] | jsonify }},"url":{{ page.url | absolute_url | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":{{ S.html_lang | jsonify }},"applicationCategory":"{% if tool.group == 'dev' %}DeveloperApplication{% else %}SecurityApplication{% endif %}","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":{{ me.name | jsonify }},"url":{{ site.url | jsonify }}}}{% if ld_items != "" %},
 {"@type":"FAQPage","mainEntity":[{{ ld_items }}]}{% endif %}
 ]}
 </script>

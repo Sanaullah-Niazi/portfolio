@@ -458,6 +458,7 @@
       btn.addEventListener("click", function () {
         lbImg.src = btn.getAttribute("data-full");
         lbImg.alt = btn.querySelector("img").alt;
+        lbImg.hidden = false;
         lbCap.textContent = btn.getAttribute("data-caption");
         lightbox.showModal();
       });

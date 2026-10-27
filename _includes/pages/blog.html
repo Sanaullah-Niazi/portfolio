@@ -5,6 +5,22 @@
     <h1>{{ S.notes_page_title }}</h1>
     <p class="lede">{{ S.notes_page_lede }}</p>
   </header>
+  {%- comment -%} Lab and CTF write-ups (posts tagged "Write-ups", see templates/write-up-template.md) get their own list first. {%- endcomment %}
+  {%- assign writeups = site.posts | where_exp: "p", "p.tags contains 'Write-ups'" %}
+  {%- if writeups.size > 0 %}
+  <section id="write-ups" aria-labelledby="write-ups-title">
+    <h2 class="sub" id="write-ups-title">{{ S.writeups_title }}</h2>
+    <p class="muted">{{ S.writeups_lede }}</p>
+    <ul class="post-list">
+      {%- for post in writeups %}{% include translated.html item=post %}
+      <li{% if lang != 'en' and tr.lang != lang %} lang="en"{% endif %}>
+        <div class="post-main"><a href="{{ tr.url | relative_url }}">{{ tr.title }}</a>{% if tr.description %}<p class="muted">{{ tr.description }}</p>{% endif %}</div>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date long=true %}</time>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
   {% if site.posts.size > 0 %}
   <ul class="post-list">
     {% for post in site.posts %}{% include translated.html item=post %}

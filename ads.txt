@@ -1,0 +1,10 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%} Lists who may sell ads on this site. Filled in from ads.client in _config.yml once AdSense approves the site. {%- endcomment -%}
+{%- if site.ads.client != "" %}
+google.com, {{ site.ads.client | remove_first: "ca-" }}, DIRECT, f08c47fec0942fa0
+{%- else %}
+# No ads yet. This file lists authorised ad sellers once ads are switched on.
+{%- endif %}

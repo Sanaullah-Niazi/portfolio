@@ -241,7 +241,7 @@ certs:
     valid: "1 year, free online renewal"
     needs: "Azure administration experience"
     why: "Replaced AZ-500 on 31 August 2026. The Azure route into cloud security."
-    url: "https://learn.microsoft.com/en-us/credentials/browse/?terms=SC-500"
+    url: "https://learn.microsoft.com/en-us/credentials/certifications/cloud-and-ai-security-engineer-associate/"
   aws-aip:
     name: "AWS Certified AI Practitioner"
     by: "Amazon Web Services"
@@ -261,13 +261,13 @@ certs:
     valid: "Does not expire"
     needs: "Nothing"
     why: "Replaced AI-900 in 2026. The Azure version of a first AI certification."
-    url: "https://learn.microsoft.com/en-us/credentials/browse/?terms=AI-901"
+    url: "https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901/"
   aws-mle:
     name: "AWS Certified Machine Learning Engineer – Associate"
     by: "Amazon Web Services"
     level: mid
     cost: "$150"
-    exam: "Multiple choice and ordering questions, about 2 hours (new version from September 2026)"
+    exam: "Multiple choice and ordering questions, about 2 hours (new version since September 2026)"
     valid: "3 years"
     needs: "Experience training and deploying models"
     why: "Shows you can take a model from a notebook to production on AWS."
@@ -281,7 +281,7 @@ certs:
     valid: "1 year, free online renewal"
     needs: "Python and experience calling AI services"
     why: "Replaced AI-102 in 2026. For building AI apps and agents on Azure."
-    url: "https://learn.microsoft.com/en-us/credentials/browse/?terms=AI-103"
+    url: "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/"
   gcp-mle:
     name: "Professional Machine Learning Engineer"
     by: "Google Cloud"

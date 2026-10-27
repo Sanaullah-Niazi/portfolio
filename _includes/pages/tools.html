@@ -27,6 +27,17 @@
     </ul>
   </section>
   {%- endfor %}
+  {%- comment -%} "About these tools": what they are for, privacy, no guarantee, bugs, code. Text in _data/tools.yml (about_*). {%- endcomment %}
+  {%- assign tok_privacy = "{privacy}" %}{% assign tok_contact = "{contact}" %}{% assign tok_code = "{code}" %}
+  {%- assign privacy_url = L | append: "/privacy/" %}{% assign contact_url = L | append: "/#contact" %}
+  <section class="card tools-about" id="about-these-tools" aria-labelledby="about-tools-title">
+    <h2 id="about-tools-title">{{ T.about_title }}</h2>
+    <ul>
+      {%- for pt in T.about_points %}
+      <li>{{ pt | replace: tok_privacy, privacy_url | replace: tok_contact, contact_url | replace: tok_code, site.tools_repo }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
   <p class="muted tools-foot"><span>{{ T.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
 </div>
 <script type="application/ld+json">

@@ -67,7 +67,7 @@
   {%- for s in X.stages %}
   {%- capture mo %}<bdi dir="ltr">{{ s.months }}</bdi>{% endcapture %}
   <article class="mp-detail is-stage" id="s-{{ s.level }}">
-    <p class="mp-meta"><span class="sr-sen is-{{ s.level }}">{{ levels[s.level] }}</span><span class="rm-weeks">{{ W.time }}: {{ W.months | replace: '[n]', mo }}</span></p>
+    <p class="mp-meta"><span class="sr-sen is-{{ s.level }}">{{ levels[s.level] }}</span>{% include sep.html %}<span class="rm-weeks">{{ W.time }}: {{ W.months | replace: '[n]', mo }}</span></p>
     <h3>{{ s.title }}</h3>
     <h4 class="label">{{ W.skills }}</h4>
     <ul class="sr-list">{% for t in s.skills %}<li>{{ t }}</li>{% endfor %}</ul>
@@ -82,7 +82,7 @@
   </article>
   {%- for t in s.topics %}{% if t.id %}
   <article class="mp-detail" id="t-{{ t.id }}" data-id="{{ t.id }}">
-    <p class="mp-meta"><span class="sr-sen is-{{ s.level }}">{{ levels[s.level] }}</span>{% if t.optional %}<span class="rm-type is-audit">{{ W.key_optional }}</span>{% endif %}</p>
+    <p class="mp-meta"><span class="sr-sen is-{{ s.level }}">{{ levels[s.level] }}</span>{% if t.optional %}{% include sep.html %}<span class="rm-type is-audit">{{ W.key_optional }}</span>{% endif %}</p>
     <h3>{{ t.title }}</h3>
     <p>{{ t.text }}</p>
     {%- if t.res %}
@@ -91,7 +91,7 @@
       {%- for r in t.res %}
       <li>
         <a href="{{ r.url }}" rel="noopener">{{ r.name }}</a>
-        <span class="rm-res-meta"><span class="rm-type">{{ W.types[r.type] }}</span><span class="rm-type{% unless r.cost == 'free' %} is-audit{% endunless %}">{% if r.cost == 'paid' %}{{ W.res_paid }}{% elsif r.cost == 'audit' %}{{ W.res_audit }}{% else %}{{ W.res_free }}{% endif %}</span><span class="muted">{{ r.by }}</span></span>
+        <span class="rm-res-meta"><span class="rm-type">{{ W.types[r.type] }}</span>{% include sep.html %}<span class="rm-type{% unless r.cost == 'free' %} is-audit{% endunless %}">{% if r.cost == 'paid' %}{{ W.res_paid }}{% elsif r.cost == 'audit' %}{{ W.res_audit }}{% else %}{{ W.res_free }}{% endif %}</span>{% include sep.html %}<span class="muted">{{ r.by }}</span></span>
       </li>
       {%- endfor %}
     </ul>

@@ -50,15 +50,15 @@
       {%- for st in t.steps %}
       {%- assign tst = tt.steps[forloop.index0] %}
       <li class="rm-stage ct-step">
-        <span class="rm-step" aria-hidden="true">{{ forloop.index }}</span>
-        <p class="ct-note"><span class="sr-only">{{ T.step | default: C.step }} {{ forloop.index }}: </span>{{ tst.note | default: st.note }}</p>
+        <span class="rm-step"><span class="sr-only">{{ T.step | default: C.step }} </span>{{ forloop.index }}<span class="sr-only">: </span></span>
+        <p class="ct-note">{{ tst.note | default: st.note }}</p>
         <div class="ct-picks">
           {%- for id in st.certs %}
           {%- assign c = C.certs[id] %}{% assign tc = T.certs[id] %}
           {%- unless forloop.first %}<span class="ct-or">{{ T.or | default: C.or }}</span>{% endunless %}
           <article class="ct-cert" id="{{ t.id }}-{{ id }}">
             <div class="ct-cert-head">
-              <h3>{{ c.name }}</h3>
+              <h3>{{ c.name }}</h3>{% include sep.html %}
               <span class="rm-type ct-level is-{{ c.level }}">{{ T.levels[c.level] | default: C.levels[c.level] }}</span>
             </div>
             <p class="meta">{{ c.by }}</p>

@@ -1,0 +1,23 @@
+{%- comment -%}
+  BreadcrumbList structured data for every page except the home pages: Home > section > ... > this page.
+  Each step is a real page of the site in the same language; steps without a page of their own (like /blog/2026/) are skipped.
+{%- endcomment -%}
+{%- assign _home = L | append: '/' -%}
+{%- unless page.url == _home or page.url contains '.html' or page.url contains '.xml' -%}
+{%- assign _rel = page.url -%}
+{%- if L != '' -%}{%- assign _rel = page.url | remove_first: L -%}{%- endif -%}
+{%- assign _segs = _rel | split: '/' -%}
+{%- capture _crumbs -%}{"@type":"ListItem","position":1,"name":{{ me.name | jsonify }},"item":{{ _home | absolute_url | jsonify }}}
+{%- assign _pos = 1 -%}{%- assign _path = L | append: '/' -%}
+{%- for _s in _segs -%}{%- if _s != '' -%}
+{%- assign _path = _path | append: _s | append: '/' -%}
+{%- if _path == page.url -%}{%- assign _step = page -%}{%- else -%}{%- assign _step = site.pages | where: 'url', _path | first -%}{%- endif -%}
+{%- if _step and _step.title -%}{%- assign _pos = _pos | plus: 1 -%},{"@type":"ListItem","position":{{ _pos }},"name":{{ _step.title | jsonify }},"item":{{ _path | absolute_url | jsonify }}}{%- endif -%}
+{%- endif -%}{%- endfor -%}
+{%- endcapture -%}
+{%- if _pos > 1 %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{ _crumbs }}]}
+</script>
+{%- endif -%}
+{%- endunless -%}

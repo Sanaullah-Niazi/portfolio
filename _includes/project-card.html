@@ -7,7 +7,7 @@
   <div class="project-body">
   <div class="card-top">
     <span class="status {% if p.status == 'Completed' %}status-done{% else %}status-wip{% endif %}">{% assign sk = 'status_' | append: p.status | replace: ' ', '_' %}{{ S[sk] | default: p.status }}</span>
-    {% for t in p.topics %}{% assign tk = 'topic_' | append: t %}<span class="topic-chip">{{ S[tk] | default: t }}</span>{% endfor %}
+    {% for t in p.topics %}{% assign tk = 'topic_' | append: t %}{% include sep.html %}<span class="topic-chip">{{ S[tk] | default: t }}</span>{% endfor %}
   </div>
   <h3><a href="{{ tr.url | relative_url }}">{{ tr.title }}</a></h3>
   <p>{{ tr.summary }}</p>

@@ -1,6 +1,7 @@
 ---
 title: "Telling AI-generated text from human writing"
 summary: My MS thesis project. Deep learning models that separate AI-generated from human-written text, trained and compared on a balanced dataset of about 500,000 samples.
+description: "My MS thesis project. Deep learning models that separate AI-generated from human-written text, trained and compared on a balanced dataset of about 500,000 samples."
 status: Completed       # In progress  or  Completed
 order: 2               # lower numbers show first
 topics: [AI, Security] # used by the topic filter: AI, Security, Networks
