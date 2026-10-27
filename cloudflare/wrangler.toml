@@ -15,5 +15,6 @@ binding = "ASSETS"
 not_found_handling = "404-page"
 # /about/ serves about/index.html and /about redirects to /about/, the same as GitHub Pages.
 html_handling = "auto-trailing-slash"
-# Files that must keep their exact .html address (see src/index.js). Everything else is served without running code.
-run_worker_first = ["/google68fd583c48fd5ed6.html"]
+# Pages go through src/index.js first (the http:// to https:// redirect and Google's verification file). Files under
+# /assets/ are only ever loaded from an https:// page, so they're served directly without running code.
+run_worker_first = ["/*", "!/assets/*"]
