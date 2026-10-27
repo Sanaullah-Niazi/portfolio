@@ -309,6 +309,8 @@ async function parseHtml(html, base) {
         if ((e.getAttribute("target") || "") === "_blank" && !/noopener|noreferrer/i.test(e.getAttribute("rel") || "")) r.blankNoOpener++;
         if (!sameSite(u)) { r.externalLinks++; return; }
         u.hash = "";
+        // Cloudflare's own paths (e.g. email obfuscation) answer 404 to anything but a browser.
+        if (u.pathname.startsWith("/cdn-cgi/")) return;
         if (u.href !== base.href && linkSet.size < MAX_LINKS) linkSet.add(u.href);
       },
     });

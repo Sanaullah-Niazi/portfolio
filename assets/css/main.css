@@ -1126,11 +1126,19 @@ pre.code { margin: 0; padding: 14px 16px; border-radius: 10px; background: #0b12
   body.has-web-report .tool-page-head, body.has-web-report #web, body.has-web-report .tool-info,
   body.has-web-report .tools-foot, body.has-web-report .to-top, body.has-web-report .web-noprint { display: none !important; }
   body.has-web-report { background: #fff; color: #0f1b2d; }
-  body.has-web-report .web-report { gap: 12px; }
+  body.has-web-report .web-report { display: block; }
+  body.has-web-report .web-report > * + * { margin-top: 12px; }
   body.has-web-report .card { box-shadow: none; break-inside: auto; background: #fff; }
   body.has-web-report .web-facts-box:not([open]) > *:not(summary) { display: block; }
   body.has-web-report .web-printonly { display: block; }
   body.has-web-report .web-summary { break-after: avoid; }
+  /* Chrome mis-places grid items that hold images when a page breaks inside them, so print the
+     screenshots as one flex row that stays on one page. */
+  body.has-web-report .web-shots { display: flex; align-items: flex-start; break-inside: avoid; }
+  body.has-web-report .web-shot-desktop { flex: 3 1 0; min-width: 0; }
+  body.has-web-report .web-shot-mobile { flex: 1 1 0; min-width: 0; }
+  body.has-web-report .web-shots figure { break-inside: avoid; }
+  body.has-web-report .web-sub { break-after: avoid; }
   body.has-web-report a { color: inherit; }
   .web-ring, .web-bar i, .web-grade, .web-sev { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
