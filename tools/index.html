@@ -1,0 +1,153 @@
+---
+layout: default
+title: Security tools
+description: Free security tools by Sana Ullah Khan that run in your browser. Check password strength, generate passwords, check links for phishing signs, hash text and files, find hidden text and prompt injection, and decode JWTs. Nothing you type leaves the page.
+permalink: /tools/
+scripts:
+  - /assets/js/eff-short-words.js
+  - /assets/js/tools.js
+---
+{%- comment -%} The tools run in assets/js/tools.js. Nothing typed here is sent anywhere: the site's security policy blocks every connection except the contact form. {%- endcomment -%}
+<div class="wrap page tools-page">
+  <header class="page-head">
+    <p class="eyebrow" data-i18n="tools_eyebrow">Tools</p>
+    <h1 data-i18n="tools_title">Security tools</h1>
+    <p class="lede" data-i18n="tools_lede">Small tools I use in my own security work, free for anyone. They run in your browser, so you can try them with real data.</p>
+    <p class="pill">{% include icon.html name="lock" px=15 %}<span data-i18n="tools_private">Nothing you type leaves this page</span></p>
+  </header>
+
+  <nav class="tool-index" aria-label="Tools on this page">
+    <a class="card spot" href="#password"><span class="icon-tile sm">{% include icon.html name="key" px=18 %}</span><span data-i18n="tool_pw_title">Password strength checker</span></a>
+    <a class="card spot" href="#generator"><span class="icon-tile sm">{% include icon.html name="dice" px=18 %}</span><span data-i18n="tool_gen_title">Password and passphrase generator</span></a>
+    <a class="card spot" href="#phishing"><span class="icon-tile sm">{% include icon.html name="link" px=18 %}</span><span data-i18n="tool_ph_title">Phishing link checker</span></a>
+    <a class="card spot" href="#hash"><span class="icon-tile sm">{% include icon.html name="hash" px=18 %}</span><span data-i18n="tool_hash_title">Hash generator</span></a>
+    <a class="card spot" href="#hidden"><span class="icon-tile sm">{% include icon.html name="eye" px=18 %}</span><span data-i18n="tool_hid_title">Hidden text and prompt injection finder</span></a>
+    <a class="card spot" href="#jwt"><span class="icon-tile sm">{% include icon.html name="token" px=18 %}</span><span data-i18n="tool_jwt_title">JWT decoder</span></a>
+  </nav>
+
+  <noscript><p class="card" data-i18n="tools_nojs">These tools need JavaScript. Turn it on to use them.</p></noscript>
+
+  <section class="card tool" id="password" aria-labelledby="pw-title">
+    <div class="tool-head">
+      <span class="icon-tile">{% include icon.html name="key" px=22 %}</span>
+      <div><h2 id="pw-title" class="tool-title" data-i18n="tool_pw_title">Password strength checker</h2>
+      <p class="muted" data-i18n="tool_pw_lede">Estimates how long a password would survive a real attack. It looks for common passwords, names with numbers added, keyboard patterns, repeats and dates, not only length.</p></div>
+    </div>
+    <label class="field-label" for="pw-input" data-i18n="tool_pw_label">Password</label>
+    <div class="field-row">
+      <input class="field mono" id="pw-input" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr">
+      <button class="btn btn-sm" type="button" id="pw-show" aria-pressed="false" aria-controls="pw-input"><span data-i18n="tool_show">Show</span></button>
+    </div>
+    <div class="tool-out" id="pw-out" aria-live="polite"></div>
+  </section>
+
+  <section class="card tool" id="generator" aria-labelledby="gen-title">
+    <div class="tool-head">
+      <span class="icon-tile">{% include icon.html name="dice" px=22 %}</span>
+      <div><h2 id="gen-title" class="tool-title" data-i18n="tool_gen_title">Password and passphrase generator</h2>
+      <p class="muted" data-i18n="tool_gen_lede">Uses your browser's secure random number generator. A passphrase of random words is easier to remember and just as hard to guess.</p></div>
+    </div>
+    <div class="seg" role="group" aria-label="Type">
+      <button type="button" class="chip-btn" aria-pressed="true" data-mode="phrase"><span data-i18n="tool_gen_phrase">Passphrase</span></button>
+      <button type="button" class="chip-btn" aria-pressed="false" data-mode="chars"><span data-i18n="tool_gen_chars">Random characters</span></button>
+    </div>
+    <div class="gen-opts" data-for="phrase">
+      <label class="field-label" for="gen-words"><span data-i18n="tool_gen_words">Words</span>: <output id="gen-words-n" for="gen-words">6</output></label>
+      <input id="gen-words" type="range" min="4" max="12" value="6">
+      <div class="check-row">
+        <label class="check"><span data-i18n="tool_gen_sep">Separator</span>
+          <select id="gen-sep" class="field field-inline"><option value="-">-</option><option value=" ">␣</option><option value=".">.</option><option value="_">_</option></select></label>
+        <label class="check"><input type="checkbox" id="gen-cap"> <span data-i18n="tool_gen_cap">Capitalise words</span></label>
+        <label class="check"><input type="checkbox" id="gen-num"> <span data-i18n="tool_gen_num">Add a number</span></label>
+      </div>
+    </div>
+    <div class="gen-opts" data-for="chars" hidden>
+      <label class="field-label" for="gen-len"><span data-i18n="tool_gen_len">Length</span>: <output id="gen-len-n" for="gen-len">20</output></label>
+      <input id="gen-len" type="range" min="8" max="64" value="20">
+      <div class="check-row">
+        <label class="check"><input type="checkbox" id="gen-lower" checked> a–z</label>
+        <label class="check"><input type="checkbox" id="gen-upper" checked> A–Z</label>
+        <label class="check"><input type="checkbox" id="gen-digits" checked> 0–9</label>
+        <label class="check"><input type="checkbox" id="gen-symbols" checked> !@#$</label>
+        <label class="check"><input type="checkbox" id="gen-similar"> <span data-i18n="tool_gen_similar">Leave out look-alikes (l, 1, O, 0)</span></label>
+      </div>
+    </div>
+    <output class="gen-result mono" id="gen-result" dir="ltr" aria-live="polite"></output>
+    <p class="meta" id="gen-meta"></p>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" type="button" id="gen-new">{% include icon.html name="dice" px=16 %}<span data-i18n="tool_gen_new">New one</span></button>
+      <button class="btn btn-sm" type="button" id="gen-copy">{% include icon.html name="copy" px=16 %}<span data-i18n="tool_copy">Copy</span></button>
+    </div>
+  </section>
+
+  <section class="card tool" id="phishing" aria-labelledby="ph-title">
+    <div class="tool-head">
+      <span class="icon-tile">{% include icon.html name="link" px=22 %}</span>
+      <div><h2 id="ph-title" class="tool-title" data-i18n="tool_ph_title">Phishing link checker</h2>
+      <p class="muted" data-i18n="tool_ph_lede">Paste a link, or a whole message with links in it. It shows where each link really goes and the warning signs I look for in my phishing research. It never opens the link.</p></div>
+    </div>
+    <label class="field-label" for="ph-input" data-i18n="tool_ph_label">Link or message</label>
+    <textarea class="field mono" id="ph-input" rows="4" dir="ltr" spellcheck="false" placeholder="https://paypa1-secure-login.example.top/verify?account=..."></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" type="button" id="ph-check">{% include icon.html name="shield" px=16 %}<span data-i18n="tool_ph_check">Check</span></button>
+      <button class="btn btn-sm" type="button" id="ph-sample"><span data-i18n="tool_try_sample">Try an example</span></button>
+    </div>
+    <div class="tool-out" id="ph-out" aria-live="polite"></div>
+    <p class="tool-note" data-i18n="tool_ph_note">These are rules of thumb, not a verdict. A clean result doesn't prove a link is safe. When in doubt, type the address yourself or open the app instead.</p>
+  </section>
+
+  <section class="card tool" id="hash" aria-labelledby="hash-title">
+    <div class="tool-head">
+      <span class="icon-tile">{% include icon.html name="hash" px=22 %}</span>
+      <div><h2 id="hash-title" class="tool-title" data-i18n="tool_hash_title">Hash generator</h2>
+      <p class="muted" data-i18n="tool_hash_lede">Get the MD5, SHA-1, SHA-256, SHA-384 and SHA-512 hash of text or a file, for example to check a download against the hash its publisher lists.</p></div>
+    </div>
+    <div class="seg" role="group" aria-label="Input">
+      <button type="button" class="chip-btn" aria-pressed="true" data-src="text"><span data-i18n="tool_hash_text">Text</span></button>
+      <button type="button" class="chip-btn" aria-pressed="false" data-src="file"><span data-i18n="tool_hash_file">File</span></button>
+    </div>
+    <div data-for="text">
+      <label class="sr-only" for="hash-text" data-i18n="tool_hash_text">Text</label>
+      <textarea class="field mono" id="hash-text" rows="3" dir="auto" spellcheck="false"></textarea>
+    </div>
+    <div data-for="file" hidden>
+      <label class="drop" for="hash-file">{% include icon.html name="file" px=22 %}<span data-i18n="tool_hash_pick">Choose a file (it stays on your device)</span></label>
+      <input id="hash-file" type="file" class="sr-only">
+      <p class="meta" id="hash-file-name"></p>
+    </div>
+    <label class="field-label" for="hash-expect" data-i18n="tool_hash_expect">Compare with an expected hash (optional)</label>
+    <input class="field mono" id="hash-expect" type="text" dir="ltr" spellcheck="false" autocomplete="off">
+    <div class="tool-out" id="hash-out" aria-live="polite"></div>
+  </section>
+
+  <section class="card tool" id="hidden" aria-labelledby="hid-title">
+    <div class="tool-head">
+      <span class="icon-tile">{% include icon.html name="eye" px=22 %}</span>
+      <div><h2 id="hid-title" class="tool-title" data-i18n="tool_hid_title">Hidden text and prompt injection finder</h2>
+      <p class="muted" data-i18n="tool_hid_lede">Text can carry characters you can't see: zero-width spaces, direction overrides, look-alike letters, and invisible "tag" characters that AI models still read. Paste text from an email, web page or document before you give it to an AI assistant.</p></div>
+    </div>
+    <label class="field-label" for="hid-input" data-i18n="tool_hid_label">Text to scan</label>
+    <textarea class="field" id="hid-input" rows="5" dir="auto" spellcheck="false"></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" type="button" id="hid-scan">{% include icon.html name="eye" px=16 %}<span data-i18n="tool_hid_scan">Scan</span></button>
+      <button class="btn btn-sm" type="button" id="hid-sample"><span data-i18n="tool_try_sample">Try an example</span></button>
+    </div>
+    <div class="tool-out" id="hid-out" aria-live="polite"></div>
+  </section>
+
+  <section class="card tool" id="jwt" aria-labelledby="jwt-title">
+    <div class="tool-head">
+      <span class="icon-tile">{% include icon.html name="token" px=22 %}</span>
+      <div><h2 id="jwt-title" class="tool-title" data-i18n="tool_jwt_title">JWT decoder</h2>
+      <p class="muted" data-i18n="tool_jwt_lede">Reads a JSON Web Token and points out risky settings, such as no signature algorithm, no expiry or secrets in the payload. It doesn't check the signature, because that needs the server's key.</p></div>
+    </div>
+    <label class="field-label" for="jwt-input" data-i18n="tool_jwt_label">Token</label>
+    <textarea class="field mono" id="jwt-input" rows="3" dir="ltr" spellcheck="false" placeholder="eyJhbGciOi..."></textarea>
+    <div class="btn-row">
+      <button class="btn btn-sm" type="button" id="jwt-sample"><span data-i18n="tool_try_sample">Try an example</span></button>
+    </div>
+    <div class="tool-out" id="jwt-out" aria-live="polite"></div>
+  </section>
+
+  <p class="muted tools-foot"><span data-i18n="tools_foot">Found a bug or want another tool?</span> <a href="{{ '/' | relative_url }}#contact" data-i18n="nav_contact">Contact</a></p>
+</div>

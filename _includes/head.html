@@ -14,3 +14,6 @@
 {% seo %}
 {% feed_meta %}
 <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+{%- for s in page.scripts %}
+<script src="{{ s | relative_url }}" defer></script>
+{%- endfor %}

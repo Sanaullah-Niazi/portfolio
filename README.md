@@ -26,6 +26,7 @@ This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs 
 | The terminal box in the top section | `index.html`, the part that starts with `class="terminal"` |
 | Projects | one file per project in `_projects/` |
 | Notes / blog posts | one file per post in `_posts/` |
+| Security tools page (`/tools/`) | page text in `tools/index.html`, the tools themselves in `assets/js/tools.js` (they run in the visitor's browser; nothing is sent anywhere) |
 
 Files ending in `.yml` are lists. Copy an existing entry (everything from its `-` line down), paste it, and change the text. Keep the same indentation (spaces, not tabs).
 

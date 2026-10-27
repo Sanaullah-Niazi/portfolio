@@ -44,6 +44,7 @@
     if (langNotice) langNotice.hidden = lang === "en";
     if (langPicker) langPicker.value = lang;
     if (save) try { localStorage.setItem("lang", lang); } catch (e) {}
+    document.dispatchEvent(new CustomEvent("site:lang", { detail: lang }));
   }
   var saved = (root.getAttribute("lang") || "en").split("-")[0];
   if (saved !== "en") setLang(saved);
@@ -52,6 +53,8 @@
     langPicker.addEventListener("change", function () { setLang(langPicker.value, true); });
   }
   function t(key, fallback) { return lang !== "en" && dicts[lang][key] ? dicts[lang][key] : fallback; }
+  // The Tools page (assets/js/tools.js) uses these for the text it writes itself.
+  window.siteI18n = { t: t, lang: function () { return lang; }, tag: function () { return langTags[lang]; } };
 
   // Mobile menu.
   var nav = document.getElementById("site-nav");
@@ -71,7 +74,7 @@
     document.addEventListener("click", function (e) {
       if (nav.classList.contains("is-open") && !e.target.closest(".site-header")) setMenu(false);
     });
-    window.matchMedia("(min-width: 861px)").addEventListener("change", function () { setMenu(false); });
+    window.matchMedia("(min-width: 1101px)").addEventListener("change", function () { setMenu(false); });
   }
 
   // Header shadow, reading-progress bar and back-to-top button, updated once per frame at most.

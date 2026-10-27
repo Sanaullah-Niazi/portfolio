@@ -14,6 +14,7 @@
       <a href="{{ base }}#experience"><span data-i18n="nav_experience">Experience</span></a>
       <a href="{{ base }}#skills"><span data-i18n="nav_skills">Skills</span></a>
       <a href="{{ '/blog/' | relative_url }}"><span data-i18n="nav_notes">Notes</span></a>
+      <a href="{{ '/tools/' | relative_url }}"{% if page.url == '/tools/' %} class="is-active" aria-current="page"{% endif %}><span data-i18n="nav_tools">Tools</span></a>
       <a class="nav-cta" href="{{ base }}#contact"><span data-i18n="nav_contact">Contact</span></a>
     </nav>
     <div class="header-actions">
