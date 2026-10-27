@@ -48,7 +48,7 @@ stages:
         title: "Multi-factor authentication"
         text: "MFA adds a second proof, but not all kinds are equal: SMS codes and push prompts can be phished or spammed, while passkeys and security keys resist phishing."
         res:
-          - { name: "Phishing-resistant MFA fact sheet", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/implementing-phishing-resistant-mfa", type: docs, cost: free }
+          - { name: "Digital Identity Guidelines (SP 800-63-4)", by: "NIST", url: "https://pages.nist.gov/800-63-4/", type: docs, cost: free }
           - { name: "Passkeys", by: "FIDO Alliance", url: "https://fidoalliance.org/passkeys/", type: docs, cost: free }
       - id: ad-basics
         title: "Active Directory basics"
