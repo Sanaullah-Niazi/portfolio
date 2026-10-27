@@ -32,7 +32,7 @@ web3forms_access_key: "2b287e6d-2d29-4bf0-ad1d-de6332d90d1c"
 # Until both are filled in, the tool page shows a "not set up yet" note.
 health_checker:
   api: "https://api.sanaullahniazi.com"
-  turnstile_sitekey: ""
+  turnstile_sitekey: "0x4AAAAAAFnnZEkRDo4FeZE5"
   report_days: 7
 
 # Used by search engines and link previews.
