@@ -8,7 +8,8 @@
   </div>
   <div class="wrap footer-base">
     <span>© {{ site.time | date: '%Y' }} {{ me.name }}. {{ S.footer_rights }}</span>
-    <span class="footer-links"><a href="{{ '/blog/feed.xml' | relative_url }}">RSS</a><a href="{{ '/.well-known/security.txt' | relative_url }}">security.txt</a></span>
+{%- assign _pv = site.data.privacy[lang] | default: site.data.privacy.en %}
+    <span class="footer-links"><a href="{{ L }}/privacy/">{{ _pv.title }}</a><a href="{{ '/blog/feed.xml' | relative_url }}">RSS</a><a href="{{ '/.well-known/security.txt' | relative_url }}">security.txt</a></span>
   </div>
   <a class="to-top" href="#main" aria-label="{{ S.back_to_top }}">{% include icon.html name="arrow-up" px=20 %}</a>
 </footer>

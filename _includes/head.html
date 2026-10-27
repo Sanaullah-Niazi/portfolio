@@ -2,7 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 {%- comment -%} Security policy: only this site's own scripts run; the form may only post to Web3Forms, and the leaked password checker may only ask the Pwned Passwords range API (it sends 5 characters of a hash). GitHub Pages can't send headers, so it goes in a meta tag. {%- endcomment %}
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://api.web3forms.com https://api.pwnedpasswords.com; form-action https://api.web3forms.com; frame-src https:; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+{%- comment -%} The website checker page also loads the Turnstile CAPTCHA and talks to its own Worker (site.health_checker). {%- endcomment %}
+{%- if page.tool == "web" %}{% assign csp_script = " https://challenges.cloudflare.com" %}{% assign csp_connect = " " | append: site.health_checker.api %}{% endif %}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'{{ csp_script }}; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://api.web3forms.com https://api.pwnedpasswords.com{{ csp_connect | rstrip }}; form-action https://api.web3forms.com; frame-src https:; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">

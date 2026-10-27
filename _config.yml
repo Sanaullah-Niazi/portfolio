@@ -26,6 +26,15 @@ baseurl: ""
 # emailed to you) and paste it here. The key is meant to be public.
 web3forms_access_key: "2b287e6d-2d29-4bf0-ad1d-de6332d90d1c"
 
+# Website Health & Security Checker (/tools/website-health-checker/). It needs the Cloudflare Worker in worker/
+# (setup steps in worker/README.md). api: the Worker's address, for example https://site-checker.<you>.workers.dev
+# turnstile_sitekey: the Turnstile site key (public; the secret key goes in the Worker, never here).
+# Until both are filled in, the tool page shows a "not set up yet" note.
+health_checker:
+  api: "https://api.sanaullahniazi.com"
+  turnstile_sitekey: ""
+  report_days: 7
+
 # Used by search engines and link previews.
 author:
   name: Sana Ullah Khan
@@ -91,6 +100,7 @@ include:
 
 exclude:
   - README.md
+  - worker/
   - assets/cv/README.md
   - assets/img/certificates/README.md
   - Gemfile

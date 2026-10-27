@@ -1,6 +1,7 @@
 # The tools on /tools/, in the order they are listed. Same in every language.
 # slug: the page address (/tools/<slug>/, /de/tools/<slug>/ ...). key: the prefix of the tool's text in _data/tools.yml
 # and the name of its markup in _includes/tools/<key>.html. group: security or dev. words: needs the passphrase word list.
+- { key: web,  slug: website-health-checker,    icon: radar,    group: security }
 - { key: pw,   slug: password-strength-checker, icon: key,      group: security, old: password }
 - { key: leak, slug: leaked-password-checker,   icon: alert,    group: security }
 - { key: gen,  slug: password-generator,        icon: dice,     group: security, old: generator, words: true }
