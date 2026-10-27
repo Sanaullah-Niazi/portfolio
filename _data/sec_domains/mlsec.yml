@@ -49,16 +49,16 @@ stages:
         text: "NIST's taxonomy groups attacks by when they happen (training or deployment), the attacker's goal and their knowledge. Use it as a shared vocabulary for findings."
         res:
           - { name: "Adversarial Machine Learning: A Taxonomy and Terminology (NIST AI 100-2 E2025)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.100-2e2025", type: docs, cost: free }
-      - id: ml-top10
-        title: "OWASP Machine Learning Security Top 10"
-        text: "A short list of the most important risks to ML systems, from input manipulation to model theft. A good checklist for your first reviews."
+      - id: ai-exchange
+        title: "OWASP AI Exchange threat overview"
+        text: "The OWASP AI Exchange lists the threats to AI systems, from input manipulation to model theft, with the controls for each. A good checklist for your first reviews."
         res:
-          - { name: "OWASP Machine Learning Security Top 10", by: "OWASP Foundation", url: "https://owasp.org/www-project-machine-learning-security-top-10/", type: docs, cost: free }
+          - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs, cost: free }
       - id: atlas-cases
         title: "Real attacks: ATLAS case studies"
         text: "ATLAS documents real incidents, such as evading malware classifiers and copying commercial models. Read a few to see that these attacks happen outside the lab."
         res:
-          - { name: "MITRE ATLAS case studies", by: "MITRE", url: "https://atlas.mitre.org/studies", type: docs, cost: free }
+          - { name: "MITRE ATLAS (see Case Studies)", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
       - id: unsafe-formats
         title: "Unsafe model files (pickle)"
         text: "Many model files are Python pickles, and loading one can run any code inside it. Prefer safetensors, and scan model files before loading them."
@@ -255,7 +255,6 @@ resources:
   - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
   - { name: "Adversarial Machine Learning: A Taxonomy and Terminology (NIST AI 100-2 E2025)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.100-2e2025", type: docs, cost: free }
   - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs, cost: free }
-  - { name: "OWASP Machine Learning Security Top 10", by: "OWASP Foundation", url: "https://owasp.org/www-project-machine-learning-security-top-10/", type: docs, cost: free }
   - { name: "Machine Learning Crash Course", by: "Google", url: "https://developers.google.com/machine-learning/crash-course", type: course, cost: free }
   - { name: "Practical Deep Learning for Coders", by: "fast.ai", url: "https://course.fast.ai/", type: course, cost: free }
   - { name: "The Algorithmic Foundations of Differential Privacy", by: "Cynthia Dwork and Aaron Roth", url: "https://www.cis.upenn.edu/~aaroth/privacybook.html", type: book, cost: free }
