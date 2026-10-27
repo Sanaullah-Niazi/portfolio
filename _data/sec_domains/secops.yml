@@ -39,7 +39,56 @@ stages:
   - level: beginner
     title: "Logs, alerts and the analyst's toolkit"
     months: "3–4"
-    topics: ["Windows event logs", "Linux logs (auth, syslog, journald)", "SIEM basics", "Alert triage", "Phishing analysis", "MITRE ATT&CK tactics", "Indicators of compromise", "Ticketing and escalation"]
+    topics:
+      - id: windows-logs
+        title: "Windows event logs"
+        text: "Windows records logons, process starts, service installs and policy changes in its event logs. Learn the handful of event IDs analysts use every day (4624 and 4625 for logons, 4688 for new processes, 7045 for new services) and what each field means."
+        res:
+          - { name: "Event 4624: An account was successfully logged on", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4624", type: docs, cost: free }
+          - { name: "Sysmon", by: "Microsoft Sysinternals", url: "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon", type: docs, cost: free }
+      - id: linux-logs
+        title: "Linux logs"
+        text: "On Linux, logins, sudo use and SSH attempts land in the auth log, and most services log through syslog or the systemd journal. Know where each lives and how to search them with journalctl and grep."
+        res:
+          - { name: "journalctl manual", by: "systemd project", url: "https://www.freedesktop.org/software/systemd/man/latest/journalctl.html", type: docs, cost: free }
+          - { name: "rsyslog documentation", by: "rsyslog", url: "https://www.rsyslog.com/doc/", type: docs, cost: free }
+      - id: siem-basics
+        title: "SIEM basics"
+        text: "A SIEM collects logs from everywhere into one searchable place and raises alerts when rules match. Learn how logs get in (agents, syslog, APIs), how they are parsed into fields, and how to search and build a simple dashboard."
+        res:
+          - { name: "Wazuh documentation", by: "Wazuh", url: "https://documentation.wazuh.com/current/index.html", type: docs, cost: free }
+          - { name: "Security Onion documentation", by: "Security Onion Solutions", url: "https://docs.securityonion.net/", type: docs, cost: free }
+      - id: alert-triage
+        title: "Alert triage"
+        text: "Triage is deciding, quickly and consistently, whether an alert is a real threat. Check what fired and why, gather context about the user and machine, look for related activity, then close, escalate or respond, and write down your reasoning."
+        res:
+          - { name: "SEC450: Blue Team Fundamentals", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/blue-team-fundamentals-security-operations-analysis/", type: course, cost: paid }
+          - { name: "LetsDefend SOC simulator", by: "LetsDefend", url: "https://letsdefend.io/", type: practice, cost: paid }
+      - id: phishing
+        title: "Phishing analysis"
+        text: "Phishing is still the most common way in. Learn to read email headers (SPF, DKIM and DMARC results, the real sending server), check links and attachments without opening them, and find every other user who got the same message."
+        res:
+          - { name: "Messageheader analyser", by: "Google Admin Toolbox", url: "https://toolbox.googleapps.com/apps/messageheader/", type: practice, cost: free }
+          - { name: "CyberChef", by: "GCHQ", url: "https://gchq.github.io/CyberChef/", type: practice, cost: free }
+      - id: attack
+        title: "MITRE ATT&CK tactics"
+        text: "ATT&CK is the shared language for describing what attackers do, from initial access to impact. Learn the 14 tactics and the most common techniques, and practise mapping alerts and incidents to them."
+        res:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+          - { name: "ATT&CK Navigator", by: "MITRE", url: "https://mitre-attack.github.io/attack-navigator/", type: practice, cost: free }
+      - id: iocs
+        title: "Indicators of compromise"
+        text: "IOCs are traces of an attack: file hashes, IP addresses, domains, registry keys. Learn how to look them up, why some are easy for attackers to change and others are not (the Pyramid of Pain), and where to find good ones."
+        res:
+          - { name: "The Pyramid of Pain", by: "David J. Bianco", url: "http://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html", type: docs, cost: free }
+          - { name: "abuse.ch threat intelligence", by: "abuse.ch", url: "https://abuse.ch/", type: practice, cost: free }
+          - { name: "VirusTotal", by: "Google", url: "https://www.virustotal.com/", type: practice, cost: free }
+      - id: escalation
+        title: "Tickets and escalation"
+        optional: true
+        text: "A SOC runs on clear handovers. Learn what a good ticket contains (what, where, when, evidence, what you did, what you recommend), and when and how to escalate to the next tier or wake someone up."
+        res:
+          - { name: "Incident Response Recommendations (SP 800-61 Rev. 3)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
     skills:
       - "Read Windows logon events (4624, 4625, 4688) and Linux auth logs and say what happened."
       - "Search a SIEM with simple queries and filters."
@@ -57,7 +106,54 @@ stages:
   - level: intermediate
     title: "Investigation and endpoint and network visibility"
     months: "4–6"
-    topics: ["EDR telemetry", "Process trees", "PowerShell and command-line logging", "Network security monitoring", "Zeek and Suricata", "Threat intelligence feeds", "Incident response lifecycle", "Query languages (KQL, SPL, ES|QL)"]
+    topics:
+      - id: edr
+        title: "EDR telemetry"
+        text: "Endpoint detection and response tools record what happens on each computer: processes, network connections, file and registry changes. Learn what data they collect, how to query it, and how to isolate a machine from the network."
+        res:
+          - { name: "osquery", by: "osquery project", url: "https://osquery.io/", type: docs, cost: free }
+          - { name: "Velociraptor documentation", by: "Velociraptor", url: "https://docs.velociraptor.app/", type: docs, cost: free }
+      - id: process-trees
+        title: "Process trees"
+        text: "Which program started which is often the clearest sign of an attack, such as Word starting PowerShell. Learn normal parent-child relationships on Windows so the odd ones stand out."
+        res:
+          - { name: "Process Explorer", by: "Microsoft Sysinternals", url: "https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer", type: docs, cost: free }
+          - { name: "Hunt Evil poster and other DFIR posters", by: "SANS Institute", url: "https://www.sans.org/posters/", type: docs, cost: free }
+      - id: powershell-logging
+        title: "PowerShell and command-line logging"
+        text: "Attackers love built-in tools. Script block logging, module logging and command-line auditing show what was actually run, even when it was obfuscated. Learn to turn them on and read them."
+        res:
+          - { name: "about_Logging_Windows", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logging_windows", type: docs, cost: free }
+      - id: nsm
+        title: "Network security monitoring"
+        text: "Network data shows what endpoints hide: scanning, beaconing to command-and-control servers, and data leaving the network. Learn to work with connection logs, DNS logs and full packet capture."
+        res:
+          - { name: "The Practice of Network Security Monitoring", by: "Richard Bejtlich (No Starch Press)", url: "https://nostarch.com/nsm", type: book, cost: paid }
+          - { name: "Malware-Traffic-Analysis.net exercises", by: "Brad Duncan", url: "https://www.malware-traffic-analysis.net/", type: practice, cost: free }
+      - id: zeek-suricata
+        title: "Zeek and Suricata"
+        text: "Zeek turns traffic into rich logs, and Suricata matches traffic against signatures. Together they are the open-source core of most network monitoring setups."
+        res:
+          - { name: "Zeek documentation", by: "Zeek Project", url: "https://docs.zeek.org/", type: docs, cost: free }
+          - { name: "Suricata documentation", by: "OISF", url: "https://docs.suricata.io/", type: docs, cost: free }
+      - id: threat-intel
+        title: "Threat intelligence feeds"
+        optional: true
+        text: "Intelligence adds context: is this IP known to be malicious, which group uses this technique? Learn how to consume feeds, judge their quality, and enrich alerts with them automatically."
+        res:
+          - { name: "MISP", by: "MISP Project", url: "https://www.misp-project.org/", type: docs, cost: free }
+          - { name: "AlienVault OTX", by: "LevelBlue", url: "https://otx.alienvault.com/", type: practice, cost: free }
+      - id: ir-lifecycle
+        title: "Incident response lifecycle"
+        text: "Every incident moves through preparation, detection and analysis, containment, eradication, recovery and lessons learned. Learn what each step means in practice and who does what."
+        res:
+          - { name: "Incident Response Recommendations (SP 800-61 Rev. 3)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
+      - id: query-languages
+        title: "SIEM query languages"
+        text: "Good analysts write queries that join, count and compare, not just search. Learn one SIEM language well (KQL for Microsoft Sentinel, SPL for Splunk), and the others come easily."
+        res:
+          - { name: "Kusto Query Language (KQL) overview", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/kusto/query/", type: docs, cost: free }
+          - { name: "Boss of the SOC v3 dataset", by: "Splunk", url: "https://github.com/splunk/botsv3", type: practice, cost: free }
     skills:
       - "Follow an attack from the first email to the last command using several log sources together."
       - "Write SIEM queries that join and count, not just search."
@@ -75,7 +171,54 @@ stages:
   - level: advanced
     title: "Detection engineering and automation"
     months: "6–9"
-    topics: ["Sigma rules", "Detection as code", "Detection testing", "SOAR playbooks", "Threat hunting methods", "Cloud logs (AWS CloudTrail, Microsoft 365, Entra ID)", "Active Directory attacks", "Purple teaming"]
+    topics:
+      - id: sigma
+        title: "Sigma rules"
+        text: "Sigma is a generic format for detections. Write a rule once and convert it for any SIEM. Learn the rule structure, read the community rules, and write your own."
+        res:
+          - { name: "Sigma documentation", by: "SigmaHQ", url: "https://sigmahq.io/", type: docs, cost: free }
+          - { name: "Sigma rule repository", by: "SigmaHQ", url: "https://github.com/SigmaHQ/sigma", type: docs, cost: free }
+      - id: detection-as-code
+        title: "Detection as code"
+        text: "Treat detections like software: store them in Git, review changes, test them automatically and deploy them through a pipeline. Study how large public rule sets are organised."
+        res:
+          - { name: "Elastic detection rules", by: "Elastic", url: "https://github.com/elastic/detection-rules", type: docs, cost: free }
+          - { name: "Splunk security content", by: "Splunk", url: "https://github.com/splunk/security_content", type: docs, cost: free }
+      - id: detection-testing
+        title: "Detection testing"
+        text: "A detection you have never seen fire is a guess. Run safe attack simulations against your lab, check the right alert fires, and keep those tests to catch regressions."
+        res:
+          - { name: "Atomic Red Team", by: "Red Canary", url: "https://github.com/redcanaryco/atomic-red-team", type: practice, cost: free }
+          - { name: "MITRE Caldera", by: "MITRE", url: "https://caldera.mitre.org/", type: practice, cost: free }
+      - id: soar
+        title: "SOAR playbooks"
+        text: "Security orchestration, automation and response tools take over the repetitive work: enriching alerts, opening tickets, blocking indicators. Learn to automate safely, with a human approving risky steps."
+        res:
+          - { name: "Shuffle documentation", by: "Shuffle", url: "https://shuffler.io/docs", type: docs, cost: free }
+      - id: hunting
+        title: "Threat hunting"
+        text: "Hunting means looking for attackers that no alert has caught, starting from a hypothesis such as 'someone is using stolen credentials over RDP'. Learn to form hypotheses from ATT&CK and intelligence, and turn what you find into detections."
+        res:
+          - { name: "ThreatHunter-Playbook", by: "Open Threat Research", url: "https://github.com/OTRF/ThreatHunter-Playbook", type: practice, cost: free }
+          - { name: "The DFIR Report", by: "The DFIR Report", url: "https://thedfirreport.com/", type: docs, cost: free }
+      - id: cloud-logs
+        title: "Cloud and SaaS logs"
+        text: "More and more attacks happen in cloud consoles and Microsoft 365, never touching an endpoint. Learn what AWS CloudTrail and the Microsoft 365 audit log record, and what suspicious activity looks like there."
+        res:
+          - { name: "AWS CloudTrail user guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html", type: docs, cost: free }
+          - { name: "Auditing solutions in Microsoft Purview", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/purview/audit-solutions-overview", type: docs, cost: free }
+      - id: ad-attacks
+        title: "Active Directory attacks"
+        text: "Most large intrusions end with the attacker controlling Active Directory. Learn Kerberoasting, pass-the-hash, DCSync and the events each leaves behind."
+        res:
+          - { name: "Active Directory Security", by: "Sean Metcalf", url: "https://adsecurity.org/", type: docs, cost: free }
+          - { name: "BloodHound Community Edition", by: "SpecterOps", url: "https://github.com/SpecterOps/BloodHound", type: practice, cost: free }
+      - id: purple
+        title: "Purple teaming"
+        optional: true
+        text: "In a purple team exercise, attackers and defenders work side by side: run a technique, check whether it was seen, fix the gap, repeat. It is the fastest way to improve detection coverage."
+        res:
+          - { name: "Purple Team Exercise Framework", by: "SCYTHE", url: "https://github.com/scythe-io/purple-team-exercise-framework", type: docs, cost: free }
     skills:
       - "Write, test and version detections in Git, and convert Sigma rules to your SIEM's language."
       - "Automate enrichment and routine response with a SOAR tool or scripts."
@@ -93,7 +236,46 @@ stages:
   - level: expert
     title: "Leading and designing security operations"
     months: "12–24"
-    topics: ["SOC design and maturity models", "Metrics (MTTD, MTTR, coverage)", "Threat-informed defence", "Log strategy and cost", "Major incident command", "Building teams and rotas", "AI-assisted analysis"]
+    topics:
+      - id: soc-design
+        title: "SOC design and maturity"
+        text: "Decide what a SOC should do, for whom, with which people, tools and processes, and measure how mature each part is. MITRE's free book is the standard reference."
+        res:
+          - { name: "11 Strategies of a World-Class Cybersecurity Operations Center", by: "MITRE", url: "https://www.mitre.org/news-insights/publication/11-strategies-world-class-cybersecurity-operations-center", type: book, cost: free }
+          - { name: "SOC-CMM maturity model", by: "SOC-CMM", url: "https://www.soc-cmm.com/", type: docs, cost: free }
+      - id: metrics
+        title: "Metrics that matter"
+        text: "Time to detect, time to respond, detection coverage and analyst workload tell you whether the SOC is improving. Learn which metrics drive good behaviour, and which ones people game."
+        res:
+          - { name: "11 Strategies of a World-Class Cybersecurity Operations Center", by: "MITRE", url: "https://www.mitre.org/news-insights/publication/11-strategies-world-class-cybersecurity-operations-center", type: book, cost: free }
+      - id: threat-informed
+        title: "Threat-informed defence"
+        text: "Build detections and controls around the threats your organisation actually faces, not a generic checklist. Use intelligence and ATT&CK to choose what to cover next."
+        res:
+          - { name: "Center for Threat-Informed Defense", by: "MITRE Engenuity", url: "https://ctid.mitre.org/", type: docs, cost: free }
+      - id: log-strategy
+        title: "Log strategy and cost"
+        text: "Logs cost money to collect and keep. Decide which sources matter most, how long to keep them, and where cheaper storage is good enough, without losing what you need in an incident."
+        res:
+          - { name: "Logging Made Easy", by: "CISA", url: "https://www.cisa.gov/resources-tools/services/logging-made-easy", type: practice, cost: free }
+      - id: incident-command
+        title: "Major incident command"
+        text: "In a major incident someone has to coordinate technical teams, executives, legal, communications and sometimes regulators. Practise it in tabletop exercises long before you need it."
+        res:
+          - { name: "CISA Tabletop Exercise Packages", by: "CISA", url: "https://www.cisa.gov/resources-tools/services/cisa-tabletop-exercise-packages", type: practice, cost: free }
+      - id: teams
+        title: "Building teams and rotas"
+        optional: true
+        text: "Round-the-clock monitoring burns people out. Learn how to design shifts, career paths and automation so analysts stay, learn and do interesting work."
+        res:
+          - { name: "11 Strategies of a World-Class Cybersecurity Operations Center", by: "MITRE", url: "https://www.mitre.org/news-insights/publication/11-strategies-world-class-cybersecurity-operations-center", type: book, cost: free }
+      - id: ai-soc
+        title: "AI-assisted analysis"
+        optional: true
+        text: "AI assistants can summarise alerts, write queries and draft reports, but they also make confident mistakes. Learn where they help, how to check their work, and the new risks they bring."
+        res:
+          - { name: "OWASP GenAI Security Project", by: "OWASP Foundation", url: "https://genai.owasp.org/", type: docs, cost: free }
+          - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
     skills:
       - "Design a SOC: what to log, which tools, which processes and which people."
       - "Lead a major incident with executives, legal and communications involved."
