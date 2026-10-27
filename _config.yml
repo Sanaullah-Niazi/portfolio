@@ -35,6 +35,29 @@ health_checker:
   turnstile_sitekey: "0x4AAAAAAFnnZEkRDo4FeZE5"
   report_days: 7
 
+# Public copy of the tools' code (kept in sync by .github/workflows/sync-tool-repos.yml). Linked from /tools/.
+tools_repo: https://github.com/Sanaullah-Niazi/free-security-tools
+
+# Visitor statistics without cookies (so no cookie banner is needed). Fill in ONE of these; empty = no statistics script.
+# The privacy page follows this setting.
+# - Cloudflare Web Analytics (recommended: the site already runs on Cloudflare, so there is no new account).
+#   Cloudflare dashboard > Analytics & Logs > Web Analytics > Add a site > sanaullahniazi.com, choose the
+#   JavaScript snippet (manual) setup, and paste the token from the snippet ("token": "...") here.
+cloudflare_analytics_token: ""
+# - GoatCounter: create a site at https://www.goatcounter.com/signup and paste its code here
+#   (for https://sanaullah.goatcounter.com the code is "sanaullah").
+goatcounter: ""
+
+# Ads. Off for now: no ad code is loaded anywhere. Only pages with "ads: true" can ever show ads; the defaults below
+# turn that on for the tools, roadmaps and security news pages (in every language) and nowhere else.
+# When Google AdSense approves the site: put your publisher ID (ca-pub-...) in client, set enabled: true, and
+# set up Google's consent message for EU/UK/Swiss visitors in AdSense > Privacy & messaging. ads.txt is built from client.
+# The privacy page already says ads may be shown on these pages; check its wording when ads go live.
+ads:
+  enabled: false
+  client: ""        # ca-pub-...
+  slot: ""          # the ad unit ID from AdSense > Ads > By ad unit
+
 # Used by search engines and link previews.
 author:
   name: Sana Ullah Khan
@@ -74,11 +97,36 @@ defaults:
   - scope: { path: "google68fd583c48fd5ed6.html" }
     values: { sitemap: false }
   - scope: { path: "", type: projects }
-    values: { layout: project }
+    values: { layout: project, seo: { type: CreativeWork } }   # a project page, not a blog post
   - scope: { path: "", type: posts }
     values: { layout: post }
   - scope: { path: "", type: briefs }
     values: { layout: brief }
+  # Pages where ads may be shown later (see "ads" above). Nowhere else.
+  - scope: { path: "tools" }
+    values: { ads: true }
+  - scope: { path: "roadmaps" }
+    values: { ads: true }
+  - scope: { path: "security-news" }
+    values: { ads: true }
+  - scope: { path: "ur/tools" }
+    values: { ads: true }
+  - scope: { path: "ur/roadmaps" }
+    values: { ads: true }
+  - scope: { path: "ur/security-news" }
+    values: { ads: true }
+  - scope: { path: "de/tools" }
+    values: { ads: true }
+  - scope: { path: "de/roadmaps" }
+    values: { ads: true }
+  - scope: { path: "de/security-news" }
+    values: { ads: true }
+  - scope: { path: "zh/tools" }
+    values: { ads: true }
+  - scope: { path: "zh/roadmaps" }
+    values: { ads: true }
+  - scope: { path: "zh/security-news" }
+    values: { ads: true }
 
 permalink: /blog/:year/:title/
 

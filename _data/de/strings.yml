@@ -17,6 +17,8 @@ menu_close: Menü schließen
 theme_toggle: Zwischen hellem und dunklem Modus wechseln
 profiles: Profile
 email: E-Mail
+sep: ", "
+ad_label: "Anzeige"
 
 nav_about: Über mich
 nav_research: Forschung
@@ -26,7 +28,7 @@ nav_skills: Kenntnisse
 nav_notes: Notizen
 nav_tools: Tools
 nav_roadmaps: Lernpfade
-nav_news: News
+nav_news: Sicherheitsnews
 nav_contact: Kontakt
 
 btn_cv: Lebenslauf herunterladen
@@ -36,9 +38,9 @@ cv_short: Lebenslauf
 terminal_label: Kurzprofil im Stil eines Terminals
 scroll_next: Zum nächsten Abschnitt
 
-news_eyebrow: Neuigkeiten
-news_title: Aktuelle Neuigkeiten
-news_all: Alle Neuigkeiten
+news_eyebrow: Updates
+news_title: Neueste Updates
+news_all: Alle Updates
 
 focus_eyebrow: "Ein Schwerpunkt: KI für Sicherheit"
 focus_title: Meine Schwerpunkte
@@ -82,6 +84,15 @@ tools_eyebrow: "Kostenlose Tools"
 tools_title: "Kostenlose Sicherheitstools zum sofortigen Ausprobieren"
 tools_lede: "Kleine Tools aus meiner eigenen Sicherheitsarbeit. Sie laufen in Ihrem Browser, ohne Anmeldung."
 tools_all: "Alle %n Tools"
+# Short "Free resources" band near the top of the home page.
+start_label: "Kostenlose Angebote"
+start_tools: "Ich habe %n kostenlose Sicherheits- und Entwickler-Tools gebaut, die in Ihrem Browser laufen."
+start_explore: "Tools ansehen"
+start_code: "Code auf GitHub ansehen"
+start_rm_title: "Lern-Roadmaps"
+start_rm_text: "Schritt-für-Schritt-Wege in Cybersicherheit, KI und Daten, mit kostenlosen Ressourcen und einem Projekt pro Etappe."
+start_sn_title: "Sicherheitsnews"
+start_sn_text: "Die heutigen Sicherheitsmeldungen aus vertrauenswürdigen Quellen und eine kurze tägliche Zusammenfassung."
 all_projects_back: Alle Projekte
 filter_label: "Nach Thema filtern:"
 filter_all: Alle
@@ -145,6 +156,12 @@ notes_all: Alle Notizen
 notes_page_title: Notizen zur KI-Sicherheit
 notes_page_lede: Kurze Beiträge zu KI-Sicherheit, Erkennung und dem, was ich lerne und baue.
 notes_empty: Noch keine Notizen. Die erste ist unterwegs.
+writeups_title: "Write-ups"
+writeups_lede: "Schritt-für-Schritt-Notizen zu Labs und CTFs, die ich gelöst habe."
+labs_title: "Praxis-Labs"
+labs_note: "Übung in echten Angriffs- und Verteidigungs-Labs"
+labs_thm: "TryHackMe-Profil"
+labs_htb: "Hack-The-Box-Profil"
 topics: Themen
 rss: RSS-Feed (Englisch)
 

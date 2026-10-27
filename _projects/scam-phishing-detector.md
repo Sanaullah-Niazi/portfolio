@@ -1,6 +1,7 @@
 ---
 title: "AI-powered scam & phishing detector (English, Urdu, Roman Urdu)"
 summary: A tool that flags scam and phishing messages written in English, Urdu and Roman Urdu, the languages people in Pakistan actually receive them in.
+description: "A tool that flags scam and phishing messages written in English, Urdu and Roman Urdu, the languages people in Pakistan actually receive them in."
 status: In progress     # In progress  or  Completed
 order: 1               # lower numbers show first
 topics: [AI, Security] # used by the topic filter: AI, Security, Networks

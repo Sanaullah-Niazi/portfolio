@@ -42,6 +42,17 @@ hid_scan: "Scan"
 jwt_lede: "Reads a JSON Web Token and points out risky settings, such as no signature algorithm, no expiry or secrets in the payload. It doesn't check the signature, because that needs the server's key."
 jwt_label: "Token"
 foot: "Found a bug or want another tool?"
+about_title: "About these tools"
+# {privacy}, {contact} and {code} are replaced with the right links.
+about_points:
+  - "They are free to use, with no sign-up."
+  - "They run in your browser. What you type or the files you choose stay on your device. The only exceptions are the leaked password checker, which sends just the first 5 characters of a hash, and the website health checker, which needs a server to visit the site. The <a href=\"{privacy}\">privacy policy</a> explains both."
+  - "They are for learning and for checking your own things. Only test websites, tokens and files that you own or have permission to test."
+  - "They come with no guarantee. A clean result doesn't prove something is safe, so use them alongside your own judgement."
+  - "Found a bug? Tell me through the <a href=\"{contact}\">contact form</a>."
+  - "The code is open on GitHub: <a href=\"{code}\">free-security-tools</a>."
+support: "Support these free tools"
+support_note: "If they help you, you can support the work."
 
 # Shared labels on each tool's own page.
 crumbs: "Breadcrumb"

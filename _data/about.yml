@@ -1,13 +1,18 @@
 # The "About" section on the home page: the path on the left, the story on the right and the two fact boxes.
 journey:
   - title: Diploma, Health, Safety & Environment
+    dates: "2017 – 2020"
     note: Risk, hazards and prevention
   - title: BS Information Technology
-    note: First security and networking courses
+    dates: "Oct 2019 – Jul 2023"
+    note: "First security and networking courses · started in the diploma's final year"
   - title: MS Artificial Intelligence
+    dates: "Nov 2023 – Jan 2026"
     note: CGPA 3.66 · 3 papers · thesis
   - title: AI × Cybersecurity
     note: Where I'm heading next
+# Shown under the story, so people searching for the other spelling of the name find this site.
+aka: "Also written as Sanaullah Khan Niazi."
 story:
   - I grew up in Chaman, Balochistan. My path has not been a straight line. After school I completed a three-year diploma in Health, Safety & Environmental Engineering, which taught me to think in terms of risk, hazards and prevention. I now apply the same way of thinking to digital systems.
   - "I then studied Information Technology at BUITEMS in Quetta, where I took my first security and networking courses. My bachelor's grades don't show my best work: I spent much of that time on cricket, football and freelance work. Towards the end of my BS I learned to manage my time and take my studies seriously."

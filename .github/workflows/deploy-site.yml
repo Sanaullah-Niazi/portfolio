@@ -45,6 +45,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+          # Full history, so the sitemap can date each page by its last commit.
+          fetch-depth: 0
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -58,6 +60,8 @@ jobs:
           bundle exec jekyll build
           # Lets the last step (and you) see which commit is live: open /version.txt on the site.
           git rev-parse HEAD > _site/version.txt
+          # Every sitemap address gets the date its page last changed.
+          python3 scripts/sitemap_lastmod.py _site/sitemap.xml
 
       - uses: actions/setup-node@v4
         with:

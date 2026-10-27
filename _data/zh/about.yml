@@ -1,12 +1,17 @@
 journey:
   - title: 职业安全、健康与环境专科文凭
+    dates: "2017 – 2020"
     note: 风险、危害与预防
   - title: 信息技术学士
-    note: 第一次接触安全和网络课程
+    dates: "2019年10月 – 2023年7月"
+    note: "第一次接触安全和网络课程 · 在专科最后一年开始"
   - title: 人工智能硕士
+    dates: "2023年11月 – 2026年1月"
     note: CGPA 3.66 · 3 篇论文 · 学位论文
   - title: AI × 网络安全
     note: 我接下来的方向
+# Shown under the story, so people searching for the other spelling of the name find this site.
+aka: "我的名字也写作 Sanaullah Khan Niazi。"
 story:
   - 我在俾路支省的查曼长大。我的道路并不笔直。中学毕业后，我读了三年制的职业安全、健康与环境技术专科，在那里学会了用风险、危害和预防的方式思考问题。如今，我把同样的思维方式用在数字系统上。
   - 之后，我在奎达的 BUITEMS 学习信息技术，第一次修读了安全和网络方面的课程。我的本科成绩并不能代表我的最佳水平：那时很多时间花在了板球、足球和自由职业上。到了学业后期，我学会了管理时间，开始认真对待学习。

@@ -50,17 +50,47 @@
 
 {% assign news = D.news | default: site.data.news %}
 {% if news.size > 0 %}
-<section class="news-band" id="news" aria-labelledby="news-title">
+<section class="news-band" id="updates" aria-labelledby="news-title">
   <div class="wrap news-inner">
     <div class="news-head">
       <p class="eyebrow">{% include icon.html name="megaphone" px=16 %}{{ S.news_eyebrow }}</p>
       <h2 id="news-title" class="sr-only">{{ S.news_title }}</h2>
-      <a class="link-arrow" href="{{ L }}/research/#news-all-title">{{ S.news_all }} {% include icon.html name="arrow" px=16 %}</a>
+      <a class="link-arrow" href="{{ L }}/research/#updates">{{ S.news_all }} {% include icon.html name="arrow" px=16 %}</a>
     </div>
     {% include news-list.html limit=4 strip=true %}
   </div>
 </section>
 {% endif %}
+
+{%- comment -%} "Free resources" band: the tools (with a few featured ones), the roadmaps and the security news, right under the hero. {%- endcomment %}
+{%- assign T = D.tools | default: site.data.tools %}{% assign start_tools = "web,ph,leak,hid" | split: "," %}
+<section class="start-band" id="resources" aria-labelledby="start-title">
+  <div class="wrap start-grid">
+    <div class="start-tools">
+      <h2 id="start-title" class="eyebrow">{% include icon.html name="tools" px=16 %}{{ S.start_label }}</h2>
+      <p class="start-lede">{{ S.start_tools | replace: "%n", site.data.tool_list.size }}</p>
+      <ul class="start-chips">
+        {%- for key in start_tools %}{% assign st = site.data.tool_list | where: "key", key | first %}{% assign tk = key | append: "_title" %}
+        <li><a href="{{ L }}/tools/{{ st.slug }}/">{% include icon.html name=st.icon px=16 %}{{ T[tk] }}</a></li>
+        {%- endfor %}
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="{{ L }}/tools/">{% include icon.html name="tools" px=18 %}{{ S.start_explore }}</a>
+        <a class="btn" href="{{ site.tools_repo }}" rel="noopener">{% include icon.html name="github" px=18 %}{{ S.start_code }}</a>
+      </div>
+    </div>
+    <a class="card spot start-card" href="{{ L }}/roadmaps/">
+      <span class="icon-tile">{% include icon.html name="map" px=22 %}</span>
+      <strong>{{ S.start_rm_title }}</strong>
+      <span>{{ S.start_rm_text }}</span>
+    </a>
+    <a class="card spot start-card" href="{{ L }}/security-news/">
+      <span class="icon-tile">{% include icon.html name="radar" px=22 %}</span>
+      <strong>{{ S.start_sn_title }}</strong>
+      <span>{{ S.start_sn_text }}</span>
+    </a>
+  </div>
+</section>
 
 <section class="section" id="focus" aria-labelledby="focus-title">
   <div class="wrap">
@@ -93,13 +123,14 @@
       </header>
       <ol class="journey" aria-label="{{ S.journey_label }}">
         {% for j in about.journey %}
-        <li{% if forloop.last %} class="j-now"{% endif %}><span class="j-dot" aria-hidden="true"></span><strong>{{ j.title }}</strong><span>{{ j.note }}</span></li>
+        <li{% if forloop.last %} class="j-now"{% endif %}><span class="j-dot" aria-hidden="true"></span><strong>{{ j.title }}</strong>{% if j.dates %}<span class="j-dates">{{ j.dates }}</span>{% endif %}<span>{{ j.note }}</span></li>
         {% endfor %}
       </ol>
     </div>
     <div class="prose reveal">
       {% for para in about.story %}<p>{{ para }}</p>
       {% endfor %}
+      {% if about.aka %}<p class="aka muted">{{ about.aka }}</p>{% endif %}
       <dl class="facts">
         {% for f in about.facts %}<div><dt>{% include icon.html name=f.icon px=18 %}{{ f.label }}</dt><dd>{{ f.text }}</dd></div>{% endfor %}
       </dl>
@@ -121,7 +152,7 @@
       {% for p in site.data.publications %}
       {% assign role_key = 'role_' | append: p.role | replace: ' ', '_' %}
       <li class="card pub reveal spot">
-        <div class="pub-top"><span class="pub-num" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ S[role_key] | default: p.role }}</span><span class="pub-year">{{ p.year }}</span></div>
+        <div class="pub-top"><span class="pub-num" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ S[role_key] | default: p.role }}</span>{% include sep.html %}<span class="pub-year">{{ p.year }}</span></div>
         <p class="pub-title" lang="en">{{ p.title }}</p>
         <p class="meta" lang="en">{{ p.authors }} ({{ p.year }}). <em>{{ p.journal }}{% if p.volume %}, {{ p.volume }}{% if p.issue %}({{ p.issue }}){% endif %}{% endif %}{% if p.pages %}, {{ p.pages }}{% endif %}</em>.</p>
         <div class="pub-links">
@@ -239,6 +270,17 @@
         <ul class="tags">{% for s in g.items %}<li>{{ s }}</li>{% endfor %}</ul>
       </div>
       {% endfor %}
+      {%- comment -%} Hands-on labs: appears once a TryHackMe or Hack The Box profile is filled in in _data/profile.yml. {%- endcomment %}
+      {%- if me.tryhackme != '' or me.hackthebox != '' %}
+      <div class="card skill-group reveal spot" id="labs">
+        <div class="skill-head"><span class="icon-tile">{% include icon.html name="flag" px=22 %}</span><div><h3>{{ S.labs_title }}</h3><p class="level">{{ S.labs_note }}</p></div></div>
+        <ul class="tags">
+          {%- if me.tryhackme != '' %}<li><a href="{{ me.tryhackme }}" rel="noopener">{{ S.labs_thm }}</a></li>{% endif %}
+          {%- if me.hackthebox != '' %}<li><a href="{{ me.hackthebox }}" rel="noopener">{{ S.labs_htb }}</a></li>{% endif %}
+          <li><a href="{{ L }}/blog/">{{ S.writeups_title }}</a></li>
+        </ul>
+      </div>
+      {%- endif %}
     </div>
   </div>
 </section>
@@ -297,7 +339,11 @@
     </div>
   </div>
 </section>
-{%- comment -%} Tells search engines who this site is about (Person schema). The profile links come from social.links in _config.yml. {%- endcomment %}
+{%- comment -%} Tells search engines who this site is about (Person schema). Profile links: social.links in _config.yml, plus TryHackMe and ORCID from _data/profile.yml once they are filled in. {%- endcomment %}
+{%- assign same_as = site.social.links %}
+{%- if me.tryhackme and me.tryhackme != '' %}{% assign same_as = same_as | push: me.tryhackme %}{% endif %}
+{%- if me.orcid and me.orcid != '' %}{% assign same_as = same_as | push: me.orcid %}{% endif %}
+{%- assign same_as = same_as | uniq %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","@id":{{ '/#person' | absolute_url | jsonify }},"name":{{ me.name | jsonify }},"alternateName":"Sanaullah Khan Niazi","url":{{ '/' | absolute_url | jsonify }},"image":{{ site.defaults[0].values.image.path | absolute_url | jsonify }},"jobTitle":"AI cybersecurity researcher","description":{{ site.description | strip | jsonify }},"knowsAbout":["Artificial intelligence","Machine learning","Natural language processing","Cybersecurity","Phishing detection","Scam and fraud detection","AI-generated text detection"],"homeLocation":{"@type":"Country","name":{{ me.location | jsonify }}},"sameAs":{{ site.social.links | jsonify }}}
+{"@context":"https://schema.org","@type":"Person","@id":{{ '/#person' | absolute_url | jsonify }},"name":{{ me.name | jsonify }},"alternateName":["Sanaullah Khan Niazi","Sana Ullah Niazi"],"url":{{ '/' | absolute_url | jsonify }},"image":{{ me.photo | default: site.defaults[0].values.image.path | absolute_url | jsonify }},"email":{{ me.email | prepend: 'mailto:' | jsonify }},"jobTitle":"AI & Cybersecurity Researcher","description":{{ site.description | strip | jsonify }},"alumniOf":[{"@type":"CollegeOrUniversity","name":"The Islamia University of Bahawalpur","url":"https://www.iub.edu.pk/"},{"@type":"CollegeOrUniversity","name":"Balochistan University of Information Technology, Engineering and Management Sciences (BUITEMS)","url":"https://www.buitms.edu.pk/"}],"knowsAbout":["AI security","AI-generated text detection","Phishing and fraud detection","Natural language processing","Machine learning","Cybersecurity"],"homeLocation":{"@type":"Country","name":{{ me.location | jsonify }}},"sameAs":{{ same_as | jsonify }}}
 </script>

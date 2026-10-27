@@ -41,6 +41,17 @@ hid_scan: "Prüfen"
 jwt_lede: "Liest ein JSON Web Token und zeigt riskante Einstellungen, etwa keinen Signaturalgorithmus, kein Ablaufdatum oder Geheimnisse im Payload. Die Signatur wird nicht geprüft, dafür braucht man den Schlüssel des Servers."
 jwt_label: "Token"
 foot: "Einen Fehler gefunden oder einen Wunsch für ein weiteres Tool?"
+about_title: "Über diese Tools"
+# {privacy}, {contact} and {code} are replaced with the right links.
+about_points:
+  - "Sie sind kostenlos und ohne Anmeldung nutzbar."
+  - "Sie laufen in Ihrem Browser. Eingaben und ausgewählte Dateien bleiben auf Ihrem Gerät. Ausnahmen sind nur der Check auf geleakte Passwörter, der nur die ersten 5 Zeichen eines Hashs sendet, und der Website-Check, der einen Server braucht, um die Seite aufzurufen. Die <a href=\"{privacy}\">Datenschutzerklärung</a> erklärt beides."
+  - "Sie dienen zum Lernen und zum Prüfen eigener Dinge. Prüfen Sie nur Websites, Tokens und Dateien, die Ihnen gehören oder für die Sie eine Erlaubnis haben."
+  - "Es gibt keine Garantie. Ein unauffälliges Ergebnis beweist nicht, dass etwas sicher ist. Nutzen Sie die Tools zusammen mit Ihrem eigenen Urteil."
+  - "Einen Fehler gefunden? Schreiben Sie mir über das <a href=\"{contact}\">Kontaktformular</a>."
+  - "Der Code ist offen auf GitHub: <a href=\"{code}\">free-security-tools</a>."
+support: "Diese kostenlosen Tools unterstützen"
+support_note: "Wenn sie Ihnen helfen, können Sie die Arbeit unterstützen."
 
 # Gemeinsame Texte auf jeder Tool-Seite.
 crumbs: "Brotkrümelnavigation"

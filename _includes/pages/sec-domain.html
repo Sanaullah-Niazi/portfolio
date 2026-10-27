@@ -113,7 +113,7 @@
       {%- for r in X.resources %}
       <li>
         <a href="{{ r.url }}" rel="noopener">{{ r.name }}</a>
-        <span class="rm-res-meta"><span class="rm-type">{{ W.types[r.type] }}</span><span class="rm-type{% unless r.cost == 'free' %} is-audit{% endunless %}">{% if r.cost == 'paid' %}{{ W.res_paid }}{% elsif r.cost == 'audit' %}{{ W.res_audit }}{% else %}{{ W.res_free }}{% endif %}</span><span class="muted">{{ r.by }}</span></span>
+        <span class="rm-res-meta"><span class="rm-type">{{ W.types[r.type] }}</span>{% include sep.html %}<span class="rm-type{% unless r.cost == 'free' %} is-audit{% endunless %}">{% if r.cost == 'paid' %}{{ W.res_paid }}{% elsif r.cost == 'audit' %}{{ W.res_audit }}{% else %}{{ W.res_free }}{% endif %}</span>{% include sep.html %}<span class="muted">{{ r.by }}</span></span>
       </li>
       {%- endfor %}
     </ul>

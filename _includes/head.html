@@ -4,8 +4,15 @@
 {%- comment -%} Security policy: only this site's own scripts run; the form may only post to Web3Forms, and the leaked password checker may only ask the Pwned Passwords range API (it sends 5 characters of a hash). GitHub Pages can't send headers, so it goes in a meta tag. {%- endcomment %}
 {%- comment -%} The website checker page also loads the Turnstile CAPTCHA and talks to its own Worker (site.health_checker). {%- endcomment %}
 {%- if page.tool == "web" %}{% assign csp_script = " https://challenges.cloudflare.com" %}{% assign csp_connect = " " | append: site.health_checker.api %}{% endif %}
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'{{ csp_script }}; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://api.web3forms.com https://api.pwnedpasswords.com{{ csp_connect | rstrip }}; form-action https://api.web3forms.com; frame-src https:; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+{%- comment -%} Visitor statistics (only when _config.yml has a Cloudflare Web Analytics token or a GoatCounter code): the script, and where it reports page views. {%- endcomment %}
+{%- if site.cloudflare_analytics_token != "" %}{% assign cf_beacon = true %}{% assign csp_script = csp_script | append: " https://static.cloudflareinsights.com" %}{% assign csp_connect = csp_connect | append: " https://cloudflareinsights.com" %}{% endif %}
+{%- if site.goatcounter != "" and site.cloudflare_analytics_token == "" %}{% assign gc_url = "https://" | append: site.goatcounter | append: ".goatcounter.com" %}{% assign csp_script = csp_script | append: " https://gc.zgo.at" %}{% assign csp_connect = csp_connect | append: " " | append: gc_url %}{% endif %}
+{%- comment -%} Ads (only when ads.enabled in _config.yml, and only on pages with ads: true). AdSense loads scripts and frames from many Google hosts, so those pages allow any https script. {%- endcomment %}
+{%- if site.ads.enabled and page.ads and site.ads.client != "" %}{% assign show_ads = true %}{% assign csp_script = csp_script | append: " https:" %}{% assign csp_connect = csp_connect | append: " https:" %}{% assign csp_style = " 'unsafe-inline'" %}{% else %}{% assign show_ads = false %}{% endif %}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'{{ csp_script }}; style-src 'self' https://fonts.googleapis.com{{ csp_style }}; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://api.web3forms.com https://api.pwnedpasswords.com{{ csp_connect | rstrip }}; form-action https://api.web3forms.com; frame-src https:; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+{%- if page.robots %}
+<meta name="robots" content="{{ page.robots }}">{% endif %}
 {%- assign v = site.time | date: '%s' -%}
 <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ v }}"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,11 +20,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ v }}">
 <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
-<meta name="keywords" content="AI cybersecurity researcher, machine learning, NLP, phishing detection, scam detection, fraud detection, AI-generated text detection, LLM security, SOC, Sana Ullah Khan">
 {%- comment -%} Title, description, canonical URL, Open Graph and JSON-LD from jekyll-seo-tag, minus its Twitter card tags (not used). {%- endcomment %}
 {%- capture seo_tags %}{% seo %}{% endcapture %}
 {%- assign seo_lines = seo_tags | newline_to_br | split: "<br />" %}
-{%- for line in seo_lines %}{% unless line contains "twitter:" %}{{ line }}{% endunless %}{% endfor %}
+{%- comment -%} Pages whose title already has the name in it (the home pages) don't get " | Sana Ullah Khan" added again. {%- endcomment %}
+{%- assign title_suffix = " | " | append: site.title | append: "</title>" %}
+{%- for line in seo_lines %}{% unless line contains "twitter:" %}{% if line contains "<title>" and page.title contains site.title %}{{ line | replace: title_suffix, "</title>" }}{% else %}{{ line }}{% endif %}{% endunless %}{% endfor %}
 {%- comment -%} hreflang: only languages this page really exists in. {%- endcomment %}
 {%- for l in site.languages %}{% include lang-urls.html code=l.code %}{% if alt_exists %}
 <link rel="alternate" hreflang="{{ l.tag }}" href="{{ alt_url | absolute_url }}">{% endif %}
@@ -26,6 +34,12 @@
 <link rel="alternate" hreflang="x-default" href="{{ alt_url | absolute_url }}">
 {% feed_meta %}
 <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ v }}" defer></script>
+{%- if cf_beacon %}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cloudflare_analytics_token }}"}'></script>{% endif %}
+{%- if gc_url %}
+<script data-goatcounter="{{ gc_url }}/count" async src="https://gc.zgo.at/count.js"></script>{% endif %}
+{%- if show_ads %}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.ads.client }}" crossorigin="anonymous"></script>{% endif %}
 {%- for s in page.scripts %}
 <script src="{{ s | relative_url }}?v={{ v }}" defer></script>
 {%- endfor %}
