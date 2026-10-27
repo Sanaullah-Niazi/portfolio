@@ -1,4 +1,5 @@
 # To add a verification link, paste it after verify_url (e.g. a Credly badge URL).
+# To show a picture of the certificate in the gallery, upload it to assets/img/certificates/ and write its file name after image, e.g. image: cisco-ethical-hacker.jpg
 - group: Cybersecurity & digital forensics
   icon: shield
   items:
@@ -6,18 +7,22 @@
       issuer: NAVTTC, Govt. of Pakistan
       date: Feb – May 2024
       verify_url: ""
+      image: ""
     - name: Junior Cybersecurity Analyst Career Path
       issuer: Cisco Networking Academy
       date: Oct 2024
       verify_url: ""
+      image: ""
     - name: Ethical Hacker
       issuer: Cisco Networking Academy
       date: Nov 2024
       verify_url: ""
+      image: ""
     - name: Introduction to Cybersecurity
       issuer: Cisco Networking Academy
       date: Nov 2024
       verify_url: ""
+      image: ""
 - group: AI, programming & IoT
   icon: chip
   items:
@@ -25,18 +30,22 @@
       issuer: Meta (Coursera)
       date: Feb 2025
       verify_url: ""
+      image: ""
     - name: Advanced Chatbots with Deep Learning and Python
       issuer: Packt (Coursera)
       date: Feb 2025
       verify_url: ""
+      image: ""
     - name: AI Python for Beginners
       issuer: DeepLearning.AI (Coursera)
       date: Mar 2025
       verify_url: ""
+      image: ""
     - name: IoT for Everyone
       issuer: UET Peshawar / HEC (Coursera)
       date: Jul 2026
       verify_url: ""
+      image: ""
 - group: Other training
   icon: award
   items:
@@ -44,7 +53,9 @@
       issuer: IOSH
       date: "2026"
       verify_url: ""
+      image: ""
     - name: 30-hour General Industry Safety and Health
       issuer: OSHAcademy
       date: "2026"
       verify_url: ""
+      image: ""

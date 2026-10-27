@@ -1,21 +1,29 @@
 ---
 layout: default
 title: Notes
-description: Notes by Sana Ullah Khan on AI, machine learning and cybersecurity.
+description: Notes by Sana Ullah Khan on AI security, machine learning and cybersecurity.
 ---
 <div class="wrap page">
   <header class="page-head">
-    <p class="eyebrow">Notes</p>
-    <h1>Notes on AI and security</h1>
-    <p class="lede">Short write-ups of what I'm learning and building.</p>
+    <p class="eyebrow" data-i18n="nav_notes">Notes</p>
+    <h1 data-i18n="notes_page_title">Notes on AI security</h1>
+    <p class="lede" data-i18n="notes_page_lede">Short write-ups on AI security, detection and what I'm learning and building.</p>
   </header>
   {% if site.posts.size > 0 %}
   <ul class="post-list">
     {% for post in site.posts %}
-    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %b %Y' }}</time></li>
+    <li>
+      <div class="post-main">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        {% if post.description %}<p class="muted">{{ post.description }}</p>{% endif %}
+        {% if post.tags.size > 0 %}<ul class="tags" aria-label="Topics">{% for t in post.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+      </div>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %b %Y' }}</time>
+    </li>
     {% endfor %}
   </ul>
+  <p class="more"><a class="link-arrow" href="{{ '/blog/feed.xml' | relative_url }}">RSS feed {% include icon.html name="arrow" px=16 %}</a></p>
   {% else %}
-  <p class="empty">No notes yet. The first one is on its way.</p>
+  <p class="empty" data-i18n="notes_empty">No notes yet. The first one is on its way.</p>
   {% endif %}
 </div>

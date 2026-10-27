@@ -5,15 +5,11 @@
       <p class="brand-name">{{ me.name }}</p>
       <p class="muted">{{ site.tagline }} · AI × Cybersecurity</p>
     </div>
-    <ul class="social" aria-label="Profiles">
-      <li><a href="{{ me.github }}" aria-label="GitHub">{% include icon.html name="github" %}</a></li>
-      <li><a href="{{ me.linkedin }}" aria-label="LinkedIn">{% include icon.html name="linkedin" %}</a></li>
-      <li><a href="{{ me.scholar }}" aria-label="Google Scholar">{% include icon.html name="scholar" %}</a></li>
-      <li><a href="mailto:{{ me.email }}" aria-label="Email">{% include icon.html name="mail" %}</a></li>
-    </ul>
+    {% include social.html %}
   </div>
   <div class="wrap footer-base">
-    <span>© {{ site.time | date: '%Y' }} {{ me.name }}. All rights reserved.</span>
+    <span>© {{ site.time | date: '%Y' }} {{ me.name }}. <span data-i18n="footer_rights">All rights reserved.</span></span>
     <span class="footer-links"><a href="{{ '/blog/feed.xml' | relative_url }}">RSS</a><a href="{{ '/.well-known/security.txt' | relative_url }}">security.txt</a></span>
   </div>
+  <a class="to-top" href="#main" aria-label="Back to top">{% include icon.html name="arrow-up" px=20 %}</a>
 </footer>

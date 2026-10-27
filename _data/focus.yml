@@ -1,21 +1,33 @@
 # "One focus, five angles". Each area says what you can show for it, honestly.
+# score (1 to 4) sets how far each point reaches on the skills chart:
+# 1 = learning, 2 = training & lab, 3 = applied in my own work, 4 = research / published.
 - area: Machine learning & NLP
+  short: ML & NLP      # label on the skills chart
   icon: brain
   level: Research level
+  score: 4
   evidence: MS thesis on AI vs. human text classification with LSTM, BERT and hybrid models (99.65% accuracy, ~500,000 texts).
 - area: Threat & fraud detection
+  short: Threat & fraud      # label on the skills chart
   icon: radar
   level: Published research
+  score: 4
   evidence: First author of a peer-reviewed paper on AI-driven fraud detection for FinTech cybersecurity.
 - area: AI security
+  short: AI security      # label on the skills chart
   icon: lock
   level: Current direction
+  score: 3
   evidence: Detecting AI-generated content today; adversarial ML and LLM security are what I want to study next.
 - area: SOC & blue team
+  short: SOC & blue team      # label on the skills chart
   icon: monitor
   level: Training & lab level
+  score: 2
   evidence: Cisco Junior Cybersecurity Analyst career path and a 3-month NAVTTC course in digital forensics & cyber security (Grade A).
 - area: Penetration testing & ethical hacking
+  short: Pentesting      # label on the skills chart
   icon: bug
   level: Training & lab level
+  score: 2
   evidence: Cisco Ethical Hacker programme; hands-on lab work with Kali Linux, Nmap and Wireshark.

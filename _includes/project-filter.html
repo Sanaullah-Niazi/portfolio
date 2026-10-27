@@ -1,0 +1,13 @@
+{%- comment -%} Topic filter buttons for a list of project cards. Usage: {% include project-filter.html projects=projects %} placed right before the grid. {%- endcomment -%}
+{%- assign topics = "" | split: "" -%}
+{%- for p in include.projects -%}{%- for t in p.topics -%}{%- unless topics contains t -%}{%- assign topics = topics | push: t -%}{%- endunless -%}{%- endfor -%}{%- endfor -%}
+{%- if topics.size > 1 -%}
+<div class="filter" role="group" aria-labelledby="filter-label-{{ include.id | default: 'projects' }}">
+  <span class="filter-label" id="filter-label-{{ include.id | default: 'projects' }}" data-i18n="filter_label">Filter by topic:</span>
+  <button type="button" class="chip-btn" aria-pressed="true" data-topic=""><span data-i18n="filter_all">All</span></button>
+  {%- for t in topics %}
+  <button type="button" class="chip-btn" aria-pressed="false" data-topic="{{ t }}"><span data-i18n="topic_{{ t }}">{{ t }}</span></button>
+  {%- endfor %}
+  <p class="filter-status sr-only" role="status" aria-live="polite"></p>
+</div>
+{%- endif -%}

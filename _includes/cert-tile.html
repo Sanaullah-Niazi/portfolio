@@ -1,0 +1,21 @@
+{%- assign c = include.c -%}
+<li class="card cert-tile reveal spot">
+  {%- if c.image and c.image != '' %}
+  {%- assign src = '/assets/img/certificates/' | append: c.image | relative_url -%}
+  <button type="button" class="cert-thumb has-img" data-full="{{ src }}" data-caption="{{ c.name | escape }} · {{ c.issuer | escape }}">
+    <img src="{{ src }}" alt="{{ c.name | escape }} certificate" loading="lazy" decoding="async">
+    <span class="sr-only">Enlarge</span>
+  </button>
+  {%- else %}
+  <div class="cert-thumb" aria-hidden="true">
+    <span class="cert-seal">{% include icon.html name=include.icon px=26 %}</span>
+    <span class="cert-issuer">{{ c.issuer | split: ' (' | first | split: ',' | first }}</span>
+  </div>
+  {%- endif %}
+  <div class="cert-body">
+    <p class="cert-name">{{ c.name }}</p>
+    <p class="meta">{{ c.issuer }} · {{ c.date }}</p>
+    {%- assign vlink = c.verify_url | default: c.link %}
+    {% if vlink and vlink != '' %}<a class="link-arrow cert-verify" href="{{ vlink }}"><span data-i18n="verify">Verify</span><span class="sr-only">: {{ c.name }}</span> {% include icon.html name="arrow" px=14 %}</a>{% endif %}
+  </div>
+</li>

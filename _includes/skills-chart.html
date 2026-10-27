@@ -1,0 +1,34 @@
+{%- comment -%} Interactive skills chart. The points come from "score" in _data/focus.yml; assets/js/main.js draws the radar. {%- endcomment -%}
+{%- assign first = site.data.focus[0] -%}
+<div class="card skills-chart reveal" data-chart>
+  <div class="chart-head">
+    <h3 id="chart-title" data-i18n="chart_title">Skill map</h3>
+    <p class="muted" data-i18n="chart_hint">Pick an area to see what backs it up.</p>
+  </div>
+  <div class="chart-body">
+    <svg class="radar" viewBox="-170 -150 340 300" role="img" aria-labelledby="chart-title radar-desc">
+      <desc id="radar-desc">{% for f in site.data.focus %}{{ f.area }}: {{ f.level }} ({{ f.score }} of 4). {% endfor %}</desc>
+    </svg>
+    <div class="chart-side">
+      <ul class="chart-legend" aria-label="Focus areas">
+        {%- for f in site.data.focus %}
+        <li><button type="button" class="legend-btn" data-index="{{ forloop.index0 }}" data-score="{{ f.score }}" data-short="{{ f.short | default: f.area }}" data-level="{{ f.level }}" data-evidence="{{ f.evidence | escape }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="chart-detail">
+          <span class="legend-icon">{% include icon.html name=f.icon px=18 %}</span>
+          <span class="legend-name">{{ f.area }}</span>
+          <span class="legend-meter" aria-hidden="true">{% for i in (1..4) %}<i{% if i <= f.score %} class="on"{% endif %}></i>{% endfor %}</span>
+        </button></li>
+        {%- endfor %}
+      </ul>
+      <div class="chart-detail" id="chart-detail" aria-live="polite">
+        <p class="label chart-detail-level">{{ first.level }}</p>
+        <p class="chart-detail-text">{{ first.evidence }}</p>
+      </div>
+    </div>
+  </div>
+  <ol class="chart-scale" aria-label="Scale">
+    <li><b>1</b> <span data-i18n="scale_1">Learning</span></li>
+    <li><b>2</b> <span data-i18n="scale_2">Training &amp; lab</span></li>
+    <li><b>3</b> <span data-i18n="scale_3">Applied in my own work</span></li>
+    <li><b>4</b> <span data-i18n="scale_4">Research &amp; published</span></li>
+  </ol>
+</div>

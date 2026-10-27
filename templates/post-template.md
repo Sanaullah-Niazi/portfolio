@@ -3,6 +3,7 @@
 # e.g. _posts/2026-11-02-detecting-roman-urdu-scams.md
 title: "Your note title"
 description: One sentence that search engines and link previews will show.
+tags: [AI security, LLM security]   # a few topics, e.g. Phishing, Fraud detection, Adversarial ML
 ---
 
 Write your note here in plain text. A blank line starts a new paragraph.

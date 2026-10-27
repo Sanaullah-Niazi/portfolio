@@ -8,27 +8,23 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
 {% assign has_cv = false %}
 {% for f in site.static_files %}{% if f.path == cv_path %}{% assign has_cv = true %}{% endif %}{% endfor %}
 {% assign t = site.data.research.thesis %}
+{% assign projects = site.projects | sort: 'order' %}
 
 <section class="hero" aria-labelledby="hero-title">
   <canvas class="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-fade" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-text">
-      <p class="pill"><span class="pulse" aria-hidden="true"></span>{{ site.tagline }}</p>
+      <p class="pill"><span class="pulse" aria-hidden="true"></span><span data-i18n="tagline">{{ site.tagline }}</span></p>
       <h1 id="hero-title">{{ me.name }}</h1>
-      <p class="headline">{{ me.headline }}</p>
-      <p class="intro">{{ me.intro }}</p>
+      <p class="headline" data-i18n="headline">{{ me.headline }}</p>
+      <p class="intro" data-i18n="intro">{{ me.intro }}</p>
       <div class="btn-row">
-        {% if has_cv %}<a class="btn btn-primary" href="{{ me.cv | relative_url }}" download>{% include icon.html name="download" px=18 %}Download CV</a>{% endif %}
-        <a class="btn {% unless has_cv %}btn-primary{% endunless %}" href="#research">{% include icon.html name="flask" px=18 %}Research</a>
-        <a class="btn" href="#contact">{% include icon.html name="mail" px=18 %}Contact</a>
+        {% if has_cv %}<a class="btn btn-primary" href="{{ me.cv | relative_url }}" download>{% include icon.html name="download" px=18 %}<span data-i18n="btn_cv">Download CV</span></a>{% endif %}
+        <a class="btn {% unless has_cv %}btn-primary{% endunless %}" href="#research">{% include icon.html name="flask" px=18 %}<span data-i18n="btn_research">Research</span></a>
+        <a class="btn" href="#contact">{% include icon.html name="mail" px=18 %}<span data-i18n="btn_contact">Contact</span></a>
       </div>
-      <ul class="social" aria-label="Profiles">
-        <li><a href="{{ me.github }}" aria-label="GitHub">{% include icon.html name="github" %}</a></li>
-        <li><a href="{{ me.linkedin }}" aria-label="LinkedIn">{% include icon.html name="linkedin" %}</a></li>
-        <li><a href="{{ me.scholar }}" aria-label="Google Scholar">{% include icon.html name="scholar" %}</a></li>
-        <li><a href="mailto:{{ me.email }}" aria-label="Email">{% include icon.html name="mail" %}</a></li>
-      </ul>
+      {% include social.html %}
     </div>
 
     <figure class="terminal" aria-label="Summary in the style of a terminal">
@@ -57,12 +53,25 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
   <a class="scroll-cue" href="#focus" aria-label="Scroll to the next section"><span aria-hidden="true"></span></a>
 </section>
 
+{% if site.data.news.size > 0 %}
+<section class="news-band" id="news" aria-labelledby="news-title">
+  <div class="wrap news-inner">
+    <div class="news-head">
+      <p class="eyebrow">{% include icon.html name="megaphone" px=16 %}<span data-i18n="news_eyebrow">News</span></p>
+      <h2 id="news-title" class="sr-only" data-i18n="news_title">Latest news</h2>
+      <a class="link-arrow" href="{{ '/research/' | relative_url }}#news-all-title"><span data-i18n="news_all">All news</span> {% include icon.html name="arrow" px=16 %}</a>
+    </div>
+    {% include news-list.html limit=4 strip=true %}
+  </div>
+</section>
+{% endif %}
+
 <section class="section" id="focus" aria-labelledby="focus-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">01</span>One focus: AI for security</p>
-      <h2 id="focus-title">Where I fit</h2>
-      <p class="section-lede">Each area below is part of the same goal: using AI to detect and stop attacks, and keeping AI itself safe. Next to each one is what I can show for it today.</p>
+      <p class="eyebrow"><span class="num">01</span><span data-i18n="focus_eyebrow">One focus: AI for security</span></p>
+      <h2 id="focus-title" data-i18n="focus_title">Where I fit</h2>
+      <p class="section-lede" data-i18n="focus_lede">Each area below is part of the same goal: using AI to detect and stop attacks, and keeping AI itself safe. Next to each one is what I can show for it today.</p>
     </header>
     <ol class="focus-grid">
       {% for f in site.data.focus %}
@@ -81,8 +90,8 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
   <div class="wrap two-col">
     <div class="about-side reveal">
       <header class="section-head">
-        <p class="eyebrow"><span class="num">02</span>About</p>
-        <h2 id="about-title">How I got here</h2>
+        <p class="eyebrow"><span class="num">02</span><span data-i18n="about_eyebrow">About</span></p>
+        <h2 id="about-title" data-i18n="about_title">How I got here</h2>
       </header>
       <ol class="journey" aria-label="My path so far">
         <li><span class="j-dot" aria-hidden="true"></span><strong>Diploma, Health, Safety &amp; Environment</strong><span>Risk, hazards and prevention</span></li>
@@ -107,77 +116,55 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
 <section class="section" id="research" aria-labelledby="research-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">03</span>Research</p>
-      <h2 id="research-title">Thesis and publications</h2>
+      <p class="eyebrow"><span class="num">03</span><span data-i18n="research_eyebrow">Research</span></p>
+      <h2 id="research-title" data-i18n="research_title">Thesis and publications</h2>
     </header>
 
-    <article class="card thesis reveal">
-      <div class="thesis-text">
-        <p class="label">MS thesis · {{ t.year }}</p>
-        <h3>{{ t.title }}</h3>
-        <p class="meta">{{ t.degree }} · Supervisor: {{ t.supervisor }}</p>
-        <p>{{ t.summary }}</p>
-        <p class="label sub-label">Models compared</p>
-        <ol class="pipeline" aria-label="Models compared">{% for m in t.models %}<li>{{ m }}</li>{% endfor %}</ol>
-      </div>
-      <div class="thesis-stats">
-        {% assign acc = t.results[0] %}
-        <div class="ring" data-value="{{ acc.value | remove: '%' }}">
-          <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-bar" cx="60" cy="60" r="52" pathLength="100"/></svg>
-          <div class="ring-label"><strong>{{ acc.value }}</strong><span>{{ acc.label }}</span></div>
-        </div>
-        <dl class="results">
-          {% for r in t.results offset: 1 %}<div><dt>{{ r.label }}</dt><dd>{{ r.value }}</dd></div>{% endfor %}
-        </dl>
-      </div>
-    </article>
+    {% include thesis.html %}
 
-    <h3 class="sub reveal">Peer-reviewed publications</h3>
+    <h3 class="sub reveal" data-i18n="pubs_title">Peer-reviewed publications</h3>
     <ol class="pubs">
       {% for p in site.data.publications %}
       <li class="card pub reveal spot">
-        <div class="pub-top"><span class="pub-num">{{ forloop.index | prepend: '0' }}</span><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ p.role }}</span><span class="pub-year">{{ p.year }}</span></div>
+        <div class="pub-top"><span class="pub-num" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ p.role }}</span><span class="pub-year">{{ p.year }}</span></div>
         <p class="pub-title">{{ p.title }}</p>
-        <p class="meta">{{ p.authors }} ({{ p.year }}). <em>{{ p.venue }}</em>.</p>
-        {% if p.doi %}<a class="pub-link" href="https://doi.org/{{ p.doi }}">{% include icon.html name="book" px=16 %}doi:{{ p.doi }}</a>{% endif %}
+        <p class="meta">{{ p.authors }} ({{ p.year }}). <em>{{ p.journal }}{% if p.volume %}, {{ p.volume }}{% if p.issue %}({{ p.issue }}){% endif %}{% endif %}{% if p.pages %}, {{ p.pages }}{% endif %}</em>.</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://doi.org/{{ p.doi }}">{% include icon.html name="book" px=16 %}doi:{{ p.doi }}</a>
+          {% if p.pdf and p.pdf != '' %}<a class="pub-link" href="{{ p.pdf | relative_url }}">{% include icon.html name="file" px=16 %}PDF<span class="sr-only">: {{ p.title }}</span></a>{% endif %}
+        </div>
       </li>
       {% endfor %}
     </ol>
-    <p class="more reveal"><a class="link-arrow" href="{{ me.scholar }}">All citations on Google Scholar {% include icon.html name="arrow" px=16 %}</a></p>
+    <p class="more reveal more-row">
+      <a class="link-arrow" href="{{ '/research/' | relative_url }}"><span data-i18n="research_more">Summaries, PDFs and BibTeX</span> {% include icon.html name="arrow" px=16 %}</a>
+      <a class="link-arrow" href="{{ me.scholar }}"><span data-i18n="scholar_all">All citations on Google Scholar</span> {% include icon.html name="arrow" px=16 %}</a>
+    </p>
 
-    <h3 class="sub reveal">Research interests</h3>
-    <div class="interests">
-      <div class="card reveal">
-        <p class="label"><span class="state state-now" aria-hidden="true"></span>Working on now</p>
-        <ul>{% for i in site.data.research.interests %}{% if i.stage == 'now' %}<li><strong>{{ i.name }}</strong><span>{{ i.note }}</span></li>{% endif %}{% endfor %}</ul>
-      </div>
-      <div class="card card-dashed reveal">
-        <p class="label"><span class="state state-next" aria-hidden="true"></span>Want to study next</p>
-        <ul>{% for i in site.data.research.interests %}{% if i.stage == 'next' %}<li><strong>{{ i.name }}</strong><span>{{ i.note }}</span></li>{% endif %}{% endfor %}</ul>
-      </div>
-    </div>
+    <h3 class="sub reveal" data-i18n="interests_title">Research interests</h3>
+    {% include interests.html %}
   </div>
 </section>
 
 <section class="section" id="projects" aria-labelledby="projects-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">04</span>Projects</p>
-      <h2 id="projects-title">What I'm building</h2>
+      <p class="eyebrow"><span class="num">04</span><span data-i18n="projects_eyebrow">Projects</span></p>
+      <h2 id="projects-title" data-i18n="projects_title">What I'm building</h2>
     </header>
-    {% assign projects = site.projects | sort: 'order' %}
-    <div class="grid projects-grid">
+    {% include project-filter.html projects=projects id="home" %}
+    <div class="grid projects-grid" data-filterable>
       {% for p in projects limit: 6 %}{% include project-card.html project=p %}{% endfor %}
     </div>
-    {% if projects.size > 6 %}<p class="more"><a class="link-arrow" href="{{ '/projects/' | relative_url }}">All {{ projects.size }} projects {% include icon.html name="arrow" px=16 %}</a></p>{% endif %}
+    {% if projects.size > 6 %}<p class="more"><a class="link-arrow" href="{{ '/projects/' | relative_url }}"><span data-i18n="projects_all">All projects</span> ({{ projects.size }}) {% include icon.html name="arrow" px=16 %}</a></p>{% endif %}
   </div>
 </section>
 
 <section class="section" id="experience" aria-labelledby="experience-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">05</span>Experience</p>
-      <h2 id="experience-title">Teaching and work</h2>
+      <p class="eyebrow"><span class="num">05</span><span data-i18n="experience_eyebrow">Experience</span></p>
+      <h2 id="experience-title" data-i18n="experience_title">Teaching and work</h2>
     </header>
     <ol class="timeline">
       {% for e in site.data.experience %}
@@ -198,9 +185,10 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
 <section class="section" id="skills" aria-labelledby="skills-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">06</span>Skills</p>
-      <h2 id="skills-title">Tools I use</h2>
+      <p class="eyebrow"><span class="num">06</span><span data-i18n="skills_eyebrow">Skills</span></p>
+      <h2 id="skills-title" data-i18n="skills_title">Tools I use</h2>
     </header>
+    {% include skills-chart.html %}
     <div class="grid grid-3">
       {% for g in site.data.skills %}
       <div class="card skill-group reveal spot">
@@ -212,35 +200,15 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
   </div>
 </section>
 
-<section class="section" id="certifications" aria-labelledby="certs-title">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">07</span>Certifications</p>
-      <h2 id="certs-title">Training</h2>
-    </header>
-    <div class="grid grid-3">
-      {% for g in site.data.certifications %}
-      <div class="card reveal">
-        <div class="skill-head"><span class="icon-tile">{% include icon.html name=g.icon px=22 %}</span><h3 class="group-title">{{ g.group }}</h3></div>
-        <ul class="certs">
-          {% for c in g.items %}
-          <li>
-            <p class="cert-name">{% if c.verify_url and c.verify_url != '' %}<a href="{{ c.verify_url }}">{{ c.name }}</a>{% else %}{{ c.name }}{% endif %}</p>
-            <p class="meta">{{ c.issuer }} · {{ c.date }}</p>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+{% include service.html num="07" %}
+
+{% include certificates.html num="08" %}
 
 <section class="section" id="education" aria-labelledby="education-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">08</span>Education</p>
-      <h2 id="education-title">Degrees</h2>
+      <p class="eyebrow"><span class="num">09</span><span data-i18n="education_eyebrow">Education</span></p>
+      <h2 id="education-title" data-i18n="education_title">Degrees</h2>
     </header>
     <ol class="timeline">
       {% for e in site.data.education %}
@@ -262,15 +230,15 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
 <section class="section" id="notes" aria-labelledby="notes-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">09</span>Notes</p>
-      <h2 id="notes-title">Latest writing</h2>
+      <p class="eyebrow"><span class="num">10</span><span data-i18n="notes_eyebrow">Notes</span></p>
+      <h2 id="notes-title" data-i18n="notes_title">Latest writing</h2>
     </header>
     <ul class="post-list">
       {% for post in site.posts limit: 3 %}
       <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %Y' }}</time></li>
       {% endfor %}
     </ul>
-    <p class="more"><a class="link-arrow" href="{{ '/blog/' | relative_url }}">All notes {% include icon.html name="arrow" px=16 %}</a></p>
+    <p class="more"><a class="link-arrow" href="{{ '/blog/' | relative_url }}"><span data-i18n="notes_all">All notes</span> {% include icon.html name="arrow" px=16 %}</a></p>
   </div>
 </section>
 {% endif %}
@@ -279,14 +247,15 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
   <div class="wrap">
     <div class="contact-panel reveal">
       <div class="contact-intro">
-        <p class="eyebrow">Contact</p>
-        <h2 id="contact-title">Get in touch</h2>
-        <p>{{ me.open_to }}</p>
+        <p class="eyebrow" data-i18n="contact_eyebrow">Contact</p>
+        <h2 id="contact-title" data-i18n="contact_title">Get in touch</h2>
+        <p data-i18n="open_to">{{ me.open_to }}</p>
         <ul class="contact-list">
           <li><span class="icon-tile sm">{% include icon.html name="mail" px=18 %}</span><span class="label">Email</span><a href="mailto:{{ me.email }}">{{ me.email }}</a></li>
           <li><span class="icon-tile sm">{% include icon.html name="linkedin" px=18 %}</span><span class="label">LinkedIn</span><a href="{{ me.linkedin }}">sanaullahkhanniazi</a></li>
           <li><span class="icon-tile sm">{% include icon.html name="github" px=18 %}</span><span class="label">GitHub</span><a href="{{ me.github }}">Sanaullah-Niazi</a></li>
           <li><span class="icon-tile sm">{% include icon.html name="scholar" px=18 %}</span><span class="label">Scholar</span><a href="{{ me.scholar }}">Google Scholar profile</a></li>
+          {% if me.orcid and me.orcid != '' %}<li><span class="icon-tile sm">{% include icon.html name="orcid" px=18 %}</span><span class="label">ORCID</span><a href="{{ me.orcid }}">{{ me.orcid | remove: 'https://orcid.org/' }}</a></li>{% endif %}
         </ul>
       </div>
       <form class="contact-form" id="contact-form" method="POST"
@@ -295,13 +264,13 @@ description: Sana Ullah Khan, AI cybersecurity researcher with an MS in Artifici
         <input type="hidden" name="subject" value="New message from {{ site.url | remove: 'https://' }}">
         <input type="hidden" name="from_name" value="{{ site.title }} website">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label for="cf-name">Your name</label>
+        <label for="cf-name" data-i18n="form_name">Your name</label>
         <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
-        <label for="cf-email">Your email</label>
+        <label for="cf-email" data-i18n="form_email">Your email</label>
         <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="254" required>
-        <label for="cf-message">Message</label>
+        <label for="cf-message" data-i18n="form_message">Message</label>
         <textarea id="cf-message" name="message" rows="5" maxlength="5000" required></textarea>
-        <button class="btn btn-primary" type="submit">{% include icon.html name="message" px=18 %}Send message</button>
+        <button class="btn btn-primary" type="submit">{% include icon.html name="message" px=18 %}<span data-i18n="form_send">Send message</span></button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
