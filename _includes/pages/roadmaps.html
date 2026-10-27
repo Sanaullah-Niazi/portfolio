@@ -117,7 +117,10 @@
               <ul class="rm-res">
                 {%- for r in s.resources %}
                 <li>
-                  <a href="{{ r.url }}" rel="noopener"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ r.name }}</a>
+                  {%- assign r_first = r.url | slice: 0 %}
+                  {%- if r.local %}<a href="{{ L }}{{ r.url }}">{{ r.name }}</a>
+                  {%- elsif r_first == '/' %}<a href="{{ r.url }}"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ r.name }}</a>
+                  {%- else %}<a href="{{ r.url }}" rel="noopener"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ r.name }}</a>{% endif %}
                   <span class="rm-res-meta"><span class="rm-type">{{ T.types[r.type] | default: R.types[r.type] }}</span>{% if r.audit %}{% include sep.html %}<span class="rm-type is-audit">{{ T.audit | default: R.audit }}</span>{% endif %}{% include sep.html %}<span class="muted">{{ r.by }}</span></span>
                 </li>
                 {%- endfor %}
