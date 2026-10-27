@@ -1,0 +1,117 @@
+{%- comment -%}
+  The interactive roadmap on each security roadmap page: the four stages as a spine with topic boxes branching off,
+  in the style of a mind map. Usage: {% include sec-map.html %} inside pages/sec-domain.html (needs X, W and levels).
+  Each topic box links to its own detail (#t-<id>). With JavaScript (assets/js/sec-roadmaps.js) the detail opens in a
+  side panel and visitors can mark topics done, in progress or skipped (kept in their browser only). Without it,
+  the links jump to the list of details below the map.
+{%- endcomment -%}
+{%- assign tracked = 0 %}{% for s in X.stages %}{% for t in s.topics %}{% if t.id %}{% assign tracked = tracked | plus: 1 %}{% endif %}{% endfor %}{% endfor %}
+<section class="card mp" id="path" aria-labelledby="path-title" data-domain="{{ X.id }}" data-total="{{ tracked }}">
+  <div class="mp-top">
+    <div>
+      <h2 id="path-title" class="tool-title">{{ W.path }}</h2>
+      <p class="muted mp-hint">{{ W.map_hint }}</p>
+    </div>
+    <div class="mp-progress" hidden>
+      <span class="mp-count" data-template="{{ W.progress }}"></span>
+      <span class="mp-bar" aria-hidden="true"><span></span></span>
+      <button type="button" class="mp-reset" data-confirm="{{ W.reset_confirm }}">{{ W.reset }}</button>
+    </div>
+  </div>
+  <ul class="mp-legend" aria-label="{{ W.legend }}">
+    <li><span class="mp-key"></span>{{ W.key_core }}</li>
+    <li><span class="mp-key is-optional"></span>{{ W.key_optional }}</li>
+    <li class="mp-js-only" hidden><span class="mp-key" data-state="done"></span>{{ W.status.done }}</li>
+    <li class="mp-js-only" hidden><span class="mp-key" data-state="doing"></span>{{ W.status.doing }}</li>
+    <li class="mp-js-only" hidden><span class="mp-key" data-state="skip"></span>{{ W.status.skip }}</li>
+  </ul>
+  <div class="filter sr-levels" role="group" aria-label="{{ W.show_level }}" hidden>
+    <span class="filter-label">{{ W.show_level }}</span>
+    <button type="button" class="chip-btn" aria-pressed="true" data-level="">{{ T.all | default: R.all }}</button>
+    {%- for s in X.stages %}
+    <button type="button" class="chip-btn" aria-pressed="false" data-level="{{ s.level }}">{{ levels[s.level] }}</button>
+    {%- endfor %}
+  </div>
+
+  <ol class="mp-map">
+    {%- for s in X.stages %}
+    {%- capture mo %}<bdi dir="ltr">{{ s.months }}</bdi>{% endcapture %}
+    <li class="mp-stage is-{{ s.level }}" id="stage-{{ s.level }}" data-level="{{ s.level }}">
+      {%- for side in (0..1) %}
+      <ul class="mp-col {% if side == 0 %}mp-left{% else %}mp-right{% endif %}">
+        {%- for t in s.topics %}{% assign m = forloop.index0 | modulo: 2 %}{% if m == side %}
+        <li class="mp-o{{ forloop.index }}">
+          {%- if t.id %}
+          <a class="mp-node{% if t.optional %} is-optional{% endif %}" href="#t-{{ t.id }}" data-node="t-{{ t.id }}" data-id="{{ t.id }}"><span>{{ t.title }}</span><span class="mp-state" aria-hidden="true"></span></a>
+          {%- else %}
+          <span class="mp-node is-plain"><span>{{ t }}</span></span>
+          {%- endif %}
+        </li>
+        {%- endif %}{% endfor %}
+      </ul>
+      {%- if side == 0 %}
+      <a class="mp-stage-node" href="#s-{{ s.level }}" data-node="s-{{ s.level }}">
+        <span class="mp-stage-lvl"><span class="mp-stage-num" aria-hidden="true">{{ forloop.parentloop.index }}</span>{{ levels[s.level] }} · {{ W.months | replace: '[n]', mo }}</span>
+        <strong>{{ s.title }}</strong>
+      </a>
+      {%- endif %}
+      {%- endfor %}
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+
+{%- comment -%} The details. Shown as a list without JavaScript; with it, each one opens in the side panel. {%- endcomment %}
+<section class="card sr-sec mp-details" id="topics" aria-labelledby="topics-title">
+  <h2 id="topics-title" class="tool-title">{{ W.all_topics }}</h2>
+  {%- for s in X.stages %}
+  {%- capture mo %}<bdi dir="ltr">{{ s.months }}</bdi>{% endcapture %}
+  <article class="mp-detail is-stage" id="s-{{ s.level }}">
+    <p class="mp-meta"><span class="sr-sen is-{{ s.level }}">{{ levels[s.level] }}</span><span class="rm-weeks">{{ W.time }}: {{ W.months | replace: '[n]', mo }}</span></p>
+    <h3>{{ s.title }}</h3>
+    <h4 class="label">{{ W.skills }}</h4>
+    <ul class="sr-list">{% for t in s.skills %}<li>{{ t }}</li>{% endfor %}</ul>
+    <div class="sr-labs">
+      <h4 class="label">{{ W.labs }}</h4>
+      <ul class="sr-list">{% for t in s.labs %}<li>{{ t }}</li>{% endfor %}</ul>
+    </div>
+    <div class="sr-done">
+      <h4 class="label">{{ W.done }}</h4>
+      <ul class="sr-checks">{% for t in s.done %}<li>{{ t }}</li>{% endfor %}</ul>
+    </div>
+  </article>
+  {%- for t in s.topics %}{% if t.id %}
+  <article class="mp-detail" id="t-{{ t.id }}" data-id="{{ t.id }}">
+    <p class="mp-meta"><span class="sr-sen is-{{ s.level }}">{{ levels[s.level] }}</span>{% if t.optional %}<span class="rm-type is-audit">{{ W.key_optional }}</span>{% endif %}</p>
+    <h3>{{ t.title }}</h3>
+    <p>{{ t.text }}</p>
+    {%- if t.res %}
+    <h4 class="label">{{ W.resources }}</h4>
+    <ul class="rm-res mp-res">
+      {%- for r in t.res %}
+      <li>
+        <a href="{{ r.url }}" rel="noopener">{{ r.name }}</a>
+        <span class="rm-res-meta"><span class="rm-type">{{ W.types[r.type] }}</span><span class="rm-type{% unless r.cost == 'free' %} is-audit{% endunless %}">{% if r.cost == 'paid' %}{{ W.res_paid }}{% elsif r.cost == 'audit' %}{{ W.res_audit }}{% else %}{{ W.res_free }}{% endif %}</span><span class="muted">{{ r.by }}</span></span>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </article>
+  {%- endif %}{% endfor %}
+  {%- endfor %}
+</section>
+
+<div class="mp-drawer" id="mp-drawer" hidden>
+  <div class="mp-scrim" data-close></div>
+  <div class="mp-panel" role="dialog" aria-modal="true" aria-labelledby="mp-panel-title" tabindex="-1">
+    <div class="mp-panel-bar">
+      <div class="mp-status" role="group" aria-label="{{ W.status_label }}">
+        <button type="button" class="chip-btn" data-set="done" aria-pressed="false">{{ W.status.done }}</button>
+        <button type="button" class="chip-btn" data-set="doing" aria-pressed="false">{{ W.status.doing }}</button>
+        <button type="button" class="chip-btn" data-set="skip" aria-pressed="false">{{ W.status.skip }}</button>
+      </div>
+      <button type="button" class="icon-btn mp-close" data-close aria-label="{{ W.close }}"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="mp-panel-body"></div>
+  </div>
+</div>

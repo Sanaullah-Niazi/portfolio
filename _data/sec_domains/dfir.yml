@@ -32,7 +32,50 @@ stages:
   - level: beginner
     title: "Evidence, artefacts and the incident lifecycle"
     months: "3–4"
-    topics: ["Incident response lifecycle (NIST SP 800-61)", "Order of volatility", "Chain of custody", "Disk images and hashing", "Windows artefacts (registry, event logs, prefetch, LNK)", "Linux artefacts (logs, shell history, cron)", "Timeline analysis", "Report writing"]
+    topics:
+      - id: ir-lifecycle
+        title: "Incident response lifecycle (NIST SP 800-61)"
+        text: "Incident response follows a cycle: prepare, detect and analyse, contain, eradicate, recover, and learn. NIST SP 800-61 Rev. 3 ties these steps to the NIST Cybersecurity Framework 2.0."
+        res:
+          - { name: "Incident Response Recommendations (SP 800-61 Rev. 3)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
+      - id: volatility-order
+        title: "Order of volatility"
+        text: "Some evidence disappears in seconds (memory, network connections) and some lasts for years (disk, backups). Collect the most fragile evidence first, and write down every step you take."
+        res:
+          - { name: "Guidelines for Evidence Collection and Archiving (RFC 3227)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc3227", type: docs, cost: free }
+      - id: chain-of-custody
+        title: "Chain of custody"
+        text: "A record of who handled each piece of evidence, when, and why. Without it, findings can be challenged and may not be usable in a disciplinary or legal case."
+        res:
+          - { name: "Guide to Integrating Forensic Techniques into Incident Response (SP 800-86)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/86/final", type: docs, cost: free }
+      - id: imaging
+        title: "Disk images and hashing"
+        text: "Work on a verified copy, never the original. Learn to take forensic images, hash them (SHA-256) before and after, and use write blockers for physical drives."
+        res:
+          - { name: "FTK Imager", by: "Exterro", url: "https://www.exterro.com/digital-forensics-software/ftk-imager", type: tool, cost: free }
+          - { name: "Computer Forensic Reference Data Sets (CFReDS)", by: "NIST", url: "https://cfreds.nist.gov/", type: practice, cost: free }
+      - id: windows-artefacts
+        title: "Windows artefacts (registry, event logs, prefetch, LNK)"
+        text: "Windows records what ran, who logged in and which files were opened. Learn where these traces live and what each one can prove, then parse them with free tools."
+        res:
+          - { name: "Eric Zimmerman's tools", by: "Eric Zimmerman", url: "https://ericzimmerman.github.io/", type: tool, cost: free }
+          - { name: "SANS DFIR posters and cheat sheets", by: "SANS Institute", url: "https://www.sans.org/posters/", type: docs, cost: free }
+      - id: linux-artefacts
+        title: "Linux artefacts (logs, shell history, cron)"
+        text: "On Linux, look at auth and system logs, the journal, shell history, cron jobs, new users and SSH keys. Attackers often hide persistence in the same places."
+        res:
+          - { name: "Practical Linux Forensics", by: "Bruce Nikkel (No Starch Press)", url: "https://nostarch.com/practical-linux-forensics", type: book, cost: paid }
+      - id: timeline
+        title: "Timeline analysis"
+        text: "Put every event from every source in time order and the story of an intrusion appears. Watch for time zones and clock drift between systems."
+        res:
+          - { name: "Timesketch", by: "Timesketch project", url: "https://timesketch.org/", type: tool, cost: free }
+          - { name: "13Cubed (videos)", by: "Richard Davis", url: "https://www.youtube.com/@13Cubed", type: video, cost: free }
+      - id: ir-report
+        title: "Report writing"
+        text: "A report should say what happened, how you know, what was affected and what to do next. Write a short summary for managers and the detail for technical readers."
+        res:
+          - { name: "The DFIR Report", by: "The DFIR Report", url: "https://thedfirreport.com/", type: docs, cost: free }
     skills:
       - "Take a forensic image of a disk and verify it with a hash."
       - "Find evidence of program execution, logons and file access on Windows."
@@ -50,7 +93,51 @@ stages:
   - level: intermediate
     title: "Memory, network and endpoint investigations"
     months: "4–6"
-    topics: ["Memory forensics", "Live response and triage collection", "Network forensics", "Email and phishing investigations", "Super timelines (Plaso)", "Event log hunting (Sigma, Chainsaw, Hayabusa)", "Containment and eradication", "Ransomware incident handling"]
+    topics:
+      - id: memory-forensics
+        title: "Memory forensics"
+        text: "Memory shows running processes, network connections, injected code and keys that never touch the disk. Capture it early and analyse it with Volatility 3."
+        res:
+          - { name: "Volatility 3 documentation", by: "Volatility Foundation", url: "https://volatility3.readthedocs.io/", type: docs, cost: free }
+      - id: live-response
+        title: "Live response and triage collection"
+        text: "On a large network you rarely image every disk. Collect a small, targeted set of artefacts from many machines quickly, then dig deeper where it matters."
+        res:
+          - { name: "Velociraptor documentation", by: "Velociraptor", url: "https://docs.velociraptor.app/", type: docs, cost: free }
+      - id: network-forensics
+        title: "Network forensics"
+        text: "Packet captures and network logs show command-and-control traffic, lateral movement and data leaving the network. Learn to read them with Wireshark and Zeek."
+        res:
+          - { name: "Wireshark User's Guide", by: "Wireshark Foundation", url: "https://www.wireshark.org/docs/wsug_html_chunked/", type: docs, cost: free }
+          - { name: "Zeek documentation", by: "Zeek project", url: "https://docs.zeek.org/", type: docs, cost: free }
+      - id: phishing-investigation
+        title: "Email and phishing investigations"
+        text: "Read email headers, check SPF, DKIM and DMARC results, safely examine links and attachments, and find everyone else who received the same message."
+        res:
+          - { name: "CyberChef", by: "GCHQ", url: "https://gchq.github.io/CyberChef/", type: tool, cost: free }
+          - { name: "CyberDefenders", by: "CyberDefenders", url: "https://cyberdefenders.org/", type: practice, cost: free }
+      - id: super-timeline
+        title: "Super timelines (Plaso)"
+        text: "Plaso pulls timestamps from hundreds of artefact types into one timeline. It is powerful but noisy, so learn to filter it down to the window that matters."
+        res:
+          - { name: "Plaso documentation", by: "log2timeline project", url: "https://plaso.readthedocs.io/", type: docs, cost: free }
+      - id: log-hunting
+        title: "Event log hunting (Sigma, Chainsaw, Hayabusa)"
+        text: "Run Sigma rules over Windows event logs to find known attack behaviour fast. Chainsaw and Hayabusa do this offline, straight on collected log files."
+        res:
+          - { name: "Chainsaw", by: "WithSecure Labs", url: "https://github.com/WithSecureLabs/chainsaw", type: tool, cost: free }
+          - { name: "Hayabusa", by: "Yamato Security", url: "https://github.com/Yamato-Security/hayabusa", type: tool, cost: free }
+          - { name: "Sigma rules", by: "SigmaHQ", url: "https://github.com/SigmaHQ/sigma", type: tool, cost: free }
+      - id: containment
+        title: "Containment and eradication"
+        text: "Stop the spread without tipping off the attacker too early. Plan isolation, credential resets and removal of persistence together, then confirm they are gone."
+        res:
+          - { name: "Incident Response Recommendations (SP 800-61 Rev. 3)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
+      - id: ransomware
+        title: "Ransomware incident handling"
+        text: "Ransomware needs fast decisions: isolate, protect backups, find the entry point, and decide how to recover. Most attacks steal data before encrypting it."
+        res:
+          - { name: "#StopRansomware Guide", by: "CISA", url: "https://www.cisa.gov/stopransomware/ransomware-guide", type: docs, cost: free }
     skills:
       - "Capture and analyse memory with Volatility 3 to find malicious processes and injected code."
       - "Collect triage data from many machines with Velociraptor."
@@ -68,7 +155,50 @@ stages:
   - level: advanced
     title: "Enterprise, cloud and malware analysis"
     months: "6–9"
-    topics: ["Enterprise-wide incident response", "Active Directory compromise recovery", "Cloud forensics (AWS, Azure, Microsoft 365)", "Malware analysis (static and dynamic)", "Reverse engineering basics", "YARA rules", "Mobile forensics basics", "Threat intelligence from incidents"]
+    topics:
+      - id: enterprise-ir
+        title: "Enterprise-wide incident response"
+        text: "Large incidents span thousands of machines. Hunt for the same indicators everywhere, track every affected host, and keep the work coordinated across teams."
+        res:
+          - { name: "FOR508: Advanced Incident Response, Threat Hunting and Digital Forensics", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/", type: course, cost: paid }
+      - id: ad-recovery
+        title: "Active Directory compromise recovery"
+        text: "If attackers reached domain admin, every account and trust is suspect. Learn how to rebuild trust: reset the krbtgt account twice, rotate privileged credentials, and remove backdoors."
+        res:
+          - { name: "Active Directory Forest Recovery Guide", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide", type: docs, cost: free }
+      - id: cloud-forensics
+        title: "Cloud forensics (AWS, Azure, Microsoft 365)"
+        text: "In the cloud the evidence is mostly logs: CloudTrail, the Azure activity log and the Microsoft 365 audit log. Know how long each is kept and turn it on before you need it."
+        res:
+          - { name: "AWS CloudTrail User Guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html", type: docs, cost: free }
+          - { name: "Microsoft Purview auditing solutions", by: "Microsoft", url: "https://learn.microsoft.com/en-us/purview/audit-solutions-overview", type: docs, cost: free }
+      - id: malware-analysis
+        title: "Malware analysis (static and dynamic)"
+        text: "Find out what a sample does: look at its strings, imports and structure, then run it in an isolated lab and watch its behaviour. Never on a work or home machine."
+        res:
+          - { name: "REMnux", by: "REMnux project", url: "https://remnux.org/", type: tool, cost: free }
+          - { name: "Practical Malware Analysis", by: "Michael Sikorski and Andrew Honig (No Starch Press)", url: "https://nostarch.com/malware", type: book, cost: paid }
+      - id: reversing-basics
+        title: "Reverse engineering basics"
+        text: "Read compiled code in a disassembler and decompiler to understand logic the sample hides at run time, such as its configuration or encryption."
+        res:
+          - { name: "Ghidra", by: "NSA", url: "https://ghidra-sre.org/", type: tool, cost: free }
+      - id: yara
+        title: "YARA rules"
+        text: "YARA rules describe a malware family by strings and patterns, so you can scan disks, memory and file shares for every copy of it."
+        res:
+          - { name: "YARA documentation", by: "VirusTotal", url: "https://yara.readthedocs.io/", type: docs, cost: free }
+      - id: mobile-forensics
+        title: "Mobile forensics basics"
+        optional: true
+        text: "Phones hold messages, locations and app data. Learn what logical and full-file-system extractions give you, and the legal limits on examining a device."
+        res:
+          - { name: "Mobile Verification Toolkit (MVT)", by: "Amnesty International", url: "https://docs.mvt.re/", type: tool, cost: free }
+      - id: ir-to-cti
+        title: "Threat intelligence from incidents"
+        text: "Each incident teaches you about an attacker. Map what you saw to MITRE ATT&CK, share indicators, and turn the lessons into new detections."
+        res:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
     skills:
       - "Investigate incidents across hundreds of machines and cloud tenants."
       - "Analyse a malware sample in a safe lab and write YARA rules for it."
@@ -85,7 +215,40 @@ stages:
   - level: expert
     title: "Leading major incidents and advancing the field"
     months: "12–24"
-    topics: ["Major incident command", "Legal, regulatory and insurance aspects", "Expert witness work", "Building an IR programme and retainers", "Tool and method research", "AI-assisted analysis"]
+    topics:
+      - id: incident-command
+        title: "Major incident command"
+        text: "Lead the response: set priorities, run the update rhythm, keep decisions logged and keep executives, legal and communications aligned while analysts work."
+        res:
+          - { name: "Incident Response Recommendations (SP 800-61 Rev. 3)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
+      - id: legal-regulatory
+        title: "Legal, regulatory and insurance aspects"
+        text: "Breaches can trigger notification deadlines (for example 72 hours under GDPR), insurer requirements and legal privilege. Know when to bring in lawyers and regulators."
+        res:
+          - { name: "Personal data breaches: a guide", by: "ICO", url: "https://ico.org.uk/for-organisations/report-a-breach/personal-data-breach/", type: docs, cost: free }
+      - id: expert-witness
+        title: "Expert witness work"
+        optional: true
+        text: "Forensic findings may end up in court. Your methods must be repeatable, your notes complete and your opinions limited to what the evidence supports."
+        res:
+          - { name: "Forensic science standards (OSAC Registry)", by: "NIST", url: "https://www.nist.gov/organization-scientific-area-committees-forensic-science/osac-registry", type: docs, cost: free }
+      - id: ir-programme
+        title: "Building an IR programme and retainers"
+        text: "Plans, playbooks, contact lists, tooling, exercises and an outside retainer for when the team is overwhelmed. Test it all with tabletop exercises."
+        res:
+          - { name: "CISA Tabletop Exercise Packages", by: "CISA", url: "https://www.cisa.gov/resources-tools/services/cisa-tabletop-exercise-packages", type: docs, cost: free }
+      - id: dfir-research
+        title: "Tool and method research"
+        optional: true
+        text: "New operating systems and apps bring new artefacts. Test what a trace really means, document it, and share tools or write-ups with the community."
+        res:
+          - { name: "Computer Forensic Reference Data Sets (CFReDS)", by: "NIST", url: "https://cfreds.nist.gov/", type: practice, cost: free }
+      - id: ai-analysis
+        title: "AI-assisted analysis"
+        optional: true
+        text: "AI can summarise logs and draft timelines, but it can be wrong. Check every claim against the evidence, and never upload case data to a service you are not allowed to use."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
     skills:
       - "Command a major incident with executives, lawyers, insurers and regulators involved."
       - "Build an IR plan, playbooks and a team that improves after every incident."

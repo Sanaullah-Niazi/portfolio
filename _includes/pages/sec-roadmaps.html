@@ -73,14 +73,15 @@
       {%- assign lo = 0 %}{% assign hi = 0 %}
       {%- for s in X.stages %}{% assign m = s.months | split: '–' %}{% assign lo = lo | plus: m.first %}{% assign hi = hi | plus: m.last %}{% endfor %}
       {%- capture total %}<bdi dir="ltr">{{ lo }}–{{ hi }}</bdi>{% endcapture %}
-      {%- capture search %}{{ X.title }} {{ X.summary }} {{ X.keywords }}{% for s in X.stages %} {{ s.topics | join: ' ' }}{% endfor %}{% for t in X.tools %} {{ t.name }}{% endfor %}{% endcapture %}
+      {%- assign tracked = 0 %}{% for s in X.stages %}{% for t in s.topics %}{% if t.id %}{% assign tracked = tracked | plus: 1 %}{% endif %}{% endfor %}{% endfor %}
+      {%- capture search %}{{ X.title }} {{ X.summary }} {{ X.keywords }}{% for s in X.stages %}{% for t in s.topics %} {{ t.title | default: t }}{% endfor %}{% endfor %}{% for t in X.tools %} {{ t.name }}{% endfor %}{% endcapture %}
       <li class="sr-item" data-lvl="{{ X.entry }}" data-search="{{ search | downcase | strip_newlines | escape }}">
         <a class="card spot sr-card" href="{{ L }}/roadmaps/security/{{ id }}/">
           <span class="icon-tile">{% include icon.html name=X.icon px=22 %}</span>
           <span class="rm-index-text">
             <strong>{{ X.title }}</strong>
             <span class="muted">{{ X.summary }}</span>
-            <span class="sr-card-meta"><span class="sr-sen is-{{ X.entry }}">{{ T.starts_at | default: R.starts_at }}: {{ levels[X.entry] }}</span><span class="rm-weeks">{{ T.total | default: R.total }}: {{ W.months | replace: '[n]', total }}</span></span>
+            <span class="sr-card-meta"><span class="sr-sen is-{{ X.entry }}">{{ T.starts_at | default: R.starts_at }}: {{ levels[X.entry] }}</span><span class="rm-weeks">{{ T.total | default: R.total }}: {{ W.months | replace: '[n]', total }}</span>{% if tracked > 0 %}<span class="sr-sen is-expert" data-progress="{{ id }}" data-total="{{ tracked }}" data-template="{{ W.your_progress }}" hidden></span>{% endif %}</span>
           </span>
         </a>
       </li>

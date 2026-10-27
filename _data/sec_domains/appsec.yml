@@ -33,7 +33,54 @@ stages:
   - level: beginner
     title: "Web vulnerabilities and how to find them"
     months: "3–4"
-    topics: ["OWASP Top 10", "Injection (SQL, command)", "Cross-site scripting", "Broken access control", "Authentication and session flaws", "Server-side request forgery", "Intercepting proxies", "Security headers and cookies"]
+    topics:
+      - id: owasp-top10
+        title: "OWASP Top 10"
+        text: "The OWASP Top 10 lists the most serious web application risks, from broken access control to vulnerable components. It is the common starting vocabulary for AppSec."
+        res:
+          - { name: "OWASP Top 10", by: "OWASP Foundation", url: "https://owasp.org/www-project-top-ten/", type: docs, cost: free }
+      - id: injection
+        title: "Injection"
+        text: "SQL and command injection happen when user input is treated as code. Learn to find them, and the real fix: parameterised queries and safe APIs, not filtering."
+        res:
+          - { name: "SQL injection", by: "PortSwigger", url: "https://portswigger.net/web-security/sql-injection", type: practice, cost: free }
+          - { name: "Injection Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html", type: docs, cost: free }
+      - id: xss
+        title: "Cross-site scripting"
+        text: "XSS lets an attacker run script in another user's browser. Learn reflected, stored and DOM-based XSS, and how output encoding and Content Security Policy stop them."
+        res:
+          - { name: "Cross-site scripting", by: "PortSwigger", url: "https://portswigger.net/web-security/cross-site-scripting", type: practice, cost: free }
+          - { name: "Cross Site Scripting Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html", type: docs, cost: free }
+      - id: access-control
+        title: "Broken access control"
+        text: "The number one web risk: users reaching data or actions they should not, often just by changing an ID in a request. Check authorisation on the server for every request."
+        res:
+          - { name: "Access control vulnerabilities", by: "PortSwigger", url: "https://portswigger.net/web-security/access-control", type: practice, cost: free }
+          - { name: "Authorization Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html", type: docs, cost: free }
+      - id: auth-flaws
+        title: "Authentication and session flaws"
+        text: "Weak login logic, predictable reset tokens and badly handled sessions let attackers take over accounts. Learn how sessions should be created, protected and ended."
+        res:
+          - { name: "Authentication vulnerabilities", by: "PortSwigger", url: "https://portswigger.net/web-security/authentication", type: practice, cost: free }
+          - { name: "Session Management Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html", type: docs, cost: free }
+      - id: ssrf
+        title: "Server-side request forgery"
+        text: "SSRF tricks a server into making requests for the attacker, often to internal services or cloud metadata endpoints. It caused several major cloud breaches."
+        res:
+          - { name: "Server-side request forgery", by: "PortSwigger", url: "https://portswigger.net/web-security/ssrf", type: practice, cost: free }
+      - id: proxies
+        title: "Intercepting proxies"
+        text: "Burp Suite and ZAP sit between your browser and the app so you can see and change every request. They are the main tools of web testing."
+        res:
+          - { name: "Burp Suite Community Edition", by: "PortSwigger", url: "https://portswigger.net/burp/communitydownload", type: practice, cost: free }
+          - { name: "ZAP", by: "ZAP Dev Team", url: "https://www.zaproxy.org/", type: practice, cost: free }
+      - id: headers-cookies
+        title: "Security headers and cookies"
+        optional: true
+        text: "Headers such as Content-Security-Policy and Strict-Transport-Security, and cookie flags such as HttpOnly, Secure and SameSite, add cheap, strong protection."
+        res:
+          - { name: "HTTP Headers Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html", type: docs, cost: free }
+          - { name: "MDN Web Docs: HTTP security", by: "Mozilla", url: "https://developer.mozilla.org/en-US/docs/Web/Security", type: docs, cost: free }
     skills:
       - "Use Burp Suite or ZAP to intercept, change and replay requests."
       - "Find and exploit the common OWASP Top 10 flaws in practice apps."
@@ -49,7 +96,53 @@ stages:
   - level: intermediate
     title: "Secure code, APIs and automated testing"
     months: "4–6"
-    topics: ["Secure code review", "OWASP API Security Top 10", "Static analysis (SAST)", "Dependency scanning (SCA)", "Dynamic scanning (DAST)", "Secrets scanning", "Threat modeling", "Secure defaults in frameworks"]
+    topics:
+      - id: code-review
+        title: "Secure code review"
+        text: "Read code from where untrusted input enters to where it is used. Focus on authentication, authorisation, input handling and crypto, and write comments developers can act on."
+        res:
+          - { name: "OWASP Code Review Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-code-review-guide/", type: docs, cost: free }
+      - id: api-top10
+        title: "OWASP API Security Top 10"
+        text: "APIs have their own top risks, led by broken object-level authorisation. Test REST and GraphQL APIs against each one."
+        res:
+          - { name: "OWASP API Security Top 10", by: "OWASP Foundation", url: "https://owasp.org/API-Security/", type: docs, cost: free }
+          - { name: "OWASP crAPI", by: "OWASP Foundation", url: "https://github.com/OWASP/crAPI", type: practice, cost: free }
+      - id: sast
+        title: "Static analysis (SAST)"
+        text: "SAST tools scan source code for risky patterns without running it. The skill is tuning them so developers trust the results."
+        res:
+          - { name: "Semgrep documentation", by: "Semgrep", url: "https://semgrep.dev/docs/", type: docs, cost: free }
+          - { name: "CodeQL documentation", by: "GitHub", url: "https://codeql.github.com/docs/", type: docs, cost: free }
+      - id: sca
+        title: "Dependency scanning (SCA)"
+        text: "Most code in an app comes from open-source packages. SCA tools match your dependencies against known vulnerabilities so you can update the risky ones."
+        res:
+          - { name: "OSV-Scanner", by: "Google", url: "https://google.github.io/osv-scanner/", type: docs, cost: free }
+          - { name: "OWASP Dependency-Check", by: "OWASP Foundation", url: "https://owasp.org/www-project-dependency-check/", type: docs, cost: free }
+      - id: dast
+        title: "Dynamic scanning (DAST)"
+        text: "DAST tools attack a running app from the outside, like a basic tester would. They catch configuration issues and simple flaws, and miss business logic."
+        res:
+          - { name: "ZAP documentation", by: "ZAP Dev Team", url: "https://www.zaproxy.org/docs/", type: docs, cost: free }
+      - id: secrets-scanning
+        title: "Secrets scanning"
+        text: "Keys and passwords end up in Git history surprisingly often. Scan every commit, and when one leaks, rotate it: deleting the commit is not enough."
+        res:
+          - { name: "gitleaks", by: "Gitleaks", url: "https://github.com/gitleaks/gitleaks", type: practice, cost: free }
+          - { name: "About secret scanning", by: "GitHub Docs", url: "https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning", type: docs, cost: free }
+      - id: threat-modeling
+        title: "Threat modeling"
+        text: "Threat modeling asks four questions: what are we building, what can go wrong, what will we do about it, and did we do a good job? Do it early, on a whiteboard."
+        res:
+          - { name: "Threat Modeling Manifesto", by: "Threat Modeling Manifesto working group", url: "https://www.threatmodelingmanifesto.org/", type: docs, cost: free }
+          - { name: "OWASP Threat Dragon", by: "OWASP Foundation", url: "https://owasp.org/www-project-threat-dragon/", type: practice, cost: free }
+      - id: secure-defaults
+        title: "Secure defaults in frameworks"
+        optional: true
+        text: "Modern frameworks escape output, use parameterised queries and protect against CSRF by default. Most vulnerabilities come from turning those defaults off."
+        res:
+          - { name: "OWASP Cheat Sheet Series", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/", type: docs, cost: free }
     skills:
       - "Review code for security flaws, starting from where user input enters."
       - "Run and tune SAST, SCA and secrets scanning in a CI pipeline, and cut the false positives."
@@ -67,7 +160,55 @@ stages:
   - level: advanced
     title: "Software supply chain and AppSec at scale"
     months: "6–9"
-    topics: ["Software supply chain security", "SBOMs", "Artifact signing and provenance (SLSA, Sigstore)", "Writing custom SAST rules (Semgrep, CodeQL)", "Security champions programmes", "Vulnerability management for applications", "Advanced web attacks (deserialisation, request smuggling, race conditions)", "Securing LLM features in apps"]
+    topics:
+      - id: supply-chain
+        title: "Software supply chain security"
+        text: "Attackers increasingly target the build: compromised packages, maintainers and CI systems. Learn the attack types and the defences that matter most."
+        res:
+          - { name: "SLSA", by: "OpenSSF", url: "https://slsa.dev/", type: docs, cost: free }
+          - { name: "OpenSSF Scorecard", by: "OpenSSF", url: "https://scorecard.dev/", type: practice, cost: free }
+      - id: sbom
+        title: "SBOMs"
+        text: "A software bill of materials lists every component in a build. It lets you answer 'are we affected?' in minutes when the next big vulnerability lands."
+        res:
+          - { name: "Software Bill of Materials", by: "CISA", url: "https://www.cisa.gov/sbom", type: docs, cost: free }
+          - { name: "CycloneDX", by: "OWASP Foundation", url: "https://cyclonedx.org/", type: docs, cost: free }
+      - id: signing-provenance
+        title: "Signing and provenance"
+        text: "Signing proves who built an artefact, and provenance records how. Sigstore makes signing free and keyless; SLSA defines levels of build integrity."
+        res:
+          - { name: "Sigstore", by: "OpenSSF", url: "https://www.sigstore.dev/", type: docs, cost: free }
+          - { name: "SLSA", by: "OpenSSF", url: "https://slsa.dev/", type: docs, cost: free }
+      - id: custom-rules
+        title: "Writing custom SAST rules"
+        text: "Off-the-shelf rules miss the bugs specific to your codebase. Writing your own Semgrep or CodeQL rules turns one bug you found into a check that prevents it forever."
+        res:
+          - { name: "Writing Semgrep rules", by: "Semgrep", url: "https://semgrep.dev/docs/writing-rules/overview", type: docs, cost: free }
+          - { name: "CodeQL documentation", by: "GitHub", url: "https://codeql.github.com/docs/", type: docs, cost: free }
+      - id: champions
+        title: "Security champions"
+        optional: true
+        text: "A security champion is a developer in each team who cares about security and gets extra training. It is the main way AppSec scales beyond a small team."
+        res:
+          - { name: "OWASP Security Champions Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-security-champions-guidebook/", type: docs, cost: free }
+      - id: app-vuln-mgmt
+        title: "Vulnerability management for applications"
+        text: "Collect findings from every tool in one place, remove duplicates, and prioritise by real exploitability and exposure, not just the CVSS score."
+        res:
+          - { name: "DefectDojo", by: "DefectDojo", url: "https://github.com/DefectDojo/django-DefectDojo", type: practice, cost: free }
+          - { name: "EPSS", by: "FIRST", url: "https://www.first.org/epss/", type: docs, cost: free }
+      - id: advanced-web
+        title: "Advanced web attacks"
+        text: "Insecure deserialisation, HTTP request smuggling and race conditions are harder to find and often critical. Practise them in dedicated labs."
+        res:
+          - { name: "HTTP request smuggling", by: "PortSwigger", url: "https://portswigger.net/web-security/request-smuggling", type: practice, cost: free }
+          - { name: "Race conditions", by: "PortSwigger", url: "https://portswigger.net/web-security/race-conditions", type: practice, cost: free }
+      - id: llm-features
+        title: "Securing LLM features in apps"
+        text: "Adding a chatbot or AI agent to an app brings prompt injection, data leakage and unsafe output handling. Treat model output as untrusted input."
+        res:
+          - { name: "OWASP Top 10 for LLM Applications", by: "OWASP Foundation", url: "https://genai.owasp.org/llm-top-10/", type: docs, cost: free }
+          - { name: "Web LLM attacks", by: "PortSwigger", url: "https://portswigger.net/web-security/llm-attacks", type: practice, cost: free }
     skills:
       - "Write custom rules that catch the bugs your codebase actually has."
       - "Generate SBOMs, sign builds, and verify provenance before deployment."
@@ -85,7 +226,46 @@ stages:
   - level: expert
     title: "Product security leadership and research"
     months: "12–24"
-    topics: ["AppSec programme design", "Maturity models (OWASP SAMM)", "Secure design reviews at scale", "Vulnerability research", "Coordinated disclosure", "Secure-by-design and regulation (EU Cyber Resilience Act)", "Security of AI-generated code"]
+    topics:
+      - id: appsec-programme
+        title: "AppSec programme design"
+        text: "Decide which practices every team must follow, which tools are provided centrally, and how to measure that it is working."
+        res:
+          - { name: "Secure Software Development Framework (SP 800-218)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/218/final", type: docs, cost: free }
+      - id: samm
+        title: "Maturity models (OWASP SAMM)"
+        text: "SAMM scores an organisation's software security practices and helps plan improvements step by step."
+        res:
+          - { name: "OWASP SAMM", by: "OWASP Foundation", url: "https://owaspsamm.org/", type: docs, cost: free }
+      - id: design-reviews
+        title: "Secure design reviews at scale"
+        text: "Review architecture before code is written, using lightweight templates so every team can do it without a security engineer in the room."
+        res:
+          - { name: "Designing Secure Software", by: "Loren Kohnfelder (No Starch Press)", url: "https://nostarch.com/designing-secure-software", type: book, cost: paid }
+      - id: appsec-research
+        title: "Vulnerability research"
+        optional: true
+        text: "Look for new classes of bugs in frameworks and libraries, and publish what you find after it is fixed."
+        res:
+          - { name: "pwn.college", by: "Arizona State University", url: "https://pwn.college/", type: course, cost: free }
+      - id: disclosure
+        title: "Coordinated disclosure"
+        text: "When you find a vulnerability in someone else's software, report it privately, give them time to fix it, then publish. Have a policy for reports about your own products too."
+        res:
+          - { name: "Coordinated Vulnerability Disclosure Process", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/coordinated-vulnerability-disclosure-process", type: docs, cost: free }
+          - { name: "security.txt (RFC 9116)", by: "IETF", url: "https://datatracker.ietf.org/doc/html/rfc9116", type: docs, cost: free }
+      - id: cra
+        title: "Secure by design and regulation"
+        text: "The EU Cyber Resilience Act makes secure design, vulnerability handling and security updates a legal duty for products sold in the EU."
+        res:
+          - { name: "Cyber Resilience Act", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2024/2847/oj", type: docs, cost: free }
+          - { name: "Secure by Design", by: "CISA", url: "https://www.cisa.gov/securebydesign", type: docs, cost: free }
+      - id: ai-code
+        title: "Security of AI-generated code"
+        optional: true
+        text: "AI coding assistants write code fast, including insecure code and made-up package names. Review and scan it like any other code."
+        res:
+          - { name: "OWASP GenAI Security Project", by: "OWASP Foundation", url: "https://genai.owasp.org/", type: docs, cost: free }
     skills:
       - "Design and measure an AppSec programme for many teams and products."
       - "Find new classes of vulnerabilities and report them responsibly."

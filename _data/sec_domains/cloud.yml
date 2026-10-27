@@ -33,7 +33,50 @@ stages:
   - level: beginner
     title: "Cloud fundamentals and the shared responsibility model"
     months: "2–3"
-    topics: ["Shared responsibility model", "Cloud service models (IaaS, PaaS, SaaS)", "Accounts, subscriptions and projects", "Cloud IAM basics", "Storage security", "Virtual networks and security groups", "Encryption and key management services", "Audit logging (CloudTrail, Azure Activity Log)"]
+    topics:
+      - id: shared-responsibility
+        title: "Shared responsibility model"
+        text: "The provider secures the data centres and the platform; you secure how you use it. Where the line falls depends on whether you use IaaS, PaaS or SaaS."
+        res:
+          - { name: "Shared responsibility model", by: "Amazon Web Services", url: "https://aws.amazon.com/compliance/shared-responsibility-model/", type: docs, cost: free }
+          - { name: "Shared responsibility in the cloud", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility", type: docs, cost: free }
+      - id: service-models
+        title: "Cloud service models"
+        text: "IaaS gives you virtual machines, PaaS gives you managed services such as databases, and SaaS gives you finished apps. Each moves more of the security work to the provider."
+        res:
+          - { name: "The NIST Definition of Cloud Computing (SP 800-145)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/145/final", type: docs, cost: free }
+      - id: accounts
+        title: "Accounts, subscriptions and projects"
+        text: "Cloud resources live in accounts (AWS), subscriptions (Azure) or projects (Google Cloud). Separate accounts are the strongest boundary you have, so use them for each environment."
+        res:
+          - { name: "Organizing your AWS environment using multiple accounts", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html", type: docs, cost: free }
+      - id: cloud-iam-basics
+        title: "Cloud IAM basics"
+        text: "Almost every cloud breach involves identity: leaked keys, over-privileged roles, or a missing MFA. Learn users, roles, policies and how to read exactly what a policy allows."
+        res:
+          - { name: "AWS IAM user guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html", type: docs, cost: free }
+          - { name: "flAWS challenge", by: "Scott Piper", url: "http://flaws.cloud/", type: practice, cost: free }
+      - id: storage-security
+        title: "Storage security"
+        text: "Public storage buckets have leaked billions of records. Learn block public access settings, bucket policies, encryption and access logging."
+        res:
+          - { name: "Security best practices for Amazon S3", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html", type: docs, cost: free }
+      - id: cloud-networks
+        title: "Virtual networks and security groups"
+        text: "VPCs, subnets and security groups are the cloud's network controls. Keep databases in private subnets and never open management ports to the whole internet."
+        res:
+          - { name: "Amazon VPC user guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html", type: docs, cost: free }
+      - id: kms
+        title: "Encryption and key management"
+        text: "Cloud key management services encrypt data with keys you control and log every use. Learn the difference between provider-managed and customer-managed keys."
+        res:
+          - { name: "AWS Key Management Service developer guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html", type: docs, cost: free }
+      - id: audit-logging
+        title: "Audit logging"
+        text: "CloudTrail and the Azure Activity Log record every management action. Turn them on in every account and region, and send them somewhere attackers cannot delete them."
+        res:
+          - { name: "AWS CloudTrail user guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html", type: docs, cost: free }
+          - { name: "Azure Monitor activity log", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/azure/azure-monitor/platform/activity-log", type: docs, cost: free }
     skills:
       - "Set up a cloud account securely: MFA on the root user, no root access keys, budget alerts."
       - "Create users, roles and policies that follow least privilege."
@@ -51,7 +94,54 @@ stages:
   - level: intermediate
     title: "Guardrails, infrastructure as code and detection"
     months: "4–6"
-    topics: ["Landing zones and multi-account design", "Organisation policies (SCPs, Azure Policy)", "Infrastructure as code (Terraform, OpenTofu)", "IaC scanning", "Cloud security posture management (CSPM)", "Secrets management", "Cloud-native threat detection (GuardDuty, Defender for Cloud)", "Cloud attack techniques"]
+    topics:
+      - id: landing-zones
+        title: "Landing zones and multi-account design"
+        text: "A landing zone is a ready-made, secure set of accounts, networks, logging and guardrails that every new workload starts from."
+        res:
+          - { name: "AWS Security Reference Architecture", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html", type: docs, cost: free }
+      - id: org-policies
+        title: "Organisation policies"
+        text: "Service control policies and Azure Policy block risky actions across every account, such as turning off logging or creating resources in unapproved regions."
+        res:
+          - { name: "Service control policies", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html", type: docs, cost: free }
+          - { name: "Azure Policy overview", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/azure/governance/policy/overview", type: docs, cost: free }
+      - id: iac
+        title: "Infrastructure as code"
+        text: "Define cloud resources in Terraform or OpenTofu so every change is reviewed, versioned and repeatable. Click-ops is where most misconfigurations start."
+        res:
+          - { name: "Terraform documentation", by: "HashiCorp", url: "https://developer.hashicorp.com/terraform", type: docs, cost: free }
+          - { name: "OpenTofu documentation", by: "OpenTofu", url: "https://opentofu.org/docs/", type: docs, cost: free }
+      - id: iac-scanning
+        title: "IaC scanning"
+        text: "Scanners such as Checkov and Trivy check infrastructure code for mistakes before it is deployed, right in the pull request."
+        res:
+          - { name: "Checkov", by: "Prisma Cloud", url: "https://www.checkov.io/", type: docs, cost: free }
+          - { name: "Trivy", by: "Aqua Security", url: "https://trivy.dev/", type: docs, cost: free }
+      - id: cspm
+        title: "Cloud security posture management"
+        text: "CSPM tools scan running cloud accounts against benchmarks and flag misconfigurations. Prowler is a free way to see what they do."
+        res:
+          - { name: "Prowler", by: "Prowler", url: "https://github.com/prowler-cloud/prowler", type: practice, cost: free }
+          - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+      - id: cloud-secrets
+        title: "Secrets management"
+        text: "Use the provider's secrets manager or Vault instead of keys in code, and prefer roles and federation over long-lived access keys."
+        res:
+          - { name: "AWS Secrets Manager user guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html", type: docs, cost: free }
+      - id: cloud-detection
+        title: "Cloud-native threat detection"
+        text: "GuardDuty, Defender for Cloud and Google Security Command Center detect threats from cloud logs. Learn what they catch and what you still need to build yourself."
+        res:
+          - { name: "Amazon GuardDuty user guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html", type: docs, cost: free }
+          - { name: "Microsoft Defender for Cloud", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/", type: docs, cost: free }
+      - id: cloud-attacks
+        title: "Cloud attack techniques"
+        text: "Know how attackers move in the cloud: stealing keys, escalating IAM privileges, abusing metadata services and persisting with new roles. Practise in your own account only."
+        res:
+          - { name: "Hacking the Cloud", by: "Community project", url: "https://hackingthe.cloud/", type: docs, cost: free }
+          - { name: "CloudGoat", by: "Rhino Security Labs", url: "https://github.com/RhinoSecurityLabs/cloudgoat", type: practice, cost: free }
+          - { name: "MITRE ATT&CK Cloud Matrix", by: "MITRE", url: "https://attack.mitre.org/matrices/enterprise/cloud/", type: docs, cost: free }
     skills:
       - "Build cloud infrastructure only through code, and scan it for mistakes before deployment."
       - "Write preventive guardrails that block risky actions across all accounts."
@@ -69,7 +159,53 @@ stages:
   - level: advanced
     title: "Containers, Kubernetes and cloud incident response"
     months: "6–9"
-    topics: ["Container image security", "Kubernetes security (RBAC, admission control, network policies)", "Runtime security", "Serverless security", "Workload identity", "Data security and DSPM", "Cloud forensics and incident response", "Multi-cloud security"]
+    topics:
+      - id: image-security
+        title: "Container image security"
+        text: "Build small images from trusted bases, scan them for vulnerabilities, and sign them so only approved images run."
+        res:
+          - { name: "Trivy", by: "Aqua Security", url: "https://trivy.dev/", type: practice, cost: free }
+          - { name: "Sigstore", by: "OpenSSF", url: "https://www.sigstore.dev/", type: docs, cost: free }
+      - id: k8s-security
+        title: "Kubernetes security"
+        text: "Secure Kubernetes with RBAC, admission policies, network policies and Pod Security Standards. Misconfigured clusters are a common way in."
+        res:
+          - { name: "Kubernetes security documentation", by: "The Kubernetes Authors", url: "https://kubernetes.io/docs/concepts/security/", type: docs, cost: free }
+          - { name: "Kubernetes Goat", by: "Madhu Akula", url: "https://madhuakula.com/kubernetes-goat/", type: practice, cost: free }
+          - { name: "Kubernetes Hardening Guide", by: "NSA and CISA", url: "https://media.defense.gov/2022/Aug/29/2003066362/-1/-1/0/CTR_KUBERNETES_HARDENING_GUIDANCE_1.2_20220829.PDF", type: docs, cost: free }
+      - id: runtime-security
+        title: "Runtime security"
+        text: "Runtime tools watch what containers actually do, such as a shell starting in a web server container, and alert or block it."
+        res:
+          - { name: "Falco", by: "The Falco Authors", url: "https://falco.org/", type: docs, cost: free }
+      - id: serverless
+        title: "Serverless security"
+        optional: true
+        text: "With serverless functions there is no server to patch, but permissions, event inputs and dependencies still need care."
+        res:
+          - { name: "Security in AWS Lambda", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/lambda/latest/dg/lambda-security.html", type: docs, cost: free }
+      - id: cloud-workload-identity
+        title: "Workload identity"
+        text: "Workloads should get short-lived credentials from the platform, not stored keys. Learn instance roles, managed identities and Kubernetes service account federation."
+        res:
+          - { name: "Managed identities for Azure resources", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview", type: docs, cost: free }
+      - id: dspm
+        title: "Data security in the cloud"
+        text: "Find where sensitive data lives across cloud services, who can reach it, and whether it is encrypted and logged."
+        res:
+          - { name: "Amazon Macie user guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html", type: docs, cost: free }
+      - id: cloud-ir
+        title: "Cloud forensics and incident response"
+        text: "Cloud incidents need different steps: snapshot disks, preserve logs, revoke sessions and keys, and contain with policies instead of pulling cables."
+        res:
+          - { name: "AWS Security Incident Response Guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/security-ir/latest/userguide/introduction.html", type: docs, cost: free }
+          - { name: "Stratus Red Team", by: "Datadog", url: "https://github.com/DataDog/stratus-red-team", type: practice, cost: free }
+      - id: multi-cloud
+        title: "Multi-cloud security"
+        optional: true
+        text: "Running on several clouds multiplies the policy languages and logs to master. Standardise controls and tooling where you can."
+        res:
+          - { name: "Cloud Controls Matrix", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/research/cloud-controls-matrix", type: docs, cost: free }
     skills:
       - "Harden a Kubernetes cluster and check it against the CIS Kubernetes Benchmark."
       - "Enforce policies at admission time with Kyverno or OPA Gatekeeper."
@@ -86,7 +222,41 @@ stages:
   - level: expert
     title: "Cloud security architecture and leadership"
     months: "12–24"
-    topics: ["Enterprise cloud security architecture", "Security for AI services in the cloud", "Cloud security programmes and metrics", "Compliance in the cloud (ISO 27001, SOC 2, PCI DSS)", "Sovereign and regulated clouds", "Cost and risk trade-offs"]
+    topics:
+      - id: cloud-arch
+        title: "Enterprise cloud security architecture"
+        text: "Design secure landing zones, networks, identity and logging for a whole organisation across several clouds."
+        res:
+          - { name: "AWS Well-Architected Security Pillar", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html", type: docs, cost: free }
+          - { name: "Microsoft Cloud Security Benchmark", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/security/benchmark/azure/introduction", type: docs, cost: free }
+      - id: ai-cloud
+        title: "Security for AI services in the cloud"
+        text: "Cloud AI services bring new data flows, model endpoints and agent permissions. Apply the same identity, network and logging controls, plus AI-specific ones."
+        res:
+          - { name: "OWASP GenAI Security Project", by: "OWASP Foundation", url: "https://genai.owasp.org/", type: docs, cost: free }
+          - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+      - id: cloud-programme
+        title: "Cloud security programmes and metrics"
+        text: "Run cloud security as a programme: clear ownership, guardrails by default, and metrics such as time to fix critical findings."
+        res:
+          - { name: "Security Guidance for Critical Areas of Focus in Cloud Computing", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/research/guidance", type: docs, cost: free }
+      - id: cloud-compliance
+        title: "Compliance in the cloud"
+        text: "Map cloud controls to ISO/IEC 27001, SOC 2 and PCI DSS, and collect the evidence automatically from configuration and logs."
+        res:
+          - { name: "Cloud Controls Matrix", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/research/cloud-controls-matrix", type: docs, cost: free }
+      - id: sovereign-cloud
+        title: "Sovereign and regulated clouds"
+        optional: true
+        text: "Some data must stay in a country or under local control. Learn data residency options, sovereign cloud offerings and what they really guarantee."
+        res:
+          - { name: "General Data Protection Regulation", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", type: docs, cost: free }
+      - id: cloud-tradeoffs
+        title: "Cost and risk trade-offs"
+        optional: true
+        text: "Security services and logs cost money in the cloud. Decide what to turn on everywhere, what only for critical workloads, and justify it in terms of risk."
+        res:
+          - { name: "AWS Well-Architected Security Pillar", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html", type: docs, cost: free }
     skills:
       - "Design secure landing zones for a large organisation across several clouds."
       - "Build a cloud security programme with clear ownership, guardrails and metrics."

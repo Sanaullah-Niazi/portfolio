@@ -32,7 +32,50 @@ stages:
   - level: beginner
     title: "Accounts, authentication and directories"
     months: "2–3"
-    topics: ["Identification, authentication, authorisation", "Passwords and hashing", "Multi-factor authentication", "Active Directory basics", "Microsoft Entra ID basics", "Groups and roles (RBAC)", "Least privilege", "Joiner-mover-leaver process"]
+    topics:
+      - id: authn-authz
+        title: "Authentication and authorisation"
+        text: "Identification says who you claim to be, authentication proves it, and authorisation decides what you may do. Most identity bugs come from mixing these up."
+        res:
+          - { name: "IDPro Body of Knowledge", by: "IDPro", url: "https://bok.idpro.org/", type: docs, cost: free }
+      - id: passwords
+        title: "Passwords and hashing"
+        text: "Passwords should be long, checked against breached lists, and stored with a slow hash such as Argon2 or bcrypt. NIST no longer recommends forced regular changes."
+        res:
+          - { name: "Digital Identity Guidelines (SP 800-63-4)", by: "NIST", url: "https://pages.nist.gov/800-63-4/", type: docs, cost: free }
+          - { name: "Password Storage Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html", type: docs, cost: free }
+      - id: mfa
+        title: "Multi-factor authentication"
+        text: "MFA adds a second proof, but not all kinds are equal: SMS codes and push prompts can be phished or spammed, while passkeys and security keys resist phishing."
+        res:
+          - { name: "Phishing-resistant MFA fact sheet", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/implementing-phishing-resistant-mfa", type: docs, cost: free }
+          - { name: "Passkeys", by: "FIDO Alliance", url: "https://fidoalliance.org/passkeys/", type: docs, cost: free }
+      - id: ad-basics
+        title: "Active Directory basics"
+        text: "Active Directory still runs identity for most companies: domains, users, groups, Group Policy and Kerberos. Build a small domain in a lab to see how it fits together."
+        res:
+          - { name: "Active Directory Domain Services overview", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview", type: docs, cost: free }
+      - id: entra-basics
+        title: "Microsoft Entra ID basics"
+        text: "Entra ID is Microsoft's cloud identity service behind Microsoft 365 and Azure. Learn users, groups, app registrations, roles and sign-in logs."
+        res:
+          - { name: "Microsoft Entra documentation", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/entra/", type: docs, cost: free }
+          - { name: "SC-300 learning path", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/courses/sc-300t00", type: course, cost: free }
+      - id: rbac
+        title: "Groups and roles (RBAC)"
+        text: "Role-based access control gives permissions to roles, and people get roles. It is easier to review than permissions given person by person."
+        res:
+          - { name: "Role Based Access Control", by: "NIST CSRC", url: "https://csrc.nist.gov/projects/role-based-access-control", type: docs, cost: free }
+      - id: least-privilege
+        title: "Least privilege"
+        text: "Give every account only the access it needs, for only as long as it needs it. It limits the damage of every stolen password and every mistake."
+        res:
+          - { name: "CIS Critical Security Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: jml
+        title: "Joiner, mover, leaver"
+        text: "Access should be created when someone joins, changed when they move role, and removed the day they leave. Forgotten accounts of former staff are a classic way in."
+        res:
+          - { name: "IDPro Body of Knowledge", by: "IDPro", url: "https://bok.idpro.org/", type: docs, cost: free }
     skills:
       - "Create and manage users, groups and policies in Active Directory and Entra ID."
       - "Explain why SMS codes are weaker than authenticator apps, and why passkeys resist phishing."
@@ -49,7 +92,54 @@ stages:
   - level: intermediate
     title: "Federation, SSO and access automation"
     months: "4–6"
-    topics: ["SAML 2.0", "OAuth 2.0 and OpenID Connect", "JSON Web Tokens", "Conditional access", "SCIM provisioning", "Service accounts and API keys", "Active Directory attack paths", "Kerberos"]
+    topics:
+      - id: saml
+        title: "SAML 2.0"
+        text: "SAML is the older single sign-on standard, still used by many business apps. Learn how assertions are signed and the classic signature-wrapping mistakes."
+        res:
+          - { name: "SAML Security Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/SAML_Security_Cheat_Sheet.html", type: docs, cost: free }
+      - id: oauth-oidc
+        title: "OAuth 2.0 and OpenID Connect"
+        text: "OAuth lets an app act for a user without their password; OpenID Connect adds sign-in on top. Learn the authorisation code flow with PKCE, scopes and refresh tokens."
+        res:
+          - { name: "OAuth 2.0 Simplified", by: "Aaron Parecki", url: "https://www.oauth.com/", type: book, cost: free }
+          - { name: "OpenID Connect specifications", by: "OpenID Foundation", url: "https://openid.net/developers/specs/", type: docs, cost: free }
+          - { name: "OAuth 2.0 authentication vulnerabilities", by: "PortSwigger", url: "https://portswigger.net/web-security/oauth", type: practice, cost: free }
+      - id: jwt
+        title: "JSON Web Tokens"
+        text: "JWTs carry identity claims between services. Always verify the signature and algorithm, check expiry and audience, and never trust a token you only decoded."
+        res:
+          - { name: "JWT attacks", by: "PortSwigger", url: "https://portswigger.net/web-security/jwt", type: practice, cost: free }
+          - { name: "JSON Web Token (RFC 7519)", by: "IETF", url: "https://datatracker.ietf.org/doc/html/rfc7519", type: docs, cost: free }
+      - id: conditional-access
+        title: "Conditional access"
+        text: "Conditional access decides at sign-in time based on user, device, location and risk, for example requiring a managed device for admin portals."
+        res:
+          - { name: "Conditional Access overview", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/entra/identity/conditional-access/overview", type: docs, cost: free }
+      - id: scim
+        title: "SCIM provisioning"
+        optional: true
+        text: "SCIM is the standard for creating and removing accounts in other apps automatically, so leavers lose access everywhere at once."
+        res:
+          - { name: "SCIM protocol (RFC 7644)", by: "IETF", url: "https://datatracker.ietf.org/doc/html/rfc7644", type: docs, cost: free }
+      - id: service-accounts
+        title: "Service accounts and API keys"
+        text: "Machines have identities too, and they often have more access and weaker protection than people. Inventory them, scope them, and rotate their secrets."
+        res:
+          - { name: "Secrets Management Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html", type: docs, cost: free }
+      - id: ad-attack-paths
+        title: "Active Directory attack paths"
+        text: "Attackers chain small misconfigurations, such as a group with too many rights, into a path to Domain Admin. BloodHound draws these paths so you can cut them."
+        res:
+          - { name: "BloodHound Community Edition", by: "SpecterOps", url: "https://github.com/SpecterOps/BloodHound", type: practice, cost: free }
+          - { name: "PingCastle", by: "Netwrix", url: "https://www.pingcastle.com/", type: practice, cost: free }
+          - { name: "Active Directory Security", by: "Sean Metcalf", url: "https://adsecurity.org/", type: docs, cost: free }
+      - id: kerberos
+        title: "Kerberos"
+        text: "Kerberos is how Windows domains prove identity with tickets. Learn the ticket flow and the attacks on it: Kerberoasting, AS-REP roasting, golden and silver tickets."
+        res:
+          - { name: "Kerberos authentication overview", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview", type: docs, cost: free }
+          - { name: "MITRE ATT&CK: Steal or Forge Kerberos Tickets", by: "MITRE", url: "https://attack.mitre.org/techniques/T1558/", type: docs, cost: free }
     skills:
       - "Integrate an application with SSO using SAML and OpenID Connect."
       - "Read and validate a JWT, and spot common token mistakes."
@@ -67,7 +157,51 @@ stages:
   - level: advanced
     title: "Privileged access, governance and cloud identity"
     months: "6–9"
-    topics: ["Privileged access management", "Just-in-time and just-enough access", "Identity governance and access reviews", "Cloud IAM (AWS IAM, Azure RBAC, Google Cloud IAM)", "Workload identity and federation", "Secrets management", "Identity threat detection and response (ITDR)", "Passkeys and FIDO2 rollout"]
+    topics:
+      - id: pam
+        title: "Privileged access management"
+        text: "Admin accounts need extra protection: separate accounts, vaulted credentials, recorded sessions and dedicated admin workstations."
+        res:
+          - { name: "Privileged access strategy", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-strategy", type: docs, cost: free }
+      - id: jit
+        title: "Just-in-time and just-enough access"
+        text: "Instead of standing admin rights, people request elevated access for a short time and a specific task, with approval and logging."
+        res:
+          - { name: "Microsoft Entra Privileged Identity Management", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure", type: docs, cost: free }
+      - id: iga
+        title: "Identity governance and access reviews"
+        text: "Governance makes sure access stays right over time: regular reviews by managers, role design, and rules such as no one may both create and approve a payment."
+        res:
+          - { name: "midPoint", by: "Evolveum", url: "https://evolveum.com/midpoint/", type: practice, cost: free }
+          - { name: "IDPro Body of Knowledge", by: "IDPro", url: "https://bok.idpro.org/", type: docs, cost: free }
+      - id: cloud-iam
+        title: "Cloud IAM"
+        text: "AWS IAM, Azure RBAC and Google Cloud IAM each have their own policy language and pitfalls. Learn to read policies precisely and find roles that allow too much."
+        res:
+          - { name: "AWS IAM user guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html", type: docs, cost: free }
+          - { name: "Azure RBAC documentation", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/azure/role-based-access-control/overview", type: docs, cost: free }
+      - id: workload-identity
+        title: "Workload identity and federation"
+        text: "Workloads can prove who they are with short-lived tokens instead of stored keys, for example GitHub Actions signing in to AWS with OIDC."
+        res:
+          - { name: "Security hardening with OpenID Connect", by: "GitHub Docs", url: "https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect", type: docs, cost: free }
+      - id: secrets-mgmt
+        title: "Secrets management"
+        text: "Passwords, keys and tokens belong in a vault, not in code or config files. Good vaults issue short-lived, per-use credentials and log every access."
+        res:
+          - { name: "HashiCorp Vault documentation", by: "HashiCorp", url: "https://developer.hashicorp.com/vault", type: docs, cost: free }
+          - { name: "Secrets Management Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html", type: docs, cost: free }
+      - id: itdr
+        title: "Identity threat detection and response"
+        text: "ITDR watches identity systems for attacks such as token theft, MFA fatigue, consent phishing and suspicious admin changes, and responds by revoking sessions."
+        res:
+          - { name: "MITRE ATT&CK: Valid Accounts", by: "MITRE", url: "https://attack.mitre.org/techniques/T1078/", type: docs, cost: free }
+      - id: passkeys
+        title: "Passkeys and FIDO2 rollout"
+        text: "Passkeys replace passwords with phishing-resistant keys stored on devices. The hard parts of a rollout are enrolment, account recovery and lost devices."
+        res:
+          - { name: "Passkeys", by: "FIDO Alliance", url: "https://fidoalliance.org/passkeys/", type: docs, cost: free }
+          - { name: "Web Authentication (WebAuthn)", by: "W3C", url: "https://www.w3.org/TR/webauthn-3/", type: docs, cost: free }
     skills:
       - "Design tiered admin access with just-in-time elevation."
       - "Write and review cloud IAM policies, and find over-privileged roles."
@@ -85,7 +219,45 @@ stages:
   - level: expert
     title: "Identity architecture and strategy"
     months: "12–24"
-    topics: ["Enterprise identity architecture", "Zero trust strategy", "Customer identity (CIAM)", "Decentralised identity and verifiable credentials", "Identity for AI agents", "Mergers and identity consolidation", "Identity metrics and risk"]
+    topics:
+      - id: identity-arch
+        title: "Enterprise identity architecture"
+        text: "Design identity across employees, partners, customers and machines: which directories, which identity providers, and how they trust each other."
+        res:
+          - { name: "IDPro Body of Knowledge", by: "IDPro", url: "https://bok.idpro.org/", type: docs, cost: free }
+      - id: zt-strategy
+        title: "Zero trust strategy"
+        text: "In zero trust, identity becomes the main boundary. Plan the journey in stages, using a maturity model to measure progress."
+        res:
+          - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+      - id: ciam
+        title: "Customer identity (CIAM)"
+        optional: true
+        text: "Customer sign-in must be secure and easy, at the scale of millions of users, while resisting credential stuffing and account takeover."
+        res:
+          - { name: "Credential Stuffing Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html", type: docs, cost: free }
+      - id: decentralised-id
+        title: "Decentralised identity"
+        optional: true
+        text: "Verifiable credentials let people hold signed claims, such as a degree or an ID, in a wallet and share only what is needed. The EU Digital Identity Wallet builds on this."
+        res:
+          - { name: "Verifiable Credentials Data Model 2.0", by: "W3C", url: "https://www.w3.org/TR/vc-data-model-2.0/", type: docs, cost: free }
+      - id: agent-identity
+        title: "Identity for AI agents"
+        text: "AI agents act on behalf of people and call tools and APIs. Give each agent its own identity, scoped and short-lived permissions, and a clear record of who it acted for."
+        res:
+          - { name: "OWASP GenAI Security Project", by: "OWASP Foundation", url: "https://genai.owasp.org/", type: docs, cost: free }
+      - id: identity-mergers
+        title: "Mergers and identity consolidation"
+        optional: true
+        text: "When companies merge, their directories and identity providers must be joined without breaking access or opening gaps for attackers."
+        res:
+          - { name: "IDPro Body of Knowledge", by: "IDPro", url: "https://bok.idpro.org/", type: docs, cost: free }
+      - id: identity-metrics
+        title: "Identity metrics and risk"
+        text: "Measure what matters: MFA coverage, standing admin accounts, stale accounts and time to remove leavers. Use the numbers to set priorities."
+        res:
+          - { name: "CIS Critical Security Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
     skills:
       - "Design identity for a large organisation across employees, customers, partners and machines."
       - "Lead a multi-year zero trust programme with identity at its centre."
