@@ -1,9 +1,16 @@
 {%- comment -%}
   The Roadmaps page, in every language. Paths, stages and links are in _data/roadmaps.yml (English).
   _data/<code>/roadmaps.yml only holds translated text, keyed by path id; anything missing there shows in English.
+
+  The page is three tiers: Learning paths, then the Cybersecurity & AI security roadmaps
+  (categories from _data/sec_roadmaps.yml), then Certifications.
 {%- endcomment -%}
 {%- assign R = site.data.roadmaps -%}
 {%- assign T = D.roadmaps | default: R -%}
+{%- assign CE = site.data.cert_roadmaps -%}
+{%- assign TC = D.cert_roadmaps | default: CE -%}
+{%- assign SR = site.data.sec_roadmaps -%}
+{%- assign nrm = 0 %}{% for c in SR.categories %}{% assign nrm = nrm | plus: c.domains.size %}{% endfor %}
 <div class="wrap page roadmaps-page">
   <header class="page-head">
     <p class="eyebrow">{{ T.eyebrow | default: R.eyebrow }}</p>
@@ -11,6 +18,12 @@
     <p class="lede">{{ T.lede | default: R.lede }}</p>
     <p class="pill">{% include icon.html name="shield" px=15 %}<span>{{ T.pill | default: R.pill }}</span></p>
   </header>
+
+  <nav class="rm-jump" aria-label="{{ T.sections_label | default: R.sections_label }}">
+    <a href="#learning-paths">{% include icon.html name="map" px=16 %}<span>{{ T.tier_paths_title | default: R.tier_paths_title }}</span></a>
+    <a href="#security-roadmaps">{% include icon.html name="shield" px=16 %}<span>{{ T.tier_security_title | default: R.tier_security_title }}</span></a>
+    <a href="#certifications">{% include icon.html name="award" px=16 %}<span>{{ T.tier_certs_title | default: R.tier_certs_title }}</span></a>
+  </nav>
 
   <section class="card rm-how" aria-labelledby="rm-how-title">
     <h2 id="rm-how-title" class="tool-title">{{ T.how_title | default: R.how_title }}</h2>
@@ -22,17 +35,14 @@
     </ol>
   </section>
 
-  {%- assign CE = site.data.cert_roadmaps %}{% assign TC = D.cert_roadmaps | default: CE %}
-  <a class="card spot rm-cta" href="{{ L }}/roadmaps/certifications/">
-    <span class="icon-tile">{% include icon.html name="award" px=22 %}</span>
-    <span class="rm-index-text"><strong>{{ TC.certs_cta | default: CE.certs_cta }}</strong><span class="muted">{{ TC.certs_cta_text | default: CE.certs_cta_text }}</span></span>
-    {% include icon.html name="arrow" px=18 %}
-  </a>
-  <a class="card spot rm-cta" href="/roadmaps/security/"{% if lang != 'en' %} hreflang="en"{% endif %}>
-    <span class="icon-tile">{% include icon.html name="shield" px=22 %}</span>
-    <span class="rm-index-text"><strong>{{ T.security_cta | default: R.security_cta }}</strong><span class="muted">{{ T.security_cta_text | default: R.security_cta_text }}</span></span>
-    {% include icon.html name="arrow" px=18 %}
-  </a>
+  {%- comment -%} ---- Tier 1: Learning paths ---- {%- endcomment -%}
+  <div class="rm-tier" id="learning-paths">
+    <span class="rm-tier-num" aria-hidden="true">1</span>
+    <div>
+      <h2 class="rm-tier-title">{{ T.tier_paths_title | default: R.tier_paths_title }}</h2>
+      <p class="muted">{{ T.tier_paths_text | default: R.tier_paths_text }}</p>
+    </div>
+  </div>
 
   <nav class="rm-index" id="top-paths" aria-label="{{ T.paths_label | default: R.paths_label }}">
     {%- for p in R.paths %}
@@ -124,10 +134,61 @@
     </ol>
     {%- assign ctrack = CE.tracks | where: 'roadmap', p.id | first %}
     <p class="rm-back">
+      {%- if p.to_security %}<a href="#security-roadmaps">{% include icon.html name="shield" px=15 %}<span>{{ T.specialise | default: R.specialise }}</span></a>{% endif %}
       {%- if ctrack %}<a href="{{ L }}/roadmaps/certifications/#{{ ctrack.id }}">{% include icon.html name="award" px=15 %}<span>{{ TC.certs_cta | default: CE.certs_cta }}</span></a>{% endif %}
       <a href="#top-paths">{% include icon.html name="arrow-up" px=15 %}<span>{{ T.back | default: R.back }}</span></a></p>
   </section>
   {%- endfor %}
+
+  {%- comment -%} ---- Tier 2: Cybersecurity & AI security roadmaps ---- {%- endcomment -%}
+  <div class="rm-tier" id="security-roadmaps">
+    <span class="rm-tier-num" aria-hidden="true">2</span>
+    <div>
+      <h2 class="rm-tier-title">{{ T.tier_security_title | default: R.tier_security_title }}</h2>
+      <p class="muted">{{ T.tier_security_text | default: R.tier_security_text | replace: '[n]', nrm }}</p>
+    </div>
+  </div>
+
+  <nav class="rm-index" aria-label="{{ T.tier_security_title | default: R.tier_security_title }}">
+    {%- for c in SR.categories %}
+    <a class="card spot rm-index-card" href="{{ L }}/roadmaps/security/#{{ c.id }}"{% if lang != 'en' %} hreflang="en"{% endif %}>
+      <span class="icon-tile">{% include icon.html name=c.icon px=22 %}</span>
+      <span class="rm-index-text">
+        <strong>{{ c.title }}</strong>
+        <span class="muted">{{ c.summary }}</span>
+        <span class="rm-badge is-count">{{ c.domains.size }} {{ T.roadmaps_word | default: R.roadmaps_word }}</span>
+      </span>
+    </a>
+    {%- endfor %}
+  </nav>
+
+  <div class="sr-ctas">
+    <a class="card spot rm-cta" href="{{ L }}/roadmaps/security/"{% if lang != 'en' %} hreflang="en"{% endif %}>
+      <span class="icon-tile">{% include icon.html name="search" px=22 %}</span>
+      <span class="rm-index-text"><strong>{{ T.security_all | default: R.security_all | replace: '[n]', nrm }}</strong><span class="muted">{{ T.security_all_text | default: R.security_all_text }}</span></span>
+      {% include icon.html name="arrow" px=18 %}
+    </a>
+    <a class="card spot rm-cta" href="{{ L }}/roadmaps/security/frameworks/"{% if lang != 'en' %} hreflang="en"{% endif %}>
+      <span class="icon-tile">{% include icon.html name="book" px=22 %}</span>
+      <span class="rm-index-text"><strong>{{ SR.frameworks_cta }}</strong><span class="muted">{{ SR.frameworks_cta_text }}</span></span>
+      {% include icon.html name="arrow" px=18 %}
+    </a>
+  </div>
+
+  {%- comment -%} ---- Tier 3: Certifications ---- {%- endcomment -%}
+  <div class="rm-tier" id="certifications">
+    <span class="rm-tier-num" aria-hidden="true">3</span>
+    <div>
+      <h2 class="rm-tier-title">{{ T.tier_certs_title | default: R.tier_certs_title }}</h2>
+      <p class="muted">{{ T.tier_certs_text | default: R.tier_certs_text }}</p>
+    </div>
+  </div>
+
+  <a class="card spot rm-cta" href="{{ L }}/roadmaps/certifications/">
+    <span class="icon-tile">{% include icon.html name="award" px=22 %}</span>
+    <span class="rm-index-text"><strong>{{ TC.certs_cta | default: CE.certs_cta }}</strong><span class="muted">{{ TC.certs_cta_text | default: CE.certs_cta_text }}</span></span>
+    {% include icon.html name="arrow" px=18 %}
+  </a>
 
   <section class="card card-dashed rm-trust" aria-labelledby="rm-trust-title">
     <h2 id="rm-trust-title" class="tool-title">{{ T.trust_title | default: R.trust_title }}</h2>

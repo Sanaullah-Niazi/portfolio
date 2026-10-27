@@ -749,6 +749,14 @@ pre.code { margin: 0; padding: 14px 16px; border-radius: 10px; background: #0b12
 .rm-index-text strong { font-size: 16.5px; line-height: 1.35; }
 .rm-index-text .muted { font-size: 14.5px; line-height: 1.5; }
 .rm-badge { margin-top: 4px; font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px; background: var(--accent); color: var(--on-accent); }
+.rm-badge.is-count { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+.rm-jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.rm-jump a { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); text-decoration: none; font-size: 14px; background: var(--surface); }
+.rm-jump a:hover { border-color: var(--accent); color: var(--accent); }
+.rm-jump a .icon { color: var(--accent); }
+.rm-tier { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; scroll-margin-top: calc(var(--header-h) + 16px); padding-top: 18px; border-top: 2px solid var(--line); }
+.rm-tier-num { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font: 700 18px/1 var(--mono); }
+.rm-tier-title { margin: 0 0 3px; font-size: 21px; line-height: 1.25; }
 .rm-path { display: grid; gap: 16px; padding: 28px; scroll-margin-top: calc(var(--header-h) + 16px); }
 .rm-path .tool-head .muted { margin-top: 6px; max-width: 70ch; }
 .rm-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 0; }
