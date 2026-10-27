@@ -1,0 +1,257 @@
+# Text of the Certifications page (/zh/roadmaps/certifications/). Only change the text after the colon.
+# Prices, links and the order of steps come from _data/cert_roadmaps.yml. Anything missing here shows in English.
+
+eyebrow: "认证"
+title: "认证路线图"
+lede: "每个职业该考哪些认证、按什么顺序考。附真实费用、考试形式、有效期，以及哪些值得考的坦诚建议。"
+pill: "价格以美元计，核实于"
+advice_title: "先读这一段"
+advice:
+  - "认证能让你的简历通过筛选、拿到面试。真正让你拿到工作的是技能和项目。请同时完成对应的学习路线。"
+  - "先考便宜、偏实操的认证。昂贵的认证留到有雇主报销时再考。"
+  - "每一步考一个就够了。如果某一步列出两个，选你所在地区雇主更常要求的那个。"
+  - "价格为美国税前标价。很多厂商在部分国家定价更低，也有学生折扣，付款前请查看官方页面。"
+  - "绝不要用考试题库泄露题（dumps）。这违反考试规定，厂商会因此吊销认证。"
+tracks_label: "选择一个职业"
+step: "步骤"
+or: "或"
+levels:
+  entry: "入门"
+  mid: "中级"
+  advanced: "高级"
+cost: "费用"
+exam: "考试"
+valid: "有效期"
+needs: "开始前"
+official: "官方页面"
+roadmap_link: "这个职业的学习路线"
+see_roadmaps: "想知道该学什么，而不是该考什么？请看学习路线图。"
+roadmaps_cta: "学习路线图"
+certs_cta: "认证路线图"
+certs_cta_text: "每个职业该考哪些认证，附真实费用。"
+checked_label: "价格和规则核实于"
+foot: "发现价格变动或某个考试已停考？"
+back: "返回所有职业"
+
+tracks:
+  soc:
+    title: "网络安全分析师（蓝队、SOC）"
+    summary: "监控攻击、调查告警并响应安全事件。"
+    steps:
+      - note: "从这里开始。如果只能负担一个，就考 Security+。"
+      - note: "证明你能胜任分析师工作。如果本地雇主使用微软工具，选 SC-200。"
+      - note: "可选，但实操考试能让你的简历更突出。"
+      - note: "有工作经验后再考，最好由雇主出钱。"
+      - note: "大约五年后，面向高级和负责人岗位。"
+  pentest:
+    title: "道德黑客（渗透测试工程师）"
+    summary: "在获得授权的前提下入侵系统，赶在犯罪分子之前找到漏洞。"
+    steps:
+      - note: "可选，但能打好基础并通过 HR 筛选。"
+      - note: "你的第一个实战型黑客认证。"
+      - note: "贴近真实工作的考试，需要提交完整报告。两者都能很好地为 OSCP 做准备。"
+      - note: "大多数渗透测试招聘广告点名要求的认证。"
+      - note: "只有当你申请的岗位要求时才考，很多政府岗位会要求。"
+  grc:
+    title: "安全管理与治理（GRC）"
+    summary: "领导安全团队、管理风险、制定制度并应对审计。"
+    steps:
+      - note: "共同的基础。"
+      - note: "尽早通过考试，在积累经验期间成为 ISC2 准会员（Associate）。"
+      - note: "面向管理岗位。"
+      - note: "新认证：AI 系统的治理与安全。"
+  cloud:
+    title: "云工程师与云安全"
+    summary: "在 AWS 或微软 Azure 上构建并保护系统。选定一个云平台并坚持下去。"
+    steps:
+      - note: "可选的第一步。"
+      - note: "云计算雇主最看重的认证。"
+      - note: "如果想做云安全岗位，再加上这一项。"
+  ai:
+    title: "AI 与机器学习工程师"
+    summary: "构建、部署并保护 AI 系统。在 AI 领域，扎实的项目作品比任何认证都重要。"
+    steps:
+      - note: "可选的基础认证。"
+      - note: "证明你能把模型和 AI 应用投入生产。"
+      - note: "一个受认可的高级认证。"
+      - note: "面向 AI 安全与治理岗位，需先持有 CISSP 或 CISM。"
+  data:
+    title: "数据分析师与数据工程师"
+    summary: "把数据变成答案，并构建背后的数据管道。"
+    steps:
+      - note: "对数据分析师最有用的第一个认证。"
+      - note: "转向数据工程时考。"
+      - note: "高级认证，在使用谷歌云的公司中认可度高。"
+  devops:
+    title: "网络与 DevOps"
+    summary: "运行网络、自动化基础设施并保证服务在线。"
+    steps:
+      - note: "网络知识对任何 IT 职业都有帮助。"
+      - note: "便宜又实用。"
+      - note: "实操型 Kubernetes 技能。"
+
+certs:
+  cc:
+    cost: "199 美元（持有未使用的 One Million Certified 免费码可免费，截至 2026 年 12 月 31 日）"
+    exam: "选择题，约 2 小时，在考试中心考"
+    valid: "3 年，每年 50 美元"
+    needs: "无"
+    why: "便宜的第一步，证明你掌握基础知识。如果直接考 Security+ 可以跳过。"
+  secplus:
+    exam: "最多 90 题，选择题加实操题，90 分钟"
+    valid: "3 年，通过继续教育学分和每年 50 美元续期"
+    needs: "无硬性要求；有网络基础更好"
+    why: "招聘广告中最常要求的入门安全认证，也被许多政府岗位认可。"
+  cysa:
+    exam: "选择题和实操题"
+    valid: "3 年，同时续期你的 Security+"
+    needs: "具备 Security+ 水平的知识"
+    why: "证明你能读日志、分诊告警并响应事件，这正是 SOC 分析师的日常工作。"
+  sc200:
+    exam: "约 100 分钟，多种题型"
+    valid: "1 年，可免费在线续期"
+    needs: "无硬性要求；有 Microsoft Sentinel 和 Defender 经验更好"
+    why: "如果你附近的雇主使用微软安全工具（很多都在用），性价比很高。"
+  cdsa:
+    cost: "考试约 210 美元，另需 Academy 订阅"
+    exam: "7 天实操调查，并提交书面报告"
+    needs: "完成 HTB Academy 上的 SOC Analyst 路线"
+    why: "完全实操，能证明真实能力。HR 对它的了解不如 CySA+。"
+  gcih:
+    cost: "仅考试 999 美元；参加 SANS 培训则贵得多"
+    exam: "有监考，选择题加 CyberLive 实操题"
+    valid: "4 年，续期 499 美元"
+    needs: "有安全运营经验"
+    why: "在事件响应领域认可度很高。通常只有雇主出钱时才值得考。"
+  cissp:
+    exam: "100 到 150 道自适应题，最长 3 小时"
+    valid: "以 3 年为周期，需 120 个学分，每年 135 美元"
+    needs: "5 年带薪安全工作经验（可以先通过考试，成为 ISC2 准会员后再积累经验）"
+    why: "高级安全岗位和管理岗位的标准认证。"
+  ejpt:
+    cost: "249 美元，含一次免费重考"
+    exam: "48 小时实操实验环境，35 道题，开卷"
+    valid: "3 年"
+    needs: "无；有网络和 Linux 基础更好"
+    why: "最好的第一个黑客认证：价格实惠，完全实操。"
+  pnpt:
+    cost: "499 美元，含培训和一次免费重考"
+    exam: "5 天攻击一个网络，2 天写报告，然后进行一次线上答辩"
+    valid: "永久有效"
+    needs: "无硬性要求；需要 Windows 和 Active Directory 基础"
+    why: "很像真实工作：你要攻破一个 Active Directory 网络，并向评审讲解你的报告。"
+  cpts:
+    cost: "考试约 210 美元（两次机会），另需 Academy 订阅"
+    exam: "10 天：在企业网络中拿到 14 个 flag 中的至少 12 个，并写一份专业报告"
+    needs: "完成 HTB Academy 上包含 28 个模块的 Penetration Tester 路线"
+    why: "中级考试中最难、最实战的之一，是备考 OSCP 的极佳准备。"
+  oscp:
+    cost: "1,749 美元起（课程加考试套餐）"
+    exam: "约 24 小时实操攻击，之后 24 小时写报告"
+    valid: "OSCP 终身有效；“+”有效期 3 年"
+    needs: "扎实的渗透测试实践（达到 PNPT 或 CPTS 水平）"
+    why: "最知名的渗透测试认证，很多渗透测试招聘广告点名要求。"
+  ceh:
+    cost: "950 美元（线上）或 1,199 美元（考试中心），未参加官方培训需另付 100 美元"
+    exam: "125 道选择题，4 小时"
+    valid: "3 年，需 120 个学分，每年 80 美元"
+    needs: "参加官方培训，或有 2 年安全工作经验"
+    why: "政府和海湾地区的招聘常常要求，但它考的是理论而不是黑客技能。只有目标岗位要求时才考。"
+  cism:
+    cost: "ISACA 会员 575 美元，非会员 760 美元"
+    exam: "150 道选择题，4 小时"
+    valid: "以 3 年为周期，需 120 学时，并缴纳年费"
+    needs: "5 年安全工作经验，其中 3 年从事安全管理"
+    why: "面向领导安全项目、制定制度和管理风险的人。"
+  aaism:
+    cost: "ISACA 会员 459 美元，非会员 599 美元"
+    exam: "选择题"
+    needs: "持有有效的 CISM 或 CISSP"
+    why: "2025 年推出的新认证：证明你能治理和保护 AI 系统。持有者少，因此很突出。"
+  aws-ccp:
+    exam: "65 道选择题，90 分钟"
+    valid: "3 年"
+    needs: "无"
+    why: "温和的起点，帮你掌握云计算术语和服务。如果你已在使用 AWS，可以跳过。"
+  az900:
+    exam: "多种题型，约 45 分钟"
+    valid: "永久有效"
+    needs: "无"
+    why: "Azure 版的第一个云认证。微软常在线上培训日（Virtual Training Days）送免费考试券。"
+  aws-saa:
+    exam: "65 道选择题，130 分钟"
+    valid: "3 年"
+    needs: "有一定 AWS 实操经验"
+    why: "对大多数人来说最有价值的云认证，各地雇主都认可。"
+  az104:
+    exam: "多种题型，包括案例分析"
+    valid: "1 年，可免费在线续期"
+    needs: "有 Azure 实操经验"
+    why: "运维真实系统的核心 Azure 认证。"
+  aws-sec:
+    exam: "选择题，约 3 小时"
+    valid: "3 年"
+    needs: "有真实 AWS 经验；最好先考一个 Associate 级认证"
+    why: "证明你能保护云上的工作负载，这是需求最旺盛的安全技能之一。"
+  sc500:
+    exam: "多种题型"
+    valid: "1 年，可免费在线续期"
+    needs: "有 Azure 管理经验"
+    why: "自 2026 年 8 月 31 日起取代 AZ-500，是 Azure 方向进入云安全的途径。"
+  aws-aip:
+    exam: "选择题，90 分钟"
+    valid: "3 年"
+    needs: "无"
+    why: "初步了解 AI 和生成式 AI 概念。有用，但在 AI 领域项目重要得多。"
+  ai901:
+    exam: "多种题型"
+    valid: "永久有效"
+    needs: "无"
+    why: "2026 年起取代 AI-900，是 Azure 版的第一个 AI 认证。"
+  aws-mle:
+    exam: "选择题和排序题，约 2 小时（2026 年 9 月起为新版本）"
+    valid: "3 年"
+    needs: "有训练和部署模型的经验"
+    why: "证明你能把模型从 notebook 带到 AWS 上的生产环境。"
+  ai103:
+    cost: "约 165 美元（微软 Associate 级考试的常规价格，请在官方页面确认）"
+    exam: "多种题型"
+    valid: "1 年，可免费在线续期"
+    needs: "会用 Python，并有调用 AI 服务的经验"
+    why: "2026 年起取代 AI-102，面向在 Azure 上构建 AI 应用和智能体。"
+  gcp-mle:
+    exam: "选择题，2 小时"
+    valid: "2 年"
+    needs: "有真实的机器学习项目；谷歌建议有 3 年行业经验"
+    why: "云厂商中最受认可的机器学习认证之一。"
+  pl300:
+    exam: "多种题型，约 100 分钟"
+    valid: "1 年，可免费在线续期"
+    needs: "有 Power BI 练习经验；会 SQL 更好"
+    why: "Power BI 是数据分析师招聘中最常被要求的工具之一，所以这是很有用的第一个数据认证。"
+  aws-dea:
+    exam: "选择题，约 2 小时"
+    valid: "3 年"
+    needs: "有 SQL、Python 和数据管道经验"
+    why: "涵盖 AWS 上的数据管道、存储和数据仓库。"
+  gcp-de:
+    exam: "选择题，2 小时"
+    valid: "2 年"
+    needs: "有真实的数据工程经验"
+    why: "认可度高，尤其是在使用 BigQuery 的公司。"
+  ccna:
+    exam: "100 到 120 道题，2 小时（2027 年 2 月 3 日起为 2.0 新版本）"
+    valid: "3 年"
+    needs: "无；用 Packet Tracer 做实验练习"
+    why: "经典的网络认证，对安全和云方向的职业也很有用。"
+  terraform:
+    exam: "57 道题，1 小时"
+    valid: "2 年"
+    needs: "有 Terraform 实践经验"
+    why: "便宜，而且大多数 DevOps 招聘都要求基础设施即代码。"
+  cka:
+    cost: "445 美元，含两次考试机会和模拟考试"
+    exam: "在真实终端中完成 2 小时实操任务"
+    valid: "2 年"
+    needs: "掌握 Linux 和容器；有真实的 Kubernetes 实践"
+    why: "完全实操，在 DevOps 和平台类岗位中很受重视。"

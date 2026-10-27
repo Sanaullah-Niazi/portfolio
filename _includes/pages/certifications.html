@@ -1,0 +1,92 @@
+{%- comment -%}
+  The Certifications page, in every language. Certifications, prices, tracks and links are in _data/cert_roadmaps.yml (English).
+  _data/<code>/cert_roadmaps.yml only holds translated text, keyed by track id and cert id; anything missing there shows in English.
+{%- endcomment -%}
+{%- assign C = site.data.cert_roadmaps -%}
+{%- assign T = D.cert_roadmaps | default: C -%}
+<div class="wrap page roadmaps-page certs-page">
+  <header class="page-head">
+    <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> {{ T.eyebrow | default: C.eyebrow }}</p>
+    <h1>{{ T.title | default: C.title }}</h1>
+    <p class="lede">{{ T.lede | default: C.lede }}</p>
+    <p class="pill">{% include icon.html name="award" px=15 %}<span>{{ T.pill | default: C.pill }} <time datetime="{{ C.checked | date: '%Y-%m-%d' }}">{% include date.html date=C.checked long=true %}</time></span></p>
+  </header>
+
+  <section class="card rm-how" aria-labelledby="ct-advice-title">
+    <h2 id="ct-advice-title" class="tool-title">{{ T.advice_title | default: C.advice_title }}</h2>
+    <ol class="rm-how-list">
+      {%- assign advice = T.advice | default: C.advice %}
+      {%- for a in advice %}
+      <li>{{ a }}</li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <nav class="rm-index" id="top-tracks" aria-label="{{ T.tracks_label | default: C.tracks_label }}">
+    {%- for t in C.tracks %}
+    {%- assign tt = T.tracks[t.id] %}
+    <a class="card spot rm-index-card" href="#{{ t.id }}">
+      <span class="icon-tile">{% include icon.html name=t.icon px=22 %}</span>
+      <span class="rm-index-text">
+        <strong>{{ tt.title | default: t.title }}</strong>
+        <span class="muted">{{ tt.summary | default: t.summary }}</span>
+      </span>
+    </a>
+    {%- endfor %}
+  </nav>
+
+  {%- for t in C.tracks %}
+  {%- assign tt = T.tracks[t.id] %}
+  <section class="card rm-path" id="{{ t.id }}" aria-labelledby="{{ t.id }}-title">
+    <div class="tool-head">
+      <span class="icon-tile">{% include icon.html name=t.icon px=22 %}</span>
+      <div>
+        <h2 id="{{ t.id }}-title" class="tool-title">{{ tt.title | default: t.title }}</h2>
+        <p class="muted">{{ tt.summary | default: t.summary }}</p>
+      </div>
+    </div>
+
+    <ol class="rm-stages ct-steps">
+      {%- for st in t.steps %}
+      {%- assign tst = tt.steps[forloop.index0] %}
+      <li class="rm-stage ct-step">
+        <span class="rm-step" aria-hidden="true">{{ forloop.index }}</span>
+        <p class="ct-note"><span class="sr-only">{{ T.step | default: C.step }} {{ forloop.index }}: </span>{{ tst.note | default: st.note }}</p>
+        <div class="ct-picks">
+          {%- for id in st.certs %}
+          {%- assign c = C.certs[id] %}{% assign tc = T.certs[id] %}
+          {%- unless forloop.first %}<span class="ct-or">{{ T.or | default: C.or }}</span>{% endunless %}
+          <article class="ct-cert" id="{{ t.id }}-{{ id }}">
+            <div class="ct-cert-head">
+              <h3>{{ c.name }}</h3>
+              <span class="rm-type ct-level is-{{ c.level }}">{{ T.levels[c.level] | default: C.levels[c.level] }}</span>
+            </div>
+            <p class="meta">{{ c.by }}</p>
+            <p class="ct-why">{{ tc.why | default: c.why }}</p>
+            <dl class="ct-facts">
+              <div><dt>{{ T.cost | default: C.cost }}</dt><dd>{{ tc.cost | default: c.cost }}</dd></div>
+              <div><dt>{{ T.exam | default: C.exam }}</dt><dd>{{ tc.exam | default: c.exam }}</dd></div>
+              {%- if c.valid %}<div><dt>{{ T.valid | default: C.valid }}</dt><dd>{{ tc.valid | default: c.valid }}</dd></div>{% endif %}
+              <div><dt>{{ T.needs | default: C.needs }}</dt><dd>{{ tc.needs | default: c.needs }}</dd></div>
+            </dl>
+            <a class="ct-link" href="{{ c.url }}" rel="noopener"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ T.official | default: C.official }}<span class="sr-only">: {{ c.name }}</span> {% include icon.html name="arrow" px=15 %}</a>
+          </article>
+          {%- endfor %}
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+    <p class="rm-back ct-foot-links">
+      {%- if t.roadmap %}<a href="{{ L }}/roadmaps/#{{ t.roadmap }}">{% include icon.html name="map" px=15 %}<span>{{ T.roadmap_link | default: C.roadmap_link }}</span></a>{% endif %}
+      <a href="#top-tracks">{% include icon.html name="arrow-up" px=15 %}<span>{{ T.back | default: C.back }}</span></a>
+    </p>
+  </section>
+  {%- endfor %}
+
+  <section class="card card-dashed rm-trust">
+    <p class="muted">{{ T.see_roadmaps | default: C.see_roadmaps }}</p>
+    <p><a class="btn btn-sm" href="{{ L }}/roadmaps/">{% include icon.html name="map" px=16 %}<span>{{ T.roadmaps_cta | default: C.roadmaps_cta }}</span></a></p>
+  </section>
+
+  <p class="muted tools-foot"><span>{{ T.foot | default: C.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
+</div>

@@ -25,6 +25,8 @@ nav_experience: Erfahrung
 nav_skills: Kenntnisse
 nav_notes: Notizen
 nav_tools: Tools
+nav_roadmaps: Lernpfade
+nav_news: News
 nav_contact: Kontakt
 
 btn_cv: Lebenslauf herunterladen
@@ -145,6 +147,35 @@ notes_page_lede: Kurze Beiträge zu KI-Sicherheit, Erkennung und dem, was ich le
 notes_empty: Noch keine Notizen. Die erste ist unterwegs.
 topics: Themen
 rss: RSS-Feed (Englisch)
+
+sn_eyebrow: Sicherheitsnews
+sn_page_title: Sicherheitsnews
+sn_lede: Aktuelle Nachrichten zur Cybersicherheit aus vertrauenswürdigen Quellen, jeden Tag automatisch gesammelt. Jede Schlagzeile führt zum Originalbericht.
+sn_updated: Zuletzt aktualisiert
+sn_brief_eyebrow: Tageslage
+sn_brief_read: Tageslage lesen
+sn_brief_older: Frühere Ausgaben
+sn_brief_note: Automatisch von einer KI aus den Schlagzeilen des Tages geschrieben. Prüfen Sie die verlinkten Quellen, bevor Sie danach handeln.
+sn_brief_sources: Meldungen, auf denen diese Ausgabe beruht
+sn_brief_all: Alle Sicherheitsnews
+sn_kev_title: Aktiv ausgenutzte Schwachstellen
+sn_kev_lede: Schwachstellen, bei denen die CISA bestätigt hat, dass Angreifer sie gerade ausnutzen. Wenn Sie eines dieser Produkte einsetzen, patchen Sie es zuerst.
+sn_kev_added: Hinzugefügt
+sn_kev_ransomware: Bei Ransomware-Angriffen genutzt
+sn_latest_title: Neueste Schlagzeilen
+sn_shown_one: Meldung angezeigt
+sn_shown_many: Meldungen angezeigt
+sn_topic_vulnerabilities: Schwachstellen
+sn_topic_ransomware: Ransomware
+sn_topic_phishing: Phishing und Betrug
+sn_topic_breaches: Datenlecks
+sn_topic_malware: Schadsoftware
+sn_topic_ai: KI-Sicherheit
+sn_about_title: Woher die Nachrichten kommen
+sn_about: Die Schlagzeilen werden einmal am Tag automatisch aus den unten genannten Quellen gesammelt. Der kurze Auszug unter jeder Schlagzeile stammt aus dem Feed des Herausgebers; den ganzen Artikel finden Sie auf dessen Website.
+sn_kev_source: Die Liste der ausgenutzten Schwachstellen stammt aus dem Known-Exploited-Vulnerabilities-Katalog der CISA.
+sn_in_english: Die Nachrichten selbst erscheinen auf Englisch, so wie die Quellen sie veröffentlichen.
+sn_empty: Die ersten Schlagzeilen erscheinen hier nach der nächsten täglichen Aktualisierung.
 
 contact_eyebrow: Kontakt
 contact_title: Kontakt aufnehmen

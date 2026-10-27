@@ -27,6 +27,7 @@ This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs 
 | Projects | one file per project in `_projects/` |
 | Notes / blog posts | one file per post in `_posts/` |
 | Tools (`/tools/` and one page per tool, e.g. `/tools/json-formatter/`) | the list and page addresses in `_data/tool_list.yml`; text, guides and FAQs in `_data/tools.yml` and `_data/<code>/tools.yml`; each tool's markup in `_includes/tools/<key>.html`, the pages in `_includes/pages/tools.html` (hub) and `_includes/pages/tool.html`; the code in `assets/js/tools.js`. Everything runs in the visitor's browser; the only outside request is the leaked password checker, which sends 5 characters of a SHA-1 hash to the Pwned Passwords API. To add a tool, add it to `tool_list.yml`, add its text, markup and a page file under `tools/<slug>/` (and `ur/`, `de/`, `zh/`) with its own title and description |
+| Security news page (`/security-news/`) | updates itself every day, see "Security news" below; the news sources are listed at the top of `scripts/security_news.py` |
 
 Files ending in `.yml` are lists. Copy an existing entry (everything from its `-` line down), paste it, and change the text. Keep the same indentation (spaces, not tabs).
 
@@ -71,6 +72,18 @@ When someone shares a page on WhatsApp, LinkedIn or X they see `assets/img/socia
 ## Write a note
 
 Notes are meant for short write-ups on AI security (phishing, LLM security, what you learn from a project). Copy `templates/post-template.md` into `_posts/` and name it `YEAR-MONTH-DAY-title.md`, for example `_posts/2026-11-02-detecting-roman-urdu-scams.md`. Give each note a few `tags:` (topics); they show on the Notes page. The Notes section appears on the home page once the first post exists.
+
+## Security news
+
+The Security news page fills itself. Every morning (05:17 UTC) the "Security news" job in `.github/workflows/security-news.yml` runs `scripts/security_news.py`, which:
+
+- reads the news feeds of The Hacker News, BleepingComputer, Krebs on Security, SecurityWeek, The Record, CISA, SANS ISC, the Google Security Blog and Schneier on Security, and keeps each story's headline, link, date and a short excerpt from the feed for 21 days (the full article always stays on the publisher's site);
+- adds the flaws CISA added to its Known Exploited Vulnerabilities list in the last 30 days;
+- saves it all in `_data/security_news.json`, commits it, and the site is published again.
+
+To update it right away, open the repository's **Actions** tab, pick **Security news** and press **Run workflow**.
+
+**AI daily brief.** The job also writes a short daily brief in its own words from the day's headlines, using the free AI models GitHub offers to every account (GitHub Models), so there's no key to set up and nothing to pay. Each brief is saved in `_briefs/` (one file per day, shown at `/security-news/<date>/`), says that it was written by AI, and links to every story it used. If GitHub's free limit is reached or a model is retired, the job tries the next model in `GITHUB_MODELS` in `scripts/security_news.py`, and on a bad day it simply skips the brief; the headlines still update. If you ever want Claude to write the briefs instead (paid, a few cents a day), add a repository secret called `ANTHROPIC_API_KEY` (Settings > Secrets and variables > Actions). To remove a brief, delete its file from `_briefs/`.
 
 ## Add your CV
 
