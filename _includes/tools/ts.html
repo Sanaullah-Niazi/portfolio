@@ -1,0 +1,15 @@
+<section class="card tool" id="ts" aria-label="{{ T.ts_title }}">
+  <p class="ts-now"><span class="label">{{ T.ts_now }}</span> <output class="mono" id="ts-now" dir="ltr"></output></p>
+  <label class="field-label" for="ts-input">{{ T.ts_label }}</label>
+  <div class="field-row">
+    <input class="field mono" id="ts-input" type="text" inputmode="numeric" dir="ltr" spellcheck="false" autocomplete="off" placeholder="1767225600">
+    <button class="btn btn-sm" type="button" id="ts-use-now"><span>{{ T.ts_use_now }}</span></button>
+  </div>
+  <div class="tool-out" id="ts-out" aria-live="polite"></div>
+  <label class="field-label" for="ts-date">{{ T.ts_date_label }}</label>
+  <div class="check-row">
+    <input class="field field-inline mono" id="ts-date" type="datetime-local" step="1" dir="ltr">
+    <label class="check"><input type="checkbox" id="ts-utc"> <span>{{ T.ts_utc }}</span></label>
+  </div>
+  <div class="tool-out" id="ts-out2" aria-live="polite"></div>
+</section>

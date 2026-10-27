@@ -1,0 +1,9 @@
+<section class="card tool" id="hidden" aria-label="{{ T.hid_title }}">
+  <label class="field-label" for="hid-input">{{ T.hid_label }}</label>
+  <textarea class="field" id="hid-input" rows="5" dir="auto" spellcheck="false"></textarea>
+  <div class="btn-row">
+    <button class="btn btn-primary btn-sm" type="button" id="hid-scan">{% include icon.html name="eye" px=16 %}<span>{{ T.hid_scan }}</span></button>
+    <button class="btn btn-sm" type="button" id="hid-sample"><span>{{ T.try_sample }}</span></button>
+  </div>
+  <div class="tool-out" id="hid-out" aria-live="polite"></div>
+</section>

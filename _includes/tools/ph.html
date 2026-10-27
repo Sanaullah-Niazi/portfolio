@@ -1,0 +1,10 @@
+<section class="card tool" id="phishing" aria-label="{{ T.ph_title }}">
+  <label class="field-label" for="ph-input">{{ T.ph_label }}</label>
+  <textarea class="field mono" id="ph-input" rows="4" dir="ltr" spellcheck="false" placeholder="https://paypa1-secure-login.example.top/verify?account=..."></textarea>
+  <div class="btn-row">
+    <button class="btn btn-primary btn-sm" type="button" id="ph-check">{% include icon.html name="shield" px=16 %}<span>{{ T.ph_check }}</span></button>
+    <button class="btn btn-sm" type="button" id="ph-sample"><span>{{ T.try_sample }}</span></button>
+  </div>
+  <div class="tool-out" id="ph-out" aria-live="polite"></div>
+  <p class="tool-note">{{ T.ph_note }} <a href="{{ L }}/tools/lookalike-domain-checker/">{{ T.look_title }}</a></p>
+</section>

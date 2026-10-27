@@ -1,0 +1,33 @@
+<section class="card tool" id="generator" aria-label="{{ T.gen_title }}">
+  <div class="seg" role="group" aria-label="{{ T.gen_title }}">
+    <button type="button" class="chip-btn" aria-pressed="true" data-mode="phrase"><span>{{ T.gen_phrase }}</span></button>
+    <button type="button" class="chip-btn" aria-pressed="false" data-mode="chars"><span>{{ T.gen_chars }}</span></button>
+  </div>
+  <div class="gen-opts" data-for="phrase">
+    <label class="field-label" for="gen-words"><span>{{ T.gen_words }}</span>: <output id="gen-words-n" for="gen-words">6</output></label>
+    <input id="gen-words" type="range" min="4" max="12" value="6">
+    <div class="check-row">
+      <label class="check"><span>{{ T.gen_sep }}</span>
+        <select id="gen-sep" class="field field-inline"><option value="-">-</option><option value=" ">␣</option><option value=".">.</option><option value="_">_</option></select></label>
+      <label class="check"><input type="checkbox" id="gen-cap"> <span>{{ T.gen_cap }}</span></label>
+      <label class="check"><input type="checkbox" id="gen-num"> <span>{{ T.gen_num }}</span></label>
+    </div>
+  </div>
+  <div class="gen-opts" data-for="chars" hidden>
+    <label class="field-label" for="gen-len"><span>{{ T.gen_len }}</span>: <output id="gen-len-n" for="gen-len">20</output></label>
+    <input id="gen-len" type="range" min="8" max="64" value="20">
+    <div class="check-row">
+      <label class="check"><input type="checkbox" id="gen-lower" checked> a–z</label>
+      <label class="check"><input type="checkbox" id="gen-upper" checked> A–Z</label>
+      <label class="check"><input type="checkbox" id="gen-digits" checked> 0–9</label>
+      <label class="check"><input type="checkbox" id="gen-symbols" checked> !@#$</label>
+      <label class="check"><input type="checkbox" id="gen-similar"> <span>{{ T.gen_similar }}</span></label>
+    </div>
+  </div>
+  <output class="gen-result mono" id="gen-result" dir="ltr" aria-live="polite"></output>
+  <p class="meta" id="gen-meta"></p>
+  <div class="btn-row">
+    <button class="btn btn-primary btn-sm" type="button" id="gen-new">{% include icon.html name="dice" px=16 %}<span>{{ T.gen_new }}</span></button>
+    <button class="btn btn-sm" type="button" id="gen-copy">{% include icon.html name="copy" px=16 %}<span>{{ T.copy }}</span></button>
+  </div>
+</section>
