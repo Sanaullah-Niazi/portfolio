@@ -3,7 +3,8 @@
   its own title and description. The tool's markup is in _includes/tools/<key>.html, its text in _data/tools.yml
   (English) and _data/<code>/tools.yml, and the code in assets/js/tools.js, which reads its messages from the JSON block below.
   Nothing typed here is sent anywhere: the site's security policy only allows the contact form and, for the leaked
-  password checker, the Pwned Passwords range API (which only ever gets 5 characters of a hash).
+  password checker, the Pwned Passwords range API (which only ever gets 5 characters of a hash). The website checker
+  is the exception: it sends the address to scan to its own Worker (see worker/README.md).
 {%- endcomment -%}
 {%- assign T = D.tools | default: site.data.tools -%}
 {%- assign tool = site.data.tool_list | where: "key", page.tool | first -%}
@@ -17,7 +18,7 @@
     <div>
       <h1>{{ T[title_key] }}</h1>
       <p class="lede">{{ T[lede_key] }}</p>
-      <p class="pill">{% include icon.html name="lock" px=15 %}<span>{% if k == "leak" %}{{ T.leak_private }}{% else %}{{ T.private }}{% endif %}</span></p>
+      <p class="pill">{% include icon.html name="lock" px=15 %}<span>{% if k == "leak" %}{{ T.leak_private }}{% elsif k == "web" %}{% assign days_tok = "{days}" %}{{ T.web_private | replace: days_tok, site.health_checker.report_days }}{% else %}{{ T.private }}{% endif %}</span></p>
     </div>
   </header>
 

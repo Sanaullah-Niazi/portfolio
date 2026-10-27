@@ -1,0 +1,21 @@
+{%- comment -%}
+  The privacy policy, in every language. Text in _data/privacy.yml.
+{%- endcomment -%}
+{%- assign PV = site.data.privacy[lang] | default: site.data.privacy.en -%}
+{%- assign email_tok = "{email}" -%}{%- assign days_tok = "{days}" -%}
+{%- capture email_link %}<a href="mailto:{{ me.email }}">{{ me.email }}</a>{% endcapture -%}
+<div class="wrap page">
+  <header class="page-head">
+    <h1>{{ PV.title }}</h1>
+    <p class="lede">{{ PV.lede }}</p>
+    <p class="muted">{{ PV.updated }}: {% include date.html date=site.data.privacy.updated long=true %}</p>
+  </header>
+  <div class="prose">
+  {%- for s in PV.sections %}
+    <h2>{{ s.h }}</h2>
+    {%- for p in s.p %}
+    <p>{{ p | escape | replace: email_tok, email_link | replace: days_tok, site.health_checker.report_days }}</p>
+    {%- endfor %}
+  {%- endfor %}
+  </div>
+</div>

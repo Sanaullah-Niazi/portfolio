@@ -1,0 +1,111 @@
+# Text of the privacy policy (/privacy/, /ur/privacy/, /de/privacy/, /zh/privacy/), one block per language.
+# {email} is replaced with the email address in _data/profile.yml, {days} with health_checker.report_days in _config.yml.
+updated: 2026-10-27
+
+en:
+  title: "Privacy policy"
+  lede: "This site collects as little as possible. Most tools run entirely in your browser. This page explains the few cases where data leaves your device, where it goes and how long it's kept."
+  updated: "Last updated"
+  sections:
+    - h: "Who runs this site"
+      p:
+        - "This is the personal website of Sana Ullah Khan. For any privacy question or request, email {email}."
+    - h: "Website health and security checker"
+      p:
+        - "When you scan a website, the address you enter is sent to the checker's server, which runs on Cloudflare Workers. To run the checks, the server visits that address and passes it (or just its domain name) to Google PageSpeed Insights, Mozilla HTTP Observatory and Qualys SSL Labs, which have their own privacy policies."
+        - "The report, including the scanned address, is stored so you can share it and is deleted automatically after {days} days. Results for the same address may be reused for a few hours so the free API limits aren't exceeded."
+        - "To stop abuse, the page uses Cloudflare Turnstile to check that you're human, and limits how many scans one visitor can run. For the limit, the server stores a one-way hash of your IP address (never the address itself) with a counter that's deleted after a day at most. No account, name or email is needed."
+        - "The checks are passive and read only what's publicly visible. Only scan websites you own or have permission to test."
+    - h: "The other tools"
+      p:
+        - "The other tools on /tools/ run entirely in your browser: what you type or the files you choose are not uploaded. The one exception is the leaked password checker, which sends only the first 5 characters of your password's SHA-1 hash to Have I Been Pwned, never the password."
+    - h: "Contact form"
+      p:
+        - "Messages you send with the contact form are delivered to my inbox by Web3Forms. I use them only to reply and delete them when they're no longer needed."
+    - h: "Hosting, fonts and storage"
+      p:
+        - "The site is hosted on GitHub Pages, and fonts are loaded from Google Fonts. Like any web server, they receive your IP address and browser details when you load a page. The site has no analytics, ads or tracking cookies. Your light or dark theme choice is saved in your browser's local storage and never sent anywhere."
+    - h: "Your choices"
+      p:
+        - "You can ask me to delete a shared report before it expires, or ask any question about your data, by emailing {email}."
+
+ur:
+  title: "پرائیویسی پالیسی"
+  lede: "یہ سائٹ کم سے کم معلومات جمع کرتی ہے۔ زیادہ تر ٹولز مکمل طور پر آپ کے براؤزر میں چلتے ہیں۔ یہ صفحہ ان چند صورتوں کی وضاحت کرتا ہے جب ڈیٹا آپ کے آلے سے باہر جاتا ہے، کہاں جاتا ہے اور کتنی دیر رکھا جاتا ہے۔"
+  updated: "آخری تبدیلی"
+  sections:
+    - h: "یہ سائٹ کون چلاتا ہے"
+      p:
+        - "یہ Sana Ullah Khan کی ذاتی ویب سائٹ ہے۔ پرائیویسی سے متعلق کسی بھی سوال یا درخواست کے لیے {email} پر ای میل کریں۔"
+    - h: "ویب سائٹ ہیلتھ اور سیکیورٹی چیکر"
+      p:
+        - "جب آپ کوئی ویب سائٹ اسکین کرتے ہیں تو آپ کا لکھا ہوا پتہ چیکر کے سرور کو بھیجا جاتا ہے، جو Cloudflare Workers پر چلتا ہے۔ جانچ کے لیے سرور اس پتے کو کھولتا ہے اور اسے (یا صرف ڈومین کا نام) Google PageSpeed Insights، Mozilla HTTP Observatory اور Qualys SSL Labs کو دیتا ہے، جن کی اپنی پرائیویسی پالیسیاں ہیں۔"
+        - "رپورٹ، اسکین کیے گئے پتے سمیت، اس لیے محفوظ کی جاتی ہے کہ آپ اسے شیئر کر سکیں، اور {days} دن بعد خود بخود حذف ہو جاتی ہے۔ مفت API حدود سے آگے نہ جانے کے لیے ایک ہی پتے کے نتائج چند گھنٹے دوبارہ استعمال ہو سکتے ہیں۔"
+        - "غلط استعمال روکنے کے لیے صفحہ Cloudflare Turnstile سے جانچتا ہے کہ آپ انسان ہیں، اور ایک وزیٹر کی جانچ کی تعداد محدود رکھتا ہے۔ اس حد کے لیے سرور آپ کے IP ایڈریس کا یک طرفہ hash محفوظ کرتا ہے (اصل ایڈریس کبھی نہیں)، جس کا کاؤنٹر زیادہ سے زیادہ ایک دن بعد حذف ہو جاتا ہے۔ کسی اکاؤنٹ، نام یا ای میل کی ضرورت نہیں۔"
+        - "جانچ غیر فعال ہے اور صرف وہی پڑھتی ہے جو عوامی طور پر نظر آتا ہے۔ صرف وہی ویب سائٹس اسکین کریں جو آپ کی ہیں یا جن کی اجازت ہے۔"
+    - h: "دوسرے ٹولز"
+      p:
+        - "/tools/ کے دوسرے ٹولز مکمل طور پر آپ کے براؤزر میں چلتے ہیں: آپ جو لکھتے ہیں یا جو فائلیں چنتے ہیں وہ اپ لوڈ نہیں ہوتیں۔ واحد استثنا لیک پاس ورڈ چیکر ہے، جو Have I Been Pwned کو صرف آپ کے پاس ورڈ کے SHA-1 hash کے پہلے 5 حروف بھیجتا ہے، پاس ورڈ کبھی نہیں۔"
+    - h: "رابطہ فارم"
+      p:
+        - "رابطہ فارم سے بھیجے گئے پیغامات Web3Forms کے ذریعے میرے ان باکس تک پہنچتے ہیں۔ میں انہیں صرف جواب دینے کے لیے استعمال کرتا ہوں اور ضرورت ختم ہونے پر حذف کر دیتا ہوں۔"
+    - h: "ہوسٹنگ، فونٹس اور اسٹوریج"
+      p:
+        - "سائٹ GitHub Pages پر ہوسٹ ہے اور فونٹس Google Fonts سے لوڈ ہوتے ہیں۔ کسی بھی ویب سرور کی طرح، صفحہ کھولنے پر انہیں آپ کا IP ایڈریس اور براؤزر کی تفصیلات ملتی ہیں۔ سائٹ پر کوئی analytics، اشتہارات یا ٹریکنگ کوکیز نہیں۔ لائٹ یا ڈارک تھیم کا انتخاب آپ کے براؤزر کی local storage میں محفوظ ہوتا ہے اور کہیں نہیں بھیجا جاتا۔"
+    - h: "آپ کے اختیارات"
+      p:
+        - "آپ {email} پر ای میل کر کے کسی شیئر کی گئی رپورٹ کو میعاد ختم ہونے سے پہلے حذف کروا سکتے ہیں، یا اپنے ڈیٹا کے بارے میں کوئی بھی سوال پوچھ سکتے ہیں۔"
+
+de:
+  title: "Datenschutzerklärung"
+  lede: "Diese Website erhebt so wenig wie möglich. Die meisten Tools laufen vollständig in Ihrem Browser. Diese Seite erklärt die wenigen Fälle, in denen Daten Ihr Gerät verlassen, wohin sie gehen und wie lange sie gespeichert werden."
+  updated: "Zuletzt aktualisiert"
+  sections:
+    - h: "Wer diese Website betreibt"
+      p:
+        - "Dies ist die persönliche Website von Sana Ullah Khan. Für Fragen oder Anliegen zum Datenschutz schreiben Sie an {email}."
+    - h: "Website-Check für Sicherheit und Qualität"
+      p:
+        - "Wenn Sie eine Website prüfen, wird die eingegebene Adresse an den Server des Checks gesendet, der auf Cloudflare Workers läuft. Für die Prüfungen ruft der Server diese Adresse auf und gibt sie (oder nur den Domainnamen) an Google PageSpeed Insights, Mozilla HTTP Observatory und Qualys SSL Labs weiter, für die eigene Datenschutzerklärungen gelten."
+        - "Der Bericht wird samt geprüfter Adresse gespeichert, damit Sie ihn teilen können, und nach {days} Tagen automatisch gelöscht. Ergebnisse für dieselbe Adresse können einige Stunden wiederverwendet werden, damit die kostenlosen API-Grenzen nicht überschritten werden."
+        - "Um Missbrauch zu verhindern, prüft die Seite mit Cloudflare Turnstile, dass Sie ein Mensch sind, und begrenzt die Zahl der Prüfungen pro Besucher. Dafür speichert der Server einen Einweg-Hash Ihrer IP-Adresse (nie die Adresse selbst) mit einem Zähler, der spätestens nach einem Tag gelöscht wird. Konto, Name oder E-Mail sind nicht nötig."
+        - "Die Prüfungen sind passiv und lesen nur, was öffentlich sichtbar ist. Prüfen Sie nur Websites, die Ihnen gehören oder für die Sie eine Erlaubnis haben."
+    - h: "Die anderen Tools"
+      p:
+        - "Die anderen Tools unter /tools/ laufen vollständig in Ihrem Browser: Eingaben und ausgewählte Dateien werden nicht hochgeladen. Einzige Ausnahme ist der Check auf geleakte Passwörter, der nur die ersten 5 Zeichen des SHA-1-Hashs Ihres Passworts an Have I Been Pwned sendet, nie das Passwort."
+    - h: "Kontaktformular"
+      p:
+        - "Nachrichten aus dem Kontaktformular werden von Web3Forms in mein Postfach zugestellt. Ich nutze sie nur, um zu antworten, und lösche sie, wenn sie nicht mehr nötig sind."
+    - h: "Hosting, Schriften und Speicher"
+      p:
+        - "Die Website liegt bei GitHub Pages, Schriften kommen von Google Fonts. Wie jeder Webserver erhalten sie beim Laden einer Seite Ihre IP-Adresse und Browserdaten. Die Website nutzt keine Analyse-Tools, keine Werbung und keine Tracking-Cookies. Ihre Wahl zwischen hellem und dunklem Design wird im lokalen Speicher Ihres Browsers abgelegt und nirgendwohin gesendet."
+    - h: "Ihre Möglichkeiten"
+      p:
+        - "Sie können per E-Mail an {email} verlangen, dass ein geteilter Bericht vor Ablauf gelöscht wird, oder jede Frage zu Ihren Daten stellen."
+
+zh:
+  title: "隐私政策"
+  lede: "本网站尽可能少地收集信息。大多数工具完全在你的浏览器中运行。本页说明数据离开你设备的少数情况、数据去向以及保存多久。"
+  updated: "最后更新"
+  sections:
+    - h: "网站运营者"
+      p:
+        - "这是 Sana Ullah Khan 的个人网站。如有任何隐私问题或请求，请发邮件至 {email}。"
+    - h: "网站健康与安全检测"
+      p:
+        - "当你检测一个网站时，你输入的网址会发送到运行在 Cloudflare Workers 上的检测服务器。为了完成检测，服务器会访问该网址，并把它（或仅域名）交给 Google PageSpeed Insights、Mozilla HTTP Observatory 和 Qualys SSL Labs，它们各有自己的隐私政策。"
+        - "报告（包括被检测的网址）会被保存以便分享，并在 {days} 天后自动删除。为了不超出免费 API 额度，同一网址的结果可能会在几小时内重复使用。"
+        - "为了防止滥用，页面使用 Cloudflare Turnstile 确认你是真人，并限制每位访客的检测次数。为此，服务器只保存你 IP 地址的单向哈希（从不保存地址本身）和一个计数器，最多一天后删除。不需要账号、姓名或邮箱。"
+        - "检测是被动的，只读取公开可见的内容。请只检测你自己的网站或已获授权测试的网站。"
+    - h: "其他工具"
+      p:
+        - "/tools/ 下的其他工具完全在你的浏览器中运行：你输入的内容或选择的文件都不会上传。唯一的例外是密码泄露检测，它只把密码 SHA-1 哈希的前 5 个字符发送给 Have I Been Pwned，从不发送密码本身。"
+    - h: "联系表单"
+      p:
+        - "通过联系表单发送的消息由 Web3Forms 投递到我的邮箱。我只用它们来回复，不再需要时就会删除。"
+    - h: "托管、字体与存储"
+      p:
+        - "本网站托管在 GitHub Pages，字体来自 Google Fonts。和任何网络服务器一样，你打开页面时它们会收到你的 IP 地址和浏览器信息。本网站没有统计分析、广告或跟踪 Cookie。你选择的浅色或深色主题保存在浏览器的本地存储中，不会发送到任何地方。"
+    - h: "你的选择"
+      p:
+        - "你可以发邮件至 {email}，要求在到期前删除某份分享的报告，或询问任何与你的数据有关的问题。"
