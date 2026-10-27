@@ -1,0 +1,43 @@
+{
+ "updated": "",
+ "sources": [
+  {
+   "name": "The Hacker News",
+   "home": "https://thehackernews.com"
+  },
+  {
+   "name": "BleepingComputer",
+   "home": "https://www.bleepingcomputer.com"
+  },
+  {
+   "name": "Krebs on Security",
+   "home": "https://krebsonsecurity.com"
+  },
+  {
+   "name": "SecurityWeek",
+   "home": "https://www.securityweek.com"
+  },
+  {
+   "name": "The Record",
+   "home": "https://therecord.media"
+  },
+  {
+   "name": "CISA advisories",
+   "home": "https://www.cisa.gov/news-events/cybersecurity-advisories"
+  },
+  {
+   "name": "SANS ISC",
+   "home": "https://isc.sans.edu"
+  },
+  {
+   "name": "Google Security Blog",
+   "home": "https://security.googleblog.com"
+  },
+  {
+   "name": "Schneier on Security",
+   "home": "https://www.schneier.com"
+  }
+ ],
+ "kev": [],
+ "items": []
+}
