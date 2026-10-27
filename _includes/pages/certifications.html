@@ -1,9 +1,9 @@
 {%- comment -%}
-  The Certifications page, in every language. Certifications, prices, tracks and links are in _data/certifications.yml (English).
-  _data/<code>/certifications.yml only holds translated text, keyed by track id and cert id; anything missing there shows in English.
+  The Certifications page, in every language. Certifications, prices, tracks and links are in _data/cert_roadmaps.yml (English).
+  _data/<code>/cert_roadmaps.yml only holds translated text, keyed by track id and cert id; anything missing there shows in English.
 {%- endcomment -%}
-{%- assign C = site.data.certifications -%}
-{%- assign T = D.certifications | default: C -%}
+{%- assign C = site.data.cert_roadmaps -%}
+{%- assign T = D.cert_roadmaps | default: C -%}
 <div class="wrap page roadmaps-page certs-page">
   <header class="page-head">
     <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> {{ T.eyebrow | default: C.eyebrow }}</p>

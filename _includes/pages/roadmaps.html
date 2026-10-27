@@ -22,7 +22,7 @@
     </ol>
   </section>
 
-  {%- assign CE = site.data.certifications %}{% assign TC = D.certifications | default: CE %}
+  {%- assign CE = site.data.cert_roadmaps %}{% assign TC = D.cert_roadmaps | default: CE %}
   <a class="card spot rm-cta" href="{{ L }}/roadmaps/certifications/">
     <span class="icon-tile">{% include icon.html name="award" px=22 %}</span>
     <span class="rm-index-text"><strong>{{ TC.certs_cta | default: CE.certs_cta }}</strong><span class="muted">{{ TC.certs_cta_text | default: CE.certs_cta_text }}</span></span>

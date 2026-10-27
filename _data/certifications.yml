@@ -1,459 +1,61 @@
-# The Certifications page (/roadmaps/certifications/), in English. This file holds every certification and every track.
-# The translations in _data/<code>/certifications.yml only hold the text; prices and links always come from here.
-#
-# Prices change. When you review them, update "checked" and each "cost" from the official page ("url").
-# To add a certification: add it under "certs:" with a new id, then put that id in a track's "steps".
-# To add a track: copy one block under "tracks:" and give it a new id.
-#   level: entry, mid or advanced
-#   steps: in order; each step lists one or more cert ids. When a step has two, either one is fine.
-# Every link here is checked once a week by .github/workflows/check-roadmap-links.yml.
-
-checked: 2026-10-27   # the day the prices and rules below were last checked
-
-# ---- Page text. Only change the text after the colon. ----
-eyebrow: "Certifications"
-title: "Certification roadmaps"
-lede: "Which certifications to take, in what order, for each career. With the real cost, what the exam is like, how long it stays valid, and an honest word on which ones are worth it."
-pill: "Prices in US dollars, checked"
-advice_title: "Read this first"
-advice:
-  - "A certification gets your CV past filters and into interviews. Your skills and projects get you the job. Do the matching learning roadmap alongside it."
-  - "Start with the cheap, hands-on ones. Leave expensive certifications for when an employer can pay for them."
-  - "One certification per step is enough. When a step shows two, pick the one employers near you ask for."
-  - "Prices are US list prices before tax. Many vendors charge less in some countries and give student discounts, so check the official page before you pay."
-  - "Never use exam dumps (leaked questions). They break the exam rules, and vendors revoke certifications for it."
-tracks_label: "Choose a career"
-step: "Step"
-or: "or"
-levels:
-  entry: "Entry"
-  mid: "Intermediate"
-  advanced: "Advanced"
-cost: "Cost"
-exam: "Exam"
-valid: "Valid for"
-needs: "Before you start"
-official: "Official page"
-roadmap_link: "Learning roadmap for this career"
-see_roadmaps: "Looking for what to learn, not what to certify? See the learning roadmaps."
-roadmaps_cta: "Learning roadmaps"
-certs_cta: "Certification roadmaps"
-certs_cta_text: "Which certifications to take for each career, with real costs."
-checked_label: "Prices and rules checked"
-foot: "Spotted a price change or a retired exam?"
-back: "Back to all careers"
-
-# ---- The certifications. Facts come from the official pages, checked on the date above. ----
-certs:
-  cc:
-    name: "Certified in Cybersecurity (CC)"
-    by: "ISC2"
-    level: entry
-    cost: "$199 (free with an unused One Million Certified code, until 31 Dec 2026)"
-    exam: "Multiple choice, about 2 hours, at a test centre"
-    valid: "3 years, $50 a year"
-    needs: "Nothing"
-    why: "A cheap first step that proves you know the basics. Fine to skip if you go straight to Security+."
-    url: "https://www.isc2.org/certifications/cc"
-  secplus:
-    name: "Security+"
-    by: "CompTIA"
-    level: entry
-    cost: "$439"
-    exam: "Up to 90 questions, multiple choice and hands-on, 90 minutes"
-    valid: "3 years, renew with training credits and $50 a year"
-    needs: "No requirement; basic networking helps"
-    why: "The most asked-for entry security certification in job ads, and accepted for many government roles."
-    url: "https://www.comptia.org/en-us/certifications/security/"
-  cysa:
-    name: "CySA+ (Cybersecurity Analyst)"
-    by: "CompTIA"
-    level: mid
-    cost: "$439"
-    exam: "Multiple choice and hands-on questions"
-    valid: "3 years, also renews your Security+"
-    needs: "Security+ level knowledge"
-    why: "Shows you can read logs, triage alerts and respond to incidents: the daily work of a SOC analyst."
-    url: "https://www.comptia.org/en-us/certifications/cybersecurity-analyst/"
-  sc200:
-    name: "Security Operations Analyst Associate (SC-200)"
-    by: "Microsoft"
-    level: mid
-    cost: "$165"
-    exam: "About 100 minutes, mixed question types"
-    valid: "1 year, free online renewal"
-    needs: "No requirement; Microsoft Sentinel and Defender experience helps"
-    why: "Good value if employers near you run Microsoft security tools, which many do."
-    url: "https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/"
-  cdsa:
-    name: "Certified Defensive Security Analyst (CDSA)"
-    by: "Hack The Box"
-    level: mid
-    cost: "About $210 for the exam, plus an Academy subscription"
-    exam: "7-day hands-on investigation and a written report"
-    needs: "Finish the SOC Analyst path on HTB Academy"
-    why: "Fully hands-on, so it proves real skill. Less known to HR than CySA+."
-    url: "https://academy.hackthebox.com/preview/certifications/htb-certified-defensive-security-analyst"
-  gcih:
-    name: "GIAC Certified Incident Handler (GCIH)"
-    by: "GIAC (SANS)"
-    level: advanced
-    cost: "$999 for the exam alone; much more with SANS training"
-    exam: "Proctored, multiple choice plus hands-on CyberLive questions"
-    valid: "4 years, $499 to renew"
-    needs: "Experience in security operations"
-    why: "Highly respected for incident response. Usually worth it only when your employer pays."
-    url: "https://www.giac.org/certifications/certified-incident-handler-gcih/"
-  cissp:
-    name: "CISSP"
-    by: "ISC2"
-    level: advanced
-    cost: "$749"
-    exam: "100 to 150 adaptive questions, up to 3 hours"
-    valid: "3-year cycles, 120 training credits and $135 a year"
-    needs: "5 years of paid security work (you can pass first and become an Associate of ISC2 while you gain it)"
-    why: "The standard certification for senior security and management roles."
-    url: "https://www.isc2.org/certifications/cissp"
-  ejpt:
-    name: "eJPT (Junior Penetration Tester)"
-    by: "INE"
-    level: entry
-    cost: "$249, includes one free retake"
-    exam: "48-hour hands-on lab, 35 questions, open book"
-    valid: "3 years"
-    needs: "Nothing; networking and Linux basics help"
-    why: "The best first hacking certification: affordable and fully practical."
-    url: "https://ine.com/learning/certifications/internal/elearnsecurity-junior-penetration-tester-cert"
-  pnpt:
-    name: "PNPT (Practical Network Penetration Tester)"
-    by: "TCM Security"
-    level: mid
-    cost: "$499, includes training and one free retake"
-    exam: "5 days to attack a network, 2 days to write the report, then a live debrief"
-    valid: "Does not expire"
-    needs: "No requirement; Windows and Active Directory basics"
-    why: "Feels like a real job: you hack an Active Directory network and defend your report to an assessor."
-    url: "https://certifications.tcm-sec.com/pnpt/"
-  cpts:
-    name: "Certified Penetration Testing Specialist (CPTS)"
-    by: "Hack The Box"
-    level: mid
-    cost: "About $210 for the exam (two attempts), plus an Academy subscription"
-    exam: "10 days: capture 12 of 14 flags in a company network and write a professional report"
-    needs: "Finish the 28-module Penetration Tester path on HTB Academy"
-    why: "One of the hardest and most practical mid-level exams. Strong preparation for OSCP."
-    url: "https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist"
-  oscp:
-    name: "OSCP+ (OffSec Certified Professional)"
-    by: "OffSec"
-    level: advanced
-    cost: "From $1,749 (course and exam bundle)"
-    exam: "About 24 hours of hands-on hacking, then 24 hours to write the report"
-    valid: "OSCP is for life; the \"+\" lasts 3 years"
-    needs: "Solid pentesting practice (PNPT or CPTS level)"
-    why: "The best-known penetration testing certification. Many pentest job ads ask for it by name."
-    url: "https://www.offsec.com/courses/pen-200/"
-  ceh:
-    name: "Certified Ethical Hacker (CEH)"
-    by: "EC-Council"
-    level: mid
-    cost: "$950 (online) or $1,199 (test centre), plus $100 if you didn't take official training"
-    exam: "125 multiple-choice questions, 4 hours"
-    valid: "3 years, 120 training credits and $80 a year"
-    needs: "Official training or 2 years of security work"
-    why: "Often required in government and Gulf job ads, but it tests theory, not hacking skill. Take it only if jobs you want ask for it."
-    url: "https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/"
-  cism:
-    name: "CISM"
-    by: "ISACA"
-    level: advanced
-    cost: "$575 for ISACA members, $760 for others"
-    exam: "150 multiple-choice questions, 4 hours"
-    valid: "3-year cycles, 120 training hours and a yearly fee"
-    needs: "5 years in security, 3 of them managing security"
-    why: "For people who lead security programmes, write policy and manage risk."
-    url: "https://www.isaca.org/credentialing/cism"
-  aaism:
-    name: "AAISM (AI Security Management)"
-    by: "ISACA"
-    level: advanced
-    cost: "$459 for ISACA members, $599 for others"
-    exam: "Multiple choice"
-    needs: "An active CISM or CISSP"
-    why: "New in 2025: shows you can govern and secure AI systems. Rare, so it stands out."
-    url: "https://www.isaca.org/credentialing/aaism"
-  aws-ccp:
-    name: "AWS Certified Cloud Practitioner"
-    by: "Amazon Web Services"
-    level: entry
-    cost: "$100"
-    exam: "65 multiple-choice questions, 90 minutes"
-    valid: "3 years"
-    needs: "Nothing"
-    why: "A gentle start that teaches cloud words and services. Skip it if you already work with AWS."
-    url: "https://aws.amazon.com/certification/certified-cloud-practitioner/"
-  az900:
-    name: "Azure Fundamentals (AZ-900)"
-    by: "Microsoft"
-    level: entry
-    cost: "$99"
-    exam: "Mixed question types, about 45 minutes"
-    valid: "Does not expire"
-    needs: "Nothing"
-    why: "The Azure version of a first cloud certification. Microsoft often gives free vouchers at its virtual training days."
-    url: "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/"
-  aws-saa:
-    name: "AWS Certified Solutions Architect – Associate"
-    by: "Amazon Web Services"
-    level: mid
-    cost: "$150"
-    exam: "65 multiple-choice questions, 130 minutes"
-    valid: "3 years"
-    needs: "Some hands-on AWS practice"
-    why: "The most valuable cloud certification for most people. Employers know it everywhere."
-    url: "https://aws.amazon.com/certification/certified-solutions-architect-associate/"
-  az104:
-    name: "Azure Administrator Associate (AZ-104)"
-    by: "Microsoft"
-    level: mid
-    cost: "$165"
-    exam: "Mixed question types, including case studies"
-    valid: "1 year, free online renewal"
-    needs: "Hands-on Azure practice"
-    why: "The core Azure job certification for running real systems."
-    url: "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/"
-  aws-sec:
-    name: "AWS Certified Security – Specialty"
-    by: "Amazon Web Services"
-    level: advanced
-    cost: "$300"
-    exam: "Multiple choice, about 3 hours"
-    valid: "3 years"
-    needs: "Real AWS experience; an associate certification first is wise"
-    why: "Proves you can secure cloud workloads, one of the most in-demand security skills."
-    url: "https://aws.amazon.com/certification/certified-security-specialty/"
-  sc500:
-    name: "Cloud and AI Security Engineer Associate (SC-500)"
-    by: "Microsoft"
-    level: advanced
-    cost: "$165"
-    exam: "Mixed question types"
-    valid: "1 year, free online renewal"
-    needs: "Azure administration experience"
-    why: "Replaced AZ-500 on 31 August 2026. The Azure route into cloud security."
-    url: "https://learn.microsoft.com/en-us/credentials/browse/?terms=SC-500"
-  aws-aip:
-    name: "AWS Certified AI Practitioner"
-    by: "Amazon Web Services"
-    level: entry
-    cost: "$100"
-    exam: "Multiple choice, 90 minutes"
-    valid: "3 years"
-    needs: "Nothing"
-    why: "A first look at AI and generative AI concepts. Useful, but projects matter far more in AI."
-    url: "https://aws.amazon.com/certification/certified-ai-practitioner/"
-  ai901:
-    name: "Azure AI Fundamentals (AI-901)"
-    by: "Microsoft"
-    level: entry
-    cost: "$99"
-    exam: "Mixed question types"
-    valid: "Does not expire"
-    needs: "Nothing"
-    why: "Replaced AI-900 in 2026. The Azure version of a first AI certification."
-    url: "https://learn.microsoft.com/en-us/credentials/browse/?terms=AI-901"
-  aws-mle:
-    name: "AWS Certified Machine Learning Engineer – Associate"
-    by: "Amazon Web Services"
-    level: mid
-    cost: "$150"
-    exam: "Multiple choice and ordering questions, about 2 hours (new version from September 2026)"
-    valid: "3 years"
-    needs: "Experience training and deploying models"
-    why: "Shows you can take a model from a notebook to production on AWS."
-    url: "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/"
-  ai103:
-    name: "Azure AI Apps and Agents Developer Associate (AI-103)"
-    by: "Microsoft"
-    level: mid
-    cost: "About $165 (Microsoft's usual associate price; confirm on the official page)"
-    exam: "Mixed question types"
-    valid: "1 year, free online renewal"
-    needs: "Python and experience calling AI services"
-    why: "Replaced AI-102 in 2026. For building AI apps and agents on Azure."
-    url: "https://learn.microsoft.com/en-us/credentials/browse/?terms=AI-103"
-  gcp-mle:
-    name: "Professional Machine Learning Engineer"
-    by: "Google Cloud"
-    level: advanced
-    cost: "$200"
-    exam: "Multiple choice, 2 hours"
-    valid: "2 years"
-    needs: "Real ML projects; Google suggests 3 years of industry experience"
-    why: "One of the most respected ML certifications from a cloud provider."
-    url: "https://cloud.google.com/learn/certification/machine-learning-engineer"
-  pl300:
-    name: "Power BI Data Analyst Associate (PL-300)"
-    by: "Microsoft"
-    level: entry
-    cost: "$165"
-    exam: "Mixed question types, about 100 minutes"
-    valid: "1 year, free online renewal"
-    needs: "Power BI practice; SQL helps"
-    why: "Power BI is one of the tools data analyst job ads ask for most, so this is a useful first data certification."
-    url: "https://learn.microsoft.com/en-us/credentials/certifications/data-analyst-associate/"
-  aws-dea:
-    name: "AWS Certified Data Engineer – Associate"
-    by: "Amazon Web Services"
-    level: mid
-    cost: "$150"
-    exam: "Multiple choice, about 2 hours"
-    valid: "3 years"
-    needs: "Experience with SQL, Python and data pipelines"
-    why: "Covers pipelines, storage and data warehouses on AWS."
-    url: "https://aws.amazon.com/certification/certified-data-engineer-associate/"
-  gcp-de:
-    name: "Professional Data Engineer"
-    by: "Google Cloud"
-    level: advanced
-    cost: "$200"
-    exam: "Multiple choice, 2 hours"
-    valid: "2 years"
-    needs: "Real data engineering experience"
-    why: "Well respected, especially where companies use BigQuery."
-    url: "https://cloud.google.com/learn/certification/data-engineer"
-  ccna:
-    name: "CCNA"
-    by: "Cisco"
-    level: entry
-    cost: "$300"
-    exam: "100 to 120 questions, 2 hours (new version 2.0 from 3 February 2027)"
-    valid: "3 years"
-    needs: "Nothing; lab practice with Packet Tracer"
-    why: "The classic networking certification. Very useful for security and cloud careers too."
-    url: "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html"
-  terraform:
-    name: "Terraform Associate"
-    by: "HashiCorp"
-    level: mid
-    cost: "$70.50"
-    exam: "57 questions, 1 hour"
-    valid: "2 years"
-    needs: "Terraform practice"
-    why: "Cheap, and infrastructure as code is in most DevOps job ads."
-    url: "https://developer.hashicorp.com/certifications/infrastructure-automation"
-  cka:
-    name: "Certified Kubernetes Administrator (CKA)"
-    by: "Linux Foundation (CNCF)"
-    level: advanced
-    cost: "$445, includes two attempts and practice exams"
-    exam: "2 hours of hands-on tasks in a real terminal"
-    valid: "2 years"
-    needs: "Linux and containers; real Kubernetes practice"
-    why: "Fully practical and highly valued for DevOps and platform roles."
-    url: "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/"
-
-# ---- The tracks. "roadmap" is the id of the matching learning roadmap. ----
-tracks:
-  - id: soc
-    icon: shield
-    roadmap: cybersecurity
-    title: "Cybersecurity analyst (blue team, SOC)"
-    summary: "Watch for attacks, investigate alerts and respond to incidents."
-    steps:
-      - certs: [cc, secplus]
-        note: "Start here. If you can afford only one, take Security+."
-      - certs: [cysa, sc200]
-        note: "Proves you can do the analyst job. Pick SC-200 if local jobs use Microsoft tools."
-      - certs: [cdsa]
-        note: "Optional, but a hands-on exam makes your CV stand out."
-      - certs: [gcih]
-        note: "Once you have experience, ideally paid for by your employer."
-      - certs: [cissp]
-        note: "For senior and lead roles after about five years."
-
-  - id: pentest
-    icon: bug
-    roadmap: cybersecurity
-    title: "Ethical hacker (penetration tester)"
-    summary: "Break into systems, with permission, to find weaknesses before criminals do."
-    steps:
-      - certs: [secplus]
-        note: "Optional, but it covers the basics and passes HR filters."
-      - certs: [ejpt]
-        note: "Your first practical hacking certification."
-      - certs: [pnpt, cpts]
-        note: "Real-world style exams with full reports. Either one prepares you well for OSCP."
-      - certs: [oscp]
-        note: "The certification most pentest job ads name."
-      - certs: [ceh]
-        note: "Only if jobs you are applying for require it; many government roles do."
-
-  - id: grc
-    icon: briefcase
-    roadmap: cybersecurity
-    title: "Security manager and governance (GRC)"
-    summary: "Lead security teams, manage risk, write policy and handle audits."
-    steps:
-      - certs: [secplus]
-        note: "The shared foundation."
-      - certs: [cissp]
-        note: "Pass the exam early and become an Associate of ISC2 while you build experience."
-      - certs: [cism]
-        note: "For management roles."
-      - certs: [aaism]
-        note: "New: governance and security of AI systems."
-
-  - id: cloud
-    icon: cloud
-    roadmap: cloud-devops
-    title: "Cloud engineer and cloud security"
-    summary: "Build and secure systems on AWS or Microsoft Azure. Pick one cloud and stay with it."
-    steps:
-      - certs: [aws-ccp, az900]
-        note: "Optional first step."
-      - certs: [aws-saa, az104]
-        note: "The certification cloud employers look for."
-      - certs: [aws-sec, sc500]
-        note: "Add this for cloud security roles."
-
-  - id: ai
-    icon: brain
-    roadmap: ai-ml
-    title: "AI and machine learning engineer"
-    summary: "Build, deploy and secure AI systems. In AI, a strong project portfolio counts more than any certification."
-    steps:
-      - certs: [aws-aip, ai901]
-        note: "Optional basics."
-      - certs: [aws-mle, ai103]
-        note: "Shows you can put models and AI apps into production."
-      - certs: [gcp-mle]
-        note: "A respected advanced certification."
-      - certs: [aaism]
-        note: "For AI security and governance roles, after CISSP or CISM."
-
-  - id: data
-    icon: chart
-    roadmap: data
-    title: "Data analyst and data engineer"
-    summary: "Turn data into answers, and build the pipelines behind them."
-    steps:
-      - certs: [pl300]
-        note: "The most useful first certification for data analysts."
-      - certs: [aws-dea]
-        note: "For moving into data engineering."
-      - certs: [gcp-de]
-        note: "Advanced, and well known where companies use Google Cloud."
-
-  - id: devops
-    icon: terminal
-    roadmap: cloud-devops
-    title: "Networking and DevOps"
-    summary: "Run networks, automate infrastructure and keep services up."
-    steps:
-      - certs: [ccna]
-        note: "Networking knowledge helps in every IT career."
-      - certs: [terraform]
-        note: "Cheap and practical."
-      - certs: [cka]
-        note: "Hands-on Kubernetes skills."
+# To add a verification link, paste it after verify_url (e.g. a Credly badge URL).
+# To show a picture of the certificate in the gallery, upload it to assets/img/certificates/ and write its file name after image, e.g. image: cisco-ethical-hacker.jpg
+- group: Cybersecurity & digital forensics
+  icon: shield
+  items:
+    - name: Digital Forensic & Cyber Security (3-month course, Grade A)
+      issuer: NAVTTC, Govt. of Pakistan
+      date: Feb – May 2024
+      verify_url: ""
+      image: ""
+    - name: Junior Cybersecurity Analyst Career Path
+      issuer: Cisco Networking Academy
+      date: Oct 2024
+      verify_url: ""
+      image: ""
+    - name: Ethical Hacker
+      issuer: Cisco Networking Academy
+      date: Nov 2024
+      verify_url: ""
+      image: ""
+    - name: Introduction to Cybersecurity
+      issuer: Cisco Networking Academy
+      date: Nov 2024
+      verify_url: ""
+      image: ""
+- group: AI, programming & IoT
+  icon: chip
+  items:
+    - name: Programming in Python
+      issuer: Meta (Coursera)
+      date: Feb 2025
+      verify_url: ""
+      image: ""
+    - name: Advanced Chatbots with Deep Learning and Python
+      issuer: Packt (Coursera)
+      date: Feb 2025
+      verify_url: ""
+      image: ""
+    - name: AI Python for Beginners
+      issuer: DeepLearning.AI (Coursera)
+      date: Mar 2025
+      verify_url: ""
+      image: ""
+    - name: IoT for Everyone
+      issuer: UET Peshawar / HEC (Coursera)
+      date: Jul 2026
+      verify_url: ""
+      image: ""
+- group: Other training
+  icon: award
+  items:
+    - name: IOSH Managing Safely
+      issuer: IOSH
+      date: "2026"
+      verify_url: ""
+      image: ""
+    - name: 30-hour General Industry Safety and Health
+      issuer: OSHAcademy
+      date: "2026"
+      verify_url: ""
+      image: ""
