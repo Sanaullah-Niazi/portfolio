@@ -7,11 +7,13 @@
 <a class="skip" href="#main"><span data-i18n="skip">Skip to content</span></a>
 {% include header.html %}
 <main id="main" tabindex="-1">
-<p class="ur-notice" hidden><span data-i18n="ur_notice"></span></p>
+<p class="lang-notice" hidden><span data-i18n="notice"></span></p>
 {{ content }}
 </main>
 {% include footer.html %}
-{%- comment -%} Urdu text for the language switch. A JSON block is data, not a script, so the security policy allows it. {%- endcomment %}
+{%- comment -%} Text for the language menu (from _data/ur.yml, de.yml, zh.yml). A JSON block is data, not a script, so the security policy allows it. {%- endcomment %}
 <script type="application/json" id="i18n-ur">{{ site.data.ur | jsonify }}</script>
+<script type="application/json" id="i18n-de">{{ site.data.de | jsonify }}</script>
+<script type="application/json" id="i18n-zh">{{ site.data.zh | jsonify }}</script>
 </body>
 </html>

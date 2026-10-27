@@ -1,10 +1,8 @@
-# Urdu text for the language switch (the "اردو" button in the header).
+# Urdu text for the language menu in the header.
 # Each line is: key: "Urdu text". The key is used in the page templates; only change the text in quotes.
 # Headings, buttons and the short intro are translated. Detailed content (papers, projects, CV entries) stays in English.
 skip: "مواد پر جائیں"
-lang_switch: "English"
-lang_switch_label: "انگریزی میں پڑھیں"
-ur_notice: "عنوانات اور تعارف اردو میں ہیں؛ تفصیلی مواد انگریزی میں ہے۔"
+notice: "عنوانات اور تعارف اردو میں ہیں؛ تفصیلی مواد انگریزی میں ہے۔"
 
 nav_about: "تعارف"
 nav_research: "تحقیق"

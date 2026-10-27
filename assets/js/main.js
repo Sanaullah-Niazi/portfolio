@@ -1,4 +1,4 @@
-// Site behaviour: theme toggle, language switch, mobile menu, scroll effects, the hero network animation,
+// Site behaviour: theme toggle, language menu, mobile menu, scroll effects, the hero network animation,
 // project filter, skills chart, BibTeX copy, certificate lightbox and the contact form.
 // Plain JavaScript, no libraries. Anything that moves is skipped when the visitor prefers reduced motion.
 (function () {
@@ -19,34 +19,39 @@
     });
   }
 
-  // Language switch (English / Urdu). Elements with data-i18n get their Urdu text from the JSON block
-  // at the end of the page (built from _data/ur.yml); the English text is kept so we can switch back.
-  var dict = {};
-  try { dict = JSON.parse(document.getElementById("i18n-ur").textContent) || {}; } catch (e) {}
-  var langBtn = document.querySelector(".lang-toggle");
-  var urNotice = document.querySelector(".ur-notice");
-  function setLang(lang, save) {
-    var ur = lang === "ur";
+  // Language menu (English, Urdu, German, Chinese). Elements with data-i18n get their text from the JSON
+  // blocks at the end of the page (built from _data/ur.yml, de.yml and zh.yml); the English text is kept
+  // so we can switch back. Urdu also turns the layout right-to-left.
+  var dicts = {};
+  ["ur", "de", "zh"].forEach(function (l) {
+    try { dicts[l] = JSON.parse(document.getElementById("i18n-" + l).textContent) || {}; } catch (e) { dicts[l] = {}; }
+  });
+  var langTags = { en: "en", ur: "ur", de: "de", zh: "zh-Hans" };
+  var langPicker = document.querySelector(".lang-picker");
+  var langNotice = document.querySelector(".lang-notice");
+  var lang = "en";
+  function setLang(next, save) {
+    lang = langTags[next] ? next : "en";
+    var dict = dicts[lang] || {};
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       if (!el.hasAttribute("data-en")) el.setAttribute("data-en", el.textContent);
-      var text = ur ? dict[el.getAttribute("data-i18n")] : null;
+      var text = lang !== "en" ? dict[el.getAttribute("data-i18n")] : null;
       el.textContent = text || el.getAttribute("data-en");
-      if (ur && text) el.setAttribute("lang", "ur"); else el.removeAttribute("lang");
+      if (text) el.setAttribute("lang", langTags[lang]); else el.removeAttribute("lang");
     });
-    root.setAttribute("lang", ur ? "ur" : "en");
-    root.setAttribute("dir", ur ? "rtl" : "ltr");
-    if (urNotice) urNotice.hidden = !ur;
-    if (langBtn) {
-      langBtn.setAttribute("lang", ur ? "en" : "ur");
-      langBtn.setAttribute("aria-label", ur ? "Read in English" : langBtn.getAttribute("data-label-en"));
-    }
+    root.setAttribute("lang", langTags[lang]);
+    root.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
+    if (langNotice) langNotice.hidden = lang === "en";
+    if (langPicker) langPicker.value = lang;
     if (save) try { localStorage.setItem("lang", lang); } catch (e) {}
   }
-  if (root.getAttribute("lang") === "ur") setLang("ur");
-  if (langBtn) langBtn.addEventListener("click", function () {
-    setLang(root.getAttribute("lang") === "ur" ? "en" : "ur", true);
-  });
-  function t(key, fallback) { return root.getAttribute("lang") === "ur" && dict[key] ? dict[key] : fallback; }
+  var saved = (root.getAttribute("lang") || "en").split("-")[0];
+  if (saved !== "en") setLang(saved);
+  if (langPicker) {
+    langPicker.value = lang;
+    langPicker.addEventListener("change", function () { setLang(langPicker.value, true); });
+  }
+  function t(key, fallback) { return lang !== "en" && dicts[lang][key] ? dicts[lang][key] : fallback; }
 
   // Mobile menu.
   var nav = document.getElementById("site-nav");
@@ -230,6 +235,9 @@
         r: 1.3 + Math.random() * 1.6, hub: Math.random() < 0.12
       });
       nodes.length = count;
+      // Drop packets and threats that point at nodes removed by a smaller canvas.
+      packets = packets.filter(function (p) { return p.from < count && p.to < count; });
+      threats = threats.filter(function (th) { return th.node < count; });
       nodes.forEach(function (n) { n.x = Math.min(n.x, W); n.y = Math.min(n.y, H); });
       if (!running) draw(0);
     }
