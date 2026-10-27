@@ -367,8 +367,8 @@
   function designFacts(d) {
     var html = d.core && d.core.html;
     var shots = h("div", { class: "web-shots" });
-    if (d.shots.desktop) shots.appendChild(h("figure", { class: "web-shot-desktop" }, h("img", { src: d.shots.desktop, alt: tr("w_desktop"), loading: "lazy" }), h("figcaption", null, tr("w_desktop"))));
-    if (d.shots.mobile) shots.appendChild(h("figure", { class: "web-shot-mobile" }, h("img", { src: d.shots.mobile, alt: tr("w_mobile"), loading: "lazy" }), h("figcaption", null, tr("w_mobile"))));
+    if (d.shots.desktop) shots.appendChild(h("figure", { class: "web-shot-desktop" }, h("img", { src: d.shots.desktop, alt: tr("w_desktop") }), h("figcaption", null, tr("w_desktop"))));
+    if (d.shots.mobile) shots.appendChild(h("figure", { class: "web-shot-mobile" }, h("img", { src: d.shots.mobile, alt: tr("w_mobile") }), h("figcaption", null, tr("w_mobile"))));
     return h("div", null,
       html ? facts([[tr("w_viewport"), html.viewport ? ltr(html.viewport) : tr("w_not_found"), ok(html.viewport && /device-width/.test(html.viewport))]]) : null,
       shots.childNodes.length ? h("h4", { class: "web-sub" }, tr("w_screens")) : null,
