@@ -99,7 +99,7 @@ stages:
         title: "Infrastructure pivoting"
         text: "From one domain or IP, pivot through passive DNS, certificates, hosting and registration details to find the rest of an actor's infrastructure."
         res:
-          - { name: "crt.sh certificate search", by: "Sectigo", url: "https://crt.sh/", type: tool, cost: free }
+          - { name: "Certificate Transparency", by: "CT community", url: "https://certificate.transparency.dev/", type: tool, cost: free }
           - { name: "Censys Search", by: "Censys", url: "https://search.censys.io/", type: tool, cost: free }
       - id: malware-intel
         title: "Malware as intelligence"
@@ -214,7 +214,7 @@ tools:
   - { name: "OpenCTI", url: "https://github.com/OpenCTI-Platform/opencti", kind: oss, what: "Platform to store and link intelligence with STIX." }
   - { name: "ATT&CK Navigator", url: "https://mitre-attack.github.io/attack-navigator/", kind: oss, what: "Map and compare actor techniques." }
   - { name: "VirusTotal", url: "https://www.virustotal.com/", kind: community, what: "File, URL and domain reputation and relationships." }
-  - { name: "crt.sh", url: "https://crt.sh/", kind: free, what: "Search certificate transparency logs." }
+  - { name: "Certificate Transparency logs", url: "https://certificate.transparency.dev/", kind: free, what: "Monitor certificate issuance for your domains." }
   - { name: "CyberChef", url: "https://gchq.github.io/CyberChef/", kind: oss, what: "Decode and transform data." }
   - { name: "Maltego Community Edition", url: "https://www.maltego.com/", kind: community, what: "Link analysis and pivoting." }
 

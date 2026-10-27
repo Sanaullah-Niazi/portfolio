@@ -1,0 +1,231 @@
+# Security roadmap: Data Security. Shown at /roadmaps/security/datasec/.
+# Field guide: see the top of secops.yml.
+
+id: datasec
+category: data
+icon: lock
+entry: intermediate
+title: "Data Security"
+summary: "Find sensitive data, control who can reach it, protect it with encryption and masking, and stop it leaving where it should not."
+keywords: "data security classification discovery DLP data loss prevention encryption at rest in transit in use masking tokenisation database security DSPM access control"
+
+overview:
+  - "Data security protects the information itself, wherever it lives: in databases, files, cloud storage and backups. It starts with knowing what data you hold and how sensitive it is, then controlling access, protecting it with encryption and masking, and watching for it leaving the organisation."
+  - "The work spans classification and discovery, database and storage security, encryption and key handling, and data loss prevention. It overlaps with privacy and cloud security, and it is central to meeting regulations about personal and financial data."
+why: "Data is what attackers are usually after and what regulators protect. Breaches are measured in records lost. Organisations need people who can protect data across sprawling systems without blocking the business."
+roles:
+  - { title: "Data security analyst", level: entry, what: "Runs classification and DLP tooling and handles alerts." }
+  - { title: "Data security engineer", level: mid, what: "Builds classification, encryption and DLP controls." }
+  - { title: "Database security engineer", level: mid, what: "Secures and monitors databases and data stores." }
+  - { title: "Data protection architect", level: senior, what: "Designs data security across the organisation." }
+  - { title: "Head of data security", level: lead, what: "Owns data protection strategy and controls." }
+
+prereqs:
+  - "How databases and file storage work."
+  - "Cryptography basics: encryption, hashing and keys."
+  - "Cloud storage basics."
+  - "An idea of the regulations that apply to your data."
+prereq_paths: [cybersecurity, data]
+
+stages:
+  - level: beginner
+    title: "Knowing and classifying data"
+    months: "2–3"
+    topics:
+      - id: data-lifecycle
+        title: "The data lifecycle"
+        text: "Data is created, stored, used, shared, archived and destroyed. Each stage has its own risks and controls. Map it before you protect it."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: classification
+        title: "Data classification"
+        text: "Label data by sensitivity so controls can follow it. Keep the scheme simple: too many levels and nobody uses it correctly."
+        res:
+          - { name: "Microsoft Purview Information Protection", by: "Microsoft", url: "https://learn.microsoft.com/en-us/purview/information-protection", type: docs, cost: free }
+      - id: discovery
+        title: "Data discovery"
+        text: "Find where sensitive data actually lives, including the copies in test systems, spreadsheets and old shares. You cannot protect what you cannot find."
+        res:
+          - { name: "Presidio", by: "Microsoft", url: "https://microsoft.github.io/presidio/", type: tool, cost: free }
+      - id: access-control-data
+        title: "Access control for data"
+        text: "Grant access by role and need, review it regularly, and prefer short-lived access to standing permissions. Over-broad access is the root of most data loss."
+        res:
+          - { name: "Authorization Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html", type: docs, cost: free }
+      - id: data-states
+        title: "Protecting data at rest, in transit and in use"
+        text: "Encrypt stored data, protect it as it moves, and learn the newer options for protecting it while it is being processed."
+        res:
+          - { name: "Transport Layer Security (RFC 8446)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc8446", type: docs, cost: free }
+      - id: data-minimisation
+        title: "Data minimisation"
+        text: "The safest data is the data you never collected or already deleted. Keep only what you need, for only as long as you need it."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+    skills:
+      - "Build a simple, usable classification scheme."
+      - "Discover sensitive data across systems."
+      - "Design least-privilege access to data."
+    labs:
+      - "Use Presidio to find personal data in a sample dataset and classify what you find."
+      - "Set up labels and a simple policy in a Microsoft Purview trial."
+    done:
+      - "Explain the data lifecycle and the risks at each stage."
+      - "Produce a map of where an organisation's sensitive data lives."
+
+  - level: intermediate
+    title: "Encryption, DLP and database security"
+    months: "3–5"
+    topics:
+      - id: encryption-practice
+        title: "Encryption in practice"
+        text: "Choose algorithms and modes, encrypt databases and storage, and above all manage the keys well. Bad key handling undoes good encryption."
+        res:
+          - { name: "NIST SP 800-57 Part 1 (Key Management)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final", type: docs, cost: free }
+      - id: masking-tokenisation
+        title: "Masking and tokenisation"
+        text: "Hide real values in test systems and analytics by masking them or swapping them for tokens, so sensitive data is not copied everywhere."
+        res:
+          - { name: "Microsoft Purview Data Loss Prevention", by: "Microsoft", url: "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp", type: docs, cost: free }
+      - id: dlp
+        title: "Data loss prevention"
+        text: "DLP watches email, web, endpoints and cloud for sensitive data leaving, and blocks or alerts. Tune it carefully or it drowns everyone in false positives."
+        res:
+          - { name: "Microsoft Purview Data Loss Prevention", by: "Microsoft", url: "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp", type: docs, cost: free }
+      - id: database-security
+        title: "Database security"
+        text: "Harden databases, control access, encrypt sensitive columns, and turn on auditing. Databases are where the most valuable data sits."
+        res:
+          - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+      - id: database-monitoring
+        title: "Database activity monitoring"
+        text: "Watch for unusual queries, bulk exports and access outside normal patterns. This catches both attackers and insider misuse."
+        res:
+          - { name: "MITRE ATT&CK: Data from Information Repositories", by: "MITRE", url: "https://attack.mitre.org/techniques/T1213/", type: docs, cost: free }
+      - id: backup-data-security
+        title: "Backup and archive security"
+        text: "Backups hold everything and are a ransomware target. Encrypt them, control access, and make at least one copy immutable and offline."
+        res:
+          - { name: "NIST SP 800-209 (Security Guidelines for Storage Infrastructure)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/209/final", type: docs, cost: free }
+    skills:
+      - "Encrypt data and manage keys properly."
+      - "Mask and tokenise data for non-production use."
+      - "Deploy and tune DLP."
+      - "Secure and monitor databases."
+    labs:
+      - "Set up column encryption and auditing on a lab database and test access controls."
+      - "Create a DLP rule in a Microsoft 365 trial and test it without blocking normal work."
+      - "Mask a production-like dataset so it is safe to use in testing."
+    done:
+      - "Show sensitive data encrypted, access-controlled and monitored in a database."
+      - "Demonstrate DLP catching a real leak and allowing normal use."
+
+  - level: advanced
+    title: "Data security at scale"
+    months: "4–6"
+    topics:
+      - id: dspm
+        title: "Data security posture management"
+        text: "DSPM continuously finds sensitive data across cloud and on-premises, maps who can reach it, and flags risky exposure. It is how data security scales."
+        res:
+          - { name: "Microsoft Purview", by: "Microsoft", url: "https://learn.microsoft.com/en-us/purview/", type: docs, cost: free }
+      - id: cloud-data-security
+        title: "Cloud data security"
+        text: "Object storage, data lakes and managed databases each have their own access and encryption controls. Misconfigured buckets are a classic breach."
+        res:
+          - { name: "AWS S3 security best practices", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html", type: docs, cost: free }
+      - id: key-management
+        title: "Enterprise key management"
+        text: "Use a key management service or HSM, separate duties, rotate keys and keep an audit trail. Consider customer-managed keys in the cloud."
+        res:
+          - { name: "AWS KMS", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html", type: docs, cost: free }
+      - id: confidential-compute-data
+        title: "Protecting data in use"
+        optional: true
+        text: "Confidential computing and techniques such as homomorphic encryption protect data even while it is processed. Know what is practical today."
+        res:
+          - { name: "Confidential Computing Consortium", by: "Linux Foundation", url: "https://confidentialcomputing.io/", type: docs, cost: free }
+      - id: insider-data-risk
+        title: "Insider data risk"
+        text: "Much data loss is by insiders, by mistake or on purpose. Combine monitoring, least privilege and a fair investigation process."
+        res:
+          - { name: "MITRE ATT&CK: Exfiltration", by: "MITRE", url: "https://attack.mitre.org/tactics/TA0010/", type: docs, cost: free }
+      - id: secure-sharing
+        title: "Secure data sharing"
+        text: "Sharing data with partners and analysts safely needs access controls, logging and sometimes privacy techniques. Plan it instead of emailing spreadsheets."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+    skills:
+      - "Use DSPM to find and reduce data exposure."
+      - "Secure data across cloud stores and data lakes."
+      - "Run enterprise key management."
+      - "Reduce insider data risk."
+    labs:
+      - "Find and fix an over-exposed cloud storage bucket in a lab account."
+      - "Set up customer-managed keys for a cloud data store and audit their use."
+    done:
+      - "Show reduced data exposure across a cloud environment, with evidence."
+      - "Explain how your controls would catch a bulk data theft."
+
+  - level: expert
+    title: "Strategy and leadership"
+    months: "6–12"
+    topics:
+      - id: data-strategy
+        title: "Data security strategy"
+        text: "Set the classification scheme, the controls per level and the balance with usability, across the whole organisation."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: data-governance
+        title: "Working with data governance"
+        text: "Data security works best alongside data governance: ownership, quality and lifecycle. Align with the teams that own the data."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: data-metrics
+        title: "Measuring data security"
+        text: "Track classified coverage, exposed sensitive data, DLP incidents and encryption coverage. Report risk reduced, not tool output."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+    skills:
+      - "Set data security strategy and controls."
+      - "Align data security with data governance."
+    labs:
+      - "Write a data security standard with classification levels and controls."
+      - "Design a DSPM-based programme to cut data exposure over a year."
+    done:
+      - "Run a data security programme with measured exposure reduction."
+      - "Lead a major data protection rollout, such as classification or DLP."
+
+tools:
+  - { name: "Microsoft Purview", url: "https://learn.microsoft.com/en-us/purview/", kind: paid, what: "Classification, DLP and DSPM with strong documentation." }
+  - { name: "Presidio", url: "https://microsoft.github.io/presidio/", kind: oss, what: "Find and redact personal data in text and images." }
+  - { name: "HashiCorp Vault", url: "https://developer.hashicorp.com/vault", kind: community, what: "Secrets and encryption as a service." }
+  - { name: "Apache Ranger", url: "https://ranger.apache.org/", kind: oss, what: "Fine-grained access control and auditing for data platforms." }
+  - { name: "SQLMap (for defenders)", url: "https://sqlmap.org/", kind: oss, what: "Understand database injection to defend against it, in your own lab." }
+
+certs:
+  - { ref: secplus, note: "A common baseline." }
+  - { name: "CompTIA DataSys+", by: "CompTIA", url: "https://www.comptia.org/certifications/datasys", level: mid, note: "Database administration and security." }
+  - { ref: cissp, note: "Covers data security in its domains." }
+
+resources:
+  - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+  - { name: "NIST SP 800-57 Part 1 (Key Management)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final", type: docs, cost: free }
+  - { name: "Microsoft Purview Data Loss Prevention", by: "Microsoft", url: "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp", type: docs, cost: free }
+  - { name: "AWS S3 security best practices", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html", type: docs, cost: free }
+  - { name: "NIST SP 800-209 (Storage Infrastructure)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/209/final", type: docs, cost: free }
+
+frameworks: [nist-privacy, iso27701, nist-800-57, nist-csf, cis-controls, gdpr]
+
+career:
+  - { title: "Database or cloud administrator, or security analyst", years: "0–2 years" }
+  - { title: "Data security analyst", years: "1–3 years" }
+  - { title: "Data security engineer", years: "3–6 years" }
+  - { title: "Data protection architect", years: "6–9 years" }
+  - { title: "Head of data security", years: "10+ years" }
+
+related:
+  - { to: privacy, why: "Data security is how privacy promises are kept." }
+  - { to: crypto, why: "Encryption and key management are core data controls." }
+  - { to: cloud, why: "Most data now lives in cloud stores." }
+  - { to: iam, why: "Access control decides who reaches the data." }

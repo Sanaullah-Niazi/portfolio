@@ -36,7 +36,7 @@ stages:
         title: "DNS security"
         text: "DNS is how everything is found, and attackers abuse it for command and control and data theft. Learn DNS filtering, logging and how to spot abuse."
         res:
-          - { name: "Protective DNS", by: "CISA and NSA", url: "https://www.cisa.gov/resources-tools/resources/selecting-protective-dns-service", type: docs, cost: free }
+          - { name: "Protective DNS", by: "CISA", url: "https://www.cisa.gov/resources-tools/services/protective-domain-name-system-resolver", type: docs, cost: free }
       - id: dnssec
         title: "DNSSEC, DoH and DoT"
         text: "DNSSEC proves answers are genuine; DoH and DoT encrypt queries. Learn what each protects, and how encrypted DNS can also hide attacker traffic."
@@ -213,7 +213,7 @@ certs:
 resources:
   - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
   - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
-  - { name: "Protective DNS", by: "CISA and NSA", url: "https://www.cisa.gov/resources-tools/resources/selecting-protective-dns-service", type: docs, cost: free }
+  - { name: "Protective DNS", by: "CISA", url: "https://www.cisa.gov/resources-tools/services/protective-domain-name-system-resolver", type: docs, cost: free }
   - { name: "OWASP ModSecurity Core Rule Set", by: "OWASP Foundation", url: "https://coreruleset.org/", type: docs, cost: free }
   - { name: "Understanding and Responding to Distributed Denial-of-Service Attacks", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/understanding-and-responding-distributed-denial-service-attacks", type: docs, cost: free }
   - { name: "Mozilla Web Security guidelines", by: "Mozilla", url: "https://infosec.mozilla.org/guidelines/web_security", type: docs, cost: free }
