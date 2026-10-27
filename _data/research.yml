@@ -1,3 +1,9 @@
+# Shown under the thesis on the home page and the Research page.
+ongoing:
+  label: "Ongoing research"
+  title: "AI security for multilingual users"
+  text: "I’m currently working on a research project at the intersection of AI safety and low-resource languages. Details will be shared after publication."
+
 thesis:
   title: Advancing Deep Learning and Neural Network Techniques for AI and Human Text Classification
   degree: MS Artificial Intelligence, The Islamia University of Bahawalpur
