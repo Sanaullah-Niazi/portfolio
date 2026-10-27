@@ -1,0 +1,231 @@
+# Security roadmap: Wireless Security. Shown at /roadmaps/security/wireless/.
+# Field guide: see the top of secops.yml.
+
+id: wireless
+category: offence
+icon: antenna
+entry: intermediate
+legal: true
+title: "Wireless Security"
+summary: "Assess and secure the radio links around us under authorisation: Wi-Fi, Bluetooth, NFC, RFID and other RF, their protocols and encryption, and wireless intrusion detection."
+keywords: "wireless security Wi-Fi security WPA3 Bluetooth BLE NFC RFID RF SDR wireless pentesting 802.11 wireless IDS IPS authorised testing spectrum"
+
+overview:
+  - "Wireless links are everywhere and, unlike wired networks, their signals travel beyond your walls. Wireless security covers Wi-Fi, Bluetooth, NFC, RFID and other radio technologies: how they authenticate and encrypt, how they are assessed, and how to detect attacks against them."
+  - "This roadmap is a learning path for authorised assessment and defence. Transmitting on many frequencies is regulated and testing others' networks is illegal, so work only on your own equipment, in a controlled lab, or within an engagement scope, and respect radio regulations. The emphasis is on understanding and hardening wireless."
+why: "Wireless is a soft entry point into many organisations and a growing one as IoT and operational devices go wireless. Assessors and engineers who understand the radio layer and can secure it are relatively rare and in demand."
+roles:
+  - { title: "Wireless security analyst", level: mid, what: "Assesses and monitors wireless networks." }
+  - { title: "Wireless penetration tester", level: mid, what: "Assesses wireless under engagement." }
+  - { title: "Wireless security engineer", level: senior, what: "Designs and hardens wireless networks." }
+  - { title: "RF security researcher", level: senior, what: "Researches radio protocols and devices." }
+
+prereqs:
+  - "Networking fundamentals and penetration testing basics."
+  - "Some understanding of radio and signals."
+  - "Linux comfort for wireless tooling."
+  - "The law and radio regulations for your region, and authorised-testing ethics."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "Radio and Wi-Fi foundations"
+    months: "2–4"
+    topics:
+      - id: rf-basics
+        title: "Radio fundamentals"
+        text: "Frequencies, modulation, antennas and why signals leak past boundaries. A little radio theory makes everything else make sense."
+        res:
+          - { name: "Great Scott Gadgets SDR course", by: "Great Scott Gadgets", url: "https://greatscottgadgets.com/sdr/", type: course, cost: free }
+      - id: wifi-standards
+        title: "Wi-Fi standards and operation"
+        text: "The 802.11 family, how clients associate, and the management frames that make Wi-Fi work. Learn the protocol before the attacks."
+        res:
+          - { name: "Wi-Fi security overview", by: "Wi-Fi Alliance", url: "https://www.wi-fi.org/discover-wi-fi/security", type: docs, cost: free }
+      - id: wifi-encryption
+        title: "Wi-Fi authentication and encryption"
+        text: "WEP, WPA2 and WPA3, personal and enterprise. Learn why the old ones failed and what WPA3 improves."
+        res:
+          - { name: "Wi-Fi security overview", by: "Wi-Fi Alliance", url: "https://www.wi-fi.org/discover-wi-fi/security", type: docs, cost: free }
+      - id: wireless-lab
+        title: "A wireless lab"
+        text: "A supported adapter, your own access point and, optionally, a software-defined radio. Transmit only on your own equipment and legal frequencies."
+        res:
+          - { name: "Aircrack-ng documentation", by: "Aircrack-ng", url: "https://www.aircrack-ng.org/documentation.html", type: docs, cost: free }
+      - id: regulations-rf
+        title: "Radio regulations and law"
+        text: "Transmitting on many bands needs a licence, and interfering with or intercepting others' communications is illegal. Know the rules before you transmit."
+        res:
+          - { name: "Great Scott Gadgets SDR course", by: "Great Scott Gadgets", url: "https://greatscottgadgets.com/sdr/", type: course, cost: free }
+      - id: monitoring-wifi
+        title: "Monitoring and capturing Wi-Fi"
+        text: "Monitor mode and capture let you see the wireless around you. Capturing your own network's traffic is the start of assessment."
+        res:
+          - { name: "Aircrack-ng documentation", by: "Aircrack-ng", url: "https://www.aircrack-ng.org/documentation.html", type: docs, cost: free }
+    skills:
+      - "Explain radio fundamentals."
+      - "Explain 802.11 and Wi-Fi encryption."
+      - "Set up a legal wireless lab."
+      - "Capture and read Wi-Fi traffic on your own network."
+    labs:
+      - "Capture and analyse traffic from your own Wi-Fi in monitor mode."
+      - "Compare WPA2 and WPA3 behaviour on your own access point."
+    done:
+      - "Explain how Wi-Fi authenticates and encrypts and where it is weak."
+      - "Capture and interpret your own wireless traffic."
+
+  - level: intermediate
+    title: "Wi-Fi assessment and defence"
+    months: "3–6"
+    topics:
+      - id: wifi-attacks
+        title: "Wi-Fi attack concepts"
+        text: "Rogue access points, evil twins, deauthentication and handshake capture. Learn how each works and the controls that stop it, testing only your own network."
+        res:
+          - { name: "Aircrack-ng documentation", by: "Aircrack-ng", url: "https://www.aircrack-ng.org/documentation.html", type: docs, cost: free }
+      - id: enterprise-wifi
+        title: "Enterprise Wi-Fi security"
+        text: "802.1X, EAP methods and RADIUS, and the certificate and configuration mistakes that undermine them. Learn to assess and harden enterprise Wi-Fi."
+        res:
+          - { name: "Wi-Fi security overview", by: "Wi-Fi Alliance", url: "https://www.wi-fi.org/discover-wi-fi/security", type: docs, cost: free }
+      - id: captive-and-guest
+        title: "Guest and captive networks"
+        text: "Guest Wi-Fi, captive portals and segmentation. Done wrong they bridge untrusted users into the network; learn the safe design."
+        res:
+          - { name: "Wi-Fi security overview", by: "Wi-Fi Alliance", url: "https://www.wi-fi.org/discover-wi-fi/security", type: docs, cost: free }
+      - id: wids
+        title: "Wireless intrusion detection"
+        text: "Detect rogue access points, evil twins and deauth floods. Monitoring the air is the defensive counterpart to wireless assessment."
+        res:
+          - { name: "Kismet documentation", by: "Kismet", url: "https://www.kismetwireless.net/docs/", type: docs, cost: free }
+      - id: wifi-hardening
+        title: "Hardening Wi-Fi"
+        text: "WPA3, strong enterprise authentication, management frame protection, segmentation and rogue detection. Turn assessment findings into a hardened network."
+        res:
+          - { name: "Wi-Fi security overview", by: "Wi-Fi Alliance", url: "https://www.wi-fi.org/discover-wi-fi/security", type: docs, cost: free }
+      - id: wifi-reporting
+        title: "Reporting wireless findings"
+        text: "Explain the exposure, the realistic impact given signal range, and the fixes. Range and context matter in wireless reports."
+        res:
+          - { name: "Technical Guide to Information Security Testing (SP 800-115)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/115/final", type: docs, cost: free }
+    skills:
+      - "Explain Wi-Fi attacks and their defences."
+      - "Assess and harden enterprise Wi-Fi."
+      - "Deploy wireless intrusion detection."
+      - "Report wireless findings with context."
+    labs:
+      - "On your own lab network, capture a handshake and show how a strong passphrase defeats cracking."
+      - "Set up Kismet and detect a rogue access point you place in your own lab."
+      - "Configure WPA3 and 802.1X on lab equipment and verify the improvement."
+    done:
+      - "Assess and harden a lab Wi-Fi network end to end."
+      - "Detect wireless attacks against your own lab."
+
+  - level: advanced
+    title: "Beyond Wi-Fi"
+    months: "4–8"
+    topics:
+      - id: bluetooth
+        title: "Bluetooth and BLE"
+        text: "Classic and Low Energy Bluetooth, pairing, and the weaknesses in how devices connect. Assess and secure the many devices that use it."
+        res:
+          - { name: "Bluetooth security", by: "Bluetooth SIG", url: "https://www.bluetooth.com/learn-about-bluetooth/key-attributes/bluetooth-security/", type: docs, cost: free }
+      - id: nfc-rfid
+        title: "NFC and RFID"
+        text: "Access cards, payments and tags. Learn how they work, how cloning and relay attacks happen, and how systems defend against them."
+        res:
+          - { name: "Proxmark3 documentation", by: "Proxmark community", url: "https://github.com/RfidResearchGroup/proxmark3", type: docs, cost: free }
+      - id: sdr
+        title: "Software-defined radio"
+        text: "An SDR lets you receive and study many signals. Use it to learn protocols and research devices, receiving only and within the law."
+        res:
+          - { name: "Great Scott Gadgets SDR course", by: "Great Scott Gadgets", url: "https://greatscottgadgets.com/sdr/", type: course, cost: free }
+      - id: iot-wireless
+        title: "IoT wireless protocols"
+        text: "Zigbee, Z-Wave, Thread and LoRaWAN connect smart and industrial devices. Learn their security models and common weaknesses."
+        res:
+          - { name: "OWASP Internet of Things Project", by: "OWASP Foundation", url: "https://owasp.org/www-project-internet-of-things/", type: docs, cost: free }
+      - id: cellular-basics
+        title: "Cellular basics"
+        text: "How phones attach to mobile networks and the idea of rogue base stations. The telecom roadmap covers the operator side in depth."
+        res:
+          - { name: "3GPP specifications overview", by: "3GPP", url: "https://www.3gpp.org/specifications-technologies", type: docs, cost: free }
+      - id: physical-wireless
+        title: "Wireless and physical security"
+        text: "Access badges, car keys and building systems are radio devices. Wireless assessment overlaps with physical security testing."
+        res:
+          - { name: "Proxmark3 documentation", by: "Proxmark community", url: "https://github.com/RfidResearchGroup/proxmark3", type: docs, cost: free }
+    skills:
+      - "Assess Bluetooth, NFC and RFID systems."
+      - "Use an SDR to study signals legally."
+      - "Assess IoT wireless protocols."
+      - "Connect wireless and physical security."
+    labs:
+      - "Study your own BLE device's pairing and traffic in a lab."
+      - "With an SDR, receive and decode a legal, open signal such as ADS-B."
+      - "Analyse an RFID access card you own and explain its protections."
+    done:
+      - "Assess at least two non-Wi-Fi wireless technologies in a lab."
+      - "Explain the security model of a wireless IoT protocol."
+
+  - level: expert
+    title: "Leading wireless security"
+    months: "ongoing"
+    topics:
+      - id: wireless-programme
+        title: "Enterprise wireless security"
+        text: "Design, monitor and harden wireless across sites, including guest, corporate, IoT and operational networks, with rogue detection throughout."
+        res:
+          - { name: "Wi-Fi security overview", by: "Wi-Fi Alliance", url: "https://www.wi-fi.org/discover-wi-fi/security", type: docs, cost: free }
+      - id: rf-research
+        title: "RF research and disclosure"
+        text: "Radio research uncovers flaws in devices and protocols. Work within the law and radio regulations and disclose responsibly."
+        res:
+          - { name: "The CERT Guide to Coordinated Vulnerability Disclosure", by: "CERT/CC", url: "https://certcc.github.io/CERT-Guide-to-CVD/", type: docs, cost: free }
+      - id: emerging-wireless
+        title: "Emerging wireless"
+        text: "Wi-Fi 7, private 5G, ultra-wideband and new IoT radios keep arriving. Keep learning the new protocols and their security."
+        res:
+          - { name: "Wi-Fi security overview", by: "Wi-Fi Alliance", url: "https://www.wi-fi.org/discover-wi-fi/security", type: docs, cost: free }
+    skills:
+      - "Run enterprise wireless security."
+      - "Research radio responsibly and disclose findings."
+    labs:
+      - "Design a wireless security architecture for a multi-site organisation."
+      - "Document a responsible disclosure from your own RF research."
+    done:
+      - "Lead wireless security across an organisation."
+      - "Have a record of lawful research and responsible disclosure."
+
+tools:
+  - { name: "Aircrack-ng", url: "https://www.aircrack-ng.org/", kind: oss, what: "Wi-Fi assessment suite." }
+  - { name: "Kismet", url: "https://www.kismetwireless.net/", kind: oss, what: "Wireless detection and monitoring." }
+  - { name: "Wireshark", url: "https://www.wireshark.org/", kind: oss, what: "Analyse captured wireless traffic." }
+  - { name: "GNU Radio", url: "https://www.gnuradio.org/", kind: oss, what: "Software-defined radio toolkit." }
+  - { name: "Proxmark3", url: "https://github.com/RfidResearchGroup/proxmark3", kind: oss, what: "RFID and NFC research on your own cards." }
+
+certs:
+  - { name: "OSWP (PEN-210)", by: "OffSec", url: "https://www.offsec.com/courses/pen-210/", level: mid, note: "Hands-on Wi-Fi security testing." }
+  - { name: "CWSP", by: "CWNP", url: "https://www.cwnp.com/certifications/cwsp", level: mid, note: "Enterprise wireless security, defence-focused." }
+  - { ref: secplus, note: "Security baseline." }
+
+resources:
+  - { name: "Wi-Fi security overview", by: "Wi-Fi Alliance", url: "https://www.wi-fi.org/discover-wi-fi/security", type: docs, cost: free }
+  - { name: "Aircrack-ng documentation", by: "Aircrack-ng", url: "https://www.aircrack-ng.org/documentation.html", type: docs, cost: free }
+  - { name: "Great Scott Gadgets SDR course", by: "Great Scott Gadgets", url: "https://greatscottgadgets.com/sdr/", type: course, cost: free }
+  - { name: "Kismet documentation", by: "Kismet", url: "https://www.kismetwireless.net/docs/", type: docs, cost: free }
+  - { name: "Technical Guide to Information Security Testing (SP 800-115)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/115/final", type: docs, cost: free }
+
+frameworks: [nist-800-115, attack, nistir-8259, etsi-303645]
+
+career:
+  - { title: "Network engineer or penetration tester", years: "0–3 years" }
+  - { title: "Wireless security analyst or tester", years: "2–5 years" }
+  - { title: "Wireless security engineer or RF researcher", years: "5–9 years" }
+  - { title: "Wireless security lead", years: "9+ years" }
+
+related:
+  - { to: pentest, why: "Wireless assessment is a penetration testing specialism." }
+  - { to: network, why: "Wireless is part of the network to secure." }
+  - { to: iot, why: "Most IoT devices talk over wireless." }
+  - { to: telecom, why: "Cellular is wireless at operator scale." }

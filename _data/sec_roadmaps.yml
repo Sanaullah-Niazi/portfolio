@@ -168,8 +168,8 @@ categories:
     icon: bug
     title: "Offensive security and assessment"
     summary: "Testing defences the way attackers would, with permission and within agreed rules."
-    domains: []
-    planned: ["Penetration Testing", "Red Teaming", "Purple Teaming", "Security Auditing", "Vulnerability Research", "Security Code Review", "Web and API Security Assessment", "Cloud Security Assessment", "Wireless Security Assessment", "Mobile Security Assessment", "Hardware and Firmware Assessment", "Adversary Emulation", "Bug Bounty and Coordinated Disclosure", "Security Quality Assurance", "Attack Path Analysis"]
+    domains: [pentest, webapptest, adattacks, redteam, vulnresearch, mobile, wireless]
+    planned: []
 
   - id: grc
     icon: briefcase

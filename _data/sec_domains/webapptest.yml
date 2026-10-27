@@ -1,0 +1,231 @@
+# Security roadmap: Web and API Security Testing. Shown at /roadmaps/security/webapptest/.
+# Field guide: see the top of secops.yml.
+
+id: webapptest
+category: offence
+icon: globe
+entry: intermediate
+legal: true
+title: "Web and API Security Testing"
+summary: "Assess web applications and APIs for security flaws under authorisation: the OWASP methodology, REST, GraphQL and WebSocket testing, and reports developers can act on."
+keywords: "web application security testing API security testing OWASP WSTG REST GraphQL WebSocket pentesting authorised testing bug bounty injection access control business logic"
+
+overview:
+  - "Web applications and APIs are the most exposed part of most organisations and the most common way in. Web and API security testing assesses them, with authorisation, against a structured methodology, to find flaws before attackers do and help developers fix them."
+  - "This roadmap is a learning path for authorised and professional testing. It leans on the OWASP testing guides, uses deliberately vulnerable practice apps, and focuses on verifying real issues and writing useful reports. Test only your own applications, purpose-built practice apps, or targets in a bug bounty or engagement scope."
+why: "Almost every organisation runs web apps and APIs, and almost all have flaws. Skilled testers who understand modern app and API design and can explain issues to developers are in high demand, in consultancies, in-house teams and bug bounty programmes."
+roles:
+  - { title: "Junior application tester", level: entry, what: "Tests web apps under supervision." }
+  - { title: "Web and API penetration tester", level: mid, what: "Runs application assessments and reports." }
+  - { title: "Senior application security tester", level: senior, what: "Tests complex apps and leads reviews." }
+  - { title: "Application security lead", level: lead, what: "Owns the testing approach and standards." }
+
+prereqs:
+  - "How the web works: HTTP, browsers, sessions, TLS."
+  - "Some web development and an API, in any stack."
+  - "Application security fundamentals and the OWASP Top 10."
+  - "The law and ethics of authorised testing."
+prereq_paths: [cybersecurity, web]
+
+stages:
+  - level: beginner
+    title: "Web foundations and ethics"
+    months: "2–4"
+    topics:
+      - id: legal-ethics-web
+        title: "Authorisation and ethics"
+        text: "Test only what you are permitted to: your own apps, practice apps, or a target explicitly in a bug bounty or engagement scope. Understand the law first."
+        res:
+          - { name: "OWASP Web Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-web-security-testing-guide/", type: docs, cost: free }
+      - id: http-deep
+        title: "HTTP and the browser model"
+        text: "Requests, responses, headers, cookies, CORS and the same-origin policy. Most web flaws live in the details of how these work."
+        res:
+          - { name: "MDN HTTP", by: "Mozilla", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP", type: docs, cost: free }
+      - id: practice-apps
+        title: "Deliberately vulnerable apps"
+        text: "Learn safely on apps built to be attacked, such as Juice Shop and WebGoat, in a local lab. They teach the issues without breaking the law."
+        res:
+          - { name: "OWASP Juice Shop", by: "OWASP Foundation", url: "https://owasp.org/www-project-juice-shop/", type: practice, cost: free }
+      - id: owasp-top10-web
+        title: "The OWASP Top 10"
+        text: "The industry reference for the most critical web risks. Learn each category, how to find it and how it is fixed."
+        res:
+          - { name: "OWASP Top 10", by: "OWASP Foundation", url: "https://owasp.org/Top10/", type: docs, cost: free }
+      - id: proxy-tools
+        title: "The intercepting proxy"
+        text: "A proxy such as Burp or ZAP lets you see and modify requests. It is the core tool of web testing; learn it well."
+        res:
+          - { name: "OWASP ZAP", by: "ZAP project", url: "https://www.zaproxy.org/docs/", type: tool, cost: free }
+      - id: methodology-web
+        title: "Testing methodology"
+        text: "The OWASP WSTG gives a structured checklist from information gathering to business logic. Methodology stops you missing whole classes of issue."
+        res:
+          - { name: "OWASP Web Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-web-security-testing-guide/", type: docs, cost: free }
+    skills:
+      - "Explain the ethics and scope of web testing."
+      - "Understand HTTP and the browser security model."
+      - "Use an intercepting proxy."
+      - "Follow the WSTG methodology."
+    labs:
+      - "Install Juice Shop locally and work through its challenges with a proxy."
+      - "Map the WSTG checklist to a practice app and record your coverage."
+    done:
+      - "Explain the OWASP Top 10 with examples you have reproduced in a lab."
+      - "Test a practice app methodically with a proxy."
+
+  - level: intermediate
+    title: "Core web testing"
+    months: "4–8"
+    topics:
+      - id: injection
+        title: "Injection flaws"
+        text: "SQL, command and other injection let untrusted input change what a system does. Learn to find, verify and explain them, and the parameterised fixes."
+        res:
+          - { name: "Injection Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html", type: docs, cost: free }
+      - id: xss
+        title: "Cross-site scripting"
+        text: "XSS runs attacker script in a victim's browser. Learn the types, where it hides, and how output encoding and CSP prevent it."
+        res:
+          - { name: "Cross Site Scripting Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html", type: docs, cost: free }
+      - id: access-control-testing
+        title: "Broken access control"
+        text: "The most common serious finding: users reaching data or actions they should not. Test every object and action against every role."
+        res:
+          - { name: "Authorization Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html", type: docs, cost: free }
+      - id: auth-session
+        title: "Authentication and session testing"
+        text: "Weak login, session handling, password reset and multi-factor flaws. Learn to test them and the standards that fix them."
+        res:
+          - { name: "Authentication Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html", type: docs, cost: free }
+      - id: ssrf-and-friends
+        title: "SSRF, CSRF and request forgery"
+        text: "Tricking a server or a user's browser into making unintended requests. Learn how each works and the defences such as tokens and allowlists."
+        res:
+          - { name: "SSRF Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html", type: docs, cost: free }
+      - id: business-logic
+        title: "Business logic flaws"
+        text: "Abusing the intended workflow: skipping steps, tampering with prices, replaying actions. Tools cannot find these; understanding the app can."
+        res:
+          - { name: "OWASP Web Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-web-security-testing-guide/", type: docs, cost: free }
+    skills:
+      - "Find and verify the main web vulnerability classes."
+      - "Test access control and authentication thoroughly."
+      - "Recognise request forgery issues."
+      - "Find business logic flaws."
+    labs:
+      - "Reproduce each OWASP Top 10 category in Juice Shop or WebGoat and note the fix."
+      - "Complete the free Web Security Academy labs on access control and authentication."
+    done:
+      - "Find and clearly explain the main web vulnerability classes in practice apps."
+      - "Identify a business logic flaw and describe its impact and fix."
+
+  - level: advanced
+    title: "APIs and modern applications"
+    months: "6–12"
+    topics:
+      - id: api-testing
+        title: "REST API testing"
+        text: "APIs expose the same risks plus their own: object-level authorisation, mass assignment and excessive data exposure. The OWASP API Top 10 maps them."
+        res:
+          - { name: "OWASP API Security Top 10", by: "OWASP Foundation", url: "https://owasp.org/API-Security/editions/2023/en/0x11-t10/", type: docs, cost: free }
+      - id: graphql
+        title: "GraphQL testing"
+        text: "GraphQL's flexibility brings introspection, nested-query abuse and authorisation gaps. Learn how to test it and how to lock it down."
+        res:
+          - { name: "GraphQL Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/GraphQL_Cheat_Sheet.html", type: docs, cost: free }
+      - id: websocket
+        title: "WebSocket and real-time APIs"
+        text: "Persistent connections need their own authentication, authorisation and input handling. Learn to test them with the right tooling."
+        res:
+          - { name: "OWASP Web Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-web-security-testing-guide/", type: docs, cost: free }
+      - id: auth-standards-testing
+        title: "Testing OAuth and OIDC"
+        text: "Modern apps delegate auth to OAuth and OpenID Connect. Learn the flows and the common implementation mistakes that break them."
+        res:
+          - { name: "OAuth 2.0 Security Best Current Practice", by: "IETF", url: "https://datatracker.ietf.org/doc/html/rfc9700", type: docs, cost: free }
+      - id: client-side
+        title: "Client-side and SPA testing"
+        text: "Single-page apps push logic to the browser, adding DOM XSS, client-side access control and dependency risks. Test the front end as well as the API."
+        res:
+          - { name: "OWASP Web Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-web-security-testing-guide/", type: docs, cost: free }
+      - id: web-reporting
+        title: "Reporting and working with developers"
+        text: "Write findings developers can act on: clear reproduction, impact, severity and a concrete fix. The goal is fixed code, not a long report."
+        res:
+          - { name: "OWASP Web Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-web-security-testing-guide/", type: docs, cost: free }
+    skills:
+      - "Test REST, GraphQL and WebSocket APIs."
+      - "Test OAuth and OIDC implementations."
+      - "Test single-page application front ends."
+      - "Write developer-ready reports."
+    labs:
+      - "Test a deliberately vulnerable API such as crAPI or VAmPI in a lab."
+      - "Complete the API and OAuth labs on the free Web Security Academy."
+      - "Write a full report for a lab app with reproduction and fixes."
+    done:
+      - "Assess a modern app and its API end to end in a lab."
+      - "Produce a report a developer could fix from directly."
+
+  - level: expert
+    title: "Mastery and bug bounty"
+    months: "ongoing"
+    topics:
+      - id: bug-bounty
+        title: "Bug bounty hunting"
+        text: "Bug bounties let you test real systems legally, within each programme's scope and rules. Read the scope carefully and always stay inside it."
+        res:
+          - { name: "HackerOne Hacktivity and policies", by: "HackerOne", url: "https://www.hackerone.com/", type: docs, cost: free }
+      - id: advanced-techniques
+        title: "Advanced and chained findings"
+        text: "The best testers chain small issues into serious impact and understand frameworks deeply. Keep learning from write-ups and disclosed reports."
+        res:
+          - { name: "PortSwigger Research", by: "PortSwigger", url: "https://portswigger.net/research", type: docs, cost: free }
+      - id: automation-web
+        title: "Automation and scale"
+        text: "Automate reconnaissance and repetitive checks so you spend human time on logic. Build or adapt tooling responsibly, within scope."
+        res:
+          - { name: "OWASP Web Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-web-security-testing-guide/", type: docs, cost: free }
+    skills:
+      - "Hunt bugs legally within programme scope."
+      - "Chain findings and use advanced techniques."
+    labs:
+      - "Pick a bug bounty programme, study its scope and document a legal test plan within it."
+      - "Reproduce a disclosed advanced technique in your own lab."
+    done:
+      - "Test real targets legally through bug bounty programmes."
+      - "Find and report chained, high-impact issues responsibly."
+
+tools:
+  - { name: "Burp Suite (Community)", url: "https://portswigger.net/burp/communitydownload", kind: free, what: "The standard web testing proxy; free edition for learning." }
+  - { name: "OWASP ZAP", url: "https://www.zaproxy.org/", kind: oss, what: "Open-source intercepting proxy and scanner." }
+  - { name: "Web Security Academy", url: "https://portswigger.net/web-security", kind: free, what: "Free, high-quality labs and theory." }
+  - { name: "OWASP Juice Shop", url: "https://owasp.org/www-project-juice-shop/", kind: oss, what: "Deliberately vulnerable app for practice." }
+  - { name: "Postman", url: "https://www.postman.com/", kind: free, what: "Explore and test APIs." }
+
+certs:
+  - { name: "Burp Suite Certified Practitioner", by: "PortSwigger", url: "https://portswigger.net/web-security/certification", level: mid, note: "Practical web testing exam." }
+  - { name: "OSWE (WEB-300)", by: "OffSec", url: "https://www.offsec.com/courses/web-300/", level: senior, note: "Advanced web application attacks and defence." }
+  - { name: "eWPT", by: "INE Security", url: "https://ine.com/security/certifications/ewpt-certification", level: mid, note: "Web application penetration testing." }
+  - { name: "GWAPT", by: "GIAC", url: "https://www.giac.org/certifications/web-application-penetration-tester-gwapt/", level: mid, note: "Vendor-neutral web app testing." }
+
+resources:
+  - { name: "OWASP Web Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-web-security-testing-guide/", type: docs, cost: free }
+  - { name: "OWASP API Security Top 10", by: "OWASP Foundation", url: "https://owasp.org/API-Security/editions/2023/en/0x11-t10/", type: docs, cost: free }
+  - { name: "Web Security Academy", by: "PortSwigger", url: "https://portswigger.net/web-security", type: course, cost: free }
+  - { name: "OWASP Juice Shop", by: "OWASP Foundation", url: "https://owasp.org/www-project-juice-shop/", type: practice, cost: free }
+  - { name: "PortSwigger Research", by: "PortSwigger", url: "https://portswigger.net/research", type: docs, cost: free }
+
+frameworks: [owasp-top10, owasp-api, wstg, asvs, cwe]
+
+career:
+  - { title: "Developer, QA or security analyst", years: "0–2 years" }
+  - { title: "Junior application tester", years: "1–3 years" }
+  - { title: "Web and API penetration tester", years: "3–6 years" }
+  - { title: "Senior tester or application security lead", years: "6+ years" }
+
+related:
+  - { to: pentest, why: "Web testing is a specialism within penetration testing." }
+  - { to: appsec, why: "Testing and building secure apps are two sides of one coin." }
+  - { to: fraud, why: "Business logic abuse overlaps with fraud." }
+  - { to: devsecops, why: "Findings feed back into the pipeline." }

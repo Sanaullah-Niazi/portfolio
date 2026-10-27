@@ -225,4 +225,4 @@ related:
   - { to: network, why: "Telecom security is network security at national scale." }
   - { to: container, why: "5G cores run on Kubernetes." }
   - { to: fraud, why: "SIM swap and signalling abuse drive fraud." }
-  - { name: "Wireless Security", why: "Radio access is wireless security." }
+  - { to: wireless, why: "Radio access is wireless security." }

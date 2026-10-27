@@ -227,4 +227,4 @@ related:
   - { to: hwsec, why: "Secure boot, keys and firmware analysis are hardware security." }
   - { to: otics, why: "Industrial IoT connects to OT." }
   - { to: prodsec, why: "Device makers carry product security duties." }
-  - { name: "Wireless Security", why: "Most devices talk over wireless." }
+  - { to: wireless, why: "Most devices talk over wireless." }

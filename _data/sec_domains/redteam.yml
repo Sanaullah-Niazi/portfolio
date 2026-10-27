@@ -1,0 +1,224 @@
+# Security roadmap: Red Teaming and Adversary Emulation. Shown at /roadmaps/security/redteam/.
+# Field guide: see the top of secops.yml.
+
+id: redteam
+category: offence
+icon: flag
+entry: advanced
+legal: true
+title: "Red Teaming and Adversary Emulation"
+summary: "Test whether an organisation can detect and respond to a realistic attack: adversary emulation, purple teaming, breach and attack simulation, and control validation, all under strict authorisation."
+keywords: "red teaming adversary emulation purple teaming breach and attack simulation BAS control validation MITRE ATT&CK threat-led testing authorised engagement detection response"
+
+overview:
+  - "Red teaming goes beyond finding vulnerabilities: it tests whether an organisation can detect, respond to and recover from a realistic attack. An authorised team emulates the techniques of a chosen threat actor, under tight rules, to exercise the defenders and the controls."
+  - "This roadmap is a learning path for authorised, objective-based testing and, increasingly, for purple teaming, where offence and defence work together to improve detection. It centres on MITRE ATT&CK, emulation planning and measuring defensive outcomes. Every engagement needs written authorisation and a clear objective agreed with leadership."
+why: "Organisations that pass vulnerability scans still fall to real attacks because detection and response fail. Red and purple teams measure and improve that, and the demand for people who can run them constructively, not just break in, is high."
+roles:
+  - { title: "Red team operator", level: mid, what: "Executes emulation under a lead." }
+  - { title: "Red team lead", level: senior, what: "Plans and runs engagements." }
+  - { title: "Purple team engineer", level: mid, what: "Runs emulation with defenders to improve detection." }
+  - { title: "Adversary emulation lead", level: lead, what: "Owns the programme and threat alignment." }
+
+prereqs:
+  - "Solid penetration testing and identity attack skills."
+  - "Strong understanding of detection and defensive operations."
+  - "Deep knowledge of MITRE ATT&CK."
+  - "Mature judgement and the law and ethics of authorised testing."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "From pentesting to red teaming"
+    months: "3–6"
+    topics:
+      - id: redteam-concepts
+        title: "What red teaming is"
+        text: "Objective-based, threat-realistic testing of detection and response, not a vulnerability hunt. Learn how it differs from penetration testing and when each fits."
+        res:
+          - { name: "Red Team Guide (concepts)", by: "Joe Vest and James Tubberville", url: "https://redteam.guide/", type: docs, cost: free }
+      - id: attack-framework
+        title: "MITRE ATT&CK"
+        text: "ATT&CK is the shared language of tactics and techniques. Learn it thoroughly; it drives emulation planning and detection mapping alike."
+        res:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+      - id: engagement-authorisation
+        title: "Authorisation and rules"
+        text: "Red teaming needs explicit, senior authorisation, a legal agreement, clear objectives and strict rules, including who knows and how to stand down. This comes first."
+        res:
+          - { name: "TIBER-EU framework", by: "European Central Bank", url: "https://www.ecb.europa.eu/paym/cyber-resilience/tiber-eu/html/index.en.html", type: docs, cost: free }
+      - id: emulation-vs-simulation
+        title: "Emulation, simulation and BAS"
+        text: "Adversary emulation copies a specific actor; breach and attack simulation automates known techniques continuously. Learn where each adds value."
+        res:
+          - { name: "MITRE Adversary Emulation Library", by: "MITRE Engenuity", url: "https://github.com/center-for-threat-informed-defense/adversary_emulation_library", type: docs, cost: free }
+      - id: redteam-lab
+        title: "A detection lab"
+        text: "Build a lab with logging and a SIEM so you can run techniques and see what defenders would. Learning to be seen matters as much as the technique."
+        res:
+          - { name: "DetectionLab", by: "Chris Long", url: "https://github.com/clong/DetectionLab", type: practice, cost: free }
+    skills:
+      - "Explain red teaming and its place among testing types."
+      - "Use MITRE ATT&CK fluently."
+      - "Set up a detection lab."
+      - "Explain the authorisation red teaming requires."
+    labs:
+      - "Build a detection lab with logging and a SIEM."
+      - "Map a public threat report's behaviour to ATT&CK techniques."
+    done:
+      - "Explain the difference between pentesting, red teaming and BAS."
+      - "Map adversary behaviour to ATT&CK."
+
+  - level: intermediate
+    title: "Emulation and detection"
+    months: "4–8"
+    topics:
+      - id: emulation-planning
+        title: "Adversary emulation planning"
+        text: "Choose a threat actor relevant to the organisation, study its documented behaviour, and plan an emulation of its techniques against an objective."
+        res:
+          - { name: "MITRE Adversary Emulation Library", by: "MITRE Engenuity", url: "https://github.com/center-for-threat-informed-defense/adversary_emulation_library", type: docs, cost: free }
+      - id: atomic-testing
+        title: "Atomic testing"
+        text: "Run individual, documented techniques safely and check whether they are detected. Atomic Red Team is the standard open library for this."
+        res:
+          - { name: "Atomic Red Team", by: "Red Canary", url: "https://github.com/redcanaryco/atomic-red-team", type: tool, cost: free }
+      - id: c2-concepts
+        title: "Command and control concepts"
+        text: "Understand how operators manage access during an engagement, and how defenders detect it. Study the detection side as hard as the operation."
+        res:
+          - { name: "MITRE ATT&CK: Command and Control", by: "MITRE", url: "https://attack.mitre.org/tactics/TA0011/", type: docs, cost: free }
+      - id: evasion-and-detection
+        title: "Evasion and its detection"
+        text: "Learn how attackers try to avoid defences specifically so you can help defenders catch them. Keep the emphasis on improving detection."
+        res:
+          - { name: "MITRE ATT&CK: Defense Evasion", by: "MITRE", url: "https://attack.mitre.org/tactics/TA0005/", type: docs, cost: free }
+      - id: opsec-safety
+        title: "Operational safety"
+        text: "Protect the engagement data, avoid harm to production, and keep meticulous logs of everything you do. Safety and accountability define a professional."
+        res:
+          - { name: "Red Team Guide (concepts)", by: "Joe Vest and James Tubberville", url: "https://redteam.guide/", type: docs, cost: free }
+      - id: measuring-detection
+        title: "Measuring detection coverage"
+        text: "The real output is a map of what defenders saw and missed, per technique. Learn to produce it and track improvement over time."
+        res:
+          - { name: "MITRE ATT&CK Navigator", by: "MITRE", url: "https://github.com/mitre-attack/attack-navigator", type: tool, cost: free }
+    skills:
+      - "Plan an emulation of a specific threat actor."
+      - "Run atomic tests and check detection."
+      - "Explain C2 and evasion from the defender's side."
+      - "Measure and report detection coverage."
+    labs:
+      - "Run Atomic Red Team techniques in your lab and record which your SIEM detects."
+      - "Build an ATT&CK Navigator layer showing detection coverage and gaps."
+    done:
+      - "Produce a detection coverage map for a set of techniques."
+      - "Plan an emulation aligned to a real threat actor."
+
+  - level: advanced
+    title: "Full engagements and purple teaming"
+    months: "6–12"
+    topics:
+      - id: full-engagement
+        title: "Running a full engagement"
+        text: "From objective and scoping through emulation to an after-action review with defenders. The review and the improvements are the deliverable."
+        res:
+          - { name: "Red Team Guide (concepts)", by: "Joe Vest and James Tubberville", url: "https://redteam.guide/", type: docs, cost: free }
+      - id: purple-teaming
+        title: "Purple teaming"
+        text: "Run techniques openly with defenders watching, fixing detections as you go. It improves security faster than a closed red team and is often the better choice."
+        res:
+          - { name: "VECTR", by: "Security Risk Advisors", url: "https://vectr.io/", type: tool, cost: free }
+      - id: bas-programmes
+        title: "Breach and attack simulation programmes"
+        text: "Automated, continuous validation of controls against known techniques. Learn to run a BAS programme and act on its results."
+        res:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+      - id: control-validation
+        title: "Control validation"
+        text: "Test whether specific controls, such as EDR or email filtering, actually work against the techniques they should stop, and report gaps to owners."
+        res:
+          - { name: "MITRE Engenuity ATT&CK Evaluations", by: "MITRE Engenuity", url: "https://attackevals.mitre-engenuity.org/", type: docs, cost: free }
+      - id: threat-led-testing
+        title: "Threat-led penetration testing"
+        text: "Regulated frameworks such as TIBER-EU and CBEST run intelligence-led red teams against live financial systems under strict governance. Learn how they work."
+        res:
+          - { name: "TIBER-EU framework", by: "European Central Bank", url: "https://www.ecb.europa.eu/paym/cyber-resilience/tiber-eu/html/index.en.html", type: docs, cost: free }
+      - id: redteam-reporting
+        title: "Reporting outcomes"
+        text: "Report what defenders detected, how fast they responded, and which controls and detections to improve, with ATT&CK coverage. Outcomes, not war stories."
+        res:
+          - { name: "MITRE ATT&CK Navigator", by: "MITRE", url: "https://github.com/mitre-attack/attack-navigator", type: tool, cost: free }
+    skills:
+      - "Run full engagements and after-action reviews."
+      - "Run purple team exercises."
+      - "Operate BAS and control validation programmes."
+      - "Report defensive outcomes."
+    labs:
+      - "Run a purple team exercise in your lab with VECTR, improving detections as you go."
+      - "Validate an EDR against a set of techniques and report the gaps."
+    done:
+      - "Run an engagement that measurably improves detection and response."
+      - "Deliver an outcome-focused report defenders can act on."
+
+  - level: expert
+    title: "Leading adversary emulation"
+    months: "ongoing"
+    topics:
+      - id: programme-threat-alignment
+        title: "Threat-aligned programmes"
+        text: "Build a continuous emulation programme aligned to the threats the organisation actually faces, with threat intelligence driving what you test."
+        res:
+          - { name: "MITRE Adversary Emulation Library", by: "MITRE Engenuity", url: "https://github.com/center-for-threat-informed-defense/adversary_emulation_library", type: docs, cost: free }
+      - id: team-building-rt
+        title: "Building and running a team"
+        text: "Recruit, train and keep operators, maintain a safe methodology, and manage the sensitive relationship with defenders and leadership."
+        res:
+          - { name: "Red Team Guide (concepts)", by: "Joe Vest and James Tubberville", url: "https://redteam.guide/", type: docs, cost: free }
+      - id: maturity-measurement
+        title: "Measuring defensive maturity"
+        text: "Show detection and response improving over time across ATT&CK. That trend, not individual wins, is what justifies the programme."
+        res:
+          - { name: "MITRE ATT&CK Navigator", by: "MITRE", url: "https://github.com/mitre-attack/attack-navigator", type: tool, cost: free }
+    skills:
+      - "Run a threat-aligned emulation programme."
+      - "Lead a team and measure defensive maturity."
+    labs:
+      - "Write an annual emulation plan aligned to an organisation's threat profile."
+      - "Design a dashboard tracking detection coverage over time."
+    done:
+      - "Lead an emulation programme that improves defences measurably."
+      - "Show rising detection maturity across ATT&CK."
+
+tools:
+  - { name: "Atomic Red Team", url: "https://github.com/redcanaryco/atomic-red-team", kind: oss, what: "Library of documented techniques for detection testing." }
+  - { name: "Caldera", url: "https://caldera.mitre.org/", kind: oss, what: "MITRE's automated adversary emulation platform." }
+  - { name: "VECTR", url: "https://vectr.io/", kind: community, what: "Plan and track purple team exercises." }
+  - { name: "ATT&CK Navigator", url: "https://github.com/mitre-attack/attack-navigator", kind: oss, what: "Visualise coverage and gaps." }
+  - { name: "DetectionLab", url: "https://github.com/clong/DetectionLab", kind: oss, what: "Pre-built lab with logging and a SIEM." }
+
+certs:
+  - { name: "CRTO", by: "Zero-Point Security", url: "https://training.zeropointsecurity.co.uk/courses/red-team-ops", level: mid, note: "Widely respected hands-on red team course." }
+  - { name: "OSEP (PEN-300)", by: "OffSec", url: "https://www.offsec.com/courses/pen-300/", level: senior, note: "Advanced evasion and emulation." }
+  - { name: "GIAC GCDA / purple team courses", by: "SANS", url: "https://www.sans.org/cyber-security-courses/enterprise-cloud-forensics-incident-response/", level: senior, note: "Defensive analytics that pair with emulation." }
+
+resources:
+  - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+  - { name: "MITRE Adversary Emulation Library", by: "MITRE Engenuity", url: "https://github.com/center-for-threat-informed-defense/adversary_emulation_library", type: docs, cost: free }
+  - { name: "Atomic Red Team", by: "Red Canary", url: "https://github.com/redcanaryco/atomic-red-team", type: practice, cost: free }
+  - { name: "TIBER-EU framework", by: "European Central Bank", url: "https://www.ecb.europa.eu/paym/cyber-resilience/tiber-eu/html/index.en.html", type: docs, cost: free }
+  - { name: "Red Team Guide (concepts)", by: "Joe Vest and James Tubberville", url: "https://redteam.guide/", type: docs, cost: free }
+
+frameworks: [attack, d3fend, engage, nist-800-115]
+
+career:
+  - { title: "Penetration tester or detection engineer", years: "2–5 years" }
+  - { title: "Red team operator or purple team engineer", years: "4–7 years" }
+  - { title: "Red team lead", years: "7–11 years" }
+  - { title: "Adversary emulation lead", years: "11+ years" }
+
+related:
+  - { to: pentest, why: "Red teaming builds on penetration testing." }
+  - { to: adattacks, why: "Identity attack paths are central to emulation." }
+  - { to: detection, why: "Purple teaming exists to improve detection." }
+  - { to: hunting, why: "Emulation and hunting both use ATT&CK." }

@@ -1,0 +1,229 @@
+# Security roadmap: Vulnerability Research and Exploit Development. Shown at /roadmaps/security/vulnresearch/.
+# Field guide: see the top of secops.yml.
+
+id: vulnresearch
+category: offence
+icon: flask
+entry: advanced
+legal: true
+title: "Vulnerability Research"
+summary: "Find unknown flaws in software and prove their impact, for defence: fuzzing, binary and source analysis, exploitation concepts, and coordinated disclosure that gets them fixed."
+keywords: "vulnerability research exploit development fuzzing binary analysis reverse engineering memory safety coordinated disclosure CVE responsible disclosure authorised research mitigations"
+
+overview:
+  - "Vulnerability research finds flaws that nobody has reported yet, understands them deeply enough to judge their impact, and gets them fixed through coordinated disclosure. It is the most technical offensive discipline, and its purpose is to make software safer by finding bugs before attackers do."
+  - "This roadmap is a learning path grounded in ethics and the law. Research software you own or are permitted to study, use deliberately vulnerable practice targets, and disclose anything you find responsibly through proper channels. The deliverable is a fixed vulnerability and a CVE, never an exploited system. Understanding modern mitigations is as important as understanding bugs."
+why: "Vulnerability researchers protect everyone by finding and fixing flaws in widely used software, and they drive the mitigations that make whole classes of bug harder to exploit. The skills are deep and rare, and they underpin product security, defence and detection."
+roles:
+  - { title: "Security researcher", level: mid, what: "Finds and reports vulnerabilities responsibly." }
+  - { title: "Vulnerability researcher", level: senior, what: "Researches complex targets and mitigations." }
+  - { title: "Exploit / mitigation engineer", level: senior, what: "Studies exploitation to build defences." }
+  - { title: "Research lead", level: lead, what: "Directs a research team and disclosure." }
+
+prereqs:
+  - "Strong C and assembly, and systems programming."
+  - "Operating system and memory internals."
+  - "Reverse engineering fundamentals."
+  - "A firm grasp of research ethics, the law and coordinated disclosure."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "Foundations and ethics"
+    months: "4–8"
+    topics:
+      - id: research-ethics
+        title: "Research ethics and the law"
+        text: "Research only what you own or may study, never test on live third-party systems, and disclose responsibly. This frames everything that follows."
+        res:
+          - { name: "The CERT Guide to Coordinated Vulnerability Disclosure", by: "CERT/CC", url: "https://certcc.github.io/CERT-Guide-to-CVD/", type: docs, cost: free }
+      - id: memory-internals
+        title: "Memory and program internals"
+        text: "The stack, the heap, calling conventions and how programs use memory. Memory safety bugs are the classic research target, so learn this cold."
+        res:
+          - { name: "Nightmare (binary exploitation course)", by: "Guyinatuxedo", url: "https://guyinatuxedo.github.io/", type: course, cost: free }
+      - id: reverse-engineering
+        title: "Reverse engineering"
+        text: "Read compiled code with a disassembler and decompiler to understand software you do not have source for. The core research skill."
+        res:
+          - { name: "Ghidra", by: "NSA", url: "https://ghidra-sre.org/", type: tool, cost: free }
+      - id: vuln-classes
+        title: "Vulnerability classes"
+        text: "Memory corruption, use-after-free, integer and type issues, logic flaws. Learn each with its root cause, the modern mitigations, and why it matters."
+        res:
+          - { name: "CWE (Common Weakness Enumeration)", by: "MITRE", url: "https://cwe.mitre.org/", type: docs, cost: free }
+      - id: practice-targets
+        title: "Practice targets"
+        text: "War games and deliberately vulnerable binaries teach the concepts legally. Build your skills here before looking at real software."
+        res:
+          - { name: "pwn.college", by: "Arizona State University", url: "https://pwn.college/", type: practice, cost: free }
+      - id: debugging
+        title: "Debugging and analysis"
+        text: "A debugger is how you understand what a program really does. Learn to drive one well; it is where research actually happens."
+        res:
+          - { name: "pwndbg", by: "pwndbg", url: "https://github.com/pwndbg/pwndbg", type: tool, cost: free }
+    skills:
+      - "State the ethics and law of vulnerability research."
+      - "Explain memory and program internals."
+      - "Reverse engineer and debug binaries."
+      - "Recognise the major vulnerability classes."
+    labs:
+      - "Work through the early pwn.college or Nightmare modules in a lab VM."
+      - "Reverse engineer a small program with Ghidra and explain what it does."
+    done:
+      - "Explain the main vulnerability classes and their mitigations."
+      - "Reverse engineer and debug a simple binary."
+
+  - level: intermediate
+    title: "Finding vulnerabilities"
+    months: "6–12"
+    topics:
+      - id: fuzzing
+        title: "Fuzzing"
+        text: "Feed a program malformed input at scale to find crashes that may be bugs. Coverage-guided fuzzing is the workhorse of modern research."
+        res:
+          - { name: "AFL++", by: "AFLplusplus", url: "https://aflplus.plus/", type: tool, cost: free }
+      - id: source-analysis
+        title: "Source code auditing"
+        text: "When you have source, read it for dangerous patterns and reason about untrusted input. Static analysers help; human review finds the subtle ones."
+        res:
+          - { name: "CodeQL", by: "GitHub", url: "https://codeql.github.com/", type: tool, cost: free }
+      - id: triage
+        title: "Triaging crashes"
+        text: "Most crashes are not useful bugs. Learn to triage them: what is the root cause, is it reachable, and could it matter."
+        res:
+          - { name: "Nightmare (binary exploitation course)", by: "Guyinatuxedo", url: "https://guyinatuxedo.github.io/", type: course, cost: free }
+      - id: root-cause
+        title: "Root cause analysis"
+        text: "Understand a bug well enough to describe its cause and impact precisely. This is what makes a report useful and a fix correct."
+        res:
+          - { name: "CWE (Common Weakness Enumeration)", by: "MITRE", url: "https://cwe.mitre.org/", type: docs, cost: free }
+      - id: mitigations
+        title: "Modern mitigations"
+        text: "ASLR, DEP, stack canaries, CFI and memory-safe languages change what is exploitable. Understanding them is central to judging real impact."
+        res:
+          - { name: "Exploit mitigations overview", by: "The Chromium Projects", url: "https://www.chromium.org/Home/chromium-security/memory-safety/", type: docs, cost: free }
+      - id: harnessing
+        title: "Building fuzzing harnesses"
+        text: "Good research is mostly building the harness and corpus that reach interesting code. Learn to target the parts that handle untrusted input."
+        res:
+          - { name: "AFL++", by: "AFLplusplus", url: "https://aflplus.plus/", type: tool, cost: free }
+    skills:
+      - "Set up and run coverage-guided fuzzing."
+      - "Audit source code for vulnerabilities."
+      - "Triage crashes and find root causes."
+      - "Reason about modern mitigations."
+    labs:
+      - "Fuzz an open-source library you have permission to study and triage the crashes."
+      - "Audit a small codebase with CodeQL and by hand, and compare."
+    done:
+      - "Find a real bug by fuzzing or auditing a permitted target."
+      - "Write a precise root cause analysis of a bug."
+
+  - level: advanced
+    title: "Impact, exploitation concepts and disclosure"
+    months: "8–18"
+    topics:
+      - id: exploitation-concepts
+        title: "Exploitation concepts"
+        text: "Understand how a bug could be turned into impact, enough to judge severity and to defeat it. Study this to assess risk and build mitigations, in your own lab."
+        res:
+          - { name: "pwn.college", by: "Arizona State University", url: "https://pwn.college/", type: course, cost: free }
+      - id: proof-of-concept
+        title: "Proofs of concept"
+        text: "A controlled proof of concept demonstrates impact for a report, on your own test system. It proves the bug is real without harming anyone."
+        res:
+          - { name: "The CERT Guide to Coordinated Vulnerability Disclosure", by: "CERT/CC", url: "https://certcc.github.io/CERT-Guide-to-CVD/", type: docs, cost: free }
+      - id: coordinated-disclosure
+        title: "Coordinated disclosure"
+        text: "Report to the vendor, agree a timeline, get a fix out, then publish. Learn CVE assignment and how to handle unresponsive vendors fairly."
+        res:
+          - { name: "The CERT Guide to Coordinated Vulnerability Disclosure", by: "CERT/CC", url: "https://certcc.github.io/CERT-Guide-to-CVD/", type: docs, cost: free }
+      - id: writing-advisories
+        title: "Writing advisories and CVEs"
+        text: "Communicate a vulnerability clearly: affected versions, root cause, impact, fix. Request a CVE so defenders can track it."
+        res:
+          - { name: "CVE Program", by: "MITRE", url: "https://www.cve.org/", type: docs, cost: free }
+      - id: specialising-vr
+        title: "Specialising"
+        text: "Browsers, kernels, hypervisors, mobile and embedded are all deep research areas. Pick one and go deep; breadth comes later."
+        res:
+          - { name: "Project Zero blog", by: "Google Project Zero", url: "https://googleprojectzero.blogspot.com/", type: docs, cost: free }
+      - id: building-mitigations
+        title: "From research to defence"
+        text: "The highest-impact research drives mitigations and memory-safe design that kill bug classes outright. Aim your work at making flaws unexploitable."
+        res:
+          - { name: "Exploit mitigations overview", by: "The Chromium Projects", url: "https://www.chromium.org/Home/chromium-security/memory-safety/", type: docs, cost: free }
+    skills:
+      - "Judge the impact of a vulnerability."
+      - "Build controlled proofs of concept on your own systems."
+      - "Run coordinated disclosure and request CVEs."
+      - "Specialise in a research area."
+    labs:
+      - "Write a full advisory and PoC for a bug you found in a permitted target or practice binary."
+      - "Walk a practice vulnerability from discovery to a CERT-style disclosure plan."
+    done:
+      - "Responsibly disclose a vulnerability and obtain a CVE."
+      - "Produce a clear advisory with root cause and impact."
+
+  - level: expert
+    title: "Leading research"
+    months: "ongoing"
+    topics:
+      - id: research-programme
+        title: "Running research"
+        text: "Direct research at the targets that matter, manage disclosure at scale, and turn findings into fixes and mitigations across an ecosystem."
+        res:
+          - { name: "Project Zero blog", by: "Google Project Zero", url: "https://googleprojectzero.blogspot.com/", type: docs, cost: free }
+      - id: tooling-automation
+        title: "Research tooling"
+        text: "Build fuzzers, harnesses and analysis tools that scale your work and help others. Much progress comes from better tools."
+        res:
+          - { name: "OSS-Fuzz", by: "Google", url: "https://google.github.io/oss-fuzz/", type: docs, cost: free }
+      - id: ecosystem-defence
+        title: "Driving ecosystem change"
+        text: "Push for memory-safe languages, hardening by default and safer APIs. Preventing whole bug classes beats finding them one by one."
+        res:
+          - { name: "The Case for Memory Safe Roadmaps (CISA and partners)", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/case-memory-safe-roadmaps", type: docs, cost: free }
+    skills:
+      - "Direct research and disclosure at scale."
+      - "Build tooling and drive ecosystem change."
+    labs:
+      - "Integrate a project you maintain or may study into a continuous fuzzing setup."
+      - "Write a proposal to eliminate a bug class in a codebase through safer APIs."
+    done:
+      - "Lead research with a record of responsible disclosures."
+      - "Drive a mitigation or safer design that prevents a bug class."
+
+tools:
+  - { name: "Ghidra", url: "https://ghidra-sre.org/", kind: oss, what: "Reverse engineering suite." }
+  - { name: "AFL++", url: "https://aflplus.plus/", kind: oss, what: "Coverage-guided fuzzer." }
+  - { name: "GDB with pwndbg", url: "https://github.com/pwndbg/pwndbg", kind: oss, what: "Debugging for analysis." }
+  - { name: "CodeQL", url: "https://codeql.github.com/", kind: free, what: "Query code for vulnerable patterns." }
+  - { name: "OSS-Fuzz", url: "https://google.github.io/oss-fuzz/", kind: oss, what: "Continuous fuzzing for open-source projects." }
+
+certs:
+  - { name: "OSED (EXP-301)", by: "OffSec", url: "https://www.offsec.com/courses/exp-301/", level: senior, note: "Windows exploit development, defence-oriented." }
+  - { name: "OSCE3", by: "OffSec", url: "https://www.offsec.com/courses/", level: senior, note: "Advanced offensive certification track." }
+  - { ref: cissp, note: "Context, though research is proven by published work and CVEs more than certs." }
+
+resources:
+  - { name: "The CERT Guide to Coordinated Vulnerability Disclosure", by: "CERT/CC", url: "https://certcc.github.io/CERT-Guide-to-CVD/", type: docs, cost: free }
+  - { name: "pwn.college", by: "Arizona State University", url: "https://pwn.college/", type: course, cost: free }
+  - { name: "Nightmare (binary exploitation course)", by: "Guyinatuxedo", url: "https://guyinatuxedo.github.io/", type: course, cost: free }
+  - { name: "Project Zero blog", by: "Google Project Zero", url: "https://googleprojectzero.blogspot.com/", type: docs, cost: free }
+  - { name: "The Case for Memory Safe Roadmaps", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/case-memory-safe-roadmaps", type: docs, cost: free }
+
+frameworks: [cwe, cve, cvss, kev]
+
+career:
+  - { title: "Developer, reverse engineer or penetration tester", years: "0–4 years" }
+  - { title: "Security researcher", years: "3–7 years" }
+  - { title: "Vulnerability researcher", years: "6–11 years" }
+  - { title: "Research lead", years: "11+ years" }
+
+related:
+  - { to: hwsec, why: "Firmware and hardware are major research targets." }
+  - { to: malware, why: "Reverse engineering skills are shared with malware analysis." }
+  - { to: prodsec, why: "Disclosure connects research to product security." }
+  - { to: pentest, why: "Research deepens the skills penetration testing uses." }
