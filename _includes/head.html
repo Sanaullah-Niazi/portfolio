@@ -10,15 +10,12 @@
 {%- if site.goatcounter != "" and site.cloudflare_analytics_token == "" and site.cloudflare_analytics_auto != true %}{% assign gc_url = "https://" | append: site.goatcounter | append: ".goatcounter.com" %}{% assign csp_script = csp_script | append: " https://gc.zgo.at" %}{% assign csp_connect = csp_connect | append: " " | append: gc_url %}{% endif %}
 {%- comment -%} Ads (only when ads.enabled in _config.yml, and only on pages with ads: true). AdSense loads scripts and frames from many Google hosts, so those pages allow any https script. {%- endcomment %}
 {%- if site.ads.enabled and page.ads and site.ads.client != "" %}{% assign show_ads = true %}{% assign csp_script = csp_script | append: " https:" %}{% assign csp_connect = csp_connect | append: " https:" %}{% assign csp_style = " 'unsafe-inline'" %}{% else %}{% assign show_ads = false %}{% endif %}
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'{{ csp_script }}; style-src 'self' https://fonts.googleapis.com{{ csp_style }}; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src https://api.web3forms.com https://api.pwnedpasswords.com{{ csp_connect | rstrip }}; form-action https://api.web3forms.com; frame-src https:; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'{{ csp_script }}; style-src 'self'{{ csp_style }}; font-src 'self'; img-src 'self' data: https:; connect-src https://api.web3forms.com https://api.pwnedpasswords.com{{ csp_connect | rstrip }}; form-action https://api.web3forms.com; frame-src https:; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 {%- if page.robots %}
 <meta name="robots" content="{{ page.robots }}">{% endif %}
 {%- assign v = site.time | date: '%s' -%}
 <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ v }}"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ v }}">
 <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 {%- comment -%} Title, description, canonical URL, Open Graph and JSON-LD from jekyll-seo-tag, minus its Twitter card tags (not used) and its generator tag (it names the Jekyll version). {%- endcomment %}
