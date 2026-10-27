@@ -1,20 +1,257 @@
-# Certificate names stay in their official English form; only the groups and dates are translated.
-- group: Cybersicherheit & digitale Forensik
-  icon: shield
-  items:
-    - { name: "Digital Forensic & Cyber Security (3-month course, Grade A)", issuer: "NAVTTC, Govt. of Pakistan", date: "Feb. – Mai 2024", verify_url: "", image: "" }
-    - { name: Junior Cybersecurity Analyst Career Path, issuer: Cisco Networking Academy, date: Okt. 2024, verify_url: "", image: "" }
-    - { name: Ethical Hacker, issuer: Cisco Networking Academy, date: Nov. 2024, verify_url: "", image: "" }
-    - { name: Introduction to Cybersecurity, issuer: Cisco Networking Academy, date: Nov. 2024, verify_url: "", image: "" }
-- group: KI, Programmierung & IoT
-  icon: chip
-  items:
-    - { name: Programming in Python, issuer: Meta (Coursera), date: Feb. 2025, verify_url: "", image: "" }
-    - { name: Advanced Chatbots with Deep Learning and Python, issuer: Packt (Coursera), date: Feb. 2025, verify_url: "", image: "" }
-    - { name: AI Python for Beginners, issuer: DeepLearning.AI (Coursera), date: März 2025, verify_url: "", image: "" }
-    - { name: IoT for Everyone, issuer: UET Peshawar / HEC (Coursera), date: Juli 2026, verify_url: "", image: "" }
-- group: Weitere Weiterbildungen
-  icon: award
-  items:
-    - { name: IOSH Managing Safely, issuer: IOSH, date: "2026", verify_url: "", image: "" }
-    - { name: 30-hour General Industry Safety and Health, issuer: OSHAcademy, date: "2026", verify_url: "", image: "" }
+# Text of the Certifications page (/de/roadmaps/certifications/). Only change the text after the colon.
+# Prices, links and the order of steps come from _data/certifications.yml. Anything missing here shows in English.
+
+eyebrow: "Zertifizierungen"
+title: "Zertifizierungspfade"
+lede: "Welche Zertifizierungen Sie für welchen Beruf in welcher Reihenfolge ablegen sollten. Mit echten Kosten, Prüfungsablauf, Gültigkeit und einer ehrlichen Einschätzung, welche sich lohnen."
+pill: "Preise in US-Dollar, geprüft am"
+advice_title: "Zuerst lesen"
+advice:
+  - "Eine Zertifizierung bringt Ihren Lebenslauf durch Filter und zum Vorstellungsgespräch. Den Job bekommen Sie durch Ihr Können und Ihre Projekte. Gehen Sie parallel den passenden Lernpfad."
+  - "Beginnen Sie mit den günstigen, praktischen Prüfungen. Teure Zertifizierungen lohnen sich, wenn ein Arbeitgeber sie bezahlt."
+  - "Eine Zertifizierung pro Schritt genügt. Stehen zwei zur Wahl, nehmen Sie die, nach der Arbeitgeber in Ihrer Region fragen."
+  - "Die Preise sind US-Listenpreise ohne Steuern. Viele Anbieter verlangen in manchen Ländern weniger und geben Rabatte für Studierende. Prüfen Sie vor dem Kauf die offizielle Seite."
+  - "Nutzen Sie niemals Exam Dumps (geleakte Fragen). Das verstößt gegen die Prüfungsregeln, und Anbieter entziehen dafür Zertifizierungen."
+tracks_label: "Beruf wählen"
+step: "Schritt"
+or: "oder"
+levels:
+  entry: "Einstieg"
+  mid: "Fortgeschritten"
+  advanced: "Experte"
+cost: "Kosten"
+exam: "Prüfung"
+valid: "Gültig"
+needs: "Voraussetzung"
+official: "Offizielle Seite"
+roadmap_link: "Lernpfad für diesen Beruf"
+see_roadmaps: "Sie suchen eher, was Sie lernen sollen, als was Sie zertifizieren? Dann sehen Sie sich die Lernpfade an."
+roadmaps_cta: "Lernpfade"
+certs_cta: "Zertifizierungspfade"
+certs_cta_text: "Welche Zertifizierungen für welchen Beruf, mit echten Kosten."
+checked_label: "Preise und Regeln geprüft"
+foot: "Eine Preisänderung oder eingestellte Prüfung entdeckt?"
+back: "Zurück zu allen Berufen"
+
+tracks:
+  soc:
+    title: "Cybersecurity-Analyst/in (Blue Team, SOC)"
+    summary: "Angriffe erkennen, Alarme untersuchen und auf Vorfälle reagieren."
+    steps:
+      - note: "Hier beginnen. Wenn Sie sich nur eine leisten können: Security+."
+      - note: "Zeigt, dass Sie die Analysearbeit beherrschen. SC-200, wenn Arbeitgeber vor Ort Microsoft-Werkzeuge nutzen."
+      - note: "Optional, aber eine praktische Prüfung hebt Ihren Lebenslauf hervor."
+      - note: "Mit Berufserfahrung, am besten vom Arbeitgeber bezahlt."
+      - note: "Für leitende Rollen nach etwa fünf Jahren."
+  pentest:
+    title: "Ethical Hacker (Penetrationstester/in)"
+    summary: "Mit Erlaubnis in Systeme eindringen, um Schwachstellen vor Kriminellen zu finden."
+    steps:
+      - note: "Optional, deckt aber die Grundlagen ab und kommt durch HR-Filter."
+      - note: "Ihre erste praktische Hacking-Zertifizierung."
+      - note: "Prüfungen wie im echten Einsatz, mit vollständigem Bericht. Beide bereiten gut auf OSCP vor."
+      - note: "Die Zertifizierung, die die meisten Pentest-Stellen nennen."
+      - note: "Nur, wenn Stellen, auf die Sie sich bewerben, sie verlangen; viele Behörden tun das."
+  grc:
+    title: "Sicherheitsmanagement und Governance (GRC)"
+    summary: "Sicherheitsteams führen, Risiken steuern, Richtlinien schreiben und Audits begleiten."
+    steps:
+      - note: "Die gemeinsame Grundlage."
+      - note: "Legen Sie die Prüfung früh ab und werden Sie Associate of ISC2, während Sie Erfahrung sammeln."
+      - note: "Für Führungsrollen."
+      - note: "Neu: Governance und Sicherheit von KI-Systemen."
+  cloud:
+    title: "Cloud Engineer und Cloud-Sicherheit"
+    summary: "Systeme auf AWS oder Microsoft Azure bauen und absichern. Wählen Sie eine Cloud und bleiben Sie dabei."
+    steps:
+      - note: "Optionaler erster Schritt."
+      - note: "Die Zertifizierung, nach der Cloud-Arbeitgeber suchen."
+      - note: "Zusätzlich für Rollen in der Cloud-Sicherheit."
+  ai:
+    title: "KI- und Machine-Learning-Engineer"
+    summary: "KI-Systeme bauen, betreiben und absichern. In der KI zählt ein starkes Projektportfolio mehr als jede Zertifizierung."
+    steps:
+      - note: "Optionale Grundlagen."
+      - note: "Zeigt, dass Sie Modelle und KI-Apps in den Betrieb bringen können."
+      - note: "Eine angesehene Expertenzertifizierung."
+      - note: "Für KI-Sicherheit und Governance, nach CISSP oder CISM."
+  data:
+    title: "Datenanalyst/in und Data Engineer"
+    summary: "Aus Daten Antworten machen und die Pipelines dahinter bauen."
+    steps:
+      - note: "Die nützlichste erste Zertifizierung für die Datenanalyse."
+      - note: "Für den Wechsel ins Data Engineering."
+      - note: "Für Fortgeschrittene, bekannt dort, wo Firmen Google Cloud nutzen."
+  devops:
+    title: "Netzwerke und DevOps"
+    summary: "Netzwerke betreiben, Infrastruktur automatisieren und Dienste verfügbar halten."
+    steps:
+      - note: "Netzwerkwissen hilft in jedem IT-Beruf."
+      - note: "Günstig und praxisnah."
+      - note: "Praktische Kubernetes-Kenntnisse."
+
+certs:
+  cc:
+    cost: "199 $ (kostenlos mit einem ungenutzten One-Million-Certified-Code, bis 31.12.2026)"
+    exam: "Multiple Choice, etwa 2 Stunden, im Testcenter"
+    valid: "3 Jahre, 50 $ pro Jahr"
+    needs: "Keine"
+    why: "Ein günstiger erster Schritt, der Grundwissen belegt. Kann entfallen, wenn Sie direkt Security+ machen."
+  secplus:
+    exam: "Bis zu 90 Fragen, Multiple Choice und praktisch, 90 Minuten"
+    valid: "3 Jahre, Verlängerung mit Weiterbildungspunkten und 50 $ pro Jahr"
+    needs: "Keine Pflicht; Netzwerkgrundlagen helfen"
+    why: "Die in Stellenanzeigen am häufigsten verlangte Einstiegszertifizierung, auch für viele Behördenstellen anerkannt."
+  cysa:
+    exam: "Multiple Choice und praktische Aufgaben"
+    valid: "3 Jahre, verlängert auch Ihr Security+"
+    needs: "Wissen auf Security+-Niveau"
+    why: "Zeigt, dass Sie Logs lesen, Alarme bewerten und auf Vorfälle reagieren können: der Alltag im SOC."
+  sc200:
+    exam: "Etwa 100 Minuten, gemischte Fragetypen"
+    valid: "1 Jahr, kostenlose Online-Verlängerung"
+    needs: "Keine Pflicht; Erfahrung mit Microsoft Sentinel und Defender hilft"
+    why: "Lohnt sich, wenn Arbeitgeber in Ihrer Nähe Microsoft-Sicherheitswerkzeuge nutzen, was viele tun."
+  cdsa:
+    cost: "Etwa 210 $ für die Prüfung, plus Academy-Abo"
+    exam: "7 Tage praktische Untersuchung und ein schriftlicher Bericht"
+    needs: "Den SOC-Analyst-Pfad auf HTB Academy abschließen"
+    why: "Vollständig praktisch und daher ein echter Nachweis. Bei Personalabteilungen weniger bekannt als CySA+."
+  gcih:
+    cost: "999 $ nur für die Prüfung; mit SANS-Kurs deutlich mehr"
+    exam: "Beaufsichtigt, Multiple Choice plus praktische CyberLive-Aufgaben"
+    valid: "4 Jahre, 499 $ für die Verlängerung"
+    needs: "Erfahrung im Security Operations"
+    why: "Hoch angesehen für Incident Response. Meist nur sinnvoll, wenn der Arbeitgeber zahlt."
+  cissp:
+    exam: "100 bis 150 adaptive Fragen, bis zu 3 Stunden"
+    valid: "3-Jahres-Zyklen, 120 Weiterbildungspunkte und 135 $ pro Jahr"
+    needs: "5 Jahre bezahlte Sicherheitsarbeit (Sie können vorher bestehen und als Associate of ISC2 Erfahrung sammeln)"
+    why: "Der Standard für leitende Sicherheits- und Managementrollen."
+  ejpt:
+    cost: "249 $, inklusive einer kostenlosen Wiederholung"
+    exam: "48-stündiges praktisches Labor, 35 Fragen, Unterlagen erlaubt"
+    valid: "3 Jahre"
+    needs: "Keine; Netzwerk- und Linux-Grundlagen helfen"
+    why: "Die beste erste Hacking-Zertifizierung: bezahlbar und komplett praktisch."
+  pnpt:
+    cost: "499 $, inklusive Kurs und einer kostenlosen Wiederholung"
+    exam: "5 Tage Angriff auf ein Netzwerk, 2 Tage für den Bericht, dann eine Live-Besprechung"
+    valid: "Läuft nicht ab"
+    needs: "Keine Pflicht; Grundlagen zu Windows und Active Directory"
+    why: "Fühlt sich wie ein echter Auftrag an: Sie hacken ein Active-Directory-Netz und verteidigen Ihren Bericht vor Prüfern."
+  cpts:
+    cost: "Etwa 210 $ für die Prüfung (zwei Versuche), plus Academy-Abo"
+    exam: "10 Tage: 12 von 14 Flags in einem Firmennetz finden und einen professionellen Bericht schreiben"
+    needs: "Den Penetration-Tester-Pfad (28 Module) auf HTB Academy abschließen"
+    why: "Eine der härtesten und praktischsten Prüfungen der Mittelstufe. Sehr gute Vorbereitung auf OSCP."
+  oscp:
+    cost: "Ab 1.749 $ (Kurs und Prüfung im Paket)"
+    exam: "Etwa 24 Stunden praktisches Hacking, danach 24 Stunden für den Bericht"
+    valid: "OSCP gilt lebenslang, das „+“ 3 Jahre"
+    needs: "Solide Pentest-Praxis (Niveau PNPT oder CPTS)"
+    why: "Die bekannteste Pentest-Zertifizierung. Viele Stellenanzeigen nennen sie ausdrücklich."
+  ceh:
+    cost: "950 $ (online) oder 1.199 $ (Testcenter), plus 100 $ ohne offiziellen Kurs"
+    exam: "125 Multiple-Choice-Fragen, 4 Stunden"
+    valid: "3 Jahre, 120 Weiterbildungspunkte und 80 $ pro Jahr"
+    needs: "Offizieller Kurs oder 2 Jahre Sicherheitsarbeit"
+    why: "Wird bei Behörden und in den Golfstaaten oft verlangt, prüft aber Theorie statt Hacking-Können. Nur machen, wenn Ihre Wunschstellen sie fordern."
+  cism:
+    cost: "575 $ für ISACA-Mitglieder, 760 $ für andere"
+    exam: "150 Multiple-Choice-Fragen, 4 Stunden"
+    valid: "3-Jahres-Zyklen, 120 Weiterbildungsstunden und eine Jahresgebühr"
+    needs: "5 Jahre in der Sicherheit, davon 3 im Sicherheitsmanagement"
+    why: "Für alle, die Sicherheitsprogramme leiten, Richtlinien schreiben und Risiken steuern."
+  aaism:
+    cost: "459 $ für ISACA-Mitglieder, 599 $ für andere"
+    exam: "Multiple Choice"
+    needs: "Ein aktives CISM oder CISSP"
+    why: "Neu seit 2025: zeigt, dass Sie KI-Systeme steuern und absichern können. Selten und daher auffällig."
+  aws-ccp:
+    exam: "65 Multiple-Choice-Fragen, 90 Minuten"
+    valid: "3 Jahre"
+    needs: "Keine"
+    why: "Ein sanfter Einstieg in Cloud-Begriffe und -Dienste. Überspringen, wenn Sie schon mit AWS arbeiten."
+  az900:
+    exam: "Gemischte Fragetypen, etwa 45 Minuten"
+    valid: "Läuft nicht ab"
+    needs: "Keine"
+    why: "Die Azure-Variante der ersten Cloud-Zertifizierung. Microsoft verschenkt bei seinen Virtual Training Days oft Gutscheine."
+  aws-saa:
+    exam: "65 Multiple-Choice-Fragen, 130 Minuten"
+    valid: "3 Jahre"
+    needs: "Etwas praktische AWS-Erfahrung"
+    why: "Für die meisten die wertvollste Cloud-Zertifizierung. Arbeitgeber kennen sie überall."
+  az104:
+    exam: "Gemischte Fragetypen, auch Fallstudien"
+    valid: "1 Jahr, kostenlose Online-Verlängerung"
+    needs: "Praktische Azure-Erfahrung"
+    why: "Die zentrale Azure-Zertifizierung für den Betrieb echter Systeme."
+  aws-sec:
+    exam: "Multiple Choice, etwa 3 Stunden"
+    valid: "3 Jahre"
+    needs: "Echte AWS-Erfahrung; vorher eine Associate-Zertifizierung ist sinnvoll"
+    why: "Zeigt, dass Sie Cloud-Systeme absichern können, eine der gefragtesten Fähigkeiten."
+  sc500:
+    exam: "Gemischte Fragetypen"
+    valid: "1 Jahr, kostenlose Online-Verlängerung"
+    needs: "Erfahrung in der Azure-Administration"
+    why: "Ersetzt seit 31. August 2026 AZ-500. Der Azure-Weg in die Cloud-Sicherheit."
+  aws-aip:
+    exam: "Multiple Choice, 90 Minuten"
+    valid: "3 Jahre"
+    needs: "Keine"
+    why: "Ein erster Blick auf KI und generative KI. Nützlich, aber in der KI zählen Projekte viel mehr."
+  ai901:
+    exam: "Gemischte Fragetypen"
+    valid: "Läuft nicht ab"
+    needs: "Keine"
+    why: "Ersetzt seit 2026 AI-900. Die Azure-Variante einer ersten KI-Zertifizierung."
+  aws-mle:
+    exam: "Multiple Choice und Ordnungsaufgaben, etwa 2 Stunden (neue Version seit September 2026)"
+    valid: "3 Jahre"
+    needs: "Erfahrung im Trainieren und Bereitstellen von Modellen"
+    why: "Zeigt, dass Sie ein Modell vom Notebook in den Betrieb auf AWS bringen."
+  ai103:
+    cost: "Etwa 165 $ (übliche Microsoft-Associate-Gebühr; auf der offiziellen Seite prüfen)"
+    exam: "Gemischte Fragetypen"
+    valid: "1 Jahr, kostenlose Online-Verlängerung"
+    needs: "Python und Erfahrung mit KI-Diensten"
+    why: "Ersetzt seit 2026 AI-102. Für den Bau von KI-Apps und Agenten auf Azure."
+  gcp-mle:
+    exam: "Multiple Choice, 2 Stunden"
+    valid: "2 Jahre"
+    needs: "Echte ML-Projekte; Google empfiehlt 3 Jahre Berufserfahrung"
+    why: "Eine der angesehensten ML-Zertifizierungen eines Cloud-Anbieters."
+  pl300:
+    exam: "Gemischte Fragetypen, etwa 100 Minuten"
+    valid: "1 Jahr, kostenlose Online-Verlängerung"
+    needs: "Praxis mit Power BI; SQL hilft"
+    why: "Power BI gehört zu den meistgefragten Werkzeugen in Stellen für Datenanalyse, daher eine nützliche erste Zertifizierung."
+  aws-dea:
+    exam: "Multiple Choice, etwa 2 Stunden"
+    valid: "3 Jahre"
+    needs: "Erfahrung mit SQL, Python und Datenpipelines"
+    why: "Deckt Pipelines, Speicher und Data Warehouses auf AWS ab."
+  gcp-de:
+    exam: "Multiple Choice, 2 Stunden"
+    valid: "2 Jahre"
+    needs: "Echte Erfahrung im Data Engineering"
+    why: "Gut angesehen, besonders wo Firmen BigQuery nutzen."
+  ccna:
+    exam: "100 bis 120 Fragen, 2 Stunden (neue Version 2.0 ab 3. Februar 2027)"
+    valid: "3 Jahre"
+    needs: "Keine; Laborübungen mit Packet Tracer"
+    why: "Die klassische Netzwerkzertifizierung. Auch für Sicherheit und Cloud sehr nützlich."
+  terraform:
+    exam: "57 Fragen, 1 Stunde"
+    valid: "2 Jahre"
+    needs: "Praxis mit Terraform"
+    why: "Günstig, und Infrastructure as Code steht in den meisten DevOps-Stellen."
+  cka:
+    cost: "445 $, inklusive zwei Versuchen und Übungsprüfungen"
+    exam: "2 Stunden praktische Aufgaben in einem echten Terminal"
+    valid: "2 Jahre"
+    needs: "Linux und Container; echte Kubernetes-Praxis"
+    why: "Komplett praktisch und für DevOps- und Plattformrollen sehr geschätzt."

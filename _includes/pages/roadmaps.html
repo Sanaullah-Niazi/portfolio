@@ -22,6 +22,13 @@
     </ol>
   </section>
 
+  {%- assign CE = site.data.certifications %}{% assign TC = D.certifications | default: CE %}
+  <a class="card spot rm-cta" href="{{ L }}/roadmaps/certifications/">
+    <span class="icon-tile">{% include icon.html name="award" px=22 %}</span>
+    <span class="rm-index-text"><strong>{{ TC.certs_cta | default: CE.certs_cta }}</strong><span class="muted">{{ TC.certs_cta_text | default: CE.certs_cta_text }}</span></span>
+    {% include icon.html name="arrow" px=18 %}
+  </a>
+
   <nav class="rm-index" id="top-paths" aria-label="{{ T.paths_label | default: R.paths_label }}">
     {%- for p in R.paths %}
     {%- assign tp = T.paths[p.id] %}
@@ -110,7 +117,10 @@
       </li>
       {%- endfor %}
     </ol>
-    <p class="rm-back"><a href="#top-paths">{% include icon.html name="arrow-up" px=15 %}<span>{{ T.back | default: R.back }}</span></a></p>
+    {%- assign ctrack = CE.tracks | where: 'roadmap', p.id | first %}
+    <p class="rm-back">
+      {%- if ctrack %}<a href="{{ L }}/roadmaps/certifications/#{{ ctrack.id }}">{% include icon.html name="award" px=15 %}<span>{{ TC.certs_cta | default: CE.certs_cta }}</span></a>{% endif %}
+      <a href="#top-paths">{% include icon.html name="arrow-up" px=15 %}<span>{{ T.back | default: R.back }}</span></a></p>
   </section>
   {%- endfor %}
 
