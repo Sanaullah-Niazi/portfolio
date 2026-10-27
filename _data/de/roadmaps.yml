@@ -1,0 +1,206 @@
+# Text of the Roadmaps page (/de/roadmaps/). Only change the text after the colon.
+# Links, times and the order of stages come from _data/roadmaps.yml. Anything missing here shows in English.
+
+eyebrow: "Lernpfade"
+title: "Lernpfade für die Informatik"
+lede: "Schritt-für-Schritt-Wege in die Informatik, in der Reihenfolge, in der ich sie heute noch einmal lernen würde. Jede Quelle ist kostenlos und stammt von einer Universität, einem offiziellen Projekt oder einer anerkannten gemeinnützigen Organisation."
+pill: "Nur kostenlose Quellen, Links jede Woche geprüft"
+how_title: "So nutzen Sie die Lernpfade"
+how:
+  - "Neu im Programmieren? Beginnen Sie mit den Grundlagen. Alle anderen Pfade bauen darauf auf."
+  - "Wählen Sie einen Pfad und folgen Sie den Stufen der Reihe nach. Das Springen zwischen Pfaden ist der häufigste Grund, sich verloren zu fühlen."
+  - "Bauen Sie am Ende jeder Stufe das Projekt. Kurse anzusehen fühlt sich nach Fortschritt an, aber erst das Projekt zeigt, dass Sie es können."
+  - "Die Zeiten gehen von etwa 10 Stunden pro Woche aus. Langsamer ist in Ordnung, die Projekte auszulassen nicht."
+  - "Die meisten Quellen sind auf Englisch."
+paths_label: "Pfad wählen"
+start_here: "Hier starten"
+needs: "Vorher"
+time: "Dauer"
+weeks: "[n] Wochen"
+ongoing: "fortlaufend"
+leads_to: "Führt zu"
+stage: "Stufe"
+learn: "Was Sie lernen"
+build: "Bauen"
+ready: "Weiter, wenn"
+resources: "Kostenlose Quellen"
+audit: "kostenlos als Gasthörer"
+types:
+  course: "Kurs"
+  book: "Buch"
+  docs: "Doku"
+  practice: "Übung"
+  video: "Video"
+trust_title: "Warum Sie diesen Links vertrauen können"
+trust: "Ich nenne nur Quellen, die kostenlos nutzbar sind und von Universitäten, den Machern des Werkzeugs oder langjährigen gemeinnützigen Organisationen stammen. Keine Affiliate-Links, keine bezahlten Bootcamps. Manche Universitätskurse sind kostenlos, das Zertifikat aber kostet; diese sind markiert. Ein Skript prüft jeden Link einmal pro Woche."
+reviewed_label: "Zuletzt geprüft"
+foot: "Einen kaputten Link gefunden oder einen Pfad vermisst?"
+back: "Zurück zu allen Pfaden"
+
+paths:
+  foundations:
+    title: "Grundlagen der Informatik"
+    summary: "Programmieren, die Werkzeuge, die jede Entwicklerin und jeder Entwickler nutzt, Datenstrukturen und wie Computer und Netzwerke wirklich funktionieren."
+    who: "Alle, die anfangen, und alle, die Programmieren aus Tutorials gelernt haben und Lücken spüren."
+    roles: ["Alle anderen Pfade"]
+    stages:
+      - title: "Programmieren lernen"
+        learn: ["Variablen, Bedingungen und Schleifen", "Funktionen", "Listen und Dictionaries", "Fehlermeldungen lesen", "Debugging"]
+        build: "Ein kleines Kommandozeilenprogramm nach eigener Idee, zum Beispiel ein Ausgabenbuch, das in eine Datei speichert."
+        ready: "Sie können ein Programm mit 100 Zeilen ohne Tutorial schreiben."
+      - title: "Terminal, Git und Linux"
+        learn: ["Shell-Befehle und Pipes", "Dateien und Rechte", "Git-Commits, Branches und Merges", "GitHub", "Ein Code-Editor"]
+        build: "Stellen Sie alle Ihre Programme auf GitHub, jedes mit einer kurzen README."
+        ready: "Sie arbeiten im Terminal ohne Maus und lösen einen Merge-Konflikt."
+      - title: "Datenstrukturen und Algorithmen"
+        learn: ["O-Notation", "Arrays, verkettete Listen, Stacks und Queues", "Hashtabellen", "Bäume und Graphen", "Sortieren, Suchen und Rekursion"]
+        build: "Schreiben Sie eine eigene Hashtabelle und eine Graphensuche (Breiten- und Tiefensuche) mit Tests."
+        ready: "Sie können erklären, warum ein Dictionary-Zugriff schnell ist, und für ein Problem die passende Struktur wählen."
+      - title: "Wie Computer und Netzwerke funktionieren"
+        learn: ["Von Logikgattern zur CPU", "Speicher und Prozesse", "Betriebssysteme", "TCP/IP, DNS und HTTP", "Grundlagen der Nebenläufigkeit"]
+        build: "Ein winziger Webserver mit reinen Sockets, der Ihrem Browser eine Seite ausliefert."
+        ready: "Sie können alles erklären, was zwischen der Eingabe einer Webadresse und der fertigen Seite passiert."
+      - title: "Mathematik und Datenbanken"
+        learn: ["Logik und Beweise", "Mengen, Kombinatorik und Wahrscheinlichkeit", "Relationale Datenbanken", "SQL-Abfragen und Joins", "Tabellen entwerfen"]
+        build: "Entwerfen Sie eine Datenbank für eine kleine Bibliothek oder einen Laden und beantworten Sie 20 Fragen dazu mit SQL."
+        ready: "Sie schreiben Abfragen mit Joins und Gruppierung und können einfache Wahrscheinlichkeiten begründen."
+
+  web:
+    title: "Webentwicklung"
+    summary: "Websites und Web-Apps bauen, von der Seite, die man sieht, bis zum Server und der Datenbank dahinter."
+    who: "Für alle, die Dinge bauen wollen, die andere sofort im Browser nutzen können."
+    roles: ["Frontend-Entwicklung", "Backend-Entwicklung", "Full-Stack-Entwicklung"]
+    stages:
+      - title: "HTML, CSS und wie das Web funktioniert"
+        learn: ["Semantisches HTML", "Barrierefreiheit", "CSS-Layout mit Flexbox und Grid", "Responsives Design", "Entwicklerwerkzeuge im Browser"]
+        build: "Eine persönliche Seite, die auf dem Handy funktioniert und einen Barrierefreiheits-Check besteht."
+        ready: "Sie können das Layout einer Website, die Ihnen gefällt, selbst nachbauen."
+      - title: "JavaScript gründlich"
+        learn: ["DOM und Events", "Funktionen, Closures und Objekte", "Promises und async/await", "Daten von APIs laden", "Module"]
+        build: "Eine App, die eine öffentliche API nutzt, etwa eine Wetter- oder Büchersuche."
+        ready: "Sie bauen eine interaktive Seite ohne Framework."
+      - title: "Ein Frontend-Framework und TypeScript"
+        learn: ["Komponenten und Zustand", "Formulare und Validierung", "Routing", "TypeScript-Typen", "Komponenten testen"]
+        build: "Eine App mit mehreren Seiten, Formularen, gespeichertem Zustand und einigen Tests."
+        ready: "Sie können erklären, wann und warum eine Komponente neu rendert."
+      - title: "Backend und Datenbanken"
+        learn: ["HTTP im Detail", "REST-APIs bauen", "Login, Sessions und Tokens", "PostgreSQL", "Automatisierte Tests"]
+        build: "Eine API mit Benutzerkonten und Datenbank, mit Tests, die Ihr Frontend nutzt."
+        ready: "Sie entwerfen eine API, speichern Daten sicher und testen sie."
+      - title: "Sicher veröffentlichen"
+        learn: ["Eine App deployen", "Umgebungsvariablen und Geheimnisse", "HTTPS", "Continuous Integration", "Die OWASP Top 10"]
+        build: "Veröffentlichen Sie Ihre App mit automatischen Tests bei jedem Push und prüfen Sie sie gegen die OWASP Top 10."
+        ready: "Fremde nutzen Ihre App, und Sie merken es, wenn sie ausfällt."
+
+  cybersecurity:
+    title: "Cybersicherheit"
+    summary: "Verstehen, wie Systeme angegriffen werden, um sie zu verteidigen: Netzwerke, Web-Apps, Erkennung und Reaktion."
+    who: "Neugierige, die gern Dinge auseinandernehmen und Menschen und Systeme schützen wollen."
+    note: "Testen Sie nur Systeme, die Ihnen gehören oder für die Sie eine schriftliche Erlaubnis haben. Nutzen Sie die Übungslabore unten; Angriffe auf fremde Systeme sind fast überall strafbar."
+    roles: ["SOC-Analyst/in", "Penetrationstester/in", "Security Engineer", "KI-Sicherheitsforschung"]
+    stages:
+      - title: "Netzwerke und Linux für die Sicherheit"
+        learn: ["Das TCP/IP-Modell und gängige Ports", "DNS, HTTP und TLS auf der Leitung", "Verkehr in Wireshark lesen", "Linux-Benutzer, Rechte und Logs", "Shell-Skripte"]
+        build: "Zeichnen Sie Ihr eigenes Surfen mit Wireshark auf und erklären Sie kurz, was jeder Teil des Verkehrs ist."
+        ready: "Sie lesen einen Mitschnitt und sagen, was passiert ist, und haben den Großteil von OverTheWire Bandit gelöst."
+      - title: "Grundlagen der Sicherheit"
+        learn: ["Vertraulichkeit, Integrität und Verfügbarkeit", "Authentifizierung und Zugriffskontrolle", "Hashing, Verschlüsselung und Zertifikate", "Häufige Angriffe und Schadsoftware", "Risiko und Sicherheits-Frameworks"]
+        build: "Ein einseitiges Bedrohungsmodell für eine eigene App: was schiefgehen kann, wie wahrscheinlich es ist und was Sie zuerst beheben."
+        ready: "Sie erklären, wie TLS einen Login schützt und warum Passwörter gehasht und nicht verschlüsselt werden."
+      - title: "Sicherheit von Webanwendungen"
+        learn: ["SQL-Injection", "Cross-Site-Scripting", "Fehlerhafte Zugriffskontrolle", "Schwächen bei der Anmeldung", "Server-Side Request Forgery", "Burp Suite nutzen"]
+        build: "Finden und dokumentieren Sie mindestens zehn Schwachstellen in OWASP Juice Shop, jeweils mit Lösung."
+        ready: "Sie können jede Klasse der OWASP Top 10 erklären, im Labor ausnutzen und beheben."
+      - title: "Seite wählen: verteidigen oder angreifen"
+        learn: ["Verteidigung: Logs, SIEM und Alarm-Triage", "Verteidigung: Incident Response", "Angriff: Aufklärung und Ausnutzung", "Angriff: Rechteausweitung", "Beides: MITRE ATT&CK", "Beides: klare Berichte schreiben"]
+        build: "Verteidigung: ein Heimlabor, das Logs sammelt und drei ATT&CK-Techniken erkennt. Angriff: 20 picoCTF-Aufgaben lösen und Lösungswege veröffentlichen."
+        ready: "Sie können Ihr Labor oder Ihre Berichte einem Arbeitgeber zeigen und Ihre Überlegungen erklären."
+      - title: "Spezialisieren und dranbleiben"
+        learn: ["Cloud-Sicherheit", "Sicherheit von KI und LLMs", "Malware-Analyse", "Governance, Risiko und Compliance", "Sicherheitswarnungen verfolgen"]
+        build: "Veröffentlichen Sie etwas, das andere nutzen können: einen Bericht, eine Erkennungsregel oder ein kleines Werkzeug."
+        ready: "Diese Stufe endet nie. Sicherheit ändert sich jeden Monat."
+
+  ai-ml:
+    title: "KI und maschinelles Lernen"
+    summary: "Von der Mathematik hinter dem Lernen über das Trainieren von Modellen und die Arbeit mit Sprachmodellen bis zum verantwortungsvollen Einsatz."
+    who: "Für alle, die sicher programmieren und Freude an Mathematik und Experimenten haben."
+    roles: ["Machine Learning Engineer", "Data Scientist", "KI-Forschung", "MLOps Engineer"]
+    stages:
+      - title: "Mathematik für maschinelles Lernen"
+        learn: ["Vektoren und Matrizen", "Ableitungen und Gradienten", "Wahrscheinlichkeit", "Statistik", "Optimierung"]
+        build: "Implementieren Sie lineare Regression mit Gradientenabstieg nur mit NumPy und zeigen Sie, wie der Fehler sinkt."
+        ready: "Sie können Gradientenabstieg an der Tafel erklären."
+      - title: "Python für Daten"
+        learn: ["NumPy-Arrays", "pandas-DataFrames", "Unordentliche Daten bereinigen", "Diagramme", "Jupyter-Notebooks"]
+        build: "Bereinigen und erkunden Sie einen öffentlichen Datensatz und halten Sie drei Erkenntnisse fest."
+        ready: "Sie laden, bereinigen und fassen einen unbekannten Datensatz zusammen."
+      - title: "Klassisches maschinelles Lernen"
+        learn: ["Trainings-, Validierungs- und Testdaten", "Überanpassung und Regularisierung", "Regression und Klassifikation", "Entscheidungsbäume und Ensembles", "Die richtige Metrik wählen"]
+        build: "Ein Modell von Anfang bis Ende, getestet auf ungesehenen Daten, mit einer ehrlichen Notiz, wo es versagt."
+        ready: "Sie erkennen, wenn ein guter Wert in Wahrheit ein Datenleck ist."
+      - title: "Deep Learning"
+        learn: ["Neuronale Netze und Backpropagation", "PyTorch", "Faltungsnetze", "Transformer und Attention", "Training auf der GPU"]
+        build: "Trainieren Sie einen Bild- oder Textklassifikator und vergleichen Sie ihn mit dem klassischen Modell der letzten Stufe."
+        ready: "Sie bauen und debuggen eine Trainingsschleife selbst."
+      - title: "Sprachmodelle"
+        learn: ["Tokens und Embeddings", "Wie große Sprachmodelle trainiert werden", "Fine-Tuning", "Retrieval-Augmented Generation", "Ausgaben bewerten"]
+        build: "Eine Frage-Antwort-App über Ihre eigenen Notizen, mit einem kleinen Testsatz, der misst, wie oft sie richtig liegt."
+        ready: "Sie erklären, warum ein Modell falsch antwortet, und messen, ob eine Änderung geholfen hat."
+      - title: "Modelle verantwortungsvoll einsetzen"
+        learn: ["Ein Modell über eine API bereitstellen", "Monitoring und Data Drift", "Verzerrung und Fairness", "Datenschutz", "Angriffe auf KI-Systeme"]
+        build: "Stellen Sie eines Ihrer Modelle mit Monitoring bereit, dazu eine kurze Model Card, wofür es nicht genutzt werden sollte."
+        ready: "Diese Stufe endet nie. Weiter veröffentlichen und messen."
+
+  data:
+    title: "Datenanalyse und Data Engineering"
+    summary: "Rohdaten in Antworten verwandeln, mit denen Menschen arbeiten können, und die Pipelines bauen, die die Daten liefern."
+    who: "Für alle, die gern Fragen stellen und die Antwort in Zahlen finden."
+    roles: ["Datenanalyst/in", "Analytics Engineer", "Data Engineer"]
+    stages:
+      - title: "SQL gründlich"
+        learn: ["Filtern und Sortieren", "Joins", "Gruppieren und Aggregieren", "Unterabfragen", "Fensterfunktionen"]
+        build: "Beantworten Sie 15 echte Fragen zu einem öffentlichen Datensatz nur mit SQL."
+        ready: "Sie beantworten die meisten Geschäftsfragen mit einer gut geschriebenen Abfrage."
+      - title: "Statistik"
+        learn: ["Mittelwerte, Streuung und Verteilungen", "Stichproben", "Konfidenzintervalle", "Hypothesentests und A/B-Tests", "Korrelation ist keine Kausalität"]
+        build: "Werten Sie einen A/B-Test aus und schreiben Sie das Ergebnis verständlich für eine Führungskraft auf."
+        ready: "Sie sagen, wie sicher ein Ergebnis ist, nicht nur, was es ist."
+      - title: "Analyse mit Python oder R"
+        learn: ["Daten laden und bereinigen", "Tidy Data", "Tabellen umformen und verbinden", "Notebooks und Berichte", "Reproduzierbares Arbeiten"]
+        build: "Ein vollständiger Bericht, der bei unordentlichen Rohdaten beginnt und den jeder erneut ausführen kann."
+        ready: "Sie kommen an einem Nachmittag von einer Rohdatei zu einer klaren Antwort."
+      - title: "Visualisierung und Storytelling"
+        learn: ["Das passende Diagramm wählen", "Ehrliche Achsen und Skalen", "Farbe und Barrierefreiheit", "Dashboards", "Eine klare Zusammenfassung schreiben"]
+        build: "Ein Dashboard oder einseitiger Bericht, den eine fachfremde Person ohne Hilfe versteht."
+        ready: "Ihre Diagramme beantworten eine Frage auf einen Blick."
+      - title: "Data Engineering"
+        learn: ["ETL- und ELT-Pipelines", "Data Warehouses", "Planung und Orchestrierung", "Transformationen mit dbt", "Big Data mit Spark"]
+        build: "Eine geplante Pipeline, die Daten von einer API holt, im Warehouse speichert und Ihr Dashboard füttert."
+        ready: "Ihre Pipeline läuft von selbst und meldet sich, wenn sie scheitert."
+
+  cloud-devops:
+    title: "Cloud und DevOps"
+    summary: "Software zuverlässig betreiben: Server, Container, Automatisierung, Cloud-Plattformen und Verfügbarkeit."
+    who: "Für alle, die Systeme gern schneller, sicherer und automatisch machen."
+    roles: ["DevOps Engineer", "Cloud Engineer", "Site Reliability Engineer", "Platform Engineer"]
+    stages:
+      - title: "Linux und Netzwerke für den Betrieb"
+        learn: ["Prozesse und Dienste", "SSH und Schlüssel", "Shell-Skripte", "DNS, Load Balancer und Firewalls", "Logs lesen"]
+        build: "Richten Sie einen Linux-Server ein, sichern Sie SSH ab und hosten Sie darauf eine Website mit HTTPS."
+        ready: "Sie finden heraus, warum ein Server langsam oder eine Website down ist."
+      - title: "Container"
+        learn: ["Images und Container", "Ein Dockerfile schreiben", "Volumes und Netzwerke", "Docker Compose", "Apps, die überall leicht laufen"]
+        build: "Packen Sie eine Web-App mit ihrer Datenbank in Docker Compose, sodass sie mit einem Befehl startet."
+        ready: "Jeder kann Ihre App in einem Schritt auf dem eigenen Rechner starten."
+      - title: "Automatisierung: CI/CD und Infrastructure as Code"
+        learn: ["Pipelines, die testen und bauen", "Automatische Deployments", "Terraform", "Geheimnisse verwalten", "Sicher zurückrollen"]
+        build: "Eine Pipeline, die bei jedem Push testet, baut und ausrollt, mit der Infrastruktur in Terraform."
+        ready: "Sie können Ihr ganzes Setup aus Code neu aufbauen."
+      - title: "Eine Cloud-Plattform, gründlich"
+        learn: ["Rechenleistung und Speicher", "Identitäten und Zugriffe (IAM)", "Virtuelle Netzwerke", "Verwaltete Datenbanken", "Kosten und Budgets"]
+        build: "Bringen Sie Ihre App in eine Cloud, mit minimalen Rechten und einem Budget-Alarm."
+        ready: "Sie können Ihre Cloud-Rechnung erklären und wer worauf zugreifen darf."
+      - title: "Kubernetes und Zuverlässigkeit"
+        learn: ["Pods, Deployments und Services", "Monitoring und Alarme", "Service Level Objectives", "Incident Response", "Post-Mortems"]
+        build: "Betreiben Sie Ihre App in einem lokalen Kubernetes-Cluster mit Monitoring und einem Dashboard für ihr Service Level Objective."
+        ready: "Sie wissen vor Ihren Nutzern, wenn Ihr Dienst nicht gesund ist."

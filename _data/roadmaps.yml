@@ -1,0 +1,374 @@
+# The Roadmaps page (/roadmaps/), in English. This file holds every path, stage and link.
+# The translations in _data/<code>/roadmaps.yml only hold the text; links always come from here.
+#
+# To add a path: copy one block under "paths:", give it a new id, and fill it in. It appears on
+# every language at once (in English until you add its text to the other roadmaps.yml files).
+# To add a resource: add a line under a stage's "resources:". Use only free, reputable sources:
+# a university, the project's own documentation, or a long-running non-profit.
+#   type:  course, book, docs, practice or video (shown as a small label)
+#   audit: true when the course is free to watch but the certificate costs money
+# Every link here is checked once a week by .github/workflows/check-roadmap-links.yml.
+
+reviewed: 2026-10-27   # change this date whenever you review the links and content
+
+# ---- Page text. Only change the text after the colon. ----
+eyebrow: "Roadmaps"
+title: "Learning roadmaps"
+lede: "Step-by-step paths into computer science, in the order I would learn them again. Every resource is free and comes from a university, an official project or a respected non-profit."
+pill: "Free resources only, links checked every week"
+how_title: "How to use these roadmaps"
+how:
+  - "New to programming? Start with Foundations. Every other path builds on it."
+  - "Pick one path and follow the stages in order. Jumping between paths is the most common reason people feel lost."
+  - "Build the project at the end of each stage. Watching courses feels like progress, but the project is what proves you can do it."
+  - "Times assume about 10 hours a week. Going slower is fine; skipping the projects is not."
+paths_label: "Choose a path"
+start_here: "Start here"
+needs: "Before this"
+time: "Time"
+weeks: "[n] weeks"
+ongoing: "Ongoing"
+leads_to: "Leads to"
+stage: "Stage"
+learn: "What to learn"
+build: "Build"
+ready: "Move on when"
+resources: "Free resources"
+audit: "free to audit"
+types:
+  course: "Course"
+  book: "Book"
+  docs: "Docs"
+  practice: "Practice"
+  video: "Video"
+trust_title: "Why you can trust these links"
+trust: "I only list resources that are free to use, written by universities, the people who make the tool, or long-running non-profits. No affiliate links and no paid bootcamps. Some university courses are free to watch but charge for a certificate; those are marked. A script checks every link once a week."
+reviewed_label: "Last reviewed"
+foot: "Found a broken link, or want a path added?"
+back: "Back to all paths"
+
+# ---- The paths. "needs" lists the ids of paths (or "foundations") to do first. ----
+paths:
+  - id: foundations
+    icon: cap
+    start: true
+    title: "Foundations of computer science"
+    summary: "Programming, the tools every developer uses, data structures, and how computers and networks really work."
+    who: "Anyone starting out, or anyone who learnt to code from tutorials and has gaps."
+    roles: ["Every other path"]
+    stages:
+      - title: "Learn to program"
+        weeks: "6–8"
+        learn: ["Variables, conditions and loops", "Functions", "Lists and dictionaries", "Reading error messages", "Debugging"]
+        build: "A small command-line program you design yourself, such as an expense tracker that saves to a file."
+        ready: "You can write a 100-line program without following a tutorial."
+        resources:
+          - { name: "CS50x: Introduction to Computer Science", by: "Harvard University", url: "https://cs50.harvard.edu/x/", type: course }
+          - { name: "The Python Tutorial", by: "Python Software Foundation", url: "https://docs.python.org/3/tutorial/", type: docs }
+      - title: "The terminal, Git and Linux"
+        weeks: "3–4"
+        learn: ["Shell commands and pipes", "Files and permissions", "Git commits, branches and merges", "GitHub", "A code editor"]
+        build: "Put every program you have written on GitHub, each with a short README."
+        ready: "You can work in the terminal without a mouse and fix a merge conflict."
+        resources:
+          - { name: "The Missing Semester of Your CS Education", by: "MIT", url: "https://missing.csail.mit.edu/", type: course }
+          - { name: "Pro Git", by: "Scott Chacon and Ben Straub", url: "https://git-scm.com/book/en/v2", type: book }
+          - { name: "The Linux Command Line", by: "William Shotts", url: "https://linuxcommand.org/tlcl.php", type: book }
+      - title: "Data structures and algorithms"
+        weeks: "8–10"
+        learn: ["Big-O notation", "Arrays, linked lists, stacks and queues", "Hash tables", "Trees and graphs", "Sorting, searching and recursion"]
+        build: "Write your own hash table and a graph search (BFS and DFS), with tests."
+        ready: "You can explain why a dictionary lookup is fast and choose the right structure for a problem."
+        resources:
+          - { name: "6.006 Introduction to Algorithms", by: "MIT OpenCourseWare", url: "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", type: course }
+          - { name: "Open Data Structures", by: "Pat Morin", url: "https://opendatastructures.org/", type: book }
+      - title: "How computers and networks work"
+        weeks: "8–10"
+        learn: ["Logic gates to CPU", "Memory and processes", "Operating systems", "TCP/IP, DNS and HTTP", "Concurrency basics"]
+        build: "A tiny web server written with raw sockets that serves a page to your browser."
+        ready: "You can explain everything that happens between typing a web address and seeing the page."
+        resources:
+          - { name: "Nand2Tetris", by: "Noam Nisan and Shimon Schocken", url: "https://www.nand2tetris.org/", type: course }
+          - { name: "Operating Systems: Three Easy Pieces", by: "University of Wisconsin–Madison", url: "https://pages.cs.wisc.edu/~remzi/OSTEP/", type: book }
+          - { name: "Computer Networks: A Systems Approach", by: "Larry Peterson and Bruce Davie", url: "https://book.systemsapproach.org/", type: book }
+      - title: "Math and databases"
+        weeks: "6–8"
+        learn: ["Logic and proofs", "Sets, counting and probability", "Relational databases", "SQL queries and joins", "Designing tables"]
+        build: "Design a database for a small library or shop and answer 20 questions about it in SQL."
+        ready: "You can write a query with joins and grouping, and reason about a simple probability."
+        resources:
+          - { name: "6.042J Mathematics for Computer Science", by: "MIT OpenCourseWare", url: "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/", type: course }
+          - { name: "SQLBolt", by: "SQLBolt", url: "https://sqlbolt.com/", type: practice }
+          - { name: "Intro to Database Systems (CMU 15-445)", by: "Carnegie Mellon University", url: "https://15445.courses.cs.cmu.edu/", type: course }
+
+  - id: web
+    icon: code
+    title: "Web development"
+    summary: "Build websites and web apps, from the page people see to the server and database behind it."
+    who: "People who want to build things others can use right away, in a browser."
+    needs: ["foundations"]
+    roles: ["Front-end developer", "Back-end developer", "Full-stack developer"]
+    stages:
+      - title: "HTML, CSS and how the web works"
+        weeks: "4–6"
+        learn: ["Semantic HTML", "Accessibility", "CSS layout with flexbox and grid", "Responsive design", "Browser developer tools"]
+        build: "A personal page that works on a phone and passes an accessibility check."
+        ready: "You can rebuild the layout of a site you like from scratch."
+        resources:
+          - { name: "Learn web development", by: "MDN (Mozilla)", url: "https://developer.mozilla.org/en-US/docs/Learn_web_development", type: course }
+          - { name: "Learn HTML, CSS and Accessibility", by: "web.dev (Google Chrome team)", url: "https://web.dev/learn", type: course }
+      - title: "JavaScript in depth"
+        weeks: "6–8"
+        learn: ["The DOM and events", "Functions, closures and objects", "Promises and async/await", "Fetching data from APIs", "Modules"]
+        build: "An app that uses a public API, such as a weather or book search app."
+        ready: "You can build an interactive page without a framework."
+        resources:
+          - { name: "The Modern JavaScript Tutorial", by: "javascript.info", url: "https://javascript.info/", type: book }
+          - { name: "The Odin Project", by: "The Odin Project (open source)", url: "https://www.theodinproject.com/", type: course }
+      - title: "A front-end framework and TypeScript"
+        weeks: "6–8"
+        learn: ["Components and state", "Forms and validation", "Routing", "TypeScript types", "Testing components"]
+        build: "A multi-page app with forms, saved state and at least a few tests."
+        ready: "You can explain when a component re-renders and why."
+        resources:
+          - { name: "Learn React", by: "React team", url: "https://react.dev/learn", type: docs }
+          - { name: "The TypeScript Handbook", by: "Microsoft", url: "https://www.typescriptlang.org/docs/handbook/intro.html", type: docs }
+          - { name: "Full Stack Open", by: "University of Helsinki", url: "https://fullstackopen.com/en/", type: course }
+      - title: "Back end and databases"
+        weeks: "8–10"
+        learn: ["HTTP in detail", "Building REST APIs", "Login, sessions and tokens", "PostgreSQL", "Automated tests"]
+        build: "An API with user accounts and a database, with tests, used by your front end."
+        ready: "You can design an API, store data safely, and test it."
+        resources:
+          - { name: "Learn Node.js", by: "OpenJS Foundation", url: "https://nodejs.org/en/learn", type: docs }
+          - { name: "HTTP", by: "MDN (Mozilla)", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP", type: docs }
+          - { name: "PostgreSQL Tutorial", by: "PostgreSQL Global Development Group", url: "https://www.postgresql.org/docs/current/tutorial.html", type: docs }
+      - title: "Ship it, safely"
+        weeks: "4–6"
+        learn: ["Deploying an app", "Environment variables and secrets", "HTTPS", "Continuous integration", "The OWASP Top 10"]
+        build: "Deploy your full app with automatic tests on every push, and check it against the OWASP Top 10."
+        ready: "Strangers can use your app and you would know if it broke."
+        resources:
+          - { name: "OWASP Top 10", by: "OWASP Foundation", url: "https://owasp.org/Top10/2025/", type: docs }
+          - { name: "OWASP Cheat Sheet Series", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/", type: docs }
+          - { name: "GitHub Actions documentation", by: "GitHub", url: "https://docs.github.com/en/actions", type: docs }
+
+  - id: cybersecurity
+    icon: shield
+    title: "Cybersecurity"
+    summary: "Understand how systems are attacked so you can defend them: networks, web apps, detection and response."
+    who: "Curious people who like taking things apart and want to protect people and systems."
+    needs: ["foundations"]
+    note: "Only test systems you own or have written permission to test. Use the practice labs below; attacking other systems is illegal almost everywhere."
+    roles: ["SOC analyst", "Penetration tester", "Security engineer", "AI security researcher"]
+    stages:
+      - title: "Networking and Linux for security"
+        weeks: "6–8"
+        learn: ["The TCP/IP model and common ports", "DNS, HTTP and TLS on the wire", "Reading traffic in Wireshark", "Linux users, permissions and logs", "Shell scripting"]
+        build: "Capture your own browsing in Wireshark and write a short explanation of what each part of the traffic is."
+        ready: "You can read a packet capture and say what happened, and you have finished most of OverTheWire Bandit."
+        resources:
+          - { name: "OverTheWire: Bandit", by: "OverTheWire", url: "https://overthewire.org/wargames/bandit/", type: practice }
+          - { name: "Wireshark documentation", by: "Wireshark Foundation", url: "https://www.wireshark.org/docs/", type: docs }
+          - { name: "Computer Networks: A Systems Approach", by: "Larry Peterson and Bruce Davie", url: "https://book.systemsapproach.org/", type: book }
+      - title: "Security fundamentals"
+        weeks: "6–8"
+        learn: ["Confidentiality, integrity and availability", "Authentication and access control", "Hashing, encryption and certificates", "Common attacks and malware", "Risk and security frameworks"]
+        build: "A one-page threat model for an app you built: what could go wrong, how likely it is, and what you would fix first."
+        ready: "You can explain how TLS protects a login and why passwords are hashed, not encrypted."
+        resources:
+          - { name: "Security+ (SY0-701) video course", by: "Professor Messer", url: "https://www.professormesser.com/", type: video }
+          - { name: "Cryptography I", by: "Stanford University (Coursera)", url: "https://www.coursera.org/learn/crypto", type: course, audit: true }
+          - { name: "Cybersecurity Framework", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs }
+      - title: "Web application security"
+        weeks: "8–10"
+        learn: ["SQL injection", "Cross-site scripting", "Broken access control", "Authentication flaws", "Server-side request forgery", "Using Burp Suite"]
+        build: "Find and write up at least ten vulnerabilities in OWASP Juice Shop, including how to fix each one."
+        ready: "You can explain, exploit in a lab, and fix each class in the OWASP Top 10."
+        resources:
+          - { name: "Web Security Academy", by: "PortSwigger", url: "https://portswigger.net/web-security", type: practice }
+          - { name: "OWASP Juice Shop", by: "OWASP Foundation", url: "https://owasp.org/www-project-juice-shop/", type: practice }
+          - { name: "OWASP Top 10", by: "OWASP Foundation", url: "https://owasp.org/Top10/2025/", type: docs }
+      - title: "Pick a side: defend or attack"
+        weeks: "10–12"
+        learn: ["Defence: logs, SIEM and alert triage", "Defence: incident response", "Attack: reconnaissance and exploitation", "Attack: privilege escalation", "Both: MITRE ATT&CK", "Both: writing clear reports"]
+        build: "Defence: a home lab that collects logs and detects three ATT&CK techniques. Attack: solve 20 picoCTF challenges and publish write-ups."
+        ready: "You can show your lab or write-ups to an employer and talk through your reasoning."
+        resources:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs }
+          - { name: "Security Onion documentation", by: "Security Onion Solutions", url: "https://docs.securityonion.net/", type: docs }
+          - { name: "picoCTF", by: "Carnegie Mellon University", url: "https://picoctf.org/", type: practice }
+          - { name: "6.858 Computer Systems Security", by: "MIT OpenCourseWare", url: "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/", type: course }
+      - title: "Specialise and keep up"
+        learn: ["Cloud security", "AI and LLM security", "Malware analysis", "Governance, risk and compliance", "Following advisories"]
+        build: "Publish something others can use: a write-up, a detection rule, or a small tool."
+        ready: "This stage never ends. Security changes every month."
+        resources:
+          - { name: "OWASP Top 10 for LLM Applications", by: "OWASP Foundation", url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/", type: docs }
+          - { name: "MITRE ATLAS (attacks on AI systems)", by: "MITRE", url: "https://atlas.mitre.org/", type: docs }
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs }
+          - { name: "Free cybersecurity training", by: "CISA", url: "https://www.cisa.gov/resources-tools/training", type: course }
+
+  - id: ai-ml
+    icon: brain
+    title: "AI and machine learning"
+    summary: "From the math behind learning to training models, working with language models, and putting them into use responsibly."
+    who: "People comfortable with programming who enjoy math and experiments."
+    needs: ["foundations"]
+    roles: ["Machine learning engineer", "Data scientist", "AI researcher", "MLOps engineer"]
+    stages:
+      - title: "Math for machine learning"
+        weeks: "6–8"
+        learn: ["Vectors and matrices", "Derivatives and gradients", "Probability", "Statistics", "Optimisation"]
+        build: "Implement linear regression with gradient descent using only NumPy, and plot the loss going down."
+        ready: "You can explain gradient descent on a whiteboard."
+        resources:
+          - { name: "Essence of Linear Algebra", by: "3Blue1Brown", url: "https://www.3blue1brown.com/topics/linear-algebra", type: video }
+          - { name: "Mathematics for Machine Learning", by: "Deisenroth, Faisal and Ong (Cambridge University Press)", url: "https://mml-book.github.io/", type: book }
+          - { name: "Statistics and probability", by: "Khan Academy", url: "https://www.khanacademy.org/math/statistics-probability", type: course }
+      - title: "Python for data"
+        weeks: "3–4"
+        learn: ["NumPy arrays", "pandas data frames", "Cleaning messy data", "Plotting", "Jupyter notebooks"]
+        build: "Clean and explore a public dataset, and write down three things you found."
+        ready: "You can load, clean and summarise a dataset you have never seen."
+        resources:
+          - { name: "NumPy quickstart", by: "NumPy", url: "https://numpy.org/doc/stable/user/quickstart.html", type: docs }
+          - { name: "pandas getting started", by: "pandas", url: "https://pandas.pydata.org/docs/getting_started/index.html", type: docs }
+          - { name: "Kaggle Learn", by: "Kaggle", url: "https://www.kaggle.com/learn", type: practice }
+      - title: "Classical machine learning"
+        weeks: "8–10"
+        learn: ["Training, validation and test sets", "Overfitting and regularisation", "Regression and classification", "Decision trees and ensembles", "Choosing the right metric"]
+        build: "A model trained end to end, tested on data it never saw, with an honest note on where it fails."
+        ready: "You can tell when a good score is really data leakage."
+        resources:
+          - { name: "Machine Learning Crash Course", by: "Google", url: "https://developers.google.com/machine-learning/crash-course", type: course }
+          - { name: "An Introduction to Statistical Learning", by: "James, Witten, Hastie, Tibshirani and Taylor", url: "https://www.statlearning.com/", type: book }
+          - { name: "scikit-learn user guide", by: "scikit-learn", url: "https://scikit-learn.org/stable/user_guide.html", type: docs }
+      - title: "Deep learning"
+        weeks: "10–12"
+        learn: ["Neural networks and backpropagation", "PyTorch", "Convolutional networks", "Transformers and attention", "Training on a GPU"]
+        build: "Train an image or text classifier and compare it with the classical model from the last stage."
+        ready: "You can build and debug a training loop yourself."
+        resources:
+          - { name: "Practical Deep Learning for Coders", by: "fast.ai", url: "https://course.fast.ai/", type: course }
+          - { name: "Neural Networks: Zero to Hero", by: "Andrej Karpathy", url: "https://karpathy.ai/zero-to-hero.html", type: video }
+          - { name: "Dive into Deep Learning", by: "d2l.ai (open source)", url: "https://d2l.ai/", type: book }
+          - { name: "PyTorch tutorials", by: "PyTorch Foundation", url: "https://pytorch.org/tutorials/", type: docs }
+      - title: "Language models"
+        weeks: "8–10"
+        learn: ["Tokens and embeddings", "How large language models are trained", "Fine-tuning", "Retrieval-augmented generation", "Evaluating outputs"]
+        build: "A question-answering app over your own notes, with a small test set to measure how often it is right."
+        ready: "You can explain why a model gave a wrong answer and measure whether a change helped."
+        resources:
+          - { name: "LLM Course", by: "Hugging Face", url: "https://huggingface.co/learn/llm-course/chapter1/1", type: course }
+          - { name: "CS224N: NLP with Deep Learning", by: "Stanford University", url: "https://web.stanford.edu/class/cs224n/", type: course }
+      - title: "Put models into use, responsibly"
+        learn: ["Serving a model behind an API", "Monitoring and data drift", "Bias and fairness", "Privacy", "Attacks on AI systems"]
+        build: "Deploy one of your models with monitoring and a short model card that says what it should not be used for."
+        ready: "This stage never ends. Keep shipping and measuring."
+        resources:
+          - { name: "Made With ML", by: "Goku Mohandas", url: "https://madewithml.com/", type: course }
+          - { name: "Rules of Machine Learning", by: "Google", url: "https://developers.google.com/machine-learning/guides/rules-of-ml", type: docs }
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs }
+
+  - id: data
+    icon: chart
+    title: "Data analysis and engineering"
+    summary: "Turn raw data into answers people can act on, and build the pipelines that keep that data flowing."
+    who: "People who like asking questions and finding the answer in numbers."
+    needs: ["foundations"]
+    roles: ["Data analyst", "Analytics engineer", "Data engineer"]
+    stages:
+      - title: "SQL in depth"
+        weeks: "4–6"
+        learn: ["Filtering and sorting", "Joins", "Grouping and aggregates", "Subqueries", "Window functions"]
+        build: "Answer 15 real questions about a public dataset using only SQL."
+        ready: "You can answer most business questions with one well-written query."
+        resources:
+          - { name: "SQLBolt", by: "SQLBolt", url: "https://sqlbolt.com/", type: practice }
+          - { name: "Select Star SQL", by: "Zi Chong Kao", url: "https://selectstarsql.com/", type: book }
+          - { name: "Intro to SQL", by: "Kaggle", url: "https://www.kaggle.com/learn/intro-to-sql", type: practice }
+      - title: "Statistics"
+        weeks: "6–8"
+        learn: ["Averages, spread and distributions", "Sampling", "Confidence intervals", "Hypothesis tests and A/B tests", "Correlation is not causation"]
+        build: "Analyse an A/B test dataset and write the conclusion in plain language for a manager."
+        ready: "You can say how sure you are of a result, not just what the result is."
+        resources:
+          - { name: "OpenIntro Statistics", by: "OpenIntro (non-profit)", url: "https://www.openintro.org/book/os/", type: book }
+          - { name: "Statistics and probability", by: "Khan Academy", url: "https://www.khanacademy.org/math/statistics-probability", type: course }
+      - title: "Analysis with Python or R"
+        weeks: "6–8"
+        learn: ["Loading and cleaning data", "Tidy data", "Reshaping and joining tables", "Notebooks and reports", "Reproducible work"]
+        build: "A full report that starts from messy raw data and anyone can re-run."
+        ready: "You can go from a raw file to a clear answer in an afternoon."
+        resources:
+          - { name: "Python for Data Analysis", by: "Wes McKinney", url: "https://wesmckinney.com/book/", type: book }
+          - { name: "R for Data Science", by: "Hadley Wickham, Mine Çetinkaya-Rundel and Garrett Grolemund", url: "https://r4ds.hadley.nz/", type: book }
+      - title: "Visualisation and storytelling"
+        weeks: "3–4"
+        learn: ["Choosing the right chart", "Honest axes and scales", "Colour and accessibility", "Dashboards", "Writing a clear summary"]
+        build: "A dashboard or one-page report that a non-technical person understands without your help."
+        ready: "Your charts answer a question at a glance."
+        resources:
+          - { name: "Fundamentals of Data Visualization", by: "Claus O. Wilke", url: "https://clauswilke.com/dataviz/", type: book }
+      - title: "Data engineering"
+        weeks: "8–10"
+        learn: ["ETL and ELT pipelines", "Data warehouses", "Scheduling and orchestration", "Transformations with dbt", "Big data with Spark"]
+        build: "A scheduled pipeline that pulls data from an API, stores it in a warehouse and feeds your dashboard."
+        ready: "Your pipeline runs on its own and tells you when it fails."
+        resources:
+          - { name: "Data Engineering Zoomcamp", by: "DataTalks.Club", url: "https://github.com/DataTalksClub/data-engineering-zoomcamp", type: course }
+          - { name: "dbt Learn", by: "dbt Labs", url: "https://www.getdbt.com/dbt-learn", type: course }
+          - { name: "Spark quick start", by: "Apache Software Foundation", url: "https://spark.apache.org/docs/latest/quick-start.html", type: docs }
+
+  - id: cloud-devops
+    icon: cloud
+    title: "Cloud and DevOps"
+    summary: "Run software reliably: servers, containers, automation, cloud platforms and keeping things up."
+    who: "People who like making systems faster, safer and automatic."
+    needs: ["foundations"]
+    roles: ["DevOps engineer", "Cloud engineer", "Site reliability engineer", "Platform engineer"]
+    stages:
+      - title: "Linux and networking for operations"
+        weeks: "6–8"
+        learn: ["Processes and services", "SSH and keys", "Shell scripting", "DNS, load balancers and firewalls", "Reading logs"]
+        build: "Set up a Linux server, lock down SSH, and host a site on it with HTTPS."
+        ready: "You can find out why a server is slow or a site is down."
+        resources:
+          - { name: "The Linux Command Line", by: "William Shotts", url: "https://linuxcommand.org/tlcl.php", type: book }
+          - { name: "The Missing Semester of Your CS Education", by: "MIT", url: "https://missing.csail.mit.edu/", type: course }
+          - { name: "Computer Networks: A Systems Approach", by: "Larry Peterson and Bruce Davie", url: "https://book.systemsapproach.org/", type: book }
+      - title: "Containers"
+        weeks: "4–6"
+        learn: ["Images and containers", "Writing a Dockerfile", "Volumes and networks", "Docker Compose", "Building apps that are easy to run anywhere"]
+        build: "Package a web app and its database with Docker Compose so it starts with one command."
+        ready: "Anyone can run your app on their machine in one step."
+        resources:
+          - { name: "Docker getting started", by: "Docker", url: "https://docs.docker.com/get-started/", type: docs }
+          - { name: "The Twelve-Factor App", by: "Adam Wiggins", url: "https://12factor.net/", type: book }
+      - title: "Automation: CI/CD and infrastructure as code"
+        weeks: "6–8"
+        learn: ["Pipelines that test and build", "Automatic deploys", "Terraform", "Managing secrets", "Rolling back safely"]
+        build: "A pipeline that tests, builds and deploys on every push, with the infrastructure written in Terraform."
+        ready: "You can rebuild your whole setup from code."
+        resources:
+          - { name: "GitHub Actions documentation", by: "GitHub", url: "https://docs.github.com/en/actions", type: docs }
+          - { name: "Terraform tutorials", by: "HashiCorp", url: "https://developer.hashicorp.com/terraform/tutorials", type: docs }
+      - title: "One cloud platform, properly"
+        weeks: "6–8"
+        learn: ["Compute and storage", "Identity and access (IAM)", "Virtual networks", "Managed databases", "Costs and budgets"]
+        build: "Deploy your app to one cloud with least-privilege access and a budget alert."
+        ready: "You can explain your cloud bill and who can access what."
+        resources:
+          - { name: "AWS Skill Builder", by: "Amazon Web Services", url: "https://skillbuilder.aws/", type: course }
+          - { name: "Microsoft Learn (Azure)", by: "Microsoft", url: "https://learn.microsoft.com/en-us/training/", type: course }
+          - { name: "Google Cloud Skills Boost", by: "Google Cloud", url: "https://www.cloudskillsboost.google/", type: course }
+      - title: "Kubernetes and reliability"
+        weeks: "8–10"
+        learn: ["Pods, deployments and services", "Monitoring and alerts", "Service level objectives", "Incident response", "Post-mortems"]
+        build: "Run your app on a local Kubernetes cluster with monitoring and a dashboard for its service level objective."
+        ready: "You know when your service is unhealthy before your users do."
+        resources:
+          - { name: "Learn Kubernetes Basics", by: "Kubernetes (CNCF)", url: "https://kubernetes.io/docs/tutorials/kubernetes-basics/", type: docs }
+          - { name: "Prometheus overview", by: "Prometheus (CNCF)", url: "https://prometheus.io/docs/introduction/overview/", type: docs }
+          - { name: "Site Reliability Engineering", by: "Google", url: "https://sre.google/sre-book/table-of-contents/", type: book }

@@ -1,0 +1,134 @@
+{%- comment -%}
+  The Roadmaps page, in every language. Paths, stages and links are in _data/roadmaps.yml (English).
+  _data/<code>/roadmaps.yml only holds translated text, keyed by path id; anything missing there shows in English.
+{%- endcomment -%}
+{%- assign R = site.data.roadmaps -%}
+{%- assign T = D.roadmaps | default: R -%}
+<div class="wrap page roadmaps-page">
+  <header class="page-head">
+    <p class="eyebrow">{{ T.eyebrow | default: R.eyebrow }}</p>
+    <h1>{{ T.title | default: R.title }}</h1>
+    <p class="lede">{{ T.lede | default: R.lede }}</p>
+    <p class="pill">{% include icon.html name="shield" px=15 %}<span>{{ T.pill | default: R.pill }}</span></p>
+  </header>
+
+  <section class="card rm-how" aria-labelledby="rm-how-title">
+    <h2 id="rm-how-title" class="tool-title">{{ T.how_title | default: R.how_title }}</h2>
+    <ol class="rm-how-list">
+      {%- assign how = T.how | default: R.how %}
+      {%- for h in how %}
+      <li>{{ h }}</li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  {%- assign CE = site.data.cert_roadmaps %}{% assign TC = D.cert_roadmaps | default: CE %}
+  <a class="card spot rm-cta" href="{{ L }}/roadmaps/certifications/">
+    <span class="icon-tile">{% include icon.html name="award" px=22 %}</span>
+    <span class="rm-index-text"><strong>{{ TC.certs_cta | default: CE.certs_cta }}</strong><span class="muted">{{ TC.certs_cta_text | default: CE.certs_cta_text }}</span></span>
+    {% include icon.html name="arrow" px=18 %}
+  </a>
+
+  <nav class="rm-index" id="top-paths" aria-label="{{ T.paths_label | default: R.paths_label }}">
+    {%- for p in R.paths %}
+    {%- assign tp = T.paths[p.id] %}
+    <a class="card spot rm-index-card{% if p.start %} is-start{% endif %}" href="#{{ p.id }}">
+      <span class="icon-tile">{% include icon.html name=p.icon px=22 %}</span>
+      <span class="rm-index-text">
+        <strong>{{ tp.title | default: p.title }}</strong>
+        <span class="muted">{{ tp.summary | default: p.summary }}</span>
+        {%- if p.start %}<span class="rm-badge">{{ T.start_here | default: R.start_here }}</span>{% endif %}
+      </span>
+    </a>
+    {%- endfor %}
+  </nav>
+
+  {%- for p in R.paths %}
+  {%- assign tp = T.paths[p.id] %}
+  {%- comment -%} Total time: add up the low and high ends of each stage's "6–8" weeks. {%- endcomment -%}
+  {%- assign lo = 0 %}{% assign hi = 0 %}{% assign open_ended = false %}
+  {%- for s in p.stages %}
+    {%- if s.weeks %}
+      {%- assign wk = s.weeks | split: '–' %}
+      {%- assign lo = lo | plus: wk.first %}{% assign hi = hi | plus: wk.last %}
+    {%- else %}{% assign open_ended = true %}{% endif %}
+  {%- endfor %}
+  {%- capture total %}<bdi dir="ltr">{{ lo }}–{{ hi }}</bdi>{% endcapture %}
+  {%- assign weeks_label = T.weeks | default: R.weeks %}
+  <section class="card rm-path" id="{{ p.id }}" aria-labelledby="{{ p.id }}-title">
+    <div class="tool-head">
+      <span class="icon-tile">{% include icon.html name=p.icon px=22 %}</span>
+      <div>
+        <h2 id="{{ p.id }}-title" class="tool-title">{{ tp.title | default: p.title }}</h2>
+        <p class="muted">{{ tp.summary | default: p.summary }}</p>
+      </div>
+    </div>
+
+    <dl class="rm-facts">
+      <div><dt>{{ T.time | default: R.time }}</dt><dd>{{ weeks_label | replace: '[n]', total }}{% if open_ended %} + {{ T.ongoing | default: R.ongoing }}{% endif %}</dd></div>
+      {%- if p.needs %}
+      <div><dt>{{ T.needs | default: R.needs }}</dt><dd>
+        {%- for n in p.needs %}{% assign np = R.paths | where: 'id', n | first %}{% assign ntp = T.paths[n] %}
+        <a href="#{{ n }}">{{ ntp.title | default: np.title }}</a>{% unless forloop.last %}, {% endunless %}
+        {%- endfor %}</dd></div>
+      {%- endif %}
+      <div><dt>{{ T.leads_to | default: R.leads_to }}</dt><dd>{{ tp.roles | default: p.roles | join: ', ' }}</dd></div>
+    </dl>
+    <p class="rm-who">{{ tp.who | default: p.who }}</p>
+    {%- if p.note %}
+    <p class="tool-note rm-note">{% include icon.html name="lock" px=16 %}<span>{{ tp.note | default: p.note }}</span></p>
+    {%- endif %}
+
+    <ol class="rm-stages">
+      {%- for s in p.stages %}
+      {%- assign ts = tp.stages[forloop.index0] %}
+      <li class="rm-stage" id="{{ p.id }}-{{ forloop.index }}">
+        <details{% if forloop.first %} open{% endif %}>
+          <summary>
+            <span class="rm-step" aria-hidden="true">{{ forloop.index }}</span>
+            <span class="rm-stage-title"><span class="sr-only">{{ T.stage | default: R.stage }} {{ forloop.index }}: </span>{{ ts.title | default: s.title }}</span>
+            <span class="rm-weeks">{% if s.weeks %}{% capture wk %}<bdi dir="ltr">{{ s.weeks }}</bdi>{% endcapture %}{{ weeks_label | replace: '[n]', wk }}{% else %}{{ T.ongoing | default: R.ongoing }}{% endif %}</span>
+          </summary>
+          <div class="rm-stage-body">
+            <div>
+              <h3 class="label">{{ T.learn | default: R.learn }}</h3>
+              <ul class="tags">
+                {%- assign learn = ts.learn | default: s.learn %}
+                {%- for l in learn %}<li>{{ l }}</li>{% endfor %}
+              </ul>
+            </div>
+            <div>
+              <h3 class="label">{{ T.resources | default: R.resources }}</h3>
+              <ul class="rm-res">
+                {%- for r in s.resources %}
+                <li>
+                  <a href="{{ r.url }}" rel="noopener"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ r.name }}</a>
+                  <span class="rm-res-meta"><span class="rm-type">{{ T.types[r.type] | default: R.types[r.type] }}</span>{% if r.audit %}<span class="rm-type is-audit">{{ T.audit | default: R.audit }}</span>{% endif %}<span class="muted">{{ r.by }}</span></span>
+                </li>
+                {%- endfor %}
+              </ul>
+            </div>
+            <div class="rm-pair">
+              <p><strong>{{ T.build | default: R.build }}:</strong> {{ ts.build | default: s.build }}</p>
+              <p><strong>{{ T.ready | default: R.ready }}:</strong> {{ ts.ready | default: s.ready }}</p>
+            </div>
+          </div>
+        </details>
+      </li>
+      {%- endfor %}
+    </ol>
+    {%- assign ctrack = CE.tracks | where: 'roadmap', p.id | first %}
+    <p class="rm-back">
+      {%- if ctrack %}<a href="{{ L }}/roadmaps/certifications/#{{ ctrack.id }}">{% include icon.html name="award" px=15 %}<span>{{ TC.certs_cta | default: CE.certs_cta }}</span></a>{% endif %}
+      <a href="#top-paths">{% include icon.html name="arrow-up" px=15 %}<span>{{ T.back | default: R.back }}</span></a></p>
+  </section>
+  {%- endfor %}
+
+  <section class="card card-dashed rm-trust" aria-labelledby="rm-trust-title">
+    <h2 id="rm-trust-title" class="tool-title">{{ T.trust_title | default: R.trust_title }}</h2>
+    <p class="muted">{{ T.trust | default: R.trust }}</p>
+    <p class="meta">{{ T.reviewed_label | default: R.reviewed_label }}: <time datetime="{{ R.reviewed | date: '%Y-%m-%d' }}">{% include date.html date=R.reviewed long=true %}</time></p>
+  </section>
+
+  <p class="muted tools-foot"><span>{{ T.foot | default: R.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
+</div>
