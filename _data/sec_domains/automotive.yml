@@ -1,0 +1,229 @@
+# Security roadmap: Automotive and Transportation Security. Shown at /roadmaps/security/automotive/.
+# Field guide: see the top of secops.yml.
+
+id: automotive
+category: special
+icon: car
+entry: advanced
+title: "Automotive and Transportation Security"
+summary: "Secure vehicles and the systems that move people and goods: in-vehicle networks and ECUs, connected car services, V2X, EV charging, and the rail, aviation and maritime systems with their own rules."
+keywords: "automotive cybersecurity vehicle security CAN bus ECU V2X ISO 21434 UNECE R155 R156 EV charging telematics rail aviation maritime transportation security TARA"
+
+overview:
+  - "A modern vehicle is a network of dozens of computers on wheels, connected to the manufacturer, to apps and to road infrastructure. Rail, aviation and maritime systems are similar: safety-critical, long-lived, increasingly connected and now regulated for cybersecurity."
+  - "Transportation security combines embedded and OT skills with sector regulation. For vehicles, ISO/SAE 21434 and UNECE R155 define how security must be engineered and managed across the lifecycle. The work ranges from threat analysis of a new vehicle platform to securing charging networks and fleet telematics."
+why: "A security flaw in a vehicle or transport system can cause physical harm at scale, and regulators now require demonstrated cybersecurity management before vehicles can be sold. The sector needs engineers who understand both the vehicle and the standards."
+roles:
+  - { title: "Automotive security engineer", level: mid, what: "Secures ECUs, networks and vehicle services." }
+  - { title: "Vehicle security architect", level: senior, what: "Designs security for vehicle platforms." }
+  - { title: "Product cybersecurity manager", level: senior, what: "Runs the ISO 21434 process and R155 compliance." }
+  - { title: "Transport cybersecurity lead", level: lead, what: "Owns security across rail, aviation or maritime systems." }
+
+prereqs:
+  - "Embedded and hardware security basics."
+  - "Networking and OT security fundamentals."
+  - "Some understanding of vehicle or transport engineering."
+  - "Cryptography basics."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "Vehicle and transport fundamentals"
+    months: "2–4"
+    topics:
+      - id: vehicle-architecture
+        title: "Vehicle architecture"
+        text: "ECUs, domain controllers, gateways and the move to zonal and software-defined vehicles. Learn what talks to what and where the trust boundaries are."
+        res:
+          - { name: "Cybersecurity Best Practices for the Safety of Modern Vehicles", by: "NHTSA", url: "https://www.nhtsa.gov/research/vehicle-cybersecurity", type: docs, cost: free }
+      - id: can-bus
+        title: "CAN and in-vehicle networks"
+        text: "CAN, CAN FD, LIN, FlexRay and automotive Ethernet. CAN has no authentication; understand how it works and why that shapes everything."
+        res:
+          - { name: "The Car Hacker's Handbook", by: "Craig Smith", url: "https://nostarch.com/carhacking", type: book, cost: paid }
+      - id: attack-surfaces-vehicle
+        title: "Vehicle attack surfaces"
+        text: "Telematics, infotainment, Bluetooth, key fobs, diagnostics ports, charging and apps. Study the published research to see how they have been reached."
+        res:
+          - { name: "Cybersecurity Best Practices for the Safety of Modern Vehicles", by: "NHTSA", url: "https://www.nhtsa.gov/research/vehicle-cybersecurity", type: docs, cost: free }
+      - id: safety-and-security
+        title: "Safety and security together"
+        text: "Functional safety (ISO 26262) and cybersecurity must be engineered together. A security flaw that affects a safety function is the worst case."
+        res:
+          - { name: "ISO/SAE 21434", by: "ISO", url: "https://www.iso.org/standard/70918.html", type: docs, cost: paid }
+      - id: transport-sectors
+        title: "Rail, aviation and maritime"
+        text: "Each has its own systems, standards and regulators: signalling and train control, avionics and air traffic, ship bridge and cargo systems. Learn the landscape."
+        res:
+          - { name: "Guidelines on Maritime Cyber Risk Management", by: "IMO", url: "https://www.imo.org/en/OurWork/Security/Pages/Cyber-security.aspx", type: docs, cost: free }
+      - id: transport-regulation
+        title: "The regulatory landscape"
+        text: "UNECE R155 and R156 for vehicles, EASA and FAA rules for aviation, IMO for shipping, NIS2 for transport operators. Know what applies to your products and operations."
+        res:
+          - { name: "UN Regulation No. 155 (Cyber security management system)", by: "UNECE", url: "https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security", type: docs, cost: free }
+    skills:
+      - "Describe vehicle architecture and in-vehicle networks."
+      - "Map vehicle attack surfaces."
+      - "Explain the regulations for vehicles and other transport sectors."
+    labs:
+      - "Set up a virtual CAN bus with Linux SocketCAN and ICSim, and read and inject messages."
+      - "Map the attack surfaces of a modern vehicle and rank them by exposure."
+    done:
+      - "Read CAN traffic and explain what the vehicle is doing."
+      - "Explain R155's requirements to a product team."
+
+  - level: intermediate
+    title: "Engineering vehicle security"
+    months: "3–6"
+    topics:
+      - id: iso21434
+        title: "ISO/SAE 21434"
+        text: "The standard for automotive cybersecurity engineering: organisation, project processes, threat analysis, concept, development, validation and post-production. Learn the work products."
+        res:
+          - { name: "ISO/SAE 21434", by: "ISO", url: "https://www.iso.org/standard/70918.html", type: docs, cost: paid }
+      - id: tara
+        title: "Threat analysis and risk assessment"
+        text: "TARA identifies assets, damage scenarios, threats, attack paths and risk for a vehicle item. It is the core 21434 activity; learn to do it well."
+        res:
+          - { name: "ISO/SAE 21434", by: "ISO", url: "https://www.iso.org/standard/70918.html", type: docs, cost: paid }
+      - id: secure-ecu
+        title: "Securing ECUs"
+        text: "Secure boot, hardware security modules, secure diagnostics, debug locking and memory protection on automotive microcontrollers."
+        res:
+          - { name: "AUTOSAR", by: "AUTOSAR", url: "https://www.autosar.org/", type: docs, cost: free }
+      - id: secure-in-vehicle-comms
+        title: "Secure in-vehicle communication"
+        text: "Message authentication on CAN (SecOC), gateway filtering, intrusion detection on the bus, and the stronger options automotive Ethernet brings."
+        res:
+          - { name: "AUTOSAR", by: "AUTOSAR", url: "https://www.autosar.org/", type: docs, cost: free }
+      - id: connected-services
+        title: "Connected vehicle services"
+        text: "Telematics units, backend APIs, mobile apps and over-the-air updates. Apply API, cloud and mobile security, and protect the vehicle identity and keys."
+        res:
+          - { name: "UN Regulation No. 156 (Software update management system)", by: "UNECE", url: "https://unece.org/transport/documents/2021/03/standards/un-regulation-no-156-software-update-and-software-update", type: docs, cost: free }
+      - id: ota-updates
+        title: "Over-the-air updates"
+        text: "Signed, staged, resumable updates with rollback protection and safety checks, managed under R156. An OTA system is also the most valuable thing to attack."
+        res:
+          - { name: "Uptane", by: "Uptane project", url: "https://uptane.org/", type: docs, cost: free }
+    skills:
+      - "Apply ISO/SAE 21434 to a vehicle project."
+      - "Run a TARA."
+      - "Specify and verify ECU and bus security."
+      - "Secure connected services and OTA updates."
+    labs:
+      - "Run a TARA for a sample vehicle function such as remote unlock and document the work products."
+      - "Implement message authentication on a simulated CAN bus and show spoofed messages rejected."
+      - "Design an OTA update flow using Uptane principles."
+    done:
+      - "Produce a complete TARA and security concept for a vehicle item."
+      - "Demonstrate authenticated in-vehicle communication in a lab."
+
+  - level: advanced
+    title: "Infrastructure, testing and sectors"
+    months: "4–8"
+    topics:
+      - id: v2x
+        title: "V2X and cooperative systems"
+        text: "Vehicles talk to each other and to roadside units with signed messages under a dedicated PKI. Learn the security architecture and its privacy design."
+        res:
+          - { name: "Security Credential Management System", by: "US DOT", url: "https://www.its.dot.gov/resources/scms.htm", type: docs, cost: free }
+      - id: ev-charging
+        title: "EV charging security"
+        text: "Chargers, charge point operators and grid links use ISO 15118 and OCPP. Charging is a growing attack surface for both vehicles and the grid."
+        res:
+          - { name: "Open Charge Point Protocol", by: "Open Charge Alliance", url: "https://openchargealliance.org/protocols/open-charge-point-protocol/", type: docs, cost: free }
+      - id: vehicle-testing
+        title: "Vehicle security testing"
+        text: "Fuzz the buses and diagnostics, test ECUs, telematics and apps, and validate the security concept, in your own lab or with explicit authorisation."
+        res:
+          - { name: "Cybersecurity Best Practices for the Safety of Modern Vehicles", by: "NHTSA", url: "https://www.nhtsa.gov/research/vehicle-cybersecurity", type: docs, cost: free }
+      - id: vsoc
+        title: "Vehicle security operations"
+        text: "Monitor fleets for attacks and anomalies, handle vulnerability reports and run incident response for vehicles in the field, as R155 requires."
+        res:
+          - { name: "UN Regulation No. 155 (Cyber security management system)", by: "UNECE", url: "https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security", type: docs, cost: free }
+      - id: rail-security
+        title: "Rail security"
+        text: "Signalling, train control and operational systems follow IEC 62443-based standards such as TS 50701. Treat them as OT with safety certification constraints."
+        res:
+          - { name: "IEC 62443 overview", by: "ISA", url: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards", type: docs, cost: free }
+      - id: aviation-maritime
+        title: "Aviation and maritime security"
+        text: "Avionics, ground systems and airport operations; ship bridge, engine and cargo systems. Both sectors now have mandatory cyber risk management."
+        res:
+          - { name: "Guidelines on Maritime Cyber Risk Management", by: "IMO", url: "https://www.imo.org/en/OurWork/Security/Pages/Cyber-security.aspx", type: docs, cost: free }
+    skills:
+      - "Secure V2X and charging infrastructure."
+      - "Test vehicle security in a lab."
+      - "Run vehicle security operations."
+      - "Apply transport sector standards for rail, aviation and maritime."
+    labs:
+      - "Assess a charging setup against OCPP security guidance."
+      - "Fuzz a simulated ECU's diagnostic interface and document the findings."
+      - "Design a vehicle SOC process for handling a field vulnerability report."
+    done:
+      - "Run vehicle security testing and operations processes that satisfy R155."
+      - "Apply sector standards to a rail, aviation or maritime system."
+
+  - level: expert
+    title: "Leading transport cybersecurity"
+    months: "6–12"
+    topics:
+      - id: csms
+        title: "The cybersecurity management system"
+        text: "R155 requires an organisation-wide CSMS covering development, production and post-production. Build and run it across suppliers and product lines."
+        res:
+          - { name: "UN Regulation No. 155 (Cyber security management system)", by: "UNECE", url: "https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security", type: docs, cost: free }
+      - id: supplier-cyber-transport
+        title: "Suppliers and the vehicle supply chain"
+        text: "Tier suppliers build most of the vehicle. Flow security requirements and evidence down the chain and verify them."
+        res:
+          - { name: "ISO/SAE 21434", by: "ISO", url: "https://www.iso.org/standard/70918.html", type: docs, cost: paid }
+      - id: transport-strategy
+        title: "Security strategy for transport organisations"
+        text: "Set the security vision for vehicles, infrastructure and operations, aligned to safety, regulation and the shift to software-defined systems."
+        res:
+          - { name: "Cybersecurity Best Practices for the Safety of Modern Vehicles", by: "NHTSA", url: "https://www.nhtsa.gov/research/vehicle-cybersecurity", type: docs, cost: free }
+    skills:
+      - "Build and run a CSMS."
+      - "Manage supplier security across the chain."
+    labs:
+      - "Write a CSMS outline for a vehicle manufacturer mapped to R155."
+      - "Produce supplier security requirements for a tier-one component."
+    done:
+      - "Lead a cybersecurity management system through type approval."
+      - "Own transport security strategy across products and operations."
+
+tools:
+  - { name: "SocketCAN and can-utils", url: "https://github.com/linux-can/can-utils", kind: oss, what: "CAN tooling on Linux." }
+  - { name: "ICSim", url: "https://github.com/zombieCraig/ICSim", kind: oss, what: "Instrument cluster simulator for CAN labs." }
+  - { name: "Scapy", url: "https://scapy.net/", kind: oss, what: "Craft and analyse automotive protocols." }
+  - { name: "Uptane", url: "https://uptane.org/", kind: oss, what: "Secure OTA update framework." }
+  - { name: "Wireshark", url: "https://www.wireshark.org/", kind: oss, what: "Dissect CAN, automotive Ethernet and OCPP." }
+
+certs:
+  - { name: "Automotive Cybersecurity Professional (CSP)", by: "TÜV SÜD", url: "https://www.tuvsud.com/en/services/training/automotive-cyber-security-professional", level: mid, note: "ISO 21434 and R155 focused." }
+  - { name: "GIAC GICSP", by: "GIAC", url: "https://www.giac.org/certifications/global-industrial-cyber-security-professional-gicsp/", level: mid, note: "OT skills that transfer to transport." }
+  - { ref: cissp, note: "Broad baseline for leads." }
+
+resources:
+  - { name: "ISO/SAE 21434", by: "ISO", url: "https://www.iso.org/standard/70918.html", type: docs, cost: paid }
+  - { name: "UN Regulation No. 155 (Cyber security management system)", by: "UNECE", url: "https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security", type: docs, cost: free }
+  - { name: "Cybersecurity Best Practices for the Safety of Modern Vehicles", by: "NHTSA", url: "https://www.nhtsa.gov/research/vehicle-cybersecurity", type: docs, cost: free }
+  - { name: "The Car Hacker's Handbook", by: "Craig Smith", url: "https://nostarch.com/carhacking", type: book, cost: paid }
+  - { name: "Guidelines on Maritime Cyber Risk Management", by: "IMO", url: "https://www.imo.org/en/OurWork/Security/Pages/Cyber-security.aspx", type: docs, cost: free }
+
+frameworks: [iso21434, unece-r155, iec62443, nis2, nist-csf]
+
+career:
+  - { title: "Embedded, automotive or OT engineer", years: "0–3 years" }
+  - { title: "Automotive security engineer", years: "2–5 years" }
+  - { title: "Vehicle security architect or product cybersecurity manager", years: "5–10 years" }
+  - { title: "Transport cybersecurity lead", years: "10+ years" }
+
+related:
+  - { to: hwsec, why: "ECU security is embedded hardware security." }
+  - { to: otics, why: "Rail and transport infrastructure are OT." }
+  - { to: iot, why: "Vehicles and chargers are large connected devices." }
+  - { to: prodsec, why: "R155 is product security regulation for vehicles." }

@@ -189,5 +189,5 @@ categories:
     icon: chip
     title: "Specialised and emerging"
     summary: "Security for particular industries, physical systems and new technology."
-    domains: []
-    planned: ["OT Security", "ICS Security", "SCADA Security", "IoT Security", "Automotive Cybersecurity", "Railway and Transportation Security", "Aviation Cybersecurity", "Maritime Cybersecurity", "Energy and Utility Security", "Healthcare Cybersecurity", "Financial Services Security", "Telecommunications Security", "Satellite and Space Cybersecurity", "Aerospace and Defense Security", "Government and Public Sector Security", "Critical Infrastructure Protection", "Blockchain and Web3 Security", "Quantum Security", "Physical Security", "Cyber-Physical Systems Security", "Operational Safety and Cybersecurity", "Privacy and Identity Technologies", "Electronic Fraud and Abuse Prevention", "Digital Trust and Assurance", "Cybersecurity Research and Education"]
+    domains: [otics, iot, automotive, finsec, healthsec, telecom, fraud, blockchain]
+    planned: []

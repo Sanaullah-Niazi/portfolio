@@ -24,7 +24,7 @@ prereqs:
   - "Application security basics."
   - "Cryptography basics: hashing and signatures."
   - "Some scripting."
-prereq_paths: [cybersecurity, devops]
+prereq_paths: [cybersecurity, cloud-devops]
 
 stages:
   - level: beginner

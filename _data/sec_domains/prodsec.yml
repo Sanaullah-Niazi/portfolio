@@ -225,4 +225,4 @@ related:
   - { to: appsec, why: "Application security is the technical core of product security." }
   - { to: supplychain, why: "Product SBOMs and update security are supply chain topics." }
   - { to: vulnmgmt, why: "PSIRT is vulnerability management for what you ship." }
-  - { name: "IoT and Embedded Security", why: "Connected products carry extra product security duties." }
+  - { to: iot, why: "Connected products carry extra product security duties." }

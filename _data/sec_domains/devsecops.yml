@@ -24,7 +24,7 @@ prereqs:
   - "Some scripting and infrastructure as code."
   - "Application security fundamentals."
   - "Cloud basics."
-prereq_paths: [cybersecurity, devops]
+prereq_paths: [cybersecurity, cloud-devops]
 
 stages:
   - level: beginner

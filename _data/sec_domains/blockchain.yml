@@ -1,0 +1,230 @@
+# Security roadmap: Blockchain and Smart Contract Security. Shown at /roadmaps/security/blockchain/.
+# Field guide: see the top of secops.yml.
+
+id: blockchain
+category: special
+icon: cube
+entry: advanced
+title: "Blockchain and Smart Contract Security"
+summary: "Secure code that holds money in public: smart contract auditing, DeFi protocol risks, wallets and key custody, exchanges, bridges and the consensus layer beneath them."
+keywords: "blockchain security smart contract security auditing Solidity EVM DeFi wallet security key custody exchanges bridges consensus reentrancy oracle manipulation Web3 security"
+
+overview:
+  - "Smart contracts are programs that hold and move value on public blockchains. Anyone can read and call them, bugs often cannot be patched, and a single flaw can drain millions in minutes. That makes smart contract security one of the most unforgiving areas of software security."
+  - "The field covers auditing contracts for vulnerabilities, understanding the economic attacks unique to DeFi, securing the keys and wallets that control assets, protecting exchanges and cross-chain bridges, and understanding consensus and network-level risks. Most learning happens through public audit reports, competitions and post-mortems."
+why: "Billions have been lost to contract bugs, bridge hacks and stolen keys. Projects, exchanges and custodians need people who can find flaws before deployment and design systems that survive the ones that slip through."
+roles:
+  - { title: "Smart contract auditor", level: mid, what: "Reviews contracts for vulnerabilities before deployment." }
+  - { title: "Blockchain security engineer", level: mid, what: "Secures protocols, wallets and infrastructure." }
+  - { title: "Security researcher (Web3)", level: senior, what: "Finds and responsibly reports protocol flaws." }
+  - { title: "Head of security (Web3)", level: lead, what: "Owns security for a protocol, exchange or custodian." }
+
+prereqs:
+  - "Strong programming skills and application security basics."
+  - "Cryptography basics: hashes, signatures and keys."
+  - "How blockchains and transactions work."
+  - "Some finance concepts, for DeFi."
+prereq_paths: [cybersecurity, web]
+
+stages:
+  - level: beginner
+    title: "Blockchain and contract fundamentals"
+    months: "2–4"
+    topics:
+      - id: blockchain-basics
+        title: "How blockchains work"
+        text: "Blocks, transactions, gas, accounts and finality. Learn the Ethereum model in depth; most smart contract security work is on EVM chains."
+        res:
+          - { name: "Ethereum developer documentation", by: "Ethereum Foundation", url: "https://ethereum.org/en/developers/docs/", type: docs, cost: free }
+      - id: solidity
+        title: "Solidity and the EVM"
+        text: "Write and read Solidity, and understand storage, calls, events and the EVM's quirks. You cannot audit code you cannot write."
+        res:
+          - { name: "Solidity documentation", by: "Solidity team", url: "https://docs.soliditylang.org/", type: docs, cost: free }
+      - id: common-vulns
+        title: "Common contract vulnerabilities"
+        text: "Reentrancy, access control mistakes, integer issues, unchecked calls, front-running and signature replay. Learn each with real exploited examples."
+        res:
+          - { name: "Smart Contract Weakness Classification", by: "SWC Registry", url: "https://swcregistry.io/", type: docs, cost: free }
+      - id: wallet-basics
+        title: "Keys and wallets"
+        text: "Private keys are the asset. Learn seed phrases, hardware wallets, multisig and how users and companies lose keys to phishing and malware."
+        res:
+          - { name: "Ethereum security guide for users", by: "Ethereum Foundation", url: "https://ethereum.org/en/security/", type: docs, cost: free }
+      - id: dev-tooling
+        title: "Development and testing tools"
+        text: "Foundry and Hardhat let you write tests, fork mainnet and reproduce exploits locally. Make them part of every review."
+        res:
+          - { name: "Foundry Book", by: "Foundry", url: "https://book.getfoundry.sh/", type: docs, cost: free }
+      - id: secure-patterns
+        title: "Secure contract patterns"
+        text: "Checks-effects-interactions, pull payments, access control libraries and well-audited building blocks such as OpenZeppelin. Do not reinvent them."
+        res:
+          - { name: "OpenZeppelin Contracts", by: "OpenZeppelin", url: "https://docs.openzeppelin.com/contracts/", type: docs, cost: free }
+    skills:
+      - "Write and read Solidity confidently."
+      - "Recognise the common contract vulnerabilities."
+      - "Test contracts and reproduce exploits locally."
+    labs:
+      - "Complete the Ethernaut challenges, a deliberately vulnerable practice game."
+      - "Reproduce a historical reentrancy exploit on a local fork with Foundry."
+    done:
+      - "Find the standard vulnerability classes in practice contracts."
+      - "Write tests that prove a contract is or is not vulnerable."
+
+  - level: intermediate
+    title: "Auditing smart contracts"
+    months: "3–6"
+    topics:
+      - id: audit-method
+        title: "Audit methodology"
+        text: "Understand the protocol's intent, map its trust assumptions, read every line, test the risky paths and write clear findings. Methodology beats instinct."
+        res:
+          - { name: "Smart Contract Security Verification Standard", by: "ComposableSecurity", url: "https://github.com/ComposableSecurity/SCSVS", type: docs, cost: free }
+      - id: static-analysis-sc
+        title: "Static analysis"
+        text: "Slither and similar tools find many known patterns quickly. Use them to cover the obvious and spend human time on logic."
+        res:
+          - { name: "Slither", by: "Trail of Bits", url: "https://github.com/crytic/slither", type: tool, cost: free }
+      - id: fuzzing-sc
+        title: "Fuzzing and invariant testing"
+        text: "Define invariants such as 'total supply equals the sum of balances' and fuzz to break them. Invariant testing catches bugs reviews miss."
+        res:
+          - { name: "Echidna", by: "Trail of Bits", url: "https://github.com/crytic/echidna", type: tool, cost: free }
+      - id: defi-mechanics
+        title: "DeFi mechanics"
+        text: "Lending, automated market makers, stablecoins, liquidations and governance. Economic design flaws are as dangerous as code bugs."
+        res:
+          - { name: "DeFi Developer Roadmap", by: "OffcierCia", url: "https://github.com/OffcierCia/DeFi-Developer-Road-Map", type: docs, cost: free }
+      - id: oracle-flashloan
+        title: "Oracle manipulation and flash loans"
+        text: "Flash loans give attackers huge temporary capital to manipulate prices and oracles. Learn the patterns and the defences, such as time-weighted prices."
+        res:
+          - { name: "Rekt News (post-mortems)", by: "Rekt", url: "https://rekt.news/", type: docs, cost: free }
+      - id: audit-reporting
+        title: "Writing audit findings"
+        text: "Each finding needs a clear description, impact, proof of concept and fix. Rate severity honestly; teams decide launches on your report."
+        res:
+          - { name: "Code4rena audit reports", by: "Code4rena", url: "https://code4rena.com/reports", type: docs, cost: free }
+    skills:
+      - "Run a structured smart contract audit."
+      - "Use static analysis and fuzzing effectively."
+      - "Analyse DeFi economic risks."
+      - "Write clear, well-rated findings."
+    labs:
+      - "Audit a past competition codebase and compare your findings with the published report."
+      - "Write invariant tests with Echidna or Foundry for a lending contract."
+      - "Reproduce an oracle manipulation exploit on a local fork."
+    done:
+      - "Produce an audit report with valid findings on a real codebase."
+      - "Find a bug with invariant testing that manual review missed."
+
+  - level: advanced
+    title: "Infrastructure, bridges and operations"
+    months: "4–8"
+    topics:
+      - id: bridges
+        title: "Cross-chain bridges"
+        text: "Bridges hold huge pooled funds and depend on validators, message verification and multisigs. They have suffered the largest hacks; study them closely."
+        res:
+          - { name: "Rekt News (post-mortems)", by: "Rekt", url: "https://rekt.news/", type: docs, cost: free }
+      - id: custody
+        title: "Key custody and operations"
+        text: "Multisig, MPC, HSMs, signing policies and segregated duties protect organisational funds. Most large losses involve compromised keys or signers."
+        res:
+          - { name: "Safe documentation", by: "Safe", url: "https://docs.safe.global/", type: docs, cost: free }
+      - id: exchange-security
+        title: "Exchange security"
+        text: "Hot and cold wallets, withdrawal controls, insider risk, account takeover and proof of reserves. Exchanges combine Web3 and traditional security."
+        res:
+          - { name: "CryptoCurrency Security Standard", by: "CryptoCurrency Certification Consortium", url: "https://cryptoconsortium.org/standards/ccss", type: docs, cost: free }
+      - id: upgradeability
+        title: "Upgrades and governance"
+        text: "Upgradeable proxies and on-chain governance let protocols fix bugs but add admin-key and governance-attack risk. Review both carefully."
+        res:
+          - { name: "OpenZeppelin upgrades", by: "OpenZeppelin", url: "https://docs.openzeppelin.com/upgrades-plugins/", type: docs, cost: free }
+      - id: monitoring-response
+        title: "Monitoring and incident response"
+        text: "Watch contracts and mempools for attacks in progress, pause where you can, and coordinate with exchanges and security groups. Speed matters in minutes."
+        res:
+          - { name: "SEAL 911", by: "Security Alliance", url: "https://securityalliance.org/", type: docs, cost: free }
+      - id: consensus-layer
+        title: "Consensus and node security"
+        text: "Validators, node operations, client diversity and network-level attacks. The chain's security underpins every contract on it."
+        res:
+          - { name: "Ethereum proof-of-stake", by: "Ethereum Foundation", url: "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/", type: docs, cost: free }
+    skills:
+      - "Assess bridge and cross-chain designs."
+      - "Design key custody and signing operations."
+      - "Secure exchanges and upgradeable protocols."
+      - "Monitor and respond to on-chain incidents."
+    labs:
+      - "Write a post-mortem of a historical bridge hack with root cause and prevention."
+      - "Design a multisig signing policy for a treasury with separation of duties."
+      - "Set up on-chain monitoring alerts for a test contract."
+    done:
+      - "Assess the security of a protocol's full stack, not just its contracts."
+      - "Run an on-chain incident response tabletop."
+
+  - level: expert
+    title: "Leading Web3 security"
+    months: "6–12"
+    topics:
+      - id: web3-programme
+        title: "Security programme for a protocol"
+        text: "Combine audits, competitions, bug bounties, monitoring, key custody and incident response into one programme. No single audit makes a protocol safe."
+        res:
+          - { name: "Immunefi", by: "Immunefi", url: "https://immunefi.com/", type: docs, cost: free }
+      - id: responsible-disclosure-web3
+        title: "Responsible disclosure in Web3"
+        text: "Report flaws privately through bug bounties and coordinate with teams. The line between research and theft is authorisation and intent; stay clearly on the right side."
+        res:
+          - { name: "Immunefi", by: "Immunefi", url: "https://immunefi.com/", type: docs, cost: free }
+      - id: web3-regulation
+        title: "Regulation and compliance"
+        text: "Crypto-asset rules such as the EU's MiCA, anti-money-laundering and sanctions apply to exchanges and custodians. Build security and compliance together."
+        res:
+          - { name: "Markets in Crypto-Assets Regulation (MiCA)", by: "ESMA", url: "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica", type: docs, cost: free }
+    skills:
+      - "Run a layered security programme for a protocol."
+      - "Handle disclosure and regulation correctly."
+    labs:
+      - "Write a security programme plan for a new DeFi protocol launch."
+      - "Design a bug bounty scope and reward table for a protocol."
+    done:
+      - "Lead security for a protocol, exchange or custodian."
+      - "Report a valid vulnerability through a bug bounty programme."
+
+tools:
+  - { name: "Foundry", url: "https://book.getfoundry.sh/", kind: oss, what: "Testing, fuzzing and mainnet forking." }
+  - { name: "Slither", url: "https://github.com/crytic/slither", kind: oss, what: "Static analysis for Solidity." }
+  - { name: "Echidna", url: "https://github.com/crytic/echidna", kind: oss, what: "Property-based fuzzing for contracts." }
+  - { name: "Ethernaut", url: "https://ethernaut.openzeppelin.com/", kind: free, what: "Practice game of vulnerable contracts." }
+  - { name: "Damn Vulnerable DeFi", url: "https://www.damnvulnerabledefi.xyz/", kind: free, what: "DeFi security practice challenges." }
+  - { name: "Tenderly", url: "https://tenderly.co/", kind: community, what: "Transaction simulation and monitoring." }
+
+certs:
+  - { name: "Certified Blockchain Security Professional", by: "Blockchain Council", url: "https://www.blockchain-council.org/certifications/certified-blockchain-security-professional/", level: mid, note: "Vendor certification; audit track record matters more." }
+  - { name: "CCSS Auditor", by: "CryptoCurrency Certification Consortium", url: "https://cryptoconsortium.org/certifications/ccssa/", level: mid, note: "Audits against the CryptoCurrency Security Standard." }
+  - { ref: secplus, note: "Security baseline." }
+
+resources:
+  - { name: "Ethereum developer documentation", by: "Ethereum Foundation", url: "https://ethereum.org/en/developers/docs/", type: docs, cost: free }
+  - { name: "Smart Contract Weakness Classification", by: "SWC Registry", url: "https://swcregistry.io/", type: docs, cost: free }
+  - { name: "Code4rena audit reports", by: "Code4rena", url: "https://code4rena.com/reports", type: docs, cost: free }
+  - { name: "Rekt News (post-mortems)", by: "Rekt", url: "https://rekt.news/", type: docs, cost: free }
+  - { name: "Smart Contract Security Verification Standard", by: "ComposableSecurity", url: "https://github.com/ComposableSecurity/SCSVS", type: docs, cost: free }
+
+frameworks: [cwe, owasp-top10, nist-800-57, pci-dss]
+
+career:
+  - { title: "Developer or application security engineer", years: "0–3 years" }
+  - { title: "Junior auditor or competition participant", years: "1–3 years" }
+  - { title: "Smart contract auditor or blockchain security engineer", years: "3–6 years" }
+  - { title: "Lead auditor or head of security (Web3)", years: "6+ years" }
+
+related:
+  - { to: appsec, why: "Contract auditing is code review with money on the line." }
+  - { to: crypto, why: "Keys and signatures are the foundation of every chain." }
+  - { to: finsec, why: "Exchanges and custodians are financial institutions." }
+  - { to: fraud, why: "Scams and phishing drain most user funds." }

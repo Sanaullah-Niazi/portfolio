@@ -24,7 +24,7 @@ prereqs:
   - "C and some assembly; comfort reading low-level code."
   - "Cryptography basics: hashing, signatures and keys."
   - "Some electronics is helpful for physical work."
-prereq_paths: [cybersecurity, embedded]
+prereq_paths: [cybersecurity, foundations]
 
 stages:
   - level: beginner
@@ -223,7 +223,7 @@ career:
   - { title: "Platform security architect", years: "10+ years" }
 
 related:
-  - { name: "IoT and Embedded Security", why: "Embedded devices are where firmware security matters most." }
+  - { to: iot, why: "Embedded devices are where firmware security matters most." }
   - { to: endpoint, why: "Secure boot and TPMs underpin endpoint security." }
   - { to: crypto, why: "Hardware protects the keys cryptography depends on." }
   - { to: supplychain, why: "Hardware and firmware have their own supply chain risks." }

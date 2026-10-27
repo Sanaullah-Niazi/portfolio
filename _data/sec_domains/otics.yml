@@ -1,0 +1,230 @@
+# Security roadmap: OT and ICS Security. Shown at /roadmaps/security/otics/.
+# Field guide: see the top of secops.yml.
+
+id: otics
+category: special
+icon: factory
+entry: intermediate
+title: "OT and ICS Security"
+summary: "Protect the systems that run physical processes: SCADA, PLCs, industrial protocols and the networks behind energy, water, manufacturing and buildings, where safety comes before everything."
+keywords: "OT security ICS security SCADA PLC HMI industrial control systems IEC 62443 Purdue model industrial protocols Modbus DNP3 energy water manufacturing building automation safety"
+
+overview:
+  - "Operational technology controls physical processes: power grids, water treatment, factories, pipelines and building systems. It was built for reliability and safety over decades, often without security, and it is now connected to corporate networks and the internet."
+  - "OT security adapts IT security to this world: understanding industrial protocols and controllers, segmenting networks, monitoring passively, patching when the plant allows, and responding to incidents without causing an outage or a safety event. It needs engineering empathy as much as security skill."
+why: "Attacks on infrastructure can cause physical harm and large-scale disruption, and regulators increasingly require OT security. There are far fewer OT security specialists than roles, and the skills are hard to pick up without deliberate study."
+roles:
+  - { title: "OT security analyst", level: entry, what: "Monitors OT networks and handles alerts." }
+  - { title: "OT security engineer", level: mid, what: "Designs segmentation and controls for plants." }
+  - { title: "ICS security architect", level: senior, what: "Sets OT security architecture across sites." }
+  - { title: "Head of OT security", level: lead, what: "Owns the OT security programme." }
+
+prereqs:
+  - "Network security fundamentals."
+  - "Some understanding of how industrial processes and control systems work."
+  - "Security operations basics."
+  - "Patience and respect for safety and uptime constraints."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Understanding OT"
+    months: "2–4"
+    topics:
+      - id: ot-vs-it
+        title: "OT versus IT"
+        text: "OT prioritises safety and availability over confidentiality, runs for decades, and cannot simply be patched or rebooted. Everything in OT security follows from these differences."
+        res:
+          - { name: "Guide to Operational Technology Security (SP 800-82)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/82/r3/final", type: docs, cost: free }
+      - id: ics-components
+        title: "ICS components"
+        text: "PLCs, RTUs, HMIs, historians, engineering workstations and safety systems. Learn what each does and how they talk to each other."
+        res:
+          - { name: "Guide to Operational Technology Security (SP 800-82)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/82/r3/final", type: docs, cost: free }
+      - id: industrial-protocols
+        title: "Industrial protocols"
+        text: "Modbus, DNP3, OPC UA, PROFINET and EtherNet/IP. Most have no authentication; learn how they work and what that means for monitoring and attack."
+        res:
+          - { name: "ICS protocol resources", by: "SANS ICS", url: "https://www.sans.org/industrial-control-systems-security/", type: docs, cost: free }
+      - id: purdue-model
+        title: "The Purdue model and zones"
+        text: "Levels from field devices up to the enterprise, with zones and conduits between them. It is the mental model for OT segmentation."
+        res:
+          - { name: "IEC 62443 overview", by: "ISA", url: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards", type: docs, cost: free }
+      - id: ot-threats
+        title: "Threats to OT"
+        text: "Study the real incidents against power grids, water utilities and manufacturers. They show how attackers reach OT and what they do there."
+        res:
+          - { name: "MITRE ATT&CK for ICS", by: "MITRE", url: "https://attack.mitre.org/matrices/ics/", type: docs, cost: free }
+      - id: safety-first
+        title: "Safety and engineering culture"
+        text: "Plant engineers own safety and uptime. Learn their constraints, change windows and language before proposing any control. Trust is earned slowly in OT."
+        res:
+          - { name: "Guide to Operational Technology Security (SP 800-82)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/82/r3/final", type: docs, cost: free }
+    skills:
+      - "Explain how OT differs from IT and why it matters for security."
+      - "Identify ICS components and protocols in a network."
+      - "Apply the Purdue model to a plant."
+    labs:
+      - "Build a small simulated ICS with an open-source PLC simulator and an HMI, and capture its Modbus traffic."
+      - "Map a sample plant network onto the Purdue model and mark the zones."
+    done:
+      - "Read an industrial network capture and describe what the devices are doing."
+      - "Explain three real OT incidents and the attacker's path in each."
+
+  - level: intermediate
+    title: "Securing OT environments"
+    months: "3–6"
+    topics:
+      - id: iec62443
+        title: "IEC 62443"
+        text: "The main OT security standard: zones, conduits, security levels and requirements for owners, integrators and vendors. Learn its structure and how to apply it."
+        res:
+          - { name: "IEC 62443 overview", by: "ISA", url: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards", type: docs, cost: free }
+      - id: ot-asset-inventory
+        title: "OT asset inventory"
+        text: "You rarely know what is on an OT network. Build the inventory passively first; active scanning can crash fragile devices."
+        res:
+          - { name: "Guide to Operational Technology Security (SP 800-82)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/82/r3/final", type: docs, cost: free }
+      - id: ot-segmentation
+        title: "Segmentation and the DMZ"
+        text: "Separate OT from IT with an industrial DMZ, segment within OT by zone, and control every conduit. Flat OT networks are the most common finding."
+        res:
+          - { name: "Cross-Sector Cybersecurity Performance Goals", by: "CISA", url: "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals", type: docs, cost: free }
+      - id: ot-remote-access
+        title: "Secure remote access"
+        text: "Vendors and engineers need remote access to plants. Make it brokered, authenticated, time-limited and recorded, never a direct VPN into the control network."
+        res:
+          - { name: "Cross-Sector Cybersecurity Performance Goals", by: "CISA", url: "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals", type: docs, cost: free }
+      - id: ot-monitoring
+        title: "Passive monitoring and detection"
+        text: "Monitor OT traffic passively for new devices, protocol anomalies and known attack behaviours. Tune detection with the engineers who know what normal looks like."
+        res:
+          - { name: "Malcolm", by: "CISA / INL", url: "https://github.com/cisagov/Malcolm", type: tool, cost: free }
+      - id: ot-patching
+        title: "Patching and hardening in OT"
+        text: "Patches need vendor approval and plant downtime. Prioritise by exposure, use compensating controls, and harden what cannot be patched."
+        res:
+          - { name: "ICS advisories", by: "CISA", url: "https://www.cisa.gov/news-events/cybersecurity-advisories?f%5B0%5D=advisory_type%3A95", type: docs, cost: free }
+    skills:
+      - "Apply IEC 62443 to a plant."
+      - "Build an OT asset inventory safely."
+      - "Design segmentation and secure remote access."
+      - "Monitor OT traffic for threats."
+    labs:
+      - "Deploy Malcolm against a simulated ICS and build an inventory from passive capture."
+      - "Design zones, conduits and an industrial DMZ for a sample plant per IEC 62443."
+      - "Set up brokered remote access to the lab PLC with recording."
+    done:
+      - "Produce an IEC 62443 zone and conduit design for a real or simulated plant."
+      - "Detect an attack on a simulated ICS with passive monitoring."
+
+  - level: advanced
+    title: "OT incident response and assessment"
+    months: "4–8"
+    topics:
+      - id: ot-incident-response
+        title: "OT incident response"
+        text: "Response must preserve safety and process continuity. Plan with engineers, know when to isolate, and have manual operation and recovery procedures ready."
+        res:
+          - { name: "Guide to Operational Technology Security (SP 800-82)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/82/r3/final", type: docs, cost: free }
+      - id: ot-assessment
+        title: "Assessing OT environments"
+        text: "Assess plants with passive techniques, configuration review and careful, agreed testing. Never run active tools on production OT without engineering sign-off."
+        res:
+          - { name: "Technical Guide to Information Security Testing (SP 800-115)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/115/final", type: docs, cost: free }
+      - id: safety-systems
+        title: "Safety instrumented systems"
+        text: "SIS are the last line against physical disaster and have been targeted. Keep them isolated, monitor them, and understand their engineering."
+        res:
+          - { name: "MITRE ATT&CK for ICS", by: "MITRE", url: "https://attack.mitre.org/matrices/ics/", type: docs, cost: free }
+      - id: ot-threat-modelling
+        title: "Threat modelling for OT"
+        text: "Model what an attacker could do to the process, not only to the computers. Use ATT&CK for ICS and EMB3D to map attack paths to physical consequences."
+        res:
+          - { name: "EMB3D", by: "MITRE", url: "https://emb3d.mitre.org/", type: docs, cost: free }
+      - id: ot-vendors
+        title: "Vendors, integrators and supply chain"
+        text: "OT security depends on vendors and integrators. Set security requirements in procurement, review their remote access, and track their vulnerabilities."
+        res:
+          - { name: "IEC 62443 overview", by: "ISA", url: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards", type: docs, cost: free }
+      - id: ot-regulation
+        title: "OT regulation"
+        text: "NIS2, sector rules for energy, water and transport, and national critical infrastructure schemes set OT security duties. Know which apply to your sites."
+        res:
+          - { name: "NIS2 Directive", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive", type: docs, cost: free }
+    skills:
+      - "Plan and run OT incident response with engineers."
+      - "Assess OT environments safely."
+      - "Protect safety systems."
+      - "Threat model physical consequences."
+    labs:
+      - "Run an OT incident tabletop with plant engineers, including manual operation."
+      - "Assess a simulated plant and write a report with prioritised, plant-realistic fixes."
+      - "Threat model a process using ATT&CK for ICS and identify the consequences that matter most."
+    done:
+      - "Lead an OT incident response exercise that keeps safety first."
+      - "Produce an OT assessment that engineers accept and act on."
+
+  - level: expert
+    title: "Leading OT security"
+    months: "6–12"
+    topics:
+      - id: ot-programme
+        title: "Building an OT security programme"
+        text: "Cover many sites with different vendors, ages and owners. Standardise what you can, set a maturity target per site, and fund it with the operations budget holders."
+        res:
+          - { name: "Cross-Sector Cybersecurity Performance Goals", by: "CISA", url: "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals", type: docs, cost: free }
+      - id: it-ot-convergence
+        title: "IT and OT convergence"
+        text: "Cloud analytics, IIoT and remote operations connect OT more every year. Govern the convergence rather than fight it."
+        res:
+          - { name: "Guide to Operational Technology Security (SP 800-82)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/82/r3/final", type: docs, cost: free }
+      - id: ot-metrics
+        title: "Measuring OT security"
+        text: "Track inventory coverage, segmentation status, remote access control, monitoring coverage and time to respond, per site. Report to operations leadership."
+        res:
+          - { name: "IEC 62443 overview", by: "ISA", url: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards", type: docs, cost: free }
+    skills:
+      - "Run an OT security programme across sites."
+      - "Govern IT and OT convergence."
+    labs:
+      - "Write an OT security programme plan for a multi-site organisation."
+      - "Design a site maturity scorecard and roadmap."
+    done:
+      - "Lead OT security across an organisation with measured site maturity."
+      - "Be trusted by both security and operations leadership."
+
+tools:
+  - { name: "Malcolm", url: "https://github.com/cisagov/Malcolm", kind: oss, what: "Network traffic analysis suite with ICS protocol support." }
+  - { name: "Zeek with ICS parsers", url: "https://github.com/cisagov/ICSNPP", kind: oss, what: "Parse industrial protocols in Zeek." }
+  - { name: "OpenPLC", url: "https://autonomylogic.com/", kind: oss, what: "Open-source PLC for lab environments." }
+  - { name: "GRASSMARLIN", url: "https://github.com/nsacyber/GRASSMARLIN", kind: oss, what: "Passive ICS network mapping." }
+  - { name: "Wireshark", url: "https://www.wireshark.org/", kind: oss, what: "Dissect industrial protocols." }
+
+certs:
+  - { name: "GIAC GICSP", by: "GIAC", url: "https://www.giac.org/certifications/global-industrial-cyber-security-professional-gicsp/", level: mid, note: "The standard ICS security certification." }
+  - { name: "ISA/IEC 62443 Cybersecurity Certificates", by: "ISA", url: "https://www.isa.org/certification/certificate-programs/isa-iec-62443-cybersecurity-certificate-program", level: mid, note: "Standard-focused certificates." }
+  - { name: "GIAC GRID", by: "GIAC", url: "https://www.giac.org/certifications/response-industrial-defense-grid/", level: senior, note: "ICS incident response and defence." }
+  - { ref: secplus, note: "IT security baseline before OT." }
+
+resources:
+  - { name: "Guide to Operational Technology Security (SP 800-82)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/82/r3/final", type: docs, cost: free }
+  - { name: "IEC 62443 overview", by: "ISA", url: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards", type: docs, cost: free }
+  - { name: "MITRE ATT&CK for ICS", by: "MITRE", url: "https://attack.mitre.org/matrices/ics/", type: docs, cost: free }
+  - { name: "Cross-Sector Cybersecurity Performance Goals", by: "CISA", url: "https://www.cisa.gov/cross-sector-cybersecurity-performance-goals", type: docs, cost: free }
+  - { name: "SANS ICS resources", by: "SANS Institute", url: "https://www.sans.org/industrial-control-systems-security/", type: docs, cost: free }
+
+frameworks: [iec62443, nist-800-82, attack-ics, emb3d, nis2, nist-csf]
+
+career:
+  - { title: "Network, security or control systems engineer", years: "0–3 years" }
+  - { title: "OT security analyst or engineer", years: "2–5 years" }
+  - { title: "ICS security architect", years: "5–10 years" }
+  - { title: "Head of OT security", years: "10+ years" }
+
+related:
+  - { to: network, why: "Segmentation and monitoring are network security applied to OT." }
+  - { to: iot, why: "Industrial IoT blurs the line between OT and IoT." }
+  - { to: detection, why: "OT detection builds on detection engineering." }
+  - { to: resilience, why: "Physical process continuity is the ultimate resilience test." }

@@ -1,0 +1,228 @@
+# Security roadmap: Telecom and 5G Security. Shown at /roadmaps/security/telecom/.
+# Field guide: see the top of secops.yml.
+
+id: telecom
+category: special
+icon: antenna
+entry: advanced
+title: "Telecom and 5G Security"
+summary: "Secure the networks everyone else depends on: mobile cores and radio access, signalling, SIM and eSIM, 5G and its cloud-native core, and network virtualisation."
+keywords: "telecom security 5G security mobile network security core network RAN signalling SS7 Diameter GTP SIM eSIM NFV SDN 3GPP GSMA network slicing Open RAN"
+
+overview:
+  - "Telecom networks carry calls, messages and data for everyone, and underpin identity through SMS and SIMs. They combine decades of legacy signalling protocols with modern cloud-native 5G cores built from software and virtualised network functions."
+  - "Telecom security covers the radio access network, the core and its signalling, subscriber identity and SIM security, interconnect with other operators, virtualisation and cloud infrastructure, and the regulation that treats telecoms as critical national infrastructure."
+why: "Attacks on telecoms enable mass surveillance, fraud, SIM swapping and outages that affect whole countries. As 5G cores move to cloud-native software, operators and vendors need people who understand both telecom protocols and modern infrastructure security."
+roles:
+  - { title: "Telecom security analyst", level: entry, what: "Monitors signalling and network security alerts." }
+  - { title: "Telecom security engineer", level: mid, what: "Secures core, RAN and signalling infrastructure." }
+  - { title: "5G security architect", level: senior, what: "Designs security for 5G cores and slices." }
+  - { title: "Head of network security (operator)", level: lead, what: "Owns security for an operator's network." }
+
+prereqs:
+  - "Strong networking: IP, routing and protocols."
+  - "Cloud and container security basics."
+  - "Cryptography and PKI basics."
+  - "Some exposure to mobile network concepts."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "How mobile networks work"
+    months: "2–4"
+    topics:
+      - id: mobile-architecture
+        title: "Mobile network architecture"
+        text: "Devices, radio access, core network and interconnect, from 2G to 5G. Learn the main functions and how a call or data session is set up."
+        res:
+          - { name: "3GPP specifications overview", by: "3GPP", url: "https://www.3gpp.org/specifications-technologies", type: docs, cost: free }
+      - id: subscriber-identity
+        title: "Subscriber identity and SIMs"
+        text: "IMSI, SUPI, authentication keys and the SIM or eSIM that holds them. Learn how subscribers are authenticated and how 5G protects identity better."
+        res:
+          - { name: "GSMA eSIM", by: "GSMA", url: "https://www.gsma.com/solutions-and-impact/technologies/esim/", type: docs, cost: free }
+      - id: signalling-basics
+        title: "Signalling protocols"
+        text: "SS7, Diameter and GTP carry signalling between and within operators. They were built on trust and are still abused for tracking, interception and fraud."
+        res:
+          - { name: "GSMA Fraud and Security", by: "GSMA", url: "https://www.gsma.com/solutions-and-impact/technologies/security/", type: docs, cost: free }
+      - id: telecom-threats
+        title: "Threats to telecoms"
+        text: "Signalling abuse, SIM swap fraud, rogue base stations, core intrusions by state actors and outages. Study the documented campaigns."
+        res:
+          - { name: "Threat Landscape for 5G Networks", by: "ENISA", url: "https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks", type: docs, cost: free }
+      - id: radio-basics
+        title: "Radio access basics"
+        text: "Base stations, spectrum, the air interface and its encryption. Learn why older generations are weaker and what fake base stations can do."
+        res:
+          - { name: "3GPP specifications overview", by: "3GPP", url: "https://www.3gpp.org/specifications-technologies", type: docs, cost: free }
+      - id: telecom-regulation
+        title: "Telecom security regulation"
+        text: "Telecoms are critical infrastructure with national security rules, such as the UK Telecommunications Security Act and the EU 5G Toolbox. Know what applies."
+        res:
+          - { name: "EU 5G Toolbox", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/library/cybersecurity-5g-networks-eu-toolbox-risk-mitigating-measures", type: docs, cost: free }
+    skills:
+      - "Describe mobile network architecture across generations."
+      - "Explain subscriber authentication and SIM security."
+      - "Explain signalling protocols and their weaknesses."
+    labs:
+      - "Run an open-source 5G core and simulated radio and devices (Open5GS and UERANSIM) and trace a registration."
+      - "Capture and decode signalling in the lab with Wireshark."
+    done:
+      - "Trace how a device attaches to a 5G network and is authenticated."
+      - "Explain three real signalling abuse cases."
+
+  - level: intermediate
+    title: "Securing the core and signalling"
+    months: "3–6"
+    topics:
+      - id: 5g-security-arch
+        title: "5G security architecture"
+        text: "5G adds SUCI identity protection, a stronger authentication framework, service-based architecture and security edge protection proxies. Learn 3GPP TS 33.501."
+        res:
+          - { name: "3GPP TS 33.501 (5G security architecture)", by: "3GPP / ETSI", url: "https://www.etsi.org/deliver/etsi_ts/133500_133599/133501/", type: docs, cost: free }
+      - id: signalling-firewalls
+        title: "Signalling firewalls and monitoring"
+        text: "Filter and monitor SS7, Diameter and GTP at the interconnect to block tracking and fraud. GSMA guidelines define the categories to filter."
+        res:
+          - { name: "GSMA Fraud and Security", by: "GSMA", url: "https://www.gsma.com/solutions-and-impact/technologies/security/", type: docs, cost: free }
+      - id: core-hardening
+        title: "Core network hardening"
+        text: "Harden network functions, management planes and interfaces; separate user, control and management traffic; and lock down privileged access."
+        res:
+          - { name: "Network Equipment Security Assurance Scheme (NESAS)", by: "GSMA", url: "https://www.gsma.com/solutions-and-impact/industry-services/assurance/nesas/", type: docs, cost: free }
+      - id: nfv-security
+        title: "NFV and cloud-native cores"
+        text: "5G cores run as virtualised or containerised functions on cloud platforms. Apply Kubernetes, container and cloud security to the network itself."
+        res:
+          - { name: "Security Guidance for 5G Cloud Infrastructures", by: "NSA and CISA", url: "https://www.cisa.gov/resources-tools/resources/security-guidance-5g-cloud-infrastructures", type: docs, cost: free }
+      - id: interconnect-roaming
+        title: "Interconnect and roaming"
+        text: "Operators trust each other through interconnect and roaming exchanges. Secure the links, verify partners and monitor for abuse."
+        res:
+          - { name: "GSMA Fraud and Security", by: "GSMA", url: "https://www.gsma.com/solutions-and-impact/technologies/security/", type: docs, cost: free }
+      - id: sim-swap-defence
+        title: "SIM swap and number porting fraud"
+        text: "Attackers socially engineer operators to move numbers and steal SMS codes. Strengthen retail processes, add checks and share signals with banks."
+        res:
+          - { name: "Digital Identity Guidelines (SP 800-63)", by: "NIST", url: "https://pages.nist.gov/800-63-4/", type: docs, cost: free }
+    skills:
+      - "Apply the 5G security architecture."
+      - "Deploy signalling protection."
+      - "Harden cloud-native network functions."
+      - "Defend against SIM swap and interconnect abuse."
+    labs:
+      - "Enable SUCI concealment in the lab 5G core and verify identities are hidden."
+      - "Apply Kubernetes hardening to a containerised 5G core and check it with a benchmark."
+      - "Design a SIM swap prevention process with retail and fraud checks."
+    done:
+      - "Show a hardened lab 5G core with identity protection on."
+      - "Design signalling protection for an operator's interconnect."
+
+  - level: advanced
+    title: "Advanced 5G and RAN security"
+    months: "4–8"
+    topics:
+      - id: network-slicing
+        title: "Network slicing security"
+        text: "Slices share infrastructure but serve very different customers, from consumers to hospitals. Isolate them properly and manage their security separately."
+        res:
+          - { name: "Threat Landscape for 5G Networks", by: "ENISA", url: "https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks", type: docs, cost: free }
+      - id: open-ran
+        title: "Open RAN security"
+        text: "Open RAN splits the radio network into interoperable software components from many vendors. That adds flexibility and new interfaces to secure."
+        res:
+          - { name: "O-RAN Alliance security", by: "O-RAN Alliance", url: "https://www.o-ran.org/", type: docs, cost: free }
+      - id: edge-mec
+        title: "Edge computing (MEC)"
+        text: "Multi-access edge computing runs customer workloads inside the operator network. Treat it as shared cloud infrastructure in a sensitive place."
+        res:
+          - { name: "Security Guidance for 5G Cloud Infrastructures", by: "NSA and CISA", url: "https://www.cisa.gov/resources-tools/resources/security-guidance-5g-cloud-infrastructures", type: docs, cost: free }
+      - id: telecom-detection
+        title: "Detection and response for operators"
+        text: "Operator SOCs watch signalling, core, IT and RAN together. Build detection for state-level intrusions and for fraud."
+        res:
+          - { name: "MITRE FiGHT (5G threat framework)", by: "MITRE", url: "https://fight.mitre.org/", type: docs, cost: free }
+      - id: vendor-assurance
+        title: "Vendor and equipment assurance"
+        text: "Network equipment comes from a few vendors and is high-value to attackers. Use assurance schemes, testing and diversification."
+        res:
+          - { name: "Network Equipment Security Assurance Scheme (NESAS)", by: "GSMA", url: "https://www.gsma.com/solutions-and-impact/industry-services/assurance/nesas/", type: docs, cost: free }
+      - id: lawful-intercept
+        title: "Lawful intercept and sensitive functions"
+        text: "Lawful intercept systems are among the most sensitive in any network and have been abused. Protect, audit and segregate them rigorously."
+        res:
+          - { name: "Threat Landscape for 5G Networks", by: "ENISA", url: "https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks", type: docs, cost: free }
+    skills:
+      - "Secure network slices, Open RAN and edge computing."
+      - "Run operator detection and response."
+      - "Manage network equipment assurance."
+      - "Protect sensitive functions such as lawful intercept."
+    labs:
+      - "Map an attack on a 5G network using MITRE FiGHT and design detections for it."
+      - "Design slice isolation for a critical-services slice in the lab core."
+    done:
+      - "Produce a security design for slices and edge computing."
+      - "Build detections mapped to FiGHT for a lab network."
+
+  - level: expert
+    title: "Leading telecom security"
+    months: "6–12"
+    topics:
+      - id: operator-strategy
+        title: "Operator security strategy"
+        text: "Balance national security duties, customer protection, fraud and the move to cloud across a whole network. Plan for decades-long equipment lifecycles."
+        res:
+          - { name: "EU 5G Toolbox", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/library/cybersecurity-5g-networks-eu-toolbox-risk-mitigating-measures", type: docs, cost: free }
+      - id: standards-participation
+        title: "Standards and industry work"
+        text: "3GPP, GSMA and national bodies shape telecom security. Contributing gives you influence and early warning."
+        res:
+          - { name: "3GPP specifications overview", by: "3GPP", url: "https://www.3gpp.org/specifications-technologies", type: docs, cost: free }
+      - id: telecom-govt
+        title: "Working with government"
+        text: "Operators work closely with national security agencies and regulators. Manage those relationships and the obligations that come with them."
+        res:
+          - { name: "EU 5G Toolbox", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/library/cybersecurity-5g-networks-eu-toolbox-risk-mitigating-measures", type: docs, cost: free }
+    skills:
+      - "Set operator security strategy."
+      - "Engage with standards bodies and government."
+    labs:
+      - "Write a five-year security strategy for an operator's 5G rollout."
+      - "Prepare a compliance plan against a national telecom security regime."
+    done:
+      - "Lead security for an operator's network."
+      - "Contribute to telecom security standards or industry guidance."
+
+tools:
+  - { name: "Open5GS", url: "https://open5gs.org/", kind: oss, what: "Open-source 4G and 5G core for labs." }
+  - { name: "UERANSIM", url: "https://github.com/aligungr/UERANSIM", kind: oss, what: "5G device and base station simulator." }
+  - { name: "srsRAN", url: "https://www.srslte.com/", kind: oss, what: "Open-source RAN software." }
+  - { name: "Wireshark", url: "https://www.wireshark.org/", kind: oss, what: "Decode SS7, Diameter, GTP and 5G protocols." }
+  - { name: "MITRE FiGHT", url: "https://fight.mitre.org/", kind: free, what: "Threat framework for 5G." }
+
+certs:
+  - { name: "GSMA and vendor 5G security training", by: "GSMA", url: "https://www.gsma.com/solutions-and-impact/technologies/security/", level: mid, note: "Industry security guidance and training." }
+  - { ref: cissp, note: "Baseline for telecom security leads." }
+  - { name: "CKS", by: "Linux Foundation", url: "https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/", level: mid, note: "Kubernetes security for cloud-native cores." }
+
+resources:
+  - { name: "3GPP TS 33.501 (5G security architecture)", by: "3GPP / ETSI", url: "https://www.etsi.org/deliver/etsi_ts/133500_133599/133501/", type: docs, cost: free }
+  - { name: "Threat Landscape for 5G Networks", by: "ENISA", url: "https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks", type: docs, cost: free }
+  - { name: "Security Guidance for 5G Cloud Infrastructures", by: "NSA and CISA", url: "https://www.cisa.gov/resources-tools/resources/security-guidance-5g-cloud-infrastructures", type: docs, cost: free }
+  - { name: "MITRE FiGHT", by: "MITRE", url: "https://fight.mitre.org/", type: docs, cost: free }
+  - { name: "GSMA Fraud and Security", by: "GSMA", url: "https://www.gsma.com/solutions-and-impact/technologies/security/", type: docs, cost: free }
+
+frameworks: [nis2, nist-csf, iso27001, zero-trust, nist-800-190]
+
+career:
+  - { title: "Network or telecom engineer", years: "0–3 years" }
+  - { title: "Telecom security engineer", years: "2–6 years" }
+  - { title: "5G security architect", years: "6–10 years" }
+  - { title: "Head of network security (operator)", years: "10+ years" }
+
+related:
+  - { to: network, why: "Telecom security is network security at national scale." }
+  - { to: container, why: "5G cores run on Kubernetes." }
+  - { to: fraud, why: "SIM swap and signalling abuse drive fraud." }
+  - { name: "Wireless Security", why: "Radio access is wireless security." }

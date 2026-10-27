@@ -1,0 +1,228 @@
+# Security roadmap: Healthcare and Medical Device Security. Shown at /roadmaps/security/healthsec/.
+# Field guide: see the top of secops.yml.
+
+id: healthsec
+category: special
+icon: heart
+entry: intermediate
+title: "Healthcare and Medical Device Security"
+summary: "Protect hospitals, health data and medical devices: clinical networks, electronic health records, connected devices, HIPAA and health privacy, and ransomware resilience where downtime affects patients."
+keywords: "healthcare security medical device security hospital network EHR HIPAA health data privacy HL7 FHIR DICOM clinical systems ransomware patient safety FDA premarket IEC 81001-5-1"
+
+overview:
+  - "Healthcare runs on a mix of modern cloud platforms and decades-old clinical systems, with thousands of connected medical devices that cannot easily be patched. A security incident here can delay treatment, so availability and patient safety matter as much as data protection."
+  - "The field covers clinical network security, electronic health records and interoperability standards such as HL7 and FHIR, medical device security from design to hospital deployment, health data privacy law, and resilience against the ransomware groups that target hospitals."
+why: "Hospitals are among the most attacked organisations, health data is highly valuable, and device regulators now require cybersecurity before approval. Healthcare needs people who can protect systems without getting in the way of care."
+roles:
+  - { title: "Healthcare security analyst", level: entry, what: "Monitors and protects clinical environments." }
+  - { title: "Medical device security engineer", level: mid, what: "Secures devices in design or in the hospital." }
+  - { title: "Healthcare security architect", level: senior, what: "Designs security for clinical networks and systems." }
+  - { title: "Healthcare CISO", level: lead, what: "Owns security across a health organisation." }
+
+prereqs:
+  - "Security fundamentals and network security basics."
+  - "Some understanding of how hospitals and clinical workflows run."
+  - "Privacy basics."
+  - "Respect for clinical safety constraints."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Healthcare fundamentals"
+    months: "2–3"
+    topics:
+      - id: health-it-landscape
+        title: "The health IT landscape"
+        text: "EHRs, PACS imaging, labs, pharmacy, scheduling, billing and thousands of devices. Learn how clinical systems fit together and what clinicians depend on."
+        res:
+          - { name: "Health Industry Cybersecurity Practices (405(d))", by: "US HHS", url: "https://405d.hhs.gov/", type: docs, cost: free }
+      - id: health-threats
+        title: "Threats to healthcare"
+        text: "Ransomware, data theft, business email compromise and attacks on suppliers have shut hospitals. Study the real incidents and their impact on patients."
+        res:
+          - { name: "Health Sector Cybersecurity Coordination Center", by: "US HHS", url: "https://www.hhs.gov/about/agencies/asa/ocio/hc3/index.html", type: docs, cost: free }
+      - id: health-privacy-law
+        title: "Health privacy law"
+        text: "HIPAA in the US, GDPR's special category rules in Europe and national health data laws set strict duties. Learn the security and breach rules."
+        res:
+          - { name: "HIPAA Security Rule", by: "US HHS", url: "https://www.hhs.gov/hipaa/for-professionals/security/index.html", type: docs, cost: free }
+      - id: health-standards
+        title: "Interoperability standards"
+        text: "HL7 v2, FHIR and DICOM move clinical data between systems. Learn their security features and common weaknesses."
+        res:
+          - { name: "FHIR security", by: "HL7 International", url: "https://hl7.org/fhir/security.html", type: docs, cost: free }
+      - id: medical-device-basics
+        title: "Medical devices on the network"
+        text: "Infusion pumps, monitors, imaging and lab devices run old operating systems and cannot be patched freely. Learn why, and what that means for security."
+        res:
+          - { name: "Medical device cybersecurity", by: "US FDA", url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity", type: docs, cost: free }
+      - id: clinical-safety
+        title: "Clinical safety and security"
+        text: "A control that blocks a clinician in an emergency is a safety risk. Work with clinical engineering and design controls around clinical workflows."
+        res:
+          - { name: "Health Industry Cybersecurity Practices (405(d))", by: "US HHS", url: "https://405d.hhs.gov/", type: docs, cost: free }
+    skills:
+      - "Describe health IT systems and clinical workflows."
+      - "Explain health privacy and breach rules."
+      - "Recognise medical device security constraints."
+    labs:
+      - "Map the systems involved in a patient's visit, from registration to discharge, and their data flows."
+      - "Set up a FHIR test server and review its authentication and access controls."
+    done:
+      - "Explain the main threats to healthcare and their patient impact."
+      - "Describe how HIPAA or GDPR shapes health data security."
+
+  - level: intermediate
+    title: "Securing clinical environments"
+    months: "3–6"
+    topics:
+      - id: clinical-network
+        title: "Clinical network segmentation"
+        text: "Separate medical devices, clinical systems, guest and corporate networks, and control the flows between them. Segmentation protects devices that cannot protect themselves."
+        res:
+          - { name: "Health Industry Cybersecurity Practices (405(d))", by: "US HHS", url: "https://405d.hhs.gov/", type: docs, cost: free }
+      - id: device-inventory
+        title: "Medical device inventory and risk"
+        text: "Find every connected device passively, record its software and vendor support status, and rate its risk. MDS2 forms from manufacturers help."
+        res:
+          - { name: "MDS2 form", by: "NEMA", url: "https://www.nema.org/standards/view/manufacturer-disclosure-statement-for-medical-device-security", type: docs, cost: free }
+      - id: ehr-security
+        title: "EHR and clinical system security"
+        text: "Role-based access, break-glass procedures, audit trails and monitoring for snooping. Clinicians need fast access; build controls that respect that."
+        res:
+          - { name: "HIPAA Security Rule", by: "US HHS", url: "https://www.hhs.gov/hipaa/for-professionals/security/index.html", type: docs, cost: free }
+      - id: health-identity
+        title: "Identity in healthcare"
+        text: "Shared workstations, badge tap-in, many roles and frequent locum staff make identity hard. Use fast authentication and strong lifecycle management."
+        res:
+          - { name: "Digital Identity Guidelines (SP 800-63)", by: "NIST", url: "https://pages.nist.gov/800-63-4/", type: docs, cost: free }
+      - id: health-ransomware
+        title: "Ransomware resilience in hospitals"
+        text: "Plan downtime procedures, protect backups, practise paper-based operation and recovery order. Patients still need care while systems are down."
+        res:
+          - { name: "#StopRansomware Guide", by: "CISA", url: "https://www.cisa.gov/stopransomware/ransomware-guide", type: docs, cost: free }
+      - id: health-third-party
+        title: "Health suppliers and business associates"
+        text: "Billing firms, cloud EHRs and device vendors hold or reach health data. Business associate agreements and supplier assessments carry the duties."
+        res:
+          - { name: "HIPAA business associates", by: "US HHS", url: "https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html", type: docs, cost: free }
+    skills:
+      - "Segment clinical networks."
+      - "Inventory and rate medical device risk."
+      - "Secure EHR access and identity for clinicians."
+      - "Plan hospital ransomware resilience."
+    labs:
+      - "Design a segmented clinical network for a small hospital with device, clinical and corporate zones."
+      - "Write downtime procedures for a ransomware event and run them as a tabletop with clinical staff roles."
+      - "Rate the risk of five medical devices using sample MDS2 forms."
+    done:
+      - "Show a clinical network design that protects unpatchable devices."
+      - "Run a hospital ransomware exercise that keeps care going."
+
+  - level: advanced
+    title: "Medical device security engineering"
+    months: "4–8"
+    topics:
+      - id: fda-premarket
+        title: "Regulatory requirements for devices"
+        text: "The FDA, EU MDR and other regulators require threat modelling, SBOMs, vulnerability handling and update plans before approval. Learn what submissions need."
+        res:
+          - { name: "Medical device cybersecurity", by: "US FDA", url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity", type: docs, cost: free }
+      - id: device-threat-modelling
+        title: "Threat modelling medical devices"
+        text: "Model threats to the device, its connections and the patient. Link security risks to safety risk under ISO 14971."
+        res:
+          - { name: "Playbook for Threat Modeling Medical Devices", by: "MITRE and MDIC", url: "https://www.mitre.org/news-insights/publication/playbook-threat-modeling-medical-devices", type: docs, cost: free }
+      - id: device-secure-dev
+        title: "Secure development for devices"
+        text: "IEC 81001-5-1 sets secure lifecycle requirements for health software. Combine secure coding, testing, SBOMs and secure updates."
+        res:
+          - { name: "IEC 81001-5-1", by: "IEC", url: "https://webstore.iec.ch/en/publication/62443", type: docs, cost: paid }
+      - id: device-postmarket
+        title: "Postmarket vulnerability management"
+        text: "Monitor vulnerabilities in fielded devices, coordinate disclosure, patch safely and tell hospitals what to do. The device's whole life is in scope."
+        res:
+          - { name: "Medical device cybersecurity", by: "US FDA", url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity", type: docs, cost: free }
+      - id: health-cloud-apps
+        title: "Health cloud, apps and AI"
+        text: "Telehealth, patient apps, cloud EHRs and clinical AI bring cloud and app security into care. Apply the same standards and add health privacy."
+        res:
+          - { name: "FHIR security", by: "HL7 International", url: "https://hl7.org/fhir/security.html", type: docs, cost: free }
+      - id: health-detection
+        title: "Detection in clinical environments"
+        text: "Monitor for device anomalies, EHR snooping and ransomware precursors with tuning that understands clinical traffic."
+        res:
+          - { name: "Health Sector Cybersecurity Coordination Center", by: "US HHS", url: "https://www.hhs.gov/about/agencies/asa/ocio/hc3/index.html", type: docs, cost: free }
+    skills:
+      - "Prepare device security evidence for regulators."
+      - "Threat model devices and link to safety risk."
+      - "Run postmarket vulnerability management."
+      - "Secure health cloud, apps and AI."
+    labs:
+      - "Threat model a connected infusion pump using the MITRE/MDIC playbook."
+      - "Write a postmarket vulnerability management plan for a device."
+      - "Produce an SBOM and security documentation package for a sample device submission."
+    done:
+      - "Produce device security documentation that would satisfy a regulator."
+      - "Run a coordinated disclosure for a device vulnerability in a tabletop."
+
+  - level: expert
+    title: "Leading healthcare security"
+    months: "6–12"
+    topics:
+      - id: health-programme
+        title: "Healthcare security programme"
+        text: "Balance patient safety, privacy, regulation and tight budgets across hospitals, clinics and suppliers. Use sector frameworks such as 405(d) HICP."
+        res:
+          - { name: "Health Industry Cybersecurity Practices (405(d))", by: "US HHS", url: "https://405d.hhs.gov/", type: docs, cost: free }
+      - id: clinical-partnership
+        title: "Partnership with clinicians"
+        text: "Security succeeds in healthcare when clinical leaders own it with you. Build relationships with clinical engineering, nursing and medical leadership."
+        res:
+          - { name: "Health Industry Cybersecurity Practices (405(d))", by: "US HHS", url: "https://405d.hhs.gov/", type: docs, cost: free }
+      - id: health-sharing
+        title: "Sector sharing and response"
+        text: "Health-ISAC and national health CERTs share threats and coordinate during major incidents. Join and contribute."
+        res:
+          - { name: "Health-ISAC", by: "Health-ISAC", url: "https://health-isac.org/", type: docs, cost: free }
+    skills:
+      - "Run a healthcare security programme."
+      - "Partner with clinical leadership."
+    labs:
+      - "Write a security programme plan for a regional health system using HICP."
+      - "Design a board report on patient-safety-relevant cyber risk."
+    done:
+      - "Lead security for a health organisation with clinical buy-in."
+      - "Show measurable reduction in clinical cyber risk."
+
+tools:
+  - { name: "HAPI FHIR", url: "https://hapifhir.io/", kind: oss, what: "FHIR server for labs and testing." }
+  - { name: "Orthanc", url: "https://www.orthanc-server.com/", kind: oss, what: "DICOM server for imaging labs." }
+  - { name: "Wireshark", url: "https://www.wireshark.org/", kind: oss, what: "Dissect HL7 and DICOM traffic." }
+  - { name: "Malcolm", url: "https://github.com/cisagov/Malcolm", kind: oss, what: "Passive network analysis for device inventory." }
+
+certs:
+  - { name: "HCISPP", by: "ISC2", url: "https://www.isc2.org/certifications/hcispp", level: mid, note: "Healthcare security and privacy." }
+  - { name: "CIPP/US", by: "IAPP", url: "https://iapp.org/certify/cipp/", level: mid, note: "Includes HIPAA privacy." }
+  - { ref: cissp, note: "Baseline for healthcare security leaders." }
+
+resources:
+  - { name: "Health Industry Cybersecurity Practices (405(d))", by: "US HHS", url: "https://405d.hhs.gov/", type: docs, cost: free }
+  - { name: "HIPAA Security Rule", by: "US HHS", url: "https://www.hhs.gov/hipaa/for-professionals/security/index.html", type: docs, cost: free }
+  - { name: "Medical device cybersecurity", by: "US FDA", url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity", type: docs, cost: free }
+  - { name: "Playbook for Threat Modeling Medical Devices", by: "MITRE and MDIC", url: "https://www.mitre.org/news-insights/publication/playbook-threat-modeling-medical-devices", type: docs, cost: free }
+  - { name: "FHIR security", by: "HL7 International", url: "https://hl7.org/fhir/security.html", type: docs, cost: free }
+
+frameworks: [hipaa, fda-cyber, gdpr, nist-csf, iso27001, nist-privacy]
+
+career:
+  - { title: "IT, clinical engineering or security analyst", years: "0–2 years" }
+  - { title: "Healthcare security analyst or device security engineer", years: "2–5 years" }
+  - { title: "Healthcare security architect", years: "5–10 years" }
+  - { title: "Healthcare CISO", years: "10+ years" }
+
+related:
+  - { to: privacy, why: "Health data is the most sensitive personal data." }
+  - { to: iot, why: "Medical devices are specialised connected devices." }
+  - { to: resilience, why: "Hospitals must keep caring through outages." }
+  - { to: prodsec, why: "Device makers carry product security duties." }
