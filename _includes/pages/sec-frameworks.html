@@ -1,0 +1,57 @@
+{%- comment -%}
+  The Frameworks & Standards page (/roadmaps/security/frameworks/). Everything is in _data/sec_frameworks.yml.
+  Search and the area filter reuse assets/js/sec-roadmaps.js.
+{%- endcomment -%}
+{%- assign F = site.data.sec_frameworks -%}
+{%- assign T = D.sec_frameworks | default: F -%}
+{%- assign R = site.data.sec_roadmaps -%}
+{%- assign core = F.frameworks | where: 'core', true -%}
+{%- assign more = F.frameworks | where_exp: 'f', 'f.core != true' -%}
+<div class="wrap page roadmaps-page sr-index sr-fw-page">
+  <header class="page-head">
+    <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> <a href="{{ L }}/roadmaps/security/">{{ R.eyebrow }}</a> <span aria-hidden="true">/</span> {{ T.eyebrow | default: F.eyebrow }}</p>
+    <h1>{{ T.title | default: F.title }}</h1>
+    <p class="lede">{{ T.lede | default: F.lede }}</p>
+    <p class="pill">{% include icon.html name="book" px=15 %}<span>{{ T.pill | default: F.pill }}</span></p>
+  </header>
+
+  <div class="card sr-controls" id="sr-controls" hidden>
+    <label class="sr-search">
+      <span class="label">{{ T.search_label | default: F.search_label }}</span>
+      <input type="search" id="sr-q" placeholder="{{ T.search_placeholder | default: F.search_placeholder }}" autocomplete="off" spellcheck="false">
+    </label>
+    <div class="filter" role="group" aria-labelledby="sr-area-label">
+      <span class="filter-label" id="sr-area-label">{{ T.area_label | default: F.area_label }}</span>
+      <button type="button" class="chip-btn" aria-pressed="true" data-cat="">{{ T.all | default: F.all }}</button>
+      {%- for a in F.areas %}
+      <button type="button" class="chip-btn" aria-pressed="false" data-cat="{{ a[0] }}">{{ a[1] }}</button>
+      {%- endfor %}
+    </div>
+    <p class="sr-status" role="status" aria-live="polite" data-template="{{ T.shown | default: F.shown }}"></p>
+  </div>
+
+  {%- assign groups = "core,more" | split: "," %}
+  {%- for g in groups %}
+  {%- if g == 'core' %}{% assign list = core %}{% assign gt = T.core_title | default: F.core_title %}{% else %}{% assign list = more %}{% assign gt = T.more_title | default: F.more_title %}{% endif %}
+  <section class="card sr-sec sr-cat" id="{{ g }}" aria-labelledby="{{ g }}-title">
+    <h2 id="{{ g }}-title" class="tool-title">{{ gt }}</h2>
+    <ul class="sr-fw-list">
+      {%- for f in list %}
+      <li class="sr-item" id="{{ f.id }}" data-cat="{{ f.area }}" data-search="{{ f.name | append: ' ' | append: f.purpose | append: ' ' | append: f.by | append: ' ' | append: F.areas[f.area] | downcase | escape }}">
+        <div class="sr-fw-head">
+          <strong>{{ f.name }}</strong>
+          <span class="rm-type">{{ F.areas[f.area] }}</span>
+        </div>
+        <p>{{ f.purpose }}</p>
+        <p class="sr-fw-meta"><span class="muted">{{ T.by | default: F.by }}: {{ f.by }}</span> <a href="{{ f.url }}" rel="noopener">{{ T.official | default: F.official }}</a></p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endfor %}
+
+  <p class="card sr-none" id="sr-none" hidden>{{ T.none | default: F.none }} <button type="button" class="chip-btn" id="sr-clear">{{ R.clear }}</button></p>
+
+  <p class="muted">{{ T.note | default: F.note }}</p>
+  <p class="muted tools-foot"><span>{{ R.reviewed_label }}: <time datetime="{{ F.reviewed | date: '%Y-%m-%d' }}">{% include date.html date=F.reviewed long=true %}</time>. {{ R.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
+</div>

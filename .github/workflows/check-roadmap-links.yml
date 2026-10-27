@@ -1,4 +1,5 @@
-# Checks every link on the Roadmaps and Certifications pages (_data/roadmaps.yml, _data/cert_roadmaps.yml) once a week, and whenever either file changes.
+# Checks every link on the Roadmaps, Certifications and Security roadmaps pages (_data/roadmaps.yml, _data/cert_roadmaps.yml,
+# _data/sec_frameworks.yml and _data/sec_domains/*.yml) once a week, and whenever one of those files changes.
 # If a link is broken the run fails and GitHub emails you; the log lists the broken links.
 name: Check roadmap links
 
@@ -6,9 +7,9 @@ on:
   schedule:
     - cron: "0 6 * * 1"   # Mondays, 06:00 UTC
   push:
-    paths: ["_data/roadmaps.yml", "_data/cert_roadmaps.yml"]
+    paths: ["_data/roadmaps.yml", "_data/cert_roadmaps.yml", "_data/sec_frameworks.yml", "_data/sec_domains/**"]
   pull_request:
-    paths: ["_data/roadmaps.yml", "_data/cert_roadmaps.yml"]
+    paths: ["_data/roadmaps.yml", "_data/cert_roadmaps.yml", "_data/sec_frameworks.yml", "_data/sec_domains/**"]
   workflow_dispatch:
 
 permissions:
@@ -32,4 +33,6 @@ jobs:
             --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
             _data/roadmaps.yml
             _data/cert_roadmaps.yml
+            _data/sec_frameworks.yml
+            _data/sec_domains/*.yml
           fail: true

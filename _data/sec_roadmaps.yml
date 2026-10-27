@@ -1,0 +1,177 @@
+# The Cybersecurity & AI Security Roadmaps index (/roadmaps/security/), in English.
+# Each finished roadmap is its own file in _data/sec_domains/<id>.yml, with a page stub at
+# roadmaps/security/<id>/index.html. List its id under its category's "domains:".
+# "planned:" lists the roadmaps that are written later; they show on the index as "coming soon".
+#
+# To finish a planned roadmap: copy _data/sec_domains/secops.yml to a new id, fill it in,
+# copy roadmaps/security/secops/index.html (change permalink, title, description and domain),
+# then move the name from "planned:" to that id under "domains:".
+# Every link in the roadmap files is checked once a week by .github/workflows/check-roadmap-links.yml.
+
+reviewed: 2026-10-27
+
+# ---- Page text. Only change the text after the colon. ----
+eyebrow: "Security roadmaps"
+title: "Cybersecurity & AI security roadmaps"
+lede: "A career roadmap for each area of cybersecurity and AI security: what the job is, what to learn in what order, labs to build, the certifications that matter, and where it can take you."
+pill: "Real tools and sources, links checked every week"
+how_title: "How these roadmaps work"
+how:
+  - "Every roadmap uses the same four stages: Beginner, Intermediate, Advanced and Expert. Each stage ends with a checkpoint. Move on when you can do everything in it."
+  - "Start with one of the six core domains. Most specialist areas build on one of them."
+  - "Do the labs on your own machines, or on platforms built for practice. Only ever test systems you own or have written permission to test."
+  - "Times assume about 10 hours a week alongside work or study."
+search_label: "Search the roadmaps"
+search_placeholder: "Search, for example SIEM, Kubernetes or forensics"
+category_label: "Category"
+level_label: "Starting level"
+all: "All"
+any_level: "Any level"
+shown: "[n] roadmaps shown"
+shown_one: "1 roadmap shown"
+none: "No roadmap matches. Try a shorter word, or clear the filters."
+clear: "Clear filters"
+open: "Open roadmap"
+soon: "Coming soon"
+soon_note: "Coming soon. These are written category by category."
+starts_at: "Starts at"
+total: "Total"
+stages_count: "4 stages"
+frameworks_cta: "Frameworks & standards"
+frameworks_cta_text: "NIST CSF, ISO/IEC 27001, MITRE ATT&CK, OWASP, the EU AI Act and more, each with its official link."
+learning_cta: "General learning roadmaps"
+learning_cta_text: "New to computing? Start with the foundations, then come back here."
+certs_cta: "Certification roadmaps"
+trust_title: "How this is kept accurate"
+trust: "Every tool, certification and resource here is real, and every link goes to the official site of the people who make it. Paid items are marked. A script checks every link once a week, and certification prices come from the official pages on the date shown on the Certifications page."
+reviewed_label: "Last reviewed"
+foot: "Found a mistake, or want a roadmap written sooner?"
+legal: "Offensive skills are for authorised testing only: your own lab, a practice platform, or a system whose owner has given you written permission. Testing anything else is a crime in most countries."
+
+# ---- The four stages, used by every roadmap ----
+levels:
+  beginner: "Beginner"
+  intermediate: "Intermediate"
+  advanced: "Advanced"
+  expert: "Expert"
+
+# ---- Words used on every roadmap page ----
+page:
+  contents: "On this page"
+  overview: "Overview"
+  why: "Why it matters"
+  roles: "Typical job roles"
+  seniority:
+    entry: "Entry"
+    mid: "Mid-level"
+    senior: "Senior"
+    lead: "Lead"
+  prereqs: "Prerequisites"
+  path: "Learning path"
+  path_note: "Tap a stage to open it. Filter to one level with the buttons."
+  show_level: "Show"
+  time: "Time"
+  topics: "Topics"
+  skills: "Skills"
+  done: "Done when you can…"
+  labs: "Hands-on projects and labs"
+  tools: "Tools and technologies"
+  kinds:
+    oss: "Open source"
+    free: "Free"
+    community: "Free community edition"
+    paid: "Commercial"
+  certs: "Certifications"
+  certs_note: "Take them in roughly this order. Costs and details for the ones marked with a link are on the Certifications page."
+  cert_levels:
+    entry: "Entry"
+    mid: "Intermediate"
+    advanced: "Advanced"
+  more_cert: "Cost and exam details"
+  resources: "Resources"
+  res_free: "Free"
+  res_paid: "Paid"
+  res_audit: "Free to audit"
+  types:
+    course: "Course"
+    book: "Book"
+    docs: "Docs"
+    practice: "Practice"
+    video: "Video"
+  frameworks: "Frameworks and standards"
+  frameworks_all: "All frameworks and standards"
+  career: "Career path"
+  career_note: "A common progression. Titles vary between companies."
+  related: "Related domains to move into"
+  estimate: "Estimated time"
+  estimate_note: "At about 10 hours a week."
+  weeks: "[n] weeks"
+  months: "[n] months"
+  ongoing: "Ongoing"
+  back: "All security roadmaps"
+  top: "Back to top"
+
+# ---- The categories, in the order shown ----
+categories:
+  - id: core
+    icon: shield
+    title: "Core domains"
+    summary: "The six foundations of a security career. Start here."
+    domains: [secops, network, iam, cloud, appsec, dfir]
+    planned: []
+
+  - id: infra
+    icon: monitor
+    title: "IT security and infrastructure"
+    summary: "Securing the machines, networks and services an organisation runs on."
+    domains: []
+    planned: ["Endpoint Security", "Operating System Security", "Server Security", "Virtualization Security", "Container Security", "Hardware Security", "Mobile Security", "Wireless Security", "Email and Messaging Security", "DNS and Web Security", "Remote Access Security", "IT Asset Management and Security", "Configuration and Patch Management", "Backup and Recovery Security", "IT Service Security"]
+
+  - id: data
+    icon: lock
+    title: "Information security and data protection"
+    summary: "Protecting information itself: who can see it, where it lives and how long it is kept."
+    domains: []
+    planned: ["Information Security Management (ISMS)", "Data Security", "Data Loss Prevention (DLP)", "Database Security", "Big Data Security", "Data Privacy", "Cryptography", "Post-Quantum Cryptography", "Secrets and Key Management", "Records and Document Security", "Data Governance", "Data Sovereignty and Residency", "Privacy-Enhancing Technologies", "Intellectual Property Protection", "Information Lifecycle Security"]
+
+  - id: engineering
+    icon: code
+    title: "Application, engineering and product security"
+    summary: "Building security into software, pipelines and products from the first line of code."
+    domains: []
+    planned: ["Web Application Security", "API Security", "Mobile Application Security", "Secure SDLC", "DevSecOps", "Product Security", "Software Supply Chain Security", "Source Code Security", "Infrastructure as Code Security", "CI/CD Pipeline Security", "Embedded Software Security", "Security Architecture and Design", "Security Testing and Assurance", "API and Microservices Architecture Security", "Open-Source Security"]
+
+  - id: defence
+    icon: radar
+    title: "Defensive security and threat management"
+    summary: "Finding, understanding and stopping attacks."
+    domains: []
+    planned: ["Security Operations Center (SOC)", "SIEM", "SOAR", "XDR", "Threat Hunting", "Detection Engineering", "Threat Intelligence", "Incident Response", "Digital Forensics", "Malware Analysis", "Ransomware Defense", "Vulnerability Management", "Exposure Management", "Attack Surface Management", "Security Validation", "Deception Technology", "Cyber Threat Analysis", "Crisis Management", "Cyber Resilience"]
+
+  - id: offence
+    icon: bug
+    title: "Offensive security and assessment"
+    summary: "Testing defences the way attackers would, with permission and within agreed rules."
+    domains: []
+    planned: ["Penetration Testing", "Red Teaming", "Purple Teaming", "Security Auditing", "Vulnerability Research", "Security Code Review", "Web and API Security Assessment", "Cloud Security Assessment", "Wireless Security Assessment", "Mobile Security Assessment", "Hardware and Firmware Assessment", "Adversary Emulation", "Bug Bounty and Coordinated Disclosure", "Security Quality Assurance", "Attack Path Analysis"]
+
+  - id: grc
+    icon: briefcase
+    title: "Governance, risk, compliance and audit"
+    summary: "Deciding what to protect, proving it is protected, and keeping the business running."
+    domains: []
+    planned: ["Cybersecurity Governance", "Risk Management", "GRC", "Security Policy Management", "Security Awareness and Education", "Third-Party Risk Management", "Supply Chain Risk Management", "Internal and External Security Audit", "Regulatory Compliance", "Security Metrics and Reporting", "Business Continuity Management", "Disaster Recovery", "Cyber Insurance and Risk Transfer", "Security Program Management", "Security Architecture Governance", "Assurance and Certification"]
+
+  - id: ai
+    icon: brain
+    title: "AI and machine learning security"
+    summary: "Securing AI systems, and using AI to defend everything else."
+    domains: []
+    planned: ["AI System Security", "LLM and Generative AI Security", "Agentic AI Security", "Machine Learning Security", "AI for Cybersecurity", "AI Red Teaming and Safety Evaluations", "AI Governance and Risk Management", "AI Model Privacy and Data Protection", "AI Infrastructure Security", "AI Application Security", "AI Supply Chain Security", "AI Safety and Reliability", "Responsible AI", "AI Security Monitoring", "AI Regulatory Compliance", "AI Identity and Access Control", "AI Security Testing and Evaluation", "AI Data Governance and Provenance", "AI Agent Memory and Context Security", "AI-Assisted Digital Forensics and Threat Intelligence"]
+
+  - id: special
+    icon: chip
+    title: "Specialised and emerging"
+    summary: "Security for particular industries, physical systems and new technology."
+    domains: []
+    planned: ["OT Security", "ICS Security", "SCADA Security", "IoT Security", "Automotive Cybersecurity", "Railway and Transportation Security", "Aviation Cybersecurity", "Maritime Cybersecurity", "Energy and Utility Security", "Healthcare Cybersecurity", "Financial Services Security", "Telecommunications Security", "Satellite and Space Cybersecurity", "Aerospace and Defense Security", "Government and Public Sector Security", "Critical Infrastructure Protection", "Blockchain and Web3 Security", "Quantum Security", "Physical Security", "Cyber-Physical Systems Security", "Operational Safety and Cybersecurity", "Privacy and Identity Technologies", "Electronic Fraud and Abuse Prevention", "Digital Trust and Assurance", "Cybersecurity Research and Education"]

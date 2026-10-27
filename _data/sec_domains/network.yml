@@ -1,0 +1,152 @@
+# Security roadmap: Network Security. Shown at /roadmaps/security/network/.
+# Field guide: see the top of secops.yml.
+
+id: network
+category: core
+icon: globe
+entry: beginner
+legal: true
+title: "Network Security"
+summary: "Design, build and watch the networks everything else runs on, so attackers cannot get in easily or move around once they do."
+keywords: "firewall VPN IDS IPS segmentation zero trust packet capture Wireshark routing switching"
+
+overview:
+  - "Network security protects the connections between systems: the routers, switches, firewalls, VPNs, wireless access points and the traffic that flows through them."
+  - "It covers prevention (segmentation, firewall rules, secure remote access), detection (intrusion detection and network security monitoring) and design (zero trust architectures where no network location is trusted by default)."
+why: "Almost every attack crosses a network at some point: to get in, to move between machines, and to send stolen data out. Good network design limits how far an attacker can go, and network logs often show an intrusion that endpoints missed."
+roles:
+  - { title: "Network administrator / junior network security engineer", level: entry, what: "Configures switches, firewalls and VPNs and keeps them patched." }
+  - { title: "Network security engineer", level: mid, what: "Designs and runs firewalls, segmentation, remote access and IDS." }
+  - { title: "Network security monitoring analyst", level: mid, what: "Watches network traffic and investigates suspicious connections." }
+  - { title: "Senior network security engineer / firewall architect", level: senior, what: "Owns the network security design across sites and clouds." }
+  - { title: "Network security architect / zero trust lead", level: lead, what: "Sets the long-term architecture, standards and vendor choices." }
+
+prereqs:
+  - "The OSI and TCP/IP models, and what happens at each layer."
+  - "IP addressing and subnetting (IPv4 and the basics of IPv6)."
+  - "Common protocols: DNS, DHCP, HTTP and HTTPS, SSH, SMTP."
+  - "The Linux command line, enough to run and read the output of networking tools."
+prereq_paths: [foundations, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "How networks work, and how to see the traffic"
+    months: "3–4"
+    topics: ["TCP/IP and subnetting", "Switching and VLANs", "Routing basics", "DNS and DHCP", "Packet capture", "Common ports and services", "Basic firewall rules", "Network scanning"]
+    skills:
+      - "Subnet a network and plan addresses for a small office."
+      - "Capture traffic with Wireshark or tcpdump and follow a TCP conversation."
+      - "Scan your own network with Nmap and explain each open port."
+      - "Write simple allow and deny firewall rules."
+    labs:
+      - "Build a virtual network in GNS3 or Cisco Packet Tracer with two VLANs and a router between them."
+      - "Capture your own browsing with Wireshark and find the DNS lookup, the TLS handshake and the HTTP request."
+      - "Scan your home lab with Nmap and write a short inventory of every device and service."
+    done:
+      - "Draw your home network with every device, address and connection."
+      - "Explain what happens, packet by packet, when you open a website."
+      - "Read a packet capture and point out the protocols and any plain-text passwords."
+
+  - level: intermediate
+    title: "Firewalls, segmentation, VPNs and detection"
+    months: "4–6"
+    topics: ["Stateful firewalls", "Network segmentation and DMZs", "VPNs (IPsec, WireGuard, TLS)", "IDS and IPS", "Network security monitoring", "Wireless security (WPA3, 802.1X)", "Proxy and DNS filtering", "Common network attacks (ARP spoofing, DNS poisoning)"]
+    skills:
+      - "Design and configure a segmented network with a firewall between zones."
+      - "Set up a site-to-site and a remote-access VPN."
+      - "Deploy Suricata and Zeek and investigate their alerts and logs."
+      - "Recognise scanning, brute force, beaconing and data exfiltration in traffic."
+    labs:
+      - "Build a pfSense or OPNsense firewall in a VM with LAN, DMZ and guest zones, and a WireGuard VPN for remote access."
+      - "Add Suricata with community rules and Zeek, then generate test traffic from an attacker VM inside your own lab."
+      - "Work through the packet capture exercises on Malware-Traffic-Analysis.net and write up each one."
+    done:
+      - "Explain why each firewall rule in your lab exists, and remove the ones that do not need to."
+      - "Find the infected host and its command-and-control server in a packet capture."
+      - "Show that a guest device in your lab cannot reach your servers."
+
+  - level: advanced
+    title: "Secure architecture and zero trust"
+    months: "6–9"
+    topics: ["Zero trust architecture", "Network access control (802.1X, NAC)", "Microsegmentation", "Secure web gateways and SASE", "Cloud networking (VPCs, security groups)", "Network automation", "DDoS protection", "Encrypted traffic analysis"]
+    skills:
+      - "Design a zero trust access model that checks identity and device health, not network location."
+      - "Automate firewall and network configuration with code and version control."
+      - "Secure cloud networks and connect them safely to on-premises networks."
+      - "Hunt for threats in network data, including encrypted traffic metadata (JA4, certificates, SNI)."
+    labs:
+      - "Replace a VPN in your lab with identity-aware access using an open-source zero trust tool or a free tier of a commercial one."
+      - "Write Ansible or Terraform code that builds your firewall rules, and review every change through a pull request."
+      - "Build a small AWS or Azure network with public and private subnets, and test that only the intended paths work."
+    done:
+      - "Present a segmentation design for a 500-person company with on-premises and cloud systems."
+      - "Show your network as code, with a change history and reviews."
+      - "Explain how an attacker would move laterally in your design, and how you would detect it."
+
+  - level: expert
+    title: "Architecture leadership and research"
+    months: "12–24"
+    topics: ["Enterprise network security architecture", "Large-scale monitoring design", "Protocol security research", "Standards and vendor strategy", "OT and IoT network segmentation", "Post-quantum readiness in network protocols"]
+    skills:
+      - "Set network security standards for a large organisation and get teams to adopt them."
+      - "Evaluate vendors and architectures on evidence, not marketing."
+      - "Research protocol weaknesses and publish or report them responsibly."
+    labs:
+      - "Write a reference architecture for a multi-site organisation, including OT or IoT networks, and get it reviewed by peers."
+      - "Contribute rules to Suricata or scripts to Zeek, or publish an analysis of a protocol."
+    done:
+      - "Defend a network security architecture to engineers, auditors and leadership."
+      - "Plan a multi-year migration, for example from a flat network to zero trust, with milestones and risks."
+
+tools:
+  - { name: "Wireshark", url: "https://www.wireshark.org/", kind: oss, what: "The standard tool for capturing and analysing network traffic." }
+  - { name: "tcpdump", url: "https://www.tcpdump.org/", kind: oss, what: "Command-line packet capture, available on almost every Unix system." }
+  - { name: "Nmap", url: "https://nmap.org/", kind: oss, what: "Network discovery and port scanning." }
+  - { name: "Zeek", url: "https://zeek.org/", kind: oss, what: "Network security monitoring that produces detailed connection logs." }
+  - { name: "Suricata", url: "https://suricata.io/", kind: oss, what: "Intrusion detection and prevention engine." }
+  - { name: "Snort", url: "https://www.snort.org/", kind: oss, what: "The original open-source intrusion detection system, now maintained by Cisco." }
+  - { name: "pfSense CE", url: "https://www.pfsense.org/", kind: oss, what: "Open-source firewall and router." }
+  - { name: "OPNsense", url: "https://opnsense.org/", kind: oss, what: "Open-source firewall and router, a fork of pfSense." }
+  - { name: "WireGuard", url: "https://www.wireguard.com/", kind: oss, what: "A modern, simple and fast VPN." }
+  - { name: "Arkime", url: "https://arkime.com/", kind: oss, what: "Full packet capture and search at scale." }
+  - { name: "GNS3", url: "https://www.gns3.com/", kind: oss, what: "Network emulator for building virtual labs." }
+  - { name: "Cisco Packet Tracer", url: "https://www.netacad.com/cisco-packet-tracer", kind: free, what: "Free network simulator from Cisco Networking Academy." }
+  - { name: "Ansible", url: "https://docs.ansible.com/", kind: oss, what: "Automation for configuring network devices and servers as code." }
+
+certs:
+  - { name: "CompTIA Network+", by: "CompTIA", url: "https://www.comptia.org/en-us/certifications/network/", level: entry, note: "Vendor-neutral networking basics." }
+  - { ref: ccna, note: "The best-known networking certification." }
+  - { ref: secplus, note: "Adds the security side." }
+  - { name: "GIAC Certified Intrusion Analyst (GCIA)", by: "GIAC", url: "https://www.giac.org/certifications/certified-intrusion-analyst-gcia/", level: mid, note: "Network traffic analysis and intrusion detection." }
+  - { name: "CCNP Security", by: "Cisco", url: "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/security/ccnp-security/index.html", level: advanced, note: "For engineers working with Cisco security products." }
+  - { ref: cissp, note: "For architects and leads." }
+
+resources:
+  - { name: "Computer Networks: A Systems Approach", by: "Larry Peterson and Bruce Davie", url: "https://book.systemsapproach.org/", type: book, cost: free }
+  - { name: "Network+ and Security+ video courses", by: "Professor Messer", url: "https://www.professormesser.com/", type: video, cost: free }
+  - { name: "Cisco Networking Academy courses", by: "Cisco", url: "https://www.netacad.com/", type: course, cost: free }
+  - { name: "Wireshark documentation", by: "Wireshark Foundation", url: "https://www.wireshark.org/docs/", type: docs, cost: free }
+  - { name: "Zeek documentation", by: "Zeek Project", url: "https://docs.zeek.org/", type: docs, cost: free }
+  - { name: "Suricata documentation", by: "OISF", url: "https://docs.suricata.io/", type: docs, cost: free }
+  - { name: "Nmap Network Scanning (online book)", by: "Gordon Lyon", url: "https://nmap.org/book/", type: book, cost: free }
+  - { name: "Malware-Traffic-Analysis.net exercises", by: "Brad Duncan", url: "https://www.malware-traffic-analysis.net/", type: practice, cost: free }
+  - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
+  - { name: "Practical Packet Analysis, 3rd edition", by: "Chris Sanders (No Starch Press)", url: "https://nostarch.com/packetanalysis3", type: book, cost: paid }
+  - { name: "The Practice of Network Security Monitoring", by: "Richard Bejtlich (No Starch Press)", url: "https://nostarch.com/nsm", type: book, cost: paid }
+  - { name: "SEC503: Network Monitoring and Threat Detection", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/network-monitoring-threat-detection/", type: course, cost: paid }
+
+frameworks: [cis-controls, zero-trust, nist-csf, attack, d3fend, cis-benchmarks, iso27001]
+
+career:
+  - { title: "IT support or network technician", years: "0–2 years" }
+  - { title: "Network administrator or junior network security engineer", years: "1–3 years" }
+  - { title: "Network security engineer", years: "3–6 years" }
+  - { title: "Senior engineer or network security architect", years: "6–10 years" }
+  - { title: "Enterprise security architect", years: "10+ years" }
+
+related:
+  - { to: cloud, why: "Cloud networks need the same skills with different tools." }
+  - { to: secops, why: "Use your traffic analysis skills to detect attacks." }
+  - { to: iam, why: "Zero trust moves the security boundary from the network to identity." }
+  - { name: "Wireless Security", why: "A specialism of its own, from Wi-Fi to Bluetooth." }
+  - { name: "OT Security", why: "Industrial networks need careful segmentation and monitoring." }

@@ -1,0 +1,212 @@
+{%- comment -%}
+  One security roadmap page. The page stub sets "domain: <id>", and the content comes from _data/sec_domains/<id>.yml.
+  Shared text (section titles, level names) is in _data/sec_roadmaps.yml. Frameworks come from _data/sec_frameworks.yml by id,
+  and certifications marked "ref:" come from _data/cert_roadmaps.yml, so prices and links live in one place.
+  English only for now: _data/<code>/sec_roadmaps.yml can translate the shared text later.
+{%- endcomment -%}
+{%- assign R = site.data.sec_roadmaps -%}
+{%- assign T = D.sec_roadmaps | default: R -%}
+{%- assign W = T.page | default: R.page -%}
+{%- assign X = site.data.sec_domains[page.domain] -%}
+{%- assign FW = site.data.sec_frameworks.frameworks -%}
+{%- assign CE = site.data.cert_roadmaps -%}
+{%- assign cat = R.categories | where: 'id', X.category | first -%}
+{%- assign levels = T.levels | default: R.levels -%}
+{%- comment -%} Total time: add up the low and high ends of each stage's "2–3" months. {%- endcomment -%}
+{%- assign lo = 0 %}{% assign hi = 0 %}
+{%- for s in X.stages %}{% assign m = s.months | split: '–' %}{% assign lo = lo | plus: m.first %}{% assign hi = hi | plus: m.last %}{% endfor -%}
+{%- capture total %}<bdi dir="ltr">{{ lo }}–{{ hi }}</bdi>{% endcapture -%}
+<div class="wrap page roadmaps-page sr-page" lang="en" dir="ltr">
+  <header class="page-head">
+    <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> <a href="{{ L }}/roadmaps/security/">{{ T.eyebrow | default: R.eyebrow }}</a> <span aria-hidden="true">/</span> {{ cat.title }}</p>
+    <h1>{{ X.title }}</h1>
+    <p class="lede">{{ X.summary }}</p>
+    <p class="pill">{% include icon.html name=X.icon px=15 %}<span>{{ W.estimate }}: {{ W.months | replace: '[n]', total }} · {{ W.estimate_note }}</span></p>
+  </header>
+
+  {%- comment -%} The roadmap at a glance: the four stages as a flow, with the time for each. {%- endcomment %}
+  <ol class="sr-flow" aria-label="{{ W.path }}">
+    {%- for s in X.stages %}
+    {%- capture mo %}<bdi dir="ltr">{{ s.months }}</bdi>{% endcapture %}
+    <li class="sr-flow-step is-{{ s.level }}">
+      <a href="#stage-{{ s.level }}">
+        <span class="sr-flow-num" aria-hidden="true">{{ forloop.index }}</span>
+        <span class="sr-flow-text"><strong>{{ levels[s.level] }}</strong><span>{{ s.title }}</span><span class="sr-flow-time">{{ W.months | replace: '[n]', mo }}</span></span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ol>
+
+  <nav class="card sr-toc" aria-label="{{ W.contents }}">
+    <span class="label">{{ W.contents }}</span>
+    <ul>
+      <li><a href="#overview">{{ W.overview }}</a></li>
+      <li><a href="#prerequisites">{{ W.prereqs }}</a></li>
+      <li><a href="#path">{{ W.path }}</a></li>
+      <li><a href="#tools">{{ W.tools }}</a></li>
+      <li><a href="#certifications">{{ W.certs }}</a></li>
+      <li><a href="#resources">{{ W.resources }}</a></li>
+      <li><a href="#frameworks">{{ W.frameworks }}</a></li>
+      <li><a href="#career">{{ W.career }}</a></li>
+    </ul>
+  </nav>
+
+  {%- if X.legal %}
+  <p class="tool-note rm-note">{% include icon.html name="lock" px=16 %}<span>{{ T.legal | default: R.legal }}</span></p>
+  {%- endif %}
+
+  <section class="card sr-sec" id="overview" aria-labelledby="overview-title">
+    <h2 id="overview-title" class="tool-title">{{ W.overview }}</h2>
+    {%- for p in X.overview %}
+    <p>{{ p }}</p>
+    {%- endfor %}
+    <h3 class="label">{{ W.why }}</h3>
+    <p>{{ X.why }}</p>
+    <h3 class="label">{{ W.roles }}</h3>
+    <ul class="sr-roles">
+      {%- for r in X.roles %}
+      <li><span class="sr-sen is-{{ r.level }}">{{ W.seniority[r.level] }}</span><span><strong>{{ r.title }}</strong> <span class="muted">{{ r.what }}</span></span></li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="card sr-sec" id="prerequisites" aria-labelledby="prerequisites-title">
+    <h2 id="prerequisites-title" class="tool-title">{{ W.prereqs }}</h2>
+    <ul class="sr-list">
+      {%- for p in X.prereqs %}<li>{{ p }}</li>{% endfor %}
+    </ul>
+    {%- if X.prereq_paths %}
+    {%- assign GR = site.data.roadmaps %}
+    <p class="rm-back">
+      {%- for id in X.prereq_paths %}{% assign gp = GR.paths | where: 'id', id | first %}
+      <a href="{{ L }}/roadmaps/#{{ id }}">{% include icon.html name="map" px=15 %}<span>{{ gp.title }}</span></a>
+      {%- endfor %}
+    </p>
+    {%- endif %}
+  </section>
+
+  <section class="card rm-path sr-sec" id="path" aria-labelledby="path-title">
+    <h2 id="path-title" class="tool-title">{{ W.path }}</h2>
+    <div class="filter sr-levels" role="group" aria-label="{{ W.show_level }}" hidden>
+      <span class="filter-label">{{ W.show_level }}</span>
+      <button type="button" class="chip-btn" aria-pressed="true" data-level="">{{ T.all | default: R.all }}</button>
+      {%- for s in X.stages %}
+      <button type="button" class="chip-btn" aria-pressed="false" data-level="{{ s.level }}">{{ levels[s.level] }}</button>
+      {%- endfor %}
+    </div>
+    <ol class="rm-stages">
+      {%- for s in X.stages %}
+      {%- capture mo %}<bdi dir="ltr">{{ s.months }}</bdi>{% endcapture %}
+      <li class="rm-stage sr-stage" id="stage-{{ s.level }}" data-level="{{ s.level }}">
+        <details{% if forloop.first %} open{% endif %}>
+          <summary>
+            <span class="rm-step" aria-hidden="true">{{ forloop.index }}</span>
+            <span class="rm-stage-title"><span class="sr-lvl">{{ levels[s.level] }}</span> {{ s.title }}</span>
+            <span class="rm-weeks">{{ W.months | replace: '[n]', mo }}</span>
+          </summary>
+          <div class="rm-stage-body">
+            <div class="sr-cols">
+              <div>
+                <h3 class="label">{{ W.topics }}</h3>
+                <ul class="tags">{% for t in s.topics %}<li>{{ t }}</li>{% endfor %}</ul>
+              </div>
+              <div>
+                <h3 class="label">{{ W.skills }}</h3>
+                <ul class="sr-list">{% for t in s.skills %}<li>{{ t }}</li>{% endfor %}</ul>
+              </div>
+            </div>
+            <div class="sr-labs">
+              <h3 class="label">{{ W.labs }}</h3>
+              <ul class="sr-list">{% for t in s.labs %}<li>{{ t }}</li>{% endfor %}</ul>
+            </div>
+            <div class="sr-done">
+              <h3 class="label">{{ W.done }}</h3>
+              <ul class="sr-checks">{% for t in s.done %}<li>{{ t }}</li>{% endfor %}</ul>
+            </div>
+          </div>
+        </details>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="card sr-sec" id="tools" aria-labelledby="tools-title">
+    <h2 id="tools-title" class="tool-title">{{ W.tools }}</h2>
+    <ul class="sr-grid">
+      {%- for t in X.tools %}
+      <li>
+        <a href="{{ t.url }}" rel="noopener">{{ t.name }}</a>
+        <span class="rm-res-meta"><span class="rm-type{% if t.kind == 'paid' %} is-audit{% endif %}">{{ W.kinds[t.kind] }}</span></span>
+        <span class="muted">{{ t.what }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="card sr-sec" id="certifications" aria-labelledby="certifications-title">
+    <h2 id="certifications-title" class="tool-title">{{ W.certs }}</h2>
+    <p class="muted">{{ W.certs_note }}</p>
+    <ol class="sr-certs">
+      {%- for c in X.certs %}
+      {%- if c.ref %}{% assign cc = CE.certs[c.ref] %}{% assign cname = cc.name %}{% assign cby = cc.by %}{% assign curl = cc.url %}{% assign clevel = cc.level %}
+      {%- else %}{% assign cname = c.name %}{% assign cby = c.by %}{% assign curl = c.url %}{% assign clevel = c.level %}{% endif %}
+      <li>
+        <span class="sr-sen is-{{ clevel }}">{{ W.cert_levels[clevel] }}</span>
+        <span class="sr-cert-text">
+          <a href="{{ curl }}" rel="noopener"><strong>{{ cname }}</strong></a> <span class="muted">{{ cby }}</span>
+          {%- if c.note %}<span class="sr-cert-note">{{ c.note }}</span>{% endif %}
+          {%- if c.ref %}<a class="sr-more" href="{{ L }}/roadmaps/certifications/">{{ W.more_cert }}</a>{% endif %}
+        </span>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="card sr-sec" id="resources" aria-labelledby="resources-title">
+    <h2 id="resources-title" class="tool-title">{{ W.resources }}</h2>
+    <ul class="rm-res sr-grid">
+      {%- for r in X.resources %}
+      <li>
+        <a href="{{ r.url }}" rel="noopener">{{ r.name }}</a>
+        <span class="rm-res-meta"><span class="rm-type">{{ W.types[r.type] }}</span><span class="rm-type{% unless r.cost == 'free' %} is-audit{% endunless %}">{% if r.cost == 'paid' %}{{ W.res_paid }}{% elsif r.cost == 'audit' %}{{ W.res_audit }}{% else %}{{ W.res_free }}{% endif %}</span><span class="muted">{{ r.by }}</span></span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <section class="card sr-sec" id="frameworks" aria-labelledby="frameworks-title">
+    <h2 id="frameworks-title" class="tool-title">{{ W.frameworks }}</h2>
+    <ul class="sr-fw">
+      {%- for id in X.frameworks %}{% assign f = FW | where: 'id', id | first %}
+      <li><a href="{{ f.url }}" rel="noopener"><strong>{{ f.name }}</strong></a> <span class="muted">{{ f.purpose }}</span></li>
+      {%- endfor %}
+    </ul>
+    <p class="rm-back"><a href="{{ L }}/roadmaps/security/frameworks/">{% include icon.html name="book" px=15 %}<span>{{ W.frameworks_all }}</span></a></p>
+  </section>
+
+  <section class="card sr-sec" id="career" aria-labelledby="career-title">
+    <h2 id="career-title" class="tool-title">{{ W.career }}</h2>
+    <p class="muted">{{ W.career_note }}</p>
+    <ol class="sr-ladder">
+      {%- for c in X.career %}
+      <li><strong>{{ c.title }}</strong><span class="muted">{{ c.years }}</span></li>
+      {%- endfor %}
+    </ol>
+    <h3 class="label">{{ W.related }}</h3>
+    <ul class="sr-related">
+      {%- for r in X.related %}
+      <li>
+        {%- if r.to %}{% assign rd = site.data.sec_domains[r.to] %}<a href="{{ L }}/roadmaps/security/{{ r.to }}/"><strong>{{ rd.title }}</strong></a>
+        {%- else %}<strong>{{ r.name }}</strong> <span class="rm-type is-audit">{{ T.soon | default: R.soon }}</span>{% endif %}
+        <span class="muted">{{ r.why }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  <p class="rm-back sr-foot">
+    <a href="{{ L }}/roadmaps/security/">{% include icon.html name="arrow-up" px=15 %}<span>{{ W.back }}</span></a>
+    <a href="#main">{% include icon.html name="arrow-up" px=15 %}<span>{{ W.top }}</span></a>
+  </p>
+  <p class="muted tools-foot"><span>{{ T.reviewed_label | default: R.reviewed_label }}: <time datetime="{{ R.reviewed | date: '%Y-%m-%d' }}">{% include date.html date=R.reviewed long=true %}</time>. {{ T.foot | default: R.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
+</div>

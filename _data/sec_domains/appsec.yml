@@ -1,0 +1,151 @@
+# Security roadmap: Application and Software Security. Shown at /roadmaps/security/appsec/.
+# Field guide: see the top of secops.yml.
+
+id: appsec
+category: core
+icon: code
+entry: intermediate
+legal: true
+title: "Application and Software Security"
+summary: "Find and fix security flaws in the software people build, and help developers write code that is secure from the start."
+keywords: "AppSec OWASP web API secure code review SAST DAST SCA threat modeling DevSecOps vulnerabilities"
+
+overview:
+  - "Application security (AppSec) is about the security of software itself: web and mobile apps, APIs, and the libraries and services they depend on. It covers finding vulnerabilities (testing and code review), preventing them (secure design, safe frameworks, developer training) and managing them across hundreds of applications."
+  - "Modern AppSec works inside the development process. Security engineers threat model new features, add automated checks to pipelines, review risky code, and help developers fix issues quickly, rather than testing once just before release."
+why: "Applications are what an organisation exposes to the internet, and flaws in them, such as broken access control, injection and vulnerable dependencies, are a leading cause of breaches. Fixing a flaw in design costs far less than fixing it after an attack."
+roles:
+  - { title: "Junior application security engineer / AppSec analyst", level: entry, what: "Triages scanner findings and helps developers fix them." }
+  - { title: "Application security engineer", level: mid, what: "Threat models, reviews code, tests apps and runs AppSec tooling." }
+  - { title: "Web application penetration tester", level: mid, what: "Tests web apps and APIs, with permission, and writes reports." }
+  - { title: "Product security engineer", level: senior, what: "Owns the security of a product line, working inside engineering teams." }
+  - { title: "Application security architect", level: senior, what: "Sets secure design patterns, standards and reference architectures." }
+  - { title: "Head of application or product security", level: lead, what: "Runs the AppSec programme across the organisation." }
+
+prereqs:
+  - "Programming in at least one language used for web apps, such as Python, JavaScript or Java, well enough to build a small app."
+  - "How the web works: HTTP methods, headers, cookies, sessions, same-origin policy."
+  - "Basic databases and SQL."
+  - "Git and a basic understanding of how software is built and deployed."
+prereq_paths: [foundations, web]
+
+stages:
+  - level: beginner
+    title: "Web vulnerabilities and how to find them"
+    months: "3–4"
+    topics: ["OWASP Top 10", "Injection (SQL, command)", "Cross-site scripting", "Broken access control", "Authentication and session flaws", "Server-side request forgery", "Intercepting proxies", "Security headers and cookies"]
+    skills:
+      - "Use Burp Suite or ZAP to intercept, change and replay requests."
+      - "Find and exploit the common OWASP Top 10 flaws in practice apps."
+      - "Explain the root cause and the right fix for each flaw, not just the exploit."
+    labs:
+      - "Work through the Apprentice and Practitioner labs in the PortSwigger Web Security Academy."
+      - "Run OWASP Juice Shop and DVWA locally in Docker and solve their challenges."
+      - "Build a small web app yourself, then attack it and fix each flaw you find."
+    done:
+      - "Find and explain SQL injection, XSS and an access control flaw in an app you have not seen before (a practice app)."
+      - "Explain the fix for each OWASP Top 10 category in the language you code in."
+
+  - level: intermediate
+    title: "Secure code, APIs and automated testing"
+    months: "4–6"
+    topics: ["Secure code review", "OWASP API Security Top 10", "Static analysis (SAST)", "Dependency scanning (SCA)", "Dynamic scanning (DAST)", "Secrets scanning", "Threat modeling", "Secure defaults in frameworks"]
+    skills:
+      - "Review code for security flaws, starting from where user input enters."
+      - "Run and tune SAST, SCA and secrets scanning in a CI pipeline, and cut the false positives."
+      - "Test REST and GraphQL APIs for broken object-level authorisation and other API risks."
+      - "Threat model a feature with STRIDE or a data flow diagram."
+    labs:
+      - "Add Semgrep, Trivy or OSV-Scanner, and gitleaks to a GitHub Actions pipeline for one of your own projects, and fix what they find."
+      - "Run OWASP crAPI and find the API Top 10 issues in it."
+      - "Threat model a sample app with OWASP Threat Dragon and turn the threats into tests."
+    done:
+      - "Review a pull request and write security comments a developer can act on."
+      - "Show a pipeline that blocks a build with a known-vulnerable dependency or a committed secret."
+      - "Present a threat model for a login and payment flow."
+
+  - level: advanced
+    title: "Software supply chain and AppSec at scale"
+    months: "6–9"
+    topics: ["Software supply chain security", "SBOMs", "Artifact signing and provenance (SLSA, Sigstore)", "Writing custom SAST rules (Semgrep, CodeQL)", "Security champions programmes", "Vulnerability management for applications", "Advanced web attacks (deserialisation, request smuggling, race conditions)", "Securing LLM features in apps"]
+    skills:
+      - "Write custom rules that catch the bugs your codebase actually has."
+      - "Generate SBOMs, sign builds, and verify provenance before deployment."
+      - "Prioritise application vulnerabilities by real risk, not just CVSS."
+      - "Train and support developers so security scales beyond your team."
+    labs:
+      - "Write CodeQL or Semgrep rules for a vulnerability class you found earlier, and run them on open-source projects you are allowed to test."
+      - "Sign a container image with cosign in your pipeline and reject unsigned images at deploy time."
+      - "Do the Expert labs in the Web Security Academy on request smuggling and race conditions."
+    done:
+      - "Show custom rules that found real issues, with low false positives."
+      - "Show a build pipeline that produces a signed artefact with an SBOM and provenance."
+      - "Run a security champions session for developers and collect their feedback."
+
+  - level: expert
+    title: "Product security leadership and research"
+    months: "12–24"
+    topics: ["AppSec programme design", "Maturity models (OWASP SAMM)", "Secure design reviews at scale", "Vulnerability research", "Coordinated disclosure", "Secure-by-design and regulation (EU Cyber Resilience Act)", "Security of AI-generated code"]
+    skills:
+      - "Design and measure an AppSec programme for many teams and products."
+      - "Find new classes of vulnerabilities and report them responsibly."
+      - "Influence engineering leadership on architecture and priorities."
+    labs:
+      - "Assess a real or fictional organisation against OWASP SAMM and write a two-year improvement plan."
+      - "Report a vulnerability to an open-source project or a bug bounty programme through its official disclosure process."
+    done:
+      - "Show measurable improvement in an AppSec programme, such as fix times or vulnerabilities per release."
+      - "Have a disclosed vulnerability, a published tool or a conference talk to your name."
+
+tools:
+  - { name: "Burp Suite Community Edition", url: "https://portswigger.net/burp/communitydownload", kind: community, what: "The standard intercepting proxy for testing web apps. The Professional edition is paid." }
+  - { name: "ZAP", url: "https://www.zaproxy.org/", kind: oss, what: "Open-source web app scanner and intercepting proxy." }
+  - { name: "Semgrep Community Edition", url: "https://semgrep.dev/", kind: oss, what: "Fast static analysis with rules that look like code." }
+  - { name: "CodeQL", url: "https://codeql.github.com/", kind: free, what: "GitHub's code analysis engine; free for open-source projects." }
+  - { name: "OSV-Scanner", url: "https://google.github.io/osv-scanner/", kind: oss, what: "Finds known vulnerabilities in your dependencies." }
+  - { name: "Trivy", url: "https://trivy.dev/", kind: oss, what: "Scans code, containers and IaC for vulnerabilities and secrets." }
+  - { name: "OWASP Dependency-Check", url: "https://owasp.org/www-project-dependency-check/", kind: oss, what: "Software composition analysis for known-vulnerable libraries." }
+  - { name: "gitleaks", url: "https://github.com/gitleaks/gitleaks", kind: oss, what: "Finds secrets committed to Git repositories." }
+  - { name: "OWASP Threat Dragon", url: "https://owasp.org/www-project-threat-dragon/", kind: oss, what: "Threat modeling diagrams and reports." }
+  - { name: "Sigstore (cosign)", url: "https://www.sigstore.dev/", kind: oss, what: "Signs and verifies software artefacts." }
+  - { name: "OpenSSF Scorecard", url: "https://scorecard.dev/", kind: oss, what: "Checks the security practices of open-source projects you depend on." }
+  - { name: "DefectDojo", url: "https://github.com/DefectDojo/django-DefectDojo", kind: oss, what: "Collects and tracks findings from all your security tools." }
+  - { name: "sqlmap", url: "https://sqlmap.org/", kind: oss, what: "Automates finding SQL injection. Only use it on apps you may test." }
+
+certs:
+  - { name: "Burp Suite Certified Practitioner", by: "PortSwigger", url: "https://portswigger.net/web-security/certification", level: mid, note: "Cheap, practical and well respected." }
+  - { name: "OffSec Web Assessor (OSWA)", by: "OffSec", url: "https://www.offsec.com/courses/web-200/", level: mid, note: "Hands-on web application testing." }
+  - { name: "GIAC Web Application Penetration Tester (GWAPT)", by: "GIAC", url: "https://www.giac.org/certifications/web-application-penetration-tester-gwapt/", level: mid, note: "Often employer-funded." }
+  - { name: "OffSec Web Expert (OSWE)", by: "OffSec", url: "https://www.offsec.com/courses/web-300/", level: advanced, note: "White-box testing: find bugs by reading source code." }
+  - { name: "CSSLP", by: "ISC2", url: "https://www.isc2.org/certifications/csslp", level: advanced, note: "Secure software lifecycle, for senior and architect roles." }
+
+resources:
+  - { name: "Web Security Academy", by: "PortSwigger", url: "https://portswigger.net/web-security", type: practice, cost: free }
+  - { name: "OWASP Juice Shop", by: "OWASP Foundation", url: "https://owasp.org/www-project-juice-shop/", type: practice, cost: free }
+  - { name: "OWASP Cheat Sheet Series", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/", type: docs, cost: free }
+  - { name: "OWASP Web Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-web-security-testing-guide/", type: docs, cost: free }
+  - { name: "OWASP crAPI (vulnerable API)", by: "OWASP Foundation", url: "https://github.com/OWASP/crAPI", type: practice, cost: free }
+  - { name: "DVWA (Damn Vulnerable Web Application)", by: "Robin Wood and contributors", url: "https://github.com/digininja/DVWA", type: practice, cost: free }
+  - { name: "Developing Secure Software (LFD121)", by: "OpenSSF and the Linux Foundation", url: "https://openssf.org/training/courses/", type: course, cost: free }
+  - { name: "Threat Modeling Manifesto", by: "Threat Modeling Manifesto working group", url: "https://www.threatmodelingmanifesto.org/", type: docs, cost: free }
+  - { name: "6.858 Computer Systems Security", by: "MIT OpenCourseWare", url: "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/", type: course, cost: free }
+  - { name: "Designing Secure Software", by: "Loren Kohnfelder (No Starch Press)", url: "https://nostarch.com/designing-secure-software", type: book, cost: paid }
+  - { name: "Hacking APIs", by: "Corey Ball (No Starch Press)", url: "https://nostarch.com/hacking-apis", type: book, cost: paid }
+  - { name: "API Security in Action", by: "Neil Madden (Manning)", url: "https://www.manning.com/books/api-security-in-action", type: book, cost: paid }
+
+frameworks: [owasp-top10, owasp-api, asvs, samm, ssdf, slsa, cwe, cve, cvss, owasp-genai]
+
+career:
+  - { title: "Developer, QA engineer or junior security analyst", years: "0–2 years" }
+  - { title: "Application security engineer or web pentester", years: "2–5 years" }
+  - { title: "Senior AppSec or product security engineer", years: "5–8 years" }
+  - { title: "AppSec architect or AppSec lead", years: "8+ years" }
+  - { title: "Head of product security", years: "10+ years" }
+
+related:
+  - { to: cloud, why: "Applications now run in the cloud; secure both together." }
+  - { to: iam, why: "Authentication and authorisation are the hardest parts of most apps." }
+  - { name: "DevSecOps", why: "Automate security in the build and deploy pipeline." }
+  - { name: "Software Supply Chain Security", why: "Protect the code and packages you depend on." }
+  - { name: "Bug Bounty and Coordinated Disclosure", why: "Test real systems, legally, through official programmes." }
+  - { name: "AI Application Security", why: "Secure apps that call LLMs and AI agents." }

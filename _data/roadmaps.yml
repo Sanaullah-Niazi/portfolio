@@ -46,6 +46,8 @@ trust: "I only list resources that are free to use, written by universities, the
 reviewed_label: "Last reviewed"
 foot: "Found a broken link, or want a path added?"
 back: "Back to all paths"
+security_cta: "Cybersecurity & AI security roadmaps"
+security_cta_text: "A career roadmap for each area of security, from Beginner to Expert, with labs, tools and certifications."
 
 # ---- The paths. "needs" lists the ids of paths (or "foundations") to do first. ----
 paths:

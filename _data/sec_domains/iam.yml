@@ -1,0 +1,147 @@
+# Security roadmap: Identity and Access Management (IAM). Shown at /roadmaps/security/iam/.
+# Field guide: see the top of secops.yml.
+
+id: iam
+category: core
+icon: key
+entry: beginner
+title: "Identity and Access Management (IAM)"
+summary: "Make sure the right people, and only the right people and services, can reach the right things, for the right reasons."
+keywords: "identity SSO MFA passkeys OAuth OpenID Connect SAML Active Directory Entra privileged access PAM IGA"
+
+overview:
+  - "Identity and Access Management covers how people and machines prove who they are (authentication), what they are allowed to do (authorisation), and how access is granted, reviewed and removed over time (identity governance)."
+  - "It includes directories such as Active Directory and Microsoft Entra ID, single sign-on with SAML and OpenID Connect, multi-factor authentication and passkeys, privileged access management, and the identities of services, APIs and AI agents."
+why: "Stolen credentials and abused permissions are behind a large share of breaches. Attackers increasingly log in rather than break in, so identity has become the main security boundary, especially in the cloud."
+roles:
+  - { title: "IAM analyst / identity administrator", level: entry, what: "Handles accounts, groups, access requests and MFA issues." }
+  - { title: "IAM engineer", level: mid, what: "Builds SSO integrations, automates joiner-mover-leaver processes and runs the identity platform." }
+  - { title: "Privileged access (PAM) engineer", level: mid, what: "Protects admin accounts, secrets and just-in-time access." }
+  - { title: "Identity governance (IGA) specialist", level: mid, what: "Runs access reviews, roles and segregation of duties." }
+  - { title: "Senior IAM engineer / identity architect", level: senior, what: "Designs the identity architecture across cloud and on-premises." }
+  - { title: "Head of identity / IAM programme lead", level: lead, what: "Owns identity strategy, budget and the roadmap to zero trust." }
+
+prereqs:
+  - "Basic IT administration: users, groups and permissions on Windows and Linux."
+  - "How the web works: HTTP, cookies, sessions and redirects."
+  - "Basic cryptography: hashing, public and private keys, certificates."
+  - "Some scripting in PowerShell or Python, for automation."
+prereq_paths: [foundations, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Accounts, authentication and directories"
+    months: "2–3"
+    topics: ["Identification, authentication, authorisation", "Passwords and hashing", "Multi-factor authentication", "Active Directory basics", "Microsoft Entra ID basics", "Groups and roles (RBAC)", "Least privilege", "Joiner-mover-leaver process"]
+    skills:
+      - "Create and manage users, groups and policies in Active Directory and Entra ID."
+      - "Explain why SMS codes are weaker than authenticator apps, and why passkeys resist phishing."
+      - "Apply least privilege to a set of roles."
+    labs:
+      - "Build a Windows Server domain controller in a VM, join a Windows client, and set up group policies and a password policy."
+      - "Create a free Microsoft Entra ID tenant (with a Microsoft 365 developer or trial account) and turn on MFA for a test user."
+      - "Run Keycloak in a container and sign in to a sample app through it."
+    done:
+      - "Explain the difference between authentication and authorisation with examples."
+      - "Set up MFA and a sensible password policy, and justify each setting against NIST SP 800-63."
+      - "Describe what should happen to accounts when someone joins, changes role and leaves."
+
+  - level: intermediate
+    title: "Federation, SSO and access automation"
+    months: "4–6"
+    topics: ["SAML 2.0", "OAuth 2.0 and OpenID Connect", "JSON Web Tokens", "Conditional access", "SCIM provisioning", "Service accounts and API keys", "Active Directory attack paths", "Kerberos"]
+    skills:
+      - "Integrate an application with SSO using SAML and OpenID Connect."
+      - "Read and validate a JWT, and spot common token mistakes."
+      - "Automate user provisioning and removal with SCIM or scripts."
+      - "Find and fix risky AD settings and attack paths."
+    labs:
+      - "Connect a sample web app to Keycloak with OpenID Connect, then to Entra ID with SAML, and compare the flows in your browser's developer tools."
+      - "Run BloodHound Community Edition and PingCastle against your own lab domain and fix the top findings."
+      - "Do the OAuth and JWT labs in the PortSwigger Web Security Academy."
+    done:
+      - "Draw the OAuth 2.0 authorisation code flow with PKCE from memory and explain each step."
+      - "Show a lab domain where you removed the easiest attack paths to Domain Admin."
+      - "Automate a joiner-leaver process end to end in your lab."
+
+  - level: advanced
+    title: "Privileged access, governance and cloud identity"
+    months: "6–9"
+    topics: ["Privileged access management", "Just-in-time and just-enough access", "Identity governance and access reviews", "Cloud IAM (AWS IAM, Azure RBAC, Google Cloud IAM)", "Workload identity and federation", "Secrets management", "Identity threat detection and response (ITDR)", "Passkeys and FIDO2 rollout"]
+    skills:
+      - "Design tiered admin access with just-in-time elevation."
+      - "Write and review cloud IAM policies, and find over-privileged roles."
+      - "Replace long-lived secrets with workload identity federation."
+      - "Detect identity attacks: token theft, MFA fatigue, consent phishing."
+    labs:
+      - "Set up HashiCorp Vault to issue short-lived database credentials to an app in your lab."
+      - "In a free AWS account, replace an access key in a GitHub Actions workflow with OIDC federation."
+      - "Plan a passkey rollout for a fictional company, including recovery and lost devices."
+    done:
+      - "Show a lab where no human has standing admin rights."
+      - "Review a set of cloud IAM policies and explain exactly what each one allows."
+      - "Write detections for three identity attack techniques from ATT&CK."
+
+  - level: expert
+    title: "Identity architecture and strategy"
+    months: "12–24"
+    topics: ["Enterprise identity architecture", "Zero trust strategy", "Customer identity (CIAM)", "Decentralised identity and verifiable credentials", "Identity for AI agents", "Mergers and identity consolidation", "Identity metrics and risk"]
+    skills:
+      - "Design identity for a large organisation across employees, customers, partners and machines."
+      - "Lead a multi-year zero trust programme with identity at its centre."
+      - "Decide how AI agents and non-human identities get, use and lose access."
+    labs:
+      - "Write an identity reference architecture for a company with 10,000 employees, a customer app and several clouds."
+      - "Contribute to an open-source identity project, or write about a protocol topic in depth."
+    done:
+      - "Present an identity strategy with risks, costs and milestones to leadership."
+      - "Explain how your design handles a stolen session token, a rogue admin and a compromised agent."
+
+tools:
+  - { name: "Keycloak", url: "https://www.keycloak.org/", kind: oss, what: "Open-source identity provider with SSO, OpenID Connect and SAML." }
+  - { name: "authentik", url: "https://goauthentik.io/", kind: oss, what: "Open-source identity provider, popular in home labs." }
+  - { name: "FreeIPA", url: "https://www.freeipa.org/", kind: oss, what: "Identity, policy and audit for Linux environments." }
+  - { name: "OpenLDAP", url: "https://www.openldap.org/", kind: oss, what: "Open-source LDAP directory server." }
+  - { name: "Microsoft Entra ID", url: "https://learn.microsoft.com/en-us/entra/identity/", kind: paid, what: "Microsoft's cloud identity service, used by most companies on Microsoft 365. Has a free tier." }
+  - { name: "Okta Developer", url: "https://developer.okta.com/", kind: free, what: "Free developer account to practise SSO and OAuth integrations with Okta." }
+  - { name: "HashiCorp Vault", url: "https://developer.hashicorp.com/vault", kind: community, what: "Secrets management and dynamic credentials." }
+  - { name: "BloodHound Community Edition", url: "https://github.com/SpecterOps/BloodHound", kind: oss, what: "Maps Active Directory and Entra ID attack paths." }
+  - { name: "PingCastle", url: "https://www.pingcastle.com/", kind: free, what: "Active Directory security health check." }
+  - { name: "OpenFGA", url: "https://openfga.dev/", kind: oss, what: "Fine-grained authorisation engine, based on Google's Zanzibar." }
+  - { name: "midPoint", url: "https://evolveum.com/midpoint/", kind: oss, what: "Open-source identity governance and administration." }
+
+certs:
+  - { ref: secplus, note: "Covers identity basics alongside everything else." }
+  - { name: "Identity and Access Administrator Associate (SC-300)", by: "Microsoft", url: "https://learn.microsoft.com/en-us/credentials/certifications/identity-and-access-administrator/", level: mid, note: "The most useful certification for Entra ID work." }
+  - { name: "Certified Identity Professional (CIDPRO)", by: "IDPro", url: "https://idpro.org/cidpro/", level: mid, note: "Vendor-neutral identity certification from the identity professionals' association." }
+  - { ref: aws-sec, note: "If you work on AWS IAM." }
+  - { ref: cissp, note: "For architects and identity leaders." }
+
+resources:
+  - { name: "Digital Identity Guidelines (SP 800-63-4)", by: "NIST", url: "https://pages.nist.gov/800-63-4/", type: docs, cost: free }
+  - { name: "IDPro Body of Knowledge", by: "IDPro", url: "https://bok.idpro.org/", type: docs, cost: free }
+  - { name: "OAuth 2.0 Simplified", by: "Aaron Parecki", url: "https://www.oauth.com/", type: book, cost: free }
+  - { name: "SC-300 learning path", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/courses/sc-300t00", type: course, cost: free }
+  - { name: "Microsoft Entra documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/entra/", type: docs, cost: free }
+  - { name: "Keycloak documentation", by: "Keycloak", url: "https://www.keycloak.org/documentation", type: docs, cost: free }
+  - { name: "AWS IAM documentation", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html", type: docs, cost: free }
+  - { name: "OAuth 2.0 authentication vulnerabilities labs", by: "PortSwigger", url: "https://portswigger.net/web-security/oauth", type: practice, cost: free }
+  - { name: "JWT attacks labs", by: "PortSwigger", url: "https://portswigger.net/web-security/jwt", type: practice, cost: free }
+  - { name: "Active Directory Security blog", by: "Sean Metcalf", url: "https://adsecurity.org/", type: docs, cost: free }
+  - { name: "OAuth 2 in Action", by: "Justin Richer and Antonio Sanso (Manning)", url: "https://www.manning.com/books/oauth-2-in-action", type: book, cost: paid }
+
+frameworks: [nist-800-63, zero-trust, oauth, oidc, fido, nist-csf, cis-controls, iso27001, attack]
+
+career:
+  - { title: "Service desk or IAM analyst", years: "0–2 years" }
+  - { title: "IAM engineer", years: "2–5 years" }
+  - { title: "Senior IAM, PAM or IGA engineer", years: "5–8 years" }
+  - { title: "Identity architect", years: "8+ years" }
+  - { title: "Head of identity or security architecture", years: "10+ years" }
+
+related:
+  - { to: cloud, why: "Cloud security is mostly identity and permissions." }
+  - { to: appsec, why: "Authentication and authorisation bugs are among the most serious in applications." }
+  - { name: "Secrets and Key Management", why: "Machine identities and credentials." }
+  - { name: "AI Identity and Access Control", why: "How AI agents get and use permissions." }
+  - { name: "Privacy and Identity Technologies", why: "Decentralised identity and privacy-preserving credentials." }
