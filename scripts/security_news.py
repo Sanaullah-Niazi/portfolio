@@ -22,6 +22,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
@@ -150,7 +151,7 @@ def parse_date(value):
 def fetch(url, timeout=25):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/rss+xml, application/atom+xml, application/xml, application/json, */*"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read(5_000_000)
+        return r.read(40_000_000)  # CISA's advisory feed alone is over 5 MB
 
 
 def text_of(el, *names):
@@ -369,17 +370,24 @@ def ask_github_models(prompt):
         req = urllib.request.Request(GITHUB_MODELS_URL, data=body, method="POST", headers={
             "Authorization": "Bearer " + token, "Accept": "application/vnd.github+json",
             "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json"})
+        raw = b""
         try:
             with urllib.request.urlopen(req, timeout=120) as r:
-                choice = json.loads(r.read())["choices"][0]
-            brief = json.loads(choice["message"]["content"])
+                raw = r.read()
+            content = json.loads(raw)["choices"][0]["message"]["content"] or ""
+            # Some models wrap the JSON in a ```json fence or add a sentence around it.
+            start, end = content.find("{"), content.rfind("}")
+            if start < 0 or end < start:
+                raise ValueError("no JSON object in the answer: " + content[:200])
+            brief = json.loads(content[start:end + 1])
             if not isinstance(brief.get("stories"), list) or not brief.get("title"):
                 raise ValueError("answer is missing the title or stories")
             brief.setdefault("summary", "")
             brief.setdefault("todo", [])
             return brief, model
         except Exception as e:
-            log(f"{model}: no brief ({e.__class__.__name__}: {e})")
+            detail = e.read()[:300] if isinstance(e, urllib.error.HTTPError) else raw[:300]
+            log(f"{model}: no brief ({e.__class__.__name__}: {e}) {detail!r}")
     return None, None
 
 
