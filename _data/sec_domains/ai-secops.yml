@@ -1,0 +1,249 @@
+# Security roadmap: AI for Security Operations. Shown at /roadmaps/security/ai-secops/.
+# Field guide: see the top of secops.yml.
+
+id: ai-secops
+category: ai
+icon: radar
+entry: intermediate
+title: "AI for Security Operations"
+summary: "Use machine learning and AI assistants to detect attacks, triage alerts, hunt, investigate and analyse threats, and know when not to trust them."
+keywords: "AI for cybersecurity machine learning detection anomaly detection SOC copilot alert triage threat hunting threat intelligence forensics phishing detection malware classification deepfake detection automation"
+
+overview:
+  - "Security teams drown in alerts, logs and reports. Machine learning has been used for years to spot spam, malware and unusual logins; large language models now help analysts summarise alerts, write queries, read threat reports and draft incident notes."
+  - "This roadmap is about using AI well in defence: choosing the right technique, building and evaluating detection models, putting assistants into analyst workflows safely, and understanding that attackers adapt and that AI makes confident mistakes. It also covers new threats that need AI to detect, such as AI-written phishing and deepfakes."
+why: "Every major security vendor now ships AI features, and SOC teams are expected to use them. Analysts who can tell where AI helps, measure it and catch its errors are more valuable than those who either ignore it or trust it blindly."
+roles:
+  - { title: "SOC analyst using AI tools", level: entry, what: "Uses AI assistants for triage and queries, and checks their work." }
+  - { title: "Security data scientist", level: mid, what: "Builds and evaluates ML models for detection, classification and anomaly spotting." }
+  - { title: "Detection engineer (AI)", level: mid, what: "Combines rules and models into detections, and automates workflows with AI." }
+  - { title: "AI security automation engineer", level: senior, what: "Builds AI agents and pipelines that do parts of SOC work, with guardrails." }
+  - { title: "Head of security AI", level: lead, what: "Decides where AI is used in the security programme and how it is measured." }
+
+prereqs:
+  - "Security Operations beginner and intermediate stages: logs, SIEM, alerts and triage."
+  - "Python with pandas, and basic statistics."
+  - "Machine learning basics: classification, training, evaluation."
+  - "Prompt injection basics from the LLM and Generative AI Security roadmap."
+prereq_paths: [ai-ml, data, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Where AI helps defenders"
+    months: "1–2"
+    topics:
+      - id: ai-in-soc
+        title: "AI in the SOC: what works today"
+        text: "ML is proven for spam, malware classification and anomaly spotting. LLMs are good at summarising, translating and drafting queries. Neither replaces an analyst's judgement."
+        res:
+          - { name: "Machine Learning and Security", by: "Clarence Chio and David Freeman (O'Reilly)", url: "https://www.oreilly.com/library/view/machine-learning-and/9781491979891/", type: book, cost: paid }
+      - id: security-data
+        title: "Security data for ML"
+        text: "Logs are messy, labels are rare and attacks are a tiny fraction of events. Learn to clean, join and label security data before you model it."
+        res:
+          - { name: "Security Datasets (Mordor)", by: "Open Threat Research Forge", url: "https://github.com/OTRF/Security-Datasets", type: practice, cost: free }
+      - id: assistant-use
+        title: "Using AI assistants safely"
+        text: "Use assistants to explain a log line, write a KQL or SPL query or summarise an alert. Check every answer, and never paste data your organisation does not allow into a tool."
+        res:
+          - { name: "Microsoft Security Copilot documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/copilot/security/", type: docs, cost: free }
+      - id: ai-errors
+        title: "How AI gets it wrong"
+        text: "Assistants invent field names, misread timestamps and miss what is not in their context. Models drift as attackers and systems change. Plan checks for both."
+        res:
+          - { name: "Generative Artificial Intelligence Profile (NIST AI 600-1)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.600-1", type: docs, cost: free }
+      - id: ai-threats-defenders
+        title: "New AI-powered threats"
+        text: "Attackers use AI for convincing phishing, voice and video deepfakes, faster reconnaissance and malware help. Know what has really been seen, not just what is feared."
+        res:
+          - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+      - id: notebooks-hunting
+        title: "Notebooks for security analysis"
+        text: "Jupyter notebooks with pandas let you explore logs, test ideas and share reproducible investigations. Many hunting and ML tools start here."
+        res:
+          - { name: "MSTICPy", by: "Microsoft", url: "https://github.com/microsoft/msticpy", type: tool, cost: free }
+    skills:
+      - "Name the SOC tasks where AI helps and where it is risky."
+      - "Load, clean and explore security logs in a notebook."
+      - "Use an AI assistant for queries and summaries, and catch its errors."
+    labs:
+      - "Load a Security Datasets scenario into pandas and find the attack by hand."
+      - "Ask an AI assistant to write five detection queries, test each against real data, and record how many were wrong."
+    done:
+      - "Explain to a SOC manager where AI should and should not be used in triage."
+      - "Show an example where an AI assistant was confidently wrong, and how you caught it."
+
+  - level: intermediate
+    title: "Building and evaluating detection models"
+    months: "3–4"
+    topics:
+      - id: anomaly-detection
+        title: "Anomaly detection"
+        text: "Find unusual logins, data transfers or processes compared with normal behaviour. Unusual is not the same as malicious, so tune for useful alerts, not just strange ones."
+        res:
+          - { name: "Outlier detection", by: "scikit-learn", url: "https://scikit-learn.org/stable/modules/outlier_detection.html", type: docs, cost: free }
+      - id: malware-ml
+        title: "Malware classification"
+        text: "Classify files from features such as imports, sections and strings. Learn the EMBER dataset and why models must be retrained as malware changes."
+        res:
+          - { name: "EMBER malware dataset", by: "Elastic", url: "https://github.com/elastic/ember", type: practice, cost: free }
+      - id: phishing-ml
+        title: "Phishing and malicious URL detection"
+        text: "Combine sender reputation, URL features, page content and language signals. AI-written phishing removes the old spelling-mistake clues, so other signals matter more."
+        res:
+          - { name: "Phishing Guidance: Stopping the Attack Cycle at Phase One", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/phishing-guidance-stopping-attack-cycle-phase-one", type: docs, cost: free }
+      - id: detection-metrics
+        title: "Measuring detections"
+        text: "With rare attacks, accuracy is meaningless. Use precision, recall and false positives per day, and test on data from after the training period."
+        res:
+          - { name: "Model evaluation", by: "scikit-learn", url: "https://scikit-learn.org/stable/modules/model_evaluation.html", type: docs, cost: free }
+      - id: llm-triage
+        title: "LLM-assisted triage"
+        text: "Give an LLM the alert, the related events and a checklist, and ask for a summary and a suggested verdict. Measure its accuracy against analysts before trusting it."
+        res:
+          - { name: "promptfoo", by: "promptfoo", url: "https://www.promptfoo.dev/", type: tool, cost: free }
+      - id: ai-cti
+        title: "AI for threat intelligence"
+        text: "LLMs can extract indicators and ATT&CK techniques from reports, translate sources and cluster activity. Check extractions against the source, since models make up indicators."
+        res:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+          - { name: "MISP", by: "MISP project", url: "https://www.misp-project.org/", type: tool, cost: free }
+      - id: adversarial-detection
+        title: "Attackers versus detection models"
+        text: "Attackers test their tools against defences and change them until they pass. Red team your own models and keep rules as a backstop."
+        res:
+          - { name: "Adversarial Robustness Toolbox", by: "LF AI & Data", url: "https://github.com/Trusted-AI/adversarial-robustness-toolbox", type: tool, cost: free }
+    skills:
+      - "Build and evaluate an anomaly detection model on real logs."
+      - "Train a malware or phishing classifier and measure it honestly."
+      - "Evaluate an LLM triage assistant against analyst decisions."
+      - "Extract and verify intelligence from reports with an LLM."
+    labs:
+      - "Build an anomaly detector for logins from Security Datasets and tune it to fewer than five alerts a day."
+      - "Train a classifier on EMBER, test it on a later time period and report the drop in performance."
+      - "Build an LLM triage helper for 50 labelled alerts and compare its verdicts with the labels."
+    done:
+      - "Show a model that adds real value beyond the existing rules, with numbers."
+      - "Explain why a detection model's accuracy on old data does not prove it works today."
+
+  - level: advanced
+    title: "AI in investigations and automation"
+    months: "3–6"
+    topics:
+      - id: ai-forensics
+        title: "AI-assisted forensics"
+        text: "LLMs can summarise timelines, explain artefacts and draft reports. Keep the evidence chain intact: every AI claim must point back to an original artefact you checked."
+        res:
+          - { name: "Timesketch", by: "Timesketch project", url: "https://timesketch.org/", type: tool, cost: free }
+      - id: ai-hunting
+        title: "AI-assisted threat hunting"
+        text: "Use AI to suggest hypotheses, write hunt queries and cluster results. The analyst still decides what is worth chasing and what counts as evidence."
+        res:
+          - { name: "MSTICPy", by: "Microsoft", url: "https://github.com/microsoft/msticpy", type: tool, cost: free }
+      - id: soc-agents
+        title: "SOC automation agents"
+        text: "Agents can gather context, enrich alerts and draft responses. Give them read-only access first, require approval for actions, and log every step."
+        res:
+          - { name: "Agentic AI: Threats and Mitigations", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/", type: docs, cost: free }
+      - id: injection-in-soc
+        title: "Prompt injection against security tools"
+        text: "Attackers can plant text in emails, files or logs that an AI triage tool will read. Treat all analysed content as untrusted input to the model."
+        res:
+          - { name: "Prompt injection (articles)", by: "Simon Willison", url: "https://simonwillison.net/tags/prompt-injection/", type: docs, cost: free }
+      - id: deepfake-detection
+        title: "Deepfake and synthetic media detection"
+        text: "Detectors look for traces of generation, but they fail on new generators. Combine them with provenance standards and process checks, such as call-backs for payment requests."
+        res:
+          - { name: "C2PA (Coalition for Content Provenance and Authenticity)", by: "C2PA", url: "https://c2pa.org/", type: docs, cost: free }
+          - { name: "Reducing Risks Posed by Synthetic Content (NIST AI 100-4)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.100-4", type: docs, cost: free }
+      - id: ai-secops-metrics
+        title: "Measuring AI's value in the SOC"
+        text: "Measure time to triage, missed attacks, false positives and analyst workload before and after. Vendor claims are not evidence."
+        res:
+          - { name: "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations", by: "arXiv", url: "https://arxiv.org/abs/2411.00640", type: paper, cost: free }
+    skills:
+      - "Use AI in an investigation while keeping every claim tied to evidence."
+      - "Build a SOC agent with read-only access, approvals and full logging."
+      - "Test AI security tools for prompt injection."
+      - "Measure whether an AI tool really improves SOC outcomes."
+    labs:
+      - "Investigate a CyberDefenders or Security Datasets scenario with an AI assistant, and mark which of its claims you could verify."
+      - "Plant a prompt injection in a test email and see whether an AI triage tool you built is fooled."
+      - "Run a before-and-after trial of an AI triage helper on a set of labelled alerts."
+    done:
+      - "Deliver an investigation report that used AI, with every finding traced to evidence."
+      - "Recommend, with data, whether a SOC should adopt a given AI tool."
+
+  - level: expert
+    title: "Strategy and research"
+    months: "6–12"
+    topics:
+      - id: security-ai-strategy
+        title: "Security AI strategy"
+        text: "Decide which SOC tasks to automate, which to assist and which to keep human, and how each is measured, governed and secured."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+      - id: security-ai-research
+        title: "Research in AI for security"
+        text: "Open problems include detection that resists adaptive attackers, trustworthy LLM investigation and measuring real-world impact. Publish datasets and results others can reproduce."
+        res:
+          - { name: "IEEE Conference on Secure and Trustworthy Machine Learning (SaTML)", by: "IEEE", url: "https://satml.org/", type: docs, cost: free }
+      - id: ai-cyber-capabilities
+        title: "Understanding AI cyber capabilities"
+        text: "Follow evaluations of what AI models can and cannot do in offence and defence, so your plans are based on evidence rather than hype."
+        res:
+          - { name: "Cybench: A Framework for Evaluating Cybersecurity Capabilities and Risks of Language Models", by: "arXiv", url: "https://arxiv.org/abs/2408.08327", type: paper, cost: free }
+      - id: share-security-ai
+        title: "Sharing tools and datasets"
+        optional: true
+        text: "Good labelled security data is scarce. Sharing datasets, detections and evaluation results moves the whole field forward."
+        res:
+          - { name: "Security Datasets (Mordor)", by: "Open Threat Research Forge", url: "https://github.com/OTRF/Security-Datasets", type: practice, cost: free }
+    skills:
+      - "Set the strategy for AI across a security operations programme."
+      - "Publish research or datasets in AI for security."
+    labs:
+      - "Write a three-year security AI roadmap for a fictional SOC, with measures for each step."
+      - "Publish a dataset, detection model or evaluation with documentation others can reuse."
+    done:
+      - "Lead the adoption of AI in a security operations team, with measured results."
+      - "Have your research, tools or datasets used by others."
+
+tools:
+  - { name: "MSTICPy", url: "https://github.com/microsoft/msticpy", kind: oss, what: "Python tools for threat hunting and investigation in notebooks." }
+  - { name: "Jupyter", url: "https://jupyter.org/", kind: oss, what: "Notebooks for analysis and reproducible investigations." }
+  - { name: "scikit-learn", url: "https://scikit-learn.org/", kind: oss, what: "Classic ML: classification, clustering and anomaly detection." }
+  - { name: "Security Datasets", url: "https://github.com/OTRF/Security-Datasets", kind: oss, what: "Recorded attack data for practice and research." }
+  - { name: "EMBER", url: "https://github.com/elastic/ember", kind: oss, what: "Benchmark dataset for malware classification." }
+  - { name: "MISP", url: "https://www.misp-project.org/", kind: oss, what: "Threat intelligence sharing platform." }
+  - { name: "Timesketch", url: "https://timesketch.org/", kind: oss, what: "Collaborative forensic timelines." }
+  - { name: "Ollama", url: "https://ollama.com/", kind: oss, what: "Run open models locally, so sensitive data stays in your lab." }
+
+certs:
+  - { name: "GIAC Machine Learning Engineer (GMLE)", by: "GIAC", url: "https://www.giac.org/certifications/machine-learning-engineer-gmle/", level: mid, note: "Applied machine learning for security teams." }
+  - { ref: sc200, note: "Microsoft's security operations analyst certification, which covers its AI features." }
+  - { ref: cysa, note: "A broad security analyst baseline." }
+
+resources:
+  - { name: "SEC595: Applied Data Science and AI/Machine Learning for Cybersecurity Professionals", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/applied-data-science-machine-learning/", type: course, cost: paid }
+  - { name: "Machine Learning and Security", by: "Clarence Chio and David Freeman (O'Reilly)", url: "https://www.oreilly.com/library/view/machine-learning-and/9781491979891/", type: book, cost: paid }
+  - { name: "Security Datasets (Mordor)", by: "Open Threat Research Forge", url: "https://github.com/OTRF/Security-Datasets", type: practice, cost: free }
+  - { name: "Machine Learning Crash Course", by: "Google", url: "https://developers.google.com/machine-learning/crash-course", type: course, cost: free }
+  - { name: "Kaggle Learn", by: "Kaggle", url: "https://www.kaggle.com/learn", type: course, cost: free }
+  - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+  - { name: "C2PA", by: "C2PA", url: "https://c2pa.org/", type: docs, cost: free }
+  - { name: "CyberDefenders", by: "CyberDefenders", url: "https://cyberdefenders.org/", type: practice, cost: free }
+
+frameworks: [attack, atlas, ai-rmf, nist-csf, owasp-genai]
+
+career:
+  - { title: "SOC analyst or data analyst", years: "0–2 years" }
+  - { title: "SOC analyst using AI tools, or junior security data scientist", years: "2–4 years" }
+  - { title: "Security data scientist or AI detection engineer", years: "4–7 years" }
+  - { title: "Head of security AI", years: "8+ years" }
+
+related:
+  - { to: secops, why: "The SOC work that AI is meant to help." }
+  - { to: dfir, why: "AI-assisted investigations still follow forensic rules." }
+  - { to: mlsec, why: "Detection models can be attacked too." }
+  - { to: llmsec, why: "AI security tools are LLM apps with the same weaknesses." }

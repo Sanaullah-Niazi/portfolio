@@ -328,4 +328,4 @@ related:
   - { name: "DevSecOps", why: "Automate security in the build and deploy pipeline." }
   - { name: "Software Supply Chain Security", why: "Protect the code and packages you depend on." }
   - { name: "Bug Bounty and Coordinated Disclosure", why: "Test real systems, legally, through official programmes." }
-  - { name: "AI Application Security", why: "Secure apps that call LLMs and AI agents." }
+  - { to: llmsec, why: "Secure apps that call LLMs and AI agents." }

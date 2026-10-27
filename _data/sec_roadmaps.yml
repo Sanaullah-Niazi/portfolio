@@ -112,6 +112,8 @@ page:
     docs: "Docs"
     practice: "Practice"
     video: "Video"
+    tool: "Tool"
+    paper: "Paper"
   frameworks: "Frameworks and standards"
   frameworks_all: "All frameworks and standards"
   career: "Career path"
@@ -180,8 +182,8 @@ categories:
     icon: brain
     title: "AI and machine learning security"
     summary: "Securing AI systems, and using AI to defend everything else."
-    domains: []
-    planned: ["AI System Security", "LLM and Generative AI Security", "Agentic AI Security", "Machine Learning Security", "AI for Cybersecurity", "AI Red Teaming and Safety Evaluations", "AI Governance and Risk Management", "AI Model Privacy and Data Protection", "AI Infrastructure Security", "AI Application Security", "AI Supply Chain Security", "AI Safety and Reliability", "Responsible AI", "AI Security Monitoring", "AI Regulatory Compliance", "AI Identity and Access Control", "AI Security Testing and Evaluation", "AI Data Governance and Provenance", "AI Agent Memory and Context Security", "AI-Assisted Digital Forensics and Threat Intelligence"]
+    domains: [llmsec, agentsec, mlsec, ai-redteam, ai-grc, ai-supply, ai-secops]
+    planned: []
 
   - id: special
     icon: chip

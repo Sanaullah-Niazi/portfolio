@@ -315,5 +315,5 @@ related:
   - { to: cloud, why: "Cloud security is mostly identity and permissions." }
   - { to: appsec, why: "Authentication and authorisation bugs are among the most serious in applications." }
   - { name: "Secrets and Key Management", why: "Machine identities and credentials." }
-  - { name: "AI Identity and Access Control", why: "How AI agents get and use permissions." }
+  - { to: agentsec, why: "How AI agents get and use permissions." }
   - { name: "Privacy and Identity Technologies", why: "Decentralised identity and privacy-preserving credentials." }

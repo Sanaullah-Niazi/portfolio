@@ -1,0 +1,266 @@
+# Security roadmap: Agentic AI and MCP Security. Shown at /roadmaps/security/agentsec/.
+# Field guide: see the top of secops.yml.
+
+id: agentsec
+category: ai
+icon: tools
+entry: intermediate
+legal: true
+title: "Agentic AI and MCP Security"
+summary: "Secure AI agents that plan, use tools and act on people's behalf, including MCP servers, agent identity, sandboxing and multi-agent systems."
+keywords: "agentic AI agents MCP Model Context Protocol tool use function calling excessive agency agent identity sandbox memory poisoning multi-agent human in the loop OAuth"
+
+overview:
+  - "An AI agent is a model that can decide on steps and take them: read email, browse the web, run code, call APIs, change records. The Model Context Protocol (MCP) has become a common way to connect agents to tools and data. Every tool you connect turns a model's mistake, or an attacker's injected instruction, into a real action."
+  - "Agent security combines identity and access management, application security and sandboxing. The core questions are: who is the agent acting for, what is it allowed to do, what untrusted content can reach it, and what stops it when something goes wrong?"
+why: "Agents are moving from demos into email, coding, customer service and operations. The risks are new and the guidance is young, so people who understand both agents and security are shaping how this is done."
+roles:
+  - { title: "Developer building agents and MCP servers", level: entry, what: "Builds tools and integrations with sensible permissions and input checks." }
+  - { title: "AI security engineer (agents)", level: mid, what: "Reviews agent designs, tool permissions and sandboxes, and tests them for injection." }
+  - { title: "Identity engineer for non-human identities", level: mid, what: "Gives agents their own identities, scoped tokens and audit trails." }
+  - { title: "Agent security architect", level: senior, what: "Sets the patterns for agent permissions, approvals and isolation across teams." }
+  - { title: "AI platform security lead", level: lead, what: "Owns the security of the organisation's agent platform and tool ecosystem." }
+
+prereqs:
+  - "The LLM and Generative AI Security beginner and intermediate stages, especially prompt injection."
+  - "OAuth 2.0 and API authentication basics."
+  - "Comfort building small apps in Python or TypeScript."
+  - "Containers and basic Linux security."
+prereq_paths: [web, ai-ml, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "How agents work and where they fail"
+    months: "1–2"
+    topics:
+      - id: agent-basics
+        title: "Agents, tools and function calling"
+        text: "An agent loops: the model reads the task, picks a tool, reads the result and decides the next step. Learn how tool calls are described and returned."
+        res:
+          - { name: "Building effective agents", by: "Anthropic", url: "https://www.anthropic.com/engineering/building-effective-agents", type: docs, cost: free }
+      - id: mcp-basics
+        title: "Model Context Protocol (MCP)"
+        text: "MCP connects AI apps (clients) to servers that offer tools, resources and prompts. Learn the roles, the transports and what each server can see and do."
+        res:
+          - { name: "Model Context Protocol", by: "MCP project", url: "https://modelcontextprotocol.io/", type: docs, cost: free }
+      - id: agentic-threats
+        title: "Agentic AI threats"
+        text: "OWASP's agentic threat list covers tool misuse, privilege compromise, memory poisoning, goal manipulation, rogue agents and more. Use it to frame every review."
+        res:
+          - { name: "Agentic AI: Threats and Mitigations", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/", type: docs, cost: free }
+      - id: excessive-agency
+        title: "Excessive agency"
+        text: "Agents get too many tools, too much permission or too much freedom to act without asking. Cut each one down to what the task needs."
+        res:
+          - { name: "OWASP Top 10 for LLM Applications", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/llm-top-10/", type: docs, cost: free }
+      - id: agent-injection
+        title: "Prompt injection through tools"
+        text: "Every web page, email, file or tool result an agent reads can carry instructions. With tools, an injection can send data out or change things, not just say something odd."
+        res:
+          - { name: "AgentDojo", by: "ETH Zurich SPY Lab", url: "https://github.com/ethz-spylab/agentdojo", type: practice, cost: free }
+      - id: lethal-trifecta
+        title: "Private data, untrusted content and a way out"
+        text: "When one agent can read private data, read untrusted content and send data outside, an injection can steal that data. Remove at least one of the three."
+        res:
+          - { name: "Prompt injection (articles)", by: "Simon Willison", url: "https://simonwillison.net/tags/prompt-injection/", type: docs, cost: free }
+      - id: human-approval
+        title: "Human approval for risky actions"
+        text: "Ask a person before an agent pays, deletes, sends or changes permissions. Show exactly what will happen, so approval is a real check and not a habit."
+        res:
+          - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+    skills:
+      - "Explain how an agent loop and MCP work, step by step."
+      - "Spot excessive agency in an agent design."
+      - "Show an indirect injection making an agent misuse a tool in a lab."
+    labs:
+      - "Build a small agent with two tools (for example read a file and send a message) and make it leak a file through an injected instruction."
+      - "Run the AgentDojo benchmark against a model and look at which attacks succeed."
+      - "Write a simple MCP server and list every action it lets a client take."
+    done:
+      - "Review an agent design and name each tool's worst case."
+      - "Explain why an agent that reads email and can send email is risky."
+
+  - level: intermediate
+    title: "Permissions, identity and MCP security"
+    months: "2–4"
+    topics:
+      - id: agent-identity
+        title: "Agent identity"
+        text: "Give each agent its own identity instead of sharing a person's password or a long-lived key. Then you can limit it, log it and switch it off."
+        res:
+          - { name: "SPIFFE", by: "CNCF", url: "https://spiffe.io/", type: docs, cost: free }
+      - id: delegated-auth
+        title: "Delegated access and OAuth for agents"
+        text: "When an agent acts for a user, use delegated, scoped, short-lived tokens and keep a record of both the user and the agent. Token exchange helps with chains of services."
+        res:
+          - { name: "OAuth 2.0 Token Exchange (RFC 8693)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc8693", type: docs, cost: free }
+      - id: mcp-auth
+        title: "MCP authorisation"
+        text: "Remote MCP servers use OAuth to decide who may call them. Check audience and scopes, never pass a client's token straight through to another service, and protect the consent step."
+        res:
+          - { name: "MCP specification: Authorization", by: "MCP project", url: "https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization", type: docs, cost: free }
+      - id: tool-design
+        title: "Designing safe tools"
+        text: "Make tools narrow (send to this one address, not anyone), validate every argument in code, and return only the data the task needs."
+        res:
+          - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs, cost: free }
+      - id: mcp-supply
+        title: "Third-party MCP servers"
+        text: "An MCP server you install runs code and sees data. Check who wrote it, pin versions, review its tool descriptions for hidden instructions, and watch for changes after install."
+        res:
+          - { name: "Model Context Protocol", by: "MCP project", url: "https://modelcontextprotocol.io/", type: docs, cost: free }
+      - id: sandboxing
+        title: "Sandboxing code-running agents"
+        text: "Agents that run code or shell commands need isolation: containers with tight limits, microVMs or gVisor, no secrets inside, and network access only where needed."
+        res:
+          - { name: "gVisor", by: "Google", url: "https://gvisor.dev/", type: tool, cost: free }
+          - { name: "Firecracker", by: "Amazon Web Services", url: "https://firecracker-microvm.github.io/", type: tool, cost: free }
+      - id: policy-enforcement
+        title: "Policy checks outside the model"
+        text: "Put rules in a policy engine that checks every tool call before it runs. The model can ask; code decides."
+        res:
+          - { name: "Open Policy Agent", by: "CNCF", url: "https://www.openpolicyagent.org/", type: tool, cost: free }
+      - id: agent-secrets
+        title: "Secrets and credentials for agents"
+        text: "Keep API keys out of prompts, context and the agent's reach. Inject them at the tool layer, scope them, rotate them and log their use."
+        res:
+          - { name: "Secrets Management Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html", type: docs, cost: free }
+    skills:
+      - "Give an agent its own scoped, short-lived credentials."
+      - "Secure a remote MCP server with proper OAuth checks."
+      - "Run a code-executing agent in a sandbox with no secrets and limited network."
+      - "Enforce tool policies in code, outside the model."
+    labs:
+      - "Build a remote MCP server with OAuth, then test it for token passthrough and missing scope checks."
+      - "Run an agent's code tool inside gVisor or a locked-down container and try to escape or reach the network."
+      - "Add Open Policy Agent checks in front of an agent's tools and show an injected request being blocked."
+    done:
+      - "Show an agent design where a successful injection still cannot reach private data and an outside channel at the same time."
+      - "Explain who is accountable for each action an agent took, from its logs."
+
+  - level: advanced
+    title: "Memory, multi-agent systems and monitoring"
+    months: "3–5"
+    topics:
+      - id: memory-poisoning
+        title: "Memory and context poisoning"
+        text: "Agents with long-term memory can be taught false facts or hidden instructions that come back later. Separate memories by user, record where each came from, and let people review them."
+        res:
+          - { name: "Agentic AI: Threats and Mitigations", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/", type: docs, cost: free }
+      - id: multi-agent
+        title: "Multi-agent trust"
+        text: "When agents talk to agents, a compromised or confused one can mislead the rest. Treat messages between agents as untrusted and keep each agent's permissions separate."
+        res:
+          - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+      - id: browser-agents
+        title: "Browser and computer-use agents"
+        text: "Agents that click and type in a browser see every page as possible instructions. Limit them to allowed sites, keep them signed out of sensitive accounts, and confirm risky steps."
+        res:
+          - { name: "Web LLM attacks", by: "PortSwigger", url: "https://portswigger.net/web-security/llm-attacks", type: practice, cost: free }
+      - id: agent-logging
+        title: "Tracing and auditing agents"
+        text: "Log every step: the task, each tool call with its arguments and result, approvals and the identity used. Without traces you cannot investigate what an agent did."
+        res:
+          - { name: "OpenTelemetry semantic conventions for generative AI", by: "OpenTelemetry", url: "https://opentelemetry.io/docs/specs/semconv/gen-ai/", type: docs, cost: free }
+      - id: agent-detection
+        title: "Detecting rogue agent behaviour"
+        text: "Alert on unusual tools, data volumes, destinations or bursts of actions. Have a kill switch that stops an agent and revokes its tokens at once."
+        res:
+          - { name: "Secure AI Framework (SAIF)", by: "Google", url: "https://saif.google/", type: docs, cost: free }
+      - id: injection-by-design
+        title: "Architectures that resist injection"
+        text: "Patterns such as a planner that never reads untrusted data, or tracking which values came from untrusted sources, limit what injections can do."
+        res:
+          - { name: "Defeating Prompt Injections by Design (CaMeL)", by: "arXiv", url: "https://arxiv.org/abs/2503.18813", type: paper, cost: free }
+      - id: agent-testing
+        title: "Testing agents"
+        text: "Test whole tasks, not single prompts: plant injections in the data the agent will read and check what it does. Repeat after every model, prompt or tool change."
+        res:
+          - { name: "AgentDojo", by: "ETH Zurich SPY Lab", url: "https://github.com/ethz-spylab/agentdojo", type: practice, cost: free }
+          - { name: "promptfoo", by: "promptfoo", url: "https://www.promptfoo.dev/", type: tool, cost: free }
+    skills:
+      - "Design memory that resists poisoning and can be audited."
+      - "Assess a multi-agent system for trust and permission problems."
+      - "Build traces and alerts that show what an agent did and why."
+      - "Test an agent end to end with planted injections."
+    labs:
+      - "Poison a memory-enabled agent you built so a later session follows a planted instruction, then add a defence."
+      - "Build a two-agent system and show one misleading the other, then separate their permissions."
+      - "Write detections for an agent sending data to a new destination and test them."
+    done:
+      - "Lead the security review of a production agent or MCP integration."
+      - "Show a working kill switch that stops an agent and revokes its access."
+
+  - level: expert
+    title: "Platforms, standards and research"
+    months: "6–12"
+    topics:
+      - id: agent-platform
+        title: "Securing an agent platform"
+        text: "Give every team the same safe building blocks: agent identities, an approved tool registry, sandboxes, policy checks, approvals and central logging."
+        res:
+          - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+      - id: agent-governance
+        title: "Accountability and governance for agents"
+        text: "Decide which actions agents may take alone, who approves new tools, and how incidents are handled. Map this to the NIST AI RMF and your existing risk process."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+      - id: agent-research
+        title: "Research and new attack classes"
+        text: "Agent attacks are new and many are undiscovered. Build test environments, find new classes of failure, and publish them responsibly."
+        res:
+          - { name: "Design Patterns for Securing LLM Agents against Prompt Injections", by: "arXiv", url: "https://arxiv.org/abs/2506.08837", type: paper, cost: free }
+      - id: agent-standards
+        title: "Standards and protocols"
+        text: "Agent protocols and their security features are still being written. Follow and contribute to the MCP specification, OWASP and CoSAI work."
+        res:
+          - { name: "Coalition for Secure AI (CoSAI)", by: "OASIS Open", url: "https://www.coalitionforsecureai.org/", type: docs, cost: free }
+    skills:
+      - "Design an organisation-wide agent platform with security built in."
+      - "Write agent governance that teams can follow."
+      - "Discover and publish new agent attack or defence techniques."
+    labs:
+      - "Write a reference architecture for agents at a fictional company, with identity, tools, sandboxes, approvals and logging."
+      - "Contribute an issue, test or fix to an open agent security project or specification."
+    done:
+      - "Have your patterns, tools or research adopted by others."
+      - "Own the security of an agent platform used by many teams."
+
+tools:
+  - { name: "MCP Inspector", url: "https://github.com/modelcontextprotocol/inspector", kind: oss, what: "Connect to and test MCP servers by hand." }
+  - { name: "AgentDojo", url: "https://github.com/ethz-spylab/agentdojo", kind: oss, what: "Benchmark of agent tasks with prompt injection attacks." }
+  - { name: "promptfoo", url: "https://www.promptfoo.dev/", kind: oss, what: "Red-team agents and tools, including in CI." }
+  - { name: "PyRIT", url: "https://github.com/Azure/PyRIT", kind: oss, what: "Automated red teaming for generative AI, including agents." }
+  - { name: "Open Policy Agent", url: "https://www.openpolicyagent.org/", kind: oss, what: "Policy engine to check tool calls before they run." }
+  - { name: "gVisor", url: "https://gvisor.dev/", kind: oss, what: "Sandbox for running untrusted code in containers." }
+  - { name: "Firecracker", url: "https://firecracker-microvm.github.io/", kind: oss, what: "Lightweight microVMs for strong isolation." }
+  - { name: "SPIFFE and SPIRE", url: "https://spiffe.io/", kind: oss, what: "Workload identities for services and agents." }
+  - { name: "Langfuse", url: "https://langfuse.com/", kind: oss, what: "Traces of agent steps and tool calls." }
+
+certs:
+  - { name: "Certified AI Security Professional (CAISP)", by: "Practical DevSecOps", url: "https://www.practical-devsecops.com/certified-ai-security-professional/", level: mid, note: "Includes LLM and agent security labs." }
+  - { ref: aaism, note: "For AI security management roles, after CISSP or CISM." }
+
+resources:
+  - { name: "Agentic AI: Threats and Mitigations", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/", type: docs, cost: free }
+  - { name: "Model Context Protocol", by: "MCP project", url: "https://modelcontextprotocol.io/", type: docs, cost: free }
+  - { name: "Building effective agents", by: "Anthropic", url: "https://www.anthropic.com/engineering/building-effective-agents", type: docs, cost: free }
+  - { name: "AgentDojo", by: "ETH Zurich SPY Lab", url: "https://github.com/ethz-spylab/agentdojo", type: practice, cost: free }
+  - { name: "Defeating Prompt Injections by Design (CaMeL)", by: "arXiv", url: "https://arxiv.org/abs/2503.18813", type: paper, cost: free }
+  - { name: "Prompt injection (articles)", by: "Simon Willison", url: "https://simonwillison.net/tags/prompt-injection/", type: docs, cost: free }
+  - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs, cost: free }
+  - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+
+frameworks: [owasp-genai, atlas, ai-rmf, oauth, zero-trust, iso42001]
+
+career:
+  - { title: "Developer or application security engineer", years: "0–2 years" }
+  - { title: "AI security engineer working on LLM apps", years: "2–4 years" }
+  - { title: "Agent security engineer or identity engineer", years: "4–7 years" }
+  - { title: "Agent security architect or AI platform security lead", years: "7+ years" }
+
+related:
+  - { to: llmsec, why: "Prompt injection and LLM app security come first." }
+  - { to: iam, why: "Agent identity and delegated access are identity problems." }
+  - { to: ai-redteam, why: "Test agents with realistic attack scenarios." }
+  - { to: ai-supply, why: "MCP servers and plugins are part of the AI supply chain." }

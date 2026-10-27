@@ -1,0 +1,253 @@
+# Security roadmap: AI Infrastructure and Supply Chain Security. Shown at /roadmaps/security/ai-supply/.
+# Field guide: see the top of secops.yml.
+
+id: ai-supply
+category: ai
+icon: chip
+entry: intermediate
+title: "AI Infrastructure and Supply Chain Security"
+summary: "Secure the platforms that train and serve AI, and the models, datasets and libraries they come from."
+keywords: "AI infrastructure MLOps supply chain model registry model signing provenance AI BOM ML-BOM safetensors pickle Hugging Face GPU Kubernetes model serving notebooks third-party models"
+
+overview:
+  - "Behind every AI feature is a stack of infrastructure: notebooks, training clusters, GPUs, data lakes, experiment trackers, model registries and inference servers. Much of it was built for speed by research teams, and attackers have found exposed dashboards, leaked keys and unauthenticated APIs in it."
+  - "AI also has a new supply chain. Teams download pre-trained models, datasets and libraries from public hubs, often with little checking. A model file can carry malicious code or a hidden backdoor, and a dataset can be poisoned. This roadmap covers both: the platform and what flows through it."
+why: "Organisations are spending heavily on AI platforms and depend on models they did not build. Securing this layer uses familiar cloud, container and supply chain skills, applied to new components, and few security teams cover it yet."
+roles:
+  - { title: "MLOps or platform engineer", level: entry, what: "Builds and runs the AI platform with secure defaults." }
+  - { title: "AI platform security engineer", level: mid, what: "Secures training and serving infrastructure, secrets and access." }
+  - { title: "AI supply chain security engineer", level: mid, what: "Scans, signs and tracks models, datasets and dependencies." }
+  - { title: "AI infrastructure security architect", level: senior, what: "Designs isolation, identity and data protection across the AI platform." }
+  - { title: "Head of AI platform security", level: lead, what: "Owns the security of all AI infrastructure and third-party AI components." }
+
+prereqs:
+  - "Cloud security basics, ideally the Cloud Security roadmap's beginner and intermediate stages."
+  - "Containers and Kubernetes basics."
+  - "Software supply chain basics: dependencies, SBOMs and signing."
+  - "A working idea of how models are trained and served."
+prereq_paths: [cloud-devops, ai-ml, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "The AI stack and its weak spots"
+    months: "1–2"
+    topics:
+      - id: ai-stack
+        title: "Map the AI stack"
+        text: "List every part: data stores, notebooks, training jobs, experiment trackers, registries, inference servers, vector databases and the APIs in front of them. Each needs an owner and access control."
+        res:
+          - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+      - id: notebook-security
+        title: "Notebook security"
+        text: "Jupyter servers left open to the internet give attackers code execution. Require authentication, keep them off public networks and keep secrets out of notebooks."
+        res:
+          - { name: "Security in the Jupyter Server", by: "Project Jupyter", url: "https://jupyter-server.readthedocs.io/en/latest/operators/security.html", type: docs, cost: free }
+      - id: model-file-risks
+        title: "Malicious model files"
+        text: "Pickle-based model files can run code when loaded. Prefer safetensors, scan files before loading, and never load untrusted models on machines with secrets."
+        res:
+          - { name: "Pickle scanning", by: "Hugging Face", url: "https://huggingface.co/docs/hub/security-pickle", type: docs, cost: free }
+          - { name: "ModelScan", by: "Protect AI", url: "https://github.com/protectai/modelscan", type: tool, cost: free }
+      - id: model-hubs
+        title: "Using public model hubs safely"
+        text: "Check who published a model, how popular and recent it is, its licence and whether it uses safe formats. Typosquatted model names exist, just like typosquatted packages."
+        res:
+          - { name: "Hugging Face Hub security", by: "Hugging Face", url: "https://huggingface.co/docs/hub/security", type: docs, cost: free }
+      - id: ai-secrets
+        title: "API keys and secrets for AI services"
+        text: "Model API keys are valuable and often leak in code, notebooks and logs. Store them in a secrets manager, scope them, set spending limits and rotate them."
+        res:
+          - { name: "Secrets Management Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html", type: docs, cost: free }
+      - id: ai-supply-threats
+        title: "AI supply chain threats"
+        text: "Poisoned datasets, backdoored models, malicious libraries and compromised MLOps tools. ATLAS and the OWASP LLM Top 10 both list supply chain as a top risk."
+        res:
+          - { name: "OWASP Top 10 for LLM Applications", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/llm-top-10/", type: docs, cost: free }
+          - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+    skills:
+      - "Draw an organisation's AI stack and its trust boundaries."
+      - "Load and share models safely."
+      - "Lock down notebooks and AI API keys."
+    labs:
+      - "Deploy JupyterLab in a container with authentication and no secrets, and check it from outside."
+      - "Scan a set of public model files with ModelScan and explain any findings."
+      - "Search a test repository you own for leaked AI API keys with a secret scanner such as Gitleaks."
+    done:
+      - "Explain why loading an untrusted pickle file is like running an untrusted program."
+      - "Present a map of an AI stack with its top three weak spots."
+
+  - level: intermediate
+    title: "Securing MLOps and model provenance"
+    months: "3–4"
+    topics:
+      - id: mlops-security
+        title: "Securing MLOps platforms"
+        text: "Experiment trackers, pipelines and registries such as MLflow and Kubeflow have had serious vulnerabilities. Patch them, require authentication and never expose them to the internet."
+        res:
+          - { name: "MLflow", by: "Linux Foundation", url: "https://mlflow.org/", type: tool, cost: free }
+          - { name: "Kubeflow", by: "Kubeflow project", url: "https://www.kubeflow.org/", type: tool, cost: free }
+      - id: model-registry
+        title: "Model registry controls"
+        text: "Control who can push and promote models, require review before production, and keep an audit trail of which model version is deployed where."
+        res:
+          - { name: "MLflow Model Registry", by: "MLflow", url: "https://mlflow.org/docs/latest/ml/model-registry/", type: docs, cost: free }
+      - id: model-signing
+        title: "Model signing"
+        text: "Sign models when they are produced and verify the signature before loading, so you know a file has not been swapped or changed."
+        res:
+          - { name: "model-transparency (model signing)", by: "Sigstore", url: "https://github.com/sigstore/model-transparency", type: tool, cost: free }
+      - id: ai-bom
+        title: "AI bills of materials"
+        text: "An AI BOM records which models, datasets and libraries went into a system, and their versions and licences. CycloneDX and SPDX both support it."
+        res:
+          - { name: "Machine Learning Bill of Materials (ML-BOM)", by: "CycloneDX", url: "https://cyclonedx.org/capabilities/mlbom/", type: docs, cost: free }
+      - id: dataset-provenance
+        title: "Dataset provenance and integrity"
+        text: "Record where every dataset came from, hash it, and store it read-only. Then you can prove what a model was trained on and spot tampering."
+        res:
+          - { name: "Datasheets for Datasets (Gebru et al.)", by: "arXiv", url: "https://arxiv.org/abs/1803.09010", type: paper, cost: free }
+      - id: ml-dependencies
+        title: "ML library dependencies"
+        text: "ML projects pull in huge dependency trees. Pin versions, scan for known vulnerabilities and watch for malicious packages with names close to popular ones."
+        res:
+          - { name: "OpenSSF Scorecard", by: "OpenSSF", url: "https://scorecard.dev/", type: tool, cost: free }
+      - id: build-provenance
+        title: "Build provenance for models"
+        text: "Apply SLSA ideas to training: build models in controlled pipelines and produce signed provenance that says what code and data produced them."
+        res:
+          - { name: "SLSA", by: "OpenSSF", url: "https://slsa.dev/", type: docs, cost: free }
+    skills:
+      - "Harden an MLflow or Kubeflow deployment."
+      - "Sign and verify models in a pipeline."
+      - "Produce an AI BOM for a system."
+      - "Track dataset provenance with hashes."
+    labs:
+      - "Deploy MLflow with authentication behind a proxy, then add a review step before a model can reach production."
+      - "Sign a model with Sigstore model-transparency and make the serving step refuse unsigned models."
+      - "Generate a CycloneDX ML-BOM for a small project with a model, a dataset and its libraries."
+    done:
+      - "Show a pipeline where only a reviewed, signed model can reach production."
+      - "Answer, from records, exactly which data and code produced a deployed model."
+
+  - level: advanced
+    title: "Training and serving infrastructure"
+    months: "4–6"
+    topics:
+      - id: k8s-ai
+        title: "Kubernetes for AI workloads"
+        text: "Most training and serving runs on Kubernetes. Apply namespaces, network policies, pod security, workload identity and least-privilege service accounts."
+        res:
+          - { name: "Kubernetes security", by: "Kubernetes", url: "https://kubernetes.io/docs/concepts/security/", type: docs, cost: free }
+      - id: gpu-security
+        title: "GPU and accelerator security"
+        text: "GPU drivers and container toolkits have had serious vulnerabilities, and shared GPUs can leak data between tenants. Patch quickly and isolate sensitive workloads."
+        res:
+          - { name: "NVIDIA product security", by: "NVIDIA", url: "https://www.nvidia.com/en-us/security/", type: docs, cost: free }
+      - id: inference-security
+        title: "Securing inference endpoints"
+        text: "Put authentication, rate limits and input size limits in front of every model endpoint. Monitor for abuse, extraction attempts and runaway costs."
+        res:
+          - { name: "OWASP API Security Top 10", by: "OWASP Foundation", url: "https://owasp.org/API-Security/", type: docs, cost: free }
+      - id: confidential-computing
+        title: "Confidential computing for AI"
+        optional: true
+        text: "Trusted execution environments, including on recent GPUs, protect data and models while in use, even from the cloud operator."
+        res:
+          - { name: "Confidential Computing Consortium", by: "Linux Foundation", url: "https://confidentialcomputing.io/", type: docs, cost: free }
+      - id: data-platform
+        title: "Protecting training data at scale"
+        text: "Training data is often the most sensitive asset. Encrypt it, restrict who can read it, log access and keep production personal data out unless it is truly needed."
+        res:
+          - { name: "Secure AI Framework (SAIF)", by: "Google", url: "https://saif.google/", type: docs, cost: free }
+      - id: weights-protection
+        title: "Protecting model weights"
+        text: "Valuable model weights are a target for theft. Limit who can read them, monitor downloads and treat the storage like your most sensitive data."
+        res:
+          - { name: "Securing AI Model Weights (RAND)", by: "RAND", url: "https://www.rand.org/pubs/research_reports/RRA2849-1.html", type: docs, cost: free }
+      - id: third-party-models
+        title: "Third-party model and API risk"
+        text: "When you call a hosted model, your data leaves. Check retention, training use, location and the provider's security, and plan for outages and model changes."
+        res:
+          - { name: "AI Controls Matrix", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix", type: docs, cost: free }
+    skills:
+      - "Harden Kubernetes clusters that run training and inference."
+      - "Protect model endpoints from abuse and extraction."
+      - "Protect training data and model weights."
+      - "Assess third-party model providers."
+    labs:
+      - "Run a small model server on a local Kubernetes cluster (kind or minikube) with network policies, authentication and rate limits."
+      - "Write detections for unusual reads of a model weights bucket in your own cloud account."
+      - "Compare two hosted model providers' data retention and security terms and write a recommendation."
+    done:
+      - "Lead the security design of an AI platform."
+      - "Show that a stolen API key cannot download model weights or training data."
+
+  - level: expert
+    title: "Platform strategy and ecosystem security"
+    months: "6–12"
+    topics:
+      - id: ai-platform-strategy
+        title: "AI platform security strategy"
+        text: "Give every team a paved road: approved models, a scanned and signed registry, hardened serving, central secrets and logging, so the secure way is also the easy way."
+        res:
+          - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+      - id: ecosystem
+        title: "Securing the open AI ecosystem"
+        text: "Find and report vulnerabilities in ML libraries and platforms, help projects adopt signing and safe formats, and share threat intelligence on malicious models."
+        res:
+          - { name: "huntr", by: "Protect AI", url: "https://huntr.com/", type: practice, cost: free }
+          - { name: "Coalition for Secure AI (CoSAI)", by: "OASIS Open", url: "https://www.coalitionforsecureai.org/", type: docs, cost: free }
+      - id: frontier-security
+        title: "Security for frontier model developers"
+        optional: true
+        text: "Labs that train the largest models need protection against well-resourced attackers, including insider threats and nation states."
+        res:
+          - { name: "Securing AI Model Weights (RAND)", by: "RAND", url: "https://www.rand.org/pubs/research_reports/RRA2849-1.html", type: docs, cost: free }
+    skills:
+      - "Design an AI platform that makes secure use the default."
+      - "Contribute fixes and standards to the open AI ecosystem."
+    labs:
+      - "Write a reference architecture for a secure AI platform, with registry, signing, serving and monitoring."
+      - "Find and responsibly report a vulnerability in an open-source ML tool."
+    done:
+      - "Own the security of an AI platform used by many teams."
+      - "Have your fixes, tools or guidance adopted in the open AI ecosystem."
+
+tools:
+  - { name: "ModelScan", url: "https://github.com/protectai/modelscan", kind: oss, what: "Scans model files for unsafe code." }
+  - { name: "picklescan", url: "https://github.com/mmaitre314/picklescan", kind: oss, what: "Detects dangerous imports in pickle files." }
+  - { name: "Safetensors", url: "https://huggingface.co/docs/safetensors/index", kind: oss, what: "A safe file format for model weights." }
+  - { name: "Sigstore model-transparency", url: "https://github.com/sigstore/model-transparency", kind: oss, what: "Sign and verify ML models." }
+  - { name: "CycloneDX", url: "https://cyclonedx.org/", kind: oss, what: "BOM standard with ML-BOM support." }
+  - { name: "MLflow", url: "https://mlflow.org/", kind: oss, what: "Experiment tracking and model registry." }
+  - { name: "Trivy", url: "https://trivy.dev/", kind: oss, what: "Scans containers, Kubernetes and dependencies." }
+  - { name: "OpenSSF Scorecard", url: "https://scorecard.dev/", kind: oss, what: "Rates the security practices of open-source projects." }
+
+certs:
+  - { ref: cka, note: "Kubernetes skills for running AI workloads." }
+  - { ref: aws-sec, note: "Cloud security for AI platforms on AWS." }
+  - { ref: aws-mle, note: "Shows you understand how ML runs in production." }
+
+resources:
+  - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+  - { name: "Secure AI Framework (SAIF)", by: "Google", url: "https://saif.google/", type: docs, cost: free }
+  - { name: "Hugging Face Hub security", by: "Hugging Face", url: "https://huggingface.co/docs/hub/security", type: docs, cost: free }
+  - { name: "Machine Learning Bill of Materials (ML-BOM)", by: "CycloneDX", url: "https://cyclonedx.org/capabilities/mlbom/", type: docs, cost: free }
+  - { name: "SLSA", by: "OpenSSF", url: "https://slsa.dev/", type: docs, cost: free }
+  - { name: "Kubernetes security", by: "Kubernetes", url: "https://kubernetes.io/docs/concepts/security/", type: docs, cost: free }
+  - { name: "Securing AI Model Weights", by: "RAND", url: "https://www.rand.org/pubs/research_reports/RRA2849-1.html", type: docs, cost: free }
+  - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+
+frameworks: [slsa, ssdf, atlas, owasp-genai, ai-rmf, csa-ccm]
+
+career:
+  - { title: "Cloud, DevOps or MLOps engineer", years: "0–3 years" }
+  - { title: "Platform security engineer", years: "2–5 years" }
+  - { title: "AI platform or AI supply chain security engineer", years: "4–7 years" }
+  - { title: "AI infrastructure security architect", years: "7+ years" }
+
+related:
+  - { to: cloud, why: "Most AI platforms run in the cloud." }
+  - { to: mlsec, why: "Know how poisoned data and backdoored models work." }
+  - { to: agentsec, why: "MCP servers and agent tools are part of the AI supply chain." }
+  - { name: "Software Supply Chain Security", why: "The same ideas for ordinary software." }
