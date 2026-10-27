@@ -1,0 +1,9 @@
+# Awards, scholarships and honours (newest first). The "Awards" part of the gallery is hidden while this list is empty.
+# image is optional: upload a photo or scan to assets/img/certificates/ and write its file name, e.g. image: best-paper.jpg
+# Example:
+# - name: Best paper award
+#   issuer: Conference name
+#   date: "2026"
+#   image: ""
+#   link: ""
+[]

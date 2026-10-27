@@ -1,0 +1,9 @@
+---
+layout: null
+permalink: /research/papers.bib
+sitemap: false
+---
+% Publications of Sana Ullah Khan · {{ site.url }}/research/
+{% for p in site.data.publications %}
+{% include bibtex.html pub=p %}
+{% endfor %}

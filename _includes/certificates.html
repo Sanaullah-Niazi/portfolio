@@ -1,0 +1,27 @@
+{%- comment -%} Certificates and awards gallery. Pictures go in assets/img/certificates/ and are named in _data/certifications.yml and _data/awards.yml. {%- endcomment -%}
+{%- assign img_dir = '/assets/img/certificates/' -%}
+<section class="section" id="certifications" aria-labelledby="certs-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">{{ include.num }}</span><span data-i18n="certs_eyebrow">Certificates</span></p>
+      <h2 id="certs-title" data-i18n="certs_title">Certificates and awards</h2>
+    </header>
+    {%- if site.data.awards and site.data.awards.size > 0 %}
+    <h3 class="sub reveal" data-i18n="awards_title">Awards</h3>
+    <ul class="gallery">
+      {%- for c in site.data.awards %}{% include cert-tile.html c=c icon="award" %}{% endfor %}
+    </ul>
+    {%- endif %}
+    {%- for g in site.data.certifications %}
+    <h3 class="gallery-title reveal"><span class="icon-tile sm">{% include icon.html name=g.icon px=18 %}</span>{{ g.group }}</h3>
+    <ul class="gallery">
+      {%- for c in g.items %}{% include cert-tile.html c=c icon=g.icon %}{% endfor %}
+    </ul>
+    {%- endfor %}
+  </div>
+  <dialog class="lightbox" aria-label="Certificate picture">
+    <form method="dialog"><button class="icon-btn lightbox-close" aria-label="Close">×</button></form>
+    <img src="data:," alt="">
+    <p class="lightbox-caption"></p>
+  </dialog>
+</section>

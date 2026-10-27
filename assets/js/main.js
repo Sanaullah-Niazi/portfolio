@@ -1,4 +1,5 @@
-// Site behaviour: theme toggle, mobile menu, scroll effects, the hero network animation and the contact form.
+// Site behaviour: theme toggle, language switch, mobile menu, scroll effects, the hero network animation,
+// project filter, skills chart, BibTeX copy, certificate lightbox and the contact form.
 // Plain JavaScript, no libraries. Anything that moves is skipped when the visitor prefers reduced motion.
 (function () {
   var root = document.documentElement;
@@ -17,6 +18,35 @@
       onThemeChange.forEach(function (fn) { fn(); });
     });
   }
+
+  // Language switch (English / Urdu). Elements with data-i18n get their Urdu text from the JSON block
+  // at the end of the page (built from _data/ur.yml); the English text is kept so we can switch back.
+  var dict = {};
+  try { dict = JSON.parse(document.getElementById("i18n-ur").textContent) || {}; } catch (e) {}
+  var langBtn = document.querySelector(".lang-toggle");
+  var urNotice = document.querySelector(".ur-notice");
+  function setLang(lang, save) {
+    var ur = lang === "ur";
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      if (!el.hasAttribute("data-en")) el.setAttribute("data-en", el.textContent);
+      var text = ur ? dict[el.getAttribute("data-i18n")] : null;
+      el.textContent = text || el.getAttribute("data-en");
+      if (ur && text) el.setAttribute("lang", "ur"); else el.removeAttribute("lang");
+    });
+    root.setAttribute("lang", ur ? "ur" : "en");
+    root.setAttribute("dir", ur ? "rtl" : "ltr");
+    if (urNotice) urNotice.hidden = !ur;
+    if (langBtn) {
+      langBtn.setAttribute("lang", ur ? "en" : "ur");
+      langBtn.setAttribute("aria-label", ur ? "Read in English" : langBtn.getAttribute("data-label-en"));
+    }
+    if (save) try { localStorage.setItem("lang", lang); } catch (e) {}
+  }
+  if (root.getAttribute("lang") === "ur") setLang("ur");
+  if (langBtn) langBtn.addEventListener("click", function () {
+    setLang(root.getAttribute("lang") === "ur" ? "en" : "ur", true);
+  });
+  function t(key, fallback) { return root.getAttribute("lang") === "ur" && dict[key] ? dict[key] : fallback; }
 
   // Mobile menu.
   var nav = document.getElementById("site-nav");
@@ -67,7 +97,7 @@
       if (document.getElementById(id)) links[id] = a;
     });
     // Sections without their own menu link light up the nearest one.
-    var alias = { focus: null, certifications: "skills", education: "experience", notes: null };
+    var alias = { news: null, focus: null, service: "experience", certifications: "skills", education: "experience", notes: null };
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
@@ -331,6 +361,128 @@
         new IntersectionObserver(function (en) { en[0].isIntersecting ? start() : stop(); }).observe(canvas);
       } else start();
     }
+  }
+
+  // Project filter: the topic buttons show only the cards tagged with that topic (topics: in each project file).
+  document.querySelectorAll(".filter").forEach(function (bar) {
+    var grid = bar.nextElementSibling;
+    if (!grid || !grid.hasAttribute("data-filterable")) return;
+    var buttons = bar.querySelectorAll(".chip-btn");
+    var status = bar.querySelector(".filter-status");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var topic = btn.getAttribute("data-topic"), shown = 0;
+        buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        grid.querySelectorAll("[data-topics]").forEach(function (card) {
+          var match = !topic || card.getAttribute("data-topics").split("|").indexOf(topic) !== -1;
+          card.hidden = !match;
+          if (match) { shown++; card.classList.add("is-in"); }
+        });
+        if (status) status.textContent = shown + (shown === 1 ? " project shown" : " projects shown");
+      });
+    });
+  });
+
+  // Skills chart: a radar drawn from the legend buttons (score 1 to 4). Choosing an area highlights its
+  // point and shows what backs it up.
+  var chart = document.querySelector("[data-chart]");
+  if (chart) {
+    var svg = chart.querySelector(".radar");
+    var items = Array.prototype.slice.call(chart.querySelectorAll(".legend-btn"));
+    var detailLevel = chart.querySelector(".chart-detail-level");
+    var detailText = chart.querySelector(".chart-detail-text");
+    var NS = "http://www.w3.org/2000/svg", R = 112, max = 4, n = items.length, dots = [], labels = [];
+    function pt(i, r) {
+      var a = -Math.PI / 2 + i * 2 * Math.PI / n;
+      return [Math.cos(a) * r, Math.sin(a) * r];
+    }
+    function el(name, attrs, parent) {
+      var e = document.createElementNS(NS, name);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      (parent || svg).appendChild(e);
+      return e;
+    }
+    var g = el("g", { "aria-hidden": "true" });
+    for (var ring = 1; ring <= max; ring++) {
+      el("polygon", { "class": "radar-ring", points: items.map(function (_, i) { return pt(i, R * ring / max).join(","); }).join(" ") }, g);
+    }
+    items.forEach(function (_, i) { var p = pt(i, R); el("line", { "class": "radar-axis", x1: 0, y1: 0, x2: p[0], y2: p[1] }, g); });
+    var shape = el("polygon", { "class": "radar-shape", points: items.map(function () { return "0,0"; }).join(" ") }, g);
+    items.forEach(function (btn, i) {
+      var s = +btn.getAttribute("data-score") || 0, p = pt(i, R * s / max), lp = pt(i, R + 22);
+      var dot = el("circle", { "class": "radar-dot", cx: p[0], cy: p[1], r: 6 }, g);
+      var label = el("text", { "class": "radar-label", x: lp[0], y: lp[1] + 4,
+        "text-anchor": Math.abs(lp[0]) < 8 ? "middle" : (lp[0] > 0 ? "start" : "end") }, g);
+      label.textContent = btn.getAttribute("data-short");
+      [dot, label].forEach(function (target) {
+        target.addEventListener("click", function () { select(i); });
+        target.addEventListener("mouseenter", function () { select(i); });
+      });
+      dots.push(dot); labels.push(label);
+    });
+    function draw(progress) {
+      shape.setAttribute("points", items.map(function (btn, i) {
+        return pt(i, R * (+btn.getAttribute("data-score") || 0) / max * progress).join(",");
+      }).join(" "));
+    }
+    function select(i) {
+      items.forEach(function (b, j) {
+        b.setAttribute("aria-pressed", String(i === j));
+        dots[j].classList.toggle("is-active", i === j);
+        labels[j].classList.toggle("is-active", i === j);
+      });
+      detailLevel.textContent = items[i].getAttribute("data-level");
+      detailText.textContent = items[i].getAttribute("data-evidence");
+    }
+    items.forEach(function (btn, i) {
+      btn.addEventListener("click", function () { select(i); });
+      btn.addEventListener("mouseenter", function () { select(i); });
+    });
+    select(0);
+    if (reduceMotion || !hasIO) draw(1);
+    else {
+      draw(0);
+      new IntersectionObserver(function (en, obs) {
+        if (!en[0].isIntersecting) return;
+        obs.disconnect();
+        var start = null;
+        requestAnimationFrame(function grow(ts) {
+          if (start === null) start = ts;
+          var p = Math.min((ts - start) / 900, 1);
+          draw(1 - Math.pow(1 - p, 3));
+          if (p < 1) requestAnimationFrame(grow);
+        });
+      }, { threshold: 0.3 }).observe(svg);
+    }
+  }
+
+  // Copy buttons (BibTeX on the Research page).
+  document.querySelectorAll(".copy-btn").forEach(function (btn) {
+    var label = btn.querySelector("span");
+    btn.addEventListener("click", function () {
+      var src = document.getElementById(btn.getAttribute("data-copy"));
+      if (!src || !navigator.clipboard) return;
+      navigator.clipboard.writeText(src.textContent.trim()).then(function () {
+        var before = label.textContent;
+        label.textContent = t("copied", "Copied");
+        setTimeout(function () { label.textContent = before; }, 1600);
+      });
+    });
+  });
+
+  // Certificate pictures open larger in a dialog (Esc or the × button closes it).
+  var lightbox = document.querySelector(".lightbox");
+  if (lightbox && lightbox.showModal) {
+    var lbImg = lightbox.querySelector("img"), lbCap = lightbox.querySelector(".lightbox-caption");
+    document.querySelectorAll(".cert-thumb.has-img").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        lbImg.src = btn.getAttribute("data-full");
+        lbImg.alt = btn.querySelector("img").alt;
+        lbCap.textContent = btn.getAttribute("data-caption");
+        lightbox.showModal();
+      });
+    });
+    lightbox.addEventListener("click", function (e) { if (e.target === lightbox) lightbox.close(); });
   }
 
   // Contact form: posts to Web3Forms, which emails the message to the site owner.

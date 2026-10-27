@@ -11,10 +11,16 @@ This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs 
 | Name, headline, intro, email, links, highlight strip | `_data/profile.yml` |
 | "Where I fit" areas | `_data/focus.yml` |
 | Thesis and research interests | `_data/research.yml` |
-| Publications | `_data/publications.yml` |
+| Publications (summary, abstract, PDF link; BibTeX is made for you) | `_data/publications.yml` |
+| News strip on the home page | `_data/news.yml` |
+| ORCID link | `orcid:` in `_data/profile.yml` |
+| Teaching, reviewing and volunteering | `_data/service.yml` |
+| Awards | `_data/awards.yml` |
+| Skills chart (how far each point reaches) | `score:` in `_data/focus.yml` |
+| Urdu text for the language switch | `_data/ur.yml` |
 | Teaching and work | `_data/experience.yml` |
 | Degrees | `_data/education.yml` |
-| Certifications (and verification links) | `_data/certifications.yml` |
+| Certifications (verification links and pictures) | `_data/certifications.yml` |
 | Skills | `_data/skills.yml` |
 | The "About" story and the path next to it | `index.html`, the section that starts with `id="about"` |
 | The terminal box in the top section | `index.html`, the part that starts with `class="terminal"` |
@@ -36,9 +42,29 @@ Some entries (focus areas, skill groups, certification groups) have an `icon:` l
 
 The project gets its own page at `/projects/<file-name>/` and a card on the home page.
 
+## Research page
+
+`/research/` lists the thesis and every paper with its summary, keywords, DOI, PDF and a BibTeX citation visitors can copy. A file with all citations is built at `/research/papers.bib`. To show the journal's official abstract instead of the short summary, paste it after `abstract:` for that paper. To host a PDF yourself, upload it to `assets/papers/` and set `pdf: /assets/papers/your-file.pdf`.
+
+## Certificate pictures
+
+Upload a picture of a certificate to `assets/img/certificates/` and write its file name after `image:` for that certificate in `_data/certifications.yml` (or for an award in `_data/awards.yml`). Visitors can click it to see it larger. Without a picture, the gallery shows a badge instead. Crop out ID numbers or anything private first.
+
+## Project topics
+
+Each project file has a `topics:` line, for example `topics: [AI, Security]`. The filter buttons above the projects are built from these, so a new topic gets its own button automatically. Add a matching `topic_Name:` line to `_data/ur.yml` for its Urdu label.
+
+## Language switch (English / Urdu)
+
+The `اردو` button in the header switches the menu, headings, buttons and the short intro to Urdu and turns the layout right-to-left. The visitor's choice is remembered. Detailed content (papers, projects, CV entries) stays in English. All Urdu text lives in `_data/ur.yml`; change the text in quotes, not the key before the colon.
+
+## Link previews
+
+When someone shares a page on WhatsApp, LinkedIn or X they see `assets/img/social-card.png` (1200 × 630). To use a different picture, replace that file (same name and size), or give one page its own with `image: /assets/img/other.png` in its front matter.
+
 ## Write a note
 
-Copy `templates/post-template.md` into `_posts/` and name it `YEAR-MONTH-DAY-title.md`, for example `_posts/2026-11-02-detecting-roman-urdu-scams.md`. The Notes section appears on the home page once the first post exists.
+Notes are meant for short write-ups on AI security (phishing, LLM security, what you learn from a project). Copy `templates/post-template.md` into `_posts/` and name it `YEAR-MONTH-DAY-title.md`, for example `_posts/2026-11-02-detecting-roman-urdu-scams.md`. Give each note a few `tags:` (topics); they show on the Notes page. The Notes section appears on the home page once the first post exists.
 
 ## Add your CV
 
@@ -51,6 +77,10 @@ Messages sent from the form arrive in your inbox through [Web3Forms](https://web
 ## Your domain
 
 The site is served at `sanaullahniazi.com` (registered and DNS-managed on Cloudflare). The domain is set in the `CNAME` file and in `url` in `_config.yml`, with `baseurl` left empty. If you ever change domains, update both. If you'd rather host somewhere else (Netlify, Cloudflare Pages), connect this repo there and choose Jekyll as the framework.
+
+## Accessibility
+
+The site is checked with axe (an automated accessibility tester) in light, dark and Urdu modes. Everything works with a keyboard (Tab, Enter, Esc), there is a "Skip to content" link, images and icons have text alternatives, colours meet WCAG AA contrast, and animations stop for visitors who ask their device for reduced motion. When you add a certificate picture, its description is made from the certificate name automatically.
 
 ## Security
 

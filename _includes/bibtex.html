@@ -1,0 +1,14 @@
+{%- assign p = include.pub -%}{%- assign ob = '{' -%}{%- assign cb = '}' -%}
+@article{{ ob }}{{ p.bib_key }},
+  title   = {{ ob }}{{ p.title }}{{ cb }},
+  author  = {{ ob }}{{ p.bib_authors }}{{ cb }},
+  journal = {{ ob }}{{ p.journal }}{{ cb }},
+  year    = {{ ob }}{{ p.year }}{{ cb }},
+{%- if p.volume %}
+  volume  = {{ ob }}{{ p.volume }}{{ cb }},{% endif %}
+{%- if p.issue %}
+  number  = {{ ob }}{{ p.issue }}{{ cb }},{% endif %}
+{%- if p.pages %}
+  pages   = {{ ob }}{{ p.pages | replace: '–', '--' }}{{ cb }},{% endif %}
+  doi     = {{ ob }}{{ p.doi }}{{ cb }}
+{{ cb }}

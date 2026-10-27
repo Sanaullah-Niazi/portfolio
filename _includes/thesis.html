@@ -1,0 +1,21 @@
+{% assign t = site.data.research.thesis %}
+<article class="card thesis reveal">
+  <div class="thesis-text">
+    <p class="label"><span data-i18n="thesis_label">MS thesis</span> · {{ t.year }}</p>
+    <h3>{{ t.title }}</h3>
+    <p class="meta">{{ t.degree }} · Supervisor: {{ t.supervisor }}</p>
+    <p>{{ t.summary }}</p>
+    <p class="label sub-label" id="models-{{ include.id | default: 'home' }}">Models compared</p>
+    <ol class="pipeline" aria-labelledby="models-{{ include.id | default: 'home' }}">{% for m in t.models %}<li>{{ m }}</li>{% endfor %}</ol>
+  </div>
+  <div class="thesis-stats">
+    {% assign acc = t.results[0] %}
+    <div class="ring" data-value="{{ acc.value | remove: '%' }}">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-bar" cx="60" cy="60" r="52" pathLength="100"/></svg>
+      <div class="ring-label"><strong>{{ acc.value }}</strong><span>{{ acc.label }}</span></div>
+    </div>
+    <dl class="results">
+      {% for r in t.results offset: 1 %}<div><dt>{{ r.label }}</dt><dd>{{ r.value }}</dd></div>{% endfor %}
+    </dl>
+  </div>
+</article>

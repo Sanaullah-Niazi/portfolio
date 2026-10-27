@@ -1,0 +1,19 @@
+# Teaching, reviewing and volunteering. A group with no items is hidden automatically.
+# To add an entry, copy an existing "- what:" block and change the text.
+teaching:
+  - what: Introduction to Information & Communication Technologies
+    where: GC University Faisalabad, Layyah Campus · undergraduate IT
+    when: Mar 2024 – Jun 2026
+  - what: Computer Networks
+    where: GC University Faisalabad, Layyah Campus · undergraduate IT
+    when: Mar 2024 – Jun 2026
+# Journals or conferences you have reviewed for, e.g.
+#  - what: Reviewer, Journal name
+#    where: ""
+#    when: "2026"
+reviewing: []
+# Volunteering, workshops you helped run, community work, e.g.
+#  - what: Volunteer, event name
+#    where: Organisation
+#    when: "2026"
+volunteering: []

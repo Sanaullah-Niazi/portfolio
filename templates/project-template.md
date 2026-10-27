@@ -5,6 +5,7 @@ title: "Project title"
 summary: One or two sentences on what it does and why it matters.
 status: In progress     # In progress  or  Completed
 order: 2               # lower numbers show first
+topics: [AI]           # one or more of: AI, Security, Networks (used by the filter buttons)
 tech: [Python, scikit-learn]
 links:
   github: ""           # https://github.com/Sanaullah-Niazi/...

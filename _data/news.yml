@@ -1,0 +1,27 @@
+# Short news items for the "News" strip on the home page (newest first). Only the first 5 are shown there;
+# the Research page lists all of them.
+# kind: paper, talk, award, degree, course or other (sets the little icon). link is optional.
+- date: 2026-10-01
+  kind: other
+  text: Scored IELTS Academic 6.5 (B2) and started learning German.
+  link: ""
+- date: 2026-07-01
+  kind: course
+  text: Completed "IoT for Everyone" (UET Peshawar / HEC, Coursera).
+  link: ""
+- date: 2026-06-20
+  kind: paper
+  text: First-author paper on AI-driven fraud detection in FinTech published in the Journal of Business Insight and Innovation.
+  link: https://doi.org/10.63544/jbii.v5i6.116
+- date: 2026-03-31
+  kind: paper
+  text: First-author paper on AI and workplace safety in oil and gas published in Periodicals of Management Studies.
+  link: https://doi.org/10.65181/poms.06.01.0100
+- date: 2026-03-30
+  kind: paper
+  text: Co-authored paper on generative AI in entrepreneurship education published in the International Journal of Advanced Social Studies.
+  link: https://doi.org/10.70843/ijass.2026.06107
+- date: 2026-01-15
+  kind: degree
+  text: Awarded the MS in Artificial Intelligence by The Islamia University of Bahawalpur (CGPA 3.66 / 4.00).
+  link: ""
