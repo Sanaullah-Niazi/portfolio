@@ -1,0 +1,161 @@
+# German version of _data/strings.yml. Only change the text after the colon.
+lang_name: Deutsch
+html_lang: de
+dir: ltr
+locale: de_DE
+months: [Jan., Feb., März, Apr., Mai, Juni, Juli, Aug., Sept., Okt., Nov., Dez.]
+months_long: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+date_short: "[m] [y]"
+date_long: "[d]. [m] [y]"
+
+skip: Zum Inhalt springen
+back_to_top: Nach oben
+nav_label: Hauptmenü
+language: Sprache
+menu_open: Menü öffnen
+menu_close: Menü schließen
+theme_toggle: Zwischen hellem und dunklem Modus wechseln
+profiles: Profile
+email: E-Mail
+
+nav_about: Über mich
+nav_research: Forschung
+nav_projects: Projekte
+nav_experience: Erfahrung
+nav_skills: Kenntnisse
+nav_notes: Notizen
+nav_tools: Tools
+nav_contact: Kontakt
+
+btn_cv: Lebenslauf herunterladen
+btn_research: Forschung
+btn_contact: Kontakt
+cv_short: Lebenslauf
+terminal_label: Kurzprofil im Stil eines Terminals
+scroll_next: Zum nächsten Abschnitt
+
+news_eyebrow: Neuigkeiten
+news_title: Aktuelle Neuigkeiten
+news_all: Alle Neuigkeiten
+
+focus_eyebrow: "Ein Schwerpunkt: KI für Sicherheit"
+focus_title: Meine Schwerpunkte
+focus_lede: "Jeder Bereich gehört zum selben Ziel: KI nutzen, um Angriffe zu erkennen und zu stoppen, und KI selbst sicher halten. Zu jedem Bereich steht, was ich heute dafür vorweisen kann."
+
+about_eyebrow: Über mich
+about_title: Mein Weg
+journey_label: Mein bisheriger Weg
+
+research_eyebrow: Forschung
+research_title: Masterarbeit und Publikationen
+research_more: Zusammenfassungen, PDFs und BibTeX
+thesis_label: Masterarbeit
+supervisor: Betreuung
+models_compared: Verglichene Modelle
+pubs_title: Begutachtete Publikationen
+scholar_all: Alle Zitationen bei Google Scholar
+interests_title: Forschungsinteressen
+interests_now: Woran ich gerade arbeite
+interests_next: Was ich als Nächstes erforschen möchte
+research_page_title: Forschung
+research_page_lede: Meine Masterarbeit und begutachtete Publikationen, mit Zusammenfassungen, PDFs und Zitaten zum Kopieren.
+research_profiles: Forschungsprofile
+titles_note: Titel von Arbeiten und Publikationen stehen in ihrer veröffentlichten englischen Originalfassung.
+role_First_author: Erstautor
+role_Co-author: Mitautor
+abstract_label: Abstract
+summary_label: Zusammenfassung
+keywords: Schlagwörter
+pdf: PDF
+bibtex_all: Alle Zitate herunterladen (.bib)
+copy: Kopieren
+copied: Kopiert
+
+projects_eyebrow: Projekte
+projects_title: Woran ich arbeite
+projects_page_title: Projekte
+projects_lede: Praktische Arbeit in KI und Sicherheit. Jedes Projekt hat eine eigene Seite mit Code, Demos und Ergebnissen.
+projects_all: Alle Projekte
+all_projects_back: Alle Projekte
+filter_label: "Nach Thema filtern:"
+filter_all: Alle
+filter_shown_one: Projekt angezeigt
+filter_shown_many: Projekte angezeigt
+topic_AI: KI
+topic_Security: Sicherheit
+topic_Networks: Netzwerke
+status_Completed: Abgeschlossen
+status_In_progress: In Arbeit
+details: Details
+details_about: zu
+tech_stack: Technologien
+link_github: GitHub
+link_demo: Live-Demo
+link_paper: Paper
+link_video: Video
+btn_github: Code auf GitHub
+btn_demo: Live-Demo öffnen
+btn_paper: Paper lesen
+btn_video: Video ansehen
+live_demo_of: Live-Demo von
+video_demo_of: Video-Demo von
+
+experience_eyebrow: Erfahrung
+experience_title: Lehre und Arbeit
+
+skills_eyebrow: Kenntnisse
+skills_title: Werkzeuge, die ich nutze
+chart_title: Kompetenzprofil
+chart_hint: Wählen Sie einen Bereich, um zu sehen, was dahintersteht.
+chart_areas: Schwerpunkte
+chart_scale: Skala
+chart_of: von
+scale_1: Im Lernen
+scale_2: Training & Labor
+scale_3: In eigener Arbeit angewendet
+scale_4: Forschung & veröffentlicht
+
+service_eyebrow: Lehre & Engagement
+service_title: Lehre, Gutachten und Ehrenamt
+service_teaching: Lehre
+service_reviewing: Gutachtertätigkeit
+service_volunteering: Ehrenamt
+
+certs_eyebrow: Zertifikate
+certs_title: Zertifikate und Auszeichnungen
+awards_title: Auszeichnungen
+verify: Prüfen
+certificate: Zertifikat
+enlarge: Vergrößern
+close: Schließen
+certificate_picture: Bild des Zertifikats
+
+education_eyebrow: Ausbildung
+education_title: Abschlüsse
+
+notes_eyebrow: Notizen
+notes_title: Neueste Beiträge
+notes_all: Alle Notizen
+notes_page_title: Notizen zur KI-Sicherheit
+notes_page_lede: Kurze Beiträge zu KI-Sicherheit, Erkennung und dem, was ich lerne und baue.
+notes_empty: Noch keine Notizen. Die erste ist unterwegs.
+topics: Themen
+rss: RSS-Feed (Englisch)
+
+contact_eyebrow: Kontakt
+contact_title: Kontakt aufnehmen
+contact_scholar: Scholar
+contact_scholar_link: Google-Scholar-Profil
+form_name: Ihr Name
+form_email: Ihre E-Mail-Adresse
+form_message: Nachricht
+form_send: Nachricht senden
+form_sending: Wird gesendet…
+form_sent: Danke, Ihre Nachricht wurde gesendet. Ich antworte per E-Mail.
+form_failed: Die Nachricht konnte leider nicht gesendet werden.
+form_not_ready: Das Formular ist noch nicht eingerichtet.
+form_fallback: Bitte schreiben Sie mir direkt an
+
+footer_rights: Alle Rechte vorbehalten.
+not_found_title: Diese Seite gibt es nicht
+not_found_home: Zur Startseite

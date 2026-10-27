@@ -17,16 +17,16 @@ This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs 
 | Teaching, reviewing and volunteering | `_data/service.yml` |
 | Awards | `_data/awards.yml` |
 | Skills chart (how far each point reaches) | `score:` in `_data/focus.yml` |
-| Text for the language menu | `_data/ur.yml` (Urdu), `_data/de.yml` (German), `_data/zh.yml` (Chinese) |
+| Menu, headings and button text | `_data/strings.yml` (English); translations in `_data/ur/`, `_data/de/`, `_data/zh/` |
 | Teaching and work | `_data/experience.yml` |
 | Degrees | `_data/education.yml` |
 | Certifications (verification links and pictures) | `_data/certifications.yml` |
 | Skills | `_data/skills.yml` |
-| The "About" story and the path next to it | `index.html`, the section that starts with `id="about"` |
-| The terminal box in the top section | `index.html`, the part that starts with `class="terminal"` |
+| The "About" story, the path next to it and the facts below it | `_data/about.yml` |
+| The terminal box in the top section | `_includes/pages/home.html`, the part that starts with `class="terminal"` |
 | Projects | one file per project in `_projects/` |
 | Notes / blog posts | one file per post in `_posts/` |
-| Security tools page (`/tools/`) | page text in `tools/index.html`, the tools themselves in `assets/js/tools.js` (they run in the visitor's browser; nothing is sent anywhere) |
+| Security tools page (`/tools/`) | text in `_data/tools.yml` and `_data/<code>/tools.yml`, the page in `_includes/pages/tools.html`, the tools themselves in `assets/js/tools.js` (they run in the visitor's browser; nothing is sent anywhere) |
 
 Files ending in `.yml` are lists. Copy an existing entry (everything from its `-` line down), paste it, and change the text. Keep the same indentation (spaces, not tabs).
 
@@ -53,11 +53,16 @@ Upload a picture of a certificate to `assets/img/certificates/` and write its fi
 
 ## Project topics
 
-Each project file has a `topics:` line, for example `topics: [AI, Security]`. The filter buttons above the projects are built from these, so a new topic gets its own button automatically. Add a matching `topic_Name:` line to `_data/ur.yml`, `de.yml` and `zh.yml` for its translated label.
+Each project file has a `topics:` line, for example `topics: [AI, Security]`. The filter buttons above the projects are built from these, so a new topic gets its own button automatically. Add a matching `topic_Name:` line to `_data/strings.yml` and to `strings.yml` in `_data/ur/`, `_data/de/` and `_data/zh/` for its translated label.
 
-## Language menu (English, Urdu, German, Chinese)
+## Languages (English, Urdu, German, Chinese)
 
-The globe menu in the header switches the menu, headings, buttons and the short intro to Urdu, German or Simplified Chinese. Urdu also turns the layout right-to-left. The visitor's choice is remembered. Detailed content (papers, projects, CV entries) stays in English, and a one-line note at the top says so. The text for each language lives in `_data/ur.yml`, `_data/de.yml` and `_data/zh.yml`; change the text in quotes, not the key before the colon. A key missing from a file simply shows in English.
+Every page exists in four languages. English is at the normal address (`/`, `/research/` …) and the translations live under `/ur/`, `/de/` and `/zh/` (Simplified Chinese). The globe menu in the header takes visitors to the same page in the other language, and Urdu pages are laid out right-to-left. Paper titles, the thesis title and certificate names stay in their official English everywhere.
+
+- **Text:** each language has a folder in `_data/` (`_data/ur/`, `_data/de/`, `_data/zh/`) with the same file names as the English files in `_data/` (`profile.yml`, `news.yml`, `experience.yml` …). When you change something in English, make the same change in those three folders. `strings.yml` holds the menu, headings and buttons; change the text after the colon, never the key before it. `papers.yml` holds the translated summary and keywords of each paper.
+- **Pages:** the small files in the `ur/`, `de/` and `zh/` folders only say which language a page is in. The page layouts themselves are shared and live in `_includes/pages/`.
+- **A translated project or note:** copy an existing one from `de/projects/` or `de/blog/2026/`, keep `layout`, `lang`, `locale` and `ref` (`ref` is the English file name without `.md`, or the English post's file name without the date and `.md`), change `permalink` to match, and translate the title, summary or description, tags and text. Links, tech stack and status always come from the English project file. A project or note without a translation is still listed, in English.
+- **Translated CVs:** `assets/cv/Sana_Ullah_Khan_CV_de.pdf`, `_zh.pdf` and `_ur.pdf`. Their text is in `_cv_source/cv_de.yml`, `cv_zh.yml` and `cv_ur.yml`. After changing one, rebuild the PDFs on a computer with Python and Playwright: `python3 _cv_source/build_cv.py de zh ur`.
 
 ## Link previews
 
@@ -69,7 +74,7 @@ Notes are meant for short write-ups on AI security (phishing, LLM security, what
 
 ## Add your CV
 
-Save a public version of your CV as `assets/cv/Sana_Ullah_Khan_CV.pdf` (on github.com: open the `assets/cv` folder, **Add file → Upload files**). The "Download CV" button appears automatically once the file is there. Remove your phone number, address, date of birth, school results and referees' contact details from that version first, because anyone can download it.
+Save a public version of your CV as `assets/cv/Sana_Ullah_Khan_CV.pdf` (on github.com: open the `assets/cv` folder, **Add file → Upload files**). The "Download CV" button appears automatically once the file is there. Each language points to its own CV through the `cv:` line in its `profile.yml`. Remove your phone number, address, date of birth, school results and referees' contact details from that version first, because anyone can download it.
 
 ## Turn on the contact form
 

@@ -1,38 +1,37 @@
-{% assign home = '/' | relative_url %}
-{% if page.url == '/' %}{% assign base = '' %}{% else %}{% assign base = home %}{% endif %}
+{% assign home = L | append: '/' %}
+{% if page.url == home %}{% assign base = '' %}{% else %}{% assign base = home %}{% endif %}
 <header class="site-header">
   <div class="scroll-progress" aria-hidden="true"></div>
   <div class="wrap header-inner">
     <a class="brand" href="{{ home }}">
       <svg class="brand-mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M16 2.5 4.5 7v8.2c0 7 4.9 12.4 11.5 14.3 6.6-1.9 11.5-7.3 11.5-14.3V7L16 2.5z" class="bm-shield"/><circle cx="11" cy="13" r="1.9" class="bm-dot"/><circle cx="21" cy="12" r="1.9" class="bm-dot"/><circle cx="16" cy="20.5" r="1.9" class="bm-dot"/><path d="M11 13l10-1M11 13l5 7.5M21 12l-5 8.5" class="bm-line"/></svg>
-      <span class="brand-name">{{ site.data.profile.name }}</span>
+      <span class="brand-name">{{ me.name }}</span>
     </a>
-    <nav class="nav" id="site-nav" aria-label="Main">
-      <a href="{{ base }}#about"><span data-i18n="nav_about">About</span></a>
-      <a href="{{ base }}#research"><span data-i18n="nav_research">Research</span></a>
-      <a href="{{ base }}#projects"><span data-i18n="nav_projects">Projects</span></a>
-      <a href="{{ base }}#experience"><span data-i18n="nav_experience">Experience</span></a>
-      <a href="{{ base }}#skills"><span data-i18n="nav_skills">Skills</span></a>
-      <a href="{{ '/blog/' | relative_url }}"><span data-i18n="nav_notes">Notes</span></a>
-      <a href="{{ '/tools/' | relative_url }}"{% if page.url == '/tools/' %} class="is-active" aria-current="page"{% endif %}><span data-i18n="nav_tools">Tools</span></a>
-      <a class="nav-cta" href="{{ base }}#contact"><span data-i18n="nav_contact">Contact</span></a>
+    <nav class="nav" id="site-nav" aria-label="{{ S.nav_label }}">
+      <a href="{{ base }}#about">{{ S.nav_about }}</a>
+      <a href="{{ base }}#research">{{ S.nav_research }}</a>
+      <a href="{{ base }}#projects">{{ S.nav_projects }}</a>
+      <a href="{{ base }}#experience">{{ S.nav_experience }}</a>
+      <a href="{{ base }}#skills">{{ S.nav_skills }}</a>
+      <a href="{{ L }}/blog/">{{ S.nav_notes }}</a>
+      {%- assign tools_url = L | append: '/tools/' %}
+      <a href="{{ tools_url }}"{% if page.url == tools_url %} class="is-active" aria-current="page"{% endif %}>{{ S.nav_tools }}</a>
+      <a class="nav-cta" href="{{ base }}#contact">{{ S.nav_contact }}</a>
     </nav>
     <div class="header-actions">
-      <label class="lang-select" title="Language">
-        {% include icon.html name="globe" px=17 %}
-        <span class="sr-only">Language</span>
-        <select class="lang-picker" aria-label="Language / زبان / Sprache / 语言">
-          <option value="en" lang="en">English</option>
-          <option value="ur" lang="ur">اردو</option>
-          <option value="de" lang="de">Deutsch</option>
-          <option value="zh" lang="zh-Hans">中文</option>
-        </select>
-      </label>
-      <button class="theme-toggle icon-btn" type="button" aria-label="Switch between light and dark mode">
+      <details class="lang-menu">
+        <summary class="lang-btn" aria-label="{{ S.language }}: {{ S.lang_name }}">{% include icon.html name="globe" px=17 %}<span class="lang-current">{{ S.lang_name }}</span></summary>
+        <ul class="lang-list">
+          {%- for l in site.languages %}{% include lang-urls.html code=l.code %}
+          <li><a href="{{ alt_url }}" lang="{{ l.tag }}" hreflang="{{ l.tag }}"{% if l.code == lang %} aria-current="true"{% endif %}>{{ l.name }}</a></li>
+          {%- endfor %}
+        </ul>
+      </details>
+      <button class="theme-toggle icon-btn" type="button" aria-label="{{ S.theme_toggle }}">
         <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
       </button>
-      <button class="menu-toggle icon-btn" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+      <button class="menu-toggle icon-btn" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="{{ S.menu_open }}" data-label-open="{{ S.menu_open }}" data-label-close="{{ S.menu_close }}">
         <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
     </div>

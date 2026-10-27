@@ -1,0 +1,20 @@
+# 证书名称保留正式的英文原名，只翻译分组和日期。
+- group: 网络安全与数字取证
+  icon: shield
+  items:
+    - { name: "Digital Forensic & Cyber Security (3-month course, Grade A)", issuer: "NAVTTC, Govt. of Pakistan", date: "2024年2月 – 5月", verify_url: "", image: "" }
+    - { name: Junior Cybersecurity Analyst Career Path, issuer: Cisco Networking Academy, date: 2024年10月, verify_url: "", image: "" }
+    - { name: Ethical Hacker, issuer: Cisco Networking Academy, date: 2024年11月, verify_url: "", image: "" }
+    - { name: Introduction to Cybersecurity, issuer: Cisco Networking Academy, date: 2024年11月, verify_url: "", image: "" }
+- group: AI、编程与物联网
+  icon: chip
+  items:
+    - { name: Programming in Python, issuer: Meta (Coursera), date: 2025年2月, verify_url: "", image: "" }
+    - { name: Advanced Chatbots with Deep Learning and Python, issuer: Packt (Coursera), date: 2025年2月, verify_url: "", image: "" }
+    - { name: AI Python for Beginners, issuer: DeepLearning.AI (Coursera), date: 2025年3月, verify_url: "", image: "" }
+    - { name: IoT for Everyone, issuer: UET Peshawar / HEC (Coursera), date: 2026年7月, verify_url: "", image: "" }
+- group: 其他培训
+  icon: award
+  items:
+    - { name: IOSH Managing Safely, issuer: IOSH, date: "2026", verify_url: "", image: "" }
+    - { name: 30-hour General Industry Safety and Health, issuer: OSHAcademy, date: "2026", verify_url: "", image: "" }

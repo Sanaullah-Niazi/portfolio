@@ -1,20 +1,20 @@
-{%- assign sv = site.data.service -%}
+{%- assign sv = D.service | default: site.data.service -%}
 {%- assign groups = "teaching|reviewing|volunteering" | split: "|" -%}
 {%- assign total = sv.teaching.size | plus: sv.reviewing.size | plus: sv.volunteering.size -%}
 {%- if total > 0 -%}
 <section class="section" id="service" aria-labelledby="service-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">{{ include.num }}</span><span data-i18n="service_eyebrow">Teaching &amp; service</span></p>
-      <h2 id="service-title" data-i18n="service_title">Teaching, reviewing and volunteering</h2>
+      <p class="eyebrow"><span class="num">{{ include.num }}</span>{{ S.service_eyebrow }}</p>
+      <h2 id="service-title" >{{ S.service_title }}</h2>
     </header>
     <div class="grid service-grid">
       {%- for g in groups %}
       {%- assign items = sv[g] -%}
       {%- if items and items.size > 0 %}
-      {%- case g -%}{%- when "teaching" -%}{%- assign gicon = "cap" -%}{%- assign gname = "Teaching" -%}{%- when "reviewing" -%}{%- assign gicon = "pen" -%}{%- assign gname = "Reviewing" -%}{%- else -%}{%- assign gicon = "hands" -%}{%- assign gname = "Volunteering" -%}{%- endcase %}
+      {%- case g -%}{%- when "teaching" -%}{%- assign gicon = "cap" -%}{%- when "reviewing" -%}{%- assign gicon = "pen" -%}{%- else -%}{%- assign gicon = "hands" -%}{%- endcase %}{%- assign gk = 'service_' | append: g %}
       <div class="card reveal spot">
-        <div class="skill-head"><span class="icon-tile">{% include icon.html name=gicon px=22 %}</span><h3 class="group-title" data-i18n="service_{{ g }}">{{ gname }}</h3></div>
+        <div class="skill-head"><span class="icon-tile">{% include icon.html name=gicon px=22 %}</span><h3 class="group-title">{{ S[gk] }}</h3></div>
         <ul class="certs">
           {%- for it in items %}
           <li><p class="cert-name">{{ it.what }}</p><p class="meta">{% if it.where and it.where != '' %}{{ it.where }} · {% endif %}{{ it.when }}</p></li>

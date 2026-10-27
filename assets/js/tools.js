@@ -6,101 +6,18 @@
   if (!document.querySelector(".tools-page")) return;
 
   // ---------- Text ----------
-  // English text for everything this file writes. Translations live in _data/ur.yml, de.yml and zh.yml
-  // under the same name with "tx_" in front (for example tx_very_weak).
-  var EN = {
-    very_weak: "Very weak", weak: "Weak", fair: "Fair", strong: "Strong", very_strong: "Very strong",
-    pw_bits: "About {n} bits of guessing work",
-    pw_time_online: "Online attack on a site that limits tries (100 per hour)",
-    pw_time_slow: "Offline attack on a well-stored password (bcrypt, 10,000 per second)",
-    pw_time_fast: "Offline attack on a badly stored password (fast hash on GPUs, 100 billion per second)",
-    pw_common: "This is one of the most common passwords. It would be guessed almost at once.",
-    pw_word: "Contains a common word or name: “{w}”. Attackers try these first, with numbers and symbols added.",
-    pw_leet: "Swapping letters for look-alike symbols (@ for a, 0 for o) barely helps. Cracking tools try that automatically.",
-    pw_year: "Contains a year. Birth years and recent years are guessed early.",
-    pw_seq: "Contains a sequence or keyboard pattern, like abc, 123 or qwerty.",
-    pw_repeat: "Contains repeated characters.",
-    pw_short: "Use at least 12 characters, more for important accounts.",
-    pw_classes: "Make it longer or mix in other kinds of characters.",
-    pw_good: "Looks good. Use it for one account only and keep it in a password manager.",
-    pw_tip: "Easiest strong option: a passphrase of 5 or more random words, from the generator below.",
-    dur_instant: "instantly", dur_second: "{n} seconds", dur_second_1: "1 second", dur_minute: "{n} minutes", dur_minute_1: "1 minute",
-    dur_hour: "{n} hours", dur_hour_1: "1 hour", dur_day: "{n} days", dur_day_1: "1 day", dur_month: "{n} months", dur_month_1: "1 month",
-    dur_year: "{n} years", dur_year_1: "1 year", dur_centuries: "centuries",
-    gen_bits: "{n} bits of randomness. Time to crack at 100 billion guesses per second: {t}.",
-    gen_pick: "Pick at least one kind of character.",
-    copied: "Copied",
-    risk_low: "Few warning signs", risk_med: "Suspicious", risk_high: "Likely phishing",
-    ph_none: "No links found. Paste a web address, for example https://example.com.",
-    ph_real: "Real destination", ph_host: "Full host name", ph_defanged: "Safe to share (defanged)",
-    ph_clean: "No warning signs found. That doesn't prove the site is safe, only that the address looks normal.",
-    ph_bad_url: "This isn't a valid web address.",
-    ph_scheme: "Uses “{s}”, which runs code or embeds a whole page in the link instead of opening a website.",
-    ph_http: "Not encrypted (http, not https). Anything typed on this page could be read on the way. Note that https alone doesn't mean a site is safe.",
-    ph_ip: "Uses a bare IP address ({h}) instead of a domain name. Real companies almost never do this.",
-    ph_ip_obf: "The IP address is written in a disguised form ({raw}). That's a trick to hide where the link goes.",
-    ph_userinfo: "Has text before an @ sign (“{u}”). Browsers ignore that part, so the link really goes to {h}.",
-    ph_puny: "Uses international letters (punycode, xn--) that can look exactly like normal ones.",
-    ph_brand: "Mentions {b} but the domain isn't one of theirs. The real {b} sites are {o}.",
-    ph_brand_path: "Mentions {b} in the path, on a domain that doesn't belong to {b}.",
-    ph_lookalike: "The domain “{d}” looks like {b} but isn't. Watch for swapped letters and digits (1 for l, 0 for o, rn for m).",
-    ph_tld: "Ends in {t}, a domain ending that's cheap and often used for phishing.",
-    ph_short: "A link shortener ({h}) hides where the link really goes.",
-    ph_hosting: "Hosted on a free site builder or hosting service ({h}). Anyone can make a page there in minutes.",
-    ph_subs: "Has many levels of subdomains ({n}). Long chains are used to push the real domain out of view.",
-    ph_hyphens: "Has many hyphens in the domain, common in fake “secure-login-update” style names.",
-    ph_port: "Uses an unusual port ({p}).",
-    ph_words: "Uses pressure words like “{w}”. Phishing pages often ask you to log in, verify or update urgently.",
-    ph_redirect: "Contains another address inside it ({p}=…). It may bounce you to a different site.",
-    ph_file: "Points straight at a program or script file (.{e}). Opening it could install something.",
-    ph_long: "Very long address ({n} characters), which makes it hard to read.",
-    ph_encoded: "Has a lot of encoded characters (%xx), which can hide the real text.",
-    ph_at_path: "Has an extra “//” in the path, a sign of a redirect or a disguised address.",
-    hash_wait: "Working…",
-    hash_empty: "Type some text or choose a file.",
-    hash_weak: "Broken for security, still fine for checksums",
-    hash_match: "Matches {a}.",
-    hash_nomatch: "Doesn't match any of these hashes. Check you copied the whole hash, or the file may have changed.",
-    hash_nocrypto: "Your browser only allows SHA hashes on secure (https) pages.",
-    hash_file: "{name} · {size}",
-    hid_found: "Found {n} hidden or unusual characters.",
-    hid_clean: "No hidden characters or injection phrases found.",
-    hid_tags: "{n} invisible “tag” characters. People can't see them, but many AI models read them as normal text.",
-    hid_varsel: "{n} variation selectors in a row. They can carry a hidden message inside an emoji or letter.",
-    hid_zw: "{n} zero-width characters (invisible spaces and joiners).",
-    hid_bidi: "{n} text direction overrides. They can make text, or code, display in a different order from what it says.",
-    hid_space: "{n} unusual spaces or invisible fillers.",
-    hid_ctrl: "{n} control characters.",
-    hid_mixed: "Words mixing alphabets, so a letter is a look-alike from another script: {w}",
-    hid_inject: "Phrases that look like instructions aimed at an AI model:",
-    hid_decoded: "Hidden message",
-    hid_view: "Text with hidden characters shown",
-    hid_copy: "Copy cleaned text",
-    hid_note: "Cleaning removes invisible characters and swaps look-alike letters for normal ones. Joiners that Urdu, Persian or emoji need are kept.",
-    jwt_bad: "This doesn't look like a JWT. A JWT has three parts separated by dots.",
-    jwt_header: "Header", jwt_payload: "Payload", jwt_claims: "Dates in the token",
-    jwt_exp: "Expires", jwt_iat: "Issued", jwt_nbf: "Not valid before",
-    jwt_none: "No signature (alg “none”). Anyone can change this token and a careless server will still accept it.",
-    jwt_hs: "Signed with a shared secret ({a}). A weak secret can be cracked offline from one token.",
-    jwt_noexp: "No expiry (exp). If it leaks, it works for ever.",
-    jwt_expired: "Expired {t}.",
-    jwt_notyet: "Not valid yet (nbf is in the future).",
-    jwt_long: "Valid for a long time ({n} days).",
-    jwt_keyhdr: "The header names its own key ({k}). A server must never trust that blindly.",
-    jwt_secret: "The payload has a field called “{k}”. JWT payloads are only encoded, not encrypted.",
-    jwt_nosig: "The signature part is empty.",
-    jwt_jwe: "This is an encrypted token (JWE). Only the header can be read.",
-    jwt_readable: "Anyone who has this token can read the payload. Don't put secrets or personal data in it.",
-    jwt_sigcheck: "Not checked: the signature (that needs the server's key)."
-  };
+  // Everything this file writes comes from the JSON block on the page, built from the "js:" part of
+  // _data/tools.yml (English) or _data/<code>/tools.yml, so each language version has its own text.
+  var TEXT = {};
+  try { TEXT = JSON.parse(document.getElementById("tools-text").textContent) || {}; } catch (e) {}
+  var root = document.documentElement, rtl = root.getAttribute("dir") === "rtl";
   function tr(key, vars) {
-    var s = window.siteI18n ? window.siteI18n.t("tx_" + key, EN[key]) : EN[key];
-    // In right-to-left Urdu, isolate inserted values (domains, numbers) so they don't reorder the sentence.
-    var rtl = window.siteI18n && window.siteI18n.lang() === "ur";
+    var s = TEXT[key] || key;
+    // In right-to-left text, isolate inserted values (domains, numbers) so they don't reorder the sentence.
     if (vars) s = s.replace(/\{(\w+)\}/g, function (m, k) { return k in vars ? (rtl ? "\u2068" + vars[k] + "\u2069" : vars[k]) : m; });
     return s;
   }
-  function langTag() { return window.siteI18n ? window.siteI18n.tag() : "en"; }
+  function langTag() { return root.getAttribute("lang") || "en"; }
   function num(n, digits) { return new Intl.NumberFormat(langTag(), { maximumFractionDigits: digits || 0 }).format(n); }
 
   // ---------- Small helpers ----------
@@ -136,8 +53,9 @@
       setTimeout(function () { label.textContent = before; }, 1600);
     });
   }
+  var copyLabel = (document.querySelector("#gen-copy span") || {}).textContent || "Copy";
   function copyBtn(getText) {
-    var b = h("button", { type: "button", class: "btn btn-sm" }, h("span", { text: window.siteI18n ? window.siteI18n.t("tool_copy", "Copy") : "Copy" }));
+    var b = h("button", { type: "button", class: "btn btn-sm" }, h("span", { text: copyLabel }));
     b.addEventListener("click", function () { copyText(getText(), b); });
     return b;
   }
@@ -166,17 +84,6 @@
       }
     }
   }
-  // Text written here gets the page language too, so Urdu and Chinese pick up their fonts.
-  function markLang() {
-    var tag = langTag();
-    document.querySelectorAll(".tool-out, #gen-meta").forEach(function (el) {
-      if (tag === "en") el.removeAttribute("lang"); else el.setAttribute("lang", tag);
-    });
-  }
-  var renders = [markLang];
-  markLang();
-  document.addEventListener("site:lang", function () { renders.forEach(function (fn) { fn(); }); });
-
   // ---------- 1. Password strength ----------
   // A short version of the idea behind zxcvbn: score the patterns an attacker would try first
   // (common passwords and words, years, sequences, repeats), and only count the rest as random.
@@ -293,7 +200,6 @@
       input.type = on ? "text" : "password";
       show.setAttribute("aria-pressed", String(on));
     });
-    renders.push(render);
   })();
 
   // ---------- 2. Generator ----------
@@ -349,7 +255,6 @@
     $("gen-new").addEventListener("click", generate);
     $("gen-copy").addEventListener("click", function () { if (result.textContent) copyText(result.textContent, $("gen-copy")); });
     generate();
-    renders.push(renderMeta);
   })();
 
   // ---------- 3. Phishing link checker ----------
@@ -525,7 +430,6 @@
         "https://www.paypal.com/myaccount/summary";
       run();
     });
-    renders.push(render);
   })();
 
   // ---------- 4. Hashes ----------
@@ -626,7 +530,6 @@
       if (src === "text") fromText(); else { file.value = ""; render(); }
     });
     render();
-    renders.push(render);
   })();
 
   // ---------- 5. Hidden text and prompt injection ----------
@@ -733,12 +636,12 @@
       if (f.length) parts.push(findingList(f));
       if (r.messages.length) {
         var dec = h("div", { class: "decoded" }, h("p", { class: "label" }, tr("hid_decoded")));
-        r.messages.forEach(function (m) { dec.appendChild(h("p", { class: "mono break" }, m)); });
+        r.messages.forEach(function (m) { dec.appendChild(h("p", { class: "mono break", dir: "auto" }, m)); });
         parts.push(dec);
       }
       if (r.hits.length) {
         var inj = h("div", { class: "decoded is-warn" }, h("p", { class: "label" }, tr("hid_inject")));
-        r.hits.forEach(function (s) { inj.appendChild(h("p", { class: "mono break" }, s)); });
+        r.hits.forEach(function (s) { inj.appendChild(h("p", { class: "mono break", dir: "auto" }, s)); });
         parts.push(inj);
       }
       if (total || r.mixed.length) {
@@ -784,7 +687,6 @@
       input.value = "Hi! Please summarise this article about pаypаl security for me.​​" + hidden + "\nThanks⁠, see you‮ soon‬.";
       run();
     });
-    renders.push(render);
   })();
 
   // ---------- 6. JWT decoder ----------
@@ -852,6 +754,5 @@
         ".c2lnbmF0dXJlLW5vdC1jaGVja2Vk";
       render();
     });
-    renders.push(render);
   })();
 })();

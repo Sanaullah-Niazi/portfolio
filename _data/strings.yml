@@ -1,0 +1,163 @@
+# Every fixed piece of text on the site (menu, headings, buttons, labels) in English.
+# The same keys exist in _data/ur/strings.yml, _data/de/strings.yml and _data/zh/strings.yml.
+# Only change the text after the colon, never the key before it.
+lang_name: English
+html_lang: en
+dir: ltr
+locale: en_US
+months: [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+months_long: [January, February, March, April, May, June, July, August, September, October, November, December]
+date_short: "[m] [y]"          # how "Oct 2026" is written; [d] day, [m] month, [y] year
+date_long: "[d] [m] [y]"       # how "26 October 2026" is written
+
+skip: Skip to content
+back_to_top: Back to top
+nav_label: Main
+language: Language
+menu_open: Open menu
+menu_close: Close menu
+theme_toggle: Switch between light and dark mode
+profiles: Profiles
+email: Email
+
+nav_about: About
+nav_research: Research
+nav_projects: Projects
+nav_experience: Experience
+nav_skills: Skills
+nav_notes: Notes
+nav_tools: Tools
+nav_contact: Contact
+
+btn_cv: Download CV
+btn_research: Research
+btn_contact: Contact
+cv_short: CV
+terminal_label: Summary in the style of a terminal
+scroll_next: Scroll to the next section
+
+news_eyebrow: News
+news_title: Latest news
+news_all: All news
+
+focus_eyebrow: "One focus: AI for security"
+focus_title: Where I fit
+focus_lede: "Each area below is part of the same goal: using AI to detect and stop attacks, and keeping AI itself safe. Next to each one is what I can show for it today."
+
+about_eyebrow: About
+about_title: How I got here
+journey_label: My path so far
+
+research_eyebrow: Research
+research_title: Thesis and publications
+research_more: Summaries, PDFs and BibTeX
+thesis_label: MS thesis
+supervisor: Supervisor
+models_compared: Models compared
+pubs_title: Peer-reviewed publications
+scholar_all: All citations on Google Scholar
+interests_title: Research interests
+interests_now: Working on now
+interests_next: Want to study next
+research_page_title: Research
+research_page_lede: My thesis and peer-reviewed papers, with summaries, PDFs and citations you can copy.
+research_profiles: Research profiles
+titles_note: Paper and thesis titles are shown in their original, published English.
+role_First_author: First author
+role_Co-author: Co-author
+abstract_label: Abstract
+summary_label: Summary
+keywords: Keywords
+pdf: PDF
+bibtex_all: Download all citations (.bib)
+copy: Copy
+copied: Copied
+
+projects_eyebrow: Projects
+projects_title: What I'm building
+projects_page_title: Projects
+projects_lede: Hands-on work in AI and security. Each project has its own page with code, demos and results.
+projects_all: All projects
+all_projects_back: All projects
+filter_label: "Filter by topic:"
+filter_all: All
+filter_shown_one: project shown
+filter_shown_many: projects shown
+topic_AI: AI
+topic_Security: Security
+topic_Networks: Networks
+status_Completed: Completed
+status_In_progress: In progress
+details: Details
+details_about: about
+tech_stack: Tech stack
+link_github: GitHub
+link_demo: Live demo
+link_paper: Paper
+link_video: Video
+btn_github: Code on GitHub
+btn_demo: Open live demo
+btn_paper: Read the paper
+btn_video: Watch the video
+live_demo_of: Live demo of
+video_demo_of: Video demo of
+
+experience_eyebrow: Experience
+experience_title: Teaching and work
+
+skills_eyebrow: Skills
+skills_title: Tools I use
+chart_title: Skill map
+chart_hint: Pick an area to see what backs it up.
+chart_areas: Focus areas
+chart_scale: Scale
+chart_of: of
+scale_1: Learning
+scale_2: Training & lab
+scale_3: Applied in my own work
+scale_4: Research & published
+
+service_eyebrow: Teaching & service
+service_title: Teaching, reviewing and volunteering
+service_teaching: Teaching
+service_reviewing: Reviewing
+service_volunteering: Volunteering
+
+certs_eyebrow: Certificates
+certs_title: Certificates and awards
+awards_title: Awards
+verify: Verify
+certificate: certificate
+enlarge: Enlarge
+close: Close
+certificate_picture: Certificate picture
+
+education_eyebrow: Education
+education_title: Degrees
+
+notes_eyebrow: Notes
+notes_title: Latest writing
+notes_all: All notes
+notes_page_title: Notes on AI security
+notes_page_lede: Short write-ups on AI security, detection and what I'm learning and building.
+notes_empty: No notes yet. The first one is on its way.
+topics: Topics
+rss: RSS feed
+
+contact_eyebrow: Contact
+contact_title: Get in touch
+contact_scholar: Scholar
+contact_scholar_link: Google Scholar profile
+form_name: Your name
+form_email: Your email
+form_message: Message
+form_send: Send message
+form_sending: Sending…
+form_sent: Thanks, your message was sent. I'll reply by email.
+form_failed: Sorry, the message couldn't be sent.
+form_not_ready: The form isn't set up yet.
+form_fallback: Please email me directly at
+
+footer_rights: All rights reserved.
+not_found_title: This page doesn't exist
+not_found_home: Go to the home page

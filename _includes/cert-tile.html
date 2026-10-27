@@ -3,8 +3,8 @@
   {%- if c.image and c.image != '' %}
   {%- assign src = '/assets/img/certificates/' | append: c.image | relative_url -%}
   <button type="button" class="cert-thumb has-img" data-full="{{ src }}" data-caption="{{ c.name | escape }} · {{ c.issuer | escape }}">
-    <img src="{{ src }}" alt="{{ c.name | escape }} certificate" loading="lazy" decoding="async">
-    <span class="sr-only">Enlarge</span>
+    <img src="{{ src }}" alt="{{ c.name | escape }} {{ S.certificate }}" loading="lazy" decoding="async">
+    <span class="sr-only">{{ S.enlarge }}</span>
   </button>
   {%- else %}
   <div class="cert-thumb" aria-hidden="true">
@@ -13,9 +13,9 @@
   </div>
   {%- endif %}
   <div class="cert-body">
-    <p class="cert-name">{{ c.name }}</p>
+    <p class="cert-name" lang="en">{{ c.name }}</p>
     <p class="meta">{{ c.issuer }} · {{ c.date }}</p>
     {%- assign vlink = c.verify_url | default: c.link %}
-    {% if vlink and vlink != '' %}<a class="link-arrow cert-verify" href="{{ vlink }}"><span data-i18n="verify">Verify</span><span class="sr-only">: {{ c.name }}</span> {% include icon.html name="arrow" px=14 %}</a>{% endif %}
+    {% if vlink and vlink != '' %}<a class="link-arrow cert-verify" href="{{ vlink }}">{{ S.verify }}<span class="sr-only">: {{ c.name }}</span> {% include icon.html name="arrow" px=14 %}</a>{% endif %}
   </div>
 </li>

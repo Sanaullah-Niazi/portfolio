@@ -1,0 +1,19 @@
+# German text for the home page header. Links and contact details come from _data/profile.yml.
+tagline: Am Anfang der Forschungslaufbahn · MS Künstliche Intelligenz
+headline: "KI × Cybersicherheit: intelligente Systeme, die Bedrohungen, Betrug und KI-generierte Inhalte erkennen."
+intro: >-
+  Ich bin am Anfang meiner Forschungslaufbahn und habe einen MS in Künstlicher Intelligenz. Ich entwickle
+  Machine-Learning- und NLP-Modelle, die Echtes von Gefälschtem unterscheiden: KI-generierten von menschlichem
+  Text, Betrug von normalen Transaktionen, Scam-Nachrichten von echten. Als Nächstes möchte ich KI-Systeme
+  selbst sicher machen.
+cv: assets/cv/Sana_Ullah_Khan_CV_de.pdf
+open_to: "Offen für Master- und Promotionsstellen, Forschungskooperationen sowie Stellen in SOC / IT-Sicherheit und Machine Learning."
+highlights:
+  - value: "3.66 / 4.00"
+    label: MS Künstliche Intelligenz
+  - value: "3"
+    label: Begutachtete Publikationen
+  - value: "2+ Jahre"
+    label: Lehre an der Universität
+  - value: Cisco & NAVTTC
+    label: Cybersicherheits-Training

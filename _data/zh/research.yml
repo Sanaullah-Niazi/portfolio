@@ -1,0 +1,36 @@
+thesis:
+  degree: 人工智能硕士，巴哈瓦尔布尔伊斯兰大学（The Islamia University of Bahawalpur）
+  supervisor: Najia Saher 教授（人工智能系主任）
+  summary: >-
+    我构建并比较了多种深度学习模型，用于区分 AI 生成的文本和人类写的文本，数据集是一个约含 50 万条文本的平衡数据集。基于这篇论文的期刊文章正在准备中。
+  models:
+    - LSTM
+    - 微调后的 BERT
+    - TF-IDF + BERT + LightGBM
+    - 混合 BERT + LSTM
+  results:
+    - value: "99.65%"
+      label: 准确率（BERT + LSTM）
+    - value: "0.995"
+      label: F1 分数
+    - value: "约 50 万"
+      label: 条文本
+interests:
+  - name: AI 生成文本检测
+    stage: now
+    note: 我的硕士论文题目。
+  - name: 网络钓鱼与诈骗检测
+    stage: now
+    note: 我目前的项目，面向英语、乌尔都语和罗马化乌尔都语的信息。
+  - name: 欺诈检测
+    stage: now
+    note: 以第一作者身份发表的金融科技 AI 欺诈检测论文。
+  - name: 对抗性机器学习
+    stage: next
+    note: 攻击者如何欺骗机器学习模型，以及如何让模型更稳健。
+  - name: 大语言模型安全
+    stage: next
+    note: 提示注入、滥用，以及如何安全地部署语言模型。
+  - name: 面向 SOC 的 AI
+    stage: next
+    note: 用机器学习对安全运营中心的告警和日志进行初步分拣。

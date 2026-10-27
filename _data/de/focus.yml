@@ -1,0 +1,30 @@
+- area: Machine Learning & NLP
+  short: ML & NLP
+  icon: brain
+  level: Forschungsniveau
+  score: 4
+  evidence: Masterarbeit zur Unterscheidung von KI- und Menschentext mit LSTM-, BERT- und Hybridmodellen (99,65 % Genauigkeit, ca. 500.000 Texte).
+- area: Bedrohungs- & Betrugserkennung
+  short: Betrugserkennung
+  icon: radar
+  level: Veröffentlichte Forschung
+  score: 4
+  evidence: Erstautor eines begutachteten Papers über KI-gestützte Betrugserkennung für die Cybersicherheit im FinTech-Bereich.
+- area: KI-Sicherheit
+  short: KI-Sicherheit
+  icon: lock
+  level: Aktuelle Richtung
+  score: 3
+  evidence: Heute erkenne ich KI-generierte Inhalte; Adversarial ML und LLM-Sicherheit möchte ich als Nächstes erforschen.
+- area: SOC & Blue Team
+  short: SOC & Blue Team
+  icon: monitor
+  level: Training & Labor
+  score: 2
+  evidence: Cisco-Lernpfad Junior Cybersecurity Analyst und ein dreimonatiger NAVTTC-Kurs in digitaler Forensik und Cybersicherheit (Note A).
+- area: Penetrationstests & Ethical Hacking
+  short: Pentesting
+  icon: bug
+  level: Training & Labor
+  score: 2
+  evidence: Cisco-Programm Ethical Hacker; praktische Laborarbeit mit Kali Linux, Nmap und Wireshark.

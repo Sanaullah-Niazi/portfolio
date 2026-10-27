@@ -1,0 +1,30 @@
+- area: مشین لرننگ اور این ایل پی
+  short: ML اور NLP
+  icon: brain
+  level: تحقیقی سطح
+  score: 4
+  evidence: ایم ایس مقالہ جس میں LSTM، BERT اور ہائبرڈ ماڈلز سے مصنوعی ذہانت اور انسان کے لکھے متن میں فرق کیا گیا (99.65% درستگی، تقریباً 5 لاکھ متن)۔
+- area: خطرات اور فراڈ کی پہچان
+  short: فراڈ کی پہچان
+  icon: radar
+  level: شائع شدہ تحقیق
+  score: 4
+  evidence: فن ٹیک میں سائبر سیکیورٹی کے لیے مصنوعی ذہانت پر مبنی فراڈ کی پہچان پر ہم مرتبہ جائزہ شدہ مقالے کا پہلا مصنف۔
+- area: مصنوعی ذہانت کی سیکیورٹی
+  short: AI سیکیورٹی
+  icon: lock
+  level: موجودہ سمت
+  score: 3
+  evidence: آج میں مصنوعی ذہانت سے بنا مواد پہچانتا ہوں؛ آگے ایڈورسیریل ML اور LLM سیکیورٹی پر تحقیق کرنا چاہتا ہوں۔
+- area: SOC اور بلیو ٹیم
+  short: SOC اور بلیو ٹیم
+  icon: monitor
+  level: تربیت اور لیب
+  score: 2
+  evidence: Cisco کا Junior Cybersecurity Analyst کیریئر پاتھ اور NAVTTC کا تین ماہ کا ڈیجیٹل فرانزک اور سائبر سیکیورٹی کورس (گریڈ A)۔
+- area: پینیٹریشن ٹیسٹنگ اور ایتھیکل ہیکنگ
+  short: پین ٹیسٹنگ
+  icon: bug
+  level: تربیت اور لیب
+  score: 2
+  evidence: Cisco کا Ethical Hacker پروگرام؛ Kali Linux، Nmap اور Wireshark کے ساتھ عملی لیب کا کام۔

@@ -9,6 +9,14 @@ description: >-
   and AI-generated text detection.
 lang: en
 
+# Languages of the site. English lives at the root (/), the others under /ur/, /de/ and /zh/.
+# Their text is in _data/strings.yml (English) and _data/<code>/ (the translations).
+languages:
+  - { code: en, name: English, tag: en }
+  - { code: ur, name: اردو, tag: ur }
+  - { code: de, name: Deutsch, tag: de }
+  - { code: zh, name: 中文, tag: zh-Hans }
+
 # The site lives on its own domain (set in the CNAME file), so baseurl is empty.
 url: https://sanaullahniazi.com
 baseurl: ""

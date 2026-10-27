@@ -12,6 +12,11 @@
 <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 <meta name="keywords" content="AI cybersecurity researcher, machine learning, NLP, phishing detection, scam detection, fraud detection, AI-generated text detection, LLM security, SOC, Sana Ullah Khan">
 {% seo %}
+{%- for l in site.languages %}{% include lang-urls.html code=l.code %}
+<link rel="alternate" hreflang="{{ l.tag }}" href="{{ alt_url | absolute_url }}">
+{%- endfor %}
+{%- include lang-urls.html code="en" %}
+<link rel="alternate" hreflang="x-default" href="{{ alt_url | absolute_url }}">
 {% feed_meta %}
 <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 {%- for s in page.scripts %}

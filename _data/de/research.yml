@@ -1,0 +1,37 @@
+thesis:
+  degree: MS Künstliche Intelligenz, The Islamia University of Bahawalpur
+  supervisor: Prof. Dr. Najia Saher (Leiterin des Fachbereichs KI)
+  summary: >-
+    Ich habe Deep-Learning-Modelle entwickelt und verglichen, die KI-generierte von menschlich geschriebenen Texten
+    unterscheiden, auf einem ausgewogenen Datensatz von rund 500.000 Texten. Ein Paper auf Basis der Arbeit ist in Vorbereitung.
+  models:
+    - LSTM
+    - Feinabgestimmtes BERT
+    - TF-IDF + BERT + LightGBM
+    - Hybrid BERT + LSTM
+  results:
+    - value: "99,65 %"
+      label: Genauigkeit (BERT + LSTM)
+    - value: "0,995"
+      label: F1-Score
+    - value: "~500.000"
+      label: Texte
+interests:
+  - name: Erkennung KI-generierter Texte
+    stage: now
+    note: Das Thema meiner Masterarbeit.
+  - name: Phishing- & Scam-Erkennung
+    stage: now
+    note: Mein aktuelles Projekt, für Nachrichten auf Englisch, Urdu und Roman Urdu.
+  - name: Betrugserkennung
+    stage: now
+    note: Paper als Erstautor über KI-gestützte Betrugserkennung im FinTech-Bereich.
+  - name: Adversarial Machine Learning
+    stage: next
+    note: Wie Angreifer ML-Modelle täuschen und wie man sie robust macht.
+  - name: LLM-Sicherheit
+    stage: next
+    note: Prompt Injection, Missbrauch und der sichere Einsatz von Sprachmodellen.
+  - name: KI für das SOC
+    stage: next
+    note: Mit ML Alarme und Logs im Security Operations Center vorsortieren.

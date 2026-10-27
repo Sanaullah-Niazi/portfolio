@@ -1,19 +1,15 @@
+{% include i18n.html -%}
 <!doctype html>
-<html lang="{{ site.lang | default: 'en' }}">
+<html lang="{{ S.html_lang }}" dir="{{ S.dir }}">
 <head>
 {% include head.html %}
 </head>
 <body>
-<a class="skip" href="#main"><span data-i18n="skip">Skip to content</span></a>
+<a class="skip" href="#main">{{ S.skip }}</a>
 {% include header.html %}
 <main id="main" tabindex="-1">
-<p class="lang-notice" hidden><span data-i18n="notice"></span></p>
 {{ content }}
 </main>
 {% include footer.html %}
-{%- comment -%} Text for the language menu (from _data/ur.yml, de.yml, zh.yml). A JSON block is data, not a script, so the security policy allows it. {%- endcomment %}
-<script type="application/json" id="i18n-ur">{{ site.data.ur | jsonify }}</script>
-<script type="application/json" id="i18n-de">{{ site.data.de | jsonify }}</script>
-<script type="application/json" id="i18n-zh">{{ site.data.zh | jsonify }}</script>
 </body>
 </html>

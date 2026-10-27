@@ -19,42 +19,14 @@
     });
   }
 
-  // Language menu (English, Urdu, German, Chinese). Elements with data-i18n get their text from the JSON
-  // blocks at the end of the page (built from _data/ur.yml, de.yml and zh.yml); the English text is kept
-  // so we can switch back. Urdu also turns the layout right-to-left.
-  var dicts = {};
-  ["ur", "de", "zh"].forEach(function (l) {
-    try { dicts[l] = JSON.parse(document.getElementById("i18n-" + l).textContent) || {}; } catch (e) { dicts[l] = {}; }
-  });
-  var langTags = { en: "en", ur: "ur", de: "de", zh: "zh-Hans" };
-  var langPicker = document.querySelector(".lang-picker");
-  var langNotice = document.querySelector(".lang-notice");
-  var lang = "en";
-  function setLang(next, save) {
-    lang = langTags[next] ? next : "en";
-    var dict = dicts[lang] || {};
-    document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      if (!el.hasAttribute("data-en")) el.setAttribute("data-en", el.textContent);
-      var text = lang !== "en" ? dict[el.getAttribute("data-i18n")] : null;
-      el.textContent = text || el.getAttribute("data-en");
-      if (text) el.setAttribute("lang", langTags[lang]); else el.removeAttribute("lang");
+  // Language menu: a <details> list of links to this page in each language. Close it on outside click or Esc.
+  var langMenu = document.querySelector(".lang-menu");
+  if (langMenu) {
+    document.addEventListener("click", function (e) { if (langMenu.open && !langMenu.contains(e.target)) langMenu.open = false; });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && langMenu.open) { langMenu.open = false; langMenu.querySelector("summary").focus(); }
     });
-    root.setAttribute("lang", langTags[lang]);
-    root.setAttribute("dir", lang === "ur" ? "rtl" : "ltr");
-    if (langNotice) langNotice.hidden = lang === "en";
-    if (langPicker) langPicker.value = lang;
-    if (save) try { localStorage.setItem("lang", lang); } catch (e) {}
-    document.dispatchEvent(new CustomEvent("site:lang", { detail: lang }));
   }
-  var saved = (root.getAttribute("lang") || "en").split("-")[0];
-  if (saved !== "en") setLang(saved);
-  if (langPicker) {
-    langPicker.value = lang;
-    langPicker.addEventListener("change", function () { setLang(langPicker.value, true); });
-  }
-  function t(key, fallback) { return lang !== "en" && dicts[lang][key] ? dicts[lang][key] : fallback; }
-  // The Tools page (assets/js/tools.js) uses these for the text it writes itself.
-  window.siteI18n = { t: t, lang: function () { return lang; }, tag: function () { return langTags[lang]; } };
 
   // Mobile menu.
   var nav = document.getElementById("site-nav");
@@ -63,7 +35,7 @@
     if (!nav || !menuBtn) return;
     nav.classList.toggle("is-open", open);
     menuBtn.setAttribute("aria-expanded", String(open));
-    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    menuBtn.setAttribute("aria-label", menuBtn.getAttribute(open ? "data-label-close" : "data-label-open") || (open ? "Close menu" : "Open menu"));
   }
   if (nav && menuBtn) {
     menuBtn.addEventListener("click", function () { setMenu(!nav.classList.contains("is-open")); });
@@ -389,7 +361,7 @@
           card.hidden = !match;
           if (match) { shown++; card.classList.add("is-in"); }
         });
-        if (status) status.textContent = shown + (shown === 1 ? " project shown" : " projects shown");
+        if (status) status.textContent = shown + " " + (grid.getAttribute(shown === 1 ? "data-shown-one" : "data-shown-many") || "projects shown");
       });
     });
   });
@@ -475,7 +447,7 @@
       if (!src || !navigator.clipboard) return;
       navigator.clipboard.writeText(src.textContent.trim()).then(function () {
         var before = label.textContent;
-        label.textContent = t("copied", "Copied");
+        label.textContent = btn.getAttribute("data-copied") || "Copied";
         setTimeout(function () { label.textContent = before; }, 1600);
       });
     });
@@ -501,7 +473,8 @@
   if (!form) return;
   var status = form.querySelector(".form-status");
   var button = form.querySelector("button[type=submit]");
-  var fallback = "Please email me directly at " + form.dataset.email + ".";
+  var msg = function (key, fallbackText) { return form.getAttribute("data-msg-" + key) || fallbackText; };
+  var fallback = msg("fallback", "Please email me directly at") + " " + form.dataset.email + ".";
   function show(text, kind) {
     status.textContent = text;
     status.className = "form-status" + (kind ? " is-" + kind : "");
@@ -510,21 +483,21 @@
     e.preventDefault();
     var data = new FormData(form);
     if (!data.get("access_key")) {
-      show("The form isn't set up yet. " + fallback, "error");
+      show(msg("not-ready", "The form isn't set up yet.") + " " + fallback, "error");
       return;
     }
     data.set("replyto", data.get("email"));
     button.disabled = true;
-    show("Sending…");
+    show(msg("sending", "Sending…"));
     fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
       .then(function (r) { return r.json(); })
       .then(function (res) {
         if (!res.success) throw new Error(res.message);
         form.reset();
-        show("Thanks, your message was sent. I'll reply by email.", "ok");
+        show(msg("sent", "Thanks, your message was sent. I'll reply by email."), "ok");
       })
       .catch(function () {
-        show("Sorry, the message couldn't be sent. " + fallback, "error");
+        show(msg("failed", "Sorry, the message couldn't be sent.") + " " + fallback, "error");
       })
       .then(function () { button.disabled = false; });
   });

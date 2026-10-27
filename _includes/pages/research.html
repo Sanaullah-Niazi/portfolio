@@ -1,0 +1,68 @@
+{%- comment -%} The Research page, in every language. {%- endcomment -%}
+{% assign cv_path = '/' | append: P.cv %}
+{% assign has_cv = false %}
+{% for f in site.static_files %}{% if f.path == cv_path %}{% assign has_cv = true %}{% endif %}{% endfor %}
+<div class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow">{{ S.research_eyebrow }}</p>
+    <h1>{{ S.research_page_title }}</h1>
+    <p class="lede">{{ S.research_page_lede }}</p>
+    <div class="btn-row profile-links" role="group" aria-label="{{ S.research_profiles }}">
+      <a class="btn" href="{{ me.scholar }}">{% include icon.html name="scholar" px=18 %}Google Scholar</a>
+      {% if me.orcid and me.orcid != '' %}<a class="btn" href="{{ me.orcid }}">{% include icon.html name="orcid" px=18 %}ORCID</a>{% endif %}
+      <a class="btn" href="{{ me.linkedin }}">{% include icon.html name="linkedin" px=18 %}LinkedIn</a>
+      {% if has_cv %}<a class="btn" href="{{ P.cv | relative_url }}" download>{% include icon.html name="download" px=18 %}{{ S.cv_short }}</a>{% endif %}
+    </div>
+  </header>
+
+  <h2 class="sr-only">{{ S.thesis_label }}</h2>
+  {% include thesis.html id="research" %}
+
+  <section class="paper-section" aria-labelledby="papers-title">
+    <div class="paper-head">
+      <h2 class="sub" id="papers-title">{{ S.pubs_title }}</h2>
+      <a class="link-arrow" href="{{ '/research/papers.bib' | relative_url }}" download>{% include icon.html name="download" px=16 %}{{ S.bibtex_all }}</a>
+    </div>
+    {% if lang != 'en' %}<p class="muted titles-note">{{ S.titles_note }}</p>{% endif %}
+    <ol class="papers">
+      {% for p in site.data.publications %}
+      {% assign tp = D.papers[p.bib_key] %}
+      {% assign role_key = 'role_' | append: p.role | replace: ' ', '_' %}
+      <li class="card paper reveal" id="{{ p.bib_key }}">
+        <div class="pub-top"><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ S[role_key] | default: p.role }}</span><span class="pub-year">{% if p.date %}{% include date.html date=p.date long=true %}{% else %}{{ p.year }}{% endif %}</span></div>
+        <h3 class="paper-title" lang="en">{{ p.title }}</h3>
+        <p class="meta" lang="en">{{ p.authors }} ({{ p.year }}). <em>{{ p.journal }}</em>{% if p.volume %}, {{ p.volume }}{% if p.issue %}({{ p.issue }}){% endif %}{% endif %}{% if p.pages %}, {{ p.pages }}{% endif %}.</p>
+        {% if lang == 'en' and p.abstract and p.abstract != '' %}
+        <div class="paper-abstract"><p class="label">{{ S.abstract_label }}</p><p>{{ p.abstract }}</p></div>
+        {% else %}
+        {% assign summary = tp.summary | default: p.summary %}
+        {% if summary %}<div class="paper-abstract"><p class="label">{{ S.summary_label }}</p><p>{{ summary }}</p></div>{% endif %}
+        {% endif %}
+        {% assign kws = tp.keywords | default: p.keywords %}
+        {% if kws %}<ul class="tags" aria-label="{{ S.keywords }}">{% for k in kws %}<li>{{ k }}</li>{% endfor %}</ul>{% endif %}
+        <div class="paper-actions">
+          <a class="btn btn-sm" href="https://doi.org/{{ p.doi }}">{% include icon.html name="book" px=16 %}DOI<span class="sr-only">: {{ p.title }}</span></a>
+          {% if p.pdf and p.pdf != '' %}<a class="btn btn-sm" href="{{ p.pdf | relative_url }}">{% include icon.html name="file" px=16 %}{{ S.pdf }}<span class="sr-only">: {{ p.title }}</span></a>{% endif %}
+          <details class="bib">
+            <summary class="btn btn-sm">{% include icon.html name="code" px=16 %}BibTeX<span class="sr-only">: {{ p.title }}</span></summary>
+            <div class="bib-box">
+              <pre><code id="bib-{{ p.bib_key }}">{% include bibtex.html pub=p %}</code></pre>
+              <button type="button" class="btn btn-sm copy-btn" data-copy="bib-{{ p.bib_key }}" data-copied="{{ S.copied }}">{% include icon.html name="copy" px=16 %}<span>{{ S.copy }}</span></button>
+            </div>
+          </details>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <section aria-labelledby="interests-title">
+    <h2 class="sub" id="interests-title">{{ S.interests_title }}</h2>
+    {% include interests.html %}
+  </section>
+
+  <section aria-labelledby="news-all-title">
+    <h2 class="sub" id="news-all-title">{{ S.news_title }}</h2>
+    {% include news-list.html %}
+  </section>
+</div>

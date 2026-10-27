@@ -1,0 +1,25 @@
+{%- comment -%} The Notes page, in every language. Notes without a translation yet are listed in English. {%- endcomment -%}
+<div class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow">{{ S.nav_notes }}</p>
+    <h1>{{ S.notes_page_title }}</h1>
+    <p class="lede">{{ S.notes_page_lede }}</p>
+  </header>
+  {% if site.posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in site.posts %}{% include translated.html item=post %}
+    <li{% if lang != 'en' and tr.lang != lang %} lang="en"{% endif %}>
+      <div class="post-main">
+        <a href="{{ tr.url | relative_url }}">{{ tr.title }}</a>
+        {% if tr.description %}<p class="muted">{{ tr.description }}</p>{% endif %}
+        {% if tr.tags.size > 0 %}<ul class="tags" aria-label="{{ S.topics }}">{% for t in tr.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+      </div>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date long=true %}</time>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="more"><a class="link-arrow" href="{{ '/blog/feed.xml' | relative_url }}">{{ S.rss }} {% include icon.html name="arrow" px=16 %}</a></p>
+  {% else %}
+  <p class="empty">{{ S.notes_empty }}</p>
+  {% endif %}
+</div>
