@@ -14,10 +14,10 @@
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ v }}">
 <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
 <meta name="keywords" content="AI cybersecurity researcher, machine learning, NLP, phishing detection, scam detection, fraud detection, AI-generated text detection, LLM security, SOC, Sana Ullah Khan">
-{%- comment -%} Title, description, canonical URL, Open Graph and JSON-LD from jekyll-seo-tag, minus its Twitter card tags (not used). {%- endcomment %}
+{%- comment -%} Title, description, canonical URL, Open Graph and JSON-LD from jekyll-seo-tag, minus its Twitter card tags (not used) and its generator tag (it names the Jekyll version). {%- endcomment %}
 {%- capture seo_tags %}{% seo %}{% endcapture %}
 {%- assign seo_lines = seo_tags | newline_to_br | split: "<br />" %}
-{%- for line in seo_lines %}{% unless line contains "twitter:" %}{{ line }}{% endunless %}{% endfor %}
+{%- for line in seo_lines %}{% unless line contains "twitter:" or line contains 'name="generator"' %}{{ line }}{% endunless %}{% endfor %}
 {%- comment -%} hreflang: only languages this page really exists in. {%- endcomment %}
 {%- for l in site.languages %}{% include lang-urls.html code=l.code %}{% if alt_exists %}
 <link rel="alternate" hreflang="{{ l.tag }}" href="{{ alt_url | absolute_url }}">{% endif %}
