@@ -154,8 +154,8 @@ categories:
     icon: code
     title: "Application, engineering and product security"
     summary: "Building security into software, pipelines and products from the first line of code."
-    domains: []
-    planned: ["Web Application Security", "API Security", "Mobile Application Security", "Secure SDLC", "DevSecOps", "Product Security", "Software Supply Chain Security", "Source Code Security", "Infrastructure as Code Security", "CI/CD Pipeline Security", "Embedded Software Security", "Security Architecture and Design", "Security Testing and Assurance", "API and Microservices Architecture Security", "Open-Source Security"]
+    domains: [devsecops, supplychain, secarch, prodsec, hwsec]
+    planned: []
 
   - id: defence
     icon: radar

@@ -220,5 +220,5 @@ career:
 related:
   - { to: crypto, why: "Applied cryptography is the foundation this builds on." }
   - { to: datasec, why: "Long-lived data is what the quantum threat endangers first." }
-  - { name: "Software Supply Chain Security", why: "Most of your cryptography is in vendor products." }
-  - { name: "Security Architecture and Zero Trust", why: "Crypto agility is an architecture decision." }
+  - { to: supplychain, why: "Most of your cryptography is in vendor products." }
+  - { to: secarch, why: "Crypto agility is an architecture decision." }

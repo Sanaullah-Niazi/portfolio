@@ -262,4 +262,4 @@ related:
   - { to: ai-redteam, why: "Testing produces the evidence governance relies on." }
   - { to: llmsec, why: "Understand the technical risks behind the policies." }
   - { name: "Governance, Risk and Compliance", why: "The wider security GRC field that AI governance extends." }
-  - { name: "Data Privacy", why: "Most AI risk work overlaps with data protection." }
+  - { to: privacy, why: "Most AI risk work overlaps with data protection." }

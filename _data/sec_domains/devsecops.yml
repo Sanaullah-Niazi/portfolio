@@ -1,0 +1,230 @@
+# Security roadmap: DevSecOps and CI/CD Security. Shown at /roadmaps/security/devsecops/.
+# Field guide: see the top of secops.yml.
+
+id: devsecops
+category: engineering
+icon: code
+entry: intermediate
+title: "DevSecOps and CI/CD Security"
+summary: "Build security into the delivery pipeline: scan code and dependencies automatically, lock down CI/CD and repositories, secure infrastructure as code, and ship fixes fast."
+keywords: "DevSecOps CI/CD pipeline security infrastructure as code IaC scanning secrets scanning SAST SCA GitOps policy as code repository security GitHub Actions GitLab"
+
+overview:
+  - "DevSecOps puts security checks into the same pipeline that builds and ships software, so problems are caught early and fixed by the people who wrote the code. It replaces the end-of-project security review with continuous, automated feedback."
+  - "The field covers scanning code, dependencies, containers and infrastructure definitions; securing the pipeline itself, which is a prime target; managing secrets; and enforcing policy as code. It needs both security knowledge and comfort with build and deployment tooling."
+why: "The pipeline is where software, credentials and production access meet, which makes it both the best place to catch flaws and a high-value target. Teams need engineers who can make security automatic without slowing delivery."
+roles:
+  - { title: "DevSecOps engineer", level: mid, what: "Builds and runs security tooling in pipelines." }
+  - { title: "Platform security engineer", level: mid, what: "Secures CI/CD, repositories and build infrastructure." }
+  - { title: "Security automation lead", level: senior, what: "Designs the security controls across delivery." }
+  - { title: "Head of platform security", level: lead, what: "Owns pipeline and platform security strategy." }
+
+prereqs:
+  - "Git, CI/CD and container basics."
+  - "Some scripting and infrastructure as code."
+  - "Application security fundamentals."
+  - "Cloud basics."
+prereq_paths: [cybersecurity, devops]
+
+stages:
+  - level: beginner
+    title: "Pipeline and security basics"
+    months: "2–3"
+    topics:
+      - id: sdlc-security
+        title: "Security in the software lifecycle"
+        text: "Learn where security fits at each stage, from requirements to operations, and why shifting checks earlier is cheaper. DevSecOps is the SDLC made continuous."
+        res:
+          - { name: "Secure Software Development Framework (SP 800-218)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/218/final", type: docs, cost: free }
+      - id: cicd-basics
+        title: "How CI/CD pipelines work"
+        text: "Understand runners, jobs, triggers, artefacts and deployments in a system such as GitHub Actions or GitLab CI. You cannot secure what you cannot build."
+        res:
+          - { name: "GitHub Actions documentation", by: "GitHub", url: "https://docs.github.com/en/actions", type: docs, cost: free }
+      - id: sast-in-pipeline
+        title: "Static analysis in the pipeline"
+        text: "Run SAST on every change, tune the rules to cut noise, and fail the build only on what matters. Developers ignore tools that cry wolf."
+        res:
+          - { name: "Semgrep", by: "Semgrep", url: "https://semgrep.dev/docs/", type: tool, cost: free }
+      - id: sca
+        title: "Dependency scanning"
+        text: "Most code in an application is someone else's. Scan dependencies for known vulnerabilities and keep them updated automatically."
+        res:
+          - { name: "OWASP Dependency-Check", by: "OWASP Foundation", url: "https://owasp.org/www-project-dependency-check/", type: tool, cost: free }
+      - id: secrets-scanning
+        title: "Secrets scanning"
+        text: "Credentials in repositories are a leading cause of breaches. Scan commits and history, block pushes with secrets, and rotate anything found."
+        res:
+          - { name: "Gitleaks", by: "Gitleaks", url: "https://github.com/gitleaks/gitleaks", type: tool, cost: free }
+      - id: dev-feedback
+        title: "Giving developers useful feedback"
+        text: "Findings should land in the pull request, with a clear fix, at the moment the developer can act. Good feedback loops are what make DevSecOps work."
+        res:
+          - { name: "DevSecOps Guideline", by: "OWASP Foundation", url: "https://owasp.org/www-project-devsecops-guideline/", type: docs, cost: free }
+    skills:
+      - "Build a pipeline and understand its moving parts."
+      - "Add SAST, dependency and secrets scanning to a pipeline."
+      - "Tune scanners so developers act on their results."
+    labs:
+      - "Add Semgrep, Dependency-Check and Gitleaks to a pipeline for a sample app and tune out the noise."
+      - "Set up a pre-commit hook and push protection to block secrets."
+    done:
+      - "Run a pipeline that scans code, dependencies and secrets on every change."
+      - "Explain which findings should fail a build and why."
+
+  - level: intermediate
+    title: "Securing the pipeline and infrastructure"
+    months: "3–5"
+    topics:
+      - id: pipeline-threats
+        title: "Threats to the pipeline"
+        text: "Poisoned pipelines, malicious pull requests, stolen runner credentials and compromised actions can turn CI into an attack path. Learn the top risks."
+        res:
+          - { name: "OWASP Top 10 CI/CD Security Risks", by: "OWASP Foundation", url: "https://owasp.org/www-project-top-10-ci-cd-security-risks/", type: docs, cost: free }
+      - id: repo-security
+        title: "Repository security"
+        text: "Branch protection, required reviews, signed commits and tight permissions protect the source of truth. Treat the repository as production."
+        res:
+          - { name: "GitHub security features", by: "GitHub", url: "https://docs.github.com/en/code-security", type: docs, cost: free }
+      - id: runner-security
+        title: "Runner and build hardening"
+        text: "Use ephemeral, isolated runners, least-privilege tokens and pinned actions. Long-lived shared runners with broad credentials are a gift to attackers."
+        res:
+          - { name: "Security hardening for GitHub Actions", by: "GitHub", url: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions", type: docs, cost: free }
+      - id: iac-security
+        title: "Infrastructure as code security"
+        text: "Scan Terraform, CloudFormation and Kubernetes manifests for misconfigurations before they are applied. Fixing a template fixes every deployment."
+        res:
+          - { name: "Checkov", by: "Prisma Cloud", url: "https://www.checkov.io/", type: tool, cost: free }
+      - id: container-scanning
+        title: "Container image scanning"
+        text: "Scan base images and built images for vulnerabilities, sign them, and only deploy what passed. Keep base images small and current."
+        res:
+          - { name: "Trivy", by: "Aqua Security", url: "https://trivy.dev/", type: tool, cost: free }
+      - id: pipeline-secrets
+        title: "Secrets in the pipeline"
+        text: "Pipelines need credentials to deploy. Use short-lived, identity-based access such as OIDC instead of static secrets, and scope every token tightly."
+        res:
+          - { name: "OpenID Connect in GitHub Actions", by: "GitHub", url: "https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect", type: docs, cost: free }
+    skills:
+      - "Harden repositories, runners and pipeline permissions."
+      - "Scan infrastructure as code and container images."
+      - "Replace static pipeline secrets with short-lived identity."
+      - "Recognise and prevent pipeline attack paths."
+    labs:
+      - "Harden a GitHub or GitLab repository and pipeline against the OWASP CI/CD top 10."
+      - "Add Checkov and Trivy and fix the misconfigurations and vulnerabilities they find."
+      - "Deploy to a cloud account from a pipeline using OIDC with no stored credentials."
+    done:
+      - "Demonstrate a pipeline with hardened runners, scoped tokens and no static secrets."
+      - "Show infrastructure and containers being scanned and gated before deployment."
+
+  - level: advanced
+    title: "Policy as code and scale"
+    months: "4–6"
+    topics:
+      - id: policy-as-code
+        title: "Policy as code"
+        text: "Express security rules as code with tools such as OPA, so they are versioned, tested and enforced automatically across pipelines and clusters."
+        res:
+          - { name: "Open Policy Agent", by: "OPA project", url: "https://www.openpolicyagent.org/docs/", type: tool, cost: free }
+      - id: gitops-security
+        title: "GitOps security"
+        text: "When Git drives deployments, Git access is production access. Secure the reconciliation loop, signing and who can change what in which environment."
+        res:
+          - { name: "Argo CD security", by: "Argo project", url: "https://argo-cd.readthedocs.io/en/stable/operator-manual/security/", type: docs, cost: free }
+      - id: dast-in-pipeline
+        title: "Dynamic testing in the pipeline"
+        text: "Run dynamic and API tests against a deployed preview so you catch what static analysis cannot. Keep it fast enough to run regularly."
+        res:
+          - { name: "OWASP ZAP", by: "ZAP project", url: "https://www.zaproxy.org/docs/", type: tool, cost: free }
+      - id: build-provenance
+        title: "Build provenance and signing"
+        text: "Generate attestations about how artefacts were built and sign them, so deployers can verify origin. This connects DevSecOps with supply chain security."
+        res:
+          - { name: "SLSA", by: "OpenSSF", url: "https://slsa.dev/", type: docs, cost: free }
+      - id: vuln-management-pipeline
+        title: "Managing findings at scale"
+        text: "Thousands of findings across hundreds of repos need deduplication, ownership, prioritisation and SLAs. Build the workflow, not just the scanners."
+        res:
+          - { name: "DefectDojo", by: "DefectDojo", url: "https://docs.defectdojo.com/", type: tool, cost: free }
+      - id: developer-enablement
+        title: "Developer enablement"
+        text: "Paved roads, secure templates and security champions get more done than gates. Make the secure way the easy way."
+        res:
+          - { name: "OWASP SAMM", by: "OWASP Foundation", url: "https://owaspsamm.org/", type: docs, cost: free }
+    skills:
+      - "Enforce policy as code across pipelines and clusters."
+      - "Secure GitOps deployments."
+      - "Produce and verify build provenance."
+      - "Run finding management across many teams."
+    labs:
+      - "Write OPA policies that block risky deployments and test them in a pipeline."
+      - "Produce SLSA provenance for a build and verify it before deployment."
+      - "Set up DefectDojo to aggregate findings from several scanners."
+    done:
+      - "Run a pipeline platform with policy enforcement and signed, verified artefacts."
+      - "Show a finding workflow that gets issues fixed across teams."
+
+  - level: expert
+    title: "Platform security leadership"
+    months: "6–12"
+    topics:
+      - id: devsecops-strategy
+        title: "DevSecOps strategy"
+        text: "Decide what to enforce, what to advise, and how to measure it. Balance risk reduction with developer speed, and fund the platform that makes it work."
+        res:
+          - { name: "OWASP SAMM", by: "OWASP Foundation", url: "https://owaspsamm.org/", type: docs, cost: free }
+      - id: devsecops-metrics
+        title: "Measuring DevSecOps"
+        text: "Track time to fix, scanner coverage, findings escaped to production and developer adoption. Report outcomes, not scan counts."
+        res:
+          - { name: "Secure Software Development Framework (SP 800-218)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/218/final", type: docs, cost: free }
+      - id: devsecops-culture
+        title: "Culture and champions"
+        text: "Lasting DevSecOps is cultural: shared ownership, security champions in every team, and blameless learning from incidents."
+        res:
+          - { name: "Security Champions Playbook", by: "OWASP Foundation", url: "https://owasp.org/www-project-security-culture/", type: docs, cost: free }
+    skills:
+      - "Set DevSecOps strategy and measure it."
+      - "Build a security champions programme."
+    labs:
+      - "Write a DevSecOps strategy and a maturity assessment using SAMM."
+      - "Design metrics that show security improving without slowing delivery."
+    done:
+      - "Lead a DevSecOps programme with measurable outcomes."
+      - "Run a security champions network across engineering."
+
+tools:
+  - { name: "Semgrep", url: "https://semgrep.dev/", kind: community, what: "Fast static analysis with custom rules." }
+  - { name: "Trivy", url: "https://trivy.dev/", kind: oss, what: "Scan containers, IaC, dependencies and secrets." }
+  - { name: "Checkov", url: "https://www.checkov.io/", kind: oss, what: "Infrastructure as code scanning." }
+  - { name: "Gitleaks", url: "https://github.com/gitleaks/gitleaks", kind: oss, what: "Find secrets in repositories." }
+  - { name: "Open Policy Agent", url: "https://www.openpolicyagent.org/", kind: oss, what: "Policy as code engine." }
+  - { name: "DefectDojo", url: "https://www.defectdojo.org/", kind: oss, what: "Aggregate and manage security findings." }
+
+certs:
+  - { name: "Certified DevSecOps Professional", by: "Practical DevSecOps", url: "https://www.practical-devsecops.com/certified-devsecops-professional/", level: mid, note: "Hands-on pipeline security course and exam." }
+  - { name: "CSSLP", by: "ISC2", url: "https://www.isc2.org/certifications/csslp", level: senior, note: "Secure software lifecycle, broader than pipelines." }
+  - { name: "GitHub Actions certification", by: "GitHub", url: "https://learn.github.com/certifications", level: entry, note: "Proves pipeline fundamentals." }
+
+resources:
+  - { name: "OWASP DevSecOps Guideline", by: "OWASP Foundation", url: "https://owasp.org/www-project-devsecops-guideline/", type: docs, cost: free }
+  - { name: "OWASP Top 10 CI/CD Security Risks", by: "OWASP Foundation", url: "https://owasp.org/www-project-top-10-ci-cd-security-risks/", type: docs, cost: free }
+  - { name: "Secure Software Development Framework (SP 800-218)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/218/final", type: docs, cost: free }
+  - { name: "Security hardening for GitHub Actions", by: "GitHub", url: "https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions", type: docs, cost: free }
+  - { name: "SLSA", by: "OpenSSF", url: "https://slsa.dev/", type: docs, cost: free }
+
+frameworks: [ssdf, slsa, samm, owasp-top10, cis-benchmarks, nist-800-190]
+
+career:
+  - { title: "Developer, DevOps or platform engineer", years: "0–3 years" }
+  - { title: "DevSecOps engineer", years: "2–5 years" }
+  - { title: "Senior DevSecOps or platform security engineer", years: "5–8 years" }
+  - { title: "Head of platform or product security", years: "8+ years" }
+
+related:
+  - { to: appsec, why: "DevSecOps automates application security checks." }
+  - { to: supplychain, why: "Provenance and signing connect pipelines to supply chain security." }
+  - { to: container, why: "Containers are what most pipelines build and ship." }
+  - { to: cloud, why: "Pipelines deploy to the cloud and hold cloud credentials." }

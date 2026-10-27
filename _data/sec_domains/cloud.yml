@@ -322,6 +322,6 @@ related:
   - { to: iam, why: "Cloud IAM is the heart of cloud security." }
   - { to: appsec, why: "Secure the applications that run in the cloud." }
   - { name: "Container Security", why: "Go deeper into images, runtimes and Kubernetes." }
-  - { name: "DevSecOps", why: "Build security into the pipelines that deploy to the cloud." }
+  - { to: devsecops, why: "Build security into the pipelines that deploy to the cloud." }
   - { name: "Cloud Security Assessment", why: "Test cloud environments as an authorised assessor." }
   - { to: ai-supply, why: "Secure the cloud platforms AI models are trained and served on." }
