@@ -204,3 +204,5 @@ paths:
         learn: ["Pods, Deployments und Services", "Monitoring und Alarme", "Service Level Objectives", "Incident Response", "Post-Mortems"]
         build: "Betreiben Sie Ihre App in einem lokalen Kubernetes-Cluster mit Monitoring und einem Dashboard für ihr Service Level Objective."
         ready: "Sie wissen vor Ihren Nutzern, wenn Ihr Dienst nicht gesund ist."
+security_cta: "Roadmaps für Cybersicherheit und KI-Sicherheit"
+security_cta_text: "Ein Karrierepfad für jeden Bereich der Sicherheit, von Einsteiger bis Experte, mit Laboren, Tools und Zertifizierungen (auf Englisch)."

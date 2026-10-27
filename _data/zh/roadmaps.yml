@@ -204,3 +204,5 @@ paths:
         learn: ["Pod、Deployment 和 Service", "监控和告警", "服务等级目标", "事件响应", "事后复盘"]
         build: "在本地 Kubernetes 集群上运行你的应用，加上监控和一个服务等级目标仪表盘。"
         ready: "在用户发现之前，你就知道服务出了问题。"
+security_cta: "网络安全与 AI 安全路线图"
+security_cta_text: "每个安全领域从入门到专家的职业路线图，包含实验、工具和认证（英文）。"

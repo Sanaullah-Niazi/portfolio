@@ -1,0 +1,166 @@
+# Security roadmap: Security Operations (SecOps). Shown at /roadmaps/security/secops/.
+# The template for every roadmap file. Fields:
+#   category: an id from _data/sec_roadmaps.yml   entry: beginner, intermediate, advanced or expert (the usual starting level)
+#   roles.level: entry, mid, senior or lead       stages.months: "low–high" (an en dash), added up for the total
+#   tools.kind: oss, free, community or paid      resources.type: course, book, docs, practice or video
+#   resources.cost: free, paid or audit (free to watch, certificate costs money)
+#   certs: "ref: <id>" reuses a certification from _data/cert_roadmaps.yml; otherwise give name, by, url and level (entry, mid, advanced)
+#   frameworks: ids from _data/sec_frameworks.yml   related.to: id of a finished roadmap, or "name:" for one still planned
+#   prereq_paths: ids of general learning paths in _data/roadmaps.yml
+
+id: secops
+category: core
+icon: radar
+entry: beginner
+title: "Security Operations (SecOps)"
+summary: "Watch an organisation's systems around the clock, spot attacks in the noise, and respond before they turn into breaches."
+keywords: "SOC analyst blue team SIEM alerts triage monitoring detection logs EDR"
+
+overview:
+  - "Security Operations is the day-to-day defence of an organisation. A security operations centre (SOC) collects logs and alerts from computers, networks, cloud services and applications, decides which ones are real attacks, and responds to them."
+  - "The work mixes investigation (what happened, on which machine, by which account), engineering (getting the right logs in and writing detections that fire on real attacks and not on normal work) and communication (telling the right people, fast, in plain language)."
+why: "Every organisation gets attacked; what decides the damage is how fast someone notices and acts. SOC roles are also the most common way into a security career, because the job teaches you how attacks really look on real systems."
+roles:
+  - { title: "SOC analyst (Tier 1)", level: entry, what: "Triages alerts, closes false positives, escalates real incidents with clear notes." }
+  - { title: "SOC analyst (Tier 2) / incident responder", level: mid, what: "Investigates escalated alerts end to end and contains threats." }
+  - { title: "Detection engineer", level: mid, what: "Writes, tests and tunes the rules and analytics the SOC relies on." }
+  - { title: "Threat hunter (Tier 3)", level: senior, what: "Looks for attackers that no alert has caught, starting from a hypothesis." }
+  - { title: "Security engineer (SIEM, SOAR, EDR)", level: senior, what: "Builds and runs the platforms, log pipelines and automations." }
+  - { title: "SOC manager / head of security operations", level: lead, what: "Runs the team, the shift rota, metrics and the relationship with the business." }
+
+prereqs:
+  - "Comfortable with Windows and Linux: users, processes, services, the file system and the command line."
+  - "Networking basics: IP addresses, ports, TCP and UDP, DNS, HTTP and what a firewall does."
+  - "Basic scripting in Python or PowerShell, enough to read and change a short script."
+  - "Security basics: the CIA triad, common attack types (phishing, malware, brute force) and why logging matters."
+prereq_paths: [foundations, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Logs, alerts and the analyst's toolkit"
+    months: "3–4"
+    topics: ["Windows event logs", "Linux logs (auth, syslog, journald)", "SIEM basics", "Alert triage", "Phishing analysis", "MITRE ATT&CK tactics", "Indicators of compromise", "Ticketing and escalation"]
+    skills:
+      - "Read Windows logon events (4624, 4625, 4688) and Linux auth logs and say what happened."
+      - "Search a SIEM with simple queries and filters."
+      - "Analyse a suspicious email: headers, links and attachments, safely."
+      - "Write a short, clear ticket that someone else can act on."
+    labs:
+      - "Install Wazuh or the Elastic Stack on a laptop or a free cloud VM, connect one Windows and one Linux machine, and watch your own logons appear."
+      - "Install Sysmon with a community configuration on a Windows VM and compare what it records with the default logs."
+      - "Work through the free introductory SOC rooms or challenges on a blue team practice platform."
+    done:
+      - "Explain the difference between an event, an alert and an incident."
+      - "Take an alert, decide if it is a real threat or a false positive, and justify why in writing."
+      - "Map a simple attack (password spraying, a malicious macro) to ATT&CK techniques."
+
+  - level: intermediate
+    title: "Investigation and endpoint and network visibility"
+    months: "4–6"
+    topics: ["EDR telemetry", "Process trees", "PowerShell and command-line logging", "Network security monitoring", "Zeek and Suricata", "Threat intelligence feeds", "Incident response lifecycle", "Query languages (KQL, SPL, ES|QL)"]
+    skills:
+      - "Follow an attack from the first email to the last command using several log sources together."
+      - "Write SIEM queries that join and count, not just search."
+      - "Use Zeek logs and Suricata alerts to spot beaconing, scanning and data leaving the network."
+      - "Contain an incident safely: isolate a host, disable an account, block an indicator."
+    labs:
+      - "Build a home SOC: Security Onion (or Wazuh with Suricata) watching a small virtual network of a Windows client, a Linux server and an attacker VM."
+      - "Run Atomic Red Team tests in your lab and check which ones your setup detects. Write down the gaps."
+      - "Investigate the free Boss of the SOC datasets from Splunk and write a full incident report."
+    done:
+      - "Investigate an alert from start to finish in under an hour and write a report with a timeline."
+      - "Explain what a good detection needs: the log source, the logic, the expected false positives and the response."
+      - "Run the response steps for a phishing compromise without a checklist."
+
+  - level: advanced
+    title: "Detection engineering and automation"
+    months: "6–9"
+    topics: ["Sigma rules", "Detection as code", "Detection testing", "SOAR playbooks", "Threat hunting methods", "Cloud logs (AWS CloudTrail, Microsoft 365, Entra ID)", "Active Directory attacks", "Purple teaming"]
+    skills:
+      - "Write, test and version detections in Git, and convert Sigma rules to your SIEM's language."
+      - "Automate enrichment and routine response with a SOAR tool or scripts."
+      - "Run a hypothesis-driven hunt and turn what you find into new detections."
+      - "Measure coverage against ATT&CK and decide what to build next."
+    labs:
+      - "Set up a detection-as-code pipeline: Sigma rules in a GitHub repository, converted and tested automatically on every change."
+      - "Build a Shuffle playbook that enriches an alert with threat intelligence and opens a ticket."
+      - "Run a small purple team exercise in your lab: emulate one ATT&CK technique, check the detection, fix it, repeat."
+    done:
+      - "Show a set of your own detections with tests, documented false positives and response notes."
+      - "Lead a hunt and present the findings to a non-technical manager."
+      - "Explain the trade-offs between alert volume, coverage and analyst time."
+
+  - level: expert
+    title: "Leading and designing security operations"
+    months: "12–24"
+    topics: ["SOC design and maturity models", "Metrics (MTTD, MTTR, coverage)", "Threat-informed defence", "Log strategy and cost", "Major incident command", "Building teams and rotas", "AI-assisted analysis"]
+    skills:
+      - "Design a SOC: what to log, which tools, which processes and which people."
+      - "Lead a major incident with executives, legal and communications involved."
+      - "Build a detection programme that is driven by the threats your organisation actually faces."
+      - "Mentor analysts and reduce burnout through automation and good processes."
+    labs:
+      - "Write a complete SOC design for a fictional organisation of 2,000 people: log sources, retention, budget, staffing and metrics."
+      - "Contribute detections or documentation to an open-source project such as Sigma or Wazuh."
+      - "Run a tabletop exercise for a ransomware scenario with friends or colleagues playing executives."
+    done:
+      - "Defend a security operations budget and roadmap in front of leadership."
+      - "Run a major incident from first alert to post-incident review."
+      - "Show measurable improvement in a SOC's detection coverage and response time."
+
+tools:
+  - { name: "Wazuh", url: "https://wazuh.com/", kind: oss, what: "Open-source SIEM and XDR: log collection, file integrity monitoring and alerting." }
+  - { name: "Security Onion", url: "https://docs.securityonion.net/", kind: oss, what: "A free Linux distribution for network security monitoring, log management and hunting." }
+  - { name: "Elastic Security", url: "https://www.elastic.co/security", kind: community, what: "SIEM and endpoint security on the Elastic Stack; the free tier covers a home lab." }
+  - { name: "Sysmon", url: "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon", kind: free, what: "Microsoft's tool that logs detailed process, network and file activity on Windows." }
+  - { name: "Zeek", url: "https://zeek.org/", kind: oss, what: "Turns network traffic into rich, searchable logs." }
+  - { name: "Suricata", url: "https://suricata.io/", kind: oss, what: "Network intrusion detection and prevention engine." }
+  - { name: "Sigma", url: "https://github.com/SigmaHQ/sigma", kind: oss, what: "A generic format for writing detections once and using them in any SIEM." }
+  - { name: "Velociraptor", url: "https://docs.velociraptor.app/", kind: oss, what: "Endpoint visibility and collection at scale, for hunting and response." }
+  - { name: "MISP", url: "https://www.misp-project.org/", kind: oss, what: "Threat intelligence sharing platform." }
+  - { name: "Shuffle", url: "https://shuffler.io/", kind: oss, what: "Open-source SOAR for automating alert handling." }
+  - { name: "Atomic Red Team", url: "https://github.com/redcanaryco/atomic-red-team", kind: oss, what: "Small, safe tests mapped to ATT&CK to check whether your detections work." }
+  - { name: "CyberChef", url: "https://gchq.github.io/CyberChef/", kind: oss, what: "Decode, decrypt and transform data in the browser." }
+  - { name: "Splunk Enterprise Security", url: "https://www.splunk.com/", kind: paid, what: "A widely used commercial SIEM; many job ads ask for it." }
+  - { name: "Microsoft Sentinel", url: "https://learn.microsoft.com/en-us/azure/sentinel/", kind: paid, what: "Microsoft's cloud SIEM and SOAR, using the KQL query language." }
+
+certs:
+  - { ref: secplus, note: "The usual first certification for SOC roles." }
+  - { ref: cysa, note: "Built for analysts." }
+  - { ref: sc200, note: "Pick this if the jobs near you use Microsoft Sentinel and Defender." }
+  - { ref: cdsa, note: "Hands-on exam that proves you can investigate." }
+  - { ref: gcih, note: "Respected incident handling certification; often employer-funded." }
+  - { name: "GIAC Certified Detection Analyst (GCDA)", by: "GIAC", url: "https://www.giac.org/certifications/certified-detection-analyst-gcda/", level: advanced, note: "For detection engineering and SIEM work." }
+  - { ref: cissp, note: "For SOC managers and senior leaders." }
+
+resources:
+  - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+  - { name: "Security Onion documentation", by: "Security Onion Solutions", url: "https://docs.securityonion.net/", type: docs, cost: free }
+  - { name: "Wazuh documentation", by: "Wazuh", url: "https://documentation.wazuh.com/current/index.html", type: docs, cost: free }
+  - { name: "SC-200 learning path", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/courses/sc-200t00", type: course, cost: free }
+  - { name: "Boss of the SOC v3 dataset", by: "Splunk", url: "https://github.com/splunk/botsv3", type: practice, cost: free }
+  - { name: "CyberDefenders blue team labs", by: "CyberDefenders", url: "https://cyberdefenders.org/", type: practice, cost: free }
+  - { name: "Malware-Traffic-Analysis.net exercises", by: "Brad Duncan", url: "https://www.malware-traffic-analysis.net/", type: practice, cost: free }
+  - { name: "The DFIR Report", by: "The DFIR Report", url: "https://thedfirreport.com/", type: docs, cost: free }
+  - { name: "Blue Team Labs Online", by: "Security Blue Team", url: "https://blueteamlabs.online/", type: practice, cost: paid }
+  - { name: "LetsDefend SOC simulator", by: "LetsDefend", url: "https://letsdefend.io/", type: practice, cost: paid }
+  - { name: "TryHackMe SOC learning paths", by: "TryHackMe", url: "https://tryhackme.com/", type: practice, cost: paid }
+  - { name: "The Practice of Network Security Monitoring", by: "Richard Bejtlich (No Starch Press)", url: "https://nostarch.com/nsm", type: book, cost: paid }
+  - { name: "SEC450: Blue Team Fundamentals", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/blue-team-fundamentals-security-operations-analysis/", type: course, cost: paid }
+
+frameworks: [attack, d3fend, nist-csf, nist-800-61, cis-controls, kev]
+
+career:
+  - { title: "IT support or junior SOC analyst", years: "0–2 years" }
+  - { title: "SOC analyst (Tier 2) or incident responder", years: "2–4 years" }
+  - { title: "Detection engineer or threat hunter", years: "4–7 years" }
+  - { title: "SOC lead or security operations manager", years: "7+ years" }
+  - { title: "Head of security operations or CISO", years: "10+ years" }
+
+related:
+  - { to: dfir, why: "The natural next step: deeper investigation and forensics." }
+  - { to: network, why: "Network visibility is half of what a SOC watches." }
+  - { to: cloud, why: "More and more alerts come from cloud services." }
+  - { name: "Detection Engineering", why: "Turn SOC experience into building the detections themselves." }
+  - { name: "Threat Hunting", why: "Find what the alerts miss." }
+  - { name: "Threat Intelligence", why: "Track who attacks your sector and how." }

@@ -19,7 +19,8 @@
       {%- assign tools_url = L | append: '/tools/' %}
       <a href="{{ tools_url }}"{% if page.url == tools_url %} class="is-active" aria-current="page"{% endif %}>{{ S.nav_tools }}</a>
       {%- assign roadmaps_url = L | append: '/roadmaps/' %}
-      <a href="{{ roadmaps_url }}"{% if page.url == roadmaps_url %} class="is-active" aria-current="page"{% endif %}>{{ S.nav_roadmaps }}</a>
+      {%- assign url_start = page.url | slice: 0, roadmaps_url.size %}
+      <a href="{{ roadmaps_url }}"{% if page.url == roadmaps_url %} class="is-active" aria-current="page"{% elsif url_start == roadmaps_url %} class="is-active"{% endif %}>{{ S.nav_roadmaps }}</a>
       <a class="nav-cta" href="{{ base }}#contact">{{ S.nav_contact }}</a>
     </nav>
     <div class="header-actions">

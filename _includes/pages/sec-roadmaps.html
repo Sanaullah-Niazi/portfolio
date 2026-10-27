@@ -1,0 +1,112 @@
+{%- comment -%}
+  The Cybersecurity & AI Security Roadmaps index (/roadmaps/security/). Categories and planned roadmaps are in
+  _data/sec_roadmaps.yml; each finished roadmap is _data/sec_domains/<id>.yml. Search and filters are in
+  assets/js/sec-roadmaps.js; without JavaScript every roadmap is simply listed.
+{%- endcomment -%}
+{%- assign R = site.data.sec_roadmaps -%}
+{%- assign T = D.sec_roadmaps | default: R -%}
+{%- assign levels = T.levels | default: R.levels -%}
+{%- assign W = T.page | default: R.page -%}
+<div class="wrap page roadmaps-page sr-index">
+  <header class="page-head">
+    <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> {{ T.eyebrow | default: R.eyebrow }}</p>
+    <h1>{{ T.title | default: R.title }}</h1>
+    <p class="lede">{{ T.lede | default: R.lede }}</p>
+    <p class="pill">{% include icon.html name="shield" px=15 %}<span>{{ T.pill | default: R.pill }}</span></p>
+  </header>
+
+  <section class="card rm-how" aria-labelledby="sr-how-title">
+    <h2 id="sr-how-title" class="tool-title">{{ T.how_title | default: R.how_title }}</h2>
+    <ol class="rm-how-list">
+      {%- assign how = T.how | default: R.how %}
+      {%- for h in how %}<li>{{ h }}</li>{% endfor %}
+    </ol>
+  </section>
+
+  <div class="sr-ctas">
+    <a class="card spot rm-cta" href="{{ L }}/roadmaps/security/frameworks/">
+      <span class="icon-tile">{% include icon.html name="book" px=22 %}</span>
+      <span class="rm-index-text"><strong>{{ T.frameworks_cta | default: R.frameworks_cta }}</strong><span class="muted">{{ T.frameworks_cta_text | default: R.frameworks_cta_text }}</span></span>
+      {% include icon.html name="arrow" px=18 %}
+    </a>
+    <a class="card spot rm-cta" href="{{ L }}/roadmaps/">
+      <span class="icon-tile">{% include icon.html name="map" px=22 %}</span>
+      <span class="rm-index-text"><strong>{{ T.learning_cta | default: R.learning_cta }}</strong><span class="muted">{{ T.learning_cta_text | default: R.learning_cta_text }}</span></span>
+      {% include icon.html name="arrow" px=18 %}
+    </a>
+  </div>
+
+  <div class="card sr-controls" id="sr-controls" hidden>
+    <label class="sr-search">
+      <span class="label">{{ T.search_label | default: R.search_label }}</span>
+      <input type="search" id="sr-q" placeholder="{{ T.search_placeholder | default: R.search_placeholder }}" autocomplete="off" spellcheck="false">
+    </label>
+    <div class="filter" role="group" aria-labelledby="sr-cat-label">
+      <span class="filter-label" id="sr-cat-label">{{ T.category_label | default: R.category_label }}</span>
+      <button type="button" class="chip-btn" aria-pressed="true" data-cat="">{{ T.all | default: R.all }}</button>
+      {%- for c in R.categories %}
+      <button type="button" class="chip-btn" aria-pressed="false" data-cat="{{ c.id }}">{{ c.title }}</button>
+      {%- endfor %}
+    </div>
+    <div class="filter" role="group" aria-labelledby="sr-lvl-label">
+      <span class="filter-label" id="sr-lvl-label">{{ T.level_label | default: R.level_label }}</span>
+      <button type="button" class="chip-btn" aria-pressed="true" data-lvl="">{{ T.any_level | default: R.any_level }}</button>
+      {%- for l in levels %}{% unless l[0] == 'expert' %}
+      <button type="button" class="chip-btn" aria-pressed="false" data-lvl="{{ l[0] }}">{{ l[1] }}</button>
+      {%- endunless %}{% endfor %}
+    </div>
+    <p class="sr-status" role="status" aria-live="polite" data-template="{{ T.shown | default: R.shown }}" data-one="{{ T.shown_one | default: R.shown_one }}"></p>
+  </div>
+
+  {%- for c in R.categories %}
+  <section class="sr-cat" id="{{ c.id }}" data-cat="{{ c.id }}" aria-labelledby="{{ c.id }}-title">
+    <div class="tool-head">
+      <span class="icon-tile">{% include icon.html name=c.icon px=22 %}</span>
+      <div>
+        <h2 id="{{ c.id }}-title" class="tool-title">{{ c.title }}</h2>
+        <p class="muted">{{ c.summary }}</p>
+      </div>
+    </div>
+    {%- if c.domains.size > 0 %}
+    <ul class="sr-cards">
+      {%- for id in c.domains %}{% assign X = site.data.sec_domains[id] %}
+      {%- assign lo = 0 %}{% assign hi = 0 %}
+      {%- for s in X.stages %}{% assign m = s.months | split: '–' %}{% assign lo = lo | plus: m.first %}{% assign hi = hi | plus: m.last %}{% endfor %}
+      {%- capture total %}<bdi dir="ltr">{{ lo }}–{{ hi }}</bdi>{% endcapture %}
+      {%- capture search %}{{ X.title }} {{ X.summary }} {{ X.keywords }}{% for s in X.stages %} {{ s.topics | join: ' ' }}{% endfor %}{% for t in X.tools %} {{ t.name }}{% endfor %}{% endcapture %}
+      <li class="sr-item" data-lvl="{{ X.entry }}" data-search="{{ search | downcase | strip_newlines | escape }}">
+        <a class="card spot sr-card" href="{{ L }}/roadmaps/security/{{ id }}/">
+          <span class="icon-tile">{% include icon.html name=X.icon px=22 %}</span>
+          <span class="rm-index-text">
+            <strong>{{ X.title }}</strong>
+            <span class="muted">{{ X.summary }}</span>
+            <span class="sr-card-meta"><span class="sr-sen is-{{ X.entry }}">{{ T.starts_at | default: R.starts_at }}: {{ levels[X.entry] }}</span><span class="rm-weeks">{{ T.total | default: R.total }}: {{ W.months | replace: '[n]', total }}</span></span>
+          </span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- if c.planned.size > 0 %}
+    <p class="muted sr-soon-note">{{ T.soon_note | default: R.soon_note }}</p>
+    <ul class="sr-soon">
+      {%- for n in c.planned %}
+      <li class="sr-item is-soon" data-lvl="" data-search="{{ n | downcase | escape }}">{{ n }}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </section>
+  {%- endfor %}
+
+  <p class="card sr-none" id="sr-none" hidden>{{ T.none | default: R.none }} <button type="button" class="chip-btn" id="sr-clear">{{ T.clear | default: R.clear }}</button></p>
+
+  <p class="tool-note rm-note">{% include icon.html name="lock" px=16 %}<span>{{ T.legal | default: R.legal }}</span></p>
+
+  <section class="card card-dashed rm-trust" aria-labelledby="sr-trust-title">
+    <h2 id="sr-trust-title" class="tool-title">{{ T.trust_title | default: R.trust_title }}</h2>
+    <p class="muted">{{ T.trust | default: R.trust }}</p>
+    <p class="meta">{{ T.reviewed_label | default: R.reviewed_label }}: <time datetime="{{ R.reviewed | date: '%Y-%m-%d' }}">{% include date.html date=R.reviewed long=true %}</time></p>
+  </section>
+
+  <p class="muted tools-foot"><span>{{ T.foot | default: R.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
+</div>

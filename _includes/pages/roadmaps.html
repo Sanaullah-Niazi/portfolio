@@ -28,6 +28,11 @@
     <span class="rm-index-text"><strong>{{ TC.certs_cta | default: CE.certs_cta }}</strong><span class="muted">{{ TC.certs_cta_text | default: CE.certs_cta_text }}</span></span>
     {% include icon.html name="arrow" px=18 %}
   </a>
+  <a class="card spot rm-cta" href="/roadmaps/security/"{% if lang != 'en' %} hreflang="en"{% endif %}>
+    <span class="icon-tile">{% include icon.html name="shield" px=22 %}</span>
+    <span class="rm-index-text"><strong>{{ T.security_cta | default: R.security_cta }}</strong><span class="muted">{{ T.security_cta_text | default: R.security_cta_text }}</span></span>
+    {% include icon.html name="arrow" px=18 %}
+  </a>
 
   <nav class="rm-index" id="top-paths" aria-label="{{ T.paths_label | default: R.paths_label }}">
     {%- for p in R.paths %}

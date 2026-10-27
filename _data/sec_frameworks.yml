@@ -1,0 +1,284 @@
+# The Frameworks & Standards page (/roadmaps/security/frameworks/), in English.
+# The security roadmaps (_data/sec_domains/*.yml) point at these by id, so a link only lives here.
+#
+# To add one: add a block under "frameworks:" with a new id and an "area" from the list under "areas:".
+# Use the owner's official page only (the standards body, the regulator, or the official EU text).
+#   core: true  marks the reference list shown first on the page; the others are extra references
+#               that the roadmaps use (NIST special publications and so on).
+# Every link here is checked once a week by .github/workflows/check-roadmap-links.yml.
+
+reviewed: 2026-10-27
+
+# ---- Page text ----
+eyebrow: "Frameworks & standards"
+title: "Security frameworks and standards"
+lede: "The frameworks, standards and laws that come up again and again in security work, each with one line on what it is for and a link to the official source."
+pill: "Official sources only"
+search_label: "Search frameworks"
+search_placeholder: "Search, for example ATT&CK, privacy or AI"
+area_label: "Area"
+all: "All"
+core_title: "The essential reference list"
+more_title: "Also used on the roadmaps"
+by: "Owner"
+official: "Official page"
+shown: "[n] shown"
+none: "Nothing matches. Try a shorter word."
+note: "Standards from ISO and some industry bodies cost money to read in full; their official pages describe them for free. Laws from the EU are free to read in every EU language on EUR-Lex."
+
+areas:
+  governance: "Governance and controls"
+  threat: "Threats and defence"
+  appsec: "Applications and software"
+  vuln: "Vulnerabilities"
+  ai: "AI"
+  compliance: "Audit and compliance"
+  law: "Laws and regulations"
+  identity: "Identity"
+
+frameworks:
+  # ---- The reference list ----
+  - id: nist-csf
+    core: true
+    area: governance
+    name: "NIST Cybersecurity Framework (CSF) 2.0"
+    by: "NIST (US)"
+    purpose: "A common way to describe and improve an organisation's security, organised as Govern, Identify, Protect, Detect, Respond and Recover."
+    url: "https://www.nist.gov/cyberframework"
+  - id: iso27001
+    core: true
+    area: governance
+    name: "ISO/IEC 27001"
+    by: "ISO and IEC"
+    purpose: "The international standard for an information security management system (ISMS), and the one organisations get certified against."
+    url: "https://www.iso.org/standard/27001"
+  - id: iso27002
+    core: true
+    area: governance
+    name: "ISO/IEC 27002"
+    by: "ISO and IEC"
+    purpose: "Guidance on how to apply each of the 93 security controls listed in ISO/IEC 27001."
+    url: "https://www.iso.org/standard/75652.html"
+  - id: cis-controls
+    core: true
+    area: governance
+    name: "CIS Critical Security Controls"
+    by: "Center for Internet Security"
+    purpose: "A prioritised list of 18 practical defences, grouped so smaller organisations know what to do first."
+    url: "https://www.cisecurity.org/controls"
+  - id: attack
+    core: true
+    area: threat
+    name: "MITRE ATT&CK"
+    by: "MITRE"
+    purpose: "A knowledge base of real attacker tactics and techniques, used to plan detections, hunts and red team work."
+    url: "https://attack.mitre.org/"
+  - id: d3fend
+    core: true
+    area: threat
+    name: "MITRE D3FEND"
+    by: "MITRE"
+    purpose: "A knowledge graph of defensive techniques, mapped to the ATT&CK techniques they counter."
+    url: "https://d3fend.mitre.org/"
+  - id: owasp-top10
+    core: true
+    area: appsec
+    name: "OWASP Top 10"
+    by: "OWASP Foundation"
+    purpose: "The ten most critical web application security risks, updated every few years from real data."
+    url: "https://owasp.org/www-project-top-ten/"
+  - id: owasp-api
+    core: true
+    area: appsec
+    name: "OWASP API Security Top 10"
+    by: "OWASP Foundation"
+    purpose: "The ten most common and serious risks in APIs, such as broken object-level authorisation."
+    url: "https://owasp.org/API-Security/"
+  - id: owasp-genai
+    core: true
+    area: ai
+    name: "OWASP GenAI Security Project"
+    by: "OWASP Foundation"
+    purpose: "Home of the OWASP Top 10 for LLM Applications and guidance on securing generative and agentic AI."
+    url: "https://genai.owasp.org/"
+  - id: atlas
+    core: true
+    area: ai
+    name: "MITRE ATLAS"
+    by: "MITRE"
+    purpose: "ATT&CK-style knowledge base of attacks on AI and machine learning systems, with real case studies."
+    url: "https://atlas.mitre.org/"
+  - id: ai-rmf
+    core: true
+    area: ai
+    name: "NIST AI Risk Management Framework (AI RMF)"
+    by: "NIST (US)"
+    purpose: "A voluntary framework to map, measure, manage and govern the risks of AI systems."
+    url: "https://www.nist.gov/itl/ai-risk-management-framework"
+  - id: iso42001
+    core: true
+    area: ai
+    name: "ISO/IEC 42001"
+    by: "ISO and IEC"
+    purpose: "The international standard for an AI management system, the AI counterpart to ISO/IEC 27001."
+    url: "https://www.iso.org/standard/42001"
+  - id: cve
+    core: true
+    area: vuln
+    name: "CVE (Common Vulnerabilities and Exposures)"
+    by: "CVE Program (MITRE, sponsored by CISA)"
+    purpose: "Gives every publicly known vulnerability a unique ID, such as CVE-2021-44228, so everyone talks about the same flaw."
+    url: "https://www.cve.org/"
+  - id: cwe
+    core: true
+    area: vuln
+    name: "CWE (Common Weakness Enumeration)"
+    by: "MITRE"
+    purpose: "A catalogue of the types of software and hardware weaknesses that cause vulnerabilities."
+    url: "https://cwe.mitre.org/"
+  - id: cvss
+    core: true
+    area: vuln
+    name: "CVSS (Common Vulnerability Scoring System)"
+    by: "FIRST"
+    purpose: "A standard way to score how severe a vulnerability is, from 0 to 10."
+    url: "https://www.first.org/cvss/"
+  - id: soc2
+    core: true
+    area: compliance
+    name: "SOC 2"
+    by: "AICPA"
+    purpose: "An audit report on how a service provider protects customer data, very common for SaaS companies."
+    url: "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2"
+  - id: pci-dss
+    core: true
+    area: compliance
+    name: "PCI DSS"
+    by: "PCI Security Standards Council"
+    purpose: "The security standard every organisation that stores, processes or sends payment card data must meet."
+    url: "https://www.pcisecuritystandards.org/"
+  - id: gdpr
+    core: true
+    area: law
+    name: "GDPR (General Data Protection Regulation)"
+    by: "European Union"
+    purpose: "The EU law on personal data: lawful use, people's rights, breach notification and security of processing."
+    url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+  - id: nis2
+    core: true
+    area: law
+    name: "NIS2 Directive"
+    by: "European Union"
+    purpose: "The EU law that sets security and incident reporting duties for essential and important organisations."
+    url: "https://eur-lex.europa.eu/eli/dir/2022/2555/oj"
+  - id: ai-act
+    core: true
+    area: law
+    name: "EU AI Act"
+    by: "European Union"
+    purpose: "The EU law that regulates AI by risk level, including security and robustness duties for high-risk systems."
+    url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+
+  # ---- Extra references used by the roadmaps ----
+  - id: nist-800-53
+    area: governance
+    name: "NIST SP 800-53 Rev. 5"
+    by: "NIST (US)"
+    purpose: "The large catalogue of security and privacy controls that many other frameworks map to."
+    url: "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+  - id: cis-benchmarks
+    area: governance
+    name: "CIS Benchmarks"
+    by: "Center for Internet Security"
+    purpose: "Free, consensus hardening guides for operating systems, cloud accounts, network devices and software."
+    url: "https://www.cisecurity.org/cis-benchmarks"
+  - id: nist-800-61
+    area: threat
+    name: "NIST SP 800-61 Rev. 3"
+    by: "NIST (US)"
+    purpose: "Incident response recommendations, aligned with CSF 2.0."
+    url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+  - id: nist-800-86
+    area: threat
+    name: "NIST SP 800-86"
+    by: "NIST (US)"
+    purpose: "How to build forensic techniques into incident response: collection, examination, analysis and reporting."
+    url: "https://csrc.nist.gov/pubs/sp/800/86/final"
+  - id: iso27037
+    area: threat
+    name: "ISO/IEC 27037"
+    by: "ISO and IEC"
+    purpose: "Guidelines for identifying, collecting, acquiring and preserving digital evidence."
+    url: "https://www.iso.org/standard/44381.html"
+  - id: kev
+    area: vuln
+    name: "CISA Known Exploited Vulnerabilities (KEV) catalog"
+    by: "CISA (US)"
+    purpose: "The list of vulnerabilities known to be exploited in the wild; a practical guide to what to patch first."
+    url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+  - id: zero-trust
+    area: identity
+    name: "NIST SP 800-207 Zero Trust Architecture"
+    by: "NIST (US)"
+    purpose: "Defines zero trust: never trust a request because of where it comes from, check identity and context every time."
+    url: "https://csrc.nist.gov/pubs/sp/800/207/final"
+  - id: nist-800-63
+    area: identity
+    name: "NIST SP 800-63-4 Digital Identity Guidelines"
+    by: "NIST (US)"
+    purpose: "Requirements for identity proofing, authentication (including passwords and MFA) and federation."
+    url: "https://pages.nist.gov/800-63-4/"
+  - id: oauth
+    area: identity
+    name: "OAuth 2.0 (RFC 6749)"
+    by: "IETF"
+    purpose: "The standard for delegated authorisation: letting an app act for a user without their password."
+    url: "https://datatracker.ietf.org/doc/html/rfc6749"
+  - id: oidc
+    area: identity
+    name: "OpenID Connect"
+    by: "OpenID Foundation"
+    purpose: "The identity layer on top of OAuth 2.0 that most single sign-on uses."
+    url: "https://openid.net/developers/specs/"
+  - id: fido
+    area: identity
+    name: "FIDO2 and passkeys"
+    by: "FIDO Alliance"
+    purpose: "Standards for phishing-resistant, passwordless sign-in with security keys and passkeys."
+    url: "https://fidoalliance.org/passkeys/"
+  - id: csa-ccm
+    area: governance
+    name: "CSA Cloud Controls Matrix (CCM)"
+    by: "Cloud Security Alliance"
+    purpose: "A cloud-specific control framework, mapped to ISO/IEC 27001, NIST and others."
+    url: "https://cloudsecurityalliance.org/research/cloud-controls-matrix"
+  - id: aws-wa-sec
+    area: governance
+    name: "AWS Well-Architected Framework, Security Pillar"
+    by: "Amazon Web Services"
+    purpose: "AWS's own design principles and best practices for securing workloads in the cloud."
+    url: "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html"
+  - id: ssdf
+    area: appsec
+    name: "NIST SP 800-218 Secure Software Development Framework (SSDF)"
+    by: "NIST (US)"
+    purpose: "A set of secure development practices that buyers, including the US government, ask software makers to follow."
+    url: "https://csrc.nist.gov/pubs/sp/800/218/final"
+  - id: asvs
+    area: appsec
+    name: "OWASP ASVS (Application Security Verification Standard)"
+    by: "OWASP Foundation"
+    purpose: "A detailed list of security requirements to design, build and test web applications against."
+    url: "https://owasp.org/www-project-application-security-verification-standard/"
+  - id: samm
+    area: appsec
+    name: "OWASP SAMM"
+    by: "OWASP Foundation"
+    purpose: "A maturity model to measure and improve an organisation's software security programme."
+    url: "https://owaspsamm.org/"
+  - id: slsa
+    area: appsec
+    name: "SLSA (Supply-chain Levels for Software Artifacts)"
+    by: "OpenSSF"
+    purpose: "Levels of build integrity and provenance that protect software from tampering between source and release."
+    url: "https://slsa.dev/"

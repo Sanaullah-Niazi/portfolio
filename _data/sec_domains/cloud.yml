@@ -1,0 +1,157 @@
+# Security roadmap: Cloud Security. Shown at /roadmaps/security/cloud/.
+# Field guide: see the top of secops.yml.
+
+id: cloud
+category: core
+icon: cloud
+entry: intermediate
+legal: true
+title: "Cloud Security"
+summary: "Secure what organisations build and run on AWS, Microsoft Azure and Google Cloud, from accounts and permissions to containers and data."
+keywords: "AWS Azure GCP Kubernetes CSPM CNAPP IAM misconfiguration Terraform containers serverless"
+
+overview:
+  - "Cloud security protects systems and data that run on cloud platforms. Under the shared responsibility model the provider secures the physical data centres and the platform, and the customer secures how they use it: identities, configuration, networks, data and workloads."
+  - "Most cloud incidents come from customer-side mistakes: public storage buckets, leaked access keys, over-privileged roles and unpatched workloads. The job is to prevent those through good design and guardrails, find them quickly when they happen, and respond to attacks in cloud environments."
+why: "Most new systems are built in the cloud, and attackers follow. Cloud skills are among the most requested in security job ads, and they combine well with almost every other security domain."
+roles:
+  - { title: "Cloud security analyst", level: entry, what: "Reviews cloud posture findings and fixes misconfigurations." }
+  - { title: "Cloud security engineer", level: mid, what: "Builds guardrails, logging, IAM and detection for cloud accounts." }
+  - { title: "DevSecOps / platform security engineer", level: mid, what: "Secures infrastructure as code, pipelines and Kubernetes." }
+  - { title: "Cloud incident responder", level: senior, what: "Investigates and contains attacks in cloud environments." }
+  - { title: "Cloud security architect", level: senior, what: "Designs secure landing zones and multi-cloud architectures." }
+  - { title: "Head of cloud security", level: lead, what: "Owns cloud security strategy across the organisation." }
+
+prereqs:
+  - "Linux administration and networking basics (subnets, routing, firewalls, DNS)."
+  - "Hands-on use of at least one cloud: creating VMs, storage and networks."
+  - "Scripting in Python or Bash, and reading JSON and YAML."
+  - "Security basics, ideally the Security Operations or Network Security roadmap's beginner stage."
+prereq_paths: [foundations, cloud-devops]
+
+stages:
+  - level: beginner
+    title: "Cloud fundamentals and the shared responsibility model"
+    months: "2–3"
+    topics: ["Shared responsibility model", "Cloud service models (IaaS, PaaS, SaaS)", "Accounts, subscriptions and projects", "Cloud IAM basics", "Storage security", "Virtual networks and security groups", "Encryption and key management services", "Audit logging (CloudTrail, Azure Activity Log)"]
+    skills:
+      - "Set up a cloud account securely: MFA on the root user, no root access keys, budget alerts."
+      - "Create users, roles and policies that follow least privilege."
+      - "Find a public storage bucket and lock it down."
+      - "Turn on audit logging and read the events it records."
+    labs:
+      - "Open a free-tier AWS or Azure account, secure it with the provider's security checklist, and set a billing alarm before anything else."
+      - "Play flAWS and flAWS2, free challenges that teach common AWS mistakes."
+      - "Run Prowler or ScoutSuite against your own account and fix every high finding."
+    done:
+      - "Explain who is responsible for what in IaaS, PaaS and SaaS."
+      - "Read an IAM policy and say exactly what it allows."
+      - "Show your own cloud account passing a CIS benchmark scan with no critical findings."
+
+  - level: intermediate
+    title: "Guardrails, infrastructure as code and detection"
+    months: "4–6"
+    topics: ["Landing zones and multi-account design", "Organisation policies (SCPs, Azure Policy)", "Infrastructure as code (Terraform, OpenTofu)", "IaC scanning", "Cloud security posture management (CSPM)", "Secrets management", "Cloud-native threat detection (GuardDuty, Defender for Cloud)", "Cloud attack techniques"]
+    skills:
+      - "Build cloud infrastructure only through code, and scan it for mistakes before deployment."
+      - "Write preventive guardrails that block risky actions across all accounts."
+      - "Investigate a cloud alert using audit logs."
+      - "Understand how attackers escalate privileges in cloud IAM."
+    labs:
+      - "Write Terraform for a small web app (network, VM or container, database) and scan it with Checkov and Trivy in a GitHub Actions pipeline."
+      - "Deploy CloudGoat in your own AWS account and work through its vulnerable-by-design scenarios. Tear it down afterwards."
+      - "Use Stratus Red Team to simulate attacks in your account and check what your logging and detection catch."
+    done:
+      - "Show a repository where every cloud resource is defined in code and checked automatically."
+      - "Explain three ways to escalate privileges in AWS or Azure, and how to prevent each."
+      - "Write a short incident report from CloudTrail or Azure activity logs."
+
+  - level: advanced
+    title: "Containers, Kubernetes and cloud incident response"
+    months: "6–9"
+    topics: ["Container image security", "Kubernetes security (RBAC, admission control, network policies)", "Runtime security", "Serverless security", "Workload identity", "Data security and DSPM", "Cloud forensics and incident response", "Multi-cloud security"]
+    skills:
+      - "Harden a Kubernetes cluster and check it against the CIS Kubernetes Benchmark."
+      - "Enforce policies at admission time with Kyverno or OPA Gatekeeper."
+      - "Detect suspicious container behaviour at runtime with Falco."
+      - "Respond to a compromised cloud workload: preserve evidence, contain, recover."
+    labs:
+      - "Build a local Kubernetes cluster with kind or minikube, run Kubernetes Goat, and fix each scenario after exploiting it in your own lab."
+      - "Add Kyverno policies that block privileged containers and images without a signature."
+      - "Write a cloud incident response playbook for a leaked access key, and test it in your account."
+    done:
+      - "Show a hardened cluster with admission policies, network policies and runtime alerts."
+      - "Run a full response to a simulated cloud compromise and write the post-incident review."
+
+  - level: expert
+    title: "Cloud security architecture and leadership"
+    months: "12–24"
+    topics: ["Enterprise cloud security architecture", "Security for AI services in the cloud", "Cloud security programmes and metrics", "Compliance in the cloud (ISO 27001, SOC 2, PCI DSS)", "Sovereign and regulated clouds", "Cost and risk trade-offs"]
+    skills:
+      - "Design secure landing zones for a large organisation across several clouds."
+      - "Build a cloud security programme with clear ownership, guardrails and metrics."
+      - "Map cloud controls to compliance requirements and evidence them automatically."
+    labs:
+      - "Write a cloud security reference architecture and threat model for a regulated workload, such as payments or health data."
+      - "Publish research, tooling or a detailed write-up on a cloud attack or defence technique."
+    done:
+      - "Defend a cloud architecture to auditors, engineers and leadership."
+      - "Show how your design limits the damage of a stolen admin credential."
+
+tools:
+  - { name: "Prowler", url: "https://github.com/prowler-cloud/prowler", kind: oss, what: "Security checks and CIS benchmark scans for AWS, Azure, Google Cloud and Kubernetes." }
+  - { name: "ScoutSuite", url: "https://github.com/nccgroup/ScoutSuite", kind: oss, what: "Multi-cloud security auditing tool." }
+  - { name: "Checkov", url: "https://www.checkov.io/", kind: oss, what: "Scans infrastructure as code for misconfigurations." }
+  - { name: "Trivy", url: "https://trivy.dev/", kind: oss, what: "Scans container images, code and IaC for vulnerabilities and misconfigurations." }
+  - { name: "Terraform", url: "https://developer.hashicorp.com/terraform", kind: community, what: "The most widely used infrastructure as code tool." }
+  - { name: "OpenTofu", url: "https://opentofu.org/", kind: oss, what: "Open-source fork of Terraform." }
+  - { name: "Cloud Custodian", url: "https://cloudcustodian.io/", kind: oss, what: "Rules engine to find and fix cloud resources that break policy." }
+  - { name: "Falco", url: "https://falco.org/", kind: oss, what: "Runtime threat detection for containers and Kubernetes." }
+  - { name: "Kyverno", url: "https://kyverno.io/", kind: oss, what: "Kubernetes policy engine." }
+  - { name: "Open Policy Agent", url: "https://www.openpolicyagent.org/", kind: oss, what: "General-purpose policy engine, used with Kubernetes and IaC." }
+  - { name: "kube-bench", url: "https://github.com/aquasecurity/kube-bench", kind: oss, what: "Checks a Kubernetes cluster against the CIS benchmark." }
+  - { name: "CloudGoat", url: "https://github.com/RhinoSecurityLabs/cloudgoat", kind: oss, what: "Vulnerable-by-design AWS environments to practise in your own account." }
+  - { name: "Stratus Red Team", url: "https://github.com/DataDog/stratus-red-team", kind: oss, what: "Simulates cloud attack techniques to test your detections." }
+  - { name: "Microsoft Defender for Cloud", url: "https://learn.microsoft.com/en-us/azure/defender-for-cloud/", kind: paid, what: "Microsoft's cloud security posture and workload protection service." }
+
+certs:
+  - { ref: aws-ccp, note: "Optional first step on AWS. Pick one cloud and stay with it." }
+  - { ref: az900, note: "The same for Azure." }
+  - { ref: aws-saa, note: "Proves you can build on AWS, which you need before securing it." }
+  - { ref: az104, note: "The Azure equivalent." }
+  - { name: "Certificate of Cloud Security Knowledge (CCSK)", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/education/ccsk", level: mid, note: "Vendor-neutral cloud security knowledge." }
+  - { ref: aws-sec, note: "For AWS security roles." }
+  - { ref: sc500, note: "For Azure security roles." }
+  - { name: "Professional Cloud Security Engineer", by: "Google Cloud", url: "https://cloud.google.com/learn/certification/cloud-security-engineer", level: advanced, note: "For Google Cloud security roles." }
+  - { name: "Certified Kubernetes Security Specialist (CKS)", by: "The Linux Foundation", url: "https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/", level: advanced, note: "Hands-on Kubernetes security; needs CKA first." }
+  - { name: "CCSP", by: "ISC2", url: "https://www.isc2.org/certifications/ccsp", level: advanced, note: "For cloud security architects with several years of experience." }
+
+resources:
+  - { name: "AWS Skill Builder", by: "Amazon Web Services", url: "https://skillbuilder.aws/", type: course, cost: free }
+  - { name: "Microsoft Learn: Azure security training", by: "Microsoft", url: "https://learn.microsoft.com/en-us/training/azure/", type: course, cost: free }
+  - { name: "Google Cloud Skills Boost", by: "Google Cloud", url: "https://www.cloudskillsboost.google/", type: course, cost: free }
+  - { name: "flAWS challenge", by: "Scott Piper", url: "http://flaws.cloud/", type: practice, cost: free }
+  - { name: "flAWS2 challenge", by: "Scott Piper", url: "http://flaws2.cloud/", type: practice, cost: free }
+  - { name: "Hacking the Cloud", by: "Community project", url: "https://hackingthe.cloud/", type: docs, cost: free }
+  - { name: "Kubernetes Goat", by: "Madhu Akula", url: "https://madhuakula.com/kubernetes-goat/", type: practice, cost: free }
+  - { name: "Kubernetes security documentation", by: "The Kubernetes Authors", url: "https://kubernetes.io/docs/concepts/security/", type: docs, cost: free }
+  - { name: "Security Guidance for Critical Areas of Focus in Cloud Computing", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/research/guidance", type: docs, cost: free }
+  - { name: "AWS Security Reference Architecture", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html", type: docs, cost: free }
+  - { name: "Pwned Labs", by: "Pwned Labs", url: "https://pwnedlabs.io/", type: practice, cost: paid }
+
+frameworks: [csa-ccm, aws-wa-sec, cis-benchmarks, nist-csf, iso27001, soc2, attack, zero-trust]
+
+career:
+  - { title: "Cloud or systems engineer, or SOC analyst", years: "0–3 years" }
+  - { title: "Cloud security engineer", years: "2–5 years" }
+  - { title: "Senior cloud security engineer or cloud incident responder", years: "5–8 years" }
+  - { title: "Cloud security architect", years: "8+ years" }
+  - { title: "Head of cloud security or CISO", years: "10+ years" }
+
+related:
+  - { to: iam, why: "Cloud IAM is the heart of cloud security." }
+  - { to: appsec, why: "Secure the applications that run in the cloud." }
+  - { name: "Container Security", why: "Go deeper into images, runtimes and Kubernetes." }
+  - { name: "DevSecOps", why: "Build security into the pipelines that deploy to the cloud." }
+  - { name: "Cloud Security Assessment", why: "Test cloud environments as an authorised assessor." }
+  - { name: "AI Infrastructure Security", why: "Secure the cloud platforms AI models are trained and served on." }
