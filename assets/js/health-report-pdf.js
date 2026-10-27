@@ -1,5 +1,5 @@
 // The downloadable PDF of a Website Health & Security Checker report.
-// health-checker.js loads this file (with jsPDF and html2canvas-pro from /assets/vendor/) only when someone
+// health-checker.js loads this file (with jsPDF and html2canvas-pro from /assets/lib/) only when someone
 // clicks "Download PDF". It lays the report out as a real document: a cover page, an executive summary,
 // findings by severity, detailed results, screenshots and a page about the method. Each A4 page is built
 // with DOM nodes (never innerHTML), drawn with html2canvas-pro and saved as one PDF file.

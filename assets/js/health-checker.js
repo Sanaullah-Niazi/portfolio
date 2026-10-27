@@ -467,7 +467,7 @@
   // The PDF is its own designed document (health-report-pdf.js), drawn page by page into a real PDF file.
   // That file and its two libraries load only when someone asks for a PDF.
   var JS_DIR = (document.currentScript && document.currentScript.src || "/assets/js/").replace(/[^/]*$/, "");
-  var PDF_LIBS = [JS_DIR + "../vendor/jspdf-4.2.1.min.js", JS_DIR + "../vendor/html2canvas-pro-2.5.2.min.js", JS_DIR + "health-report-pdf.js"];
+  var PDF_LIBS = [JS_DIR + "../lib/jspdf-4.2.1.min.js", JS_DIR + "../lib/html2canvas-pro-2.5.2.min.js", JS_DIR + "health-report-pdf.js"];
   var pdfLoading = null;
   function loadScript(src) {
     return new Promise(function (ok, fail) {
