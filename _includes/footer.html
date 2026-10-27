@@ -5,7 +5,8 @@
     <div class="footer-brand">
       <p class="brand-name">{{ me.name }}</p>
       <p class="muted">{{ P.tagline }} · AI × Cybersecurity</p>
-      {% include social.html %}
+      {% include social.html no_mail=true %}
+      <p class="footer-email">{% include icon.html name="mail" px=16 %}<a href="mailto:{{ me.email }}">{{ me.email }}</a></p>
     </div>
     {%- comment -%} A short map of the site, so every page can reach every other one. {%- endcomment %}
     <nav class="footer-nav footer-explore" aria-label="{{ S.footer_explore }}">

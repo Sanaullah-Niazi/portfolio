@@ -13,6 +13,12 @@ linkedin: https://www.linkedin.com/in/sanaullahkhanniazi
 scholar: https://scholar.google.com/citations?user=V1nFOOkAAAAJ&hl=en
 # Paste your ORCID link here (e.g. https://orcid.org/0000-0000-0000-0000). The ORCID icon appears once it is filled in.
 orcid: ""
+# Your public TryHackMe profile (e.g. https://tryhackme.com/p/yourname). Shows in Skills > Hands-on labs and as an icon.
+tryhackme: ""
+# Hack The Box profile, for later. Shown next to TryHackMe once filled in.
+hackthebox: ""
+# Buy Me a Coffee or GitHub Sponsors link. The "Support these free tools" line appears on tool pages once filled in.
+support: ""
 
 # Put a public version of your CV (without phone number, address, school results or referee contacts)
 # at this path. The "Download CV" button appears once the file exists.

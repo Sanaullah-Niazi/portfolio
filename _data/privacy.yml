@@ -1,5 +1,7 @@
 # Text of the privacy policy (/privacy/, /ur/privacy/, /de/privacy/, /zh/privacy/), one block per language.
-# {email} is replaced with the email address in _data/profile.yml, {days} with health_checker.report_days in _config.yml.
+# {email} is replaced with the email address in _data/profile.yml, {days} with health_checker.report_days in _config.yml,
+# {analytics} with the statistics service set in _config.yml (Cloudflare Web Analytics or GoatCounter).
+# A section with analytics: true shows p while a statistics service is set, and p_off when none is.
 updated: 2026-10-27
 
 en:
@@ -21,10 +23,19 @@ en:
         - "The other tools on /tools/ run entirely in your browser: what you type or the files you choose are not uploaded. The one exception is the leaked password checker, which sends only the first 5 characters of your password's SHA-1 hash to Have I Been Pwned, never the password."
     - h: "Contact form"
       p:
-        - "Messages you send with the contact form are delivered to my inbox by Web3Forms. I use them only to reply and delete them when they're no longer needed."
+        - "The contact form sends your name, your email address and your message to Web3Forms, which delivers them to my inbox ({email}). Nothing else is sent. I use them only to reply and delete them when they're no longer needed. Web3Forms has its own privacy policy."
     - h: "Hosting, fonts and storage"
       p:
-        - "The site is hosted on GitHub Pages, and fonts are loaded from Google Fonts. Like any web server, they receive your IP address and browser details when you load a page. The site has no analytics, ads or tracking cookies. Your light or dark theme choice is saved in your browser's local storage and never sent anywhere."
+        - "The site is hosted on Cloudflare, and fonts are loaded from Google Fonts. Like any web server, they receive your IP address and browser details when you load a page. Your light or dark theme choice is saved in your browser's local storage and never sent anywhere."
+    - h: "Visitor statistics"
+      analytics: true
+      p:
+        - "To see how many people visit and which pages they read, the site uses {analytics}, a statistics service that respects privacy. It sets no cookies and doesn't follow you to other websites. It records the page you open, the site that linked to it, your browser, your type of device and your country (worked out from your IP address, which it doesn't store). None of this tells me who you are."
+      p_off:
+        - "The site has no analytics and no tracking cookies."
+    - h: "Advertising"
+      p:
+        - "There are no ads on this site today. In the future, ads may be shown on some pages: the tools, the roadmaps and the security news. If that happens, ad partners such as Google may use cookies to show and measure ads. Visitors in the EU, the UK and Switzerland will be asked for consent first, and this page will be updated before any ad goes live."
     - h: "Your choices"
       p:
         - "You can ask me to delete a shared report before it expires, or ask any question about your data, by emailing {email}."
@@ -48,10 +59,19 @@ ur:
         - "/tools/ کے دوسرے ٹولز مکمل طور پر آپ کے براؤزر میں چلتے ہیں: آپ جو لکھتے ہیں یا جو فائلیں چنتے ہیں وہ اپ لوڈ نہیں ہوتیں۔ واحد استثنا لیک پاس ورڈ چیکر ہے، جو Have I Been Pwned کو صرف آپ کے پاس ورڈ کے SHA-1 hash کے پہلے 5 حروف بھیجتا ہے، پاس ورڈ کبھی نہیں۔"
     - h: "رابطہ فارم"
       p:
-        - "رابطہ فارم سے بھیجے گئے پیغامات Web3Forms کے ذریعے میرے ان باکس تک پہنچتے ہیں۔ میں انہیں صرف جواب دینے کے لیے استعمال کرتا ہوں اور ضرورت ختم ہونے پر حذف کر دیتا ہوں۔"
+        - "رابطہ فارم آپ کا نام، ای میل ایڈریس اور پیغام Web3Forms کو بھیجتا ہے، جو انہیں میرے ان باکس ({email}) تک پہنچاتا ہے۔ اس کے علاوہ کچھ نہیں بھیجا جاتا۔ میں انہیں صرف جواب دینے کے لیے استعمال کرتا ہوں اور ضرورت ختم ہونے پر حذف کر دیتا ہوں۔ Web3Forms کی اپنی پرائیویسی پالیسی ہے۔"
     - h: "ہوسٹنگ، فونٹس اور اسٹوریج"
       p:
-        - "سائٹ GitHub Pages پر ہوسٹ ہے اور فونٹس Google Fonts سے لوڈ ہوتے ہیں۔ کسی بھی ویب سرور کی طرح، صفحہ کھولنے پر انہیں آپ کا IP ایڈریس اور براؤزر کی تفصیلات ملتی ہیں۔ سائٹ پر کوئی analytics، اشتہارات یا ٹریکنگ کوکیز نہیں۔ لائٹ یا ڈارک تھیم کا انتخاب آپ کے براؤزر کی local storage میں محفوظ ہوتا ہے اور کہیں نہیں بھیجا جاتا۔"
+        - "سائٹ Cloudflare پر ہوسٹ ہے اور فونٹس Google Fonts سے لوڈ ہوتے ہیں۔ کسی بھی ویب سرور کی طرح، صفحہ کھولنے پر انہیں آپ کا IP ایڈریس اور براؤزر کی تفصیلات ملتی ہیں۔ لائٹ یا ڈارک تھیم کا انتخاب آپ کے براؤزر کی local storage میں محفوظ ہوتا ہے اور کہیں نہیں بھیجا جاتا۔"
+    - h: "وزیٹرز کے اعداد و شمار"
+      analytics: true
+      p:
+        - "یہ جاننے کے لیے کہ کتنے لوگ آتے ہیں اور کون سے صفحات پڑھتے ہیں، سائٹ {analytics} استعمال کرتی ہے، جو پرائیویسی کا خیال رکھنے والی ایک سروس ہے۔ یہ کوئی کوکی نہیں لگاتی اور دوسری ویب سائٹس پر آپ کا پیچھا نہیں کرتی۔ یہ وہ صفحہ جو آپ کھولتے ہیں، وہ سائٹ جہاں سے آپ آئے، آپ کا براؤزر، آلے کی قسم اور آپ کا ملک (آپ کے IP ایڈریس سے معلوم کیا جاتا ہے، جو محفوظ نہیں کیا جاتا) درج کرتی ہے۔ اس سے مجھے یہ پتہ نہیں چلتا کہ آپ کون ہیں۔"
+      p_off:
+        - "سائٹ پر کوئی analytics یا ٹریکنگ کوکیز نہیں۔"
+    - h: "اشتہارات"
+      p:
+        - "آج اس سائٹ پر کوئی اشتہار نہیں۔ مستقبل میں کچھ صفحات پر اشتہارات دکھائے جا سکتے ہیں: ٹولز، روڈ میپس اور سیکیورٹی خبریں۔ ایسا ہوا تو Google جیسے اشتہاری شراکت دار اشتہار دکھانے اور ان کی پیمائش کے لیے کوکیز استعمال کر سکتے ہیں۔ یورپی یونین، برطانیہ اور سوئٹزرلینڈ کے وزیٹرز سے پہلے اجازت لی جائے گی، اور کوئی بھی اشتہار شروع ہونے سے پہلے یہ صفحہ اپ ڈیٹ کیا جائے گا۔"
     - h: "آپ کے اختیارات"
       p:
         - "آپ {email} پر ای میل کر کے کسی شیئر کی گئی رپورٹ کو میعاد ختم ہونے سے پہلے حذف کروا سکتے ہیں، یا اپنے ڈیٹا کے بارے میں کوئی بھی سوال پوچھ سکتے ہیں۔"
@@ -75,10 +95,19 @@ de:
         - "Die anderen Tools unter /tools/ laufen vollständig in Ihrem Browser: Eingaben und ausgewählte Dateien werden nicht hochgeladen. Einzige Ausnahme ist der Check auf geleakte Passwörter, der nur die ersten 5 Zeichen des SHA-1-Hashs Ihres Passworts an Have I Been Pwned sendet, nie das Passwort."
     - h: "Kontaktformular"
       p:
-        - "Nachrichten aus dem Kontaktformular werden von Web3Forms in mein Postfach zugestellt. Ich nutze sie nur, um zu antworten, und lösche sie, wenn sie nicht mehr nötig sind."
+        - "Das Kontaktformular sendet Ihren Namen, Ihre E-Mail-Adresse und Ihre Nachricht an Web3Forms, das sie in mein Postfach ({email}) zustellt. Sonst wird nichts gesendet. Ich nutze sie nur, um zu antworten, und lösche sie, wenn sie nicht mehr nötig sind. Für Web3Forms gilt eine eigene Datenschutzerklärung."
     - h: "Hosting, Schriften und Speicher"
       p:
-        - "Die Website liegt bei GitHub Pages, Schriften kommen von Google Fonts. Wie jeder Webserver erhalten sie beim Laden einer Seite Ihre IP-Adresse und Browserdaten. Die Website nutzt keine Analyse-Tools, keine Werbung und keine Tracking-Cookies. Ihre Wahl zwischen hellem und dunklem Design wird im lokalen Speicher Ihres Browsers abgelegt und nirgendwohin gesendet."
+        - "Die Website liegt bei Cloudflare, Schriften kommen von Google Fonts. Wie jeder Webserver erhalten sie beim Laden einer Seite Ihre IP-Adresse und Browserdaten. Ihre Wahl zwischen hellem und dunklem Design wird im lokalen Speicher Ihres Browsers abgelegt und nirgendwohin gesendet."
+    - h: "Besucherstatistik"
+      analytics: true
+      p:
+        - "Um zu sehen, wie viele Menschen die Website besuchen und welche Seiten sie lesen, nutzt sie {analytics}, einen datenschutzfreundlichen Statistikdienst. Er setzt keine Cookies und verfolgt Sie nicht über andere Websites. Er erfasst die aufgerufene Seite, die verweisende Website, Ihren Browser, die Art Ihres Geräts und Ihr Land (ermittelt aus Ihrer IP-Adresse, die nicht gespeichert wird). Daraus kann ich nicht erkennen, wer Sie sind."
+      p_off:
+        - "Die Website nutzt keine Analyse-Tools und keine Tracking-Cookies."
+    - h: "Werbung"
+      p:
+        - "Derzeit gibt es auf dieser Website keine Werbung. Künftig kann auf einigen Seiten Werbung erscheinen: bei den Tools, den Roadmaps und den Sicherheitsnews. Dann können Werbepartner wie Google Cookies verwenden, um Anzeigen auszuliefern und zu messen. Besucher aus der EU, dem Vereinigten Königreich und der Schweiz werden vorher um Einwilligung gebeten, und diese Seite wird aktualisiert, bevor Werbung erscheint."
     - h: "Ihre Möglichkeiten"
       p:
         - "Sie können per E-Mail an {email} verlangen, dass ein geteilter Bericht vor Ablauf gelöscht wird, oder jede Frage zu Ihren Daten stellen."
@@ -102,10 +131,19 @@ zh:
         - "/tools/ 下的其他工具完全在你的浏览器中运行：你输入的内容或选择的文件都不会上传。唯一的例外是密码泄露检测，它只把密码 SHA-1 哈希的前 5 个字符发送给 Have I Been Pwned，从不发送密码本身。"
     - h: "联系表单"
       p:
-        - "通过联系表单发送的消息由 Web3Forms 投递到我的邮箱。我只用它们来回复，不再需要时就会删除。"
+        - "联系表单会把你的姓名、邮箱地址和消息发送给 Web3Forms，再由它投递到我的邮箱（{email}）。除此之外不发送任何内容。我只用它们来回复，不再需要时就会删除。Web3Forms 有自己的隐私政策。"
     - h: "托管、字体与存储"
       p:
-        - "本网站托管在 GitHub Pages，字体来自 Google Fonts。和任何网络服务器一样，你打开页面时它们会收到你的 IP 地址和浏览器信息。本网站没有统计分析、广告或跟踪 Cookie。你选择的浅色或深色主题保存在浏览器的本地存储中，不会发送到任何地方。"
+        - "本网站托管在 Cloudflare，字体来自 Google Fonts。和任何网络服务器一样，你打开页面时它们会收到你的 IP 地址和浏览器信息。你选择的浅色或深色主题保存在浏览器的本地存储中，不会发送到任何地方。"
+    - h: "访客统计"
+      analytics: true
+      p:
+        - "为了了解有多少人访问、阅读了哪些页面，本网站使用 {analytics}，一个注重隐私的统计服务。它不设置 Cookie，也不会在其他网站上跟踪你。它记录你打开的页面、链接到该页面的网站、你的浏览器、设备类型和所在国家（根据 IP 地址判断，IP 地址本身不会保存）。这些信息无法让我知道你是谁。"
+      p_off:
+        - "本网站没有统计分析，也没有跟踪 Cookie。"
+    - h: "广告"
+      p:
+        - "本网站目前没有广告。将来可能会在部分页面显示广告：工具、学习路线和安全新闻页面。届时，Google 等广告合作伙伴可能会使用 Cookie 来展示和衡量广告。来自欧盟、英国和瑞士的访客会先被征求同意，并且在任何广告上线之前本页会先更新。"
     - h: "你的选择"
       p:
         - "你可以发邮件至 {email}，要求在到期前删除某份分享的报告，或询问任何与你的数据有关的问题。"

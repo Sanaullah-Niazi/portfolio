@@ -29,7 +29,7 @@
       {% assign tp = D.papers[p.bib_key] %}
       {% assign role_key = 'role_' | append: p.role | replace: ' ', '_' %}
       <li class="card paper reveal" id="{{ p.bib_key }}">
-        <div class="pub-top"><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ S[role_key] | default: p.role }}</span><span class="pub-year">{% if p.date %}{% include date.html date=p.date long=true %}{% else %}{{ p.year }}{% endif %}</span></div>
+        <div class="pub-top"><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ S[role_key] | default: p.role }}</span>{% include sep.html %}<span class="pub-year">{% if p.date %}{% include date.html date=p.date long=true %}{% else %}{{ p.year }}{% endif %}</span></div>
         <h3 class="paper-title" lang="en">{{ p.title }}</h3>
         <p class="meta" lang="en">{{ p.authors }} ({{ p.year }}). <em>{{ p.journal }}</em>{% if p.volume %}, {{ p.volume }}{% if p.issue %}({{ p.issue }}){% endif %}{% endif %}{% if p.pages %}, {{ p.pages }}{% endif %}.</p>
         {% if lang == 'en' and p.abstract and p.abstract != '' %}
@@ -61,8 +61,17 @@
     {% include interests.html %}
   </section>
 
-  <section aria-labelledby="news-all-title">
+  <section id="updates" aria-labelledby="news-all-title">
     <h2 class="sub" id="news-all-title">{{ S.news_title }}</h2>
     {% include news-list.html %}
   </section>
 </div>
+{%- comment -%} One ScholarlyArticle per paper, so search engines can match the papers to their DOIs and to this author. {%- endcomment %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{%- for p in site.data.publications %}
+{%- assign authors = p.bib_authors | split: " and " %}
+{"@type":"ScholarlyArticle","@id":{{ p.doi | prepend: 'https://doi.org/' | jsonify }},"headline":{{ p.title | jsonify }},"name":{{ p.title | jsonify }},"author":[{% for a in authors %}{% if a contains 'Khan, S. U.' %}{"@type":"Person","@id":{{ '/#person' | absolute_url | jsonify }},"name":{{ me.name | jsonify }}}{% else %}{"@type":"Person","name":{{ a | strip | jsonify }}}{% endif %}{% unless forloop.last %},{% endunless %}{% endfor %}],"datePublished":{{ p.date | default: p.year | date: '%Y-%m-%d' | jsonify }},"isPartOf":{"@type":"Periodical","name":{{ p.journal | jsonify }}}{% if p.volume %},"volumeNumber":{{ p.volume | jsonify }}{% endif %}{% if p.issue %},"issueNumber":{{ p.issue | jsonify }}{% endif %}{% if p.pages %},"pagination":{{ p.pages | jsonify }}{% endif %},"identifier":{"@type":"PropertyValue","propertyID":"DOI","value":{{ p.doi | jsonify }}},"url":{{ p.doi | prepend: 'https://doi.org/' | jsonify }}{% if p.keywords %},"keywords":{{ p.keywords | join: ', ' | jsonify }}{% endif %}}{% unless forloop.last %},{% endunless %}
+{%- endfor %}
+]}
+</script>

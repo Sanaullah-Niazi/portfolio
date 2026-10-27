@@ -19,6 +19,8 @@ menu_close: Close menu
 theme_toggle: Switch between light and dark mode
 profiles: Profiles
 email: Email
+sep: ", "                     # invisible separator between badges, read by screen readers
+ad_label: "Advertisement"
 
 nav_about: About
 nav_research: Research
@@ -28,7 +30,7 @@ nav_skills: Skills
 nav_notes: Notes
 nav_tools: Tools
 nav_roadmaps: Roadmaps
-nav_news: News
+nav_news: Security news
 nav_contact: Contact
 
 btn_cv: Download CV
@@ -38,9 +40,9 @@ cv_short: CV
 terminal_label: Summary in the style of a terminal
 scroll_next: Scroll to the next section
 
-news_eyebrow: News
-news_title: Latest news
-news_all: All news
+news_eyebrow: Updates
+news_title: Latest updates
+news_all: All updates
 
 focus_eyebrow: "One focus: AI for security"
 focus_title: Where I fit
@@ -84,6 +86,15 @@ tools_eyebrow: "Free tools"
 tools_title: "Free security tools you can use right now"
 tools_lede: "Small tools from my own security work. They run in your browser, with no sign-up."
 tools_all: "All %n tools"
+# Short "Free resources" band near the top of the home page.
+start_label: "Free resources"
+start_tools: "I built %n free security and developer tools that run in your browser."
+start_explore: "Explore the tools"
+start_code: "View the code on GitHub"
+start_rm_title: "Learning roadmaps"
+start_rm_text: "Step-by-step paths into cybersecurity, AI and data, with free resources and a project for each stage."
+start_sn_title: "Security news"
+start_sn_text: "Today's security headlines from trusted sources, and a short daily brief."
 all_projects_back: All projects
 filter_label: "Filter by topic:"
 filter_all: All
@@ -147,6 +158,12 @@ notes_all: All notes
 notes_page_title: Notes on AI security
 notes_page_lede: Short write-ups on AI security, detection and what I'm learning and building.
 notes_empty: No notes yet. The first one is on its way.
+writeups_title: "Write-ups"
+writeups_lede: "Step-by-step notes from labs and CTFs I have solved."
+labs_title: "Hands-on labs"
+labs_note: "Practice on real attack and defence labs"
+labs_thm: "TryHackMe profile"
+labs_htb: "Hack The Box profile"
 topics: Topics
 rss: RSS feed
 

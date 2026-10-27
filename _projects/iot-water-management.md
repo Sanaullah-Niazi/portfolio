@@ -1,6 +1,7 @@
 ---
 title: "IoT water management for smart buildings"
 summary: My BS final-year project, "IoT-based Pure Aqua Utilization in Smart Edifice". Arduino sensors and automatic pump control, with an Android app for tank level, water quality and billing.
+description: "My BS final-year project, \"IoT-based Pure Aqua Utilization in Smart Edifice\". Arduino sensors and automatic pump control, with an Android app for tank level, water quality and billing."
 status: Completed       # In progress  or  Completed
 order: 3               # lower numbers show first
 topics: [Networks]     # used by the topic filter: AI, Security, Networks

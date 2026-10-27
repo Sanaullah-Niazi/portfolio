@@ -100,9 +100,9 @@
       <li class="rm-stage" id="{{ p.id }}-{{ forloop.index }}">
         <details{% if forloop.first %} open{% endif %}>
           <summary>
-            <span class="rm-step" aria-hidden="true">{{ forloop.index }}</span>
-            <span class="rm-stage-title"><span class="sr-only">{{ T.stage | default: R.stage }} {{ forloop.index }}: </span>{{ ts.title | default: s.title }}</span>
-            <span class="rm-weeks">{% if s.weeks %}{% capture wk %}<bdi dir="ltr">{{ s.weeks }}</bdi>{% endcapture %}{{ weeks_label | replace: '[n]', wk }}{% else %}{{ T.ongoing | default: R.ongoing }}{% endif %}</span>
+            <span class="rm-step"><span class="sr-only">{{ T.stage | default: R.stage }} </span>{{ forloop.index }}<span class="sr-only">: </span></span>
+            <span class="rm-stage-title">{{ ts.title | default: s.title }}</span>
+            {% include sep.html %}<span class="rm-weeks">{% if s.weeks %}{% capture wk %}<bdi dir="ltr">{{ s.weeks }}</bdi>{% endcapture %}{{ weeks_label | replace: '[n]', wk }}{% else %}{{ T.ongoing | default: R.ongoing }}{% endif %}</span>
           </summary>
           <div class="rm-stage-body">
             <div>
@@ -118,7 +118,7 @@
                 {%- for r in s.resources %}
                 <li>
                   <a href="{{ r.url }}" rel="noopener"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ r.name }}</a>
-                  <span class="rm-res-meta"><span class="rm-type">{{ T.types[r.type] | default: R.types[r.type] }}</span>{% if r.audit %}<span class="rm-type is-audit">{{ T.audit | default: R.audit }}</span>{% endif %}<span class="muted">{{ r.by }}</span></span>
+                  <span class="rm-res-meta"><span class="rm-type">{{ T.types[r.type] | default: R.types[r.type] }}</span>{% if r.audit %}{% include sep.html %}<span class="rm-type is-audit">{{ T.audit | default: R.audit }}</span>{% endif %}{% include sep.html %}<span class="muted">{{ r.by }}</span></span>
                 </li>
                 {%- endfor %}
               </ul>
@@ -149,9 +149,12 @@
     </div>
   </div>
 
+  {%- comment -%} The security roadmaps are in English only for now: link the translation once it exists, the English page until then. {%- endcomment %}
+  {%- assign sec_base = L | append: '/roadmaps/security/' %}{% assign sec_page = site.pages | where: 'url', sec_base | first %}
+  {%- if sec_page %}{% assign sec_en = '' %}{% else %}{% assign sec_base = '/roadmaps/security/' %}{% assign sec_en = ' hreflang="en"' %}{% endif %}
   <nav class="rm-index" aria-label="{{ T.tier_security_title | default: R.tier_security_title }}">
     {%- for c in SR.categories %}
-    <a class="card spot rm-index-card" href="{{ L }}/roadmaps/security/#{{ c.id }}"{% if lang != 'en' %} hreflang="en"{% endif %}>
+    <a class="card spot rm-index-card" href="{{ sec_base }}#{{ c.id }}"{{ sec_en }}>
       <span class="icon-tile">{% include icon.html name=c.icon px=22 %}</span>
       <span class="rm-index-text">
         <strong>{{ c.title }}</strong>
@@ -163,12 +166,12 @@
   </nav>
 
   <div class="sr-ctas">
-    <a class="card spot rm-cta" href="{{ L }}/roadmaps/security/"{% if lang != 'en' %} hreflang="en"{% endif %}>
+    <a class="card spot rm-cta" href="{{ sec_base }}"{{ sec_en }}>
       <span class="icon-tile">{% include icon.html name="search" px=22 %}</span>
       <span class="rm-index-text"><strong>{{ T.security_all | default: R.security_all | replace: '[n]', nrm }}</strong><span class="muted">{{ T.security_all_text | default: R.security_all_text }}</span></span>
       {% include icon.html name="arrow" px=18 %}
     </a>
-    <a class="card spot rm-cta" href="{{ L }}/roadmaps/security/frameworks/"{% if lang != 'en' %} hreflang="en"{% endif %}>
+    <a class="card spot rm-cta" href="{{ sec_base }}frameworks/"{{ sec_en }}>
       <span class="icon-tile">{% include icon.html name="book" px=22 %}</span>
       <span class="rm-index-text"><strong>{{ SR.frameworks_cta }}</strong><span class="muted">{{ SR.frameworks_cta_text }}</span></span>
       {% include icon.html name="arrow" px=18 %}

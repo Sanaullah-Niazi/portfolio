@@ -1,12 +1,17 @@
 journey:
   - title: Diplom in Arbeitssicherheit, Gesundheit & Umwelt
+    dates: "2017 – 2020"
     note: Risiken, Gefahren und Prävention
   - title: BS Informationstechnik
-    note: Erste Kurse in Sicherheit und Netzwerken
+    dates: "Okt. 2019 – Jul. 2023"
+    note: "Erste Kurse in Sicherheit und Netzwerken · begonnen im letzten Diplomjahr"
   - title: MS Künstliche Intelligenz
+    dates: "Nov. 2023 – Jan. 2026"
     note: CGPA 3,66 · 3 Paper · Masterarbeit
   - title: KI × Cybersicherheit
     note: Wohin mein Weg als Nächstes führt
+# Shown under the story, so people searching for the other spelling of the name find this site.
+aka: "Auch geschrieben als Sanaullah Khan Niazi."
 story:
   - Ich bin in Chaman in Belutschistan aufgewachsen. Mein Weg verlief nicht geradlinig. Nach der Schule absolvierte ich ein dreijähriges Diplom in Arbeitssicherheit, Gesundheits- und Umwelttechnik. Dort lernte ich, in Risiken, Gefahren und Prävention zu denken. Dieselbe Denkweise wende ich heute auf digitale Systeme an.
   - "Danach studierte ich Informationstechnik an der BUITEMS in Quetta und belegte dort meine ersten Kurse in Sicherheit und Netzwerken. Meine Bachelornoten zeigen nicht meine beste Arbeit: Viel Zeit ging damals in Cricket, Fußball und freiberufliche Arbeit. Gegen Ende des Studiums lernte ich, meine Zeit einzuteilen und das Studium ernst zu nehmen."

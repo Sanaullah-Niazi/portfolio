@@ -1,0 +1,11 @@
+{%- comment -%}
+  The one place an ad can appear: below the page content, above the footer. Shown only when ads are switched on in
+  _config.yml (ads.enabled + ads.client) and the page has "ads: true" (tools, roadmaps, security news). Otherwise nothing.
+  show_ads is worked out in head.html. Fill in data-ad-slot with the ad unit ID from AdSense.
+{%- endcomment -%}
+{%- if show_ads %}
+<aside class="wrap ad-slot" aria-label="{{ S.ad_label | default: 'Advertisement' }}">
+  <ins class="adsbygoogle" data-ad-client="{{ site.ads.client }}" data-ad-slot="{{ site.ads.slot }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script src="{{ '/assets/js/ads.js' | relative_url }}"></script>
+</aside>
+{%- endif %}
