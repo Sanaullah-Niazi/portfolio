@@ -432,6 +432,21 @@ tracks:
       - certs: [aaism]
         note: "For AI security and governance roles, after CISSP or CISM."
 
+  - id: ai-security
+    icon: lock
+    roadmap: ai-security
+    title: "AI security specialist"
+    summary: "Secure AI systems and govern how they are used. Projects, write-ups and research count most here; these certifications back them up."
+    steps:
+      - certs: [secplus]
+        note: "The security foundation most AI security jobs still expect."
+      - certs: [aws-aip, ai901]
+        note: "Optional: shows you understand how cloud AI services work."
+      - certs: [cissp, cism]
+        note: "Needed before AAISM. CISSP for technical roles, CISM for managers."
+      - certs: [aaism]
+        note: "The AI security certification. Still rare, so it stands out."
+
   - id: data
     icon: chart
     roadmap: data

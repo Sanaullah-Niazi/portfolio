@@ -75,6 +75,14 @@ tracks:
       - note: "证明你能把模型和 AI 应用投入生产。"
       - note: "一个受认可的高级认证。"
       - note: "面向 AI 安全与治理岗位，需先持有 CISSP 或 CISM。"
+  ai-security:
+    title: "AI 安全专家"
+    summary: "保护 AI 系统并管理其使用。在这里，项目、解题记录和研究最重要；这些认证用来佐证它们。"
+    steps:
+      - note: "大多数 AI 安全岗位仍然要求的安全基础。"
+      - note: "可选：证明你了解云端 AI 服务如何工作。"
+      - note: "考 AAISM 之前必须持有。技术岗位选 CISSP，管理岗位选 CISM。"
+      - note: "AI 安全认证。目前持有者很少，因此很有辨识度。"
   data:
     title: "数据分析师与数据工程师"
     summary: "把数据变成答案，并构建背后的数据管道。"

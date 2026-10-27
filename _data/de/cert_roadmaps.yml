@@ -75,6 +75,14 @@ tracks:
       - note: "Zeigt, dass Sie Modelle und KI-Apps in den Betrieb bringen können."
       - note: "Eine angesehene Expertenzertifizierung."
       - note: "Für KI-Sicherheit und Governance, nach CISSP oder CISM."
+  ai-security:
+    title: "KI-Sicherheitsspezialist/in"
+    summary: "KI-Systeme absichern und ihren Einsatz steuern. Hier zählen Projekte, Write-ups und Forschung am meisten; diese Zertifizierungen untermauern sie."
+    steps:
+      - note: "Die Sicherheitsgrundlage, die die meisten KI-Sicherheitsjobs noch erwarten."
+      - note: "Optional: zeigt, dass Sie Cloud-KI-Dienste verstehen."
+      - note: "Voraussetzung für AAISM. CISSP für technische Rollen, CISM für Führungskräfte."
+      - note: "Die Zertifizierung für KI-Sicherheit. Noch selten, deshalb fällt sie auf."
   data:
     title: "Datenanalyst/in und Data Engineer"
     summary: "Aus Daten Antworten machen und die Pipelines dahinter bauen."

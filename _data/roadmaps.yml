@@ -5,7 +5,8 @@
 # every language at once (in English until you add its text to the other roadmaps.yml files).
 # To add a resource: add a line under a stage's "resources:". Use only free, reputable sources:
 # a university, the project's own documentation, or a long-running non-profit.
-#   type:  course, book, docs, practice or video (shown as a small label)
+#   type:  course, book, docs, practice, video, paper or tool (shown as a small label)
+#   A link to this site starts with "/". Add local: true when the page exists in every language (e.g. a tool).
 #   audit: true when the course is free to watch but the certificate costs money
 # Every link here is checked once a week by .github/workflows/check-roadmap-links.yml.
 
@@ -41,6 +42,8 @@ types:
   docs: "Docs"
   practice: "Practice"
   video: "Video"
+  paper: "Paper"
+  tool: "Tool"
 trust_title: "Why you can trust these links"
 trust: "I only list resources that are free to use, written by universities, the people who make the tool, or long-running non-profits. No affiliate links and no paid bootcamps. Some university courses are free to watch but charge for a certificate; those are marked. A script checks every link once a week."
 reviewed_label: "Last reviewed"
@@ -284,6 +287,80 @@ paths:
           - { name: "Made With ML", by: "Goku Mohandas", url: "https://madewithml.com/", type: course }
           - { name: "Rules of Machine Learning", by: "Google", url: "https://developers.google.com/machine-learning/guides/rules-of-ml", type: docs }
           - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs }
+
+  - id: ai-security
+    icon: lock
+    title: "AI security"
+    to_security: true
+    summary: "How AI systems are attacked and how to defend them: from the threats to models and LLM apps, through adversarial machine learning and red teaming, to the rules that govern AI."
+    who: "People who know the basics of both machine learning and security, and want to work where the two meet."
+    needs: ["ai-ml", "cybersecurity"]
+    note: "Only attack models, apps and systems you own or have written permission to test. Use the labs and open-source tools below."
+    roles: ["AI security engineer", "AI red teamer", "ML security researcher", "AI governance and risk specialist"]
+    stages:
+      - title: "Foundations: machine learning and security basics"
+        weeks: "4–6"
+        learn: ["How models are trained and evaluated", "Training, validation and test data", "Threat modelling", "Common web and API attacks", "Where AI fits in a normal system"]
+        build: "Draw the architecture of a small ML or LLM app (data, model, API, users) and mark every place an attacker could reach."
+        ready: "You can train a simple classifier and explain the OWASP Top 10 web risks. If not, do the first stages of the AI and machine learning and Cybersecurity fundamentals paths first."
+        resources:
+          - { name: "Machine Learning Crash Course", by: "Google", url: "https://developers.google.com/machine-learning/crash-course", type: course }
+          - { name: "OWASP Top 10", by: "OWASP Foundation", url: "https://owasp.org/Top10/2025/", type: docs }
+          - { name: "Threat Modeling Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html", type: docs }
+      - title: "Threats to AI systems"
+        weeks: "3–4"
+        learn: ["OWASP Top 10 for LLM Applications", "MITRE ATLAS tactics and techniques", "The AI supply chain: data, models and libraries", "Attacks across the ML lifecycle", "Real AI incidents"]
+        build: "A threat model for your app from stage 1, mapped to OWASP LLM risks and MITRE ATLAS techniques, with one mitigation for each."
+        ready: "For any AI feature, you can name the three most likely attacks and where each one enters."
+        resources:
+          - { name: "OWASP Top 10 for LLM Applications", by: "OWASP Foundation", url: "https://owasp.org/www-project-top-10-for-large-language-model-applications/", type: docs }
+          - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs }
+          - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs }
+          - { name: "Adversarial Machine Learning: A Taxonomy and Terminology (AI 100-2)", by: "NIST", url: "https://csrc.nist.gov/pubs/ai/100/2/e2025/final", type: paper }
+      - title: "Adversarial machine learning"
+        weeks: "8–10"
+        learn: ["Evasion attacks (adversarial examples)", "Data poisoning and backdoors", "Model extraction", "Privacy attacks: membership inference and model inversion", "Defences and how to evaluate them honestly"]
+        build: "Attack your own image or text classifier with an evasion attack using the Adversarial Robustness Toolbox, then add a defence and measure how much it really helps."
+        ready: "You can run an evasion and a poisoning attack on your own model and explain why most simple defences fail."
+        resources:
+          - { name: "Adversarial Robustness: Theory and Practice", by: "Zico Kolter and Aleksander Madry", url: "https://adversarial-ml-tutorial.org/", type: course }
+          - { name: "Adversarial Robustness Toolbox", by: "Linux Foundation AI & Data", url: "https://github.com/Trusted-AI/adversarial-robustness-toolbox", type: tool }
+          - { name: "Explaining and Harnessing Adversarial Examples", by: "Goodfellow, Shlens and Szegedy (ICLR 2015)", url: "https://arxiv.org/abs/1412.6572", type: paper }
+          - { name: "Membership Inference Attacks against Machine Learning Models", by: "Shokri et al. (IEEE S&P 2017)", url: "https://arxiv.org/abs/1610.05820", type: paper }
+          - { name: "Stealing Machine Learning Models via Prediction APIs", by: "Tramèr et al. (USENIX Security 2016)", url: "https://arxiv.org/abs/1609.02943", type: paper }
+      - title: "LLM security in practice"
+        weeks: "6–8"
+        learn: ["Direct and indirect prompt injection", "Jailbreaks", "Insecure output handling and excessive agency", "Red teaming LLM apps", "Guardrails, input and output checks", "Hidden text in documents and web pages"]
+        build: "Build a small LLM app that reads documents, red-team it with garak or PyRIT, then add guardrails and show the before and after results."
+        ready: "You can find a prompt injection in an LLM app you didn't write, explain the root cause and propose a fix that doesn't rely on the prompt alone."
+        resources:
+          - { name: "Web LLM attacks (free labs)", by: "PortSwigger Web Security Academy", url: "https://portswigger.net/web-security/llm-attacks", type: practice }
+          - { name: "LLM Prompt Injection Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html", type: docs }
+          - { name: "garak: LLM vulnerability scanner", by: "NVIDIA (open source)", url: "https://github.com/NVIDIA/garak", type: tool }
+          - { name: "PyRIT: Python Risk Identification Tool", by: "Microsoft (open source)", url: "https://github.com/Azure/PyRIT", type: tool }
+          - { name: "Hidden text and prompt injection finder", by: "This site", url: "/tools/hidden-text-detector/", local: true, type: tool }
+      - title: "Governance, risk and regulation"
+        weeks: "4–6"
+        learn: ["NIST AI Risk Management Framework", "The generative AI profile", "EU AI Act basics: risk levels and duties", "ISO/IEC 42001 AI management systems", "Secure AI development guidelines"]
+        build: "A two-page risk assessment for your LLM app using the NIST AI RMF functions (Govern, Map, Measure, Manage), including which EU AI Act risk level it would fall under."
+        ready: "You can explain to a manager what the EU AI Act asks of a high-risk system and how the NIST AI RMF helps meet it."
+        resources:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs }
+          - { name: "Generative AI Profile (NIST AI 600-1)", by: "NIST", url: "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence", type: docs }
+          - { name: "AI Act: regulatory framework", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai", type: docs }
+          - { name: "ISO/IEC 42001 overview", by: "ISO", url: "https://www.iso.org/standard/42001", type: docs }
+          - { name: "Guidelines for secure AI system development", by: "UK NCSC, CISA and partners", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs }
+      - title: "Specialise and keep up"
+        learn: ["AI for the SOC", "AI red teaming", "Agent and tool security", "Reading new research papers", "AI security CTFs"]
+        build: "Publish something others can use: a write-up of an AI CTF, a reproduction of a recent attack paper, or a small open-source tool."
+        ready: "This stage never ends. New attacks on AI appear every month."
+        resources:
+          - { name: "LLM and generative AI security roadmap", by: "This site", url: "/roadmaps/security/llmsec/", type: docs }
+          - { name: "AI red teaming and evaluation roadmap", by: "This site", url: "/roadmaps/security/ai-redteam/", type: docs }
+          - { name: "AI for security operations roadmap", by: "This site", url: "/roadmaps/security/ai-secops/", type: docs }
+          - { name: "Agentic AI and MCP security roadmap", by: "This site", url: "/roadmaps/security/agentsec/", type: docs }
+          - { name: "AI Village", by: "AI Village (DEF CON, non-profit)", url: "https://aivillage.org/", type: practice }
+          - { name: "Cryptography and Security papers (latest)", by: "arXiv (Cornell University)", url: "https://arxiv.org/list/cs.CR/recent", type: paper }
 
   - id: data
     icon: chart

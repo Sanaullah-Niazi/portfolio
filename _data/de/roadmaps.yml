@@ -31,6 +31,8 @@ types:
   docs: "Doku"
   practice: "Übung"
   video: "Video"
+  paper: "Paper"
+  tool: "Tool"
 trust_title: "Warum Sie diesen Links vertrauen können"
 trust: "Ich nenne nur Quellen, die kostenlos nutzbar sind und von Universitäten, den Machern des Werkzeugs oder langjährigen gemeinnützigen Organisationen stammen. Keine Affiliate-Links, keine bezahlten Bootcamps. Manche Universitätskurse sind kostenlos, das Zertifikat aber kostet; diese sind markiert. Ein Skript prüft jeden Link einmal pro Woche."
 reviewed_label: "Zuletzt geprüft"
@@ -150,6 +152,38 @@ paths:
         learn: ["Ein Modell über eine API bereitstellen", "Monitoring und Data Drift", "Verzerrung und Fairness", "Datenschutz", "Angriffe auf KI-Systeme"]
         build: "Stellen Sie eines Ihrer Modelle mit Monitoring bereit, dazu eine kurze Model Card, wofür es nicht genutzt werden sollte."
         ready: "Diese Stufe endet nie. Weiter veröffentlichen und messen."
+
+  ai-security:
+    title: "KI-Sicherheit"
+    summary: "Wie KI-Systeme angegriffen und verteidigt werden: von den Bedrohungen für Modelle und LLM-Apps über Adversarial Machine Learning und Red Teaming bis zu den Regeln für KI."
+    who: "Für alle, die die Grundlagen von maschinellem Lernen und Sicherheit kennen und dort arbeiten wollen, wo sich beides trifft."
+    note: "Greifen Sie nur Modelle, Apps und Systeme an, die Ihnen gehören oder für die Sie eine schriftliche Erlaubnis haben. Nutzen Sie die Labore und Open-Source-Tools unten."
+    roles: ["KI-Security-Engineer", "KI-Red-Teamer/in", "ML-Sicherheitsforschung", "KI-Governance und Risiko"]
+    stages:
+      - title: "Grundlagen: maschinelles Lernen und Sicherheit"
+        learn: ["Wie Modelle trainiert und bewertet werden", "Trainings-, Validierungs- und Testdaten", "Bedrohungsmodellierung", "Häufige Web- und API-Angriffe", "Wo KI in einem normalen System sitzt"]
+        build: "Zeichnen Sie die Architektur einer kleinen ML- oder LLM-App (Daten, Modell, API, Nutzer) und markieren Sie jede Stelle, die ein Angreifer erreichen könnte."
+        ready: "Sie können einen einfachen Klassifikator trainieren und die OWASP Top 10 für Web erklären. Wenn nicht, machen Sie zuerst die ersten Etappen von „KI und maschinelles Lernen“ und „Cybersicherheit“."
+      - title: "Bedrohungen für KI-Systeme"
+        learn: ["OWASP Top 10 für LLM-Anwendungen", "Taktiken und Techniken in MITRE ATLAS", "Die KI-Lieferkette: Daten, Modelle und Bibliotheken", "Angriffe über den ganzen ML-Lebenszyklus", "Echte KI-Vorfälle"]
+        build: "Ein Bedrohungsmodell für Ihre App aus Etappe 1, abgebildet auf OWASP-LLM-Risiken und MITRE-ATLAS-Techniken, mit je einer Gegenmaßnahme."
+        ready: "Für jede KI-Funktion nennen Sie die drei wahrscheinlichsten Angriffe und wo sie jeweils ansetzen."
+      - title: "Adversarial Machine Learning"
+        learn: ["Evasion-Angriffe (Adversarial Examples)", "Data Poisoning und Backdoors", "Modell-Extraktion", "Datenschutzangriffe: Membership Inference und Model Inversion", "Abwehrmaßnahmen und ihre ehrliche Bewertung"]
+        build: "Greifen Sie Ihren eigenen Bild- oder Textklassifikator mit der Adversarial Robustness Toolbox an, fügen Sie dann eine Abwehr hinzu und messen Sie, wie viel sie wirklich bringt."
+        ready: "Sie führen einen Evasion- und einen Poisoning-Angriff auf Ihr eigenes Modell aus und erklären, warum die meisten einfachen Abwehrmaßnahmen scheitern."
+      - title: "LLM-Sicherheit in der Praxis"
+        learn: ["Direkte und indirekte Prompt Injection", "Jailbreaks", "Unsichere Ausgabeverarbeitung und zu viele Befugnisse", "Red Teaming von LLM-Apps", "Guardrails, Eingabe- und Ausgabeprüfungen", "Versteckter Text in Dokumenten und Webseiten"]
+        build: "Bauen Sie eine kleine LLM-App, die Dokumente liest, testen Sie sie mit garak oder PyRIT, fügen Sie Guardrails hinzu und zeigen Sie die Ergebnisse vorher und nachher."
+        ready: "Sie finden eine Prompt Injection in einer fremden LLM-App, erklären die Ursache und schlagen eine Lösung vor, die nicht nur auf dem Prompt beruht."
+      - title: "Governance, Risiko und Regulierung"
+        learn: ["NIST AI Risk Management Framework", "Das Profil für generative KI", "Grundlagen des EU AI Act: Risikostufen und Pflichten", "ISO/IEC 42001 KI-Managementsysteme", "Leitlinien für sichere KI-Entwicklung"]
+        build: "Eine zweiseitige Risikobewertung Ihrer LLM-App nach den Funktionen des NIST AI RMF (Govern, Map, Measure, Manage), mit der Risikostufe nach EU AI Act."
+        ready: "Sie erklären einer Führungskraft, was der EU AI Act von einem Hochrisikosystem verlangt und wie das NIST AI RMF dabei hilft."
+      - title: "Spezialisieren und dranbleiben"
+        learn: ["KI im SOC", "KI-Red-Teaming", "Sicherheit von Agenten und Tools", "Neue Forschungsarbeiten lesen", "KI-Sicherheits-CTFs"]
+        build: "Veröffentlichen Sie etwas Nützliches: ein Write-up zu einem KI-CTF, den Nachbau eines aktuellen Angriffs-Papers oder ein kleines Open-Source-Tool."
+        ready: "Diese Etappe endet nie. Jeden Monat gibt es neue Angriffe auf KI."
 
   data:
     title: "Datenanalyse und Data Engineering"
