@@ -20,12 +20,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ v }}">
 <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
-{%- comment -%} Title, description, canonical URL, Open Graph and JSON-LD from jekyll-seo-tag, minus its Twitter card tags (not used). {%- endcomment %}
+{%- comment -%} Title, description, canonical URL, Open Graph and JSON-LD from jekyll-seo-tag, minus its Twitter card tags (not used) and its generator tag (it names the Jekyll version). {%- endcomment %}
 {%- capture seo_tags %}{% seo %}{% endcapture %}
 {%- assign seo_lines = seo_tags | newline_to_br | split: "<br />" %}
 {%- comment -%} Pages whose title already has the name in it (the home pages) don't get " | Sana Ullah Khan" added again. {%- endcomment %}
 {%- assign title_suffix = " | " | append: site.title | append: "</title>" %}
-{%- for line in seo_lines %}{% unless line contains "twitter:" %}{% if line contains "<title>" and page.title contains site.title %}{{ line | replace: title_suffix, "</title>" }}{% else %}{{ line }}{% endif %}{% endunless %}{% endfor %}
+{%- for line in seo_lines %}{% unless line contains "twitter:" or line contains 'name="generator"' %}{% if line contains "<title>" and page.title contains site.title %}{{ line | replace: title_suffix, "</title>" }}{% else %}{{ line }}{% endif %}{% endunless %}{% endfor %}
 {%- comment -%} hreflang: only languages this page really exists in. {%- endcomment %}
 {%- for l in site.languages %}{% include lang-urls.html code=l.code %}{% if alt_exists %}
 <link rel="alternate" hreflang="{{ l.tag }}" href="{{ alt_url | absolute_url }}">{% endif %}
