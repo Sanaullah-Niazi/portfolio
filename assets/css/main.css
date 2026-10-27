@@ -1228,3 +1228,4 @@ pre.code { margin: 0; padding: 14px 16px; border-radius: 10px; background: #0b12
 html[lang="ur"] .wpdf :is(.wpdf-issue, .wpdf-top, .wpdf-about, .wpdf-lead, .wpdf-cover-note, .web-facts) { line-height: 2; }
 html[lang="ur"] .wpdf, html[lang="ur"] .wpdf * { letter-spacing: 0 !important; }
 .wpdf .web-cwv { font-size: 13px; } .wpdf .web-cwv th[scope="row"] { width: 52%; }
+.wpdf-body > .wpdf-h-gap:not(:first-child) { margin-top: 22px; padding-top: 18px; border-top: 2px solid var(--ink); }

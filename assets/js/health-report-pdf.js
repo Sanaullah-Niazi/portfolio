@@ -32,9 +32,15 @@
     // Adds blocks to pages, starting a new page whenever the next block doesn't fit.
     var body = null;
     function overflows(b) { return b.scrollHeight > b.clientHeight + 1; }
+    // newPage: true always starts a page; "soft" starts one only when less than about a third of the page is left.
+    function spaceLeft(b) {
+      var last = b.lastElementChild;
+      return last ? b.getBoundingClientRect().bottom - last.getBoundingClientRect().bottom : b.clientHeight;
+    }
     function add(block, opts) {
       if (!block) return;
-      if (!body || (opts && opts.newPage)) body = newPage();
+      var np = opts && opts.newPage;
+      if (!body || np === true || (np === "soft" && spaceLeft(body) < 340)) body = newPage();
       body.appendChild(block);
       if (overflows(body) && body.childNodes.length > 1) {
         body.removeChild(block);
@@ -99,7 +105,7 @@
     } else add(h("div", null, h("h3", null, tr("w_top5")), h("p", { class: "wpdf-good" }, tr("w_top5_none"))));
 
     // ---------- Findings by severity ----------
-    add(h("h2", null, tr("w_pdf_findings")), { newPage: true });
+    add(h("h2", { class: "wpdf-h-gap" }, tr("w_pdf_findings")), { newPage: "soft" });
     if (!r.issues.length) add(h("p", { class: "wpdf-good" }, tr("w_top5_none")));
     SEVS.forEach(function (sev) {
       var list = r.issues.filter(function (i) { return i.sev === sev; });
@@ -110,7 +116,7 @@
     });
 
     // ---------- Detailed results ----------
-    add(h("h2", null, tr("w_pdf_details")), { newPage: true });
+    add(h("h2", { class: "wpdf-h-gap" }, tr("w_pdf_details")), { newPage: "soft" });
     k.CATS.forEach(function (cat) {
       var f = k.FACTS[cat](d);
       var s = r.scores[cat];
