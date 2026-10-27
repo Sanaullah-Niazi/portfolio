@@ -35,6 +35,8 @@ areas:
   compliance: "Audit and compliance"
   law: "Laws and regulations"
   identity: "Identity"
+  industry: "Industry and technology"
+  resilience: "Risk and resilience"
 
 frameworks:
   # ---- The reference list ----
@@ -282,3 +284,273 @@ frameworks:
     by: "OpenSSF"
     purpose: "Levels of build integrity and provenance that protect software from tampering between source and release."
     url: "https://slsa.dev/"
+
+  # ---- Threats and defence ----
+  - id: kill-chain
+    area: threat
+    name: "Cyber Kill Chain"
+    by: "Lockheed Martin"
+    purpose: "Seven stages of an intrusion, from reconnaissance to actions on objectives, used to plan where to detect and disrupt attacks."
+    url: "https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html"
+  - id: diamond
+    area: threat
+    name: "The Diamond Model of Intrusion Analysis"
+    by: "Sergio Caltagirone, Andrew Pendergast and Christopher Betz"
+    purpose: "Describes every intrusion event by adversary, capability, infrastructure and victim, so analysts can pivot between them."
+    url: "https://apps.dtic.mil/sti/citations/ADA586960"
+  - id: stix
+    area: threat
+    name: "STIX and TAXII"
+    by: "OASIS Open"
+    purpose: "The standard language (STIX) and transport (TAXII) for sharing cyber threat intelligence between tools and organisations."
+    url: "https://oasis-open.github.io/cti-documentation/"
+  - id: tlp
+    area: threat
+    name: "Traffic Light Protocol (TLP)"
+    by: "FIRST"
+    purpose: "Four labels that say how widely a piece of shared information may be passed on."
+    url: "https://www.first.org/tlp/"
+  - id: engage
+    area: threat
+    name: "MITRE Engage"
+    by: "MITRE"
+    purpose: "A framework for adversary engagement: deception, denial and learning from attackers on purpose."
+    url: "https://engage.mitre.org/"
+  - id: attack-ics
+    area: industry
+    name: "MITRE ATT&CK for ICS"
+    by: "MITRE"
+    purpose: "The tactics and techniques attackers use against industrial control systems."
+    url: "https://attack.mitre.org/matrices/ics/"
+  - id: emb3d
+    area: industry
+    name: "MITRE EMB3D"
+    by: "MITRE"
+    purpose: "A threat model for embedded devices, with device properties, threats and mitigations."
+    url: "https://emb3d.mitre.org/"
+
+  # ---- Vulnerabilities ----
+  - id: epss
+    area: vuln
+    name: "EPSS (Exploit Prediction Scoring System)"
+    by: "FIRST"
+    purpose: "A daily estimate of how likely each CVE is to be exploited in the next 30 days, to help decide what to fix first."
+    url: "https://www.first.org/epss/"
+  - id: ssvc
+    area: vuln
+    name: "SSVC (Stakeholder-Specific Vulnerability Categorization)"
+    by: "CERT/CC (Carnegie Mellon University)"
+    purpose: "A decision tree that turns facts about a vulnerability and your systems into an action: track, attend or act."
+    url: "https://certcc.github.io/SSVC/"
+  - id: capec
+    area: vuln
+    name: "CAPEC (Common Attack Pattern Enumeration and Classification)"
+    by: "MITRE"
+    purpose: "A catalogue of attack patterns, the common ways weaknesses are exploited."
+    url: "https://capec.mitre.org/"
+  - id: nist-800-40
+    area: vuln
+    name: "NIST SP 800-40 Rev. 4 (Enterprise Patch Management Planning)"
+    by: "NIST (US)"
+    purpose: "How to plan patching as preventive maintenance, including risk responses when you cannot patch."
+    url: "https://csrc.nist.gov/pubs/sp/800/40/r4/final"
+  - id: nist-800-115
+    area: vuln
+    name: "NIST SP 800-115 (Technical Guide to Information Security Testing and Assessment)"
+    by: "NIST (US)"
+    purpose: "How to plan and run security tests and assessments, including penetration tests."
+    url: "https://csrc.nist.gov/pubs/sp/800/115/final"
+  - id: wstg
+    area: appsec
+    name: "OWASP Web Security Testing Guide (WSTG)"
+    by: "OWASP Foundation"
+    purpose: "The standard method and checklist for testing the security of web applications."
+    url: "https://owasp.org/www-project-web-security-testing-guide/"
+  - id: masvs
+    area: appsec
+    name: "OWASP MASVS and MASTG"
+    by: "OWASP Foundation"
+    purpose: "The security standard (MASVS) and testing guide (MASTG) for mobile apps."
+    url: "https://mas.owasp.org/"
+
+  # ---- Infrastructure and data ----
+  - id: nist-800-190
+    area: governance
+    name: "NIST SP 800-190 (Application Container Security Guide)"
+    by: "NIST (US)"
+    purpose: "Risks and countermeasures for containers, images, registries and orchestrators."
+    url: "https://csrc.nist.gov/pubs/sp/800/190/final"
+  - id: nist-800-57
+    area: governance
+    name: "NIST SP 800-57 Part 1 (Recommendation for Key Management)"
+    by: "NIST (US)"
+    purpose: "How to manage cryptographic keys through their whole life, and which algorithms and key sizes to use."
+    url: "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final"
+  - id: fips140
+    area: compliance
+    name: "FIPS 140-3 (Security Requirements for Cryptographic Modules)"
+    by: "NIST (US)"
+    purpose: "The standard that cryptographic modules, such as HSMs, are tested and validated against."
+    url: "https://csrc.nist.gov/pubs/fips/140-3/final"
+  - id: pqc
+    area: governance
+    name: "NIST Post-Quantum Cryptography standards (FIPS 203, 204 and 205)"
+    by: "NIST (US)"
+    purpose: "The new key establishment (ML-KEM) and signature (ML-DSA, SLH-DSA) standards that resist quantum computers."
+    url: "https://csrc.nist.gov/projects/post-quantum-cryptography"
+  - id: nist-800-88
+    area: governance
+    name: "NIST SP 800-88 (Guidelines for Media Sanitization)"
+    by: "NIST (US)"
+    purpose: "How to wipe or destroy storage media so data cannot be recovered."
+    url: "https://csrc.nist.gov/pubs/sp/800/88/r1/final"
+  - id: nist-privacy
+    area: governance
+    name: "NIST Privacy Framework"
+    by: "NIST (US)"
+    purpose: "A voluntary tool to identify and manage privacy risk, built to work alongside the Cybersecurity Framework."
+    url: "https://www.nist.gov/privacy-framework"
+  - id: iso27701
+    area: compliance
+    name: "ISO/IEC 27701"
+    by: "ISO and IEC"
+    purpose: "The privacy information management standard, extending ISO/IEC 27001 to personal data."
+    url: "https://www.iso.org/standard/71670.html"
+
+  # ---- Risk and resilience ----
+  - id: iso27005
+    area: resilience
+    name: "ISO/IEC 27005"
+    by: "ISO and IEC"
+    purpose: "Guidance on information security risk management, to support ISO/IEC 27001."
+    url: "https://www.iso.org/standard/80585.html"
+  - id: nist-rmf
+    area: resilience
+    name: "NIST Risk Management Framework (SP 800-37)"
+    by: "NIST (US)"
+    purpose: "Seven steps to manage security and privacy risk for information systems, from preparation to continuous monitoring."
+    url: "https://csrc.nist.gov/projects/risk-management"
+  - id: fair
+    area: resilience
+    name: "FAIR (Factor Analysis of Information Risk)"
+    by: "FAIR Institute"
+    purpose: "A model for measuring cyber risk in money, so it can be compared with other business risks."
+    url: "https://www.fairinstitute.org/"
+  - id: iso22301
+    area: resilience
+    name: "ISO 22301"
+    by: "ISO"
+    purpose: "The business continuity management system standard."
+    url: "https://www.iso.org/standard/75106.html"
+  - id: nist-800-34
+    area: resilience
+    name: "NIST SP 800-34 (Contingency Planning Guide)"
+    by: "NIST (US)"
+    purpose: "How to plan for recovering information systems after a disruption."
+    url: "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"
+  - id: nist-800-161
+    area: resilience
+    name: "NIST SP 800-161 (Cybersecurity Supply Chain Risk Management)"
+    by: "NIST (US)"
+    purpose: "How to identify and manage cybersecurity risks from suppliers and the products and services they provide."
+    url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final"
+  - id: cobit
+    area: governance
+    name: "COBIT"
+    by: "ISACA"
+    purpose: "A framework for the governance and management of enterprise IT."
+    url: "https://www.isaca.org/resources/cobit"
+  - id: iso19011
+    area: compliance
+    name: "ISO 19011"
+    by: "ISO"
+    purpose: "Guidelines for auditing management systems, used for ISO/IEC 27001 audits."
+    url: "https://www.iso.org/standard/70017.html"
+
+  # ---- Laws, regulations and certification schemes ----
+  - id: dora
+    area: law
+    name: "DORA (Digital Operational Resilience Act)"
+    by: "European Union"
+    purpose: "EU rules on ICT risk, incident reporting, resilience testing and third-party risk for financial firms."
+    url: "https://eur-lex.europa.eu/eli/reg/2022/2554/oj"
+  - id: cra
+    area: law
+    name: "EU Cyber Resilience Act"
+    by: "European Union"
+    purpose: "EU rules requiring products with digital elements to be secure by design and supported with security updates."
+    url: "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  - id: hipaa
+    area: law
+    name: "HIPAA Security Rule"
+    by: "US Department of Health and Human Services"
+    purpose: "US rules for protecting electronic health information."
+    url: "https://www.hhs.gov/hipaa/for-professionals/security/index.html"
+  - id: ccpa
+    area: law
+    name: "California Consumer Privacy Act (CCPA)"
+    by: "State of California"
+    purpose: "Privacy rights for California residents and duties for businesses that hold their data."
+    url: "https://oag.ca.gov/privacy/ccpa"
+  - id: fedramp
+    area: compliance
+    name: "FedRAMP"
+    by: "US General Services Administration"
+    purpose: "The US government programme that authorises cloud services for federal use."
+    url: "https://www.fedramp.gov/"
+  - id: cmmc
+    area: compliance
+    name: "CMMC (Cybersecurity Maturity Model Certification)"
+    by: "US Department of Defense"
+    purpose: "Security requirements and assessments for companies in the US defence supply chain."
+    url: "https://dodcio.defense.gov/CMMC/"
+  - id: cyber-essentials
+    area: compliance
+    name: "Cyber Essentials"
+    by: "NCSC (UK)"
+    purpose: "A UK government-backed certification for five basic technical controls."
+    url: "https://www.ncsc.gov.uk/cyberessentials/overview"
+
+  # ---- Industry and technology ----
+  - id: iec62443
+    area: industry
+    name: "ISA/IEC 62443"
+    by: "ISA and IEC"
+    purpose: "The series of standards for securing industrial automation and control systems."
+    url: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards"
+  - id: nist-800-82
+    area: industry
+    name: "NIST SP 800-82 Rev. 3 (Guide to Operational Technology Security)"
+    by: "NIST (US)"
+    purpose: "How to secure OT systems while keeping them safe and reliable."
+    url: "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
+  - id: iso21434
+    area: industry
+    name: "ISO/SAE 21434"
+    by: "ISO and SAE International"
+    purpose: "Cybersecurity engineering for road vehicles across their whole life."
+    url: "https://www.iso.org/standard/70918.html"
+  - id: unece-r155
+    area: law
+    name: "UN Regulation No. 155"
+    by: "UNECE"
+    purpose: "Requires vehicle makers to run a certified cybersecurity management system to get vehicles approved."
+    url: "https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security"
+  - id: nistir-8259
+    area: industry
+    name: "NISTIR 8259 (IoT Device Cybersecurity Capabilities)"
+    by: "NIST (US)"
+    purpose: "Foundational security activities and capabilities for makers of IoT devices."
+    url: "https://csrc.nist.gov/pubs/ir/8259/final"
+  - id: etsi-303645
+    area: industry
+    name: "ETSI EN 303 645"
+    by: "ETSI"
+    purpose: "The European baseline security standard for consumer IoT devices."
+    url: "https://www.etsi.org/technologies/consumer-iot-security"
+  - id: fda-cyber
+    area: industry
+    name: "FDA premarket cybersecurity guidance for medical devices"
+    by: "US Food and Drug Administration"
+    purpose: "What medical device makers must show about cybersecurity before a device can be sold in the US."
+    url: "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/cybersecurity-medical-devices-quality-system-considerations-and-content-premarket-submissions"

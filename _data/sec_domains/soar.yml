@@ -1,0 +1,233 @@
+# Security roadmap: Security Automation (SOAR). Shown at /roadmaps/security/soar/.
+# Field guide: see the top of secops.yml.
+
+id: soar
+category: defence
+icon: terminal
+entry: intermediate
+title: "Security Automation (SOAR)"
+summary: "Automate the repetitive parts of security work, from alert enrichment to containment, with playbooks, APIs and code that people can trust."
+keywords: "SOAR security orchestration automation response playbooks workflow automation API integration Python enrichment case management Shuffle TheHive Tines"
+
+overview:
+  - "Security teams repeat the same steps many times a day: look up an IP address, check a file hash, find who owns a laptop, open a ticket, reset a password. Security automation turns these steps into playbooks that run in seconds, so analysts can spend their time on judgement."
+  - "SOAR (security orchestration, automation and response) platforms connect the SIEM, EDR, identity, email and ticketing tools through their APIs. The skills are a mix of scripting, API integration, process design and knowing which actions are safe to automate."
+why: "Alert volumes keep growing and teams do not. Automation is how small teams keep up, and engineers who can build reliable, safe automations are in demand in every SOC."
+roles:
+  - { title: "SOC analyst who scripts", level: entry, what: "Automates personal tasks and small enrichments with Python or PowerShell." }
+  - { title: "Security automation engineer", level: mid, what: "Builds and maintains SOAR playbooks and integrations." }
+  - { title: "Integration engineer", level: mid, what: "Connects security tools through APIs and keeps the connections working." }
+  - { title: "Senior security automation engineer", level: senior, what: "Designs the automation architecture, testing and safety rules." }
+  - { title: "Security engineering manager", level: lead, what: "Runs the automation and tooling team and its roadmap." }
+
+prereqs:
+  - "Security Operations beginner stage: how alerts are triaged and incidents handled."
+  - "Python basics, including working with JSON."
+  - "How REST APIs work: requests, authentication and rate limits."
+  - "Git basics."
+prereq_paths: [foundations, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Scripting and APIs for security"
+    months: "2–3"
+    topics:
+      - id: python-for-sec
+        title: "Python for security tasks"
+        text: "Read files and logs, call APIs, parse JSON and write results. Small scripts that save five minutes a day are the start of every automation career."
+        res:
+          - { name: "Automate the Boring Stuff with Python", by: "Al Sweigart", url: "https://automatetheboringstuff.com/", type: book, cost: free }
+      - id: rest-apis
+        title: "Working with REST APIs"
+        text: "Learn authentication with API keys and OAuth, pagination, rate limits and error handling. Every security tool you automate has an API like this."
+        res:
+          - { name: "Requests documentation", by: "Python Software Foundation", url: "https://requests.readthedocs.io/", type: docs, cost: free }
+      - id: enrichment
+        title: "Alert enrichment"
+        text: "Add context to an alert automatically: IP and domain reputation, file verdicts, user and asset details. It is the safest and most useful first automation."
+        res:
+          - { name: "VirusTotal API", by: "VirusTotal", url: "https://docs.virustotal.com/reference/overview", type: docs, cost: free }
+          - { name: "abuse.ch", by: "abuse.ch", url: "https://abuse.ch/", type: docs, cost: free }
+      - id: playbook-design
+        title: "Designing a playbook"
+        text: "Write the manual process first, step by step, with decisions and owners. Only then automate it, starting with the steps that need no judgement."
+        res:
+          - { name: "CACAO Security Playbooks Version 2.0", by: "OASIS Open", url: "https://docs.oasis-open.org/cacao/security-playbooks/v2.0/security-playbooks-v2.0.html", type: docs, cost: free }
+      - id: case-management
+        title: "Case management"
+        text: "Alerts, evidence and decisions need one place to live. Learn how case management tools track work and connect to automation."
+        res:
+          - { name: "TheHive", by: "StrangeBee", url: "https://strangebee.com/thehive/", type: tool, cost: free }
+      - id: secrets-in-automation
+        title: "Handling credentials in automation"
+        text: "Automations hold powerful keys. Store them in a secrets manager, give each one the least access it needs, and log every use."
+        res:
+          - { name: "Secrets Management Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html", type: docs, cost: free }
+    skills:
+      - "Write Python scripts that call security APIs safely."
+      - "Turn a manual triage process into a written playbook."
+      - "Build a working enrichment automation."
+    labs:
+      - "Write a script that takes an IP address or hash and returns verdicts from two free reputation services."
+      - "Write the manual playbook for a phishing report, then automate its first three steps."
+    done:
+      - "Show an automation that saves analysts real time every day."
+      - "Explain which steps of a playbook should never be automated, and why."
+
+  - level: intermediate
+    title: "SOAR platforms and integrations"
+    months: "3–4"
+    topics:
+      - id: soar-platforms
+        title: "SOAR platforms"
+        text: "SOAR tools give you connectors, a workflow editor, case management and logging. Learn one open-source platform well; the ideas carry over to the commercial ones."
+        res:
+          - { name: "Shuffle", by: "Shuffle", url: "https://shuffler.io/", type: tool, cost: free }
+          - { name: "Tines Community Edition", by: "Tines", url: "https://www.tines.com/", type: tool, cost: free }
+      - id: siem-soar
+        title: "Connecting the SIEM and EDR"
+        text: "Trigger playbooks from SIEM alerts, pull extra events, and call the EDR to isolate a host or collect a file. Understand what each API action really does first."
+        res:
+          - { name: "Automate threat response with playbooks in Microsoft Sentinel", by: "Microsoft", url: "https://learn.microsoft.com/en-us/azure/sentinel/automation/automate-responses-with-playbooks", type: docs, cost: free }
+      - id: phishing-automation
+        title: "Phishing response automation"
+        text: "The classic SOAR use case: parse a reported email, check links and attachments, find other recipients, remove the message and tell the reporter."
+        res:
+          - { name: "Shuffle documentation", by: "Shuffle", url: "https://shuffler.io/docs", type: docs, cost: free }
+      - id: containment-actions
+        title: "Safe containment actions"
+        text: "Isolating hosts, disabling accounts and blocking domains can break the business if wrong. Add approvals, allow lists and automatic rollback."
+        res:
+          - { name: "Incident Response Recommendations (SP 800-61 Rev. 3)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
+      - id: intel-integration
+        title: "Threat intelligence integration"
+        text: "Automatically pull indicators from feeds into blocklists and detections, and push your own findings back. Expire old indicators so lists stay useful."
+        res:
+          - { name: "MISP", by: "MISP project", url: "https://www.misp-project.org/", type: tool, cost: free }
+      - id: chatops
+        title: "ChatOps and human-in-the-loop"
+        text: "Send a summary and approve or reject buttons to the team chat. People make the decision; automation does the clicking."
+        res:
+          - { name: "Slack API", by: "Slack", url: "https://api.slack.com/", type: docs, cost: free }
+    skills:
+      - "Build and run SOAR playbooks on an open-source platform."
+      - "Integrate a SIEM, EDR, ticketing and chat tool."
+      - "Automate phishing response end to end."
+      - "Add approvals and rollback to risky actions."
+    labs:
+      - "Deploy Shuffle and TheHive in a lab, and connect them to your SIEM."
+      - "Build a phishing playbook that parses an email, checks indicators, opens a case and asks for approval before deleting messages."
+    done:
+      - "Run a playbook that handles a common alert type from start to finish."
+      - "Show that a containment playbook cannot isolate a critical server without approval."
+
+  - level: advanced
+    title: "Engineering reliable automation"
+    months: "4–6"
+    topics:
+      - id: automation-as-code
+        title: "Automation as code"
+        text: "Keep playbooks and integrations in version control with reviews, tests and staged releases. Treat a broken playbook like a production outage."
+        res:
+          - { name: "GitHub Actions documentation", by: "GitHub", url: "https://docs.github.com/en/actions", type: docs, cost: free }
+      - id: testing-playbooks
+        title: "Testing playbooks"
+        text: "Test with recorded alerts and mocked APIs before you go live, and alert when a playbook fails or an API changes."
+        res:
+          - { name: "pytest", by: "pytest project", url: "https://docs.pytest.org/", type: docs, cost: free }
+      - id: infra-automation
+        title: "Automating infrastructure responses"
+        text: "Use configuration tools to push firewall rules, collect forensic data or rebuild systems. Ansible is a common choice in security teams."
+        res:
+          - { name: "Ansible documentation", by: "Red Hat", url: "https://docs.ansible.com/", type: docs, cost: free }
+      - id: forensic-automation
+        title: "Automated evidence collection"
+        text: "Collect memory, logs and triage packages from a host as soon as a serious alert fires, before evidence disappears."
+        res:
+          - { name: "Velociraptor documentation", by: "Velociraptor", url: "https://docs.velociraptor.app/", type: docs, cost: free }
+      - id: automation-security
+        title: "Securing the automation platform"
+        text: "Your SOAR has keys to everything. Harden it, restrict who can change playbooks, and watch it as closely as a domain controller."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: ai-in-automation
+        title: "AI in automation"
+        optional: true
+        text: "LLMs can summarise alerts and draft responses inside playbooks. Keep them advisory, treat what they read as untrusted, and log their output."
+        res:
+          - { name: "OWASP Top 10 for LLM Applications", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/llm-top-10/", type: docs, cost: free }
+    skills:
+      - "Run automation through Git, tests and staged releases."
+      - "Automate evidence collection and infrastructure changes safely."
+      - "Harden the automation platform itself."
+    labs:
+      - "Move your playbooks into Git with tests that run on every change."
+      - "Build a playbook that triggers a Velociraptor collection when a high-severity alert fires."
+    done:
+      - "Show a month of automation running with failures caught and fixed quickly."
+      - "Pass a review of who can change playbooks and which keys they hold."
+
+  - level: expert
+    title: "Strategy and measurement"
+    months: "6–12"
+    topics:
+      - id: automation-strategy
+        title: "Automation strategy"
+        text: "Pick what to automate by volume, time saved and risk. Measure the results and retire automations nobody needs."
+        res:
+          - { name: "Incident Response Recommendations (SP 800-61 Rev. 3)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
+      - id: automation-metrics
+        title: "Measuring automation"
+        text: "Track time to triage, time to contain, analyst hours saved and failure rates. Report what changed, not just how many playbooks exist."
+        res:
+          - { name: "CACAO Security Playbooks Version 2.0", by: "OASIS Open", url: "https://docs.oasis-open.org/cacao/security-playbooks/v2.0/security-playbooks-v2.0.html", type: docs, cost: free }
+      - id: shared-playbooks
+        title: "Sharing playbooks"
+        text: "Standard formats such as CACAO let organisations share playbooks. Contribute integrations and workflows to open-source projects."
+        res:
+          - { name: "Shuffle", by: "Shuffle", url: "https://shuffler.io/", type: tool, cost: free }
+    skills:
+      - "Set an automation strategy based on measured value."
+      - "Report automation results to leadership."
+    labs:
+      - "Write an automation roadmap for a SOC from a month of alert data."
+      - "Publish an integration or playbook for an open-source SOAR."
+    done:
+      - "Lead an automation programme with measured savings."
+      - "Have your playbooks or integrations used by other teams."
+
+tools:
+  - { name: "Shuffle", url: "https://shuffler.io/", kind: oss, what: "Open-source SOAR with hundreds of app integrations." }
+  - { name: "TheHive", url: "https://strangebee.com/thehive/", kind: community, what: "Case management for security teams." }
+  - { name: "Tines", url: "https://www.tines.com/", kind: community, what: "Workflow automation with a free community edition." }
+  - { name: "MISP", url: "https://www.misp-project.org/", kind: oss, what: "Threat intelligence sharing platform with a rich API." }
+  - { name: "Velociraptor", url: "https://docs.velociraptor.app/", kind: oss, what: "Endpoint collection and response you can trigger from playbooks." }
+  - { name: "Ansible", url: "https://docs.ansible.com/", kind: oss, what: "Automate configuration and response actions on servers and network devices." }
+  - { name: "n8n", url: "https://n8n.io/", kind: community, what: "General workflow automation that many teams use for security tasks." }
+
+certs:
+  - { ref: sc200, note: "Includes automation with Microsoft Sentinel playbooks." }
+  - { ref: cysa, note: "A broad analyst baseline." }
+  - { ref: gcih, note: "Incident handling knowledge to design good playbooks." }
+
+resources:
+  - { name: "Automate the Boring Stuff with Python", by: "Al Sweigart", url: "https://automatetheboringstuff.com/", type: book, cost: free }
+  - { name: "Shuffle documentation", by: "Shuffle", url: "https://shuffler.io/docs", type: docs, cost: free }
+  - { name: "CACAO Security Playbooks Version 2.0", by: "OASIS Open", url: "https://docs.oasis-open.org/cacao/security-playbooks/v2.0/security-playbooks-v2.0.html", type: docs, cost: free }
+  - { name: "Incident Response Recommendations (SP 800-61 Rev. 3)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
+  - { name: "Velociraptor documentation", by: "Velociraptor", url: "https://docs.velociraptor.app/", type: docs, cost: free }
+  - { name: "Ansible documentation", by: "Red Hat", url: "https://docs.ansible.com/", type: docs, cost: free }
+
+frameworks: [nist-800-61, attack, nist-csf, stix]
+
+career:
+  - { title: "SOC analyst or IT administrator who scripts", years: "0–2 years" }
+  - { title: "Security automation engineer", years: "2–5 years" }
+  - { title: "Senior security automation engineer", years: "5–8 years" }
+  - { title: "Security engineering manager", years: "8+ years" }
+
+related:
+  - { to: secops, why: "The SOC work you are automating." }
+  - { to: detection, why: "Good detections make automation safe to trust." }
+  - { to: ai-secops, why: "AI assistants are the newest part of SOC automation." }
+  - { to: cti, why: "Automate how intelligence flows into defences." }

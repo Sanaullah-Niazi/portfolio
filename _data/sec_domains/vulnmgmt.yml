@@ -1,0 +1,239 @@
+# Security roadmap: Vulnerability and Exposure Management. Shown at /roadmaps/security/vulnmgmt/.
+# Field guide: see the top of secops.yml.
+
+id: vulnmgmt
+category: defence
+icon: chart
+entry: beginner
+title: "Vulnerability and Exposure Management"
+summary: "Find the weaknesses across everything an organisation runs, decide which ones matter, and get them fixed before attackers use them."
+keywords: "vulnerability management exposure management scanning prioritisation remediation patch management CVE CVSS EPSS KEV SSVC attack surface management EASM CTEM asset inventory"
+
+overview:
+  - "Every organisation has thousands of known vulnerabilities in its software, systems and cloud services, and new ones are published every day. Vulnerability management is the continuous cycle of finding them, judging which are dangerous in this environment, getting the right team to fix them and checking the fix worked."
+  - "Exposure management widens the view beyond software flaws to everything an attacker could use: forgotten internet-facing systems, misconfigurations, weak identities and risky attack paths. The core skill is prioritisation, because nobody can fix everything at once."
+why: "Exploiting known vulnerabilities is one of the most common ways attackers get in, often within days of disclosure. Organisations need people who can cut through the noise and get the right fixes done fast."
+roles:
+  - { title: "Vulnerability analyst", level: entry, what: "Runs scans, validates findings and tracks remediation tickets." }
+  - { title: "Vulnerability management engineer", level: mid, what: "Runs the scanning platforms, integrations and prioritisation logic." }
+  - { title: "Attack surface management analyst", level: mid, what: "Finds and monitors everything the organisation exposes to the internet." }
+  - { title: "Exposure management lead", level: senior, what: "Owns prioritisation, metrics and the relationship with system owners." }
+  - { title: "Head of vulnerability and exposure management", level: lead, what: "Sets policy, service levels and reporting to leadership." }
+
+prereqs:
+  - "Networking basics: ports, protocols and services."
+  - "Windows and Linux administration basics, including patching."
+  - "Basic scripting for working with scan data."
+  - "Spreadsheet or SQL skills for reporting."
+prereq_paths: [foundations, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Vulnerabilities, scanning and scoring"
+    months: "2–3"
+    topics:
+      - id: cve-basics
+        title: "CVE, CWE and the NVD"
+        text: "A CVE identifies one vulnerability, a CWE describes the type of weakness behind it, and the NVD adds scores and affected product data."
+        res:
+          - { name: "CVE Program", by: "MITRE and CISA", url: "https://www.cve.org/", type: docs, cost: free }
+          - { name: "National Vulnerability Database", by: "NIST", url: "https://nvd.nist.gov/", type: docs, cost: free }
+      - id: asset-inventory
+        title: "Asset inventory"
+        text: "You cannot fix what you do not know you own. Keep an inventory of devices, software, cloud resources and owners, and reconcile it often."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: scanning
+        title: "Network and host scanning"
+        text: "Scanners check systems for known vulnerabilities and missing patches. Learn the difference between unauthenticated and authenticated scans, and why the second finds far more."
+        res:
+          - { name: "Greenbone OpenVAS", by: "Greenbone", url: "https://www.greenbone.net/en/", type: tool, cost: free }
+          - { name: "Nmap", by: "Nmap project", url: "https://nmap.org/", type: tool, cost: free }
+      - id: cvss
+        title: "CVSS scores"
+        text: "CVSS rates how severe a vulnerability is in general. It does not say how likely it is to be exploited or how important the system is."
+        res:
+          - { name: "Common Vulnerability Scoring System", by: "FIRST", url: "https://www.first.org/cvss/", type: docs, cost: free }
+      - id: patching
+        title: "Patch management"
+        text: "Most fixes are patches. Learn how patches are tested, scheduled and rolled out, and what to do when a system cannot be patched."
+        res:
+          - { name: "NIST SP 800-40 Rev. 4 (Enterprise Patch Management Planning)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/40/r4/final", type: docs, cost: free }
+      - id: false-positives
+        title: "Validating findings"
+        text: "Scanners make mistakes, and system owners lose trust when you send them false findings. Check the evidence before you raise a ticket."
+        res:
+          - { name: "Nmap Reference Guide", by: "Nmap project", url: "https://nmap.org/book/man.html", type: docs, cost: free }
+    skills:
+      - "Explain CVE, CWE, CVSS and the NVD."
+      - "Run authenticated and unauthenticated scans."
+      - "Validate a finding before reporting it."
+    labs:
+      - "Install OpenVAS in a lab, scan a deliberately old Linux VM with and without credentials, and compare the results."
+      - "Build a small asset inventory of your home or lab network with Nmap."
+    done:
+      - "Explain to a system owner what a finding means, how severe it is and how to fix it."
+      - "Show why authenticated scanning matters, with your own results."
+
+  - level: intermediate
+    title: "Prioritisation and remediation"
+    months: "3–4"
+    topics:
+      - id: kev
+        title: "Known exploited vulnerabilities"
+        text: "CISA's KEV catalogue lists vulnerabilities being exploited in the wild. Anything on it that you run should go to the front of the queue."
+        res:
+          - { name: "Known Exploited Vulnerabilities Catalog", by: "CISA", url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", type: docs, cost: free }
+      - id: epss
+        title: "EPSS"
+        text: "EPSS estimates the chance a vulnerability will be exploited in the next 30 days. Combine it with CVSS and KEV to separate urgent from merely severe."
+        res:
+          - { name: "Exploit Prediction Scoring System (EPSS)", by: "FIRST", url: "https://www.first.org/epss/", type: docs, cost: free }
+      - id: ssvc
+        title: "Decision trees with SSVC"
+        text: "SSVC turns facts (is it exploited, is it exposed, how important is the system) into a clear action. It makes prioritisation consistent and explainable."
+        res:
+          - { name: "SSVC", by: "CERT/CC", url: "https://certcc.github.io/SSVC/", type: docs, cost: free }
+      - id: risk-context
+        title: "Business context"
+        text: "The same vulnerability matters more on an internet-facing payment server than on a test laptop. Add asset criticality and exposure to every decision."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: sla-process
+        title: "Remediation process and SLAs"
+        text: "Agree fix times by priority, route findings to the right owners, track exceptions with an end date, and chase what is late."
+        res:
+          - { name: "Vulnerability Disclosure Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html", type: docs, cost: free }
+      - id: app-cloud-vulns
+        title: "Application, container and cloud findings"
+        text: "Vulnerabilities also live in code dependencies, container images and cloud settings. Bring these findings into the same process."
+        res:
+          - { name: "Trivy", by: "Aqua Security", url: "https://trivy.dev/", type: tool, cost: free }
+          - { name: "OSV", by: "Google and OpenSSF", url: "https://osv.dev/", type: docs, cost: free }
+    skills:
+      - "Prioritise with CVSS, EPSS, KEV and asset context together."
+      - "Use SSVC to make consistent decisions."
+      - "Run a remediation process with owners, SLAs and exceptions."
+      - "Handle container, dependency and cloud findings."
+    labs:
+      - "Take a scan export, enrich every CVE with EPSS and KEV in a script, and rank the results."
+      - "Scan a few container images with Trivy and decide which findings to fix first."
+    done:
+      - "Show a ranked fix list that a system owner agrees with."
+      - "Explain why you put a CVSS 7 above a CVSS 9."
+
+  - level: advanced
+    title: "Exposure and attack surface management"
+    months: "4–6"
+    topics:
+      - id: easm
+        title: "External attack surface management"
+        text: "Find everything you expose to the internet, including forgotten subdomains, test systems and cloud services, the way an attacker would."
+        res:
+          - { name: "subfinder", by: "ProjectDiscovery", url: "https://github.com/projectdiscovery/subfinder", type: tool, cost: free }
+          - { name: "OWASP Amass", by: "OWASP Foundation", url: "https://github.com/owasp-amass/amass", type: tool, cost: free }
+      - id: internet-scanning
+        title: "Internet-wide scan data"
+        text: "Services such as Shodan and Censys scan the whole internet. Use them to see your exposure as outsiders see it."
+        res:
+          - { name: "Shodan", by: "Shodan", url: "https://www.shodan.io/", type: tool, cost: free }
+          - { name: "Censys Search", by: "Censys", url: "https://search.censys.io/", type: tool, cost: free }
+      - id: template-scanning
+        title: "Fast checks for new vulnerabilities"
+        text: "When a critical vulnerability is announced, you need to know in hours where you are affected. Template scanners make this quick."
+        res:
+          - { name: "Nuclei", by: "ProjectDiscovery", url: "https://github.com/projectdiscovery/nuclei", type: tool, cost: free }
+      - id: ctem
+        title: "Continuous exposure management"
+        text: "Run a regular cycle of scoping, discovery, prioritisation, validation and mobilisation across vulnerabilities, misconfigurations and identities."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: attack-paths
+        title: "Attack path analysis"
+        text: "Chains of small issues often matter more than single big ones. Map paths from exposed systems to crown jewels and break them."
+        res:
+          - { name: "BloodHound Community Edition", by: "SpecterOps", url: "https://github.com/SpecterOps/BloodHound", type: tool, cost: free }
+      - id: validation
+        title: "Validating exploitability"
+        text: "Safely check whether a vulnerability can really be reached and used, with permission, before demanding an emergency fix."
+        res:
+          - { name: "NIST SP 800-115 (Technical Guide to Information Security Testing and Assessment)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/115/final", type: docs, cost: free }
+    skills:
+      - "Map an organisation's external attack surface."
+      - "Respond to a new critical vulnerability within hours."
+      - "Analyse attack paths across vulnerabilities and identities."
+    labs:
+      - "Map the external attack surface of a domain you own with subfinder, Amass and certificate logs."
+      - "Write a Nuclei template for a vulnerability and run it against a lab system."
+      - "Run BloodHound in a lab Active Directory and find the shortest path to domain admin."
+    done:
+      - "Find an exposed system nobody knew about, in a scope you are allowed to test."
+      - "Show which fixes break the most attack paths."
+
+  - level: expert
+    title: "Programme leadership"
+    months: "6–12"
+    topics:
+      - id: vm-metrics
+        title: "Metrics that matter"
+        text: "Track time to fix by priority, KEV exposure, coverage of the asset inventory and overdue exceptions. Counting open findings alone tells you little."
+        res:
+          - { name: "Known Exploited Vulnerabilities Catalog", by: "CISA", url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", type: docs, cost: free }
+      - id: vm-governance
+        title: "Policy and governance"
+        text: "Set service levels, exception rules and escalation paths with leadership, so fixes do not depend on goodwill."
+        res:
+          - { name: "NIST SP 800-40 Rev. 4 (Enterprise Patch Management Planning)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/40/r4/final", type: docs, cost: free }
+      - id: vm-automation
+        title: "Automating the pipeline"
+        text: "Connect scanners, inventory, ticketing and intelligence so findings reach owners with context automatically and close when fixed."
+        res:
+          - { name: "OSV", by: "Google and OpenSSF", url: "https://osv.dev/", type: docs, cost: free }
+    skills:
+      - "Run a vulnerability and exposure programme with clear service levels."
+      - "Report risk trends to leadership."
+    labs:
+      - "Write a vulnerability management policy with SLAs, exceptions and metrics."
+      - "Build a dashboard of the metrics above from scan data."
+    done:
+      - "Show a real drop in time to fix for exploited vulnerabilities."
+      - "Lead the response to a major new vulnerability across an organisation."
+
+tools:
+  - { name: "Greenbone OpenVAS", url: "https://www.greenbone.net/en/", kind: oss, what: "Open-source vulnerability scanner." }
+  - { name: "Nmap", url: "https://nmap.org/", kind: oss, what: "Network discovery and service scanning." }
+  - { name: "Nuclei", url: "https://github.com/projectdiscovery/nuclei", kind: oss, what: "Fast template-based vulnerability checks." }
+  - { name: "Trivy", url: "https://trivy.dev/", kind: oss, what: "Scans images, code, dependencies and cloud configuration." }
+  - { name: "OWASP Amass", url: "https://github.com/owasp-amass/amass", kind: oss, what: "Maps external attack surface." }
+  - { name: "subfinder", url: "https://github.com/projectdiscovery/subfinder", kind: oss, what: "Finds subdomains from passive sources." }
+  - { name: "BloodHound Community Edition", url: "https://github.com/SpecterOps/BloodHound", kind: oss, what: "Attack path analysis for Active Directory and Entra ID." }
+  - { name: "OSV-Scanner", url: "https://github.com/google/osv-scanner", kind: oss, what: "Finds known vulnerabilities in dependencies." }
+
+certs:
+  - { ref: secplus, note: "A common baseline." }
+  - { ref: cysa, note: "Covers vulnerability management in depth." }
+  - { name: "GIAC Enterprise Vulnerability Assessor (GEVA)", by: "GIAC", url: "https://www.giac.org/certifications/enterprise-vulnerability-assessor-geva/", level: advanced, note: "Enterprise-scale vulnerability assessment." }
+
+resources:
+  - { name: "Known Exploited Vulnerabilities Catalog", by: "CISA", url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", type: docs, cost: free }
+  - { name: "Exploit Prediction Scoring System (EPSS)", by: "FIRST", url: "https://www.first.org/epss/", type: docs, cost: free }
+  - { name: "SSVC", by: "CERT/CC", url: "https://certcc.github.io/SSVC/", type: docs, cost: free }
+  - { name: "Common Vulnerability Scoring System", by: "FIRST", url: "https://www.first.org/cvss/", type: docs, cost: free }
+  - { name: "National Vulnerability Database", by: "NIST", url: "https://nvd.nist.gov/", type: docs, cost: free }
+  - { name: "NIST SP 800-40 Rev. 4", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/40/r4/final", type: docs, cost: free }
+  - { name: "Nmap Network Scanning", by: "Gordon Lyon", url: "https://nmap.org/book/", type: book, cost: free }
+
+frameworks: [cve, cwe, cvss, epss, kev, ssvc, nist-800-40, cis-controls]
+
+career:
+  - { title: "IT administrator or SOC analyst", years: "0–2 years" }
+  - { title: "Vulnerability analyst", years: "1–3 years" }
+  - { title: "Vulnerability management engineer", years: "3–6 years" }
+  - { title: "Exposure management lead", years: "6–9 years" }
+  - { title: "Head of vulnerability and exposure management", years: "10+ years" }
+
+related:
+  - { to: cloud, why: "Much of today's exposure is cloud misconfiguration." }
+  - { to: cti, why: "Intelligence tells you what attackers are exploiting now." }
+  - { to: appsec, why: "Fix vulnerabilities in code before they ship." }
+  - { name: "Penetration Testing", why: "Prove which weaknesses really can be exploited." }

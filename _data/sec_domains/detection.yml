@@ -1,0 +1,247 @@
+# Security roadmap: Detection Engineering. Shown at /roadmaps/security/detection/.
+# Field guide: see the top of secops.yml.
+
+id: detection
+category: defence
+icon: alert
+entry: intermediate
+title: "Detection Engineering"
+summary: "Design, build, test and maintain the detections that tell a SOC an attack is happening, and treat them like software."
+keywords: "detection engineering detection as code Sigma SIEM rules analytics UEBA ATT&CK coverage false positives tuning log sources telemetry"
+
+overview:
+  - "Detection engineers write the rules and analytics that turn raw logs into alerts. They decide which data to collect, which attacker behaviours to look for, and how to tell an attack from normal work."
+  - "Modern teams treat detections as code: written in a common format such as Sigma, stored in version control, reviewed, tested against real attack data and measured for quality. The aim is fewer, better alerts that catch real attacks."
+why: "A SOC is only as good as its detections. Noisy rules burn out analysts, and missing ones let attackers stay for months. Detection engineering is one of the fastest-growing blue team roles."
+roles:
+  - { title: "SOC analyst tuning rules", level: entry, what: "Reports noisy rules, suggests fixes and writes first simple detections." }
+  - { title: "Detection engineer", level: mid, what: "Builds, tests and maintains detections across endpoint, network, identity and cloud." }
+  - { title: "Security data engineer", level: mid, what: "Builds the log pipelines, parsing and data models that detections need." }
+  - { title: "Senior detection engineer", level: senior, what: "Leads coverage strategy, testing and detection-as-code tooling." }
+  - { title: "Head of detection and response", level: lead, what: "Owns detection strategy, coverage and quality metrics for the organisation." }
+
+prereqs:
+  - "Security Operations beginner and intermediate stages."
+  - "Windows and Linux logging basics: event logs, Sysmon, syslog, auditd."
+  - "A query language such as KQL, SPL or SQL."
+  - "Git and basic Python."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "Telemetry and your first detections"
+    months: "2–3"
+    topics:
+      - id: log-sources
+        title: "Log sources and telemetry"
+        text: "You can only detect what you collect. Learn which logs show process starts, logons, network connections, cloud API calls and email, and what each misses."
+        res:
+          - { name: "OSSEM (Open Source Security Events Metadata)", by: "Open Threat Research Forge", url: "https://github.com/OTRF/OSSEM", type: docs, cost: free }
+      - id: sysmon
+        title: "Sysmon and endpoint logging"
+        text: "Sysmon adds detailed process, network and file events to Windows. A good configuration is the basis of most endpoint detections."
+        res:
+          - { name: "Sysmon", by: "Microsoft Sysinternals", url: "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon", type: tool, cost: free }
+          - { name: "sysmon-config", by: "SwiftOnSecurity", url: "https://github.com/SwiftOnSecurity/sysmon-config", type: tool, cost: free }
+      - id: attack-for-detection
+        title: "MITRE ATT&CK for detection"
+        text: "ATT&CK describes attacker behaviour technique by technique, with data sources for each. Use it to decide what to detect and to describe what a rule covers."
+        res:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+      - id: pyramid-of-pain
+        title: "The Pyramid of Pain"
+        text: "Hashes and IP addresses are easy for attackers to change; tools and behaviours are hard. Good detections aim at the top of the pyramid."
+        res:
+          - { name: "The Pyramid of Pain", by: "David J. Bianco", url: "https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html", type: docs, cost: free }
+      - id: sigma-basics
+        title: "Sigma rules"
+        text: "Sigma is a common format for detection rules that converts to many SIEM query languages. Read existing rules to learn how detections are written."
+        res:
+          - { name: "Sigma", by: "SigmaHQ", url: "https://sigmahq.io/", type: docs, cost: free }
+          - { name: "Sigma rule repository", by: "SigmaHQ", url: "https://github.com/SigmaHQ/sigma", type: tool, cost: free }
+      - id: first-rule
+        title: "Writing and testing a first rule"
+        text: "Pick one technique, run it in a lab, find its traces in the logs, write a rule and check it fires. Then check it stays quiet on normal activity."
+        res:
+          - { name: "Atomic Red Team", by: "Red Canary", url: "https://github.com/redcanaryco/atomic-red-team", type: tool, cost: free }
+    skills:
+      - "Name the logs needed to detect a given technique."
+      - "Read and write simple Sigma rules."
+      - "Run a technique in a lab and find its traces."
+    labs:
+      - "Build a lab with a Windows VM, Sysmon and a free SIEM such as Wazuh or Elastic, then run five Atomic Red Team tests and find each in the logs."
+      - "Write Sigma rules for two of those tests and convert them to your SIEM's query language."
+    done:
+      - "Show a rule that fires on a simulated attack and not on a day of normal use."
+      - "Explain why a behaviour-based rule beats a hash-based one."
+
+  - level: intermediate
+    title: "Detection as code"
+    months: "3–4"
+    topics:
+      - id: detection-as-code
+        title: "Detection as code"
+        text: "Keep rules in Git, review changes in pull requests, run tests in CI and deploy automatically. You get history, review and rollback for free."
+        res:
+          - { name: "Elastic detection rules", by: "Elastic", url: "https://github.com/elastic/detection-rules", type: tool, cost: free }
+      - id: ads-framework
+        title: "Documenting detections"
+        text: "Each rule needs a goal, the technique it covers, blind spots, false positives and a response guide. The Alerting and Detection Strategy framework is a good template."
+        res:
+          - { name: "Alerting and Detection Strategy Framework", by: "Palantir", url: "https://github.com/palantir/alerting-detection-strategy-framework", type: docs, cost: free }
+      - id: detection-testing
+        title: "Testing detections"
+        text: "Replay recorded attack data or run attack simulations on every change, so you know a rule still works after tuning or a log format change."
+        res:
+          - { name: "Security Datasets", by: "Open Threat Research Forge", url: "https://github.com/OTRF/Security-Datasets", type: practice, cost: free }
+      - id: tuning
+        title: "Tuning and false positives"
+        text: "Measure how often each rule fires and how often it is real. Tune with care: every exclusion is a place an attacker can hide."
+        res:
+          - { name: "Splunk Security Content", by: "Splunk", url: "https://research.splunk.com/", type: docs, cost: free }
+      - id: coverage
+        title: "Measuring coverage"
+        text: "Map rules and data sources to ATT&CK to see what you cover and what you miss. Coverage on paper is not the same as tested coverage."
+        res:
+          - { name: "ATT&CK Navigator", by: "MITRE", url: "https://mitre-attack.github.io/attack-navigator/", type: tool, cost: free }
+          - { name: "DeTT&CT", by: "Rabobank CDC", url: "https://github.com/rabobank-cdc/DeTTECT", type: tool, cost: free }
+      - id: analytics-library
+        title: "Learning from public analytics"
+        text: "MITRE CAR, Elastic, Splunk and SigmaHQ publish thousands of analytics. Study how they handle edge cases, then adapt them to your environment."
+        res:
+          - { name: "MITRE Cyber Analytics Repository (CAR)", by: "MITRE", url: "https://car.mitre.org/", type: docs, cost: free }
+    skills:
+      - "Run a detection-as-code pipeline with review and automated tests."
+      - "Document a detection so an analyst knows what to do when it fires."
+      - "Tune a noisy rule without blinding it."
+      - "Show ATT&CK coverage based on tested rules."
+    labs:
+      - "Put your Sigma rules in a Git repository with a CI job that validates and converts them."
+      - "Replay a Security Datasets scenario against your rules and fix the ones that miss."
+      - "Build an ATT&CK Navigator layer of your tested coverage."
+    done:
+      - "Ship a new detection through review, testing and deployment without touching the SIEM by hand."
+      - "Reduce a rule's false positives by half while it still catches the test attack."
+
+  - level: advanced
+    title: "Advanced analytics and data engineering"
+    months: "4–6"
+    topics:
+      - id: correlation
+        title: "Correlation and multi-stage detections"
+        text: "Some attacks only show up as a sequence: a phishing click, then a new process, then an unusual logon. Learn to join events across sources and time."
+        res:
+          - { name: "Kusto Query Language (KQL)", by: "Microsoft", url: "https://learn.microsoft.com/en-us/kusto/query/", type: docs, cost: free }
+      - id: ueba
+        title: "Behavioural and anomaly detection"
+        text: "Baselines of normal behaviour per user or host catch what fixed rules miss, such as a first-time admin logon. Combine them with rules to keep alerts precise."
+        res:
+          - { name: "Outlier detection", by: "scikit-learn", url: "https://scikit-learn.org/stable/modules/outlier_detection.html", type: docs, cost: free }
+      - id: cloud-detection
+        title: "Cloud and identity detections"
+        text: "Most modern attacks touch identity and cloud control planes. Detect risky sign-ins, new access keys, permission changes and unusual API calls."
+        res:
+          - { name: "AWS CloudTrail User Guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html", type: docs, cost: free }
+      - id: data-pipelines
+        title: "Security data pipelines"
+        text: "Parsing, normalising and routing logs decides what detections can see and what it costs. Learn a common schema such as the Elastic Common Schema or OCSF."
+        res:
+          - { name: "Open Cybersecurity Schema Framework (OCSF)", by: "OCSF project", url: "https://ocsf.io/", type: docs, cost: free }
+      - id: robust-detection
+        title: "Robust detections"
+        text: "Attackers rename tools and change command lines. Focus on what they cannot easily change, such as the underlying API calls or relationships between events."
+        res:
+          - { name: "Center for Threat-Informed Defense", by: "MITRE", url: "https://ctid.mitre.org/", type: docs, cost: free }
+      - id: purple-validation
+        title: "Validation with purple teaming"
+        text: "Work with red teamers to run realistic attack chains, then fix every gap. Repeat regularly, since environments and attackers change."
+        res:
+          - { name: "Atomic Red Team", by: "Red Canary", url: "https://github.com/redcanaryco/atomic-red-team", type: tool, cost: free }
+    skills:
+      - "Write multi-stage correlations across several log sources."
+      - "Build behavioural detections with baselines."
+      - "Design detections for cloud and identity attacks."
+      - "Improve log pipelines and schemas for detection."
+    labs:
+      - "Write a detection that links a suspicious email, a new process and an outbound connection within an hour."
+      - "Build a first-time-seen detection for admin logons and tune it on a week of lab data."
+      - "Run a purple team exercise against your lab and close every gap you find."
+    done:
+      - "Show detections that still fire after the attacker renames their tools."
+      - "Lead a purple team exercise and report the coverage gained."
+
+  - level: expert
+    title: "Strategy and leadership"
+    months: "6–12"
+    topics:
+      - id: detection-strategy
+        title: "Threat-informed detection strategy"
+        text: "Decide what to build next from the threats your organisation faces, your incidents and your gaps, not from what is easiest."
+        res:
+          - { name: "MITRE ATT&CK Groups", by: "MITRE", url: "https://attack.mitre.org/groups/", type: docs, cost: free }
+      - id: detection-metrics
+        title: "Detection quality metrics"
+        text: "Track true positive rate, time to detect, coverage of priority techniques and alert workload. Report trends that guide spending."
+        res:
+          - { name: "Detection Engineering Weekly", by: "Zack Allen", url: "https://www.detectionengineering.net/", type: docs, cost: free }
+      - id: detection-community
+        title: "Sharing detections"
+        text: "Contribute rules to SigmaHQ or vendor repositories, write about what worked, and learn from other teams' public detections."
+        res:
+          - { name: "Sigma rule repository", by: "SigmaHQ", url: "https://github.com/SigmaHQ/sigma", type: tool, cost: free }
+      - id: deception
+        title: "Deception as detection"
+        optional: true
+        text: "Honeytokens, fake credentials and decoy systems give near-zero false positives, because nobody should ever touch them."
+        res:
+          - { name: "MITRE Engage", by: "MITRE", url: "https://engage.mitre.org/", type: docs, cost: free }
+    skills:
+      - "Set a detection roadmap from threat intelligence and incident history."
+      - "Report detection quality to leadership with clear metrics."
+      - "Contribute detections to the community."
+    labs:
+      - "Write a one-year detection roadmap for a fictional company based on the threat groups that target its sector."
+      - "Get a rule accepted into the SigmaHQ repository."
+    done:
+      - "Run a detection programme with measured quality and coverage."
+      - "Have your detections used by other teams."
+
+tools:
+  - { name: "Sigma", url: "https://sigmahq.io/", kind: oss, what: "Generic detection rule format with converters for many SIEMs." }
+  - { name: "Sysmon", url: "https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon", kind: free, what: "Detailed Windows endpoint telemetry." }
+  - { name: "Wazuh", url: "https://wazuh.com/", kind: oss, what: "Open-source SIEM and XDR for labs and small teams." }
+  - { name: "Elastic Security", url: "https://www.elastic.co/security", kind: community, what: "SIEM with an open detection rule set." }
+  - { name: "Atomic Red Team", url: "https://github.com/redcanaryco/atomic-red-team", kind: oss, what: "Small, safe tests for ATT&CK techniques." }
+  - { name: "ATT&CK Navigator", url: "https://mitre-attack.github.io/attack-navigator/", kind: oss, what: "Map coverage onto ATT&CK." }
+  - { name: "DeTT&CT", url: "https://github.com/rabobank-cdc/DeTTECT", kind: oss, what: "Score data source quality and detection coverage." }
+  - { name: "Chainsaw", url: "https://github.com/WithSecureLabs/chainsaw", kind: oss, what: "Run Sigma rules over Windows event logs offline." }
+
+certs:
+  - { ref: sc200, note: "Detections and hunting in Microsoft Sentinel and Defender." }
+  - { ref: cysa, note: "A broad analyst baseline." }
+  - { name: "GIAC Certified Detection Analyst (GCDA)", by: "GIAC", url: "https://www.giac.org/certifications/certified-detection-analyst-gcda/", level: advanced, note: "SIEM and detection engineering." }
+
+resources:
+  - { name: "Sigma", by: "SigmaHQ", url: "https://sigmahq.io/", type: docs, cost: free }
+  - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+  - { name: "MITRE Cyber Analytics Repository (CAR)", by: "MITRE", url: "https://car.mitre.org/", type: docs, cost: free }
+  - { name: "Alerting and Detection Strategy Framework", by: "Palantir", url: "https://github.com/palantir/alerting-detection-strategy-framework", type: docs, cost: free }
+  - { name: "Security Datasets", by: "Open Threat Research Forge", url: "https://github.com/OTRF/Security-Datasets", type: practice, cost: free }
+  - { name: "Splunk Security Content", by: "Splunk", url: "https://research.splunk.com/", type: docs, cost: free }
+  - { name: "Detection Engineering Weekly", by: "Zack Allen", url: "https://www.detectionengineering.net/", type: docs, cost: free }
+  - { name: "Elastic detection rules", by: "Elastic", url: "https://github.com/elastic/detection-rules", type: docs, cost: free }
+
+frameworks: [attack, d3fend, nist-csf, cis-controls, engage]
+
+career:
+  - { title: "SOC analyst", years: "0–2 years" }
+  - { title: "Senior SOC analyst who writes rules", years: "2–3 years" }
+  - { title: "Detection engineer", years: "3–6 years" }
+  - { title: "Senior detection engineer", years: "6–9 years" }
+  - { title: "Head of detection and response", years: "10+ years" }
+
+related:
+  - { to: secops, why: "Where your detections are used every day." }
+  - { to: hunting, why: "Hunts find the behaviours that become new detections." }
+  - { to: cti, why: "Intelligence tells you which behaviours to detect first." }
+  - { to: soar, why: "Automate what happens after a detection fires." }

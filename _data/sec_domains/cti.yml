@@ -1,0 +1,248 @@
+# Security roadmap: Threat Intelligence (CTI). Shown at /roadmaps/security/cti/.
+# Field guide: see the top of secops.yml.
+
+id: cti
+category: defence
+icon: map
+entry: intermediate
+title: "Threat Intelligence (CTI)"
+summary: "Collect and analyse information about attackers, their goals and their methods, and turn it into decisions defenders can act on."
+keywords: "cyber threat intelligence CTI OSINT strategic operational tactical intelligence attribution threat actors MISP STIX TAXII Diamond Model Kill Chain ATT&CK"
+
+overview:
+  - "Threat intelligence answers questions about attackers: who is likely to target us, what do they want, how do they operate, and what should we do about it? Analysts collect information from incidents, open sources, sharing groups and vendors, analyse it, and deliver it to the people who need it."
+  - "Intelligence comes at three levels: strategic (for leaders, about trends and risk), operational (about campaigns and actors) and tactical (indicators and techniques for the SOC). Good CTI starts from what its customers need to decide, not from the data that happens to be available."
+why: "Every security team has limited time. Intelligence tells it which threats matter most, which vulnerabilities to patch first and which detections to build. CTI analysts work in companies, governments, vendors and sharing centres."
+roles:
+  - { title: "Junior CTI analyst", level: entry, what: "Collects and enriches indicators, tracks reports and writes short summaries." }
+  - { title: "CTI analyst", level: mid, what: "Tracks actors and campaigns and produces intelligence for the SOC and IR teams." }
+  - { title: "Strategic intelligence analyst", level: mid, what: "Writes threat assessments and briefings for leaders." }
+  - { title: "Senior CTI analyst", level: senior, what: "Leads analysis of advanced actors and sets collection priorities." }
+  - { title: "Head of threat intelligence", level: lead, what: "Runs the CTI programme and its relationships with partners." }
+
+prereqs:
+  - "Security Operations beginner stage and a basic understanding of how attacks work."
+  - "Clear writing for different audiences."
+  - "Networking basics: IP addresses, domains, DNS and certificates."
+  - "Curiosity and patience for research."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "The intelligence cycle and the basics"
+    months: "2–3"
+    topics:
+      - id: intel-cycle
+        title: "The intelligence cycle"
+        text: "Requirements, collection, processing, analysis, dissemination and feedback. Everything starts with knowing what your customers need to decide."
+        res:
+          - { name: "FOR578: Cyber Threat Intelligence", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/cyber-threat-intelligence/", type: course, cost: paid }
+      - id: intel-levels
+        title: "Strategic, operational and tactical intelligence"
+        text: "Leaders need trends and risk, responders need campaigns and actors, the SOC needs indicators and techniques. Write for the right audience."
+        res:
+          - { name: "Data Breach Investigations Report", by: "Verizon", url: "https://www.verizon.com/business/resources/reports/dbir/", type: docs, cost: free }
+      - id: indicators
+        title: "Indicators and their limits"
+        text: "IP addresses, domains and hashes change quickly. Learn to enrich them, give them context and expiry dates, and know when they are useless."
+        res:
+          - { name: "The Pyramid of Pain", by: "David J. Bianco", url: "https://detect-respond.blogspot.com/2013/03/the-pyramid-of-pain.html", type: docs, cost: free }
+          - { name: "abuse.ch", by: "abuse.ch", url: "https://abuse.ch/", type: docs, cost: free }
+      - id: kill-chain-diamond
+        title: "Kill Chain and Diamond Model"
+        text: "The Kill Chain splits an intrusion into stages; the Diamond Model links adversary, capability, infrastructure and victim. Both help you organise what you know."
+        res:
+          - { name: "Cyber Kill Chain", by: "Lockheed Martin", url: "https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html", type: docs, cost: free }
+          - { name: "The Diamond Model of Intrusion Analysis", by: "Caltagirone, Pendergast and Betz", url: "https://apps.dtic.mil/sti/citations/ADA586960", type: paper, cost: free }
+      - id: attack-cti
+        title: "ATT&CK for intelligence"
+        text: "Map what actors do to ATT&CK techniques. It lets you compare groups and tell defenders exactly which behaviours to look for."
+        res:
+          - { name: "MITRE ATT&CK Groups", by: "MITRE", url: "https://attack.mitre.org/groups/", type: docs, cost: free }
+      - id: osint-basics
+        title: "Open-source intelligence (OSINT)"
+        text: "Public sources such as reports, code repositories, certificate logs and passive DNS reveal a lot. Collect legally and protect your own identity while researching."
+        res:
+          - { name: "OSINT Framework", by: "OSINT Framework", url: "https://osintframework.com/", type: tool, cost: free }
+      - id: tlp
+        title: "Sharing rules (TLP)"
+        text: "The Traffic Light Protocol says how far shared information may travel. Respect it, or people will stop sharing with you."
+        res:
+          - { name: "Traffic Light Protocol (TLP)", by: "FIRST", url: "https://www.first.org/tlp/", type: docs, cost: free }
+    skills:
+      - "Explain the intelligence cycle and the three levels of intelligence."
+      - "Enrich and judge indicators."
+      - "Map a public report to ATT&CK and the Diamond Model."
+    labs:
+      - "Pick a public threat report and map every behaviour in it to ATT&CK in the Navigator."
+      - "Enrich ten indicators from a report with free sources and record which are still active."
+    done:
+      - "Write a one-page summary of a threat group for a SOC audience."
+      - "Explain why an IP blocklist alone is weak intelligence."
+
+  - level: intermediate
+    title: "Analysis, tooling and sharing"
+    months: "3–5"
+    topics:
+      - id: cti-platforms
+        title: "Threat intelligence platforms"
+        text: "Platforms store indicators, actors and reports, link them together and share them with tools and partners."
+        res:
+          - { name: "MISP", by: "MISP project", url: "https://www.misp-project.org/", type: tool, cost: free }
+          - { name: "OpenCTI", by: "Filigran", url: "https://github.com/OpenCTI-Platform/opencti", type: tool, cost: free }
+      - id: stix-taxii
+        title: "STIX and TAXII"
+        text: "STIX is the standard way to describe threat intelligence; TAXII is how it moves between systems. Most platforms speak both."
+        res:
+          - { name: "STIX and TAXII documentation", by: "OASIS Open", url: "https://oasis-open.github.io/cti-documentation/", type: docs, cost: free }
+      - id: infra-pivoting
+        title: "Infrastructure pivoting"
+        text: "From one domain or IP, pivot through passive DNS, certificates, hosting and registration details to find the rest of an actor's infrastructure."
+        res:
+          - { name: "crt.sh certificate search", by: "Sectigo", url: "https://crt.sh/", type: tool, cost: free }
+          - { name: "Censys Search", by: "Censys", url: "https://search.censys.io/", type: tool, cost: free }
+      - id: malware-intel
+        title: "Malware as intelligence"
+        text: "Samples reveal capabilities, configuration and infrastructure. Learn enough triage to extract these, or work closely with malware analysts."
+        res:
+          - { name: "MalwareBazaar", by: "abuse.ch", url: "https://bazaar.abuse.ch/", type: practice, cost: free }
+      - id: analytic-rigour
+        title: "Analytic rigour and bias"
+        text: "Use structured techniques such as analysis of competing hypotheses, and state your confidence. Analysts are human and see what they expect."
+        res:
+          - { name: "Psychology of Intelligence Analysis", by: "Richards J. Heuer Jr. (CIA)", url: "https://www.cia.gov/resources/csi/books-monographs/psychology-of-intelligence-analysis-2/", type: book, cost: free }
+      - id: cti-writing
+        title: "Writing intelligence products"
+        text: "Lead with the key judgement, say how confident you are and why, and end with what the reader should do. Keep it short."
+        res:
+          - { name: "Intelligence-Driven Incident Response", by: "Rebekah Brown and Scott J. Roberts (O'Reilly)", url: "https://www.oreilly.com/library/view/intelligence-driven-incident-response/9781098120672/", type: book, cost: paid }
+      - id: sharing-communities
+        title: "Sharing communities"
+        text: "ISACs, national CERTs and trusted groups share intelligence between organisations. Contribute as well as consume."
+        res:
+          - { name: "FIRST", by: "Forum of Incident Response and Security Teams", url: "https://www.first.org/", type: docs, cost: free }
+    skills:
+      - "Run a threat intelligence platform and share in STIX."
+      - "Pivot from one indicator to an actor's wider infrastructure."
+      - "Use structured analytic techniques and state confidence."
+      - "Write intelligence that leads to action."
+    labs:
+      - "Deploy MISP or OpenCTI, import a public feed and link indicators to an actor and ATT&CK techniques."
+      - "Pivot from one phishing domain in a public report to related domains through certificate logs."
+      - "Write a two-page intelligence report with key judgements and confidence levels."
+    done:
+      - "Produce a report that a SOC uses to build detections."
+      - "Explain the evidence and confidence behind each of your judgements."
+
+  - level: advanced
+    title: "Tracking actors and serving the organisation"
+    months: "4–6"
+    topics:
+      - id: actor-tracking
+        title: "Tracking threat actors"
+        text: "Cluster activity by shared behaviour and infrastructure, keep profiles current, and watch for changes in tools and targets."
+        res:
+          - { name: "MITRE ATT&CK Groups", by: "MITRE", url: "https://attack.mitre.org/groups/", type: docs, cost: free }
+      - id: attribution
+        title: "Attribution"
+        text: "Naming who is behind an attack is hard and often not needed. Know the evidence it takes, the risks of being wrong and when it actually helps."
+        res:
+          - { name: "Psychology of Intelligence Analysis", by: "Richards J. Heuer Jr. (CIA)", url: "https://www.cia.gov/resources/csi/books-monographs/psychology-of-intelligence-analysis-2/", type: book, cost: free }
+      - id: requirements
+        title: "Intelligence requirements"
+        text: "Agree priority intelligence requirements with leaders, the SOC and IR. They decide what you collect and what you ignore."
+        res:
+          - { name: "FOR578: Cyber Threat Intelligence", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/cyber-threat-intelligence/", type: course, cost: paid }
+      - id: vuln-intel
+        title: "Vulnerability intelligence"
+        text: "Tell the patching team which vulnerabilities attackers are really using, with KEV, EPSS and your own sources."
+        res:
+          - { name: "Known Exploited Vulnerabilities Catalog", by: "CISA", url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", type: docs, cost: free }
+      - id: dark-web
+        title: "Underground and dark web sources"
+        optional: true
+        text: "Criminal forums and leak sites show what is being sold and who was hit. This work needs legal approval, strict safety rules and careful operational security."
+        res:
+          - { name: "Tor Project", by: "Tor Project", url: "https://www.torproject.org/", type: tool, cost: free }
+      - id: strategic-briefing
+        title: "Strategic briefings"
+        text: "Brief leaders on the threats to the business in plain language, linked to risk and investment decisions."
+        res:
+          - { name: "Data Breach Investigations Report", by: "Verizon", url: "https://www.verizon.com/business/resources/reports/dbir/", type: docs, cost: free }
+    skills:
+      - "Track actors over time and spot changes."
+      - "Set intelligence requirements with stakeholders."
+      - "Brief executives on threats and their business impact."
+    labs:
+      - "Build an actor profile from several public reports, with techniques, infrastructure patterns and targets."
+      - "Write priority intelligence requirements for a fictional bank and a collection plan for them."
+    done:
+      - "Deliver a strategic threat assessment that leaders use in planning."
+      - "Show an actor profile that helped detection or response."
+
+  - level: expert
+    title: "Leading an intelligence function"
+    months: "6–12"
+    topics:
+      - id: cti-programme
+        title: "Running a CTI programme"
+        text: "Set requirements, choose sources and vendors, measure value and keep the team close to the SOC, IR and leaders."
+        res:
+          - { name: "FIRST", by: "Forum of Incident Response and Security Teams", url: "https://www.first.org/", type: docs, cost: free }
+      - id: cti-metrics
+        title: "Measuring intelligence"
+        text: "Count decisions supported, detections built, incidents prevented and feedback from customers. Volume of indicators is not a measure of value."
+        res:
+          - { name: "Intelligence-Driven Incident Response", by: "Rebekah Brown and Scott J. Roberts (O'Reilly)", url: "https://www.oreilly.com/library/view/intelligence-driven-incident-response/9781098120672/", type: book, cost: paid }
+      - id: cti-research
+        title: "Publishing research"
+        text: "Publish findings on new actors or campaigns responsibly, with enough detail to help defenders and without tipping off the attacker too early."
+        res:
+          - { name: "The DFIR Report", by: "The DFIR Report", url: "https://thedfirreport.com/", type: docs, cost: free }
+    skills:
+      - "Run an intelligence function with measured value."
+      - "Publish research that others rely on."
+    labs:
+      - "Write a CTI programme plan with requirements, sources, outputs and metrics."
+      - "Publish a research write-up on a campaign you analysed from public data."
+    done:
+      - "Lead a CTI team that the rest of security depends on."
+      - "Have your research cited by other analysts."
+
+tools:
+  - { name: "MISP", url: "https://www.misp-project.org/", kind: oss, what: "Threat intelligence sharing platform." }
+  - { name: "OpenCTI", url: "https://github.com/OpenCTI-Platform/opencti", kind: oss, what: "Platform to store and link intelligence with STIX." }
+  - { name: "ATT&CK Navigator", url: "https://mitre-attack.github.io/attack-navigator/", kind: oss, what: "Map and compare actor techniques." }
+  - { name: "VirusTotal", url: "https://www.virustotal.com/", kind: community, what: "File, URL and domain reputation and relationships." }
+  - { name: "crt.sh", url: "https://crt.sh/", kind: free, what: "Search certificate transparency logs." }
+  - { name: "CyberChef", url: "https://gchq.github.io/CyberChef/", kind: oss, what: "Decode and transform data." }
+  - { name: "Maltego Community Edition", url: "https://www.maltego.com/", kind: community, what: "Link analysis and pivoting." }
+
+certs:
+  - { name: "GIAC Cyber Threat Intelligence (GCTI)", by: "GIAC", url: "https://www.giac.org/certifications/cyber-threat-intelligence-gcti/", level: advanced, note: "The best-known CTI certification." }
+  - { ref: cysa, note: "Covers threat intelligence basics." }
+  - { ref: secplus, note: "A common baseline." }
+
+resources:
+  - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+  - { name: "STIX and TAXII documentation", by: "OASIS Open", url: "https://oasis-open.github.io/cti-documentation/", type: docs, cost: free }
+  - { name: "Psychology of Intelligence Analysis", by: "Richards J. Heuer Jr. (CIA)", url: "https://www.cia.gov/resources/csi/books-monographs/psychology-of-intelligence-analysis-2/", type: book, cost: free }
+  - { name: "Intelligence-Driven Incident Response", by: "Rebekah Brown and Scott J. Roberts (O'Reilly)", url: "https://www.oreilly.com/library/view/intelligence-driven-incident-response/9781098120672/", type: book, cost: paid }
+  - { name: "Data Breach Investigations Report", by: "Verizon", url: "https://www.verizon.com/business/resources/reports/dbir/", type: docs, cost: free }
+  - { name: "The DFIR Report", by: "The DFIR Report", url: "https://thedfirreport.com/", type: docs, cost: free }
+  - { name: "FOR578: Cyber Threat Intelligence", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/cyber-threat-intelligence/", type: course, cost: paid }
+
+frameworks: [attack, kill-chain, diamond, stix, tlp, kev]
+
+career:
+  - { title: "SOC analyst, journalist, researcher or analyst in another field", years: "0–2 years" }
+  - { title: "Junior CTI analyst", years: "1–3 years" }
+  - { title: "CTI analyst", years: "3–6 years" }
+  - { title: "Senior CTI analyst", years: "6–9 years" }
+  - { title: "Head of threat intelligence", years: "10+ years" }
+
+related:
+  - { to: hunting, why: "Intelligence becomes hunts." }
+  - { to: detection, why: "Intelligence decides which detections to build first." }
+  - { to: dfir, why: "Incidents are your best source of intelligence." }
+  - { to: malware, why: "Samples reveal what actors can do." }

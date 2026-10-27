@@ -1,0 +1,230 @@
+# Security roadmap: Threat Hunting. Shown at /roadmaps/security/hunting/.
+# Field guide: see the top of secops.yml.
+
+id: hunting
+category: defence
+icon: eye
+entry: intermediate
+title: "Threat Hunting"
+summary: "Search proactively for attackers that no alert has caught, starting from a hypothesis and ending with new detections."
+keywords: "threat hunting hypothesis hunting behavioural analytics EDR telemetry network hunting cloud hunting ATT&CK osquery Velociraptor Zeek PEAK"
+
+overview:
+  - "Threat hunting starts from the assumption that an attacker may already be inside and the alerts have missed them. A hunter forms a hypothesis, such as 'an attacker is using scheduled tasks for persistence', looks for evidence in endpoint, network and cloud data, and either finds something or proves the gap is covered."
+  - "Every hunt should leave something behind: a confirmed incident, a new detection, better logging, or a documented negative result. Hunting connects threat intelligence, detection engineering and incident response."
+why: "Skilled attackers avoid known detections. Hunting is how mature teams find them sooner, and how they keep improving their detections from real evidence."
+roles:
+  - { title: "SOC analyst (Tier 2) who hunts", level: entry, what: "Runs guided hunts from playbooks and escalates findings." }
+  - { title: "Threat hunter", level: mid, what: "Plans and runs hypothesis-driven hunts across endpoint, network and cloud data." }
+  - { title: "Senior threat hunter", level: senior, what: "Leads hunts on advanced threats and turns results into detections." }
+  - { title: "Threat hunting lead", level: lead, what: "Runs the hunting programme, its method and its metrics." }
+
+prereqs:
+  - "Security Operations intermediate stage."
+  - "Windows internals and common attacker techniques."
+  - "A query language such as KQL, SPL or SQL, and some Python."
+  - "Reading packet captures and network logs."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "Hunting basics"
+    months: "2–3"
+    topics:
+      - id: hunt-what
+        title: "What hunting is"
+        text: "Hunting is a human-led search for threats that automated detection missed. It is not the same as reviewing alerts or running indicator sweeps."
+        res:
+          - { name: "Threat Hunter Playbook", by: "Open Threat Research Forge", url: "https://github.com/OTRF/ThreatHunter-Playbook", type: docs, cost: free }
+      - id: hypothesis
+        title: "Writing a hunting hypothesis"
+        text: "A good hypothesis is specific and testable: who, what technique, where in your environment, and which data would prove it."
+        res:
+          - { name: "The PEAK Threat Hunting Framework", by: "Splunk", url: "https://www.splunk.com/en_us/blog/security/peak-threat-hunting-framework.html", type: docs, cost: free }
+      - id: hunt-data
+        title: "Data for hunting"
+        text: "Process starts, command lines, network connections, logons and DNS queries are the core. Know how long each is kept, since hunts often look back months."
+        res:
+          - { name: "OSSEM (Open Source Security Events Metadata)", by: "Open Threat Research Forge", url: "https://github.com/OTRF/OSSEM", type: docs, cost: free }
+      - id: stacking
+        title: "Stacking and frequency analysis"
+        text: "Count how often each value appears across many machines. Rare parent-child processes, services or autoruns are often where attackers hide."
+        res:
+          - { name: "Kusto Query Language (KQL)", by: "Microsoft", url: "https://learn.microsoft.com/en-us/kusto/query/", type: docs, cost: free }
+      - id: persistence-hunting
+        title: "Hunting for persistence"
+        text: "Run keys, services, scheduled tasks, WMI subscriptions and startup folders. Compare them across hosts and against a known-good baseline."
+        res:
+          - { name: "Autoruns", by: "Microsoft Sysinternals", url: "https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns", type: tool, cost: free }
+      - id: hunt-docs
+        title: "Documenting a hunt"
+        text: "Record the hypothesis, data, queries, findings and what changed. A hunt that found nothing is still useful if it is written down."
+        res:
+          - { name: "Threat Hunter Playbook", by: "Open Threat Research Forge", url: "https://github.com/OTRF/ThreatHunter-Playbook", type: docs, cost: free }
+    skills:
+      - "Write testable hunting hypotheses from ATT&CK techniques."
+      - "Use stacking to find rare and suspicious values."
+      - "Document a hunt from start to finish."
+    labs:
+      - "Load the Splunk Boss of the SOC dataset or a Security Datasets scenario and hunt for persistence by stacking."
+      - "Write and run three hunts based on ATT&CK techniques, and document each one."
+    done:
+      - "Find an attacker's persistence in a practice dataset without being told where it is."
+      - "Hand over a hunt report that someone else could repeat."
+
+  - level: intermediate
+    title: "Endpoint, network and identity hunts"
+    months: "3–4"
+    topics:
+      - id: edr-hunting
+        title: "Hunting in EDR data"
+        text: "Use EDR telemetry to follow process trees, command lines and injected code across the whole fleet."
+        res:
+          - { name: "osquery", by: "osquery project", url: "https://osquery.io/", type: tool, cost: free }
+      - id: fleet-hunting
+        title: "Fleet-wide collection"
+        text: "When the data you need is not in the SIEM, collect it from every machine at once, such as a list of scheduled tasks or a registry key."
+        res:
+          - { name: "Velociraptor documentation", by: "Velociraptor", url: "https://docs.velociraptor.app/", type: docs, cost: free }
+      - id: network-hunting
+        title: "Network hunting"
+        text: "Look for beaconing, long connections, rare destinations, odd DNS and data leaving at night. Zeek logs make this much easier than raw packets."
+        res:
+          - { name: "RITA (Real Intelligence Threat Analytics)", by: "Active Countermeasures", url: "https://github.com/activecm/rita", type: tool, cost: free }
+          - { name: "Zeek documentation", by: "Zeek project", url: "https://docs.zeek.org/", type: docs, cost: free }
+      - id: identity-hunting
+        title: "Identity and Active Directory hunting"
+        text: "Hunt for Kerberoasting, unusual logon types, new admins, password spraying and token theft in domain controller and identity provider logs."
+        res:
+          - { name: "Steal or Forge Kerberos Tickets (T1558)", by: "MITRE ATT&CK", url: "https://attack.mitre.org/techniques/T1558/", type: docs, cost: free }
+      - id: lolbins
+        title: "Living off the land"
+        text: "Attackers use built-in tools such as PowerShell, WMI and certutil. Learn what normal use looks like so abnormal use stands out."
+        res:
+          - { name: "LOLBAS project", by: "LOLBAS project", url: "https://lolbas-project.github.io/", type: docs, cost: free }
+      - id: notebooks
+        title: "Notebooks for hunting"
+        text: "Jupyter notebooks let you query, join and visualise data and keep the whole hunt reproducible."
+        res:
+          - { name: "MSTICPy", by: "Microsoft", url: "https://github.com/microsoft/msticpy", type: tool, cost: free }
+    skills:
+      - "Hunt across EDR, network and identity data."
+      - "Collect data from a whole fleet when the SIEM lacks it."
+      - "Find beaconing and data exfiltration in network logs."
+      - "Spot malicious use of built-in tools."
+    labs:
+      - "Deploy Velociraptor to lab machines and hunt for a persistence technique on all of them."
+      - "Run RITA on Zeek logs from a lab where you simulated beaconing traffic."
+      - "Hunt for Kerberoasting in a lab Active Directory after running it yourself."
+    done:
+      - "Find a simulated intrusion in a lab using hunting alone."
+      - "Turn a successful hunt into a tested detection."
+
+  - level: advanced
+    title: "Intelligence-driven and cloud hunting"
+    months: "4–6"
+    topics:
+      - id: intel-driven
+        title: "Intelligence-driven hunts"
+        text: "Start from a report about a group that targets your sector, extract its behaviours and hunt for them in your data."
+        res:
+          - { name: "MITRE ATT&CK Groups", by: "MITRE", url: "https://attack.mitre.org/groups/", type: docs, cost: free }
+          - { name: "The DFIR Report", by: "The DFIR Report", url: "https://thedfirreport.com/", type: docs, cost: free }
+      - id: cloud-hunting
+        title: "Cloud and SaaS hunting"
+        text: "Hunt in CloudTrail, Azure and Microsoft 365 audit logs for new keys, mailbox rules, consent grants and unusual sign-ins."
+        res:
+          - { name: "Microsoft Purview auditing solutions", by: "Microsoft", url: "https://learn.microsoft.com/en-us/purview/audit-solutions-overview", type: docs, cost: free }
+      - id: memory-hunting
+        title: "Hunting in memory"
+        text: "Some implants live only in memory. Use EDR memory scans or targeted memory captures to look for injected code."
+        res:
+          - { name: "Volatility 3 documentation", by: "Volatility Foundation", url: "https://volatility3.readthedocs.io/", type: docs, cost: free }
+      - id: hunt-to-detect
+        title: "From hunt to detection"
+        text: "Every successful hunt should become a detection or an automated hunt that runs again. Hand it over with tests and documentation."
+        res:
+          - { name: "Sigma", by: "SigmaHQ", url: "https://sigmahq.io/", type: docs, cost: free }
+      - id: hunt-ml
+        title: "Statistics and machine learning for hunting"
+        optional: true
+        text: "Clustering and outlier detection can surface the unusual in very large data sets. Treat the results as leads for a human to check."
+        res:
+          - { name: "Outlier detection", by: "scikit-learn", url: "https://scikit-learn.org/stable/modules/outlier_detection.html", type: docs, cost: free }
+    skills:
+      - "Plan hunts from threat intelligence."
+      - "Hunt in cloud and SaaS audit logs."
+      - "Turn hunt results into lasting detections."
+    labs:
+      - "Pick a recent DFIR Report case, extract the behaviours and hunt for each in a lab where you reproduced some of them."
+      - "Create a malicious mailbox rule in your own Microsoft 365 test tenant and hunt for it in the audit log."
+    done:
+      - "Run a hunt programme for a quarter with documented results and new detections."
+      - "Find something real that no existing alert had caught."
+
+  - level: expert
+    title: "Leading a hunting programme"
+    months: "6–12"
+    topics:
+      - id: hunt-programme
+        title: "Running a hunting programme"
+        text: "Decide what to hunt, how often, and how results feed detection and response. Hunting without a programme becomes random searching."
+        res:
+          - { name: "The PEAK Threat Hunting Framework", by: "Splunk", url: "https://www.splunk.com/en_us/blog/security/peak-threat-hunting-framework.html", type: docs, cost: free }
+      - id: hunt-metrics
+        title: "Measuring hunting"
+        text: "Count hunts run, incidents found, detections created and data gaps fixed. Dwell time across incidents shows whether it is working."
+        res:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+      - id: hunt-sharing
+        title: "Sharing hunts"
+        text: "Publish hunt queries and write-ups so other teams can run them. Learn from theirs in return."
+        res:
+          - { name: "Threat Hunter Playbook", by: "Open Threat Research Forge", url: "https://github.com/OTRF/ThreatHunter-Playbook", type: docs, cost: free }
+    skills:
+      - "Run a hunting programme with clear goals and metrics."
+      - "Share hunts with the wider community."
+    labs:
+      - "Write a hunting plan for a year, based on the threats to a chosen sector."
+      - "Publish a hunt write-up with queries others can run."
+    done:
+      - "Show that hunting lowered dwell time or improved detection coverage."
+      - "Have your hunts used by other teams."
+
+tools:
+  - { name: "Velociraptor", url: "https://docs.velociraptor.app/", kind: oss, what: "Query and collect from every endpoint at once." }
+  - { name: "osquery", url: "https://osquery.io/", kind: oss, what: "Query endpoints with SQL." }
+  - { name: "Zeek", url: "https://zeek.org/", kind: oss, what: "Network logs built for analysis." }
+  - { name: "RITA", url: "https://github.com/activecm/rita", kind: oss, what: "Finds beaconing and other suspicious network patterns in Zeek logs." }
+  - { name: "MSTICPy", url: "https://github.com/microsoft/msticpy", kind: oss, what: "Python tools for hunting in notebooks." }
+  - { name: "Jupyter", url: "https://jupyter.org/", kind: oss, what: "Notebooks for reproducible hunts." }
+  - { name: "Autoruns", url: "https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns", kind: free, what: "Shows every way a program can start on Windows." }
+  - { name: "Hayabusa", url: "https://github.com/Yamato-Security/hayabusa", kind: oss, what: "Fast timelines and hunting in Windows event logs." }
+
+certs:
+  - { ref: cysa, note: "Covers threat hunting basics." }
+  - { ref: sc200, note: "Hunting in Microsoft Sentinel and Defender." }
+  - { name: "GIAC Certified Forensic Analyst (GCFA)", by: "GIAC", url: "https://www.giac.org/certifications/certified-forensic-analyst-gcfa/", level: advanced, note: "Advanced incident response and threat hunting." }
+
+resources:
+  - { name: "Threat Hunter Playbook", by: "Open Threat Research Forge", url: "https://github.com/OTRF/ThreatHunter-Playbook", type: docs, cost: free }
+  - { name: "The PEAK Threat Hunting Framework", by: "Splunk", url: "https://www.splunk.com/en_us/blog/security/peak-threat-hunting-framework.html", type: docs, cost: free }
+  - { name: "Boss of the SOC v3 dataset", by: "Splunk", url: "https://github.com/splunk/botsv3", type: practice, cost: free }
+  - { name: "Security Datasets", by: "Open Threat Research Forge", url: "https://github.com/OTRF/Security-Datasets", type: practice, cost: free }
+  - { name: "LOLBAS project", by: "LOLBAS project", url: "https://lolbas-project.github.io/", type: docs, cost: free }
+  - { name: "The DFIR Report", by: "The DFIR Report", url: "https://thedfirreport.com/", type: docs, cost: free }
+  - { name: "FOR508: Advanced Incident Response, Threat Hunting and Digital Forensics", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/advanced-incident-response-threat-hunting-training/", type: course, cost: paid }
+
+frameworks: [attack, d3fend, kill-chain, nist-csf]
+
+career:
+  - { title: "SOC analyst", years: "0–2 years" }
+  - { title: "Tier 2 analyst or incident responder", years: "2–4 years" }
+  - { title: "Threat hunter", years: "4–7 years" }
+  - { title: "Threat hunting lead", years: "7+ years" }
+
+related:
+  - { to: detection, why: "Turn what you find into detections." }
+  - { to: cti, why: "Intelligence gives hunts their best hypotheses." }
+  - { to: dfir, why: "A successful hunt often becomes an investigation." }
+  - { to: secops, why: "Hunting is the most proactive part of SOC work." }

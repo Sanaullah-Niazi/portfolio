@@ -343,7 +343,7 @@ related:
   - { to: dfir, why: "The natural next step: deeper investigation and forensics." }
   - { to: network, why: "Network visibility is half of what a SOC watches." }
   - { to: cloud, why: "More and more alerts come from cloud services." }
-  - { name: "Detection Engineering", why: "Turn SOC experience into building the detections themselves." }
-  - { name: "Threat Hunting", why: "Find what the alerts miss." }
-  - { name: "Threat Intelligence", why: "Track who attacks your sector and how." }
+  - { to: detection, why: "Turn SOC experience into building the detections themselves." }
+  - { to: hunting, why: "Find what the alerts miss." }
+  - { to: cti, why: "Track who attacks your sector and how." }
   - { to: ai-secops, why: "Use machine learning and AI assistants in the SOC, and check their work." }

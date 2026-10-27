@@ -311,7 +311,7 @@ career:
 related:
   - { to: secops, why: "Detection and response go hand in hand." }
   - { to: cloud, why: "More and more incidents start in cloud and SaaS accounts." }
-  - { name: "Malware Analysis", why: "Go deep into how malicious code works." }
-  - { name: "Threat Intelligence", why: "Turn what you learn in incidents into intelligence for others." }
+  - { to: malware, why: "Go deep into how malicious code works." }
+  - { to: cti, why: "Turn what you learn in incidents into intelligence for others." }
   - { name: "Ransomware Defense", why: "Prepare organisations for the most common major incident." }
   - { to: ai-secops, why: "Use AI to speed up investigations, and check its work." }

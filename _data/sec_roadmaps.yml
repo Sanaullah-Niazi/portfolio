@@ -161,8 +161,8 @@ categories:
     icon: radar
     title: "Defensive security and threat management"
     summary: "Finding, understanding and stopping attacks."
-    domains: []
-    planned: ["Security Operations Center (SOC)", "SIEM", "SOAR", "XDR", "Threat Hunting", "Detection Engineering", "Threat Intelligence", "Incident Response", "Digital Forensics", "Malware Analysis", "Ransomware Defense", "Vulnerability Management", "Exposure Management", "Attack Surface Management", "Security Validation", "Deception Technology", "Cyber Threat Analysis", "Crisis Management", "Cyber Resilience"]
+    domains: [detection, hunting, cti, malware, vulnmgmt, soar]
+    planned: []
 
   - id: offence
     icon: bug
