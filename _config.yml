@@ -44,6 +44,10 @@ tools_repo: https://github.com/Sanaullah-Niazi/free-security-tools
 #   Cloudflare dashboard > Analytics & Logs > Web Analytics > Add a site > sanaullahniazi.com, choose the
 #   JavaScript snippet (manual) setup, and paste the token from the snippet ("token": "...") here.
 cloudflare_analytics_token: ""
+#   Or, with the automatic setup (Web Analytics > Manage site > Enable, "The JS Snippet will be automatically
+#   injected"), leave the token empty and set this to true: Cloudflare adds the script itself, and this only lets it
+#   through the Content-Security-Policy and names it on the privacy page.
+cloudflare_analytics_auto: true
 # - GoatCounter: create a site at https://www.goatcounter.com/signup and paste its code here
 #   (for https://sanaullah.goatcounter.com the code is "sanaullah").
 goatcounter: ""
