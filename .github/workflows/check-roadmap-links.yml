@@ -1,0 +1,34 @@
+# Checks every link on the Roadmaps page (_data/roadmaps.yml) once a week, and whenever that file changes.
+# If a link is broken the run fails and GitHub emails you; the log lists the broken links.
+name: Check roadmap links
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays, 06:00 UTC
+  push:
+    paths: ["_data/roadmaps.yml"]
+  pull_request:
+    paths: ["_data/roadmaps.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Some big sites (Coursera, Kaggle, Khan Academy) refuse automated checks with 403 or 429.
+          # Those answers mean "the site is up but won't talk to robots", so they count as fine.
+          args: >-
+            --no-progress
+            --max-retries 3
+            --timeout 30
+            --accept 200..=299,403,429
+            --user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+            _data/roadmaps.yml
+          fail: true
