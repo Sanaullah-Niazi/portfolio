@@ -83,7 +83,7 @@ The Security news page fills itself. Every morning (05:17 UTC) the "Security new
 
 To update it right away, open the repository's **Actions** tab, pick **Security news** and press **Run workflow**.
 
-**AI daily brief (optional).** If the repository has a secret called `ANTHROPIC_API_KEY` (Settings > Secrets and variables > Actions > New repository secret; get a key at console.anthropic.com), the job also asks Claude to write a short daily brief in its own words from the day's headlines. Each brief is saved in `_briefs/` (one file per day, shown at `/security-news/<date>/`), says that it was written by AI, and links to every story it used. It costs a few cents a day; set a monthly spending limit in the Anthropic console if you like. Without the secret, everything else still works and no brief is written. To remove a brief, delete its file from `_briefs/`.
+**AI daily brief.** The job also writes a short daily brief in its own words from the day's headlines, using the free AI models GitHub offers to every account (GitHub Models), so there's no key to set up and nothing to pay. Each brief is saved in `_briefs/` (one file per day, shown at `/security-news/<date>/`), says that it was written by AI, and links to every story it used. If GitHub's free limit is reached or a model is retired, the job tries the next model in `GITHUB_MODELS` in `scripts/security_news.py`, and on a bad day it simply skips the brief; the headlines still update. If you ever want Claude to write the briefs instead (paid, a few cents a day), add a repository secret called `ANTHROPIC_API_KEY` (Settings > Secrets and variables > Actions). To remove a brief, delete its file from `_briefs/`.
 
 ## Add your CV
 
