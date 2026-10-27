@@ -561,7 +561,7 @@ js:
   w_skipped: "已跳过"
   w_running: "进行中"
   w_report_title: "网站健康报告"
-  w_cached: "这份报告生成于 {t}。重新检测即可看到之后的改动。"
+  w_cached: "这是 {t} 保存的报告副本，不是新的检测。之后的改动不会显示在这里。"
   w_fresh: "重新检测"
   w_pdf: "下载 PDF"
   w_pdf_making: "正在生成 PDF…"

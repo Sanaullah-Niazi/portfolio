@@ -685,6 +685,8 @@ input[type="range"] { width: 100%; max-width: 420px; accent-color: var(--accent)
 .tool-msg.ok { color: #1d6b3a; }
 .tool-msg.bad { color: var(--threat); font-weight: 500; }
 .tool-note { font-size: 14px; color: var(--muted); border-inline-start: 3px solid var(--line); padding-inline-start: 12px; }
+.web-cached { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-block-end: 16px; padding: 12px 14px; border: 1px solid #d99a2b; border-inline-start-width: 4px; border-radius: 8px; background: color-mix(in srgb, #d99a2b 12%, transparent); }
+.web-cached p { margin: 0; flex: 1 1 260px; font-size: 15px; font-weight: 500; }
 .score-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 .meter { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; width: min(260px, 100%); }
 .meter i { height: 8px; border-radius: 4px; background: var(--line); }
