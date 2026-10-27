@@ -128,7 +128,7 @@ stages:
         title: "Differential privacy"
         text: "Add carefully calibrated noise so you can publish statistics without exposing individuals. Powerful but easy to misapply; understand the privacy budget."
         res:
-          - { name: "Differential Privacy (NIST blog series)", by: "NIST", url: "https://www.nist.gov/blogs/cybersecurity-insights/differential-privacy-privacy-preserving-data-analysis-introduction", type: docs, cost: free }
+          - { name: "Guidelines for Evaluating Differential Privacy Guarantees (SP 800-226)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/226/final", type: docs, cost: free }
       - id: pets-overview
         title: "Privacy-enhancing technologies"
         text: "Secure multiparty computation, federated learning and synthetic data let you use data while revealing less. Know what each is good and bad at."
@@ -199,7 +199,7 @@ tools:
   - { name: "OpenDP", url: "https://opendp.org/", kind: oss, what: "Open-source differential privacy library and tools." }
   - { name: "Amnesia", url: "https://amnesia.openaire.eu/", kind: free, what: "Data anonymisation tool for datasets." }
   - { name: "ARX Data Anonymization Tool", url: "https://arx.deidentifier.org/", kind: oss, what: "Anonymise datasets and measure re-identification risk." }
-  - { name: "OneTrust (and similar)", url: "https://www.onetrust.com/products/privacy-automation/", kind: paid, what: "Privacy management and consent platforms (one of several)." }
+  - { name: "OneTrust (and similar)", url: "https://www.onetrust.com/", kind: paid, what: "Privacy management and consent platforms (one of several)." }
 
 certs:
   - { name: "CIPP", by: "IAPP", url: "https://iapp.org/certify/cipp/", level: mid, note: "The standard privacy-law certification, by region." }

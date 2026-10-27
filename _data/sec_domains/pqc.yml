@@ -90,7 +90,7 @@ stages:
         title: "Hybrid schemes"
         text: "Combine a classical and a post-quantum algorithm so security holds if either survives. Hybrid key exchange is already deployed in major browsers and servers."
         res:
-          - { name: "Hybrid key exchange in TLS 1.3 (IETF draft)", by: "IETF", url: "https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/", type: docs, cost: free }
+          - { name: "Hybrid Key Exchange in TLS 1.3 (RFC 9954)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc9954", type: docs, cost: free }
       - id: pqc-in-protocols
         title: "Post-quantum in TLS, SSH and VPNs"
         text: "Protocols are adding post-quantum key exchange first, signatures later. Learn what your TLS libraries, SSH and VPN products already support."

@@ -200,7 +200,7 @@ tools:
   - { name: "Microsoft Purview", url: "https://learn.microsoft.com/en-us/purview/", kind: paid, what: "Classification, DLP and DSPM with strong documentation." }
   - { name: "Presidio", url: "https://microsoft.github.io/presidio/", kind: oss, what: "Find and redact personal data in text and images." }
   - { name: "HashiCorp Vault", url: "https://developer.hashicorp.com/vault", kind: community, what: "Secrets and encryption as a service." }
-  - { name: "OpenDLP and DataDog-style tools", url: "https://github.com/ezelf/openDLP", kind: oss, what: "Open-source data discovery (check maintenance before use)." }
+  - { name: "Apache Ranger", url: "https://ranger.apache.org/", kind: oss, what: "Fine-grained access control and auditing for data platforms." }
   - { name: "SQLMap (for defenders)", url: "https://sqlmap.org/", kind: oss, what: "Understand database injection to defend against it, in your own lab." }
 
 certs:
