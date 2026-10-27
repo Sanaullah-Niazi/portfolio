@@ -1,0 +1,228 @@
+# Security roadmap: Security Awareness and Human Risk. Shown at /roadmaps/security/awareness/.
+# Field guide: see the top of secops.yml.
+
+id: awareness
+category: grc
+icon: users
+entry: entry
+title: "Security Awareness and Human Risk"
+summary: "Change what people do, not just what they know: awareness programmes, phishing simulation done well, security culture, behaviour design and insider risk."
+keywords: "security awareness human risk security culture phishing simulation behaviour change training insider risk social engineering awareness programme metrics"
+
+overview:
+  - "Most incidents involve a person: a click, a reused password, a bypassed process. Human risk management works on the behaviours behind those incidents, through awareness, training, well-designed systems and a culture where people report mistakes early."
+  - "The field has moved on from annual slideshows. Modern programmes target specific behaviours, measure them, use simulations ethically, and work with the people who design systems so that the secure choice is the easy one. It needs communication skills, some psychology and an honest view of what training can and cannot fix."
+why: "Phishing and social engineering remain the top ways in, and regulators require training. Organisations need people who can measurably reduce human risk without blaming or boring their colleagues."
+roles:
+  - { title: "Security awareness coordinator", level: entry, what: "Runs training and campaigns." }
+  - { title: "Security awareness specialist", level: mid, what: "Designs behaviour-focused programmes." }
+  - { title: "Human risk manager", level: senior, what: "Owns human risk measurement and culture." }
+  - { title: "Head of security culture", level: lead, what: "Sets culture strategy across the organisation." }
+
+prereqs:
+  - "Security fundamentals: the main attacks people face."
+  - "Clear writing and presentation skills."
+  - "Some understanding of how people learn and change behaviour."
+  - "Comfort working with HR, communications and leadership."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Awareness foundations"
+    months: "1–3"
+    topics:
+      - id: human-risk-basics
+        title: "Why people are targeted"
+        text: "Social engineering works on trust, urgency and habit. Learn the common attacks on people and why knowing about them is not enough to stop them."
+        res:
+          - { name: "Phishing attacks: defending your organisation", by: "UK NCSC", url: "https://www.ncsc.gov.uk/guidance/phishing", type: docs, cost: free }
+      - id: awareness-vs-behaviour
+        title: "Awareness versus behaviour"
+        text: "People who know the rules still break them under pressure. Target specific behaviours, such as reporting suspicious email, rather than general awareness."
+        res:
+          - { name: "Security awareness and training (SP 800-50)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/50/r1/final", type: docs, cost: free }
+      - id: core-topics
+        title: "The core topics"
+        text: "Phishing, passwords and MFA, device and data handling, reporting incidents, and working remotely. Cover few topics well rather than many badly."
+        res:
+          - { name: "Top 10 Cyber Tips", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online", type: docs, cost: free }
+      - id: communication
+        title: "Communicating security"
+        text: "Short, concrete, friendly and relevant beats long, abstract and scary. Learn to write and present for people who have other jobs."
+        res:
+          - { name: "SANS Security Awareness resources", by: "SANS Institute", url: "https://www.sans.org/security-awareness-training/resources/", type: docs, cost: free }
+      - id: training-delivery
+        title: "Training delivery"
+        text: "Onboarding, annual refreshers, role-based sessions and just-in-time nudges each have a place. Match the format to the behaviour and the audience."
+        res:
+          - { name: "Security awareness and training (SP 800-50)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/50/r1/final", type: docs, cost: free }
+      - id: reporting-culture
+        title: "Making it safe to report"
+        text: "The most valuable behaviour is reporting a mistake or a suspicious message quickly. Thank reporters, never punish, and show what happened next."
+        res:
+          - { name: "Phishing attacks: defending your organisation", by: "UK NCSC", url: "https://www.ncsc.gov.uk/guidance/phishing", type: docs, cost: free }
+    skills:
+      - "Explain the main attacks on people and why behaviour matters."
+      - "Write and present short, clear security messages."
+      - "Deliver training in the right format for the audience."
+    labs:
+      - "Write a one-page phishing guide and a two-minute talk for new starters."
+      - "Design an onboarding security session targeting three specific behaviours."
+    done:
+      - "Deliver training that targets behaviours, not just knowledge."
+      - "Explain why punishing clicks reduces reporting."
+
+  - level: intermediate
+    title: "Programmes and simulations"
+    months: "3–5"
+    topics:
+      - id: programme-design
+        title: "Designing a programme"
+        text: "Set goals, pick target behaviours, plan the year, choose channels and define how you will measure. A programme is more than a training platform."
+        res:
+          - { name: "SANS Security Awareness Maturity Model", by: "SANS Institute", url: "https://www.sans.org/security-awareness-training/resources/maturity-model/", type: docs, cost: free }
+      - id: phishing-simulation
+        title: "Phishing simulation done well"
+        text: "Simulations teach recognition and reporting when they are realistic, frequent, low-stakes and followed by instant feedback. Done badly they breed resentment."
+        res:
+          - { name: "GoPhish", by: "GoPhish project", url: "https://getgophish.com/", type: tool, cost: free }
+      - id: simulation-ethics
+        title: "Ethics and trust in simulations"
+        text: "Avoid cruel lures, never shame individuals, and be open about the programme. Trust lost in one bad campaign takes years to rebuild."
+        res:
+          - { name: "Phishing attacks: defending your organisation", by: "UK NCSC", url: "https://www.ncsc.gov.uk/guidance/phishing", type: docs, cost: free }
+      - id: role-based
+        title: "Role-based training"
+        text: "Finance, developers, executives and administrators face different threats. Give each group training about their own risks."
+        res:
+          - { name: "Security awareness and training (SP 800-50)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/50/r1/final", type: docs, cost: free }
+      - id: awareness-metrics
+        title: "Measuring the programme"
+        text: "Report rates, time to report, repeat clickers, password manager adoption and real incidents tell you more than completion rates. Measure behaviour."
+        res:
+          - { name: "SANS Security Awareness Maturity Model", by: "SANS Institute", url: "https://www.sans.org/security-awareness-training/resources/maturity-model/", type: docs, cost: free }
+      - id: champions
+        title: "Security champions and ambassadors"
+        text: "Volunteers in each team spread messages, answer questions and feed back what is not working. They multiply a small team's reach."
+        res:
+          - { name: "OWASP Security Culture", by: "OWASP Foundation", url: "https://owasp.org/www-project-security-culture/", type: docs, cost: free }
+    skills:
+      - "Design and run a yearly awareness programme."
+      - "Run ethical, effective phishing simulations."
+      - "Deliver role-based training."
+      - "Measure behaviour, not completion."
+    labs:
+      - "Run a phishing simulation with GoPhish in a lab, with feedback pages and a reporting path."
+      - "Write a yearly programme plan with target behaviours and metrics for each."
+      - "Design role-based modules for finance and administrators."
+    done:
+      - "Run a programme with rising report rates and falling repeat clicks."
+      - "Show a simulation that people found useful rather than humiliating."
+
+  - level: advanced
+    title: "Culture and human risk"
+    months: "4–6"
+    topics:
+      - id: security-culture
+        title: "Security culture"
+        text: "Culture is what people do when nobody is checking. Measure it, understand the pressures that work against security, and change the environment, not just the people."
+        res:
+          - { name: "OWASP Security Culture", by: "OWASP Foundation", url: "https://owasp.org/www-project-security-culture/", type: docs, cost: free }
+      - id: behaviour-design
+        title: "Behaviour design"
+        text: "Make the secure behaviour easy, timely and rewarded. Defaults, prompts and friction often beat training. Work with the teams that design systems."
+        res:
+          - { name: "Security awareness and training (SP 800-50)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/50/r1/final", type: docs, cost: free }
+      - id: human-risk-measurement
+        title: "Human risk measurement"
+        text: "Combine simulation, identity, email and incident data to see which groups carry the most human risk and target them. Treat people's data with care."
+        res:
+          - { name: "SANS Security Awareness Maturity Model", by: "SANS Institute", url: "https://www.sans.org/security-awareness-training/resources/maturity-model/", type: docs, cost: free }
+      - id: insider-risk
+        title: "Insider risk"
+        text: "Negligent and malicious insiders both cause harm. A fair insider risk programme combines culture, access control, monitoring and a humane process."
+        res:
+          - { name: "Insider Threat Mitigation Guide", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/insider-threat-mitigation-guide", type: docs, cost: free }
+      - id: exec-awareness
+        title: "Executives and high-risk roles"
+        text: "Leaders are targeted most and trained least. Give them tailored briefings, protect their accounts and brief their assistants too."
+        res:
+          - { name: "Board Toolkit", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/board-toolkit", type: docs, cost: free }
+      - id: ai-social-engineering
+        title: "AI-enabled social engineering"
+        text: "Deepfake voice and video, perfect phishing and automated pretexting change what people can be expected to spot. Update training and add verification steps."
+        res:
+          - { name: "Phishing attacks: defending your organisation", by: "UK NCSC", url: "https://www.ncsc.gov.uk/guidance/phishing", type: docs, cost: free }
+    skills:
+      - "Assess and change security culture."
+      - "Apply behaviour design with system owners."
+      - "Measure human risk by group."
+      - "Run a fair insider risk programme."
+    labs:
+      - "Run a culture survey and interviews for a sample organisation and propose three changes."
+      - "Redesign a process so the secure option is the default, and measure the effect."
+      - "Design a verification process for payment requests that resists deepfake calls."
+    done:
+      - "Show a measured culture improvement with evidence."
+      - "Run an insider risk programme that is fair and effective."
+
+  - level: expert
+    title: "Leading security culture"
+    months: "6–12"
+    topics:
+      - id: culture-strategy
+        title: "Culture strategy"
+        text: "Set the long-term vision for security culture, win leadership sponsorship and align with HR, communications and the business."
+        res:
+          - { name: "OWASP Security Culture", by: "OWASP Foundation", url: "https://owasp.org/www-project-security-culture/", type: docs, cost: free }
+      - id: culture-reporting
+        title: "Reporting human risk"
+        text: "Show leadership the human risk trend, the behaviours improving, and where the environment still works against people. Numbers and stories together."
+        res:
+          - { name: "SANS Security Awareness Maturity Model", by: "SANS Institute", url: "https://www.sans.org/security-awareness-training/resources/maturity-model/", type: docs, cost: free }
+      - id: awareness-research
+        title: "Staying evidence-based"
+        text: "Much awareness practice is folklore. Follow the research on what changes behaviour and drop what does not work, however traditional."
+        res:
+          - { name: "Security awareness and training (SP 800-50)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/50/r1/final", type: docs, cost: free }
+    skills:
+      - "Set and sponsor a culture strategy."
+      - "Report human risk to leadership."
+    labs:
+      - "Write a three-year security culture strategy."
+      - "Produce a leadership report on human risk with trends."
+    done:
+      - "Lead a security culture programme with measurable results."
+      - "Show leadership sponsoring security behaviour visibly."
+
+tools:
+  - { name: "GoPhish", url: "https://getgophish.com/", kind: oss, what: "Phishing simulation platform." }
+  - { name: "SANS Security Awareness resources", url: "https://www.sans.org/security-awareness-training/resources/", kind: free, what: "Posters, videos and planning kits." }
+  - { name: "KnowBe4, Proofpoint and similar", url: "https://www.knowbe4.com/", kind: paid, what: "Training and simulation platforms (one of several)." }
+  - { name: "CISA awareness resources", url: "https://www.cisa.gov/cybersecurity-awareness-month", kind: free, what: "Free campaign material." }
+
+certs:
+  - { name: "SANS Security Awareness training", by: "SANS Institute", url: "https://www.sans.org/security-awareness-training/", level: mid, note: "Security awareness professional." }
+  - { ref: secplus, note: "Technical grounding for awareness staff." }
+  - { name: "CIPP", by: "IAPP", url: "https://iapp.org/certify/cipp/", level: mid, note: "Useful where awareness overlaps privacy." }
+
+resources:
+  - { name: "Security awareness and training (SP 800-50)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/50/r1/final", type: docs, cost: free }
+  - { name: "SANS Security Awareness Maturity Model", by: "SANS Institute", url: "https://www.sans.org/security-awareness-training/resources/maturity-model/", type: docs, cost: free }
+  - { name: "OWASP Security Culture", by: "OWASP Foundation", url: "https://owasp.org/www-project-security-culture/", type: docs, cost: free }
+  - { name: "Phishing attacks: defending your organisation", by: "UK NCSC", url: "https://www.ncsc.gov.uk/guidance/phishing", type: docs, cost: free }
+  - { name: "Insider Threat Mitigation Guide", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/insider-threat-mitigation-guide", type: docs, cost: free }
+
+frameworks: [nist-csf, iso27001, cis-controls, nist-800-53, gdpr]
+
+career:
+  - { title: "Communications, HR, training or security analyst", years: "0–2 years" }
+  - { title: "Security awareness coordinator or specialist", years: "1–4 years" }
+  - { title: "Human risk manager", years: "4–8 years" }
+  - { title: "Head of security culture", years: "8+ years" }
+
+related:
+  - { to: email, why: "Phishing defences and awareness work together." }
+  - { to: iam, why: "MFA and passkeys remove whole classes of human error." }
+  - { to: grc, why: "Training is a compliance requirement in most frameworks." }
+  - { to: leadership, why: "Culture change needs leadership sponsorship." }

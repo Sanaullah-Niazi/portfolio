@@ -1,0 +1,227 @@
+# Security roadmap: Third-Party and Supply Chain Risk. Shown at /roadmaps/security/tprm/.
+# Field guide: see the top of secops.yml.
+
+id: tprm
+category: grc
+icon: link
+entry: entry
+title: "Third-Party and Supply Chain Risk"
+summary: "Manage the security risk of vendors, suppliers and outsourcers: assessments, questionnaires, contract clauses, continuous monitoring and handling a supplier breach."
+keywords: "third-party risk management TPRM vendor risk supplier risk security questionnaires SIG CAIQ contract security outsourcing risk continuous monitoring supplier breach fourth party"
+
+overview:
+  - "Most organisations run on other companies' software, services and people. Third-party risk management works out which suppliers matter, assesses their security, writes the right terms into contracts, monitors them over time, and responds when one of them is breached."
+  - "It combines questionnaires and evidence review with risk tiering, contract negotiation and relationships with procurement, legal and the business. The best programmes focus deeply on the few suppliers that could really hurt and keep the rest light."
+why: "Supplier breaches are now a leading way attackers reach organisations, and regulators such as DORA and NIS2 make supplier oversight a legal duty. Companies need people who can run a risk-based programme rather than a questionnaire factory."
+roles:
+  - { title: "Third-party risk analyst", level: entry, what: "Runs assessments and tracks vendors." }
+  - { title: "TPRM specialist", level: mid, what: "Owns tiering, assessments and contract input." }
+  - { title: "TPRM manager", level: senior, what: "Runs the programme and supplier incidents." }
+  - { title: "Head of third-party risk", level: lead, what: "Sets strategy and reports supplier risk to leadership." }
+
+prereqs:
+  - "Security fundamentals and the main control frameworks."
+  - "How procurement and contracts work."
+  - "Clear writing and the ability to read evidence critically."
+  - "Risk management basics."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Third-party risk foundations"
+    months: "2–3"
+    topics:
+      - id: why-tprm
+        title: "Why third parties matter"
+        text: "Study the breaches that came through suppliers: managed service providers, software vendors, outsourced support. They show how trust is abused."
+        res:
+          - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+      - id: vendor-inventory
+        title: "Inventorying suppliers"
+        text: "You cannot manage suppliers you do not know about. Build the inventory from finance, procurement and IT, including the ones bought on a credit card."
+        res:
+          - { name: "Supply chain security guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/supply-chain-security", type: docs, cost: free }
+      - id: tiering
+        title: "Tiering by risk"
+        text: "Rate suppliers by the data they touch, the access they have and how much you depend on them. Put effort where the risk is."
+        res:
+          - { name: "Supply chain security guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/supply-chain-security", type: docs, cost: free }
+      - id: questionnaires
+        title: "Questionnaires and standards"
+        text: "Standard questionnaires such as SIG and CAIQ save everyone time. Learn to use them and, more importantly, to read the answers critically."
+        res:
+          - { name: "Cloud Controls Matrix and CAIQ", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/research/cloud-controls-matrix", type: docs, cost: free }
+      - id: evidence-review
+        title: "Reviewing evidence"
+        text: "SOC 2 reports, ISO certificates and pen test summaries are evidence, but only if you read the scope, exceptions and dates. A certificate is not a guarantee."
+        res:
+          - { name: "SOC 2 overview", by: "AICPA", url: "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2", type: docs, cost: free }
+      - id: tprm-lifecycle
+        title: "The supplier lifecycle"
+        text: "Onboarding, contracting, ongoing monitoring, change and offboarding each need security steps. Offboarding, when access should end, is the most neglected."
+        res:
+          - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+    skills:
+      - "Build and tier a supplier inventory."
+      - "Run a questionnaire-based assessment."
+      - "Read assurance evidence critically."
+    labs:
+      - "Tier a sample list of thirty suppliers and justify the tiers."
+      - "Review a sample SOC 2 report and write the risk summary for a buyer."
+    done:
+      - "Produce a tiered supplier inventory with an assessment plan."
+      - "Explain the limits of a certificate or audit report as evidence."
+
+  - level: intermediate
+    title: "Running the programme"
+    months: "3–5"
+    topics:
+      - id: assessment-depth
+        title: "Assessment by tier"
+        text: "Light checks for low-risk suppliers, full assessments and site visits for critical ones. Define what each tier gets and stick to it."
+        res:
+          - { name: "Supply chain security guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/supply-chain-security", type: docs, cost: free }
+      - id: contract-security
+        title: "Security in contracts"
+        text: "Breach notification, audit rights, subcontractor rules, data handling and termination terms belong in the contract. Work with legal on standard clauses."
+        res:
+          - { name: "GDPR Article 28 (processors)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", type: docs, cost: free }
+      - id: remediation-tracking
+        title: "Findings and remediation"
+        text: "Assessments produce gaps; track them to closure with the supplier and escalate through the business owner when they stall."
+        res:
+          - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+      - id: continuous-monitoring-tprm
+        title: "Continuous monitoring"
+        text: "External ratings, breach news and attack surface data flag changes between assessments. Use them as signals to investigate, not as verdicts."
+        res:
+          - { name: "Supply chain security guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/supply-chain-security", type: docs, cost: free }
+      - id: fourth-parties
+        title: "Fourth parties and concentration"
+        text: "Your suppliers have suppliers, and many share the same cloud or software. Map the critical dependencies and the concentration risk."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: supplier-incident
+        title: "Supplier incidents"
+        text: "When a supplier is breached you need to know fast what they hold, what access they have and whom to call. Build the playbook before you need it."
+        res:
+          - { name: "Computer Security Incident Handling Guide (SP 800-61)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
+    skills:
+      - "Run tiered assessments and track remediation."
+      - "Put the right security terms into contracts."
+      - "Monitor suppliers continuously."
+      - "Respond to a supplier breach."
+    labs:
+      - "Write a standard set of security contract clauses and apply them to a sample agreement."
+      - "Run a tabletop for a critical supplier breach and produce the playbook."
+      - "Map the fourth parties behind five critical suppliers."
+    done:
+      - "Run a programme that assesses, contracts and monitors suppliers by tier."
+      - "Handle a supplier incident with a tested playbook."
+
+  - level: advanced
+    title: "Regulation and scale"
+    months: "4–6"
+    topics:
+      - id: tprm-regulation
+        title: "Regulatory requirements"
+        text: "DORA, NIS2, banking outsourcing rules and sector regulators set specific supplier oversight duties, including registers and exit plans. Map them to your programme."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: critical-suppliers
+        title: "Critical suppliers and exit plans"
+        text: "For suppliers you cannot operate without, plan how you would leave or survive their failure. Regulators now expect written exit strategies."
+        res:
+          - { name: "Business Continuity Management (ISO 22301)", by: "ISO", url: "https://www.iso.org/standard/75106.html", type: docs, cost: paid }
+      - id: tprm-automation
+        title: "Automating TPRM"
+        text: "Platforms handle questionnaires, evidence, ratings and workflows at scale. Automate the routine and keep humans for the critical tier."
+        res:
+          - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+      - id: software-and-saas
+        title: "Software and SaaS suppliers"
+        text: "Software vendors bring supply chain risk: ask for SBOMs, secure development evidence and vulnerability handling. SaaS adds data location and access questions."
+        res:
+          - { name: "Secure Software Development Framework (SP 800-218)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/218/final", type: docs, cost: free }
+      - id: ai-suppliers
+        title: "AI and new supplier types"
+        text: "AI vendors, data brokers and managed detection providers raise new questions about data use, model risk and access. Extend assessments to cover them."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+      - id: tprm-metrics
+        title: "Measuring the programme"
+        text: "Track coverage by tier, assessment timeliness, open high findings and supplier incidents. Report concentration and critical supplier status to leadership."
+        res:
+          - { name: "Supply chain security guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/supply-chain-security", type: docs, cost: free }
+    skills:
+      - "Meet regulatory supplier oversight duties."
+      - "Plan for critical supplier failure."
+      - "Scale the programme with automation."
+      - "Assess software, SaaS and AI suppliers properly."
+    labs:
+      - "Produce a DORA-style register of ICT suppliers for a sample organisation."
+      - "Write an exit plan for a critical cloud supplier."
+    done:
+      - "Run a programme that meets regulatory supplier oversight requirements."
+      - "Show tested exit plans for critical suppliers."
+
+  - level: expert
+    title: "Leading third-party risk"
+    months: "6–12"
+    topics:
+      - id: tprm-strategy
+        title: "TPRM strategy"
+        text: "Set the risk appetite for suppliers, the operating model with procurement and legal, and the tooling, and tie it to enterprise risk."
+        res:
+          - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+      - id: supplier-collaboration
+        title: "Working with suppliers"
+        text: "The best outcomes come from collaboration: shared assessments, improvement plans and honest conversations. Suppliers are partners, not suspects."
+        res:
+          - { name: "Supply chain security guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/supply-chain-security", type: docs, cost: free }
+      - id: tprm-board
+        title: "Reporting supplier risk"
+        text: "Leadership needs to know the critical suppliers, the concentration, the open risks and the incidents. Keep it short and decision-focused."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+    skills:
+      - "Set third-party risk strategy and appetite."
+      - "Build collaborative supplier relationships."
+    labs:
+      - "Write a TPRM strategy and operating model with procurement and legal roles."
+      - "Design a leadership report on supplier risk and concentration."
+    done:
+      - "Lead a third-party risk programme that leadership and regulators trust."
+      - "Show supplier risk reducing over time with evidence."
+
+tools:
+  - { name: "Shared Assessments SIG", url: "https://sharedassessments.org/sig/", kind: paid, what: "Standard supplier questionnaire." }
+  - { name: "CSA STAR Registry", url: "https://cloudsecurityalliance.org/star", kind: free, what: "Published cloud provider self-assessments." }
+  - { name: "Security ratings services", url: "https://www.bitsight.com/", kind: paid, what: "External monitoring of suppliers (one of several)." }
+  - { name: "Eramba", url: "https://www.eramba.org/", kind: community, what: "Open-source GRC with vendor tracking." }
+
+certs:
+  - { name: "CTPRP", by: "Shared Assessments", url: "https://sharedassessments.org/certifications/ctprp/", level: mid, note: "Third-party risk professional." }
+  - { name: "CRISC", by: "ISACA", url: "https://www.isaca.org/credentialing/crisc", level: senior, note: "Risk and control, including suppliers." }
+  - { name: "CISA", by: "ISACA", url: "https://www.isaca.org/credentialing/cisa", level: mid, note: "Useful for reading audit evidence." }
+
+resources:
+  - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+  - { name: "Supply chain security guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/supply-chain-security", type: docs, cost: free }
+  - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+  - { name: "Cloud Controls Matrix and CAIQ", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/research/cloud-controls-matrix", type: docs, cost: free }
+  - { name: "SOC 2 overview", by: "AICPA", url: "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2", type: docs, cost: free }
+
+frameworks: [nist-800-161, dora, nis2, iso27001, soc2, csa-ccm, iso27005]
+
+career:
+  - { title: "Procurement, audit or security analyst", years: "0–2 years" }
+  - { title: "Third-party risk analyst", years: "1–3 years" }
+  - { title: "TPRM specialist or manager", years: "3–7 years" }
+  - { title: "Head of third-party risk", years: "7+ years" }
+
+related:
+  - { to: risk, why: "Supplier risk feeds the enterprise risk picture." }
+  - { to: supplychain, why: "Software supply chain is the technical side of supplier risk." }
+  - { to: grc, why: "Suppliers must meet the same policies and regulations." }
+  - { to: resilience, why: "Critical supplier failure is a continuity scenario." }

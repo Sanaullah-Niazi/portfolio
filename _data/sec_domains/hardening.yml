@@ -228,4 +228,4 @@ related:
   - { to: endpoint, why: "The same discipline for user devices." }
   - { to: container, why: "Hardening for containers and Kubernetes." }
   - { to: cloud, why: "Configuration security is most of cloud security." }
-  - { name: "Business Continuity and Cyber Resilience", why: "Immutable backups and recovery build on hardening." }
+  - { to: resilience, why: "Immutable backups and recovery build on hardening." }

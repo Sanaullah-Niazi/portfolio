@@ -226,4 +226,4 @@ related:
   - { to: devsecops, why: "The pipeline is where SBOMs, signing and provenance are produced." }
   - { to: appsec, why: "Dependencies are most of an application's code." }
   - { to: ai-supply, why: "Models and datasets are the AI version of the same problem." }
-  - { name: "Third-Party and Supply Chain Risk", why: "Vendor software risk is part of third-party risk." }
+  - { to: tprm, why: "Vendor software risk is part of third-party risk." }

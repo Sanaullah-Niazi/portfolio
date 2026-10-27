@@ -175,8 +175,8 @@ categories:
     icon: briefcase
     title: "Governance, risk, compliance and audit"
     summary: "Deciding what to protect, proving it is protected, and keeping the business running."
-    domains: []
-    planned: ["Cybersecurity Governance", "Risk Management", "GRC", "Security Policy Management", "Security Awareness and Education", "Third-Party Risk Management", "Supply Chain Risk Management", "Internal and External Security Audit", "Regulatory Compliance", "Security Metrics and Reporting", "Business Continuity Management", "Disaster Recovery", "Cyber Insurance and Risk Transfer", "Security Program Management", "Security Architecture Governance", "Assurance and Certification"]
+    domains: [grc, risk, audit, tprm, resilience, awareness, leadership]
+    planned: []
 
   - id: ai
     icon: brain

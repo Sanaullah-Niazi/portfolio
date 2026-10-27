@@ -1,0 +1,230 @@
+# Security roadmap: Security Auditing and Assurance. Shown at /roadmaps/security/audit/.
+# Field guide: see the top of secops.yml.
+
+id: audit
+category: grc
+icon: search
+entry: entry
+title: "Security Auditing and Assurance"
+summary: "Test whether controls really work: plan and run IT and security audits, gather evidence, report findings fairly, and support certification and attestation."
+keywords: "security audit IT audit control testing assurance attestation certification ISO 19011 CISA audit evidence sampling findings internal audit external audit SOC 2 audit"
+
+overview:
+  - "Auditing checks that what an organisation says about its security is true. An auditor plans the scope, tests controls against a standard, gathers evidence, and reports findings with enough rigour that others can rely on them."
+  - "The field spans internal audit, external certification and attestation audits such as ISO 27001 and SOC 2, regulatory examinations and technical assurance reviews. It needs independence, method and a good nose for the gap between the policy and the practice."
+why: "Customers, regulators and boards rely on audits to trust an organisation's security. Good auditors find the real gaps before attackers or regulators do, and bad audits give false comfort. The skills are in demand on both the auditing and the audited side."
+roles:
+  - { title: "IT audit associate", level: entry, what: "Tests controls and gathers evidence." }
+  - { title: "IT or security auditor", level: mid, what: "Plans and runs audits and writes reports." }
+  - { title: "Audit manager", level: senior, what: "Owns the audit plan and quality." }
+  - { title: "Head of IT audit", level: lead, what: "Sets assurance strategy and reports to the audit committee." }
+
+prereqs:
+  - "Security and IT fundamentals: systems, networks, identity, change."
+  - "Attention to detail and clear, neutral writing."
+  - "Understanding of at least one control framework."
+  - "Professional scepticism."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Audit fundamentals"
+    months: "2–3"
+    topics:
+      - id: audit-purpose
+        title: "What audit is for"
+        text: "Audit gives independent assurance that controls exist and operate. Learn the difference between audit, assessment, review and testing, and who relies on each."
+        res:
+          - { name: "ISO 19011 (Guidelines for auditing management systems)", by: "ISO", url: "https://www.iso.org/standard/70017.html", type: docs, cost: paid }
+      - id: audit-types
+        title: "Types of audit"
+        text: "Internal, external, certification, attestation and regulatory audits differ in purpose, independence and output. Know which you are doing."
+        res:
+          - { name: "ISACA IT audit resources", by: "ISACA", url: "https://www.isaca.org/resources/it-audit", type: docs, cost: free }
+      - id: control-objectives
+        title: "Control objectives and tests"
+        text: "Each control has an objective and a way to test it: inspection, observation, inquiry, re-performance. Design tests that would actually catch failure."
+        res:
+          - { name: "NIST SP 800-53A (Assessing Security Controls)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final", type: docs, cost: free }
+      - id: evidence
+        title: "Evidence and sampling"
+        text: "Evidence must be sufficient, reliable and relevant. Learn sampling, what makes a screenshot acceptable, and how to document a test so it can be reviewed."
+        res:
+          - { name: "NIST SP 800-53A (Assessing Security Controls)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final", type: docs, cost: free }
+      - id: audit-frameworks
+        title: "Audit frameworks and standards"
+        text: "COBIT, ISO 19011, the IIA standards and the AICPA attestation standards shape how audits are done. Learn the ones used in your context."
+        res:
+          - { name: "COBIT", by: "ISACA", url: "https://www.isaca.org/resources/cobit", type: docs, cost: free }
+      - id: independence-ethics
+        title: "Independence and ethics"
+        text: "An audit is only worth what its independence protects. Learn conflicts of interest, confidentiality and how to hold the line politely."
+        res:
+          - { name: "ISACA Code of Professional Ethics", by: "ISACA", url: "https://www.isaca.org/credentialing/code-of-professional-ethics", type: docs, cost: free }
+    skills:
+      - "Explain the purpose and types of audit."
+      - "Design a control test and collect acceptable evidence."
+      - "Apply audit ethics and independence."
+    labs:
+      - "Design tests for five common controls and document the evidence each needs."
+      - "Audit a sample organisation's access reviews from provided evidence and write up the results."
+    done:
+      - "Test controls and document evidence to a reviewable standard."
+      - "Explain which audit type suits a given need."
+
+  - level: intermediate
+    title: "Running audits"
+    months: "3–6"
+    topics:
+      - id: audit-planning
+        title: "Planning and scoping"
+        text: "Risk-based planning decides what to audit and how deep. Define scope, criteria, resources and schedule, and agree them with the auditee."
+        res:
+          - { name: "ISO 19011 (Guidelines for auditing management systems)", by: "ISO", url: "https://www.iso.org/standard/70017.html", type: docs, cost: paid }
+      - id: fieldwork
+        title: "Fieldwork and interviews"
+        text: "Interview control owners, inspect systems, re-perform processes. Ask open questions, verify what you are told, and keep clear working papers."
+        res:
+          - { name: "ISACA IT audit resources", by: "ISACA", url: "https://www.isaca.org/resources/it-audit", type: docs, cost: free }
+      - id: technical-audit
+        title: "Technical audit skills"
+        text: "Pull configuration, logs and access data yourself where you can. Auditors who can read a config find things interviews never reveal."
+        res:
+          - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+      - id: findings
+        title: "Findings and root causes"
+        text: "A finding states condition, criteria, cause, effect and recommendation. Rate it fairly and aim at the root cause, not the symptom."
+        res:
+          - { name: "NIST SP 800-53A (Assessing Security Controls)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final", type: docs, cost: free }
+      - id: audit-reporting
+        title: "Reporting"
+        text: "Write reports that executives can act on and that stand up to challenge. Lead with what matters, be precise, and avoid both drama and softening."
+        res:
+          - { name: "ISO 19011 (Guidelines for auditing management systems)", by: "ISO", url: "https://www.iso.org/standard/70017.html", type: docs, cost: paid }
+      - id: iso-soc-audits
+        title: "ISO 27001 and SOC 2 audits"
+        text: "Certification and attestation audits follow set stages and rules. Learn them from both sides: as an auditor and as the person being audited."
+        res:
+          - { name: "SOC 2 overview", by: "AICPA", url: "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2", type: docs, cost: free }
+    skills:
+      - "Plan and scope a risk-based audit."
+      - "Run fieldwork, including technical testing."
+      - "Write findings with root causes and clear reports."
+      - "Support ISO 27001 and SOC 2 audits."
+    labs:
+      - "Plan and run a mock audit of a lab environment against ten CIS Controls; write the report."
+      - "Re-perform a change management control from ticket to deployment and document it."
+      - "Rewrite three weak findings into condition, criteria, cause, effect and recommendation form."
+    done:
+      - "Run a complete audit from planning to report."
+      - "Produce findings that stand up to challenge from the auditee."
+
+  - level: advanced
+    title: "Assurance programmes"
+    months: "4–6"
+    topics:
+      - id: audit-universe
+        title: "The audit universe and plan"
+        text: "Map everything that could be audited, rate it by risk, and build a multi-year plan. Cover the high risks often and the rest in rotation."
+        res:
+          - { name: "COBIT", by: "ISACA", url: "https://www.isaca.org/resources/cobit", type: docs, cost: free }
+      - id: continuous-auditing
+        title: "Continuous auditing"
+        text: "Automated tests of controls across whole populations replace yearly samples. Build the data feeds and the analytics."
+        res:
+          - { name: "OpenSCAP", by: "OpenSCAP project", url: "https://github.com/OpenSCAP/openscap", type: tool, cost: free }
+      - id: data-analytics-audit
+        title: "Data analytics in audit"
+        text: "Query logs, access lists and transactions directly to find anomalies and test full populations. SQL and a little Python go a long way."
+        res:
+          - { name: "ISACA IT audit resources", by: "ISACA", url: "https://www.isaca.org/resources/it-audit", type: docs, cost: free }
+      - id: regulatory-exams
+        title: "Regulatory examinations"
+        text: "Regulators audit too, with their own rules and consequences. Learn how examinations run and how to prepare the organisation."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: third-party-assurance
+        title: "Third-party assurance"
+        text: "Rely on others' audit reports, such as a vendor's SOC 2, correctly: read the scope, exceptions and complementary controls, not just the opinion."
+        res:
+          - { name: "SOC 2 overview", by: "AICPA", url: "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2", type: docs, cost: free }
+      - id: follow-up
+        title: "Remediation follow-up"
+        text: "Findings only matter if they are fixed. Track actions, verify closure with evidence, and escalate what is overdue."
+        res:
+          - { name: "ISO 19011 (Guidelines for auditing management systems)", by: "ISO", url: "https://www.iso.org/standard/70017.html", type: docs, cost: paid }
+    skills:
+      - "Build a risk-based audit universe and plan."
+      - "Run continuous and analytics-driven audits."
+      - "Handle regulatory examinations."
+      - "Use and evaluate third-party assurance reports."
+    labs:
+      - "Build an audit universe for a sample organisation and a three-year risk-based plan."
+      - "Write an analytics test that checks a whole population of access changes for approval."
+      - "Review a sample SOC 2 report and list the gaps a customer should worry about."
+    done:
+      - "Run an assurance programme with a risk-based plan and tracked remediation."
+      - "Replace sample-based tests with population tests where it matters."
+
+  - level: expert
+    title: "Leading assurance"
+    months: "6–12"
+    topics:
+      - id: audit-committee
+        title: "Audit committee reporting"
+        text: "Audit committees want the significant findings, the trend, management's response and your independent view. Learn to brief them well."
+        res:
+          - { name: "COBIT", by: "ISACA", url: "https://www.isaca.org/resources/cobit", type: docs, cost: free }
+      - id: audit-quality
+        title: "Audit quality and methodology"
+        text: "Set the methodology, working paper standards, review process and training that make every audit reliable."
+        res:
+          - { name: "ISO 19011 (Guidelines for auditing management systems)", by: "ISO", url: "https://www.iso.org/standard/70017.html", type: docs, cost: paid }
+      - id: assurance-strategy
+        title: "Assurance strategy"
+        text: "Combine internal audit, external audits, certifications and continuous monitoring into one assurance map so nothing is covered twice or not at all."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+    skills:
+      - "Report to audit committees."
+      - "Set audit methodology and quality standards."
+    labs:
+      - "Write an audit committee paper summarising a year's findings and themes."
+      - "Produce an assurance map showing which sources cover which risks."
+    done:
+      - "Lead an audit function trusted by the audit committee."
+      - "Own an assurance map across internal and external sources."
+
+tools:
+  - { name: "OpenSCAP", url: "https://github.com/OpenSCAP/openscap", kind: oss, what: "Automated configuration compliance checks." }
+  - { name: "CIS-CAT Pro", url: "https://www.cisecurity.org/cybersecurity-tools/cis-cat-pro", kind: paid, what: "Assess systems against CIS Benchmarks." }
+  - { name: "Lynis", url: "https://cisofy.com/lynis/", kind: oss, what: "Linux security auditing." }
+  - { name: "Prowler", url: "https://github.com/prowler-cloud/prowler", kind: oss, what: "Cloud security and compliance assessment." }
+  - { name: "SQL and Python", url: "https://www.python.org/", kind: oss, what: "Population testing and analytics." }
+
+certs:
+  - { name: "CISA", by: "ISACA", url: "https://www.isaca.org/credentialing/cisa", level: mid, note: "The standard IT audit certification." }
+  - { name: "ISO 27001 Lead Auditor", by: "PECB", url: "https://pecb.com/en/education-and-certification-for-individuals/iso-iec-27001", level: mid, note: "Certification audits." }
+  - { name: "CIA", by: "The IIA", url: "https://www.theiia.org/en/certifications/cia/", level: senior, note: "Internal audit profession." }
+  - { ref: cissp, note: "Technical breadth for auditors." }
+
+resources:
+  - { name: "NIST SP 800-53A (Assessing Security Controls)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/53/a/r5/final", type: docs, cost: free }
+  - { name: "ISACA IT audit resources", by: "ISACA", url: "https://www.isaca.org/resources/it-audit", type: docs, cost: free }
+  - { name: "COBIT", by: "ISACA", url: "https://www.isaca.org/resources/cobit", type: docs, cost: free }
+  - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+  - { name: "SOC 2 overview", by: "AICPA", url: "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2", type: docs, cost: free }
+
+frameworks: [iso19011, cobit, iso27001, soc2, nist-800-53, cis-benchmarks, pci-dss]
+
+career:
+  - { title: "IT, finance or security analyst", years: "0–2 years" }
+  - { title: "IT audit associate or auditor", years: "1–4 years" }
+  - { title: "Senior auditor or audit manager", years: "4–8 years" }
+  - { title: "Head of IT audit", years: "8+ years" }
+
+related:
+  - { to: grc, why: "Audit tests the controls governance set." }
+  - { to: risk, why: "Risk decides what to audit and how often." }
+  - { to: hardening, why: "Configuration audits rely on benchmarks." }
+  - { to: tprm, why: "Vendor audit reports are a key assurance source." }
