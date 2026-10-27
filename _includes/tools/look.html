@@ -1,0 +1,10 @@
+<section class="card tool" id="look" aria-label="{{ T.look_title }}">
+  <label class="field-label" for="look-input">{{ T.look_label }}</label>
+  <input class="field mono" id="look-input" type="text" dir="ltr" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="аррӏе.com">
+  <div class="btn-row">
+    <button class="btn btn-primary btn-sm" type="button" id="look-check">{% include icon.html name="shield" px=16 %}<span>{{ T.ph_check }}</span></button>
+    <button class="btn btn-sm" type="button" id="look-variants"><span>{{ T.look_variants }}</span></button>
+    <button class="btn btn-sm" type="button" id="look-sample"><span>{{ T.try_sample }}</span></button>
+  </div>
+  <div class="tool-out" id="look-out" aria-live="polite"></div>
+</section>

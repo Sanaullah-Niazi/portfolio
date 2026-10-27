@@ -1,0 +1,22 @@
+<section class="card tool" id="b64" aria-label="{{ T.b64_title }}">
+  <div class="seg" role="group" aria-label="{{ T.b64_title }}">
+    <button type="button" class="chip-btn" aria-pressed="true" data-src="text"><span>{{ T.hash_text }}</span></button>
+    <button type="button" class="chip-btn" aria-pressed="false" data-src="file"><span>{{ T.hash_file }}</span></button>
+  </div>
+  <div data-for="text">
+    <label class="field-label" for="b64-input">{{ T.b64_label }}</label>
+    <textarea class="field mono" id="b64-input" rows="5" dir="auto" spellcheck="false"></textarea>
+    <div class="check-row">
+      <label class="check"><input type="checkbox" id="b64-urlsafe"> <span>{{ T.b64_urlsafe }}</span></label>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm" type="button" id="b64-encode"><span>{{ T.encode }}</span></button>
+      <button class="btn btn-primary btn-sm" type="button" id="b64-decode"><span>{{ T.decode }}</span></button>
+    </div>
+  </div>
+  <div data-for="file" hidden>
+    <label class="drop" for="b64-file">{% include icon.html name="file" px=22 %}<span>{{ T.hash_pick }}</span></label>
+    <input id="b64-file" type="file" class="sr-only">
+  </div>
+  <div class="tool-out" id="b64-out" aria-live="polite"></div>
+</section>

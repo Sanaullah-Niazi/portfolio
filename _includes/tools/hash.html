@@ -1,0 +1,18 @@
+<section class="card tool" id="hash" aria-label="{{ T.hash_title }}">
+  <div class="seg" role="group" aria-label="{{ T.hash_title }}">
+    <button type="button" class="chip-btn" aria-pressed="true" data-src="text"><span>{{ T.hash_text }}</span></button>
+    <button type="button" class="chip-btn" aria-pressed="false" data-src="file"><span>{{ T.hash_file }}</span></button>
+  </div>
+  <div data-for="text">
+    <label class="sr-only" for="hash-text">{{ T.hash_text }}</label>
+    <textarea class="field mono" id="hash-text" rows="3" dir="auto" spellcheck="false"></textarea>
+  </div>
+  <div data-for="file" hidden>
+    <label class="drop" for="hash-file">{% include icon.html name="file" px=22 %}<span>{{ T.hash_pick }}</span></label>
+    <input id="hash-file" type="file" class="sr-only">
+    <p class="meta" id="hash-file-name"></p>
+  </div>
+  <label class="field-label" for="hash-expect">{{ T.hash_expect }}</label>
+  <input class="field mono" id="hash-expect" type="text" dir="ltr" spellcheck="false" autocomplete="off">
+  <div class="tool-out" id="hash-out" aria-live="polite"></div>
+</section>

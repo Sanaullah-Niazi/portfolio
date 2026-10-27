@@ -155,6 +155,27 @@
   </div>
 </section>
 
+{%- assign T = D.tools | default: site.data.tools %}{% assign featured = "pw,leak,ph,look,exif,hid" | split: "," %}
+<section class="section tools-band" id="tools" aria-labelledby="tools-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow">{{ S.tools_eyebrow }}</p>
+      <h2 id="tools-title">{{ S.tools_title }}</h2>
+      <p class="section-lede">{{ S.tools_lede }}</p>
+    </header>
+    <ul class="tool-cards">
+    {%- for key in featured %}{% assign t = site.data.tool_list | where: "key", key | first %}{% assign tk = key | append: "_title" %}{% assign ck = key | append: "_card" %}
+      <li class="card spot tool-card reveal">
+        <span class="icon-tile">{% include icon.html name=t.icon px=22 %}</span>
+        <h3><a href="{{ L }}/tools/{{ t.slug }}/">{{ T[tk] }}</a></h3>
+        <p>{{ T[ck] }}</p>
+      </li>
+    {%- endfor %}
+    </ul>
+    <p class="more"><a class="link-arrow" href="{{ L }}/tools/">{{ S.tools_all | replace: "%n", site.data.tool_list.size }} {% include icon.html name="arrow" px=16 %}</a></p>
+  </div>
+</section>
+
 <section class="section" id="experience" aria-labelledby="experience-title">
   <div class="wrap">
     <header class="section-head reveal">

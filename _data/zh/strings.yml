@@ -76,6 +76,10 @@ projects_title: 我在做的项目
 projects_page_title: 项目
 projects_lede: AI 与安全方向的实践项目。每个项目都有单独的页面，包含代码、演示和结果。
 projects_all: 全部项目
+tools_eyebrow: "免费工具"
+tools_title: "马上就能用的免费安全工具"
+tools_lede: "来自我自己安全工作的小工具。它们在你的浏览器里运行，无需注册。"
+tools_all: "全部 %n 个工具"
 all_projects_back: 全部项目
 filter_label: 按主题筛选：
 filter_all: 全部

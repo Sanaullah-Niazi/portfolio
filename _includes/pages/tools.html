@@ -1,7 +1,7 @@
 {%- comment -%}
-  The Tools page, in every language. The text is in _data/tools.yml (English) and _data/<code>/tools.yml.
-  The tools run in assets/js/tools.js, which reads its own messages from the JSON block at the end.
-  Nothing typed here is sent anywhere: the site's security policy blocks every connection except the contact form.
+  The Tools hub (/tools/), in every language: a card for each tool, grouped. Each tool has its own page
+  (_includes/pages/tool.html). The list and order are in _data/tool_list.yml, the text in _data/tools.yml
+  (English) and _data/<code>/tools.yml.
 {%- endcomment -%}
 {%- assign T = D.tools | default: site.data.tools -%}
 <div class="wrap page tools-page">
@@ -11,140 +11,24 @@
     <p class="lede">{{ T.lede }}</p>
     <p class="pill">{% include icon.html name="lock" px=15 %}<span>{{ T.private }}</span></p>
   </header>
-
-  <nav class="tool-index" aria-label="{{ T.title }}">
-    <a class="card spot" href="#password"><span class="icon-tile sm">{% include icon.html name="key" px=18 %}</span><span>{{ T.pw_title }}</span></a>
-    <a class="card spot" href="#generator"><span class="icon-tile sm">{% include icon.html name="dice" px=18 %}</span><span>{{ T.gen_title }}</span></a>
-    <a class="card spot" href="#phishing"><span class="icon-tile sm">{% include icon.html name="link" px=18 %}</span><span>{{ T.ph_title }}</span></a>
-    <a class="card spot" href="#hash"><span class="icon-tile sm">{% include icon.html name="hash" px=18 %}</span><span>{{ T.hash_title }}</span></a>
-    <a class="card spot" href="#hidden"><span class="icon-tile sm">{% include icon.html name="eye" px=18 %}</span><span>{{ T.hid_title }}</span></a>
-    <a class="card spot" href="#jwt"><span class="icon-tile sm">{% include icon.html name="token" px=18 %}</span><span>{{ T.jwt_title }}</span></a>
-  </nav>
-
-  <noscript><p class="card">{{ T.nojs }}</p></noscript>
-
-  <section class="card tool" id="password" aria-labelledby="pw-title">
-    <div class="tool-head">
-      <span class="icon-tile">{% include icon.html name="key" px=22 %}</span>
-      <div><h2 id="pw-title" class="tool-title">{{ T.pw_title }}</h2>
-      <p class="muted">{{ T.pw_lede }}</p></div>
-    </div>
-    <label class="field-label" for="pw-input">{{ T.pw_label }}</label>
-    <div class="field-row">
-      <input class="field mono" id="pw-input" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr">
-      <button class="btn btn-sm" type="button" id="pw-show" aria-pressed="false" aria-controls="pw-input"><span>{{ T.show }}</span></button>
-    </div>
-    <div class="tool-out" id="pw-out" aria-live="polite"></div>
+  {%- for g in (1..2) %}{% if g == 1 %}{% assign group = "security" %}{% else %}{% assign group = "dev" %}{% endif %}
+  {%- assign gk = "group_" | append: group %}
+  <section class="tool-group" aria-labelledby="group-{{ group }}">
+    <h2 id="group-{{ group }}">{{ T[gk] }}</h2>
+    <ul class="tool-cards">
+    {%- assign tools = site.data.tool_list | where: "group", group %}
+    {%- for t in tools %}{% assign tk = t.key | append: "_title" %}{% assign ck = t.key | append: "_card" %}
+      <li class="card spot tool-card"{% if t.old %} data-old="{{ t.old }}"{% endif %}>
+        <span class="icon-tile">{% include icon.html name=t.icon px=22 %}</span>
+        <h3><a href="{{ L }}/tools/{{ t.slug }}/">{{ T[tk] }}</a></h3>
+        <p>{{ T[ck] }}</p>
+      </li>
+    {%- endfor %}
+    </ul>
   </section>
-
-  <section class="card tool" id="generator" aria-labelledby="gen-title">
-    <div class="tool-head">
-      <span class="icon-tile">{% include icon.html name="dice" px=22 %}</span>
-      <div><h2 id="gen-title" class="tool-title">{{ T.gen_title }}</h2>
-      <p class="muted">{{ T.gen_lede }}</p></div>
-    </div>
-    <div class="seg" role="group" aria-label="{{ T.gen_title }}">
-      <button type="button" class="chip-btn" aria-pressed="true" data-mode="phrase"><span>{{ T.gen_phrase }}</span></button>
-      <button type="button" class="chip-btn" aria-pressed="false" data-mode="chars"><span>{{ T.gen_chars }}</span></button>
-    </div>
-    <div class="gen-opts" data-for="phrase">
-      <label class="field-label" for="gen-words"><span>{{ T.gen_words }}</span>: <output id="gen-words-n" for="gen-words">6</output></label>
-      <input id="gen-words" type="range" min="4" max="12" value="6">
-      <div class="check-row">
-        <label class="check"><span>{{ T.gen_sep }}</span>
-          <select id="gen-sep" class="field field-inline"><option value="-">-</option><option value=" ">␣</option><option value=".">.</option><option value="_">_</option></select></label>
-        <label class="check"><input type="checkbox" id="gen-cap"> <span>{{ T.gen_cap }}</span></label>
-        <label class="check"><input type="checkbox" id="gen-num"> <span>{{ T.gen_num }}</span></label>
-      </div>
-    </div>
-    <div class="gen-opts" data-for="chars" hidden>
-      <label class="field-label" for="gen-len"><span>{{ T.gen_len }}</span>: <output id="gen-len-n" for="gen-len">20</output></label>
-      <input id="gen-len" type="range" min="8" max="64" value="20">
-      <div class="check-row">
-        <label class="check"><input type="checkbox" id="gen-lower" checked> a–z</label>
-        <label class="check"><input type="checkbox" id="gen-upper" checked> A–Z</label>
-        <label class="check"><input type="checkbox" id="gen-digits" checked> 0–9</label>
-        <label class="check"><input type="checkbox" id="gen-symbols" checked> !@#$</label>
-        <label class="check"><input type="checkbox" id="gen-similar"> <span>{{ T.gen_similar }}</span></label>
-      </div>
-    </div>
-    <output class="gen-result mono" id="gen-result" dir="ltr" aria-live="polite"></output>
-    <p class="meta" id="gen-meta"></p>
-    <div class="btn-row">
-      <button class="btn btn-primary btn-sm" type="button" id="gen-new">{% include icon.html name="dice" px=16 %}<span>{{ T.gen_new }}</span></button>
-      <button class="btn btn-sm" type="button" id="gen-copy">{% include icon.html name="copy" px=16 %}<span>{{ T.copy }}</span></button>
-    </div>
-  </section>
-
-  <section class="card tool" id="phishing" aria-labelledby="ph-title">
-    <div class="tool-head">
-      <span class="icon-tile">{% include icon.html name="link" px=22 %}</span>
-      <div><h2 id="ph-title" class="tool-title">{{ T.ph_title }}</h2>
-      <p class="muted">{{ T.ph_lede }}</p></div>
-    </div>
-    <label class="field-label" for="ph-input">{{ T.ph_label }}</label>
-    <textarea class="field mono" id="ph-input" rows="4" dir="ltr" spellcheck="false" placeholder="https://paypa1-secure-login.example.top/verify?account=..."></textarea>
-    <div class="btn-row">
-      <button class="btn btn-primary btn-sm" type="button" id="ph-check">{% include icon.html name="shield" px=16 %}<span>{{ T.ph_check }}</span></button>
-      <button class="btn btn-sm" type="button" id="ph-sample"><span>{{ T.try_sample }}</span></button>
-    </div>
-    <div class="tool-out" id="ph-out" aria-live="polite"></div>
-    <p class="tool-note">{{ T.ph_note }}</p>
-  </section>
-
-  <section class="card tool" id="hash" aria-labelledby="hash-title">
-    <div class="tool-head">
-      <span class="icon-tile">{% include icon.html name="hash" px=22 %}</span>
-      <div><h2 id="hash-title" class="tool-title">{{ T.hash_title }}</h2>
-      <p class="muted">{{ T.hash_lede }}</p></div>
-    </div>
-    <div class="seg" role="group" aria-label="{{ T.hash_title }}">
-      <button type="button" class="chip-btn" aria-pressed="true" data-src="text"><span>{{ T.hash_text }}</span></button>
-      <button type="button" class="chip-btn" aria-pressed="false" data-src="file"><span>{{ T.hash_file }}</span></button>
-    </div>
-    <div data-for="text">
-      <label class="sr-only" for="hash-text">{{ T.hash_text }}</label>
-      <textarea class="field mono" id="hash-text" rows="3" dir="auto" spellcheck="false"></textarea>
-    </div>
-    <div data-for="file" hidden>
-      <label class="drop" for="hash-file">{% include icon.html name="file" px=22 %}<span>{{ T.hash_pick }}</span></label>
-      <input id="hash-file" type="file" class="sr-only">
-      <p class="meta" id="hash-file-name"></p>
-    </div>
-    <label class="field-label" for="hash-expect">{{ T.hash_expect }}</label>
-    <input class="field mono" id="hash-expect" type="text" dir="ltr" spellcheck="false" autocomplete="off">
-    <div class="tool-out" id="hash-out" aria-live="polite"></div>
-  </section>
-
-  <section class="card tool" id="hidden" aria-labelledby="hid-title">
-    <div class="tool-head">
-      <span class="icon-tile">{% include icon.html name="eye" px=22 %}</span>
-      <div><h2 id="hid-title" class="tool-title">{{ T.hid_title }}</h2>
-      <p class="muted">{{ T.hid_lede }}</p></div>
-    </div>
-    <label class="field-label" for="hid-input">{{ T.hid_label }}</label>
-    <textarea class="field" id="hid-input" rows="5" dir="auto" spellcheck="false"></textarea>
-    <div class="btn-row">
-      <button class="btn btn-primary btn-sm" type="button" id="hid-scan">{% include icon.html name="eye" px=16 %}<span>{{ T.hid_scan }}</span></button>
-      <button class="btn btn-sm" type="button" id="hid-sample"><span>{{ T.try_sample }}</span></button>
-    </div>
-    <div class="tool-out" id="hid-out" aria-live="polite"></div>
-  </section>
-
-  <section class="card tool" id="jwt" aria-labelledby="jwt-title">
-    <div class="tool-head">
-      <span class="icon-tile">{% include icon.html name="token" px=22 %}</span>
-      <div><h2 id="jwt-title" class="tool-title">{{ T.jwt_title }}</h2>
-      <p class="muted">{{ T.jwt_lede }}</p></div>
-    </div>
-    <label class="field-label" for="jwt-input">{{ T.jwt_label }}</label>
-    <textarea class="field mono" id="jwt-input" rows="3" dir="ltr" spellcheck="false" placeholder="eyJhbGciOi..."></textarea>
-    <div class="btn-row">
-      <button class="btn btn-sm" type="button" id="jwt-sample"><span>{{ T.try_sample }}</span></button>
-    </div>
-    <div class="tool-out" id="jwt-out" aria-live="polite"></div>
-  </section>
-
+  {%- endfor %}
   <p class="muted tools-foot"><span>{{ T.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
 </div>
-<script type="application/json" id="tools-text">{{ T.js | jsonify }}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":{{ T.title | jsonify }},"itemListElement":[{% for t in site.data.tool_list %}{% assign tk = t.key | append: "_title" %}{"@type":"ListItem","position":{{ forloop.index }},"name":{{ T[tk] | jsonify }},"url":{{ L | append: '/tools/' | append: t.slug | append: '/' | absolute_url | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
+</script>

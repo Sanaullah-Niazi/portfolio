@@ -76,6 +76,10 @@ projects_title: Woran ich arbeite
 projects_page_title: Projekte
 projects_lede: Praktische Arbeit in KI und Sicherheit. Jedes Projekt hat eine eigene Seite mit Code, Demos und Ergebnissen.
 projects_all: Alle Projekte
+tools_eyebrow: "Kostenlose Tools"
+tools_title: "Kostenlose Sicherheitstools zum sofortigen Ausprobieren"
+tools_lede: "Kleine Tools aus meiner eigenen Sicherheitsarbeit. Sie laufen in Ihrem Browser, ohne Anmeldung."
+tools_all: "Alle %n Tools"
 all_projects_back: Alle Projekte
 filter_label: "Nach Thema filtern:"
 filter_all: Alle

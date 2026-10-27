@@ -26,7 +26,7 @@ This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs 
 | The terminal box in the top section | `_includes/pages/home.html`, the part that starts with `class="terminal"` |
 | Projects | one file per project in `_projects/` |
 | Notes / blog posts | one file per post in `_posts/` |
-| Security tools page (`/tools/`) | text in `_data/tools.yml` and `_data/<code>/tools.yml`, the page in `_includes/pages/tools.html`, the tools themselves in `assets/js/tools.js` (they run in the visitor's browser; nothing is sent anywhere) |
+| Tools (`/tools/` and one page per tool, e.g. `/tools/json-formatter/`) | the list and page addresses in `_data/tool_list.yml`; text, guides and FAQs in `_data/tools.yml` and `_data/<code>/tools.yml`; each tool's markup in `_includes/tools/<key>.html`, the pages in `_includes/pages/tools.html` (hub) and `_includes/pages/tool.html`; the code in `assets/js/tools.js`. Everything runs in the visitor's browser; the only outside request is the leaked password checker, which sends 5 characters of a SHA-1 hash to the Pwned Passwords API. To add a tool, add it to `tool_list.yml`, add its text, markup and a page file under `tools/<slug>/` (and `ur/`, `de/`, `zh/`) with its own title and description |
 
 Files ending in `.yml` are lists. Copy an existing entry (everything from its `-` line down), paste it, and change the text. Keep the same indentation (spaces, not tabs).
 

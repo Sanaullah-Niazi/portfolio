@@ -1,0 +1,20 @@
+<section class="card tool" id="uuid" aria-label="{{ T.uuid_title }}">
+  <div class="seg" role="group" aria-label="{{ T.uuid_title }}">
+    <button type="button" class="chip-btn" aria-pressed="true" data-ver="4"><span>UUID v4</span></button>
+    <button type="button" class="chip-btn" aria-pressed="false" data-ver="7"><span>UUID v7</span></button>
+  </div>
+  <div class="check-row">
+    <label class="check"><span>{{ T.uuid_count }}</span>
+      <input class="field field-inline mono" id="uuid-count" type="number" min="1" max="500" value="1" dir="ltr"></label>
+    <label class="check"><input type="checkbox" id="uuid-upper"> <span>{{ T.uuid_upper }}</span></label>
+    <label class="check"><input type="checkbox" id="uuid-nohyphen"> <span>{{ T.uuid_nohyphen }}</span></label>
+  </div>
+  <output class="gen-result mono" id="uuid-result" dir="ltr" aria-live="polite"></output>
+  <div class="btn-row">
+    <button class="btn btn-primary btn-sm" type="button" id="uuid-new">{% include icon.html name="dice" px=16 %}<span>{{ T.gen_new }}</span></button>
+    <button class="btn btn-sm" type="button" id="uuid-copy">{% include icon.html name="copy" px=16 %}<span>{{ T.copy }}</span></button>
+  </div>
+  <label class="field-label" for="uuid-check">{{ T.uuid_check }}</label>
+  <input class="field mono" id="uuid-check" type="text" dir="ltr" spellcheck="false" autocomplete="off" placeholder="0192e4a8-7c3b-7d21-9f4e-2b6a8c1d3e5f">
+  <div class="tool-out" id="uuid-out" aria-live="polite"></div>
+</section>

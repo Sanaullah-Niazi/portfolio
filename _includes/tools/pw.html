@@ -1,0 +1,9 @@
+<section class="card tool" id="password" aria-label="{{ T.pw_title }}">
+  <label class="field-label" for="pw-input">{{ T.pw_label }}</label>
+  <div class="field-row">
+    <input class="field mono" id="pw-input" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr">
+    <button class="btn btn-sm" type="button" id="pw-show" aria-pressed="false" aria-controls="pw-input"><span>{{ T.show }}</span></button>
+  </div>
+  <div class="tool-out" id="pw-out" aria-live="polite"></div>
+  <p class="tool-note">{{ T.pw_leak_hint }} <a href="{{ L }}/tools/leaked-password-checker/">{{ T.leak_title }}</a></p>
+</section>

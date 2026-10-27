@@ -1,0 +1,13 @@
+<section class="card tool" id="url" aria-label="{{ T.url_title }}">
+  <label class="field-label" for="url-input">{{ T.url_label }}</label>
+  <textarea class="field mono" id="url-input" rows="4" dir="ltr" spellcheck="false" placeholder="https://example.com/search?q=caf%C3%A9%20%26%20tea"></textarea>
+  <div class="check-row">
+    <label class="check"><input type="checkbox" id="url-plus"> <span>{{ T.url_plus }}</span></label>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary btn-sm" type="button" id="url-encode"><span>{{ T.encode }}</span></button>
+    <button class="btn btn-sm" type="button" id="url-encode-all"><span>{{ T.url_encode_all }}</span></button>
+    <button class="btn btn-primary btn-sm" type="button" id="url-decode"><span>{{ T.decode }}</span></button>
+  </div>
+  <div class="tool-out" id="url-out" aria-live="polite"></div>
+</section>

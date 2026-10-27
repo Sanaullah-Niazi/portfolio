@@ -1,0 +1,15 @@
+<section class="card tool" id="json" aria-label="{{ T.json_title }}">
+  <label class="field-label" for="json-input">{{ T.json_label }}</label>
+  <textarea class="field mono" id="json-input" rows="8" dir="ltr" spellcheck="false" placeholder='{"name": "Sana", "tools": 14}'></textarea>
+  <div class="check-row">
+    <label class="check"><span>{{ T.json_indent }}</span>
+      <select id="json-indent" class="field field-inline"><option value="2">2</option><option value="4">4</option><option value="tab">Tab</option></select></label>
+    <label class="check"><input type="checkbox" id="json-sort"> <span>{{ T.json_sort }}</span></label>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-primary btn-sm" type="button" id="json-format"><span>{{ T.json_format }}</span></button>
+    <button class="btn btn-sm" type="button" id="json-minify"><span>{{ T.json_minify }}</span></button>
+    <button class="btn btn-sm" type="button" id="json-sample"><span>{{ T.try_sample }}</span></button>
+  </div>
+  <div class="tool-out" id="json-out" aria-live="polite"></div>
+</section>

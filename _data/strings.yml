@@ -78,6 +78,10 @@ projects_title: What I'm building
 projects_page_title: Projects
 projects_lede: Hands-on work in AI and security. Each project has its own page with code, demos and results.
 projects_all: All projects
+tools_eyebrow: "Free tools"
+tools_title: "Free security tools you can use right now"
+tools_lede: "Small tools from my own security work. They run in your browser, with no sign-up."
+tools_all: "All %n tools"
 all_projects_back: All projects
 filter_label: "Filter by topic:"
 filter_all: All
