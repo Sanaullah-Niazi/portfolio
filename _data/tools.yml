@@ -562,7 +562,7 @@ js:
   w_skipped: "Skipped"
   w_running: "Running"
   w_report_title: "Website health report"
-  w_cached: "This report is from {t}. Run a fresh scan to see changes you've made since then."
+  w_cached: "This is a saved copy from {t}, not a new scan. Changes you made after that time aren't in it."
   w_fresh: "Run a fresh scan"
   w_pdf: "Download PDF"
   w_pdf_making: "Creating PDF…"

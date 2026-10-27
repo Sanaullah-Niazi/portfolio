@@ -561,7 +561,7 @@ js:
   w_skipped: "Übersprungen"
   w_running: "Läuft"
   w_report_title: "Website-Bericht"
-  w_cached: "Dieser Bericht stammt vom {t}. Starten Sie eine neue Prüfung, um seitdem gemachte Änderungen zu sehen."
+  w_cached: "Dies ist eine gespeicherte Kopie vom {t}, keine neue Prüfung. Änderungen, die Sie danach gemacht haben, fehlen darin."
   w_fresh: "Neu prüfen"
   w_pdf: "Als PDF herunterladen"
   w_pdf_making: "PDF wird erstellt…"
