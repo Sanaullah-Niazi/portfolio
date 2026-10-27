@@ -314,4 +314,4 @@ related:
   - { name: "Malware Analysis", why: "Go deep into how malicious code works." }
   - { name: "Threat Intelligence", why: "Turn what you learn in incidents into intelligence for others." }
   - { name: "Ransomware Defense", why: "Prepare organisations for the most common major incident." }
-  - { name: "AI-Assisted Digital Forensics and Threat Intelligence", why: "Use AI to speed up investigations, and check its work." }
+  - { to: ai-secops, why: "Use AI to speed up investigations, and check its work." }

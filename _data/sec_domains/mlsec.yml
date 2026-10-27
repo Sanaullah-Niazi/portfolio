@@ -1,0 +1,277 @@
+# Security roadmap: Machine Learning Security. Shown at /roadmaps/security/mlsec/.
+# Field guide: see the top of secops.yml.
+
+id: mlsec
+category: ai
+icon: brain
+entry: intermediate
+legal: true
+title: "Machine Learning Security"
+summary: "Understand how machine learning models are attacked, through their data, their inputs and their outputs, and how to make them robust and private."
+keywords: "adversarial machine learning evasion poisoning backdoor model extraction inversion membership inference robustness differential privacy federated learning ATLAS"
+
+overview:
+  - "Machine learning models learn from data, so anyone who can influence the data, the inputs or the outputs can influence the model. Attackers can poison training data, craft inputs that fool a classifier, copy a model through its API, or pull private training records back out of it."
+  - "Machine Learning Security is the study of these attacks and the defences against them: robust training, data checks, privacy techniques such as differential privacy, and careful control over what a model reveals. It sits between data science and security, and you need a working knowledge of both."
+why: "Models now make decisions about fraud, malware, faces, loans and medical images, and attacks on them are real, documented and catalogued in MITRE ATLAS. Few people understand both ML and security, so the skill is rare and in demand."
+roles:
+  - { title: "ML engineer with a security focus", level: entry, what: "Builds models and adds the basic checks: data validation, safe file formats, access control." }
+  - { title: "Adversarial ML researcher", level: mid, what: "Tests models with evasion, poisoning and privacy attacks and measures how robust they are." }
+  - { title: "AI security engineer", level: mid, what: "Designs defences and monitoring for ML systems in production." }
+  - { title: "Privacy engineer (ML)", level: senior, what: "Applies differential privacy, federated learning and data minimisation to training pipelines." }
+  - { title: "Principal ML security scientist", level: lead, what: "Sets the research agenda and the organisation's standards for model robustness and privacy." }
+
+prereqs:
+  - "Python, NumPy and one ML framework such as PyTorch or scikit-learn."
+  - "Basic linear algebra, probability and calculus: gradients, vectors and distributions."
+  - "How models are trained and evaluated: loss, overfitting, train and test splits."
+  - "Security basics: threat models, the CIA triad, and how attackers think."
+prereq_paths: [ai-ml, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "ML foundations and the AI threat landscape"
+    months: "2–3"
+    topics:
+      - id: ml-pipeline
+        title: "The ML lifecycle and its attack surface"
+        text: "Data collection, labelling, training, evaluation, deployment and monitoring are each a place an attacker can step in. Draw the pipeline first, then ask who can touch each step."
+        res:
+          - { name: "Machine Learning Crash Course", by: "Google", url: "https://developers.google.com/machine-learning/crash-course", type: course, cost: free }
+          - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs, cost: free }
+      - id: ml-threat-model
+        title: "Threat modelling ML systems"
+        text: "Ask what the attacker knows (white box or black box), what they can change (data, inputs, the model file) and what they want (wrong answers, stolen model, private data)."
+        res:
+          - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+      - id: aml-taxonomy
+        title: "Adversarial ML taxonomy"
+        text: "NIST's taxonomy groups attacks by when they happen (training or deployment), the attacker's goal and their knowledge. Use it as a shared vocabulary for findings."
+        res:
+          - { name: "Adversarial Machine Learning: A Taxonomy and Terminology (NIST AI 100-2 E2025)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.100-2e2025", type: docs, cost: free }
+      - id: ml-top10
+        title: "OWASP Machine Learning Security Top 10"
+        text: "A short list of the most important risks to ML systems, from input manipulation to model theft. A good checklist for your first reviews."
+        res:
+          - { name: "OWASP Machine Learning Security Top 10", by: "OWASP Foundation", url: "https://owasp.org/www-project-machine-learning-security-top-10/", type: docs, cost: free }
+      - id: atlas-cases
+        title: "Real attacks: ATLAS case studies"
+        text: "ATLAS documents real incidents, such as evading malware classifiers and copying commercial models. Read a few to see that these attacks happen outside the lab."
+        res:
+          - { name: "MITRE ATLAS case studies", by: "MITRE", url: "https://atlas.mitre.org/studies", type: docs, cost: free }
+      - id: unsafe-formats
+        title: "Unsafe model files (pickle)"
+        text: "Many model files are Python pickles, and loading one can run any code inside it. Prefer safetensors, and scan model files before loading them."
+        res:
+          - { name: "Pickle scanning", by: "Hugging Face", url: "https://huggingface.co/docs/hub/security-pickle", type: docs, cost: free }
+          - { name: "Safetensors", by: "Hugging Face", url: "https://huggingface.co/docs/safetensors/index", type: docs, cost: free }
+      - id: ml-eval-basics
+        title: "Measuring a model honestly"
+        optional: true
+        text: "Accuracy on clean test data says little about behaviour under attack. Learn precision, recall and calibration, and why you need a separate test for robustness."
+        res:
+          - { name: "Model evaluation", by: "scikit-learn", url: "https://scikit-learn.org/stable/modules/model_evaluation.html", type: docs, cost: free }
+    skills:
+      - "Draw an ML pipeline and mark where data, code and models can be tampered with."
+      - "Describe attacks with the NIST and ATLAS vocabulary."
+      - "Load and share models safely, avoiding untrusted pickle files."
+    labs:
+      - "Train a small image or text classifier in PyTorch or scikit-learn and write a one-page threat model for it."
+      - "Map two ATLAS case studies to the tactics and techniques they used."
+      - "Scan a model file with ModelScan or picklescan and explain what it found."
+    done:
+      - "Explain the difference between evasion, poisoning, extraction and inference attacks."
+      - "Write a threat model for an ML system that names the attacker, their access and their goal."
+
+  - level: intermediate
+    title: "Attacking and defending models"
+    months: "3–5"
+    topics:
+      - id: evasion
+        title: "Evasion attacks and adversarial examples"
+        text: "Tiny, carefully chosen changes to an input can make a model confidently wrong. Start with FGSM and PGD, the two classic gradient-based attacks."
+        res:
+          - { name: "Explaining and Harnessing Adversarial Examples (Goodfellow et al.)", by: "arXiv", url: "https://arxiv.org/abs/1412.6572", type: paper, cost: free }
+          - { name: "Adversarial Robustness Toolbox", by: "LF AI & Data", url: "https://github.com/Trusted-AI/adversarial-robustness-toolbox", type: tool, cost: free }
+      - id: blackbox
+        title: "Black-box and transfer attacks"
+        text: "Attackers often see only the model's answers. They can still attack it by querying it many times, or by attacking a copy and transferring the result."
+        res:
+          - { name: "TextAttack", by: "QData (University of Virginia)", url: "https://github.com/QData/TextAttack", type: tool, cost: free }
+      - id: poisoning
+        title: "Data poisoning"
+        text: "Slip bad examples into the training data and the model learns the wrong thing. Web-scraped datasets make this cheaper than most people expect."
+        res:
+          - { name: "Poisoning Web-Scale Training Datasets is Practical (Carlini et al.)", by: "arXiv", url: "https://arxiv.org/abs/2302.10149", type: paper, cost: free }
+      - id: backdoors
+        title: "Backdoors and trojans"
+        text: "A backdoored model behaves normally until it sees a hidden trigger, then does what the attacker wants. Backdoors can come from poisoned data or a tampered model file."
+        res:
+          - { name: "BadNets: Identifying Vulnerabilities in the Machine Learning Model Supply Chain", by: "arXiv", url: "https://arxiv.org/abs/1708.06733", type: paper, cost: free }
+      - id: extraction
+        title: "Model extraction (stealing)"
+        text: "By querying an API, an attacker can train a copy that behaves like the original. Rate limits, monitoring and returning less detail make it harder."
+        res:
+          - { name: "Stealing Machine Learning Models via Prediction APIs (Tramèr et al.)", by: "arXiv", url: "https://arxiv.org/abs/1609.02943", type: paper, cost: free }
+      - id: membership
+        title: "Membership inference and model inversion"
+        text: "These attacks reveal whether a person's record was in the training data, or rebuild what the training data looked like. They turn a model into a privacy leak."
+        res:
+          - { name: "Membership Inference Attacks against Machine Learning Models (Shokri et al.)", by: "arXiv", url: "https://arxiv.org/abs/1610.05820", type: paper, cost: free }
+      - id: adv-training
+        title: "Adversarial training and robustness"
+        text: "Training on adversarial examples is the most reliable defence against evasion, but it costs accuracy and compute. Measure robustness against strong attacks, not weak ones."
+        res:
+          - { name: "Towards Deep Learning Models Resistant to Adversarial Attacks (Madry et al.)", by: "arXiv", url: "https://arxiv.org/abs/1706.06083", type: paper, cost: free }
+      - id: data-validation
+        title: "Data validation and provenance"
+        text: "Know where every dataset came from, check it for outliers and duplicates, and keep hashes so you can prove what a model was trained on."
+        res:
+          - { name: "Datasheets for Datasets (Gebru et al.)", by: "arXiv", url: "https://arxiv.org/abs/1803.09010", type: paper, cost: free }
+    skills:
+      - "Generate adversarial examples against your own models with ART."
+      - "Run a poisoning or backdoor attack in a lab and detect it."
+      - "Run a membership inference test and explain the privacy risk."
+      - "Compare a model's clean accuracy and its accuracy under attack."
+    labs:
+      - "Attack an MNIST or CIFAR-10 classifier you trained with FGSM and PGD, then retrain it adversarially and compare."
+      - "Add a backdoor trigger to a small dataset you control, train on it, and show the trigger working."
+      - "Run membership inference against an overfitted model and a regularised one, and compare the results."
+    done:
+      - "Show, with numbers, how much an attack lowers a model's accuracy and how much a defence restores."
+      - "Explain to a data scientist why a model trained on scraped data needs provenance checks."
+
+  - level: advanced
+    title: "Privacy, robustness at scale and secure pipelines"
+    months: "4–6"
+    topics:
+      - id: diff-privacy
+        title: "Differential privacy"
+        text: "Differential privacy adds calibrated noise so a model cannot reveal much about any one person. Learn the privacy budget (epsilon) and train with DP-SGD."
+        res:
+          - { name: "The Algorithmic Foundations of Differential Privacy (Dwork and Roth)", by: "University of Pennsylvania", url: "https://www.cis.upenn.edu/~aaroth/privacybook.html", type: book, cost: free }
+          - { name: "Opacus", by: "Meta", url: "https://opacus.ai/", type: tool, cost: free }
+      - id: federated
+        title: "Federated learning security"
+        text: "Federated learning trains on data that stays on devices, but clients can send poisoned updates and the updates can leak data. Learn secure aggregation and robust aggregation."
+        res:
+          - { name: "Flower", by: "Flower Labs", url: "https://flower.ai/", type: tool, cost: free }
+      - id: training-data-extraction
+        title: "Training data extraction"
+        text: "Large models can memorise and repeat training data, including personal details. Test for it, and remove duplicates and sensitive data before training."
+        res:
+          - { name: "Extracting Training Data from Large Language Models (Carlini et al.)", by: "arXiv", url: "https://arxiv.org/abs/2012.07805", type: paper, cost: free }
+      - id: certified-robustness
+        title: "Certified robustness"
+        optional: true
+        text: "Some methods, such as randomised smoothing, prove that no change within a set size can flip a prediction. The guarantees are narrow but real."
+        res:
+          - { name: "Certified Adversarial Robustness via Randomized Smoothing (Cohen et al.)", by: "arXiv", url: "https://arxiv.org/abs/1902.02918", type: paper, cost: free }
+      - id: security-ml-models
+        title: "Attacks on security models"
+        text: "Malware, spam and fraud classifiers face attackers who adapt. Learn how attackers evade them and why these models need retraining and red teaming."
+        res:
+          - { name: "EMBER malware dataset", by: "Elastic", url: "https://github.com/elastic/ember", type: practice, cost: free }
+      - id: ml-pipeline-security
+        title: "Securing the training pipeline"
+        text: "Protect datasets, training jobs, experiment trackers and model registries like production systems: access control, audit logs and signed artefacts."
+        res:
+          - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+      - id: model-monitoring
+        title: "Monitoring models in production"
+        text: "Watch for drift, unusual query patterns and sudden accuracy drops. They can mean the world changed, or that someone is probing or extracting the model."
+        res:
+          - { name: "MLflow", by: "Linux Foundation", url: "https://mlflow.org/", type: tool, cost: free }
+    skills:
+      - "Train a model with differential privacy and explain the accuracy and privacy trade-off."
+      - "Assess a federated learning design for poisoning and leakage."
+      - "Secure a training pipeline end to end, from raw data to registered model."
+    labs:
+      - "Train the same model with and without Opacus and compare accuracy and membership inference results."
+      - "Simulate a federated setup with Flower and one malicious client, then add a robust aggregation rule."
+      - "Train a simple malware classifier on EMBER features and try to evade it with feature changes."
+    done:
+      - "Choose and justify a privacy budget for a real use case."
+      - "Write a robustness and privacy test plan that runs before every model release."
+
+  - level: expert
+    title: "Research, standards and leadership"
+    months: "6–12"
+    topics:
+      - id: mlsec-research
+        title: "Reading and doing research"
+        text: "The field moves through papers at venues such as IEEE S&P, USENIX Security, NeurIPS and SaTML. Reproduce results before you trust them, and publish your own."
+        res:
+          - { name: "IEEE Conference on Secure and Trustworthy Machine Learning (SaTML)", by: "IEEE", url: "https://satml.org/", type: docs, cost: free }
+      - id: adaptive-attacks
+        title: "Adaptive attacks and evaluating defences"
+        text: "Many published defences broke once someone attacked them directly. Learn to build attacks that target the defence itself, not just the model."
+        res:
+          - { name: "On Adaptive Attacks to Adversarial Example Defenses (Tramèr et al.)", by: "arXiv", url: "https://arxiv.org/abs/2002.08347", type: paper, cost: free }
+      - id: ml-vuln-disclosure
+        title: "Disclosing ML vulnerabilities"
+        text: "Model flaws do not fit neatly into CVE. Learn how AI vulnerability databases and bug bounties handle them, and how to report responsibly."
+        res:
+          - { name: "AI Vulnerability Database (AVID)", by: "AVID", url: "https://avidml.org/", type: docs, cost: free }
+          - { name: "huntr", by: "Protect AI", url: "https://huntr.com/", type: practice, cost: free }
+      - id: ml-standards
+        title: "Standards and assurance"
+        text: "Turn research into requirements: map controls to the NIST AI RMF, ISO/IEC 42001 and the EU AI Act's robustness duties for high-risk systems."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+      - id: mlsec-programme
+        title: "Building an ML security programme"
+        text: "Set the rules for every model team: threat models, safe formats, robustness and privacy tests, and a review before release."
+        res:
+          - { name: "Secure AI Framework (SAIF)", by: "Google", url: "https://saif.google/", type: docs, cost: free }
+    skills:
+      - "Design and run an adaptive attack against a proposed defence."
+      - "Write organisation-wide standards for ML robustness and privacy."
+      - "Publish or present original ML security research."
+    labs:
+      - "Reproduce a recent adversarial ML paper, then try an adaptive attack on its defence."
+      - "Report a real vulnerability in an open-source ML library through its disclosure process or huntr."
+    done:
+      - "Have your research, tools or standards used by others."
+      - "Lead the security review of a high-risk ML system."
+
+tools:
+  - { name: "Adversarial Robustness Toolbox (ART)", url: "https://github.com/Trusted-AI/adversarial-robustness-toolbox", kind: oss, what: "Attacks, defences and metrics for evasion, poisoning, extraction and inference." }
+  - { name: "TextAttack", url: "https://github.com/QData/TextAttack", kind: oss, what: "Adversarial attacks and data augmentation for NLP models." }
+  - { name: "CleverHans", url: "https://github.com/cleverhans-lab/cleverhans", kind: oss, what: "Reference implementations of adversarial example attacks." }
+  - { name: "Opacus", url: "https://opacus.ai/", kind: oss, what: "Train PyTorch models with differential privacy." }
+  - { name: "TensorFlow Privacy", url: "https://github.com/tensorflow/privacy", kind: oss, what: "Differential privacy and privacy testing for TensorFlow." }
+  - { name: "OpenDP", url: "https://opendp.org/", kind: oss, what: "Open-source differential privacy library." }
+  - { name: "Flower", url: "https://flower.ai/", kind: oss, what: "Framework for federated learning." }
+  - { name: "ModelScan", url: "https://github.com/protectai/modelscan", kind: oss, what: "Scans model files for unsafe code." }
+  - { name: "PyTorch", url: "https://pytorch.org/", kind: oss, what: "The most common framework for ML research." }
+
+certs:
+  - { name: "GIAC Machine Learning Engineer (GMLE)", by: "GIAC", url: "https://www.giac.org/certifications/machine-learning-engineer-gmle/", level: mid, note: "Applied machine learning for security teams." }
+  - { ref: aws-mle, note: "Shows you can build and run ML in production." }
+  - { ref: aaism, note: "For AI security management roles, after CISSP or CISM." }
+
+resources:
+  - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+  - { name: "Adversarial Machine Learning: A Taxonomy and Terminology (NIST AI 100-2 E2025)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.100-2e2025", type: docs, cost: free }
+  - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs, cost: free }
+  - { name: "OWASP Machine Learning Security Top 10", by: "OWASP Foundation", url: "https://owasp.org/www-project-machine-learning-security-top-10/", type: docs, cost: free }
+  - { name: "Machine Learning Crash Course", by: "Google", url: "https://developers.google.com/machine-learning/crash-course", type: course, cost: free }
+  - { name: "Practical Deep Learning for Coders", by: "fast.ai", url: "https://course.fast.ai/", type: course, cost: free }
+  - { name: "The Algorithmic Foundations of Differential Privacy", by: "Cynthia Dwork and Aaron Roth", url: "https://www.cis.upenn.edu/~aaroth/privacybook.html", type: book, cost: free }
+  - { name: "Machine Learning and Security", by: "Clarence Chio and David Freeman (O'Reilly)", url: "https://www.oreilly.com/library/view/machine-learning-and/9781491979891/", type: book, cost: paid }
+  - { name: "SEC595: Applied Data Science and AI/Machine Learning for Cybersecurity Professionals", by: "SANS Institute", url: "https://www.sans.org/cyber-security-courses/applied-data-science-machine-learning/", type: course, cost: paid }
+
+frameworks: [atlas, ai-rmf, owasp-genai, iso42001, ai-act]
+
+career:
+  - { title: "Data scientist, ML engineer or security engineer", years: "0–2 years" }
+  - { title: "ML engineer with a security focus", years: "2–4 years" }
+  - { title: "AI security engineer or adversarial ML researcher", years: "4–7 years" }
+  - { title: "Principal ML security scientist", years: "8+ years" }
+
+related:
+  - { to: llmsec, why: "The same ideas applied to large language models and chatbots." }
+  - { to: ai-redteam, why: "Test models the way an attacker would, with a method." }
+  - { to: ai-supply, why: "Models, datasets and libraries are a supply chain to secure." }
+  - { name: "Data Privacy", why: "Go deeper into privacy law and privacy engineering." }

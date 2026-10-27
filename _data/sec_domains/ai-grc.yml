@@ -1,0 +1,265 @@
+# Security roadmap: AI Governance, Risk and Compliance. Shown at /roadmaps/security/ai-grc/.
+# Field guide: see the top of secops.yml.
+
+id: ai-grc
+category: ai
+icon: briefcase
+entry: beginner
+title: "AI Governance, Risk and Compliance"
+summary: "Decide how an organisation may use AI, manage its risks, and prove it meets the law and standards such as the EU AI Act, ISO/IEC 42001 and the NIST AI RMF."
+keywords: "AI governance risk compliance GRC EU AI Act ISO 42001 NIST AI RMF responsible AI impact assessment AI inventory policy audit transparency incident reporting"
+
+overview:
+  - "AI governance is the set of rules, roles and processes that decide which AI systems an organisation builds or buys, how their risks are assessed, and who is accountable when something goes wrong. Risk management finds and treats those risks; compliance shows that the law and the chosen standards are met."
+  - "The field is young but now has firm anchors: the EU AI Act, the ISO/IEC 42001 management system standard and the NIST AI Risk Management Framework. The work combines policy writing, risk assessment, working with engineers and auditors, and explaining technical risks in plain language."
+why: "The EU AI Act applies in stages from 2025, and customers, regulators and boards now ask how AI is controlled. Most organisations are still building this capability, so there is strong demand for people who understand both the rules and the technology."
+roles:
+  - { title: "AI governance analyst", level: entry, what: "Keeps the AI inventory, runs intake questionnaires and tracks risk assessments." }
+  - { title: "AI risk and compliance specialist", level: mid, what: "Assesses AI systems against the AI Act, ISO/IEC 42001 and internal policy." }
+  - { title: "AI auditor", level: mid, what: "Tests whether AI controls exist and work, and reports to management or clients." }
+  - { title: "Responsible AI lead", level: senior, what: "Runs the governance programme and works with legal, product and engineering." }
+  - { title: "Chief AI officer or head of AI governance", level: lead, what: "Owns AI strategy and risk appetite at board level." }
+
+prereqs:
+  - "A basic understanding of how AI and machine learning systems are built and used."
+  - "Security or privacy GRC basics: risk registers, controls, policies and audits."
+  - "Clear writing, for policies and reports that non-specialists can follow."
+  - "Comfort reading laws and standards closely."
+prereq_paths: [cybersecurity, ai-ml]
+
+stages:
+  - level: beginner
+    title: "AI risk basics and the main frameworks"
+    months: "1–3"
+    topics:
+      - id: ai-risk-basics
+        title: "What makes AI risk different"
+        text: "AI systems can be wrong in ways that are hard to predict, can treat groups unfairly, can be attacked through their data and can change as they learn. Traditional IT risk methods need extending."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+      - id: ai-rmf
+        title: "NIST AI Risk Management Framework"
+        text: "Four functions: Govern, Map, Measure and Manage. The companion Playbook suggests concrete actions for each one."
+        res:
+          - { name: "Artificial Intelligence Risk Management Framework (AI RMF 1.0)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.100-1", type: docs, cost: free }
+          - { name: "NIST AI RMF Playbook", by: "NIST", url: "https://airc.nist.gov/airmf-resources/playbook/", type: docs, cost: free }
+      - id: eu-ai-act
+        title: "EU AI Act basics"
+        text: "The Act sorts AI by risk: banned uses, high-risk systems with strict duties, transparency duties for chatbots and deepfakes, and rules for general-purpose AI models."
+        res:
+          - { name: "EU AI Act (Regulation (EU) 2024/1689)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj", type: docs, cost: free }
+          - { name: "AI Act Explorer", by: "Future of Life Institute", url: "https://artificialintelligenceact.eu/", type: docs, cost: free }
+      - id: iso42001
+        title: "ISO/IEC 42001"
+        text: "The management system standard for AI, built like ISO/IEC 27001: policy, roles, risk assessment, controls, monitoring and improvement. Organisations can be certified against it."
+        res:
+          - { name: "ISO/IEC 42001", by: "ISO and IEC", url: "https://www.iso.org/standard/42001", type: docs, cost: paid }
+      - id: ai-principles
+        title: "Trustworthy and responsible AI principles"
+        text: "Fairness, transparency, accountability, privacy, safety and robustness appear in almost every framework. Learn what each means in practice, not just as a word."
+        res:
+          - { name: "OECD AI Principles", by: "OECD", url: "https://oecd.ai/en/ai-principles", type: docs, cost: free }
+      - id: ai-inventory
+        title: "AI inventory"
+        text: "You cannot govern what you cannot see. List every AI system built or bought, its owner, purpose, data, model provider and risk level, including AI features inside SaaS tools."
+        res:
+          - { name: "NIST AI RMF Playbook", by: "NIST", url: "https://airc.nist.gov/airmf-resources/playbook/", type: docs, cost: free }
+      - id: ai-use-policy
+        title: "Acceptable use policy for AI"
+        text: "Tell staff which AI tools they may use, which data they must never paste in, and how to get a new tool approved. Keep it short enough that people read it."
+        res:
+          - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+    skills:
+      - "Explain the NIST AI RMF functions and the EU AI Act risk levels."
+      - "Build an AI inventory with owners and risk levels."
+      - "Write a clear acceptable use policy for generative AI."
+    labs:
+      - "Build an AI inventory for a real or fictional organisation, including AI features in common SaaS tools."
+      - "Classify ten example AI uses under the EU AI Act risk levels and explain each choice."
+      - "Write a one-page AI acceptable use policy and test it on a non-technical reader."
+    done:
+      - "Explain which EU AI Act duties apply to a given AI system, and why."
+      - "Present an AI inventory and its top risks to a manager."
+
+  - level: intermediate
+    title: "Assessing and managing AI risk"
+    months: "3–5"
+    topics:
+      - id: ai-risk-assessment
+        title: "AI risk assessment"
+        text: "Identify what can go wrong for the organisation, for users and for affected people, rate likelihood and impact, and decide on treatment. ISO/IEC 23894 gives the method."
+        res:
+          - { name: "ISO/IEC 23894 (AI risk management guidance)", by: "ISO and IEC", url: "https://www.iso.org/standard/77304.html", type: docs, cost: paid }
+      - id: impact-assessment
+        title: "AI impact assessments"
+        text: "Look at effects on people's rights, safety and access to services. The AI Act requires a fundamental rights impact assessment for some deployers of high-risk systems."
+        res:
+          - { name: "EU AI Act (Regulation (EU) 2024/1689)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj", type: docs, cost: free }
+      - id: genai-risks
+        title: "Generative AI risks"
+        text: "Confabulation, data leakage, harmful content, intellectual property, information security and more. NIST's Generative AI Profile lists them with suggested actions."
+        res:
+          - { name: "Generative Artificial Intelligence Profile (NIST AI 600-1)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.600-1", type: docs, cost: free }
+      - id: third-party-ai
+        title: "Third-party and vendor AI risk"
+        text: "Most AI is bought. Ask vendors how models are trained, whether your data is used for training, where it is processed, how they test and how they handle incidents."
+        res:
+          - { name: "AI Controls Matrix", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix", type: docs, cost: free }
+      - id: ai-privacy
+        title: "AI and data protection"
+        text: "Training and using AI on personal data needs a lawful basis, transparency and data protection impact assessments under laws such as GDPR. Work closely with the privacy team."
+        res:
+          - { name: "Guidance on AI and data protection", by: "ICO", url: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/", type: docs, cost: free }
+      - id: ai-controls
+        title: "AI controls and security requirements"
+        text: "Turn risks into controls: data governance, testing, human oversight, logging, access control and security. Map them to ISO/IEC 42001 Annex A and your security framework."
+        res:
+          - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs, cost: free }
+      - id: transparency
+        title: "Transparency and documentation"
+        text: "Model cards, system cards and user notices explain what a system does, its limits and how it was tested. The AI Act requires some of this documentation."
+        res:
+          - { name: "Model Cards for Model Reporting (Mitchell et al.)", by: "arXiv", url: "https://arxiv.org/abs/1810.03993", type: paper, cost: free }
+      - id: human-oversight
+        title: "Human oversight"
+        text: "Decide where people must review or can override AI decisions, and make sure they have the time, training and information to do it properly."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+    skills:
+      - "Run an AI risk assessment and an impact assessment."
+      - "Assess an AI vendor with a structured questionnaire."
+      - "Map AI risks to controls and to ISO/IEC 42001."
+      - "Write transparency documentation for an AI system."
+    labs:
+      - "Assess a real public AI product (from its published documentation) against the NIST Generative AI Profile."
+      - "Write a vendor questionnaire for a generative AI tool and fill it in from the vendor's public documents."
+      - "Write a model card for a model you trained or downloaded."
+    done:
+      - "Deliver a risk assessment with treatment decisions that an engineering team accepts."
+      - "Explain a system's limits and oversight design to a non-technical committee."
+
+  - level: advanced
+    title: "Running AI governance and compliance"
+    months: "4–6"
+    topics:
+      - id: aims
+        title: "Building an AI management system"
+        text: "Set up the ISO/IEC 42001 structure: scope, AI policy, roles, risk process, Statement of Applicability, internal audit and management review."
+        res:
+          - { name: "ISO/IEC 42001", by: "ISO and IEC", url: "https://www.iso.org/standard/42001", type: docs, cost: paid }
+      - id: ai-act-high-risk
+        title: "High-risk system duties under the AI Act"
+        text: "Risk management, data governance, technical documentation, logging, transparency, human oversight, accuracy, robustness and cybersecurity, plus conformity assessment and registration."
+        res:
+          - { name: "AI Act Explorer", by: "Future of Life Institute", url: "https://artificialintelligenceact.eu/", type: docs, cost: free }
+      - id: gpai-duties
+        title: "General-purpose AI model duties"
+        text: "Providers of general-purpose models must document them, respect copyright and publish a training data summary. Models with systemic risk need evaluations, incident reporting and cybersecurity."
+        res:
+          - { name: "EU AI Act (Regulation (EU) 2024/1689)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj", type: docs, cost: free }
+      - id: ai-incidents
+        title: "AI incident management"
+        text: "Define what an AI incident is, how it is reported and who investigates it. Some incidents must be reported to regulators within fixed deadlines."
+        res:
+          - { name: "AI Incident Database", by: "Responsible AI Collaborative", url: "https://incidentdatabase.ai/", type: docs, cost: free }
+      - id: ai-audit
+        title: "Auditing AI systems"
+        text: "Test whether controls exist and work: sample risk assessments, check that tests ran, look at monitoring and oversight records. Evidence beats policy documents."
+        res:
+          - { name: "Advanced in AI Audit (AAIA)", by: "ISACA", url: "https://www.isaca.org/credentialing/aaia", type: course, cost: paid }
+      - id: ai-metrics
+        title: "Metrics and reporting to the board"
+        text: "Report the size of the AI inventory, risk levels, open findings, incidents and compliance status. Keep it short and tied to decisions the board must make."
+        res:
+          - { name: "NIST AI RMF Playbook", by: "NIST", url: "https://airc.nist.gov/airmf-resources/playbook/", type: docs, cost: free }
+      - id: other-regimes
+        title: "Other laws and regimes"
+        optional: true
+        text: "Beyond the EU, follow national laws, sector rules (finance, health, employment) and voluntary codes. Map them to one set of controls instead of a separate programme for each."
+        res:
+          - { name: "OECD.AI policy observatory", by: "OECD", url: "https://oecd.ai/", type: docs, cost: free }
+    skills:
+      - "Set up and run an ISO/IEC 42001 management system."
+      - "Prepare technical documentation for a high-risk AI system."
+      - "Run AI incident management and regulatory reporting."
+      - "Audit AI controls with evidence."
+    labs:
+      - "Write a Statement of Applicability for a fictional organisation against ISO/IEC 42001 Annex A."
+      - "Draft the technical documentation outline for a high-risk AI system under the AI Act."
+      - "Run a tabletop exercise for an AI incident with legal, product and communications roles."
+    done:
+      - "Lead an organisation through an ISO/IEC 42001 readiness review."
+      - "Show that a high-risk AI system has every required piece of documentation."
+
+  - level: expert
+    title: "Strategy and leadership"
+    months: "6–12"
+    topics:
+      - id: ai-strategy
+        title: "AI risk appetite and strategy"
+        text: "Agree with the board which AI uses are welcome, which need extra care and which are off limits. Governance should help good projects move faster, not only block bad ones."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+      - id: ai-governance-op-model
+        title: "Governance operating model"
+        text: "Decide who does what across legal, privacy, security, data science and product, how committees work, and how decisions are recorded and challenged."
+        res:
+          - { name: "ISO/IEC 42001", by: "ISO and IEC", url: "https://www.iso.org/standard/42001", type: docs, cost: paid }
+      - id: policy-engagement
+        title: "Engaging with regulators and standards"
+        text: "Respond to consultations, join standards work and follow codes of practice as they are written. Early involvement helps you prepare and shapes better rules."
+        res:
+          - { name: "OECD.AI policy observatory", by: "OECD", url: "https://oecd.ai/", type: docs, cost: free }
+      - id: assurance-market
+        title: "AI assurance and certification"
+        text: "Third-party audits, certifications and conformity assessments are growing. Learn how they work, what they prove and how to pick a credible provider."
+        res:
+          - { name: "AI Security Institute", by: "UK Government", url: "https://www.aisi.gov.uk/", type: docs, cost: free }
+    skills:
+      - "Set AI risk appetite and strategy with the board."
+      - "Design a governance operating model that scales."
+      - "Represent the organisation with regulators and standards bodies."
+    labs:
+      - "Write an AI governance charter and risk appetite statement for a fictional company."
+      - "Respond to a public consultation on AI regulation or a code of practice."
+    done:
+      - "Run AI governance for a whole organisation."
+      - "Be the person the board asks before approving a major AI project."
+
+tools:
+  - { name: "NIST AI RMF Playbook", url: "https://airc.nist.gov/airmf-resources/playbook/", kind: free, what: "Suggested actions for each part of the AI RMF." }
+  - { name: "AI Act Explorer", url: "https://artificialintelligenceact.eu/", kind: free, what: "Searchable text of the EU AI Act with summaries." }
+  - { name: "AI Controls Matrix", url: "https://cloudsecurityalliance.org/artifacts/ai-controls-matrix", kind: free, what: "Controls for AI systems from the Cloud Security Alliance." }
+  - { name: "AI Incident Database", url: "https://incidentdatabase.ai/", kind: free, what: "Thousands of real AI incidents to learn from." }
+  - { name: "AI Verify", url: "https://aiverifyfoundation.sg/", kind: oss, what: "Open-source testing toolkit for responsible AI from Singapore's AI Verify Foundation." }
+
+certs:
+  - { name: "Artificial Intelligence Governance Professional (AIGP)", by: "IAPP", url: "https://iapp.org/certify/aigp/", level: mid, note: "The best-known AI governance certification." }
+  - { ref: aaism, note: "AI security management, after CISSP or CISM." }
+  - { name: "Advanced in AI Audit (AAIA)", by: "ISACA", url: "https://www.isaca.org/credentialing/aaia", level: advanced, note: "For auditors who already hold CISA or similar." }
+  - { ref: cism, note: "Security management foundation that AI governance builds on." }
+
+resources:
+  - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+  - { name: "Generative Artificial Intelligence Profile (NIST AI 600-1)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.600-1", type: docs, cost: free }
+  - { name: "EU AI Act (Regulation (EU) 2024/1689)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj", type: docs, cost: free }
+  - { name: "AI Act Explorer", by: "Future of Life Institute", url: "https://artificialintelligenceact.eu/", type: docs, cost: free }
+  - { name: "OECD AI Principles", by: "OECD", url: "https://oecd.ai/en/ai-principles", type: docs, cost: free }
+  - { name: "Guidance on AI and data protection", by: "ICO", url: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/", type: docs, cost: free }
+  - { name: "ISO/IEC 42001", by: "ISO and IEC", url: "https://www.iso.org/standard/42001", type: docs, cost: paid }
+  - { name: "AIGP Body of Knowledge and training", by: "IAPP", url: "https://iapp.org/certify/aigp/", type: course, cost: paid }
+
+frameworks: [ai-rmf, iso42001, ai-act, gdpr, iso27001, owasp-genai]
+
+career:
+  - { title: "GRC, privacy or compliance analyst", years: "0–2 years" }
+  - { title: "AI governance analyst", years: "2–4 years" }
+  - { title: "AI risk and compliance specialist or AI auditor", years: "4–7 years" }
+  - { title: "Responsible AI lead or head of AI governance", years: "7–10 years" }
+  - { title: "Chief AI officer", years: "10+ years" }
+
+related:
+  - { to: ai-redteam, why: "Testing produces the evidence governance relies on." }
+  - { to: llmsec, why: "Understand the technical risks behind the policies." }
+  - { name: "Governance, Risk and Compliance", why: "The wider security GRC field that AI governance extends." }
+  - { name: "Data Privacy", why: "Most AI risk work overlaps with data protection." }

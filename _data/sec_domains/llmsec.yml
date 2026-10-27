@@ -1,0 +1,273 @@
+# Security roadmap: LLM and Generative AI Security. Shown at /roadmaps/security/llmsec/.
+# Field guide: see the top of secops.yml.
+
+id: llmsec
+category: ai
+icon: message
+entry: beginner
+legal: true
+title: "LLM and Generative AI Security"
+summary: "Secure chatbots, copilots and other apps built on large language models, from prompt injection and data leaks to RAG and output handling."
+keywords: "LLM large language model generative AI GenAI prompt injection jailbreak RAG vector database guardrails system prompt OWASP Top 10 for LLM chatbot copilot"
+
+overview:
+  - "Large language models (LLMs) now sit inside search boxes, help desks, coding assistants and internal tools. They take text from users, documents and websites, and they cannot reliably tell instructions from data. That single weakness, prompt injection, is behind many of the attacks in this field."
+  - "LLM security is about the whole application around the model: what data it can see, what it can do with its output, how it is grounded with retrieval (RAG), and how you test and monitor it. Much of it is classic application security, applied to a new and unpredictable component."
+why: "Almost every organisation is shipping or buying generative AI, and most of the security problems are still being worked out. OWASP, NIST and national cyber agencies now publish guidance, and teams need people who can apply it."
+roles:
+  - { title: "Application security engineer (AI apps)", level: entry, what: "Reviews LLM features for prompt injection, data leaks and unsafe output handling." }
+  - { title: "AI security engineer", level: mid, what: "Designs guardrails, access control and monitoring for LLM applications." }
+  - { title: "LLM penetration tester", level: mid, what: "Tests chatbots and copilots for injection, jailbreaks and data exposure, with permission." }
+  - { title: "AI security architect", level: senior, what: "Sets patterns for how teams build RAG, assistants and integrations safely." }
+  - { title: "Head of AI security", level: lead, what: "Owns AI security strategy, policy and the review process for new AI features." }
+
+prereqs:
+  - "How web applications and APIs work: HTTP, JSON, authentication and sessions."
+  - "Basic Python, enough to call a model API and write small scripts."
+  - "The OWASP Top 10 for web applications, at least at a beginner level."
+  - "No ML maths needed to start; the Machine Learning Security roadmap goes deeper."
+prereq_paths: [web, ai-ml, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "How LLM apps work and how they break"
+    months: "1–2"
+    topics:
+      - id: llm-basics
+        title: "How LLMs and chat apps work"
+        text: "Tokens, context windows, system prompts, temperature and tool calls. You do not need the maths, but you do need to know what the model sees on each request."
+        res:
+          - { name: "LLM Course", by: "Hugging Face", url: "https://huggingface.co/learn/llm-course", type: course, cost: free }
+          - { name: "Neural Networks: Zero to Hero", by: "Andrej Karpathy", url: "https://karpathy.ai/zero-to-hero.html", type: video, cost: free }
+      - id: llm-top10
+        title: "OWASP Top 10 for LLM Applications"
+        text: "The standard list of LLM app risks: prompt injection, sensitive information disclosure, supply chain, poisoning, improper output handling, excessive agency and more."
+        res:
+          - { name: "OWASP Top 10 for LLM Applications", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/llm-top-10/", type: docs, cost: free }
+      - id: prompt-injection
+        title: "Direct prompt injection"
+        text: "A user types instructions that override the developer's. There is no complete fix, so design as if the model will sometimes follow the attacker."
+        res:
+          - { name: "Prompt injection (articles)", by: "Simon Willison", url: "https://simonwillison.net/tags/prompt-injection/", type: docs, cost: free }
+          - { name: "Gandalf", by: "Lakera", url: "https://gandalf.lakera.ai/", type: practice, cost: free }
+      - id: indirect-injection
+        title: "Indirect prompt injection"
+        text: "Hidden instructions arrive inside a web page, email or document that the model reads. The user never sees them, and the model may act on them."
+        res:
+          - { name: "Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection", by: "arXiv", url: "https://arxiv.org/abs/2302.12173", type: paper, cost: free }
+      - id: jailbreaks
+        title: "Jailbreaks"
+        text: "Jailbreaks trick a model into ignoring its safety training, through role play, encoding tricks or automated search. They matter most when the model's output reaches other people or systems."
+        res:
+          - { name: "Universal and Transferable Adversarial Attacks on Aligned Language Models (Zou et al.)", by: "arXiv", url: "https://arxiv.org/abs/2307.15043", type: paper, cost: free }
+      - id: sensitive-disclosure
+        title: "Sensitive data disclosure"
+        text: "Models can repeat secrets from their prompt, their context or their training data. Never put credentials in prompts, and only give the model data the user may see."
+        res:
+          - { name: "Web LLM attacks", by: "PortSwigger", url: "https://portswigger.net/web-security/llm-attacks", type: practice, cost: free }
+      - id: system-prompt-leak
+        title: "System prompt leakage"
+        text: "Assume users can read your system prompt. Keep security decisions in code, not in instructions to the model."
+        res:
+          - { name: "OWASP Top 10 for LLM Applications", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/llm-top-10/", type: docs, cost: free }
+    skills:
+      - "Explain prompt injection and why filtering alone cannot stop it."
+      - "Review an LLM feature against the OWASP Top 10 for LLM Applications."
+      - "Find and demonstrate an injection in a practice lab."
+    labs:
+      - "Complete the Gandalf levels and the PortSwigger Web LLM attacks labs."
+      - "Build a small chatbot with a free or local model (for example with Ollama) and try to make it reveal its system prompt."
+      - "Hide an instruction in a web page and show that a summarising bot you built follows it."
+    done:
+      - "Explain the difference between direct and indirect prompt injection with an example of each."
+      - "Write a short security review of a chatbot design using the OWASP list."
+
+  - level: intermediate
+    title: "Building LLM apps securely"
+    months: "2–4"
+    topics:
+      - id: output-handling
+        title: "Improper output handling"
+        text: "Treat model output like untrusted user input. If it becomes HTML, SQL, a shell command or a URL, encode or validate it first, or you get XSS, injection and data theft."
+        res:
+          - { name: "Web LLM attacks", by: "PortSwigger", url: "https://portswigger.net/web-security/llm-attacks", type: practice, cost: free }
+      - id: rag-security
+        title: "RAG security"
+        text: "Retrieval-augmented generation feeds documents into the prompt. Check permissions at retrieval time, so the model only sees what this user may see, and treat retrieved text as untrusted."
+        res:
+          - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs, cost: free }
+      - id: vector-db
+        title: "Vector database and embedding security"
+        text: "Embeddings can leak the text they came from, and shared vector stores can mix tenants' data. Apply access control, tenant separation and encryption like any database."
+        res:
+          - { name: "pgvector", by: "pgvector project", url: "https://github.com/pgvector/pgvector", type: tool, cost: free }
+      - id: guardrails
+        title: "Guardrails and content filters"
+        text: "Input and output classifiers catch many attacks and harmful outputs, but they are a layer, not a fix. Measure what they miss and keep hard limits in code."
+        res:
+          - { name: "NeMo Guardrails", by: "NVIDIA", url: "https://github.com/NVIDIA/NeMo-Guardrails", type: tool, cost: free }
+          - { name: "LLM Guard", by: "Protect AI", url: "https://github.com/protectai/llm-guard", type: tool, cost: free }
+      - id: least-privilege-llm
+        title: "Least privilege for LLM features"
+        text: "Limit what the model can reach: which data, which tools, which actions. Ask the user to confirm anything that changes data or sends something outside."
+        res:
+          - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+      - id: pii-handling
+        title: "Personal data in prompts and logs"
+        text: "Prompts and logs often hold personal data. Detect and redact it, set retention limits, and check what your model provider keeps and trains on."
+        res:
+          - { name: "Presidio", by: "Microsoft", url: "https://microsoft.github.io/presidio/", type: tool, cost: free }
+      - id: llm-scanning
+        title: "Automated LLM vulnerability scanning"
+        text: "Scanners send thousands of known attack prompts and score the replies. Run them in CI so a new prompt or model does not quietly bring back old problems."
+        res:
+          - { name: "garak", by: "NVIDIA", url: "https://github.com/NVIDIA/garak", type: tool, cost: free }
+          - { name: "promptfoo", by: "promptfoo", url: "https://www.promptfoo.dev/", type: tool, cost: free }
+      - id: ai-code-assistants
+        title: "Risks of AI coding assistants"
+        optional: true
+        text: "AI coding assistants can suggest insecure code and packages that do not exist, which attackers then register. Review and scan generated code like any other code."
+        res:
+          - { name: "We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs", by: "arXiv", url: "https://arxiv.org/abs/2406.10279", type: paper, cost: free }
+    skills:
+      - "Build a RAG app that enforces document permissions per user."
+      - "Encode and validate model output before it reaches a browser, database or shell."
+      - "Add guardrails and measure how many attacks still get through."
+      - "Run garak or promptfoo against an app and triage the findings."
+    labs:
+      - "Build a RAG app over a few documents with different owners, then try to read another user's document through the chat."
+      - "Make a chatbot render model output as HTML, exploit it with XSS, then fix it."
+      - "Add promptfoo red-team tests to a small app's CI pipeline."
+    done:
+      - "Ship a small LLM app that passes your own security test suite."
+      - "Explain to a developer why the system prompt is not a security control."
+
+  - level: advanced
+    title: "Testing, monitoring and platform security"
+    months: "3–5"
+    topics:
+      - id: llm-pentest
+        title: "Testing LLM applications"
+        text: "Plan an LLM test like a web app test: scope, threat model, then injection, data exposure, output handling and abuse of integrations. Report impact, not just a funny reply."
+        res:
+          - { name: "OWASP AI Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-ai-testing-guide/", type: docs, cost: free }
+      - id: automated-redteam
+        title: "Automated red teaming"
+        text: "Tools can generate and mutate attack prompts at scale and score the results with another model. Check the scoring yourself, since judges make mistakes too."
+        res:
+          - { name: "PyRIT", by: "Microsoft", url: "https://github.com/Azure/PyRIT", type: tool, cost: free }
+      - id: llm-observability
+        title: "Logging and monitoring LLM apps"
+        text: "Log prompts, retrieved documents, tool calls and outputs, with care for privacy. You need these traces to detect attacks and investigate incidents."
+        res:
+          - { name: "OpenTelemetry semantic conventions for generative AI", by: "OpenTelemetry", url: "https://opentelemetry.io/docs/specs/semconv/gen-ai/", type: docs, cost: free }
+          - { name: "Langfuse", by: "Langfuse", url: "https://langfuse.com/", type: tool, cost: free }
+      - id: model-provider-risk
+        title: "Choosing and configuring model providers"
+        text: "Check data retention, training on your data, regional hosting, abuse monitoring and the shared responsibility split. Use the provider's own safety settings where they exist."
+        res:
+          - { name: "Guardrails for Amazon Bedrock", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html", type: docs, cost: free }
+      - id: injection-defences
+        title: "Design patterns against prompt injection"
+        text: "The strongest defences limit what an injected instruction can do: separate trusted and untrusted data, restrict tools after reading untrusted text, and keep a human in the loop."
+        res:
+          - { name: "Defeating Prompt Injections by Design (CaMeL)", by: "arXiv", url: "https://arxiv.org/abs/2503.18813", type: paper, cost: free }
+      - id: genai-profile
+        title: "NIST Generative AI Profile"
+        text: "NIST's profile lists the risks specific to generative AI and the actions to manage them, organised by the AI RMF functions. Use it to structure a programme."
+        res:
+          - { name: "Generative Artificial Intelligence Profile (NIST AI 600-1)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.600-1", type: docs, cost: free }
+      - id: multimodal
+        title: "Multimodal attacks"
+        optional: true
+        text: "Images, audio and files can carry hidden instructions too. Test every input type the model accepts, not only text."
+        res:
+          - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+    skills:
+      - "Run a scoped penetration test of an LLM application and write a report with impact."
+      - "Design logging and detection for prompt injection and data exfiltration."
+      - "Assess a model provider's security and privacy terms."
+    labs:
+      - "Test an intentionally vulnerable LLM app you deployed yourself, and write a full report."
+      - "Run PyRIT against your own app and compare its findings with manual testing."
+      - "Build a dashboard of prompts, tool calls and blocked requests for a small app."
+    done:
+      - "Lead the security review of a production LLM feature."
+      - "Show a detection that catches a real indirect injection in your lab."
+
+  - level: expert
+    title: "Strategy, research and standards"
+    months: "6–12"
+    topics:
+      - id: genai-programme
+        title: "Running a GenAI security programme"
+        text: "Set the rules for every team: an approved list of models and providers, design reviews, mandatory tests, monitoring and an AI incident process."
+        res:
+          - { name: "Secure AI Framework (SAIF)", by: "Google", url: "https://saif.google/", type: docs, cost: free }
+      - id: llm-research
+        title: "Attack and defence research"
+        text: "New jailbreaks and injection methods appear every month. Follow the research, reproduce it, and contribute your own findings and tools."
+        res:
+          - { name: "Lessons From Red Teaming 100 Generative AI Products", by: "arXiv", url: "https://arxiv.org/abs/2501.07238", type: paper, cost: free }
+      - id: ai-bug-bounty
+        title: "AI bug bounties and disclosure"
+        text: "Many AI companies run bug bounties with their own rules on what counts. Learn what is in scope, report clearly and never use real users' data."
+        res:
+          - { name: "huntr", by: "Protect AI", url: "https://huntr.com/", type: practice, cost: free }
+      - id: genai-standards
+        title: "Contributing to standards"
+        text: "OWASP, CoSAI and standards bodies welcome practitioners. Contributing is the fastest way to shape the field and learn from the people leading it."
+        res:
+          - { name: "Coalition for Secure AI (CoSAI)", by: "OASIS Open", url: "https://www.coalitionforsecureai.org/", type: docs, cost: free }
+          - { name: "OWASP GenAI Security Project", by: "OWASP Foundation", url: "https://genai.owasp.org/", type: docs, cost: free }
+    skills:
+      - "Set GenAI security policy and review processes for a whole organisation."
+      - "Discover and responsibly disclose new classes of LLM vulnerability."
+      - "Contribute to industry guidance."
+    labs:
+      - "Write a GenAI security standard for a fictional company, with design rules, tests and monitoring."
+      - "Publish a write-up or tool on a new LLM attack or defence."
+    done:
+      - "Have your findings, tools or guidance used by others."
+      - "Run the review process that every new AI feature in an organisation goes through."
+
+tools:
+  - { name: "garak", url: "https://github.com/NVIDIA/garak", kind: oss, what: "LLM vulnerability scanner with hundreds of probes." }
+  - { name: "promptfoo", url: "https://www.promptfoo.dev/", kind: oss, what: "Test and red-team prompts, models and apps, including in CI." }
+  - { name: "PyRIT", url: "https://github.com/Azure/PyRIT", kind: oss, what: "Microsoft's framework for automated generative AI red teaming." }
+  - { name: "NeMo Guardrails", url: "https://github.com/NVIDIA/NeMo-Guardrails", kind: oss, what: "Programmable rails for LLM conversations." }
+  - { name: "LLM Guard", url: "https://github.com/protectai/llm-guard", kind: oss, what: "Input and output scanners for LLM apps." }
+  - { name: "Purple Llama (Llama Guard, Prompt Guard, CyberSecEval)", url: "https://github.com/meta-llama/PurpleLlama", kind: oss, what: "Safety classifiers and security benchmarks from Meta." }
+  - { name: "Presidio", url: "https://microsoft.github.io/presidio/", kind: oss, what: "Find and redact personal data in text." }
+  - { name: "Langfuse", url: "https://langfuse.com/", kind: oss, what: "Tracing and monitoring for LLM applications." }
+  - { name: "Ollama", url: "https://ollama.com/", kind: oss, what: "Run open models locally for safe testing." }
+
+certs:
+  - { name: "Certified AI Security Professional (CAISP)", by: "Practical DevSecOps", url: "https://www.practical-devsecops.com/certified-ai-security-professional/", level: mid, note: "Hands-on LLM and AI application security." }
+  - { ref: aaism, note: "For AI security management roles, after CISSP or CISM." }
+  - { ref: ai901, note: "Optional AI basics." }
+
+resources:
+  - { name: "OWASP Top 10 for LLM Applications", by: "OWASP GenAI Security Project", url: "https://genai.owasp.org/llm-top-10/", type: docs, cost: free }
+  - { name: "OWASP AI Exchange", by: "OWASP Foundation", url: "https://owaspai.org/", type: docs, cost: free }
+  - { name: "Web LLM attacks", by: "PortSwigger", url: "https://portswigger.net/web-security/llm-attacks", type: practice, cost: free }
+  - { name: "Gandalf", by: "Lakera", url: "https://gandalf.lakera.ai/", type: practice, cost: free }
+  - { name: "Red Teaming LLM Applications", by: "DeepLearning.AI and Giskard", url: "https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/", type: course, cost: free }
+  - { name: "Guidelines for secure AI system development", by: "NCSC (UK)", url: "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development", type: docs, cost: free }
+  - { name: "Generative Artificial Intelligence Profile (NIST AI 600-1)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.600-1", type: docs, cost: free }
+  - { name: "Prompt injection (articles)", by: "Simon Willison", url: "https://simonwillison.net/tags/prompt-injection/", type: docs, cost: free }
+  - { name: "The Developer's Playbook for Large Language Model Security", by: "Steve Wilson (O'Reilly)", url: "https://www.oreilly.com/library/view/the-developers-playbook/9781098162191/", type: book, cost: paid }
+
+frameworks: [owasp-genai, atlas, ai-rmf, owasp-top10, iso42001, ai-act]
+
+career:
+  - { title: "Developer or application security engineer", years: "0–2 years" }
+  - { title: "AppSec engineer reviewing AI features", years: "2–4 years" }
+  - { title: "AI security engineer or LLM penetration tester", years: "4–7 years" }
+  - { title: "AI security architect or head of AI security", years: "7+ years" }
+
+related:
+  - { to: appsec, why: "Most LLM app security is application security underneath." }
+  - { to: agentsec, why: "When the model can use tools and act, the risks grow." }
+  - { to: ai-redteam, why: "Test LLM apps with a proper method and evaluations." }
+  - { to: mlsec, why: "Understand the attacks on the model itself." }

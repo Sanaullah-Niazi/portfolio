@@ -1,0 +1,252 @@
+# Security roadmap: AI Red Teaming and Evaluation. Shown at /roadmaps/security/ai-redteam/.
+# Field guide: see the top of secops.yml.
+
+id: ai-redteam
+category: ai
+icon: flask
+entry: intermediate
+legal: true
+title: "AI Red Teaming and Evaluation"
+summary: "Probe AI systems for security and safety failures with a repeatable method, and measure them with evaluations that people can trust."
+keywords: "AI red teaming red team evaluation evals benchmark jailbreak harmful content safety testing PyRIT garak Inspect HarmBench scoring regression"
+
+overview:
+  - "AI red teaming means attacking an AI system the way a real adversary or a careless user would, to find failures before they reach people. It covers security problems (prompt injection, data leaks, tool misuse) and safety problems (harmful advice, bias, dangerous capabilities)."
+  - "Evaluation is the measuring side: building test sets, scoring answers and tracking results across model versions. Good red teaming finds new failures; good evaluation makes sure they stay fixed. You need both."
+why: "Laws such as the EU AI Act, and frameworks such as the NIST AI RMF, expect AI systems to be tested before and after release. AI labs, governments and large companies all run red teams, and the work needs people who think like attackers and measure like scientists."
+roles:
+  - { title: "AI red team analyst", level: entry, what: "Runs test plans, writes attack prompts and records findings carefully." }
+  - { title: "AI red teamer", level: mid, what: "Designs attacks on models, apps and agents and explains their impact." }
+  - { title: "Evaluation engineer", level: mid, what: "Builds test sets, scorers and pipelines that measure model behaviour." }
+  - { title: "AI red team lead", level: senior, what: "Plans engagements, sets the method and reports to product and leadership." }
+  - { title: "Head of AI evaluation and red teaming", level: lead, what: "Decides what must be tested before release and who signs it off." }
+
+prereqs:
+  - "The LLM and Generative AI Security roadmap, at least the beginner and intermediate stages."
+  - "Python for scripting attacks and analysing results."
+  - "Basic statistics: rates, samples and confidence intervals."
+  - "Some penetration testing or security testing experience helps."
+prereq_paths: [ai-ml, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Red teaming basics"
+    months: "1–2"
+    topics:
+      - id: rt-what
+        title: "What AI red teaming is (and is not)"
+        text: "It is a structured search for failures, with a scope, a threat model and a report. It is not random jailbreaking, and it does not replace normal security testing."
+        res:
+          - { name: "Planning red teaming for large language models (LLMs) and their applications", by: "Microsoft", url: "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/red-teaming", type: docs, cost: free }
+      - id: rt-scope
+        title: "Scope, rules and permission"
+        text: "Agree what you may test, which accounts and data to use, what harm categories matter and how to handle dangerous findings. Never test a system you do not have permission for."
+        res:
+          - { name: "OWASP AI Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-ai-testing-guide/", type: docs, cost: free }
+      - id: harm-taxonomy
+        title: "Harm categories"
+        text: "Decide what counts as a failure: security (injection, leaks, tool misuse), safety (dangerous instructions, self-harm), fairness and misinformation. Different products care about different ones."
+        res:
+          - { name: "Generative Artificial Intelligence Profile (NIST AI 600-1)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.600-1", type: docs, cost: free }
+      - id: manual-attacks
+        title: "Manual attack techniques"
+        text: "Role play, multi-turn escalation, encoding, translation and splitting a request into harmless-looking parts. Learn the families so you can try variations systematically."
+        res:
+          - { name: "Gandalf", by: "Lakera", url: "https://gandalf.lakera.ai/", type: practice, cost: free }
+          - { name: "HackAPrompt", by: "Learn Prompting", url: "https://www.hackaprompt.com/", type: practice, cost: free }
+      - id: rt-notes
+        title: "Recording findings"
+        text: "Log the exact prompt, model version, settings, response and how often it happens. Models are random, so one success is a lead and ten out of ten is a finding."
+        res:
+          - { name: "Red Teaming LLM Applications", by: "DeepLearning.AI and Giskard", url: "https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/", type: course, cost: free }
+      - id: rt-lessons
+        title: "Lessons from real red teams"
+        text: "Teams that have tested hundreds of products agree: think about the whole system, not just the model, and use people for the creative work and automation for scale."
+        res:
+          - { name: "Lessons From Red Teaming 100 Generative AI Products", by: "arXiv", url: "https://arxiv.org/abs/2501.07238", type: paper, cost: free }
+    skills:
+      - "Write a scoped red team plan with harm categories and rules."
+      - "Use the main families of manual attacks."
+      - "Record findings that someone else can reproduce."
+    labs:
+      - "Complete Gandalf and a HackAPrompt challenge and write down which techniques worked."
+      - "Red team a small chatbot you built, against a written plan, and record 10 findings with reproduction rates."
+    done:
+      - "Explain the difference between a jailbreak curiosity and a finding with real impact."
+      - "Hand over a findings log that another tester can reproduce."
+
+  - level: intermediate
+    title: "Automation and evaluation"
+    months: "2–4"
+    topics:
+      - id: rt-automation
+        title: "Automated attack generation"
+        text: "Use tools to generate, mutate and send attacks at scale, including multi-turn attacks where one model attacks another."
+        res:
+          - { name: "PyRIT", by: "Microsoft", url: "https://github.com/Azure/PyRIT", type: tool, cost: free }
+          - { name: "garak", by: "NVIDIA", url: "https://github.com/NVIDIA/garak", type: tool, cost: free }
+      - id: eval-basics
+        title: "Building evaluations"
+        text: "An evaluation is a dataset of inputs, a way to run them and a way to score the outputs. Start small, with cases you understand, and grow it from real findings."
+        res:
+          - { name: "Inspect", by: "UK AI Security Institute", url: "https://inspect.aisi.org.uk/", type: tool, cost: free }
+      - id: scoring
+        title: "Scoring and model judges"
+        text: "Rules work for clear cases; other models (judges) score open-ended answers. Check the judge against human labels, since it can be fooled or biased."
+        res:
+          - { name: "promptfoo", by: "promptfoo", url: "https://www.promptfoo.dev/", type: tool, cost: free }
+      - id: benchmarks
+        title: "Public safety and security benchmarks"
+        text: "Benchmarks such as HarmBench, JailbreakBench and CyberSecEval let you compare models. Know what each one measures and what it misses."
+        res:
+          - { name: "HarmBench", by: "Center for AI Safety", url: "https://github.com/centerforaisafety/HarmBench", type: practice, cost: free }
+          - { name: "JailbreakBench", by: "JailbreakBench", url: "https://jailbreakbench.github.io/", type: practice, cost: free }
+      - id: regression
+        title: "Regression testing"
+        text: "Every fixed finding becomes a test. Run the suite on each new model, prompt or guardrail, so old failures do not come back unnoticed."
+        res:
+          - { name: "promptfoo", by: "promptfoo", url: "https://www.promptfoo.dev/", type: tool, cost: free }
+      - id: app-rt
+        title: "Red teaming apps, RAG and agents"
+        text: "Test the system around the model: plant injections in documents the RAG reads, abuse the tools an agent has, and try to reach other users' data."
+        res:
+          - { name: "AgentDojo", by: "ETH Zurich SPY Lab", url: "https://github.com/ethz-spylab/agentdojo", type: practice, cost: free }
+      - id: stats
+        title: "Statistics for evaluations"
+        text: "Report rates with sample sizes and uncertainty. A drop from 5% to 4% on 100 prompts may be noise."
+        res:
+          - { name: "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations", by: "arXiv", url: "https://arxiv.org/abs/2411.00640", type: paper, cost: free }
+    skills:
+      - "Automate attacks with PyRIT or garak and triage the results."
+      - "Build an evaluation with Inspect or promptfoo and a checked scorer."
+      - "Turn findings into a regression suite that runs in CI."
+      - "Report results with sample sizes and uncertainty."
+    labs:
+      - "Build an Inspect evaluation for one harm category with 50 cases and a model judge, then check the judge against your own labels."
+      - "Run PyRIT multi-turn attacks against an app you deployed and compare with your manual findings."
+      - "Add a regression suite to CI and show it catching a reintroduced failure."
+    done:
+      - "Deliver a red team report with reproducible findings, rates and recommended fixes."
+      - "Show an evaluation whose scores you can defend to a sceptical engineer."
+
+  - level: advanced
+    title: "Full engagements and capability evaluations"
+    months: "3–6"
+    topics:
+      - id: rt-engagement
+        title: "Running a full engagement"
+        text: "Plan with the product team, mix expert testers and automation, triage with severity and impact, and retest fixes. Treat it like a penetration test with extra categories."
+        res:
+          - { name: "OWASP AI Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-ai-testing-guide/", type: docs, cost: free }
+      - id: atlas-mapping
+        title: "Mapping findings to ATLAS"
+        text: "Describe attacks with MITRE ATLAS tactics and techniques, so defenders can compare them with past incidents and plan detections."
+        res:
+          - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+      - id: dangerous-capabilities
+        title: "Dangerous capability evaluations"
+        text: "Labs and governments test whether models can meaningfully help with cyber attacks or other serious harm. These evaluations need experts, careful handling and strict access rules."
+        res:
+          - { name: "AI Security Institute", by: "UK Government", url: "https://www.aisi.gov.uk/", type: docs, cost: free }
+          - { name: "METR", by: "METR", url: "https://metr.org/", type: docs, cost: free }
+      - id: cyber-evals
+        title: "Cyber capability benchmarks"
+        text: "Benchmarks built on capture-the-flag tasks measure how well models do offensive security work. Learn how they are built and why results depend on the tools the model gets."
+        res:
+          - { name: "Cybench: A Framework for Evaluating Cybersecurity Capabilities and Risks of Language Models", by: "arXiv", url: "https://arxiv.org/abs/2408.08327", type: paper, cost: free }
+      - id: benchmark-integrity
+        title: "Benchmark integrity and contamination"
+        text: "If test questions leaked into training data, scores mean little. Keep private test sets, refresh them, and check for memorisation."
+        res:
+          - { name: "lm-evaluation-harness", by: "EleutherAI", url: "https://github.com/EleutherAI/lm-evaluation-harness", type: tool, cost: free }
+      - id: sensitive-findings
+        title: "Handling sensitive findings"
+        optional: true
+        text: "Some findings are dangerous to share. Limit who sees them, redact reports, and agree in advance how to disclose them."
+        res:
+          - { name: "AI Incident Database", by: "Responsible AI Collaborative", url: "https://incidentdatabase.ai/", type: docs, cost: free }
+    skills:
+      - "Lead a full AI red team engagement from scoping to retest."
+      - "Map findings to ATLAS and to the product's risk register."
+      - "Design capability evaluations with proper safeguards."
+      - "Detect and avoid contaminated benchmarks."
+    labs:
+      - "Plan and run a two-week red team of an open-source RAG or agent app you deploy, with a final report and retest."
+      - "Run a public cyber benchmark against an open model in an isolated environment and explain the results."
+    done:
+      - "Have a product team change its design because of your findings."
+      - "Present evaluation results to leadership with clear limits on what they show."
+
+  - level: expert
+    title: "Method, policy and research"
+    months: "6–12"
+    topics:
+      - id: rt-programme
+        title: "Building a red team programme"
+        text: "Decide what every release must pass, how severity is rated, who can block a launch and how findings flow into fixes and evaluations."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+      - id: rt-regulation
+        title: "Testing duties in regulation"
+        text: "The EU AI Act asks providers of general-purpose AI models with systemic risk to run adversarial testing. Know what regulators expect and how to document it."
+        res:
+          - { name: "EU AI Act (Regulation (EU) 2024/1689)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj", type: docs, cost: free }
+      - id: rt-research
+        title: "New attack research"
+        text: "Find new classes of failure, measure them properly and publish responsibly. The field still lacks good methods for agents and long tasks."
+        res:
+          - { name: "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training", by: "arXiv", url: "https://arxiv.org/abs/2401.05566", type: paper, cost: free }
+      - id: eval-science
+        title: "The science of evaluation"
+        text: "Contribute to making evaluations valid and comparable: clear definitions, uncertainty, reproducibility and resistance to gaming."
+        res:
+          - { name: "Inspect", by: "UK AI Security Institute", url: "https://inspect.aisi.org.uk/", type: tool, cost: free }
+    skills:
+      - "Set red teaming and evaluation policy for an organisation."
+      - "Publish new attack methods or evaluation methods."
+      - "Advise on regulatory testing duties."
+    labs:
+      - "Write a release-gating policy for a fictional AI product, with required evaluations and thresholds."
+      - "Publish an open evaluation or a write-up of a new attack class."
+    done:
+      - "Have your methods or evaluations used by other teams."
+      - "Own the decision on whether an AI system is ready to release."
+
+tools:
+  - { name: "PyRIT", url: "https://github.com/Azure/PyRIT", kind: oss, what: "Microsoft's framework for automated generative AI red teaming." }
+  - { name: "garak", url: "https://github.com/NVIDIA/garak", kind: oss, what: "LLM vulnerability scanner." }
+  - { name: "promptfoo", url: "https://www.promptfoo.dev/", kind: oss, what: "Evaluations and red teaming, with CI support." }
+  - { name: "Inspect", url: "https://inspect.aisi.org.uk/", kind: oss, what: "Evaluation framework from the UK AI Security Institute." }
+  - { name: "lm-evaluation-harness", url: "https://github.com/EleutherAI/lm-evaluation-harness", kind: oss, what: "Runs hundreds of standard benchmarks." }
+  - { name: "HarmBench", url: "https://github.com/centerforaisafety/HarmBench", kind: oss, what: "Standard evaluation for automated red teaming and refusals." }
+  - { name: "Purple Llama CyberSecEval", url: "https://github.com/meta-llama/PurpleLlama", kind: oss, what: "Security benchmarks for LLMs." }
+  - { name: "AgentDojo", url: "https://github.com/ethz-spylab/agentdojo", kind: oss, what: "Agent tasks with prompt injection attacks." }
+
+certs:
+  - { name: "AI Red Teamer (job role path)", by: "Hack The Box", url: "https://academy.hackthebox.com/path/preview/ai-red-teamer", level: mid, note: "Hands-on modules on attacking AI systems." }
+  - { name: "Certified AI Security Professional (CAISP)", by: "Practical DevSecOps", url: "https://www.practical-devsecops.com/certified-ai-security-professional/", level: mid, note: "Hands-on AI application security." }
+  - { ref: oscp, note: "Classic penetration testing skills help with the system around the model." }
+
+resources:
+  - { name: "Lessons From Red Teaming 100 Generative AI Products", by: "Microsoft (arXiv)", url: "https://arxiv.org/abs/2501.07238", type: paper, cost: free }
+  - { name: "OWASP AI Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-ai-testing-guide/", type: docs, cost: free }
+  - { name: "Red Teaming LLM Applications", by: "DeepLearning.AI and Giskard", url: "https://www.deeplearning.ai/short-courses/red-teaming-llm-applications/", type: course, cost: free }
+  - { name: "Inspect documentation", by: "UK AI Security Institute", url: "https://inspect.aisi.org.uk/", type: docs, cost: free }
+  - { name: "MITRE ATLAS", by: "MITRE", url: "https://atlas.mitre.org/", type: docs, cost: free }
+  - { name: "Generative Artificial Intelligence Profile (NIST AI 600-1)", by: "NIST", url: "https://doi.org/10.6028/NIST.AI.600-1", type: docs, cost: free }
+  - { name: "Crucible", by: "Dreadnode", url: "https://crucible.dreadnode.io/", type: practice, cost: free }
+  - { name: "AI Incident Database", by: "Responsible AI Collaborative", url: "https://incidentdatabase.ai/", type: docs, cost: free }
+
+frameworks: [atlas, owasp-genai, ai-rmf, ai-act, iso42001]
+
+career:
+  - { title: "Penetration tester, AppSec engineer or ML engineer", years: "0–3 years" }
+  - { title: "AI red team analyst", years: "2–4 years" }
+  - { title: "AI red teamer or evaluation engineer", years: "4–7 years" }
+  - { title: "AI red team lead or head of evaluation", years: "7+ years" }
+
+related:
+  - { to: llmsec, why: "Know the attacks and defences you are testing." }
+  - { to: agentsec, why: "Agents are the hardest systems to red team well." }
+  - { to: mlsec, why: "Adversarial ML is the classic form of AI red teaming." }
+  - { name: "Penetration Testing", why: "The method and reporting habits carry over directly." }
