@@ -6,6 +6,7 @@ ref: iot-water-management
 permalink: /zh/projects/iot-water-management/
 title: "智能建筑的物联网用水管理"
 summary: 我的本科毕业设计 “IoT-based Pure Aqua Utilization in Smart Edifice”。Arduino 传感器加水泵自动控制，并配有一个 Android 应用，用来查看水位、水质和账单。
+description: "我的本科毕业设计 “IoT-based Pure Aqua Utilization in Smart Edifice”。Arduino 传感器加水泵自动控制，并配有一个 Android 应用，用来查看水位、水质和账单。"
 ---
 
 ## 问题
