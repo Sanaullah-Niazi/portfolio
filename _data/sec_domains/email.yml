@@ -1,0 +1,231 @@
+# Security roadmap: Email and Collaboration Security. Shown at /roadmaps/security/email/.
+# Field guide: see the top of secops.yml.
+
+id: email
+category: infra
+icon: mail
+entry: beginner
+title: "Email and Collaboration Security"
+summary: "Stop phishing, business email compromise and account takeover across email and collaboration tools such as Microsoft 365, Teams and Slack."
+keywords: "email security phishing BEC business email compromise SPF DKIM DMARC email gateway anti-phishing Microsoft 365 Teams Slack collaboration security account takeover"
+
+overview:
+  - "Email is still how most attacks start: a phishing link, a fake invoice, a request from the boss that is not really the boss. Collaboration tools such as Teams and Slack have become targets too, as more work and sensitive data move into them."
+  - "This roadmap covers the whole picture: email authentication (SPF, DKIM, DMARC), gateways and filtering, phishing defence and user training, and securing the cloud collaboration suites people live in. Much of it is defensive configuration plus detection and response for what gets through."
+why: "Phishing and business email compromise cause enormous losses every year, and they land on email and chat. Every organisation needs people who can lock these channels down and respond when something slips past."
+roles:
+  - { title: "Email and messaging administrator", level: entry, what: "Runs email filtering and collaboration tool settings." }
+  - { title: "Email security engineer", level: mid, what: "Configures authentication, gateways and anti-phishing, and tunes them." }
+  - { title: "Collaboration security engineer", level: mid, what: "Secures Microsoft 365, Google Workspace, Teams and Slack." }
+  - { title: "Senior messaging security engineer", level: senior, what: "Designs email and collaboration defence across the organisation." }
+  - { title: "Head of messaging security", level: lead, what: "Owns strategy for email and collaboration security." }
+
+prereqs:
+  - "How email works: SMTP, headers, DNS and MX records."
+  - "DNS records and how to edit them."
+  - "Basic administration of a cloud suite such as Microsoft 365 or Google Workspace."
+  - "A basic idea of how phishing and social engineering work."
+prereq_paths: [foundations, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Email authentication and threats"
+    months: "1–2"
+    topics:
+      - id: email-basics
+        title: "How email works and where it fails"
+        text: "SMTP was built to trust the sender. Learn the path a message takes, what a header reveals, and why spoofing is so easy without extra controls."
+        res:
+          - { name: "M3AAWG best practices", by: "M3AAWG", url: "https://www.m3aawg.org/published-documents", type: docs, cost: free }
+      - id: spf
+        title: "SPF"
+        text: "SPF lists which servers may send mail for your domain. It is the first of three records that together stop most spoofing."
+        res:
+          - { name: "Sender Policy Framework (RFC 7208)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc7208", type: docs, cost: free }
+      - id: dkim
+        title: "DKIM"
+        text: "DKIM signs messages so the receiver can check they were not changed and really came from your domain."
+        res:
+          - { name: "DomainKeys Identified Mail (RFC 6376)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc6376", type: docs, cost: free }
+      - id: dmarc
+        title: "DMARC"
+        text: "DMARC ties SPF and DKIM to the visible From address and tells receivers what to do with fakes. Reports show who is sending as you."
+        res:
+          - { name: "DMARC (RFC 7489)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc7489", type: docs, cost: free }
+          - { name: "DMARC overview", by: "dmarc.org", url: "https://dmarc.org/overview/", type: docs, cost: free }
+      - id: phishing-types
+        title: "Phishing and BEC"
+        text: "Learn the families: credential phishing, malware delivery, business email compromise and invoice fraud. Each needs a different defence."
+        res:
+          - { name: "Phishing Guidance: Stopping the Attack Cycle at Phase One", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/phishing-guidance-stopping-attack-cycle-phase-one", type: docs, cost: free }
+      - id: header-analysis
+        title: "Reading email headers"
+        text: "Headers show the real path, the authentication results and often the real sender. Learn to read them to investigate a reported message."
+        res:
+          - { name: "Message Header Analyzer", by: "MXToolbox", url: "https://mxtoolbox.com/EmailHeaders.aspx", type: tool, cost: free }
+    skills:
+      - "Set up SPF, DKIM and DMARC for a domain."
+      - "Read DMARC reports to find spoofing."
+      - "Analyse an email header to investigate a report."
+    labs:
+      - "Set up SPF, DKIM and DMARC on a test domain and confirm them with a checker."
+      - "Collect DMARC reports for a week and identify every sender using your domain."
+    done:
+      - "Explain how SPF, DKIM and DMARC work together to stop spoofing."
+      - "Move a domain to a DMARC reject policy without breaking real mail."
+
+  - level: intermediate
+    title: "Filtering, anti-phishing and response"
+    months: "2–4"
+    topics:
+      - id: email-gateway
+        title: "Email gateways and filtering"
+        text: "Gateways filter spam, malware and phishing before delivery. Learn what the built-in protection in Microsoft 365 and Google Workspace can do."
+        res:
+          - { name: "Microsoft Defender for Office 365", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-office-365/", type: docs, cost: free }
+      - id: anti-phishing
+        title: "Anti-phishing controls"
+        text: "Impersonation protection, safe links, attachment sandboxing and external-sender banners each stop part of the problem. Turn them on and tune them."
+        res:
+          - { name: "Anti-phishing policies in Microsoft 365", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-office-365/anti-phishing-policies-about", type: docs, cost: free }
+      - id: bec-defence
+        title: "Defending against BEC"
+        text: "BEC uses no malware, just a convincing message. Defend with authentication, impersonation rules, payment verification processes and alert training."
+        res:
+          - { name: "Business Email Compromise", by: "FBI", url: "https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-frauds-and-scams/business-email-compromise", type: docs, cost: free }
+      - id: user-reporting
+        title: "User reporting and triage"
+        text: "Make reporting a suspicious email one click, then triage reports quickly. Users are a sensor the filters do not have."
+        res:
+          - { name: "The report message feature", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-office-365/submissions-users-report-message-add-in-configure", type: docs, cost: free }
+      - id: phishing-response
+        title: "Phishing incident response"
+        text: "When a phish gets through: find everyone who received it, remove it, check who clicked or entered credentials, and reset what is needed."
+        res:
+          - { name: "Microsoft Purview auditing solutions", by: "Microsoft", url: "https://learn.microsoft.com/en-us/purview/audit-solutions-overview", type: docs, cost: free }
+      - id: awareness-email
+        title: "Awareness and simulation"
+        text: "Train people on the threats they actually see, and run fair phishing simulations that teach rather than punish."
+        res:
+          - { name: "Gophish", by: "Gophish", url: "https://getgophish.com/", type: tool, cost: free }
+    skills:
+      - "Configure gateway and anti-phishing controls."
+      - "Defend against business email compromise."
+      - "Run phishing triage and response."
+      - "Run fair, useful awareness simulations."
+    labs:
+      - "Configure safe links, safe attachments and impersonation protection in a Microsoft 365 trial tenant."
+      - "Run a Gophish campaign in a lab and measure click and report rates."
+      - "Investigate a simulated phish in a test tenant: find recipients, clicks and actions from the audit log."
+    done:
+      - "Show the anti-phishing controls you enabled and what each one blocks."
+      - "Run a full phishing response in a lab tenant."
+
+  - level: advanced
+    title: "Collaboration suites and advanced defence"
+    months: "3–5"
+    topics:
+      - id: m365-security
+        title: "Securing Microsoft 365"
+        text: "Beyond email: conditional access, OAuth app consent, mailbox rules, sharing settings and audit logging. Attackers love mailbox rules and rogue app consents."
+        res:
+          - { name: "Microsoft 365 security documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/microsoft-365/security/", type: docs, cost: free }
+      - id: workspace-security
+        title: "Securing Google Workspace"
+        text: "The equivalent controls in Google Workspace: authentication, OAuth app control, sharing, alert centre and audit logs."
+        res:
+          - { name: "Google Workspace security best practices", by: "Google", url: "https://support.google.com/a/answer/7587183", type: docs, cost: free }
+      - id: chat-security
+        title: "Teams and Slack security"
+        text: "Chat tools carry files, links and external guests. Control external access, app installs and data sharing, and watch for phishing inside chat."
+        res:
+          - { name: "Security and compliance in Microsoft Teams", by: "Microsoft", url: "https://learn.microsoft.com/en-us/microsoftteams/security-compliance-overview", type: docs, cost: free }
+      - id: oauth-consent
+        title: "OAuth app and consent abuse"
+        text: "Attackers trick users into granting a malicious app access to their mailbox. Control which apps can be consented to, and watch for risky grants."
+        res:
+          - { name: "App consent policies", by: "Microsoft", url: "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies", type: docs, cost: free }
+      - id: collab-detection
+        title: "Detection for email and collaboration"
+        text: "Send mailbox, sign-in and sharing logs to the SOC and detect mailbox rules, mass downloads, impossible travel and new OAuth grants."
+        res:
+          - { name: "Microsoft Sentinel documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/azure/sentinel/", type: docs, cost: free }
+      - id: dlp-email
+        title: "Data loss prevention in messaging"
+        optional: true
+        text: "Stop sensitive data leaving through email and chat with data loss prevention rules, tuned to avoid blocking normal work."
+        res:
+          - { name: "Microsoft Purview Data Loss Prevention", by: "Microsoft", url: "https://learn.microsoft.com/en-us/purview/dlp-learn-about-dlp", type: docs, cost: free }
+    skills:
+      - "Secure Microsoft 365 and Google Workspace end to end."
+      - "Control external access and app installs in Teams and Slack."
+      - "Detect mailbox rule abuse and OAuth consent attacks."
+    labs:
+      - "Harden a Microsoft 365 trial tenant with conditional access and app consent policy, then test them."
+      - "Create a malicious mailbox rule in a test tenant and build a detection for it."
+    done:
+      - "Show a hardened collaboration suite with monitoring for the top account-takeover techniques."
+      - "Detect and respond to a simulated account takeover."
+
+  - level: expert
+    title: "Strategy and leadership"
+    months: "6–12"
+    topics:
+      - id: messaging-strategy
+        title: "Messaging security strategy"
+        text: "Decide the controls, the acceptable friction and the response process for email and every collaboration channel the organisation uses."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: human-risk
+        title: "Human risk management"
+        text: "Measure and reduce how often people fall for attacks over time, with training, process and making the safe action the easy one."
+        res:
+          - { name: "Phishing Guidance: Stopping the Attack Cycle at Phase One", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/phishing-guidance-stopping-attack-cycle-phase-one", type: docs, cost: free }
+      - id: messaging-metrics
+        title: "Measuring messaging security"
+        text: "Track DMARC enforcement, phish that reach inboxes, report rates and account takeovers. Report trends, not raw blocked counts."
+        res:
+          - { name: "dmarc.org", by: "dmarc.org", url: "https://dmarc.org/", type: docs, cost: free }
+    skills:
+      - "Set messaging and collaboration security strategy."
+      - "Run a human risk programme."
+    labs:
+      - "Write an email and collaboration security standard for an organisation."
+      - "Design a year of awareness activity tied to real reported threats."
+    done:
+      - "Show a measured drop in successful phishing over time."
+      - "Lead the rollout of DMARC enforcement or a collaboration security baseline."
+
+tools:
+  - { name: "DMARC checkers", url: "https://dmarc.org/resources/deployment-tools/", kind: free, what: "Verify SPF, DKIM and DMARC setup." }
+  - { name: "Gophish", url: "https://getgophish.com/", kind: oss, what: "Run phishing simulations." }
+  - { name: "MXToolbox", url: "https://mxtoolbox.com/", kind: free, what: "Check DNS, mail and authentication records." }
+  - { name: "Microsoft Defender for Office 365", url: "https://learn.microsoft.com/en-us/defender-office-365/", kind: paid, what: "Email and collaboration protection with strong docs." }
+  - { name: "Sublime Security", url: "https://sublime.security/", kind: community, what: "Open email detection rules and a free tier." }
+
+certs:
+  - { ref: sc200, note: "Covers Defender for Office 365 and Sentinel." }
+  - { ref: secplus, note: "A common baseline." }
+  - { ref: cc, note: "Entry-level security certification." }
+
+resources:
+  - { name: "DMARC overview", by: "dmarc.org", url: "https://dmarc.org/overview/", type: docs, cost: free }
+  - { name: "Phishing Guidance: Stopping the Attack Cycle at Phase One", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/phishing-guidance-stopping-attack-cycle-phase-one", type: docs, cost: free }
+  - { name: "Microsoft Defender for Office 365", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-office-365/", type: docs, cost: free }
+  - { name: "Google Workspace security best practices", by: "Google", url: "https://support.google.com/a/answer/7587183", type: docs, cost: free }
+  - { name: "M3AAWG best practices", by: "M3AAWG", url: "https://www.m3aawg.org/published-documents", type: docs, cost: free }
+  - { name: "Business Email Compromise", by: "FBI", url: "https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-frauds-and-scams/business-email-compromise", type: docs, cost: free }
+
+frameworks: [nist-csf, cis-controls, attack]
+
+career:
+  - { title: "IT or messaging administrator", years: "0–2 years" }
+  - { title: "Email security engineer", years: "2–5 years" }
+  - { title: "Senior messaging security engineer", years: "5–8 years" }
+  - { title: "Head of messaging security", years: "9+ years" }
+
+related:
+  - { to: iam, why: "Account takeover is an identity problem." }
+  - { to: secops, why: "Phishing response is day-to-day SOC work." }
+  - { name: "Security Awareness and Human Risk", why: "People are the main target of email attacks." }
+  - { to: webedge, why: "The web and DNS controls that back up email defence." }

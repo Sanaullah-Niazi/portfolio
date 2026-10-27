@@ -1,0 +1,232 @@
+# Security roadmap: Endpoint and Operating System Security. Shown at /roadmaps/security/endpoint/.
+# Field guide: see the top of secops.yml.
+
+id: endpoint
+category: infra
+icon: monitor
+entry: beginner
+title: "Endpoint and Operating System Security"
+summary: "Harden and defend the laptops, servers and workstations people use every day, with EDR, hardening and operating system security controls."
+keywords: "endpoint security EDR XDR anti-malware HIDS application allowlisting device control Windows Linux macOS hardening CIS benchmarks attack surface reduction"
+
+overview:
+  - "Endpoints are where most attacks land: a phishing click, a malicious document, a stolen laptop. Endpoint and operating system security is about making each device hard to compromise and quick to detect when it is."
+  - "The work spans hardening (safe configuration, patching, removing what is not needed), protection (anti-malware, EDR, application control) and the built-in security of Windows, Linux and macOS. Done well, it stops whole classes of attack before any detection is needed."
+why: "A single weak laptop can be the start of a company-wide breach. Endpoint skills are needed in every organisation, and they are the foundation that detection and response build on."
+roles:
+  - { title: "Endpoint administrator", level: entry, what: "Deploys and maintains endpoint protection and patches." }
+  - { title: "Endpoint security engineer", level: mid, what: "Hardens systems, tunes EDR and builds secure baselines." }
+  - { title: "Platform security engineer", level: mid, what: "Owns the secure configuration of Windows, Linux or macOS fleets." }
+  - { title: "Senior endpoint security engineer", level: senior, what: "Designs endpoint defence across the organisation." }
+  - { title: "Head of endpoint security", level: lead, what: "Sets endpoint strategy, standards and tooling." }
+
+prereqs:
+  - "Comfortable administering Windows and Linux."
+  - "Networking basics."
+  - "Command line and some scripting (PowerShell, Bash)."
+  - "A basic idea of how malware and attacks work."
+prereq_paths: [foundations, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Operating system security basics"
+    months: "2–3"
+    topics:
+      - id: os-security-model
+        title: "Operating system security models"
+        text: "Users, groups, permissions, privileges and how the kernel separates them. Everything else builds on understanding who can do what."
+        res:
+          - { name: "Windows security documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows/security/", type: docs, cost: free }
+      - id: hardening-basics
+        title: "Hardening and benchmarks"
+        text: "Turn off what you do not need, set safe defaults and follow a recognised benchmark so your choices are consistent and defensible."
+        res:
+          - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+      - id: patching-endpoint
+        title: "Patching and updates"
+        text: "Most endpoint compromises exploit something that already had a fix. Learn how updates are tested and rolled out across a fleet."
+        res:
+          - { name: "NIST SP 800-40 Rev. 4 (Enterprise Patch Management Planning)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/40/r4/final", type: docs, cost: free }
+      - id: anti-malware
+        title: "Anti-malware and built-in protection"
+        text: "Modern operating systems include real protection. Learn Microsoft Defender's features, and the equivalents on Linux and macOS."
+        res:
+          - { name: "Microsoft Defender Antivirus documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-antivirus-windows", type: docs, cost: free }
+      - id: disk-encryption
+        title: "Disk encryption"
+        text: "Full-disk encryption protects data on lost or stolen devices. Learn BitLocker, LUKS and FileVault, and how recovery keys are managed."
+        res:
+          - { name: "BitLocker documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/", type: docs, cost: free }
+      - id: local-accounts
+        title: "Local accounts and admin rights"
+        text: "Most users do not need admin rights, and shared local admin passwords are an attacker's dream. Learn least privilege and tools such as LAPS."
+        res:
+          - { name: "Windows LAPS", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview", type: docs, cost: free }
+    skills:
+      - "Harden a Windows and a Linux system against a benchmark."
+      - "Set up disk encryption and manage recovery keys."
+      - "Remove unnecessary admin rights safely."
+    labs:
+      - "Harden a Windows VM against the CIS Benchmark and measure your score with CIS-CAT Lite."
+      - "Harden a Linux VM: disable unused services, set up a firewall and enforce SSH key login."
+    done:
+      - "Explain the main hardening steps for Windows and Linux."
+      - "Show a before-and-after benchmark score for a system you hardened."
+
+  - level: intermediate
+    title: "EDR and endpoint defence"
+    months: "3–4"
+    topics:
+      - id: edr
+        title: "Endpoint detection and response (EDR)"
+        text: "EDR records what happens on a device and lets you detect, investigate and respond. Learn what telemetry it collects and how analysts use it."
+        res:
+          - { name: "Microsoft Defender for Endpoint documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-endpoint/", type: docs, cost: free }
+      - id: app-control
+        title: "Application control and allowlisting"
+        text: "Only letting approved software run stops most malware outright. Learn Windows Defender Application Control and AppLocker, and why allowlisting is hard to maintain."
+        res:
+          - { name: "Application Control for Windows", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/appcontrol", type: docs, cost: free }
+      - id: asr
+        title: "Attack surface reduction"
+        text: "Rules that block common attack behaviours, such as Office spawning scripts or credential theft from memory, without needing a detection to fire."
+        res:
+          - { name: "Attack surface reduction rules", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-endpoint/attack-surface-reduction", type: docs, cost: free }
+      - id: host-firewall
+        title: "Host firewalls and HIDS"
+        text: "A host firewall limits what each device accepts and sends; host intrusion detection watches for tampering. Both matter when the network perimeter fails."
+        res:
+          - { name: "Wazuh", by: "Wazuh", url: "https://wazuh.com/", type: tool, cost: free }
+      - id: device-control
+        title: "Device and removable media control"
+        text: "USB drives carry malware in and data out. Control which devices can connect and what they can do."
+        res:
+          - { name: "Microsoft Defender device control", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-endpoint/device-control-overview", type: docs, cost: free }
+      - id: linux-hardening
+        title: "Linux hardening in depth"
+        text: "SELinux or AppArmor, auditd, kernel settings and service isolation make a Linux server much harder to exploit and much easier to investigate."
+        res:
+          - { name: "SELinux Project", by: "SELinux Project", url: "https://github.com/SELinuxProject", type: docs, cost: free }
+    skills:
+      - "Deploy and tune EDR on a fleet."
+      - "Set up application control and attack surface reduction."
+      - "Configure host firewalls and HIDS."
+      - "Harden Linux with mandatory access control and auditing."
+    labs:
+      - "Enable Defender ASR rules in audit mode on a VM, run safe test behaviours and review what they would have blocked."
+      - "Set up AppLocker or WDAC in a lab and block an unapproved program."
+      - "Configure auditd and AppArmor on a Linux VM and review the logs after simulated misuse."
+    done:
+      - "Show a device where common attack behaviours are blocked without a detection firing."
+      - "Investigate a simulated incident using EDR telemetry."
+
+  - level: advanced
+    title: "Fleet security and advanced defence"
+    months: "4–6"
+    topics:
+      - id: secure-baselines
+        title: "Secure baselines at scale"
+        text: "Build, deploy and enforce a secure configuration across thousands of devices with Group Policy, Intune or a configuration tool, and detect drift."
+        res:
+          - { name: "Microsoft Security Baselines", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines", type: docs, cost: free }
+      - id: credential-protection
+        title: "Credential protection"
+        text: "Credential Guard, LSA protection and removing cached credentials stop the credential theft that powers lateral movement."
+        res:
+          - { name: "Credential Guard", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/", type: docs, cost: free }
+      - id: macos-security
+        title: "macOS security"
+        text: "Gatekeeper, System Integrity Protection, XProtect, notarisation and management profiles. Learn how Apple's model differs from Windows."
+        res:
+          - { name: "Apple Platform Security", by: "Apple", url: "https://support.apple.com/guide/security/welcome/web", type: docs, cost: free }
+      - id: firmware-endpoint
+        title: "Firmware and boot security"
+        text: "Secure Boot, TPM and measured boot protect a device before the operating system even loads. Learn what they prevent and how they are checked."
+        res:
+          - { name: "Secured-core PC", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure-11", type: docs, cost: free }
+      - id: endpoint-forensics
+        title: "Endpoint forensic readiness"
+        text: "Make sure devices log enough, keep it long enough and can be collected quickly, so an investigation is possible when it matters."
+        res:
+          - { name: "Velociraptor documentation", by: "Velociraptor", url: "https://docs.velociraptor.app/", type: docs, cost: free }
+      - id: byod
+        title: "Mobile and BYOD"
+        optional: true
+        text: "Phones and personal devices reach company data too. Learn mobile device management, app protection and the privacy trade-offs."
+        res:
+          - { name: "Microsoft Intune documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/mem/intune/", type: docs, cost: free }
+    skills:
+      - "Build and enforce secure baselines across a fleet."
+      - "Turn on credential protection and boot security."
+      - "Secure and manage macOS and mobile devices."
+    labs:
+      - "Apply a Microsoft security baseline to a lab device and verify it, then detect a drift you introduce."
+      - "Enable Credential Guard on a VM and confirm it blocks a credential-dumping test."
+    done:
+      - "Show a secure, monitored baseline rolled out and enforced across several devices."
+      - "Explain how an attacker's job gets harder at each layer you added."
+
+  - level: expert
+    title: "Strategy and leadership"
+    months: "6–12"
+    topics:
+      - id: endpoint-strategy
+        title: "Endpoint security strategy"
+        text: "Balance security, cost and user experience across the fleet, and plan the move to newer models such as secured-core and zero trust device health."
+        res:
+          - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
+      - id: endpoint-metrics
+        title: "Measuring endpoint security"
+        text: "Track patch coverage, benchmark compliance, EDR coverage and mean time to isolate. Report what reduces risk, not tool counts."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: endpoint-automation
+        title: "Automating endpoint security"
+        text: "Automate baseline enforcement, patching and isolation so security scales without more staff."
+        res:
+          - { name: "Ansible documentation", by: "Red Hat", url: "https://docs.ansible.com/", type: docs, cost: free }
+    skills:
+      - "Set endpoint strategy and standards for an organisation."
+      - "Report endpoint risk to leadership."
+    labs:
+      - "Write an endpoint security standard covering Windows, Linux and macOS."
+      - "Automate baseline enforcement for a group of lab machines."
+    done:
+      - "Run an endpoint security programme with measured coverage."
+      - "Lead the rollout of a major endpoint control across a fleet."
+
+tools:
+  - { name: "Microsoft Defender for Endpoint", url: "https://learn.microsoft.com/en-us/defender-endpoint/", kind: paid, what: "Widely used EDR with a strong free documentation set." }
+  - { name: "Wazuh", url: "https://wazuh.com/", kind: oss, what: "Open-source HIDS, EDR and compliance monitoring." }
+  - { name: "osquery", url: "https://osquery.io/", kind: oss, what: "Query endpoint state with SQL." }
+  - { name: "CIS-CAT Lite", url: "https://www.cisecurity.org/cybersecurity-tools/cis-cat-lite", kind: free, what: "Checks systems against CIS Benchmarks." }
+  - { name: "Velociraptor", url: "https://docs.velociraptor.app/", kind: oss, what: "Endpoint visibility and collection." }
+  - { name: "Lynis", url: "https://cisofy.com/lynis/", kind: oss, what: "Security auditing and hardening checks for Linux." }
+
+certs:
+  - { ref: secplus, note: "A common baseline." }
+  - { ref: sc200, note: "Operations with Microsoft Defender for Endpoint." }
+  - { name: "GIAC Certified Windows Security Administrator (GCWN)", by: "GIAC", url: "https://www.giac.org/certifications/certified-windows-security-administrator-gcwn/", level: mid, note: "Windows and Active Directory hardening." }
+
+resources:
+  - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+  - { name: "Windows security documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows/security/", type: docs, cost: free }
+  - { name: "Apple Platform Security", by: "Apple", url: "https://support.apple.com/guide/security/welcome/web", type: docs, cost: free }
+  - { name: "Lynis", by: "CISOfy", url: "https://cisofy.com/lynis/", type: tool, cost: free }
+  - { name: "NIST SP 800-40 Rev. 4", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/40/r4/final", type: docs, cost: free }
+  - { name: "ANSSI hardening guides", by: "ANSSI (France)", url: "https://cyber.gouv.fr/publications", type: docs, cost: free }
+
+frameworks: [cis-benchmarks, cis-controls, nist-csf, attack, zero-trust]
+
+career:
+  - { title: "IT support or system administrator", years: "0–2 years" }
+  - { title: "Endpoint administrator", years: "1–3 years" }
+  - { title: "Endpoint security engineer", years: "3–6 years" }
+  - { title: "Senior endpoint security engineer", years: "6–9 years" }
+  - { title: "Head of endpoint security", years: "10+ years" }
+
+related:
+  - { to: secops, why: "Endpoint telemetry feeds the SOC." }
+  - { to: detection, why: "Hardening and detection work together." }
+  - { to: dfir, why: "Endpoints are where most investigations happen." }
+  - { to: hardening, why: "The same ideas applied to servers and infrastructure." }

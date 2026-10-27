@@ -140,8 +140,8 @@ categories:
     icon: monitor
     title: "IT security and infrastructure"
     summary: "Securing the machines, networks and services an organisation runs on."
-    domains: []
-    planned: ["Endpoint Security", "Operating System Security", "Server Security", "Virtualization Security", "Container Security", "Hardware Security", "Mobile Security", "Wireless Security", "Email and Messaging Security", "DNS and Web Security", "Remote Access Security", "IT Asset Management and Security", "Configuration and Patch Management", "Backup and Recovery Security", "IT Service Security"]
+    domains: [endpoint, hardening, container, email, webedge]
+    planned: []
 
   - id: data
     icon: lock

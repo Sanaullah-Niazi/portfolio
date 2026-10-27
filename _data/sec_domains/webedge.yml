@@ -1,0 +1,233 @@
+# Security roadmap: Web, DNS and Edge Security. Shown at /roadmaps/security/webedge/.
+# Field guide: see the top of secops.yml.
+
+id: webedge
+category: infra
+icon: globe
+entry: intermediate
+title: "Web, DNS and Edge Security"
+summary: "Protect the edge where users meet the internet: DNS, web gateways, WAF, DDoS protection, and the move to SASE and zero trust network access."
+keywords: "DNS security DoH DoT WAF web application firewall DDoS protection secure web gateway CASB SSE SASE ZTNA browser security CDN TLS edge security"
+
+overview:
+  - "The edge is where an organisation touches the internet in both directions: users reaching out to websites and apps, and the world reaching in to published services. It is a favourite target, because one weak point here exposes everyone behind it."
+  - "This roadmap covers DNS security, web application firewalls and DDoS protection on the inbound side, and secure web gateways, CASB, browser security and the move to SASE and zero trust network access on the outbound side. It blends network, web and cloud security."
+why: "Edge services absorb constant attacks, and the industry is shifting from the old perimeter to cloud-delivered SASE and zero trust. People who understand both the classic controls and the new model are in demand."
+roles:
+  - { title: "Network or edge administrator", level: entry, what: "Runs DNS, proxies, WAF and DDoS protection day to day." }
+  - { title: "Edge security engineer", level: mid, what: "Configures WAF, DNS security, gateways and DDoS protection." }
+  - { title: "SASE / network security engineer", level: mid, what: "Builds secure access with SSE, ZTNA and cloud-delivered controls." }
+  - { title: "Edge security architect", level: senior, what: "Designs the edge and secure access architecture." }
+  - { title: "Head of network and edge security", level: lead, what: "Owns edge and access strategy." }
+
+prereqs:
+  - "The Network Security roadmap's basics, or equivalent experience."
+  - "How DNS, HTTP and TLS work."
+  - "Web application basics and common web attacks."
+  - "Cloud basics help for the SASE topics."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "DNS and web edge basics"
+    months: "2–3"
+    topics:
+      - id: dns-security
+        title: "DNS security"
+        text: "DNS is how everything is found, and attackers abuse it for command and control and data theft. Learn DNS filtering, logging and how to spot abuse."
+        res:
+          - { name: "Protective DNS", by: "CISA and NSA", url: "https://www.cisa.gov/resources-tools/resources/selecting-protective-dns-service", type: docs, cost: free }
+      - id: dnssec
+        title: "DNSSEC, DoH and DoT"
+        text: "DNSSEC proves answers are genuine; DoH and DoT encrypt queries. Learn what each protects, and how encrypted DNS can also hide attacker traffic."
+        res:
+          - { name: "DNSSEC", by: "ICANN", url: "https://www.icann.org/resources/pages/dnssec-what-is-it-why-important-2019-03-05-en", type: docs, cost: free }
+      - id: tls-edge
+        title: "TLS at the edge"
+        text: "Terminate TLS securely, use modern settings, manage certificates and renew them automatically. Expired or weak TLS is a common, avoidable failure."
+        res:
+          - { name: "Mozilla SSL Configuration Generator", by: "Mozilla", url: "https://ssl-config.mozilla.org/", type: tool, cost: free }
+      - id: waf-basics
+        title: "Web application firewalls"
+        text: "A WAF filters malicious web requests. Learn what the OWASP Core Rule Set catches, and why a WAF is a layer, not a replacement for secure code."
+        res:
+          - { name: "OWASP ModSecurity Core Rule Set", by: "OWASP Foundation", url: "https://coreruleset.org/", type: tool, cost: free }
+      - id: cdn-edge
+        title: "CDNs and reverse proxies"
+        text: "CDNs and reverse proxies sit in front of your services for speed and protection. Learn how they hide origins, cache safely and block bad traffic."
+        res:
+          - { name: "Caddy", by: "Caddy", url: "https://caddyserver.com/docs/", type: docs, cost: free }
+      - id: ddos-basics
+        title: "DDoS protection basics"
+        text: "Denial-of-service attacks flood a service until it fails. Learn the main types and the defences: absorbing, filtering and rate limiting."
+        res:
+          - { name: "Understanding and Responding to Distributed Denial-of-Service Attacks", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/understanding-and-responding-distributed-denial-service-attacks", type: docs, cost: free }
+    skills:
+      - "Set up DNS filtering and logging."
+      - "Configure modern TLS and automatic certificates."
+      - "Deploy a WAF with the OWASP Core Rule Set."
+    labs:
+      - "Set up a reverse proxy with automatic TLS in front of a lab web app."
+      - "Deploy the OWASP Core Rule Set in front of a deliberately vulnerable app and watch it block attacks."
+      - "Set up protective DNS for a lab network and test that it blocks known-bad domains."
+    done:
+      - "Explain how DNS, TLS and a WAF each protect the edge."
+      - "Show a web app behind a WAF and TLS that blocks common attacks."
+
+  - level: intermediate
+    title: "Secure access and the shift to SASE"
+    months: "3–5"
+    topics:
+      - id: swg
+        title: "Secure web gateways"
+        text: "A secure web gateway filters users' outbound web traffic: blocking malware, phishing and risky categories, and logging what is accessed."
+        res:
+          - { name: "NIST SP 800-215 (Guide to a Secure Enterprise Network Landscape)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/215/final", type: docs, cost: free }
+      - id: casb
+        title: "Cloud access security brokers"
+        text: "A CASB gives visibility and control over the cloud apps people use, including shadow IT, and can enforce data and access policy."
+        res:
+          - { name: "Microsoft Defender for Cloud Apps", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-cloud-apps/", type: docs, cost: free }
+      - id: ztna
+        title: "Zero trust network access"
+        text: "ZTNA replaces broad VPN access with per-application access checked on identity and device health. Learn how it differs from a traditional VPN."
+        res:
+          - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
+      - id: sse-sase
+        title: "SSE and SASE"
+        text: "Security Service Edge bundles SWG, CASB and ZTNA in the cloud; SASE adds networking. Learn the model and what it replaces."
+        res:
+          - { name: "NIST SP 800-215 (Guide to a Secure Enterprise Network Landscape)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/215/final", type: docs, cost: free }
+      - id: browser-security
+        title: "Browser security"
+        text: "The browser is where most work and most attacks happen. Learn browser hardening, extension control and the idea of enterprise and isolated browsers."
+        res:
+          - { name: "Chrome Enterprise security", by: "Google", url: "https://chromeenterprise.google/browser/security/", type: docs, cost: free }
+      - id: waf-tuning
+        title: "Tuning WAF and DDoS"
+        text: "Out of the box, a WAF blocks real traffic and misses real attacks. Learn to tune rules, handle false positives and set sensible rate limits."
+        res:
+          - { name: "OWASP ModSecurity Core Rule Set", by: "OWASP Foundation", url: "https://coreruleset.org/", type: docs, cost: free }
+    skills:
+      - "Deploy and tune a secure web gateway."
+      - "Use a CASB to find and control cloud app use."
+      - "Design zero trust access to replace broad VPN access."
+      - "Harden browsers and control extensions."
+    labs:
+      - "Set up outbound DNS and web filtering for a lab network and test the policy."
+      - "Deploy a self-hosted ZTNA tool to reach a lab app without opening a port."
+      - "Tune the OWASP Core Rule Set to remove a false positive without losing protection."
+    done:
+      - "Explain SASE and what perimeter controls it replaces."
+      - "Give per-application access without a traditional VPN in a lab."
+
+  - level: advanced
+    title: "Scaling and defending the edge"
+    months: "4–6"
+    topics:
+      - id: advanced-ddos
+        title: "Advanced DDoS defence"
+        text: "Layer 7 and application DDoS are harder than volumetric floods. Learn upstream scrubbing, bot management and graceful degradation."
+        res:
+          - { name: "Understanding and Responding to Distributed Denial-of-Service Attacks", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/understanding-and-responding-distributed-denial-service-attacks", type: docs, cost: free }
+      - id: bot-management
+        title: "Bot and abuse management"
+        text: "Credential stuffing, scraping and fraud come from bots. Learn detection, rate limiting and challenges, and the trade-off with real users."
+        res:
+          - { name: "OWASP Automated Threats to Web Applications", by: "OWASP Foundation", url: "https://owasp.org/www-project-automated-threats-to-web-applications/", type: docs, cost: free }
+      - id: dns-hunting
+        title: "DNS as a detection source"
+        text: "DNS logs reveal command and control, tunnelling and newly registered domains. Send them to the SOC and build detections."
+        res:
+          - { name: "Zeek documentation", by: "Zeek project", url: "https://docs.zeek.org/", type: docs, cost: free }
+      - id: edge-at-scale
+        title: "Edge architecture at scale"
+        text: "Design resilient edge: multiple providers, failover, anycast and cached origins, so no single failure takes services down."
+        res:
+          - { name: "NIST SP 800-215 (Guide to a Secure Enterprise Network Landscape)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/215/final", type: docs, cost: free }
+      - id: tls-inspection
+        title: "TLS inspection and privacy"
+        text: "Inspecting encrypted traffic catches hidden threats but breaks some apps and raises privacy issues. Learn where it helps and where to exempt traffic."
+        res:
+          - { name: "NSA guidance on TLS inspection", by: "NSA", url: "https://media.defense.gov/2019/Nov/18/2002212783/-1/-1/0/MANAGING%20RISK%20FROM%20TLS%20INSPECTION_20191106.PDF", type: docs, cost: free }
+      - id: remote-browser
+        title: "Remote browser isolation"
+        optional: true
+        text: "Running the browser away from the device and streaming only pixels contains web threats entirely, at the cost of performance and money."
+        res:
+          - { name: "Chrome Enterprise security", by: "Google", url: "https://chromeenterprise.google/browser/security/", type: docs, cost: free }
+    skills:
+      - "Defend against application-layer DDoS and bots."
+      - "Use DNS logs for detection."
+      - "Design resilient edge architecture."
+      - "Decide where TLS inspection is worth it."
+    labs:
+      - "Add rate limiting and simple bot detection to a lab app and test them."
+      - "Analyse DNS logs from a lab for tunnelling you created, and write a detection."
+    done:
+      - "Show an edge that survives a simulated application-layer attack."
+      - "Detect command-and-control traffic in DNS logs."
+
+  - level: expert
+    title: "Strategy and leadership"
+    months: "6–12"
+    topics:
+      - id: edge-strategy
+        title: "Edge and access strategy"
+        text: "Plan the move from perimeter to SASE and zero trust, in steps, without breaking access for users mid-journey."
+        res:
+          - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+      - id: edge-resilience
+        title: "Resilience and continuity"
+        text: "The edge must stay up under attack. Plan for provider failure, DDoS and certificate expiry, and test the plans."
+        res:
+          - { name: "Understanding and Responding to Distributed Denial-of-Service Attacks", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/understanding-and-responding-distributed-denial-service-attacks", type: docs, cost: free }
+      - id: edge-metrics
+        title: "Measuring edge security"
+        text: "Track attacks blocked, DDoS handled, TLS and DNS coverage, and progress toward zero trust. Report outcomes, not raw blocks."
+        res:
+          - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+    skills:
+      - "Set edge and secure access strategy."
+      - "Plan edge resilience and continuity."
+    labs:
+      - "Write a staged plan to move an organisation from VPN to zero trust access."
+      - "Design a resilient edge for a service, with failover and DDoS handling."
+    done:
+      - "Run an edge and access programme with measured maturity."
+      - "Lead a SASE or zero trust access rollout."
+
+tools:
+  - { name: "OWASP ModSecurity Core Rule Set", url: "https://coreruleset.org/", kind: oss, what: "Open rule set for web application firewalls." }
+  - { name: "Caddy", url: "https://caddyserver.com/", kind: oss, what: "Web server and reverse proxy with automatic TLS." }
+  - { name: "Pi-hole", url: "https://pi-hole.net/", kind: oss, what: "DNS filtering for labs and small networks." }
+  - { name: "Zeek", url: "https://zeek.org/", kind: oss, what: "Network and DNS logging for detection." }
+  - { name: "testssl.sh", url: "https://testssl.sh/", kind: oss, what: "Check TLS configuration of a server." }
+  - { name: "OpenZiti", url: "https://openziti.io/", kind: oss, what: "Open-source zero trust network access." }
+
+certs:
+  - { ref: ccna, note: "Networking foundation for edge work." }
+  - { ref: secplus, note: "A common baseline." }
+  - { ref: aws-sec, note: "Cloud-delivered edge and WAF services." }
+
+resources:
+  - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
+  - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+  - { name: "Protective DNS", by: "CISA and NSA", url: "https://www.cisa.gov/resources-tools/resources/selecting-protective-dns-service", type: docs, cost: free }
+  - { name: "OWASP ModSecurity Core Rule Set", by: "OWASP Foundation", url: "https://coreruleset.org/", type: docs, cost: free }
+  - { name: "Understanding and Responding to Distributed Denial-of-Service Attacks", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/understanding-and-responding-distributed-denial-service-attacks", type: docs, cost: free }
+  - { name: "Mozilla Web Security guidelines", by: "Mozilla", url: "https://infosec.mozilla.org/guidelines/web_security", type: docs, cost: free }
+
+frameworks: [zero-trust, nist-csf, cis-controls, owasp-top10]
+
+career:
+  - { title: "Network or systems administrator", years: "0–3 years" }
+  - { title: "Edge security engineer", years: "3–6 years" }
+  - { title: "Edge security architect", years: "6–9 years" }
+  - { title: "Head of network and edge security", years: "10+ years" }
+
+related:
+  - { to: network, why: "Edge security builds on network security." }
+  - { to: cloud, why: "SASE and the edge are cloud-delivered now." }
+  - { to: email, why: "Web and DNS controls back up email defence." }
+  - { to: appsec, why: "A WAF protects the apps AppSec hardens." }
