@@ -29,6 +29,14 @@ jobs:
           curl -sS -i -X OPTIONS -H "Origin: https://sanaullahniazi.com" -H "Access-Control-Request-Method: POST" -H "Access-Control-Request-Headers: content-type" https://api.sanaullahniazi.com/scan | head -20
           echo; echo "--- POST /scan with a dummy token"
           curl -sS -i -X POST -H "Origin: https://sanaullahniazi.com" -H "content-type: application/json" -d '{"url":"https://sanaullahniazi.com","token":"x","lang":"en"}' https://api.sanaullahniazi.com/scan | head -20
+      - name: Live page headers and CSP
+        run: |
+          curl -sS -D - -o /tmp/page https://sanaullahniazi.com/tools/website-health-checker/ | grep -iv "^report-to\|^nel" 
+          grep -o '<meta http-equiv="Content-Security-Policy"[^>]*>' /tmp/page
+          grep -o 'data-api="[^"]*"\|health-checker.js[^"]*' /tmp/page | head
+      - name: Watch the Worker's logs for 7 minutes (retry a scan meanwhile)
+        run: |
+          timeout 420 npx wrangler tail site-checker --format pretty || true
       - name: Recent scans
         run: |
           id=$(npx wrangler d1 list --json | node -e 'const l=JSON.parse(require("fs").readFileSync(0,"utf8"));process.stdout.write(l.find(x=>x.name==="site-checker").uuid)')
