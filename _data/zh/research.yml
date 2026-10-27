@@ -1,3 +1,9 @@
+# Shown under the thesis on the home page and the Research page.
+ongoing:
+  label: "进行中的研究"
+  title: "面向多语言用户的 AI 安全"
+  text: "我目前正在开展一个结合 AI 安全与低资源语言的研究项目。详细内容将在论文发表后公开。"
+
 thesis:
   degree: 人工智能硕士，巴哈瓦尔布尔伊斯兰大学（The Islamia University of Bahawalpur）
   supervisor: Najia Saher 教授（人工智能系主任）

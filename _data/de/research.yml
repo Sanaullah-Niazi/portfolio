@@ -1,3 +1,9 @@
+# Shown under the thesis on the home page and the Research page.
+ongoing:
+  label: "Laufende Forschung"
+  title: "KI-Sicherheit für mehrsprachige Nutzer"
+  text: "Ich arbeite derzeit an einem Forschungsprojekt an der Schnittstelle von KI-Sicherheit und ressourcenarmen Sprachen. Details folgen nach der Veröffentlichung."
+
 thesis:
   degree: MS Künstliche Intelligenz, The Islamia University of Bahawalpur
   supervisor: Prof. Dr. Najia Saher (Leiterin des Fachbereichs KI)

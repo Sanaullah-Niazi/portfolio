@@ -1,3 +1,9 @@
+# Shown under the thesis on the home page and the Research page.
+ongoing:
+  label: "جاری تحقیق"
+  title: "کثیر لسانی صارفین کے لیے AI سیکیورٹی"
+  text: "میں اس وقت AI سیفٹی اور کم وسائل والی زبانوں کے سنگم پر ایک تحقیقی منصوبے پر کام کر رہا ہوں۔ تفصیلات اشاعت کے بعد شیئر کی جائیں گی۔"
+
 thesis:
   degree: ایم ایس مصنوعی ذہانت، اسلامیہ یونیورسٹی بہاولپور
   supervisor: پروفیسر ڈاکٹر Najia Saher (سربراہ شعبہ مصنوعی ذہانت)

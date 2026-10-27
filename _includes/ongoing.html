@@ -1,0 +1,12 @@
+{%- comment -%} "Ongoing research": a project still under way. Text in _data/research.yml (ongoing) and its translations. {%- endcomment -%}
+{%- assign og = D.research.ongoing | default: site.data.research.ongoing -%}
+{%- if og %}
+<article class="card ongoing reveal">
+  <span class="icon-tile">{% include icon.html name="flask" px=22 %}</span>
+  <div>
+    <p class="label">{{ og.label }}</p>
+    <h3>{{ og.title }}</h3>
+    <p class="muted">{{ og.text }}</p>
+  </div>
+</article>
+{%- endif %}

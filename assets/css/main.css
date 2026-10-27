@@ -1373,3 +1373,5 @@ html[lang="ur"] .wpdf, html[lang="ur"] .wpdf * { letter-spacing: 0 !important; }
 .start-card:hover strong { color: var(--accent); }
 @media (max-width: 900px) { .start-grid { grid-template-columns: 1fr 1fr; } .start-tools { grid-column: 1 / -1; } }
 @media (max-width: 560px) { .start-grid { grid-template-columns: 1fr; } }
+.ongoing { display: flex; gap: 16px; align-items: flex-start; margin-top: 18px; }
+.ongoing h3 { font-size: 18px; margin: 4px 0 6px; }
