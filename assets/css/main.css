@@ -334,7 +334,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* Notes */
 .post-list { display: grid; border-top: 1px solid var(--line); }
-.post-list li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.post-list > li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .post-list time { color: var(--muted); font: 14px/1.6 var(--mono); white-space: nowrap; }
 .empty { color: var(--muted); padding: 24px 0; }
 
@@ -589,7 +589,7 @@ html:not(.js) .radar { display: none; }
   .contact-list li { grid-template-columns: 34px minmax(0, 1fr); }
   .contact-list .label { display: none; }
   .grid, .projects-grid { grid-template-columns: 1fr; }
-  .post-list li { flex-direction: column; gap: 2px; }
+  .post-list > li { flex-direction: column; gap: 2px; }
   .skills-chart, .paper { padding: 20px; }
   .news-strip { grid-auto-flow: row; overflow: visible; gap: 14px; }
   .news-strip .news-item, [dir="rtl"] .news-strip .news-item { padding: 0 0 14px; border: 0; border-bottom: 1px solid var(--line); }
