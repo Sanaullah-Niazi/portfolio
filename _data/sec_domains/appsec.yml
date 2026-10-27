@@ -190,7 +190,7 @@ stages:
         optional: true
         text: "A security champion is a developer in each team who cares about security and gets extra training. It is the main way AppSec scales beyond a small team."
         res:
-          - { name: "OWASP Security Champions Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-security-champions-guidebook/", type: docs, cost: free }
+          - { name: "OWASP Security Culture project", by: "OWASP Foundation", url: "https://owasp.org/www-project-security-culture/", type: docs, cost: free }
       - id: app-vuln-mgmt
         title: "Vulnerability management for applications"
         text: "Collect findings from every tool in one place, remove duplicates, and prioritise by real exploitability and exposure, not just the CVSS score."
@@ -252,7 +252,7 @@ stages:
         title: "Coordinated disclosure"
         text: "When you find a vulnerability in someone else's software, report it privately, give them time to fix it, then publish. Have a policy for reports about your own products too."
         res:
-          - { name: "Coordinated Vulnerability Disclosure Process", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/coordinated-vulnerability-disclosure-process", type: docs, cost: free }
+          - { name: "Vulnerability Disclosure Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html", type: docs, cost: free }
           - { name: "security.txt (RFC 9116)", by: "IETF", url: "https://datatracker.ietf.org/doc/html/rfc9116", type: docs, cost: free }
       - id: cra
         title: "Secure by design and regulation"
