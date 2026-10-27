@@ -1,0 +1,229 @@
+# Security roadmap: Hardware and Firmware Security. Shown at /roadmaps/security/hwsec/.
+# Field guide: see the top of secops.yml.
+
+id: hwsec
+category: engineering
+icon: cpu
+entry: advanced
+title: "Hardware and Firmware Security"
+summary: "Secure the layers beneath the operating system: secure boot, UEFI, TPMs, hardware roots of trust, trusted execution environments, firmware analysis and side channels."
+keywords: "hardware security firmware security secure boot UEFI TPM hardware root of trust TEE trusted execution environment confidential computing side channel firmware analysis JTAG embedded"
+
+overview:
+  - "Everything above the hardware trusts it. Firmware runs before the operating system, hardware roots of trust anchor identity and encryption, and trusted execution environments protect data even from a compromised OS. Flaws here are hard to detect and often impossible to patch."
+  - "The field covers secure boot chains, UEFI and firmware analysis, TPMs and hardware security modules, confidential computing, side-channel attacks and the physical interfaces used to debug and attack devices. It needs low-level systems knowledge and a willingness to work close to the metal."
+why: "Firmware implants, bootkits and hardware-level attacks persist through reinstalls and evade most defences. As confidential computing and hardware roots of trust spread, organisations need people who understand and can verify the foundations."
+roles:
+  - { title: "Firmware security engineer", level: mid, what: "Analyses and hardens firmware and boot chains." }
+  - { title: "Hardware security engineer", level: senior, what: "Designs and tests secure hardware and TEEs." }
+  - { title: "Platform security architect", level: senior, what: "Sets hardware-rooted security for devices and servers." }
+  - { title: "Hardware security researcher", level: senior, what: "Finds and reports hardware and firmware flaws." }
+
+prereqs:
+  - "Operating system and computer architecture fundamentals."
+  - "C and some assembly; comfort reading low-level code."
+  - "Cryptography basics: hashing, signatures and keys."
+  - "Some electronics is helpful for physical work."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "Below the operating system"
+    months: "2–4"
+    topics:
+      - id: boot-process
+        title: "How a computer boots"
+        text: "From power-on through firmware, bootloader and kernel. Each stage trusts the one before; secure boot is about making that trust verifiable."
+        res:
+          - { name: "BIOS Protection Guidelines (SP 800-147)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/147/final", type: docs, cost: free }
+      - id: uefi
+        title: "UEFI and firmware"
+        text: "UEFI replaced the old BIOS and is a small operating system in its own right. Learn its structure, variables, drivers and attack surface."
+        res:
+          - { name: "UEFI Specification", by: "UEFI Forum", url: "https://uefi.org/specifications", type: docs, cost: free }
+      - id: secure-boot
+        title: "Secure boot"
+        text: "Each boot stage verifies the next against trusted keys. Learn the key hierarchy, how it is enforced and how it has been bypassed."
+        res:
+          - { name: "Platform Firmware Resiliency Guidelines (SP 800-193)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/193/final", type: docs, cost: free }
+      - id: tpm
+        title: "Trusted Platform Modules"
+        text: "A TPM stores keys and measurements securely and enables disk encryption, attestation and device identity. Learn what it can and cannot protect."
+        res:
+          - { name: "TPM 2.0 Library Specification", by: "Trusted Computing Group", url: "https://trustedcomputinggroup.org/resource/tpm-library-specification/", type: docs, cost: free }
+      - id: hw-root-of-trust
+        title: "Hardware roots of trust"
+        text: "Immutable code and keys in silicon anchor the whole chain. Learn how device identity, measured boot and attestation build on them."
+        res:
+          - { name: "Hardware-Enabled Security (NIST IR 8320)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8320/final", type: docs, cost: free }
+      - id: hw-threats
+        title: "Hardware and firmware threats"
+        text: "Bootkits, firmware implants, malicious peripherals and supply chain tampering. Study the real cases to see what defenders are up against."
+        res:
+          - { name: "Pre-OS Boot (MITRE ATT&CK T1542)", by: "MITRE", url: "https://attack.mitre.org/techniques/T1542/", type: docs, cost: free }
+    skills:
+      - "Explain the boot chain and where trust is established."
+      - "Describe secure boot, TPMs and hardware roots of trust."
+      - "Recognise firmware and hardware attack patterns."
+    labs:
+      - "Enable and inspect secure boot and TPM state on a lab machine; read the measurement log."
+      - "Dump and inspect a UEFI image from a lab system with UEFITool."
+    done:
+      - "Explain how secure boot and measured boot protect a system and how they fail."
+      - "Inspect a firmware image and identify its components."
+
+  - level: intermediate
+    title: "Firmware analysis and platform security"
+    months: "3–6"
+    topics:
+      - id: firmware-extraction
+        title: "Extracting and unpacking firmware"
+        text: "Get firmware from update files, flash chips or vendor sites, and unpack it to see file systems, binaries and keys. Binwalk is the usual start."
+        res:
+          - { name: "Binwalk", by: "ReFirmLabs", url: "https://github.com/ReFirmLabs/binwalk", type: tool, cost: free }
+      - id: firmware-analysis
+        title: "Analysing firmware"
+        text: "Look for hardcoded credentials, outdated components, insecure services and weak update checks. Automated tools find the obvious; reverse engineering finds the rest."
+        res:
+          - { name: "EMBA firmware analyser", by: "EMBA project", url: "https://github.com/e-m-b-a/emba", type: tool, cost: free }
+      - id: hw-interfaces
+        title: "Debug and physical interfaces"
+        text: "JTAG, SWD, UART and SPI give deep access to devices. Learn to find and use them in a lab, and how to lock them down in production."
+        res:
+          - { name: "Hardware Attack Surface (OWASP IoT)", by: "OWASP Foundation", url: "https://owasp.org/www-project-internet-of-things/", type: docs, cost: free }
+      - id: platform-attestation
+        title: "Measured boot and attestation"
+        text: "Measurements of each boot stage, stored in the TPM, let a remote party verify the device booted the expected software. This is how zero trust reaches hardware."
+        res:
+          - { name: "Keylime", by: "Keylime project", url: "https://keylime.dev/", type: tool, cost: free }
+      - id: firmware-updates
+        title: "Firmware update security"
+        text: "Signed updates, rollback protection and recovery paths keep firmware trustworthy for a device's lifetime. Unsigned updates are a classic weakness."
+        res:
+          - { name: "Platform Firmware Resiliency Guidelines (SP 800-193)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/193/final", type: docs, cost: free }
+      - id: firmware-vulns
+        title: "Firmware vulnerabilities in practice"
+        text: "Study published UEFI, baseboard controller and bootloader flaws. They show the patterns that keep recurring across vendors."
+        res:
+          - { name: "Firmware security research", by: "Binarly", url: "https://www.binarly.io/advisories", type: docs, cost: free }
+    skills:
+      - "Extract, unpack and analyse firmware images."
+      - "Find and use debug interfaces in a lab."
+      - "Deploy and verify measured boot and attestation."
+      - "Assess firmware update mechanisms."
+    labs:
+      - "Unpack a router firmware image with Binwalk and run EMBA against it; triage the findings."
+      - "Find the UART on a lab device, get a shell and document how to disable it."
+      - "Set up Keylime or a cloud attestation service and verify a machine's boot state."
+    done:
+      - "Produce a firmware security assessment of a device with findings and fixes."
+      - "Demonstrate remote attestation of a lab system."
+
+  - level: advanced
+    title: "TEEs, side channels and hardware design"
+    months: "4–8"
+    topics:
+      - id: tee
+        title: "Trusted execution environments"
+        text: "Intel SGX and TDX, AMD SEV-SNP and Arm TrustZone and CCA isolate code and data from the rest of the system. Learn their models and limits."
+        res:
+          - { name: "Confidential Computing Consortium", by: "Linux Foundation", url: "https://confidentialcomputing.io/", type: docs, cost: free }
+      - id: confidential-computing
+        title: "Confidential computing in practice"
+        text: "Run workloads in hardware-isolated VMs or enclaves in the cloud, with attestation proving what is running. Know the use cases and the operational cost."
+        res:
+          - { name: "Azure confidential computing", by: "Microsoft", url: "https://learn.microsoft.com/en-us/azure/confidential-computing/overview", type: docs, cost: free }
+      - id: side-channels
+        title: "Side-channel attacks"
+        text: "Timing, power, cache and speculative execution leak secrets without breaking any logic. Understand the classes and the mitigations at hardware and software level."
+        res:
+          - { name: "Side-channel attacks overview (Spectre and Meltdown)", by: "Graz University of Technology", url: "https://meltdownattack.com/", type: docs, cost: free }
+      - id: fault-injection
+        title: "Fault injection and glitching"
+        text: "Voltage and clock glitches, and electromagnetic faults, can skip security checks. Learn how they work, what defends against them, and test in a lab you own."
+        res:
+          - { name: "ChipWhisperer", by: "NewAE Technology", url: "https://www.newae.com/chipwhisperer", type: tool, cost: free }
+      - id: secure-hw-design
+        title: "Secure hardware and firmware design"
+        text: "Design in secure boot, key storage, debug locking and update security from the start. Retrofitting hardware security is rarely possible."
+        res:
+          - { name: "Platform Security Architecture", by: "Arm", url: "https://www.psacertified.org/", type: docs, cost: free }
+      - id: hw-supply-chain
+        title: "Hardware supply chain"
+        text: "Counterfeit chips, tampered boards and compromised firmware in the supply chain are hard to detect. Learn the verification and procurement controls."
+        res:
+          - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+    skills:
+      - "Design and evaluate TEE-based systems."
+      - "Assess side-channel and fault-injection risk."
+      - "Specify secure hardware and firmware designs."
+      - "Manage hardware supply chain risk."
+    labs:
+      - "Deploy a workload in a confidential VM and verify its attestation report."
+      - "Reproduce a published side-channel demonstration on lab hardware you own."
+      - "Write a hardware security specification for a new device."
+    done:
+      - "Show a confidential computing deployment with verified attestation."
+      - "Produce a hardware security design review with side-channel considerations."
+
+  - level: expert
+    title: "Leading hardware security"
+    months: "6–12"
+    topics:
+      - id: hw-strategy
+        title: "Hardware-rooted security strategy"
+        text: "Set the standards for device identity, attestation, firmware integrity and confidential computing across the organisation's fleet and products."
+        res:
+          - { name: "Hardware-Enabled Security (NIST IR 8320)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8320/final", type: docs, cost: free }
+      - id: hw-research
+        title: "Research and disclosure"
+        text: "Hardware flaws take years to fix and affect many vendors. Learn how coordinated disclosure works at this level and contribute responsibly."
+        res:
+          - { name: "The CERT Guide to Coordinated Vulnerability Disclosure", by: "CERT/CC", url: "https://certcc.github.io/CERT-Guide-to-CVD/", type: docs, cost: free }
+      - id: hw-certification
+        title: "Certification and evaluation"
+        text: "Common Criteria, FIPS 140 and PSA Certified give assurance for hardware and crypto modules. Know when they are worth the cost."
+        res:
+          - { name: "Common Criteria", by: "Common Criteria Portal", url: "https://www.commoncriteriaportal.org/", type: docs, cost: free }
+    skills:
+      - "Set hardware-rooted security standards."
+      - "Navigate certification and hardware disclosure."
+    labs:
+      - "Write a fleet-wide device identity and attestation strategy."
+      - "Plan a certification route for a product and estimate its cost."
+    done:
+      - "Lead hardware and firmware security for a product line or fleet."
+      - "Contribute a responsibly disclosed hardware or firmware finding."
+
+tools:
+  - { name: "Binwalk", url: "https://github.com/ReFirmLabs/binwalk", kind: oss, what: "Extract and analyse firmware images." }
+  - { name: "EMBA", url: "https://github.com/e-m-b-a/emba", kind: oss, what: "Automated firmware security analysis." }
+  - { name: "UEFITool", url: "https://github.com/LongSoft/UEFITool", kind: oss, what: "Inspect and edit UEFI images." }
+  - { name: "CHIPSEC", url: "https://github.com/chipsec/chipsec", kind: oss, what: "Platform security assessment framework." }
+  - { name: "Keylime", url: "https://keylime.dev/", kind: oss, what: "Remote attestation with TPMs." }
+  - { name: "ChipWhisperer", url: "https://www.newae.com/chipwhisperer", kind: oss, what: "Side-channel and fault-injection research hardware." }
+
+certs:
+  - { name: "GIAC GREM", by: "GIAC", url: "https://www.giac.org/certifications/reverse-engineering-malware-grem/", level: mid, note: "Reverse engineering skills that transfer to firmware." }
+  - { ref: cissp, note: "Broad grounding; no mainstream hardware-specific certification." }
+
+resources:
+  - { name: "Platform Firmware Resiliency Guidelines (SP 800-193)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/193/final", type: docs, cost: free }
+  - { name: "Hardware-Enabled Security (NIST IR 8320)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8320/final", type: docs, cost: free }
+  - { name: "Confidential Computing Consortium", by: "Linux Foundation", url: "https://confidentialcomputing.io/", type: docs, cost: free }
+  - { name: "TPM 2.0 Library Specification", by: "Trusted Computing Group", url: "https://trustedcomputinggroup.org/resource/tpm-library-specification/", type: docs, cost: free }
+  - { name: "OWASP Internet of Things Project", by: "OWASP Foundation", url: "https://owasp.org/www-project-internet-of-things/", type: docs, cost: free }
+
+frameworks: [fips140, nist-800-161, nistir-8259, etsi-303645, zero-trust]
+
+career:
+  - { title: "Embedded, systems or security engineer", years: "0–4 years" }
+  - { title: "Firmware security engineer", years: "3–6 years" }
+  - { title: "Hardware security engineer or researcher", years: "6–10 years" }
+  - { title: "Platform security architect", years: "10+ years" }
+
+related:
+  - { to: iot, why: "Embedded devices are where firmware security matters most." }
+  - { to: endpoint, why: "Secure boot and TPMs underpin endpoint security." }
+  - { to: crypto, why: "Hardware protects the keys cryptography depends on." }
+  - { to: supplychain, why: "Hardware and firmware have their own supply chain risks." }

@@ -227,5 +227,5 @@ career:
 related:
   - { to: iam, why: "Account takeover is an identity problem." }
   - { to: secops, why: "Phishing response is day-to-day SOC work." }
-  - { name: "Security Awareness and Human Risk", why: "People are the main target of email attacks." }
+  - { to: awareness, why: "People are the main target of email attacks." }
   - { to: webedge, why: "The web and DNS controls that back up email defence." }

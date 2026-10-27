@@ -236,4 +236,4 @@ related:
   - { to: cloud, why: "Much of today's exposure is cloud misconfiguration." }
   - { to: cti, why: "Intelligence tells you what attackers are exploiting now." }
   - { to: appsec, why: "Fix vulnerabilities in code before they ship." }
-  - { name: "Penetration Testing", why: "Prove which weaknesses really can be exploited." }
+  - { to: pentest, why: "Prove which weaknesses really can be exploited." }

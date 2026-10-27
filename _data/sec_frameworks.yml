@@ -550,7 +550,7 @@ frameworks:
     url: "https://www.etsi.org/technologies/consumer-iot-security"
   - id: fda-cyber
     area: industry
-    name: "FDA premarket cybersecurity guidance for medical devices"
-    by: "US Food and Drug Administration"
-    purpose: "What medical device makers must show about cybersecurity before a device can be sold in the US."
-    url: "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity"
+    name: "Medical device and healthcare sector cybersecurity"
+    by: "US CISA"
+    purpose: "US government guidance on securing medical devices and the wider healthcare and public health sector."
+    url: "https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors/healthcare-and-public-health-sector"

@@ -250,4 +250,4 @@ related:
   - { to: cloud, why: "Most AI platforms run in the cloud." }
   - { to: mlsec, why: "Know how poisoned data and backdoored models work." }
   - { to: agentsec, why: "MCP servers and agent tools are part of the AI supply chain." }
-  - { name: "Software Supply Chain Security", why: "The same ideas for ordinary software." }
+  - { to: supplychain, why: "The same ideas for ordinary software." }

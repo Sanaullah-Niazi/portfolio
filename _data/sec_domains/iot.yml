@@ -1,0 +1,230 @@
+# Security roadmap: IoT and Embedded Security. Shown at /roadmaps/security/iot/.
+# Field guide: see the top of secops.yml.
+
+id: iot
+category: special
+icon: wifi
+entry: intermediate
+title: "IoT and Embedded Security"
+summary: "Secure connected devices from chip to cloud: firmware, secure boot and updates, device identity, the protocols they speak, and the fleets of them in homes, cities and industry."
+keywords: "IoT security embedded security firmware device identity secure updates MQTT CoAP Zigbee BLE edge devices IIoT smart home consumer IoT ETSI EN 303 645 NISTIR 8259 device fleet"
+
+overview:
+  - "Internet of Things devices are small computers with sensors and radios, built to a cost, deployed in huge numbers and rarely maintained. They sit in homes, hospitals, factories and cities, and they have been recruited into botnets and used as beachheads into networks."
+  - "IoT security covers the device itself (firmware, boot, keys, debug ports), its communications (wireless and application protocols), the cloud and mobile apps it depends on, and the operations of managing thousands of devices over years. Regulation now sets minimum requirements for consumer devices."
+why: "Billions of devices with weak defaults and no updates are an open invitation to attackers, and new laws make manufacturers responsible. Organisations deploying or building devices need people who understand the whole chain from silicon to cloud."
+roles:
+  - { title: "IoT security engineer", level: mid, what: "Secures device firmware, identity and updates." }
+  - { title: "Embedded security engineer", level: mid, what: "Builds security into device hardware and software." }
+  - { title: "IoT security architect", level: senior, what: "Designs device-to-cloud security for products and fleets." }
+  - { title: "Head of device security", level: lead, what: "Owns product and fleet security strategy." }
+
+prereqs:
+  - "Networking and wireless basics."
+  - "Some C or embedded programming."
+  - "Cryptography basics: keys, signatures, TLS."
+  - "Application security fundamentals for the companion apps and cloud."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "How IoT devices work and fail"
+    months: "2–3"
+    topics:
+      - id: iot-architecture
+        title: "IoT architecture"
+        text: "Device, gateway, cloud and app, with data and commands flowing between them. Security has to cover every link, not only the device."
+        res:
+          - { name: "OWASP Internet of Things Project", by: "OWASP Foundation", url: "https://owasp.org/www-project-internet-of-things/", type: docs, cost: free }
+      - id: iot-top-risks
+        title: "The common IoT weaknesses"
+        text: "Default passwords, no updates, insecure interfaces, hardcoded keys and weak network services. The OWASP IoT list has not changed much because the problems have not."
+        res:
+          - { name: "OWASP Internet of Things Project", by: "OWASP Foundation", url: "https://owasp.org/www-project-internet-of-things/", type: docs, cost: free }
+      - id: embedded-basics
+        title: "Embedded systems basics"
+        text: "Microcontrollers, real-time operating systems, flash memory and constrained resources. Security controls must fit in kilobytes and milliwatts."
+        res:
+          - { name: "IoT Device Cybersecurity Capability Core Baseline (NISTIR 8259A)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8259/a/final", type: docs, cost: free }
+      - id: iot-protocols
+        title: "IoT protocols"
+        text: "MQTT, CoAP and HTTP over the top; Wi-Fi, BLE, Zigbee, Thread, LoRaWAN and cellular underneath. Learn their security options and common misconfigurations."
+        res:
+          - { name: "MQTT specification", by: "OASIS", url: "https://mqtt.org/mqtt-specification/", type: docs, cost: free }
+      - id: iot-botnets
+        title: "IoT botnets and real attacks"
+        text: "Study Mirai and its descendants and the attacks on cameras, routers and medical devices. They show how cheap devices become infrastructure for attackers."
+        res:
+          - { name: "MITRE ATT&CK: Network Devices", by: "MITRE", url: "https://attack.mitre.org/matrices/enterprise/network/", type: docs, cost: free }
+      - id: iot-regulation
+        title: "IoT security regulation"
+        text: "ETSI EN 303 645, the UK PSTI Act, the US Cyber Trust Mark and the EU Cyber Resilience Act set baseline device requirements. Know the ones for your market."
+        res:
+          - { name: "ETSI EN 303 645 (Consumer IoT security)", by: "ETSI", url: "https://www.etsi.org/deliver/etsi_en/303600_303699/303645/", type: docs, cost: free }
+    skills:
+      - "Describe IoT architecture and where it breaks."
+      - "Recognise the common device weaknesses."
+      - "Explain IoT protocols and their security options."
+    labs:
+      - "Set up an MQTT broker, connect a device simulator, and capture the traffic with and without TLS."
+      - "Assess a consumer device you own against the ETSI EN 303 645 baseline."
+    done:
+      - "Explain the OWASP IoT weaknesses with real examples."
+      - "Assess a device against a baseline standard."
+
+  - level: intermediate
+    title: "Securing devices"
+    months: "3–6"
+    topics:
+      - id: device-identity
+        title: "Device identity and provisioning"
+        text: "Each device needs a unique, protected identity, ideally in hardware, provisioned securely at manufacture or first boot. Shared secrets across a fleet are a disaster waiting."
+        res:
+          - { name: "IoT Device Cybersecurity Capability Core Baseline (NISTIR 8259A)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8259/a/final", type: docs, cost: free }
+      - id: secure-boot-iot
+        title: "Secure boot and firmware integrity"
+        text: "Verify firmware at boot against keys in hardware so tampered firmware will not run. Most microcontroller families now support it; use it."
+        res:
+          - { name: "Platform Security Architecture", by: "Arm", url: "https://www.psacertified.org/", type: docs, cost: free }
+      - id: secure-updates-iot
+        title: "Secure updates"
+        text: "Signed, verified, resumable updates with rollback protection, for the whole supported life of the device. Devices without updates become liabilities."
+        res:
+          - { name: "The Update Framework", by: "TUF project", url: "https://theupdateframework.io/", type: docs, cost: free }
+      - id: firmware-security-iot
+        title: "Firmware analysis and hardening"
+        text: "Extract and analyse firmware for secrets, weak services and outdated components; then remove debug interfaces and unnecessary services before shipping."
+        res:
+          - { name: "EMBA firmware analyser", by: "EMBA project", url: "https://github.com/e-m-b-a/emba", type: tool, cost: free }
+      - id: device-comms
+        title: "Securing communications"
+        text: "TLS or DTLS with certificate validation, authenticated MQTT, encrypted wireless pairing. Constrained devices can still do this with the right libraries."
+        res:
+          - { name: "Mbed TLS", by: "Trusted Firmware", url: "https://www.trustedfirmware.org/projects/mbed-tls/", type: tool, cost: free }
+      - id: companion-apps
+        title: "Cloud and companion apps"
+        text: "The mobile app and cloud API are often the weakest part. Apply API and mobile security standards and protect the device-to-cloud trust relationship."
+        res:
+          - { name: "OWASP MASVS", by: "OWASP Foundation", url: "https://mas.owasp.org/MASVS/", type: docs, cost: free }
+    skills:
+      - "Provision unique device identities securely."
+      - "Implement secure boot and signed updates."
+      - "Analyse and harden firmware."
+      - "Secure device communications and companion apps."
+    labs:
+      - "Build a device with secure boot and a signed update mechanism on a development board."
+      - "Provision per-device certificates and connect to a cloud IoT service with mutual TLS."
+      - "Analyse a device's firmware with EMBA and fix the top findings."
+    done:
+      - "Ship a lab device with hardware identity, secure boot and signed updates."
+      - "Assess a device's firmware, communications and app end to end."
+
+  - level: advanced
+    title: "Fleets, edge and industry"
+    months: "4–8"
+    topics:
+      - id: fleet-management
+        title: "Fleet security operations"
+        text: "Monitor thousands of devices for health, anomalies and compromise, rotate credentials, and push updates safely in waves. Design for the device you cannot reach."
+        res:
+          - { name: "AWS IoT Device Defender", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/iot-device-defender/latest/devguide/what-is-device-defender.html", type: docs, cost: free }
+      - id: edge-security
+        title: "Edge computing security"
+        text: "Gateways and edge servers run real workloads near devices, often unattended. Harden them, attest them and treat them as semi-trusted."
+        res:
+          - { name: "IoT Device Cybersecurity Guidance (NISTIR 8259)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8259/final", type: docs, cost: free }
+      - id: iiot
+        title: "Industrial IoT"
+        text: "Sensors and gateways bridging plants to the cloud cross the OT boundary. Apply both OT segmentation rules and IoT device security."
+        res:
+          - { name: "IEC 62443 overview", by: "ISA", url: "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards", type: docs, cost: free }
+      - id: iot-pentest
+        title: "Assessing devices"
+        text: "Hardware interfaces, firmware, radio, app and cloud all need testing. Learn the methodology and test only devices and systems you are authorised to."
+        res:
+          - { name: "OWASP IoT Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-iot-security-testing-guide/", type: docs, cost: free }
+      - id: iot-privacy
+        title: "Privacy in IoT"
+        text: "Devices collect intimate data from homes, bodies and cities. Minimise collection, protect it, and be transparent; privacy law applies fully."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: iot-sbom-lifecycle
+        title: "Lifecycle and end of life"
+        text: "Define support periods, publish them, keep SBOMs, and plan what happens to devices when support ends. Regulators now require this."
+        res:
+          - { name: "Cyber Resilience Act", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act", type: docs, cost: free }
+    skills:
+      - "Run fleet security operations at scale."
+      - "Secure edge gateways and IIoT."
+      - "Assess devices across hardware, firmware, radio, app and cloud."
+      - "Manage privacy and lifecycle obligations."
+    labs:
+      - "Set up fleet monitoring for a set of simulated devices and detect a compromised one."
+      - "Run a full assessment of a lab device across all layers and write the report."
+      - "Write a lifecycle and update policy for a product line that meets the CRA."
+    done:
+      - "Operate a secured fleet with monitoring and safe updates."
+      - "Deliver a full device security assessment."
+
+  - level: expert
+    title: "Leading device security"
+    months: "6–12"
+    topics:
+      - id: iot-strategy
+        title: "Device security strategy"
+        text: "Set the security baseline for every product or deployed device class, the architecture, the lifecycle rules and the compliance path for each market."
+        res:
+          - { name: "IoT Device Cybersecurity Guidance (NISTIR 8259)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8259/final", type: docs, cost: free }
+      - id: iot-certification
+        title: "Certification schemes"
+        text: "PSA Certified, ioXt, the Cyber Trust Mark and national labels prove baseline security to buyers. Choose the ones your market values."
+        res:
+          - { name: "Platform Security Architecture", by: "Arm", url: "https://www.psacertified.org/", type: docs, cost: free }
+      - id: iot-ecosystem
+        title: "Working with the ecosystem"
+        text: "Chip vendors, module makers, cloud platforms and standards bodies all shape device security. Engage them to raise the baseline."
+        res:
+          - { name: "OWASP Internet of Things Project", by: "OWASP Foundation", url: "https://owasp.org/www-project-internet-of-things/", type: docs, cost: free }
+    skills:
+      - "Set device security strategy and baselines."
+      - "Navigate certification and ecosystem relationships."
+    labs:
+      - "Write a device security strategy covering products, fleet and compliance."
+      - "Plan a certification route for a product in two markets."
+    done:
+      - "Lead device security across products and deployed fleets."
+      - "Bring products through regulatory and certification requirements."
+
+tools:
+  - { name: "EMBA", url: "https://github.com/e-m-b-a/emba", kind: oss, what: "Firmware analysis." }
+  - { name: "Binwalk", url: "https://github.com/ReFirmLabs/binwalk", kind: oss, what: "Firmware extraction." }
+  - { name: "Mbed TLS", url: "https://www.trustedfirmware.org/projects/mbed-tls/", kind: oss, what: "TLS for constrained devices." }
+  - { name: "Eclipse Mosquitto", url: "https://mosquitto.org/", kind: oss, what: "MQTT broker for labs." }
+  - { name: "Wireshark", url: "https://www.wireshark.org/", kind: oss, what: "Analyse device and wireless traffic." }
+  - { name: "AWS IoT Device Defender", url: "https://aws.amazon.com/iot-device-defender/", kind: paid, what: "Fleet security monitoring." }
+
+certs:
+  - { name: "PSA Certified training", by: "Arm", url: "https://www.psacertified.org/", level: entry, note: "Device security baseline knowledge." }
+  - { name: "GIAC GICSP", by: "GIAC", url: "https://www.giac.org/certifications/global-industrial-cyber-security-professional-gicsp/", level: mid, note: "Useful for industrial IoT." }
+  - { ref: secplus, note: "Security baseline." }
+
+resources:
+  - { name: "OWASP Internet of Things Project", by: "OWASP Foundation", url: "https://owasp.org/www-project-internet-of-things/", type: docs, cost: free }
+  - { name: "IoT Device Cybersecurity Guidance (NISTIR 8259)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8259/final", type: docs, cost: free }
+  - { name: "ETSI EN 303 645 (Consumer IoT security)", by: "ETSI", url: "https://www.etsi.org/deliver/etsi_en/303600_303699/303645/", type: docs, cost: free }
+  - { name: "OWASP IoT Security Testing Guide", by: "OWASP Foundation", url: "https://owasp.org/www-project-iot-security-testing-guide/", type: docs, cost: free }
+  - { name: "The Update Framework", by: "TUF project", url: "https://theupdateframework.io/", type: docs, cost: free }
+
+frameworks: [nistir-8259, etsi-303645, cra, iec62443, masvs, nist-privacy]
+
+career:
+  - { title: "Embedded, firmware or network engineer", years: "0–3 years" }
+  - { title: "IoT or embedded security engineer", years: "2–5 years" }
+  - { title: "IoT security architect", years: "5–9 years" }
+  - { title: "Head of device security", years: "9+ years" }
+
+related:
+  - { to: hwsec, why: "Secure boot, keys and firmware analysis are hardware security." }
+  - { to: otics, why: "Industrial IoT connects to OT." }
+  - { to: prodsec, why: "Device makers carry product security duties." }
+  - { to: wireless, why: "Most devices talk over wireless." }

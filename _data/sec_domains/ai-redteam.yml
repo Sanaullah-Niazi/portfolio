@@ -249,4 +249,4 @@ related:
   - { to: llmsec, why: "Know the attacks and defences you are testing." }
   - { to: agentsec, why: "Agents are the hardest systems to red team well." }
   - { to: mlsec, why: "Adversarial ML is the classic form of AI red teaming." }
-  - { name: "Penetration Testing", why: "The method and reporting habits carry over directly." }
+  - { to: pentest, why: "The method and reporting habits carry over directly." }

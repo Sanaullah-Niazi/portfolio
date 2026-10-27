@@ -1,0 +1,229 @@
+# Security roadmap: Fraud, Abuse and Trust and Safety. Shown at /roadmaps/security/fraud/.
+# Field guide: see the top of secops.yml.
+
+id: fraud
+category: special
+icon: alert
+entry: intermediate
+title: "Fraud, Abuse and Trust and Safety"
+summary: "Stop the misuse of legitimate features: account takeover, credential stuffing, bots, payment and promotion fraud, impersonation and deepfakes, and harmful content on platforms."
+keywords: "fraud prevention abuse trust and safety account takeover credential stuffing bot detection fake accounts payment fraud scams impersonation deepfake fraud brand protection content moderation risk scoring"
+
+overview:
+  - "Fraud and abuse teams fight attackers who use a product exactly as designed, just for the wrong ends: logging in with stolen passwords, creating fake accounts, abusing promotions, scamming users or posting harmful content. There is often no vulnerability to patch, only behaviour to detect."
+  - "The field combines security engineering, data science and operations: building signals and risk scores, designing friction that stops abusers but not customers, running investigations, and working with policy and legal on platform rules. Trust and safety extends it to harmful content and user protection."
+why: "Fraud and abuse cost companies and their customers billions, and AI is making scams and fake identities cheaper. Every product with accounts, payments or user content needs people who can keep it trustworthy without driving away genuine users."
+roles:
+  - { title: "Fraud analyst", level: entry, what: "Investigates cases and tunes rules." }
+  - { title: "Anti-abuse engineer", level: mid, what: "Builds detection signals and defences into products." }
+  - { title: "Trust and safety specialist", level: mid, what: "Handles harmful content and user protection." }
+  - { title: "Head of trust and safety", level: lead, what: "Owns fraud, abuse and platform integrity." }
+
+prereqs:
+  - "Web and application security basics."
+  - "SQL and some data analysis."
+  - "How authentication and payments work."
+  - "Good judgement and attention to detail."
+prereq_paths: [cybersecurity, data]
+
+stages:
+  - level: beginner
+    title: "Fraud and abuse fundamentals"
+    months: "2–3"
+    topics:
+      - id: abuse-types
+        title: "Types of fraud and abuse"
+        text: "Account takeover, fake accounts, payment fraud, promotion abuse, scraping, spam, scams and harmful content. Each has its own economics and signals."
+        res:
+          - { name: "OWASP Automated Threats to Web Applications", by: "OWASP Foundation", url: "https://owasp.org/www-project-automated-threats-to-web-applications/", type: docs, cost: free }
+      - id: attacker-economics
+        title: "Attacker economics"
+        text: "Fraud is a business. Raise the attacker's cost per success above the payoff and they move elsewhere. Think in costs, not only in blocks."
+        res:
+          - { name: "OWASP Automated Threats to Web Applications", by: "OWASP Foundation", url: "https://owasp.org/www-project-automated-threats-to-web-applications/", type: docs, cost: free }
+      - id: account-takeover
+        title: "Account takeover"
+        text: "Credential stuffing, phishing, SIM swap and session theft. Detect impossible travel, new devices and bulk failed logins, and push users to passkeys."
+        res:
+          - { name: "Credential Stuffing Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html", type: docs, cost: free }
+      - id: signals-basics
+        title: "Signals and features"
+        text: "IP reputation, device fingerprints, velocity, behaviour and account history. Good signals are the foundation of every fraud defence."
+        res:
+          - { name: "OWASP Automated Threats to Web Applications", by: "OWASP Foundation", url: "https://owasp.org/www-project-automated-threats-to-web-applications/", type: docs, cost: free }
+      - id: rules-engines
+        title: "Rules and case review"
+        text: "Start with clear rules, review the cases they flag, and measure false positives. Fraud work is iterative and evidence-driven."
+        res:
+          - { name: "Fraud and scams guidance", by: "UK Finance", url: "https://www.ukfinance.org.uk/", type: docs, cost: free }
+      - id: friction-design
+        title: "Designing friction"
+        text: "Step-up authentication, rate limits, verification and holds stop abusers but annoy customers. Apply friction by risk, not to everyone."
+        res:
+          - { name: "Digital Identity Guidelines (SP 800-63)", by: "NIST", url: "https://pages.nist.gov/800-63-4/", type: docs, cost: free }
+    skills:
+      - "Classify fraud and abuse and their economics."
+      - "Detect account takeover with basic signals."
+      - "Write and evaluate fraud rules."
+    labs:
+      - "Analyse a sample login log with SQL to find a credential stuffing attack."
+      - "Write rules that catch fake signups in a sample dataset and measure their false positive rate."
+    done:
+      - "Detect an account takeover campaign from raw logs."
+      - "Explain the trade-off between friction and conversion with numbers."
+
+  - level: intermediate
+    title: "Building defences"
+    months: "3–6"
+    topics:
+      - id: bot-detection
+        title: "Bot detection and management"
+        text: "Separate good bots from bad ones, detect automation through behaviour and challenges, and keep up as attackers use real browsers and residential proxies."
+        res:
+          - { name: "OWASP Automated Threats to Web Applications", by: "OWASP Foundation", url: "https://owasp.org/www-project-automated-threats-to-web-applications/", type: docs, cost: free }
+      - id: risk-scoring
+        title: "Risk scoring and machine learning"
+        text: "Combine signals into a risk score with models, and act on it in real time. Watch for label quality, drift and adversaries probing your thresholds."
+        res:
+          - { name: "Google Machine Learning Crash Course", by: "Google", url: "https://developers.google.com/machine-learning/crash-course", type: course, cost: free }
+      - id: payment-fraud
+        title: "Payment and transaction fraud"
+        text: "Card-not-present fraud, chargebacks, refund abuse and authorised push payment scams. Use 3-D Secure, velocity checks and behavioural analysis."
+        res:
+          - { name: "EMV 3-D Secure", by: "EMVCo", url: "https://www.emvco.com/emv-technologies/3-d-secure/", type: docs, cost: free }
+      - id: identity-verification
+        title: "Identity verification"
+        text: "Document checks, selfie matching and data verification stop fake accounts, but deepfakes and synthetic identities are improving fast. Layer the checks."
+        res:
+          - { name: "Digital Identity Guidelines (SP 800-63)", by: "NIST", url: "https://pages.nist.gov/800-63-4/", type: docs, cost: free }
+      - id: investigations
+        title: "Investigations and link analysis"
+        text: "Link accounts by shared devices, payment details and behaviour to uncover rings. Graph analysis turns single cases into whole networks."
+        res:
+          - { name: "Neo4j fraud detection guides", by: "Neo4j", url: "https://neo4j.com/use-cases/fraud-detection/", type: docs, cost: free }
+      - id: fraud-metrics
+        title: "Measuring fraud defences"
+        text: "Track fraud loss rate, false positive rate, customer friction and time to detect. Report money saved and customers protected."
+        res:
+          - { name: "Fraud and scams guidance", by: "UK Finance", url: "https://www.ukfinance.org.uk/", type: docs, cost: free }
+    skills:
+      - "Detect and manage bots."
+      - "Build and monitor risk-scoring models."
+      - "Defend payments and verify identities."
+      - "Investigate fraud rings with link analysis."
+    labs:
+      - "Train a simple fraud model on a public transaction dataset and evaluate precision and recall."
+      - "Build a graph of accounts sharing devices and payment details and find a fraud ring."
+      - "Design step-up rules that cut account takeover without blocking most good users."
+    done:
+      - "Ship a risk score that reduces fraud with acceptable friction."
+      - "Uncover a fraud ring through link analysis."
+
+  - level: advanced
+    title: "Trust and safety at scale"
+    months: "4–8"
+    topics:
+      - id: trust-safety
+        title: "Trust and safety"
+        text: "Harmful content, harassment, scams between users and child safety are platform integrity problems. Learn policy, detection, review operations and appeals."
+        res:
+          - { name: "Trust and Safety Professional Association", by: "TSPA", url: "https://www.tspa.org/", type: docs, cost: free }
+      - id: content-policy
+        title: "Policy and enforcement"
+        text: "Write clear rules, enforce them consistently, give users notice and appeal, and publish transparency reports. Laws such as the EU Digital Services Act now require it."
+        res:
+          - { name: "Digital Services Act", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/digital-services-act", type: docs, cost: free }
+      - id: ai-fraud
+        title: "AI-enabled fraud and deepfakes"
+        text: "Generated documents, cloned voices, deepfake video calls and mass-personalised scams. Add verification steps that do not rely on what people can see or hear."
+        res:
+          - { name: "Deepfake threats guidance", by: "NSA, FBI and CISA", url: "https://media.defense.gov/2023/Sep/12/2003298925/-1/-1/0/CSI-DEEPFAKE-THREATS.PDF", type: docs, cost: free }
+      - id: brand-protection
+        title: "Impersonation and brand protection"
+        text: "Fake apps, lookalike domains, impersonating social accounts and scam ads target your customers in your name. Monitor and take them down."
+        res:
+          - { name: "Report a scam website", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/phishing-scams/report-scam-website", type: docs, cost: free }
+      - id: reviewer-wellbeing
+        title: "Review operations and wellbeing"
+        text: "Human reviewers see the worst content. Design queues, tools, quality checks and wellbeing support as carefully as the detection."
+        res:
+          - { name: "Trust and Safety Professional Association", by: "TSPA", url: "https://www.tspa.org/", type: docs, cost: free }
+      - id: industry-sharing
+        title: "Industry sharing"
+        text: "Fraudsters and abusers move between platforms. Share signals through industry groups and with banks and telecoms."
+        res:
+          - { name: "Global Anti-Scam Alliance", by: "GASA", url: "https://www.gasa.org/", type: docs, cost: free }
+    skills:
+      - "Run trust and safety policy and enforcement."
+      - "Defend against AI-enabled fraud."
+      - "Protect the brand from impersonation."
+      - "Run healthy review operations."
+    labs:
+      - "Write a content policy and enforcement guide for a sample platform feature."
+      - "Design a verification flow for high-value requests that resists deepfake calls."
+      - "Find and document lookalike domains impersonating a sample brand."
+    done:
+      - "Run a trust and safety process with policy, detection, review and appeal."
+      - "Show defences adapted to AI-enabled scams."
+
+  - level: expert
+    title: "Leading fraud and trust"
+    months: "6–12"
+    topics:
+      - id: tns-strategy
+        title: "Fraud and trust strategy"
+        text: "Set the appetite for fraud loss and friction, the operating model across product, security, payments and policy, and the investment to match."
+        res:
+          - { name: "Trust and Safety Professional Association", by: "TSPA", url: "https://www.tspa.org/", type: docs, cost: free }
+      - id: tns-regulation
+        title: "Regulation and transparency"
+        text: "Online safety and digital services laws, payment fraud reimbursement rules and consumer protection now apply. Build compliance into the programme."
+        res:
+          - { name: "Digital Services Act", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/digital-services-act", type: docs, cost: free }
+      - id: safety-by-design-tns
+        title: "Safety by design"
+        text: "The cheapest abuse to fight is the abuse a feature never enabled. Get involved in product design and threat model features for abuse."
+        res:
+          - { name: "Digital Trust & Safety best practices", by: "DTSP", url: "https://dtspartnership.org/best-practices/", type: docs, cost: free }
+    skills:
+      - "Set fraud and trust strategy."
+      - "Meet online safety and fraud regulation."
+    labs:
+      - "Write a fraud and trust strategy with loss and friction targets."
+      - "Run an abuse threat model on a new product feature."
+    done:
+      - "Lead a fraud and trust function with measurable loss reduction."
+      - "Embed abuse prevention into product design."
+
+tools:
+  - { name: "SQL and Python", url: "https://www.python.org/", kind: oss, what: "The everyday tools of fraud analysis." }
+  - { name: "Neo4j Community", url: "https://neo4j.com/", kind: community, what: "Graph analysis for fraud rings." }
+  - { name: "Have I Been Pwned (Pwned Passwords)", url: "https://haveibeenpwned.com/Passwords", kind: free, what: "Check passwords against known breaches." }
+  - { name: "Cloudflare Turnstile", url: "https://www.cloudflare.com/products/turnstile/", kind: free, what: "Privacy-friendly bot challenge." }
+  - { name: "dnstwist", url: "https://github.com/elceef/dnstwist", kind: oss, what: "Find lookalike domains." }
+
+certs:
+  - { name: "CFE", by: "ACFE", url: "https://www.acfe.com/cfe-credential", level: mid, note: "Certified Fraud Examiner." }
+  - { name: "CAMS", by: "ACAMS", url: "https://www.acams.org/en/certifications/cams-certification", level: mid, note: "Anti-money-laundering specialist." }
+  - { ref: secplus, note: "Security baseline." }
+
+resources:
+  - { name: "OWASP Automated Threats to Web Applications", by: "OWASP Foundation", url: "https://owasp.org/www-project-automated-threats-to-web-applications/", type: docs, cost: free }
+  - { name: "Credential Stuffing Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html", type: docs, cost: free }
+  - { name: "Trust and Safety Professional Association", by: "TSPA", url: "https://www.tspa.org/", type: docs, cost: free }
+  - { name: "Digital Services Act", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/digital-services-act", type: docs, cost: free }
+  - { name: "Digital Trust & Safety best practices", by: "DTSP", url: "https://dtspartnership.org/best-practices/", type: docs, cost: free }
+
+frameworks: [nist-800-63, owasp-top10, pci-dss, fido, gdpr]
+
+career:
+  - { title: "Analyst in fraud, risk, operations or security", years: "0–2 years" }
+  - { title: "Fraud analyst or trust and safety specialist", years: "1–4 years" }
+  - { title: "Anti-abuse engineer or fraud manager", years: "4–8 years" }
+  - { title: "Head of trust and safety", years: "8+ years" }
+
+related:
+  - { to: finsec, why: "Payment fraud sits between fraud and financial security." }
+  - { to: iam, why: "Strong authentication stops most account takeover." }
+  - { to: webedge, why: "Bot management and WAFs are edge controls." }
+  - { to: awareness, why: "Customer and staff awareness blunts scams." }

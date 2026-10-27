@@ -318,5 +318,5 @@ related:
   - { to: cloud, why: "Cloud networks need the same skills with different tools." }
   - { to: secops, why: "Use your traffic analysis skills to detect attacks." }
   - { to: iam, why: "Zero trust moves the security boundary from the network to identity." }
-  - { name: "Wireless Security", why: "A specialism of its own, from Wi-Fi to Bluetooth." }
+  - { to: wireless, why: "A specialism of its own, from Wi-Fi to Bluetooth." }
   - { name: "OT Security", why: "Industrial networks need careful segmentation and monitoring." }

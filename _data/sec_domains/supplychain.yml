@@ -1,0 +1,229 @@
+# Security roadmap: Software Supply Chain Security. Shown at /roadmaps/security/supplychain/.
+# Field guide: see the top of secops.yml.
+
+id: supplychain
+category: engineering
+icon: package
+entry: intermediate
+title: "Software Supply Chain Security"
+summary: "Protect the code, packages, build systems and distribution channels your software depends on, from malicious packages to tampered builds."
+keywords: "software supply chain security SBOM SLSA provenance code signing Sigstore malicious packages dependency confusion typosquatting open source security OpenSSF build integrity"
+
+overview:
+  - "Modern software is mostly assembled from open-source packages, built by automated systems and distributed through registries. Each link in that chain can be attacked: a malicious package, a compromised maintainer, a tampered build or a hijacked update."
+  - "Supply chain security tracks what is in your software (SBOMs), verifies where it came from (provenance and signing), hardens how it is built (SLSA), and manages the risk of the open-source and vendor components you rely on. Major incidents have made it a priority for governments and large buyers."
+why: "Attacks through dependencies and build systems reach thousands of victims at once and are hard to detect. Regulators and customers now ask for SBOMs and attestations, so organisations need engineers who can produce them and act on them."
+roles:
+  - { title: "Supply chain security engineer", level: mid, what: "Implements SBOMs, signing and provenance." }
+  - { title: "Open-source security engineer", level: mid, what: "Manages the risk of open-source components." }
+  - { title: "Build security engineer", level: senior, what: "Hardens build systems to SLSA levels." }
+  - { title: "Supply chain security lead", level: lead, what: "Owns the programme and customer attestations." }
+
+prereqs:
+  - "How packages, builds and CI/CD pipelines work."
+  - "Application security basics."
+  - "Cryptography basics: hashing and signatures."
+  - "Some scripting."
+prereq_paths: [cybersecurity, cloud-devops]
+
+stages:
+  - level: beginner
+    title: "Understanding the supply chain"
+    months: "2–3"
+    topics:
+      - id: supply-chain-attacks
+        title: "How supply chain attacks work"
+        text: "Study the real incidents: compromised build systems, poisoned updates, hijacked packages and stolen maintainer accounts. They show where the chain breaks."
+        res:
+          - { name: "Software Supply Chain Attacks catalogue", by: "CNCF TAG Security", url: "https://github.com/cncf/tag-security/tree/main/community/catalog/compromises", type: docs, cost: free }
+      - id: dependency-risk
+        title: "Dependency risk"
+        text: "Every package brings its own dependencies, maintainers and vulnerabilities. Learn to see the full tree, not just the top level."
+        res:
+          - { name: "OpenSSF Scorecard", by: "OpenSSF", url: "https://scorecard.dev/", type: tool, cost: free }
+      - id: malicious-packages
+        title: "Malicious packages"
+        text: "Typosquatting, dependency confusion and backdoored releases put malware straight into builds. Know the patterns and the registry protections."
+        res:
+          - { name: "Malicious packages repository", by: "OpenSSF", url: "https://github.com/ossf/malicious-packages", type: docs, cost: free }
+      - id: sbom-basics
+        title: "Software bills of materials"
+        text: "An SBOM lists what is in your software. Learn the SPDX and CycloneDX formats, how to generate one, and what it is actually useful for."
+        res:
+          - { name: "CycloneDX", by: "OWASP Foundation", url: "https://cyclonedx.org/", type: docs, cost: free }
+      - id: vuln-in-deps
+        title: "Vulnerabilities in dependencies"
+        text: "Match your SBOM against vulnerability databases, work out whether the vulnerable code is reachable, and prioritise. Not every CVE in a dependency affects you."
+        res:
+          - { name: "OSV database", by: "Google", url: "https://osv.dev/", type: tool, cost: free }
+      - id: oss-health
+        title: "Judging open-source health"
+        text: "Maintainer activity, release practices, security policy and popularity all signal risk. Choose dependencies the way you would choose a vendor."
+        res:
+          - { name: "OpenSSF Scorecard", by: "OpenSSF", url: "https://scorecard.dev/", type: tool, cost: free }
+    skills:
+      - "Explain how supply chain attacks happen."
+      - "Generate and read an SBOM."
+      - "Find vulnerable and risky dependencies."
+    labs:
+      - "Generate SBOMs for a sample project in SPDX and CycloneDX and compare them."
+      - "Run OSV-Scanner and Scorecard on a project and triage the results."
+    done:
+      - "Produce an SBOM and a prioritised list of dependency risks for a project."
+      - "Describe three real supply chain attacks and what would have stopped them."
+
+  - level: intermediate
+    title: "Signing, provenance and build integrity"
+    months: "3–5"
+    topics:
+      - id: code-signing
+        title: "Code and artefact signing"
+        text: "Sign commits, packages and containers so consumers can verify they are unchanged and from you. Protect the signing keys or the signature means nothing."
+        res:
+          - { name: "Sigstore", by: "Sigstore", url: "https://www.sigstore.dev/", type: tool, cost: free }
+      - id: keyless-signing
+        title: "Keyless signing with Sigstore"
+        text: "Sigstore ties signatures to an identity and a transparency log instead of long-lived keys. Learn Cosign, Fulcio and Rekor and how to verify."
+        res:
+          - { name: "Sigstore documentation", by: "Sigstore", url: "https://docs.sigstore.dev/", type: docs, cost: free }
+      - id: slsa-levels
+        title: "SLSA and build levels"
+        text: "SLSA defines levels of build integrity, from scripted builds to hardened, isolated ones with verified provenance. Use it as a ladder."
+        res:
+          - { name: "SLSA", by: "OpenSSF", url: "https://slsa.dev/", type: docs, cost: free }
+      - id: provenance
+        title: "Provenance and attestations"
+        text: "Provenance records who built what, from which source, with which tools. Generate it in the pipeline and verify it before deployment."
+        res:
+          - { name: "in-toto attestation framework", by: "in-toto", url: "https://in-toto.io/", type: docs, cost: free }
+      - id: build-hardening
+        title: "Hardening the build"
+        text: "Isolated, ephemeral, reproducible builds with pinned inputs stop an attacker tampering in the middle. Pipeline security and supply chain security meet here."
+        res:
+          - { name: "Reproducible Builds", by: "Reproducible Builds project", url: "https://reproducible-builds.org/", type: docs, cost: free }
+      - id: registry-security
+        title: "Registries and distribution"
+        text: "Private registries, mirrored packages, pinned versions and verified downloads cut exposure to public registry attacks. Control what can enter the build."
+        res:
+          - { name: "Package manager best practices", by: "OpenSSF", url: "https://github.com/ossf/package-manager-best-practices", type: docs, cost: free }
+    skills:
+      - "Sign and verify artefacts, including with Sigstore."
+      - "Assess and raise a build's SLSA level."
+      - "Generate and verify provenance."
+      - "Control what enters the build from registries."
+    labs:
+      - "Sign a container image with Cosign and enforce verification at deployment."
+      - "Generate SLSA provenance for a build and verify it with the SLSA verifier."
+      - "Set up a private registry or proxy and pin all dependencies for a project."
+    done:
+      - "Ship an artefact with signature and provenance that a consumer can verify."
+      - "Move a build up at least one SLSA level with evidence."
+
+  - level: advanced
+    title: "Programme and ecosystem"
+    months: "4–6"
+    topics:
+      - id: sbom-operations
+        title: "Operating SBOMs at scale"
+        text: "Generate, store and query SBOMs across all products so you can answer 'are we affected?' in minutes when the next big vulnerability lands."
+        res:
+          - { name: "Dependency-Track", by: "OWASP Foundation", url: "https://dependencytrack.org/", type: tool, cost: free }
+      - id: vex
+        title: "VEX and exploitability"
+        text: "VEX statements say whether a vulnerability in a component actually affects a product. They cut noise for customers and for you."
+        res:
+          - { name: "OpenVEX", by: "OpenVEX", url: "https://github.com/openvex/spec", type: docs, cost: free }
+      - id: oss-programme
+        title: "Open-source governance"
+        text: "Decide what open source may be used, how it is vetted, who maintains the inventory and how you give back. An OSPO or equivalent helps."
+        res:
+          - { name: "OpenSSF Best Practices Badge", by: "OpenSSF", url: "https://www.bestpractices.dev/", type: docs, cost: free }
+      - id: vendor-software-risk
+        title: "Third-party software and vendors"
+        text: "Vendor software carries the same risks and you see even less of it. Ask for SBOMs, attestations and secure development evidence, and verify what you can."
+        res:
+          - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+      - id: supply-chain-ir
+        title: "Responding to a supply chain incident"
+        text: "When a package or build system is compromised, you need to know what you used, where it went and how to rotate and rebuild quickly. Plan for it."
+        res:
+          - { name: "Supply Chain Compromise (MITRE ATT&CK T1195)", by: "MITRE", url: "https://attack.mitre.org/techniques/T1195/", type: docs, cost: free }
+      - id: secure-by-design
+        title: "Secure by design and attestation"
+        text: "Governments now ask vendors to attest to secure development practices. Know the frameworks and how to produce honest attestations."
+        res:
+          - { name: "Secure Software Development Framework (SP 800-218)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/218/final", type: docs, cost: free }
+    skills:
+      - "Run SBOM and vulnerability operations across many products."
+      - "Produce VEX statements."
+      - "Govern open-source and vendor software risk."
+      - "Respond to a supply chain compromise."
+    labs:
+      - "Deploy Dependency-Track and load SBOMs for several projects; answer an 'are we affected?' question."
+      - "Write VEX statements for a product's known-unaffected CVEs."
+      - "Run a tabletop for a compromised dependency and produce the response plan."
+    done:
+      - "Answer exposure questions across a portfolio in minutes, with evidence."
+      - "Run a supply chain incident response exercise end to end."
+
+  - level: expert
+    title: "Leading supply chain security"
+    months: "6–12"
+    topics:
+      - id: supplychain-strategy
+        title: "Supply chain security strategy"
+        text: "Set the target SLSA levels, SBOM and signing requirements, and the roadmap to reach them across every product and team."
+        res:
+          - { name: "SLSA", by: "OpenSSF", url: "https://slsa.dev/", type: docs, cost: free }
+      - id: supplychain-regulation
+        title: "Regulation and customer requirements"
+        text: "Executive orders, the EU Cyber Resilience Act and large customers now set supply chain expectations. Track them and turn them into engineering requirements."
+        res:
+          - { name: "Cyber Resilience Act", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act", type: docs, cost: free }
+      - id: ecosystem-contribution
+        title: "Improving the ecosystem"
+        text: "Fund and contribute to the open-source projects you depend on. Their security is your security."
+        res:
+          - { name: "OpenSSF", by: "Linux Foundation", url: "https://openssf.org/", type: docs, cost: free }
+    skills:
+      - "Set and deliver a supply chain security strategy."
+      - "Translate regulation into engineering requirements."
+    labs:
+      - "Write a supply chain security strategy with SLSA targets and timelines."
+      - "Map a product against the Cyber Resilience Act's requirements."
+    done:
+      - "Lead a programme that raises supply chain assurance across products."
+      - "Produce customer and regulator attestations backed by evidence."
+
+tools:
+  - { name: "Sigstore (Cosign)", url: "https://www.sigstore.dev/", kind: oss, what: "Sign and verify artefacts, keyless." }
+  - { name: "Syft and Grype", url: "https://github.com/anchore/syft", kind: oss, what: "Generate SBOMs and scan them for vulnerabilities." }
+  - { name: "OSV-Scanner", url: "https://google.github.io/osv-scanner/", kind: oss, what: "Scan dependencies against the OSV database." }
+  - { name: "OpenSSF Scorecard", url: "https://scorecard.dev/", kind: oss, what: "Rate open-source projects' security practices." }
+  - { name: "Dependency-Track", url: "https://dependencytrack.org/", kind: oss, what: "SBOM analysis platform." }
+  - { name: "SLSA verifier", url: "https://github.com/slsa-framework/slsa-verifier", kind: oss, what: "Verify SLSA provenance." }
+
+certs:
+  - { name: "CSSLP", by: "ISC2", url: "https://www.isc2.org/certifications/csslp", level: senior, note: "Secure software lifecycle including supply chain." }
+  - { name: "Securing Your Software Supply Chain", by: "Linux Foundation", url: "https://training.linuxfoundation.org/training/securing-your-software-supply-chain-with-sigstore-lfs182/", level: entry, note: "Free Sigstore-focused course." }
+
+resources:
+  - { name: "SLSA", by: "OpenSSF", url: "https://slsa.dev/", type: docs, cost: free }
+  - { name: "Sigstore documentation", by: "Sigstore", url: "https://docs.sigstore.dev/", type: docs, cost: free }
+  - { name: "CycloneDX", by: "OWASP Foundation", url: "https://cyclonedx.org/", type: docs, cost: free }
+  - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+  - { name: "Software Supply Chain Attacks catalogue", by: "CNCF TAG Security", url: "https://github.com/cncf/tag-security/tree/main/community/catalog/compromises", type: docs, cost: free }
+
+frameworks: [slsa, ssdf, nist-800-161, cra, samm, cis-controls]
+
+career:
+  - { title: "Developer, DevOps or security engineer", years: "0–3 years" }
+  - { title: "Supply chain or open-source security engineer", years: "2–5 years" }
+  - { title: "Senior build or supply chain security engineer", years: "5–8 years" }
+  - { title: "Supply chain security lead", years: "8+ years" }
+
+related:
+  - { to: devsecops, why: "The pipeline is where SBOMs, signing and provenance are produced." }
+  - { to: appsec, why: "Dependencies are most of an application's code." }
+  - { to: ai-supply, why: "Models and datasets are the AI version of the same problem." }
+  - { to: tprm, why: "Vendor software risk is part of third-party risk." }

@@ -1,0 +1,229 @@
+# Security roadmap: Financial Services and Payment Security. Shown at /roadmaps/security/finsec/.
+# Field guide: see the top of secops.yml.
+
+id: finsec
+category: special
+icon: bank
+entry: intermediate
+title: "Financial Services and Payment Security"
+summary: "Secure banks, fintechs and payment systems: card data and PCI DSS, payment fraud, open banking APIs, financial regulation such as DORA, and the threat actors who target money directly."
+keywords: "financial services security banking security fintech payment security PCI DSS DORA open banking PSD2 SWIFT fraud financial regulation FFIEC core banking"
+
+overview:
+  - "Financial institutions are attacked because that is where the money is, and regulated because that is where the trust is. Security here means protecting payment systems and customer money, meeting dense regulation, and defending against some of the most capable criminal groups."
+  - "The field covers card and payment security under PCI DSS, the security of banking platforms and open banking APIs, resilience regulation such as DORA, fraud and financial crime overlap, and the specific controls regulators expect. It rewards people who understand both security and how money moves."
+why: "Finance has the strictest security regulation and the most motivated attackers. Banks, insurers, payment firms and fintechs all need people who can meet regulatory expectations while keeping up with fraud and intrusion techniques aimed at money."
+roles:
+  - { title: "Security analyst (financial services)", level: entry, what: "Runs controls and monitoring in a regulated environment." }
+  - { title: "Payment security specialist", level: mid, what: "Owns PCI DSS and payment system controls." }
+  - { title: "Financial services security architect", level: senior, what: "Designs security for banking platforms and APIs." }
+  - { title: "CISO (financial services)", level: lead, what: "Accountable to regulators and the board." }
+
+prereqs:
+  - "Security fundamentals and at least one technical domain."
+  - "How payments, banking and financial markets work at a basic level."
+  - "GRC basics: controls, audits and regulators."
+  - "Comfort with dense regulatory text."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Money, payments and regulation"
+    months: "2–3"
+    topics:
+      - id: how-money-moves
+        title: "How money moves"
+        text: "Card networks, bank transfers, real-time payments, SWIFT and the systems behind them. You cannot protect a flow you do not understand."
+        res:
+          - { name: "Payment systems overview", by: "US Federal Reserve", url: "https://www.federalreserve.gov/paymentsystems.htm", type: docs, cost: free }
+      - id: financial-threats
+        title: "Threats to financial institutions"
+        text: "Organised crime, banking trojans, business email compromise, insider fraud and state actors targeting payment systems. Study the big heists."
+        res:
+          - { name: "SWIFT Customer Security Programme", by: "SWIFT", url: "https://www.swift.com/myswift/customer-security-programme-csp", type: docs, cost: free }
+      - id: pci-basics
+        title: "PCI DSS fundamentals"
+        text: "The card industry standard for anyone storing, processing or transmitting card data. Learn its requirements, scope and the idea of reducing scope."
+        res:
+          - { name: "PCI Security Standards Council", by: "PCI SSC", url: "https://www.pcisecuritystandards.org/", type: docs, cost: free }
+      - id: financial-regulators
+        title: "Regulators and expectations"
+        text: "Central banks, financial conduct regulators and bodies such as the FFIEC publish security expectations with real enforcement. Know yours."
+        res:
+          - { name: "FFIEC IT Examination Handbook", by: "FFIEC", url: "https://ithandbook.ffiec.gov/", type: docs, cost: free }
+      - id: dora-basics
+        title: "DORA and operational resilience"
+        text: "The EU's Digital Operational Resilience Act sets ICT risk, incident reporting, testing and third-party rules for financial entities. Similar regimes exist elsewhere."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: fraud-vs-security
+        title: "Fraud, financial crime and security"
+        text: "Fraud teams, anti-money-laundering and security overlap heavily. Learn where each sits and how they share signals."
+        res:
+          - { name: "FFIEC IT Examination Handbook", by: "FFIEC", url: "https://ithandbook.ffiec.gov/", type: docs, cost: free }
+    skills:
+      - "Explain how payments and banking systems work."
+      - "Describe PCI DSS scope and requirements."
+      - "Map the regulators and regimes that apply to an institution."
+    labs:
+      - "Map the card data flow for a sample online shop and define the PCI DSS scope."
+      - "Write a one-page summary of DORA's obligations for a small fintech."
+    done:
+      - "Explain the main financial threats and regulations clearly."
+      - "Scope PCI DSS for a sample business."
+
+  - level: intermediate
+    title: "Securing payment and banking systems"
+    months: "3–6"
+    topics:
+      - id: pci-implementation
+        title: "Implementing PCI DSS"
+        text: "Segment the cardholder environment, tokenise to shrink scope, meet each requirement with evidence, and work with a QSA. Scope reduction is the smart path."
+        res:
+          - { name: "PCI DSS v4.0 resource hub", by: "PCI SSC", url: "https://blog.pcisecuritystandards.org/pci-dss-v4-0-resource-hub", type: docs, cost: free }
+      - id: payment-crypto
+        title: "Payment cryptography and HSMs"
+        text: "PIN handling, key management and tokenisation run on payment HSMs under strict standards. Learn the key hierarchies and the rules."
+        res:
+          - { name: "PCI PIN and P2PE standards", by: "PCI SSC", url: "https://www.pcisecuritystandards.org/standards/", type: docs, cost: free }
+      - id: open-banking
+        title: "Open banking and APIs"
+        text: "Regulation such as PSD2 opens bank APIs to third parties. Secure them with strong customer authentication, OAuth profiles such as FAPI and careful consent."
+        res:
+          - { name: "FAPI security profile", by: "OpenID Foundation", url: "https://openid.net/wg/fapi/", type: docs, cost: free }
+      - id: customer-authentication
+        title: "Customer authentication and account security"
+        text: "Strong customer authentication, device binding, passkeys and risk-based step-up protect accounts. Balance security with usability or customers will leave."
+        res:
+          - { name: "Digital Identity Guidelines (SP 800-63)", by: "NIST", url: "https://pages.nist.gov/800-63-4/", type: docs, cost: free }
+      - id: swift-csp
+        title: "Interbank and SWIFT security"
+        text: "SWIFT's Customer Security Programme sets mandatory controls for institutions on the network. Learn them; attestation is required annually."
+        res:
+          - { name: "SWIFT Customer Security Programme", by: "SWIFT", url: "https://www.swift.com/myswift/customer-security-programme-csp", type: docs, cost: free }
+      - id: core-banking-security
+        title: "Core banking and trading systems"
+        text: "Legacy cores, mainframes and trading platforms need their own controls: privileged access, change control, integrity and low-latency monitoring."
+        res:
+          - { name: "FFIEC IT Examination Handbook", by: "FFIEC", url: "https://ithandbook.ffiec.gov/", type: docs, cost: free }
+    skills:
+      - "Implement and maintain PCI DSS compliance."
+      - "Handle payment cryptography and HSMs correctly."
+      - "Secure open banking APIs and customer authentication."
+      - "Meet SWIFT CSP and core system controls."
+    labs:
+      - "Design a tokenisation approach that takes a sample system out of PCI scope."
+      - "Build an OAuth flow meeting the FAPI profile for a sample banking API."
+      - "Assess a sample environment against the SWIFT CSP controls."
+    done:
+      - "Take a sample business through PCI DSS with reduced scope."
+      - "Secure a banking API to the FAPI profile."
+
+  - level: advanced
+    title: "Resilience, fraud and threat"
+    months: "4–6"
+    topics:
+      - id: dora-implementation
+        title: "Implementing DORA"
+        text: "ICT risk framework, incident classification and reporting, threat-led penetration testing, third-party registers and exit plans. Build the programme and the evidence."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: tlpt
+        title: "Threat-led penetration testing"
+        text: "Frameworks such as TIBER-EU run intelligence-led red team tests against live systems under strict control. Learn how they are scoped and governed."
+        res:
+          - { name: "TIBER-EU framework", by: "European Central Bank", url: "https://www.ecb.europa.eu/paym/cyber-resilience/tiber-eu/html/index.en.html", type: docs, cost: free }
+      - id: payment-fraud-defence
+        title: "Payment fraud defence"
+        text: "Authorised push payment fraud, card-not-present fraud and account takeover need transaction monitoring, behavioural signals and customer warnings. Work with the fraud team."
+        res:
+          - { name: "Fraud and scams guidance", by: "UK Finance", url: "https://www.ukfinance.org.uk/", type: docs, cost: free }
+      - id: financial-threat-intel
+        title: "Financial sector threat intelligence"
+        text: "Sector sharing bodies such as FS-ISAC give early warning on campaigns against finance. Join and use them."
+        res:
+          - { name: "FS-ISAC", by: "FS-ISAC", url: "https://www.fsisac.com/", type: docs, cost: free }
+      - id: cloud-in-finance
+        title: "Cloud and outsourcing in finance"
+        text: "Regulators allow cloud with conditions: concentration risk, exit plans, audit rights and data location. Design cloud use to satisfy them."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: incident-reporting-finance
+        title: "Regulatory incident reporting"
+        text: "Financial regulators require fast, structured incident reports with strict deadlines. Build the classification and reporting process into incident response."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+    skills:
+      - "Build a DORA-compliant ICT risk and resilience programme."
+      - "Govern threat-led penetration testing."
+      - "Defend against payment fraud with the fraud team."
+      - "Design cloud use that satisfies financial regulators."
+    labs:
+      - "Produce a DORA gap assessment and remediation plan for a sample bank."
+      - "Design the scope and governance of a TIBER-style test."
+      - "Build a transaction monitoring rule set for account takeover in a lab."
+    done:
+      - "Run a resilience programme that meets DORA or equivalent."
+      - "Show fraud and security controls working together."
+
+  - level: expert
+    title: "Leading security in finance"
+    months: "6–12"
+    topics:
+      - id: regulator-relations
+        title: "Working with regulators"
+        text: "Examinations, findings and ongoing dialogue with supervisors are part of the job. Be transparent, organised and credible."
+        res:
+          - { name: "FFIEC IT Examination Handbook", by: "FFIEC", url: "https://ithandbook.ffiec.gov/", type: docs, cost: free }
+      - id: finsec-strategy
+        title: "Security strategy for a financial institution"
+        text: "Balance regulation, fraud, resilience, product speed and cost across the institution, and report it to the board in risk terms."
+        res:
+          - { name: "Cyber Resilience Oversight Expectations", by: "European Central Bank", url: "https://www.ecb.europa.eu/paym/cyber-resilience/html/index.en.html", type: docs, cost: free }
+      - id: fintech-scale
+        title: "Security for fintechs at speed"
+        text: "Fintechs must meet bank-grade regulation while shipping fast. Build security into the platform from the start and get the licences right."
+        res:
+          - { name: "PCI Security Standards Council", by: "PCI SSC", url: "https://www.pcisecuritystandards.org/", type: docs, cost: free }
+    skills:
+      - "Manage regulatory relationships."
+      - "Set and report security strategy for a financial institution."
+    labs:
+      - "Prepare for a mock regulatory examination of ICT risk."
+      - "Write a board paper on cyber risk and resilience for a bank."
+    done:
+      - "Lead security for a regulated financial institution."
+      - "Pass regulatory examination with no material findings."
+
+tools:
+  - { name: "PCI DSS self-assessment questionnaires", url: "https://www.pcisecuritystandards.org/document_library/", kind: free, what: "Official PCI documents and SAQs." }
+  - { name: "FS-ISAC", url: "https://www.fsisac.com/", kind: paid, what: "Sector threat sharing." }
+  - { name: "OWASP ZAP", url: "https://www.zaproxy.org/", kind: oss, what: "Test banking web apps and APIs you own." }
+  - { name: "HashiCorp Vault", url: "https://developer.hashicorp.com/vault", kind: community, what: "Secrets and tokenisation (transform engine is enterprise)." }
+
+certs:
+  - { name: "PCI Professional (PCIP)", by: "PCI SSC", url: "https://www.pcisecuritystandards.org/program_training_and_qualification/pci_professional_qualification/", level: mid, note: "PCI DSS knowledge." }
+  - { ref: cissp, note: "Broad baseline expected in finance." }
+  - { name: "CISA", by: "ISACA", url: "https://www.isaca.org/credentialing/cisa", level: mid, note: "Audit skills valued by regulators." }
+  - { name: "CRISC", by: "ISACA", url: "https://www.isaca.org/credentialing/crisc", level: senior, note: "Risk, central to financial regulation." }
+
+resources:
+  - { name: "PCI Security Standards Council", by: "PCI SSC", url: "https://www.pcisecuritystandards.org/", type: docs, cost: free }
+  - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+  - { name: "FFIEC IT Examination Handbook", by: "FFIEC", url: "https://ithandbook.ffiec.gov/", type: docs, cost: free }
+  - { name: "SWIFT Customer Security Programme", by: "SWIFT", url: "https://www.swift.com/myswift/customer-security-programme-csp", type: docs, cost: free }
+  - { name: "TIBER-EU framework", by: "European Central Bank", url: "https://www.ecb.europa.eu/paym/cyber-resilience/tiber-eu/html/index.en.html", type: docs, cost: free }
+
+frameworks: [pci-dss, dora, nist-csf, iso27001, soc2, nist-800-63, fido]
+
+career:
+  - { title: "Security or IT analyst in finance", years: "0–2 years" }
+  - { title: "Payment security or financial services security specialist", years: "2–5 years" }
+  - { title: "Financial services security architect or manager", years: "5–10 years" }
+  - { title: "CISO (financial services)", years: "10+ years" }
+
+related:
+  - { to: fraud, why: "Fraud and security share signals and attackers." }
+  - { to: grc, why: "Finance is the most regulated sector." }
+  - { to: resilience, why: "DORA is operational resilience regulation." }
+  - { to: iam, why: "Customer authentication is a core banking control." }

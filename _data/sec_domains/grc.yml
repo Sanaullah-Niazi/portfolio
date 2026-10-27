@@ -1,0 +1,229 @@
+# Security roadmap: GRC and Compliance. Shown at /roadmaps/security/grc/.
+# Field guide: see the top of secops.yml.
+
+id: grc
+category: grc
+icon: clipboard
+entry: entry
+title: "GRC and Compliance"
+summary: "Write the policies, run the control framework, map to standards such as ISO 27001 and SOC 2, and keep the organisation continuously compliant without drowning it in paperwork."
+keywords: "GRC governance risk compliance ISO 27001 SOC 2 NIST CSF policies standards control framework compliance automation ISMS audit readiness continuous compliance"
+
+overview:
+  - "Governance, risk and compliance is the management layer of security: deciding what the organisation must do, writing it down as policy and controls, checking it is done, and proving it to auditors, customers and regulators."
+  - "The work ranges from drafting policies and mapping controls across several frameworks to running an ISMS, preparing for certifications and automating evidence collection. It needs organisation, clear writing and enough technical understanding to know whether a control actually works."
+why: "Customers, regulators and insurers all demand evidence of security. GRC turns security work into that evidence and keeps the organisation honest about gaps. It is also one of the more accessible routes into security."
+roles:
+  - { title: "GRC analyst", level: entry, what: "Maintains policies, controls and evidence." }
+  - { title: "Compliance specialist", level: mid, what: "Runs certifications and regulatory compliance." }
+  - { title: "GRC manager", level: senior, what: "Owns the control framework and ISMS." }
+  - { title: "Head of GRC", level: lead, what: "Sets governance strategy and reports to the board." }
+
+prereqs:
+  - "Security fundamentals: the main threats and controls."
+  - "Clear writing and attention to detail."
+  - "Basic understanding of how businesses and IT departments run."
+  - "Comfort with spreadsheets and documentation tools."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Governance foundations"
+    months: "2–3"
+    topics:
+      - id: governance-basics
+        title: "What governance means"
+        text: "Governance sets direction and accountability: who decides, who owns risks, and how security supports business goals. Everything else in GRC hangs off it."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: policy-hierarchy
+        title: "Policies, standards and procedures"
+        text: "Policies say what must happen, standards say how well, procedures say how. Keep each short, owned and reviewed, or nobody reads them."
+        res:
+          - { name: "Security policy templates", by: "SANS Institute", url: "https://www.sans.org/information-security-policy/", type: docs, cost: free }
+      - id: control-frameworks
+        title: "Control frameworks"
+        text: "ISO 27001, NIST CSF, SOC 2 and CIS Controls each organise security controls differently. Learn the shape of the main ones and how they overlap."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: regulations-overview
+        title: "The regulatory landscape"
+        text: "GDPR, PCI DSS, HIPAA, NIS2, DORA and sector rules each impose security duties. Know which apply to your organisation and what they demand."
+        res:
+          - { name: "NIS2 Directive", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/nis2-directive", type: docs, cost: free }
+      - id: evidence-basics
+        title: "Controls and evidence"
+        text: "A control is only as good as the proof it is operating. Learn what evidence looks like for common controls and how to collect it without heroics."
+        res:
+          - { name: "NIST SP 800-53 Rev. 5", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", type: docs, cost: free }
+      - id: grc-tools-basics
+        title: "GRC tooling"
+        text: "Spreadsheets work at first; GRC platforms scale. Learn what the tools do so you can choose when to move and what to demand of them."
+        res:
+          - { name: "Eramba community edition", by: "Eramba", url: "https://www.eramba.org/", type: tool, cost: free }
+    skills:
+      - "Write a clear, short policy."
+      - "Explain the main frameworks and regulations."
+      - "Collect evidence for a control."
+    labs:
+      - "Write an access control policy and procedure for a small company."
+      - "Map ten CIS Controls to the corresponding ISO 27001 Annex A controls."
+    done:
+      - "Produce a policy set and a basic control inventory for a small organisation."
+      - "Explain which regulations apply to a given business and why."
+
+  - level: intermediate
+    title: "Running compliance programmes"
+    months: "3–6"
+    topics:
+      - id: iso27001
+        title: "ISO 27001 and the ISMS"
+        text: "An information security management system is a cycle: assess risk, choose controls, operate them, measure and improve. Learn the clauses and Annex A."
+        res:
+          - { name: "ISO/IEC 27001", by: "ISO", url: "https://www.iso.org/standard/27001", type: docs, cost: paid }
+      - id: soc2
+        title: "SOC 2"
+        text: "SOC 2 reports attest to controls over security and related criteria. Learn the Trust Services Criteria, Type 1 versus Type 2, and the audit cycle."
+        res:
+          - { name: "SOC 2 overview", by: "AICPA", url: "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2", type: docs, cost: free }
+      - id: control-mapping
+        title: "Mapping controls across frameworks"
+        text: "One well-designed control set, mapped to each framework, means you test once and report many times. Build and maintain the crosswalk."
+        res:
+          - { name: "Secure Controls Framework", by: "SCF Council", url: "https://securecontrolsframework.com/", type: docs, cost: free }
+      - id: gap-assessment
+        title: "Gap assessments"
+        text: "Compare where you are with where the framework says you should be, rate the gaps, and turn them into a plan. Be honest; auditors will be."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: audit-readiness
+        title: "Preparing for audit"
+        text: "Organise evidence, brief control owners, and run a mock audit. Most audit pain comes from disorganisation, not from missing controls."
+        res:
+          - { name: "ISO/IEC 27001", by: "ISO", url: "https://www.iso.org/standard/27001", type: docs, cost: paid }
+      - id: exception-management
+        title: "Exceptions and risk acceptance"
+        text: "Not every control can be met everywhere. Run a formal exception process with owners, expiry dates and compensating controls."
+        res:
+          - { name: "NIST SP 800-53 Rev. 5", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", type: docs, cost: free }
+    skills:
+      - "Run an ISMS and prepare for ISO 27001 or SOC 2."
+      - "Map controls across frameworks."
+      - "Run gap assessments and audit preparation."
+      - "Manage exceptions properly."
+    labs:
+      - "Run a gap assessment of a sample organisation against ISO 27001 and produce the treatment plan."
+      - "Build a control crosswalk between NIST CSF, ISO 27001 and SOC 2 for twenty controls."
+      - "Prepare an evidence pack for a mock SOC 2 audit of five controls."
+    done:
+      - "Take an organisation through a certification or attestation cycle."
+      - "Maintain a single control set mapped to several frameworks."
+
+  - level: advanced
+    title: "Continuous compliance and regulation"
+    months: "4–6"
+    topics:
+      - id: compliance-automation
+        title: "Compliance automation"
+        text: "Pull evidence automatically from cloud, identity and HR systems, test controls continuously and flag drift. This is how compliance stops being a yearly scramble."
+        res:
+          - { name: "OpenSCAP", by: "OpenSCAP project", url: "https://github.com/OpenSCAP/openscap", type: tool, cost: free }
+      - id: regulatory-change
+        title: "Managing regulatory change"
+        text: "New laws and updated standards arrive constantly. Track them, assess impact and update controls before the deadline, not after."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: sector-compliance
+        title: "Sector and government compliance"
+        text: "PCI DSS, HIPAA, FedRAMP, CMMC and similar schemes have their own rules and assessors. Learn the ones that matter to your sector."
+        res:
+          - { name: "PCI Security Standards Council", by: "PCI SSC", url: "https://www.pcisecuritystandards.org/", type: docs, cost: free }
+      - id: grc-metrics
+        title: "Compliance metrics and reporting"
+        text: "Report control effectiveness, open gaps, exceptions and audit findings in a way leadership can act on. Numbers beat narrative."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: grc-and-engineering
+        title: "Working with engineering"
+        text: "Compliance fails when it is imposed on engineers from outside. Express controls as code and requirements they can build and test."
+        res:
+          - { name: "Secure Software Development Framework (SP 800-218)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/218/final", type: docs, cost: free }
+      - id: grc-platforms
+        title: "GRC platforms"
+        text: "Choose and run a platform for controls, evidence, risks and audits. Pick for integration and usability, not for feature lists."
+        res:
+          - { name: "Eramba community edition", by: "Eramba", url: "https://www.eramba.org/", type: tool, cost: free }
+    skills:
+      - "Automate evidence collection and control testing."
+      - "Track and act on regulatory change."
+      - "Run sector-specific compliance schemes."
+      - "Report compliance in business terms."
+    labs:
+      - "Automate evidence collection for five cloud controls and set alerts for drift."
+      - "Assess a sample organisation against DORA or NIS2 and produce the gap list."
+    done:
+      - "Run a continuous compliance programme with automated evidence."
+      - "Handle a regulatory change from announcement to compliant."
+
+  - level: expert
+    title: "Governance leadership"
+    months: "6–12"
+    topics:
+      - id: grc-strategy
+        title: "GRC strategy"
+        text: "Decide the frameworks, the operating model, the tooling and the reporting lines, aligned to what the business sells and where."
+        res:
+          - { name: "COBIT", by: "ISACA", url: "https://www.isaca.org/resources/cobit", type: docs, cost: free }
+      - id: board-reporting
+        title: "Board and executive reporting"
+        text: "Boards want risk, compliance status and decisions, in a page. Learn to translate control detail into business language."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: grc-culture
+        title: "Making compliance useful"
+        text: "The best GRC programmes make the organisation safer, not just certified. Keep the link between controls and real risk visible to everyone."
+        res:
+          - { name: "ISO/IEC 27001", by: "ISO", url: "https://www.iso.org/standard/27001", type: docs, cost: paid }
+    skills:
+      - "Set GRC strategy and operating model."
+      - "Report to boards and executives."
+    labs:
+      - "Write a GRC strategy and operating model for a mid-sized organisation."
+      - "Produce a one-page board report on compliance status and risk."
+    done:
+      - "Lead a GRC function through multiple certifications and regulations."
+      - "Report governance to a board in a form it can act on."
+
+tools:
+  - { name: "Eramba", url: "https://www.eramba.org/", kind: community, what: "Open-source GRC platform." }
+  - { name: "Secure Controls Framework", url: "https://securecontrolsframework.com/", kind: free, what: "Control set mapped to many frameworks." }
+  - { name: "OpenSCAP", url: "https://github.com/OpenSCAP/openscap", kind: oss, what: "Automated configuration compliance." }
+  - { name: "Drata, Vanta and similar", url: "https://www.vanta.com/", kind: paid, what: "Compliance automation platforms." }
+
+certs:
+  - { ref: secplus, note: "Technical baseline for GRC analysts." }
+  - { name: "CISA", by: "ISACA", url: "https://www.isaca.org/credentialing/cisa", level: mid, note: "Audit and control, widely recognised." }
+  - { name: "ISO 27001 Lead Implementer", by: "PECB", url: "https://pecb.com/en/education-and-certification-for-individuals/iso-iec-27001", level: mid, note: "Building and running an ISMS." }
+  - { name: "CRISC", by: "ISACA", url: "https://www.isaca.org/credentialing/crisc", level: senior, note: "Risk and control." }
+  - { ref: cissp, note: "For GRC leaders." }
+
+resources:
+  - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+  - { name: "NIST SP 800-53 Rev. 5", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", type: docs, cost: free }
+  - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+  - { name: "Secure Controls Framework", by: "SCF Council", url: "https://securecontrolsframework.com/", type: docs, cost: free }
+  - { name: "Security policy templates", by: "SANS Institute", url: "https://www.sans.org/information-security-policy/", type: docs, cost: free }
+
+frameworks: [iso27001, iso27002, nist-csf, nist-800-53, soc2, cis-controls, pci-dss, nis2, dora, cobit]
+
+career:
+  - { title: "IT, audit or security analyst", years: "0–2 years" }
+  - { title: "GRC analyst", years: "1–3 years" }
+  - { title: "Compliance specialist or GRC manager", years: "3–7 years" }
+  - { title: "Head of GRC", years: "7+ years" }
+
+related:
+  - { to: risk, why: "Risk management decides which controls governance requires." }
+  - { to: audit, why: "Audit checks that the controls work." }
+  - { to: tprm, why: "Vendors must meet the same policies." }
+  - { to: privacy, why: "Privacy compliance is a large part of GRC." }

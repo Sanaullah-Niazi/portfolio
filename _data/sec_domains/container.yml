@@ -231,6 +231,6 @@ career:
 
 related:
   - { to: cloud, why: "Most Kubernetes runs in the cloud." }
-  - { name: "DevSecOps and CI/CD Security", why: "Image security belongs in the pipeline." }
+  - { to: devsecops, why: "Image security belongs in the pipeline." }
   - { to: hardening, why: "The same hardening discipline, for containers." }
   - { to: ai-supply, why: "AI workloads run on this same infrastructure." }

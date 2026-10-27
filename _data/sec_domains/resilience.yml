@@ -1,0 +1,228 @@
+# Security roadmap: Business Continuity and Cyber Resilience. Shown at /roadmaps/security/resilience/.
+# Field guide: see the top of secops.yml.
+
+id: resilience
+category: grc
+icon: refresh
+entry: intermediate
+title: "Business Continuity and Cyber Resilience"
+summary: "Keep the organisation running through and after an attack: impact analysis, recovery objectives, immutable backups, disaster recovery, crisis management and ransomware resilience."
+keywords: "business continuity cyber resilience disaster recovery BCM BIA RTO RPO immutable backups ransomware resilience crisis management ISO 22301 recovery testing operational resilience"
+
+overview:
+  - "Cyber resilience accepts that some attacks will succeed and plans for the organisation to keep delivering its critical services anyway, then recover fully. It joins business continuity, disaster recovery and incident response into one capability."
+  - "The work covers finding out which services matter most and how long they can be down, designing backups and recovery that survive ransomware, rehearsing crises with executives, and meeting operational resilience regulation. It needs both technical recovery knowledge and the ability to work with the whole business."
+why: "Ransomware and destructive attacks have shown that prevention alone fails. Regulators now demand demonstrated resilience, and boards want to know how long the business could survive an outage. Organisations need people who can answer that with tested plans."
+roles:
+  - { title: "Business continuity analyst", level: entry, what: "Maintains plans and runs impact analyses." }
+  - { title: "Cyber resilience engineer", level: mid, what: "Designs and tests backup and recovery." }
+  - { title: "Resilience manager", level: senior, what: "Owns continuity, DR and crisis exercises." }
+  - { title: "Head of operational resilience", level: lead, what: "Sets strategy and reports resilience to the board." }
+
+prereqs:
+  - "How IT services, backups and infrastructure work."
+  - "Incident response basics."
+  - "Risk management basics."
+  - "Facilitation skills for workshops and exercises."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Continuity foundations"
+    months: "2–3"
+    topics:
+      - id: resilience-concepts
+        title: "Continuity, DR and resilience"
+        text: "Business continuity keeps the business running, disaster recovery restores IT, and cyber resilience assumes the attacker is still there. Learn how they fit together."
+        res:
+          - { name: "Contingency Planning Guide (SP 800-34)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final", type: docs, cost: free }
+      - id: bia
+        title: "Business impact analysis"
+        text: "Work out which services matter most, what they depend on, and how long they can be down before the damage is serious. Everything else follows from this."
+        res:
+          - { name: "Business Continuity Management (ISO 22301)", by: "ISO", url: "https://www.iso.org/standard/75106.html", type: docs, cost: paid }
+      - id: rto-rpo
+        title: "Recovery objectives"
+        text: "RTO is how fast you must recover; RPO is how much data you can lose. Set them per service from the impact analysis and design backups to meet them."
+        res:
+          - { name: "Contingency Planning Guide (SP 800-34)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final", type: docs, cost: free }
+      - id: backup-fundamentals
+        title: "Backup fundamentals"
+        text: "Multiple copies, different media, one offsite and one offline or immutable. Backups you have not restored from are not backups."
+        res:
+          - { name: "Offline backups in an online world", by: "UK NCSC", url: "https://www.ncsc.gov.uk/blog-post/offline-backups-in-an-online-world", type: docs, cost: free }
+      - id: continuity-plans
+        title: "Writing continuity plans"
+        text: "Plans must be usable at 3am by people under stress: who does what, in what order, with which contacts. Short checklists beat long documents."
+        res:
+          - { name: "Business Continuity Management (ISO 22301)", by: "ISO", url: "https://www.iso.org/standard/75106.html", type: docs, cost: paid }
+      - id: ransomware-threat
+        title: "Ransomware as the planning case"
+        text: "Ransomware encrypts systems and backups, steals data and takes weeks to recover from. It is the scenario every resilience plan must handle."
+        res:
+          - { name: "#StopRansomware Guide", by: "CISA", url: "https://www.cisa.gov/stopransomware/ransomware-guide", type: docs, cost: free }
+    skills:
+      - "Run a business impact analysis."
+      - "Set recovery objectives per service."
+      - "Design a basic backup strategy and write a usable plan."
+    labs:
+      - "Run a BIA for a sample company and set RTO and RPO for its top ten services."
+      - "Write a one-page continuity checklist for a ransomware event."
+    done:
+      - "Produce a BIA and recovery objectives for an organisation."
+      - "Explain why a backup strategy would or would not survive ransomware."
+
+  - level: intermediate
+    title: "Recovery engineering and exercising"
+    months: "3–5"
+    topics:
+      - id: immutable-backups
+        title: "Immutable and isolated backups"
+        text: "Immutable storage, air-gapped copies and separate credentials stop attackers deleting or encrypting backups. Design the backup system as a target."
+        res:
+          - { name: "Offline backups in an online world", by: "UK NCSC", url: "https://www.ncsc.gov.uk/blog-post/offline-backups-in-an-online-world", type: docs, cost: free }
+      - id: dr-architecture
+        title: "Disaster recovery architecture"
+        text: "Hot, warm and cold sites, cloud DR, replication and failover. Match the design to each service's objectives and cost."
+        res:
+          - { name: "AWS Disaster Recovery whitepaper", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html", type: docs, cost: free }
+      - id: recovery-testing
+        title: "Recovery testing"
+        text: "Restore real systems regularly, time it, and compare with the objectives. Test the identity system and the backup system first; everything depends on them."
+        res:
+          - { name: "Contingency Planning Guide (SP 800-34)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final", type: docs, cost: free }
+      - id: clean-recovery
+        title: "Recovering from a compromise"
+        text: "After an attack you must rebuild without reintroducing the attacker: clean images, verified backups, rotated credentials and a known-good order of restoration."
+        res:
+          - { name: "#StopRansomware Guide", by: "CISA", url: "https://www.cisa.gov/stopransomware/ransomware-guide", type: docs, cost: free }
+      - id: crisis-management
+        title: "Crisis management"
+        text: "Executives need a structure for decisions, communications and legal issues during a major incident. Define the crisis team, its cadence and its authority."
+        res:
+          - { name: "Effective crisis management", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/incident-management", type: docs, cost: free }
+      - id: exercises
+        title: "Exercises and tabletops"
+        text: "Rehearse with the people who would actually respond, from technical teams to the board. Exercises find the gaps that plans hide."
+        res:
+          - { name: "Exercise in a Box", by: "UK NCSC", url: "https://www.ncsc.gov.uk/information/exercise-in-a-box", type: practice, cost: free }
+    skills:
+      - "Design backup and DR that survive a determined attacker."
+      - "Test recovery and measure against objectives."
+      - "Plan a clean rebuild after compromise."
+      - "Run crisis exercises."
+    labs:
+      - "Set up immutable backups for a lab environment and prove an admin cannot delete them."
+      - "Restore a lab environment from backup, time it and document the order of restoration."
+      - "Run a ransomware tabletop for a mock executive team using Exercise in a Box."
+    done:
+      - "Show tested recovery that meets objectives for critical services."
+      - "Run a crisis exercise and produce an improvement plan from it."
+
+  - level: advanced
+    title: "Operational resilience"
+    months: "4–6"
+    topics:
+      - id: operational-resilience
+        title: "Operational resilience regulation"
+        text: "DORA, financial regulators and NIS2 require mapped critical services, impact tolerances and tested resilience. Learn the duties and the evidence."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: impact-tolerances
+        title: "Important services and impact tolerances"
+        text: "Define the services whose failure would harm customers or markets, and the maximum tolerable disruption. Then prove you can stay within it."
+        res:
+          - { name: "Business Continuity Management (ISO 22301)", by: "ISO", url: "https://www.iso.org/standard/75106.html", type: docs, cost: paid }
+      - id: dependency-mapping
+        title: "Dependency mapping"
+        text: "Map the people, systems, suppliers and data behind each critical service. Hidden dependencies are what turn a small outage into a big one."
+        res:
+          - { name: "Developing Cyber-Resilient Systems (SP 800-160 Vol. 2)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/160/v2/r1/final", type: docs, cost: free }
+      - id: resilient-design
+        title: "Designing for resilience"
+        text: "Redundancy, segmentation, graceful degradation and the ability to run critical processes manually. Build resilience into systems, not just plans."
+        res:
+          - { name: "Developing Cyber-Resilient Systems (SP 800-160 Vol. 2)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/160/v2/r1/final", type: docs, cost: free }
+      - id: supplier-resilience
+        title: "Supplier and cloud resilience"
+        text: "Critical suppliers and cloud providers fail too. Plan for their outages and for leaving them, and test what you can."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: severe-scenarios
+        title: "Severe but plausible scenarios"
+        text: "Test against scenarios that would really hurt: loss of the identity provider, a destructive wiper, a cloud region down for days. Learn where tolerances break."
+        res:
+          - { name: "Exercise in a Box", by: "UK NCSC", url: "https://www.ncsc.gov.uk/information/exercise-in-a-box", type: practice, cost: free }
+    skills:
+      - "Meet operational resilience regulation."
+      - "Define important services, tolerances and dependencies."
+      - "Design systems for resilience."
+      - "Test against severe scenarios."
+    labs:
+      - "Map the dependencies of a critical service and identify its single points of failure."
+      - "Run a severe-scenario exercise, such as loss of the identity provider, and measure against tolerances."
+    done:
+      - "Demonstrate operational resilience with mapped services and tested tolerances."
+      - "Show resilience designed into a critical service."
+
+  - level: expert
+    title: "Leading resilience"
+    months: "6–12"
+    topics:
+      - id: resilience-strategy
+        title: "Resilience strategy"
+        text: "Set the resilience ambition, the investment and the programme to get there, tied to the services that matter most to customers and regulators."
+        res:
+          - { name: "Business Continuity Management (ISO 22301)", by: "ISO", url: "https://www.iso.org/standard/75106.html", type: docs, cost: paid }
+      - id: board-resilience
+        title: "Board assurance on resilience"
+        text: "Boards must be able to say the organisation can withstand severe disruption. Give them tested evidence, not assurances."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: learning-from-incidents
+        title: "Learning from incidents and exercises"
+        text: "Every exercise and real incident should change something. Run honest reviews and track the improvements to completion."
+        res:
+          - { name: "Computer Security Incident Handling Guide (SP 800-61)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/61/r3/final", type: docs, cost: free }
+    skills:
+      - "Set and fund a resilience strategy."
+      - "Give boards tested assurance."
+    labs:
+      - "Write a resilience strategy with investment priorities for an organisation."
+      - "Produce a board report on resilience with exercise evidence."
+    done:
+      - "Lead a resilience programme that regulators and the board trust."
+      - "Show the organisation recovering within tolerance in a real test."
+
+tools:
+  - { name: "Exercise in a Box", url: "https://www.ncsc.gov.uk/information/exercise-in-a-box", kind: free, what: "Ready-made cyber exercises." }
+  - { name: "Veeam, Rubrik and similar", url: "https://www.veeam.com/", kind: paid, what: "Backup platforms with immutability (one of several)." }
+  - { name: "Restic", url: "https://restic.net/", kind: oss, what: "Open-source backups with encryption." }
+  - { name: "AWS Backup", url: "https://aws.amazon.com/backup/", kind: paid, what: "Managed backup with vault lock." }
+
+certs:
+  - { name: "CBCP", by: "DRI International", url: "https://drii.org/certification/cbcp", level: mid, note: "The standard business continuity certification." }
+  - { name: "ISO 22301 Lead Implementer", by: "PECB", url: "https://pecb.com/en/education-and-certification-for-individuals/iso-22301", level: mid, note: "Building a continuity management system." }
+  - { name: "MBCI", by: "Business Continuity Institute", url: "https://www.thebci.org/", level: senior, note: "Continuity professional membership." }
+  - { ref: cissp, note: "Covers continuity and DR." }
+
+resources:
+  - { name: "Contingency Planning Guide (SP 800-34)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final", type: docs, cost: free }
+  - { name: "#StopRansomware Guide", by: "CISA", url: "https://www.cisa.gov/stopransomware/ransomware-guide", type: docs, cost: free }
+  - { name: "Offline backups in an online world", by: "UK NCSC", url: "https://www.ncsc.gov.uk/blog-post/offline-backups-in-an-online-world", type: docs, cost: free }
+  - { name: "Developing Cyber-Resilient Systems (SP 800-160 Vol. 2)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/160/v2/r1/final", type: docs, cost: free }
+  - { name: "Exercise in a Box", by: "UK NCSC", url: "https://www.ncsc.gov.uk/information/exercise-in-a-box", type: practice, cost: free }
+
+frameworks: [iso22301, nist-800-34, dora, nis2, nist-csf, nist-800-61]
+
+career:
+  - { title: "IT operations, security or risk analyst", years: "0–2 years" }
+  - { title: "Business continuity analyst or resilience engineer", years: "1–4 years" }
+  - { title: "Resilience manager", years: "4–8 years" }
+  - { title: "Head of operational resilience", years: "8+ years" }
+
+related:
+  - { to: dfir, why: "Recovery follows incident response." }
+  - { to: risk, why: "Resilience planning starts from the biggest loss scenarios." }
+  - { to: tprm, why: "Supplier failure is a continuity scenario." }
+  - { to: hardening, why: "Backup and recovery infrastructure must be hardened." }

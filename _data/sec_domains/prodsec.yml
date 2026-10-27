@@ -1,0 +1,228 @@
+# Security roadmap: Product Security. Shown at /roadmaps/security/prodsec/.
+# Field guide: see the top of secops.yml.
+
+id: prodsec
+category: engineering
+icon: box
+entry: intermediate
+title: "Product Security"
+summary: "Secure the products a company ships: requirements, secure development at scale, a PSIRT for vulnerabilities in your products, and the regulations such as the EU Cyber Resilience Act."
+keywords: "product security PSIRT secure SDLC security requirements vulnerability disclosure product incident response Cyber Resilience Act secure by design bug bounty customer security"
+
+overview:
+  - "Product security protects what the organisation sells rather than what it runs internally. It covers security requirements, secure development across many teams, handling vulnerability reports in shipped products, and meeting the regulations and customer demands that apply to products."
+  - "A product security team typically runs the secure development lifecycle, security reviews, a PSIRT that coordinates fixes and advisories, and the evidence customers and regulators ask for. It sits close to engineering and product management."
+why: "Products carry a company's reputation and legal exposure. New laws such as the Cyber Resilience Act make security a condition of selling, and customers increasingly ask for proof. Companies need people who can build and run a product security function."
+roles:
+  - { title: "Product security engineer", level: mid, what: "Reviews features and drives fixes in products." }
+  - { title: "PSIRT analyst", level: mid, what: "Handles vulnerability reports and advisories." }
+  - { title: "Product security lead", level: senior, what: "Runs the SDLC and the PSIRT." }
+  - { title: "Head of product security", level: lead, what: "Owns product security strategy and compliance." }
+
+prereqs:
+  - "Application security fundamentals."
+  - "How products are built and released."
+  - "Some understanding of vulnerability management."
+  - "Clear writing for advisories and customer communication."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Product security foundations"
+    months: "2–3"
+    topics:
+      - id: prodsec-vs-itsec
+        title: "Product security versus enterprise security"
+        text: "Enterprise security protects the company; product security protects customers using what the company ships. The threats, stakeholders and rules differ."
+        res:
+          - { name: "Secure by Design", by: "CISA", url: "https://www.cisa.gov/securebydesign", type: docs, cost: free }
+      - id: security-requirements
+        title: "Security requirements"
+        text: "Write security requirements that engineers can build and test: authentication, logging, data handling, update mechanisms. Reuse a standard such as ASVS."
+        res:
+          - { name: "OWASP ASVS", by: "OWASP Foundation", url: "https://owasp.org/www-project-application-security-verification-standard/", type: docs, cost: free }
+      - id: sdlc-at-scale
+        title: "Secure development at scale"
+        text: "One team can be reviewed by hand; fifty cannot. Learn the lifecycle activities and how to make them routine across teams."
+        res:
+          - { name: "Secure Software Development Framework (SP 800-218)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/218/final", type: docs, cost: free }
+      - id: feature-review
+        title: "Security review of features"
+        text: "Review new features for security impact early, threat model the risky ones, and track findings to closure. Prioritise by exposure, not by calendar."
+        res:
+          - { name: "Threat Modeling Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html", type: docs, cost: free }
+      - id: vuln-disclosure-basics
+        title: "Receiving vulnerability reports"
+        text: "Researchers and customers will find flaws in your products. Publish a security contact and a disclosure policy so they can tell you safely."
+        res:
+          - { name: "Vulnerability Disclosure Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Vulnerability_Disclosure_Cheat_Sheet.html", type: docs, cost: free }
+      - id: security-txt
+        title: "security.txt and contact points"
+        text: "A standard security.txt file and a monitored security address are the minimum. They make it easy for people to report rather than publish."
+        res:
+          - { name: "security.txt (RFC 9116)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc9116", type: docs, cost: free }
+    skills:
+      - "Write testable security requirements."
+      - "Review features for security impact."
+      - "Set up a vulnerability disclosure channel."
+    labs:
+      - "Write security requirements for a sample product using ASVS."
+      - "Publish a security.txt and a disclosure policy for a sample product."
+    done:
+      - "Produce security requirements and a feature review process for a product."
+      - "Explain how a researcher would report a flaw in your product and what happens next."
+
+  - level: intermediate
+    title: "Running a PSIRT"
+    months: "3–5"
+    topics:
+      - id: psirt
+        title: "Product security incident response"
+        text: "A PSIRT triages reports, coordinates fixes across engineering, decides severity and tells customers. Learn the lifecycle and the roles."
+        res:
+          - { name: "PSIRT Services Framework", by: "FIRST", url: "https://www.first.org/standards/frameworks/psirts/psirt_services_framework_v1.1", type: docs, cost: free }
+      - id: severity-scoring
+        title: "Severity and scoring"
+        text: "Use CVSS consistently, add context on exploitability and exposure, and set fix timelines by severity. Customers will compare your scores with others'."
+        res:
+          - { name: "CVSS v4.0", by: "FIRST", url: "https://www.first.org/cvss/v4-0/", type: docs, cost: free }
+      - id: cve-cna
+        title: "CVEs and becoming a CNA"
+        text: "Assign CVE IDs to vulnerabilities in your products, possibly as a CVE Numbering Authority. It gives customers a standard way to track them."
+        res:
+          - { name: "CVE Program", by: "MITRE", url: "https://www.cve.org/", type: docs, cost: free }
+      - id: advisories
+        title: "Security advisories"
+        text: "Write advisories that tell customers what is affected, how bad it is, and what to do, with machine-readable data such as CSAF where possible."
+        res:
+          - { name: "CSAF", by: "OASIS", url: "https://www.csaf.io/", type: docs, cost: free }
+      - id: coordinated-disclosure
+        title: "Coordinated disclosure"
+        text: "Work with researchers, other vendors and coordinators on timelines and embargoes. Handle disagreements professionally; they are public otherwise."
+        res:
+          - { name: "The CERT Guide to Coordinated Vulnerability Disclosure", by: "CERT/CC", url: "https://certcc.github.io/CERT-Guide-to-CVD/", type: docs, cost: free }
+      - id: bug-bounty-ops
+        title: "Running a bug bounty"
+        text: "Bounties bring more eyes but also noise and cost. Set scope, rewards and triage capacity before launching, and start private."
+        res:
+          - { name: "HackerOne", by: "HackerOne", url: "https://www.hackerone.com/", type: docs, cost: free }
+    skills:
+      - "Run a PSIRT process from report to advisory."
+      - "Score and prioritise product vulnerabilities."
+      - "Publish CVEs and advisories."
+      - "Manage coordinated disclosure and bug bounties."
+    labs:
+      - "Run a tabletop PSIRT exercise from an inbound report to a published advisory."
+      - "Write a security advisory with CVSS scoring and a CSAF document for a sample flaw."
+      - "Design a private bug bounty programme with scope and triage rules."
+    done:
+      - "Run a PSIRT that meets its fix and disclosure timelines."
+      - "Publish advisories customers can act on."
+
+  - level: advanced
+    title: "Regulation and assurance"
+    months: "4–6"
+    topics:
+      - id: cra
+        title: "EU Cyber Resilience Act"
+        text: "The CRA sets security, vulnerability handling and reporting duties for products with digital elements sold in the EU. Learn what it requires and when."
+        res:
+          - { name: "Cyber Resilience Act", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act", type: docs, cost: free }
+      - id: product-regulation
+        title: "Other product regulation"
+        text: "Medical devices, vehicles, consumer IoT and critical infrastructure each have product security rules. Know which apply to your products."
+        res:
+          - { name: "ETSI EN 303 645 (Consumer IoT)", by: "ETSI", url: "https://www.etsi.org/deliver/etsi_en/303600_303699/303645/", type: docs, cost: free }
+      - id: customer-assurance
+        title: "Customer security assurance"
+        text: "Questionnaires, pen test reports, SBOMs and certifications are what customers ask for. Build a trust centre and reusable evidence."
+        res:
+          - { name: "Cloud Controls Matrix and CAIQ", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/research/cloud-controls-matrix", type: docs, cost: free }
+      - id: secure-updates
+        title: "Secure update mechanisms"
+        text: "Products must be updatable securely for their lifetime: signed updates, rollback protection and clear end-of-life. This is now a legal expectation."
+        res:
+          - { name: "The Update Framework", by: "TUF project", url: "https://theupdateframework.io/", type: docs, cost: free }
+      - id: product-sbom
+        title: "SBOMs for products"
+        text: "Customers and regulators want to know what is inside your product. Generate SBOMs per release and be ready to answer exposure questions."
+        res:
+          - { name: "CycloneDX", by: "OWASP Foundation", url: "https://cyclonedx.org/", type: docs, cost: free }
+      - id: external-testing
+        title: "External testing of products"
+        text: "Commission pen tests and reviews of products, scope them well and act on the findings. Independent testing is also evidence for customers."
+        res:
+          - { name: "Technical Guide to Information Security Testing (SP 800-115)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/115/final", type: docs, cost: free }
+    skills:
+      - "Map products to the regulations that apply."
+      - "Provide customer assurance efficiently."
+      - "Design secure update and end-of-life processes."
+      - "Produce product SBOMs and manage external testing."
+    labs:
+      - "Assess a sample product against the Cyber Resilience Act and list the gaps."
+      - "Build a reusable assurance pack: questionnaire answers, SBOM, test summary."
+    done:
+      - "Produce a compliance plan for a product under the CRA or similar."
+      - "Run an assurance process that answers customers quickly."
+
+  - level: expert
+    title: "Leading product security"
+    months: "6–12"
+    topics:
+      - id: prodsec-strategy
+        title: "Product security strategy"
+        text: "Set standards, the SDLC, the PSIRT and the assurance programme across all products, and fund them with a clear business case."
+        res:
+          - { name: "OWASP SAMM", by: "OWASP Foundation", url: "https://owaspsamm.org/", type: docs, cost: free }
+      - id: prodsec-metrics
+        title: "Measuring product security"
+        text: "Track vulnerabilities per release, time to fix, review coverage, disclosure timeliness and customer-found flaws. Report trends to leadership."
+        res:
+          - { name: "OWASP SAMM", by: "OWASP Foundation", url: "https://owaspsamm.org/", type: docs, cost: free }
+      - id: prodsec-engineering-culture
+        title: "Working with engineering and product"
+        text: "Product security succeeds when product managers plan for it and engineers own it. Build those relationships and the champions network."
+        res:
+          - { name: "Secure by Design", by: "CISA", url: "https://www.cisa.gov/securebydesign", type: docs, cost: free }
+    skills:
+      - "Set product security strategy and metrics."
+      - "Build engineering and product ownership of security."
+    labs:
+      - "Write a product security strategy with an SDLC, PSIRT and assurance plan."
+      - "Design a metrics dashboard for product security."
+    done:
+      - "Lead a product security function across multiple products."
+      - "Show measurable improvement in product vulnerabilities and response."
+
+tools:
+  - { name: "OWASP ASVS", url: "https://owasp.org/www-project-application-security-verification-standard/", kind: free, what: "Security requirements standard for products." }
+  - { name: "CVSS calculator", url: "https://www.first.org/cvss/calculator/4-0", kind: free, what: "Score vulnerabilities consistently." }
+  - { name: "CSAF tooling", url: "https://github.com/csaf-tools", kind: oss, what: "Produce machine-readable advisories." }
+  - { name: "Syft", url: "https://github.com/anchore/syft", kind: oss, what: "Generate SBOMs per release." }
+  - { name: "HackerOne / Bugcrowd", url: "https://www.hackerone.com/", kind: paid, what: "Bug bounty and disclosure platforms." }
+
+certs:
+  - { name: "CSSLP", by: "ISC2", url: "https://www.isc2.org/certifications/csslp", level: senior, note: "Secure software lifecycle." }
+  - { ref: cissp, note: "Broad grounding for leads." }
+  - { name: "GIAC GWEB", by: "GIAC", url: "https://www.giac.org/certifications/certified-web-application-defender-gweb/", level: mid, note: "Defending web applications." }
+
+resources:
+  - { name: "PSIRT Services Framework", by: "FIRST", url: "https://www.first.org/standards/frameworks/psirts/psirt_services_framework_v1.1", type: docs, cost: free }
+  - { name: "The CERT Guide to Coordinated Vulnerability Disclosure", by: "CERT/CC", url: "https://certcc.github.io/CERT-Guide-to-CVD/", type: docs, cost: free }
+  - { name: "Cyber Resilience Act", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act", type: docs, cost: free }
+  - { name: "Secure by Design", by: "CISA", url: "https://www.cisa.gov/securebydesign", type: docs, cost: free }
+  - { name: "Secure Software Development Framework (SP 800-218)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/218/final", type: docs, cost: free }
+
+frameworks: [ssdf, cra, asvs, samm, cvss, cve]
+
+career:
+  - { title: "Developer or application security engineer", years: "0–3 years" }
+  - { title: "Product security engineer or PSIRT analyst", years: "2–5 years" }
+  - { title: "Product security lead", years: "5–9 years" }
+  - { title: "Head of product security", years: "9+ years" }
+
+related:
+  - { to: appsec, why: "Application security is the technical core of product security." }
+  - { to: supplychain, why: "Product SBOMs and update security are supply chain topics." }
+  - { to: vulnmgmt, why: "PSIRT is vulnerability management for what you ship." }
+  - { to: iot, why: "Connected products carry extra product security duties." }

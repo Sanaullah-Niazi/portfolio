@@ -325,7 +325,7 @@ career:
 related:
   - { to: cloud, why: "Applications now run in the cloud; secure both together." }
   - { to: iam, why: "Authentication and authorisation are the hardest parts of most apps." }
-  - { name: "DevSecOps", why: "Automate security in the build and deploy pipeline." }
-  - { name: "Software Supply Chain Security", why: "Protect the code and packages you depend on." }
+  - { to: devsecops, why: "Automate security in the build and deploy pipeline." }
+  - { to: supplychain, why: "Protect the code and packages you depend on." }
   - { name: "Bug Bounty and Coordinated Disclosure", why: "Test real systems, legally, through official programmes." }
   - { to: llmsec, why: "Secure apps that call LLMs and AI agents." }

@@ -1,0 +1,231 @@
+# Security roadmap: Mobile Security. Shown at /roadmaps/security/mobile/.
+# Field guide: see the top of secops.yml.
+
+id: mobile
+category: offence
+icon: message
+entry: intermediate
+legal: true
+title: "Mobile Security"
+summary: "Assess and defend Android and iOS apps under authorisation: the mobile platform security models, the OWASP MASVS and MASTG, static and dynamic testing, and secure mobile development."
+keywords: "mobile security Android iOS mobile app pentesting OWASP MASVS MASTG reverse engineering static analysis dynamic analysis Frida secure mobile development authorised testing"
+
+overview:
+  - "Mobile apps hold personal and financial data, run on devices outside your control, and talk to backends over the network. Mobile security covers assessing apps for flaws, understanding the Android and iOS security models, and building apps that protect their data and their users."
+  - "This roadmap is a learning path for authorised testing and secure development, built around the OWASP Mobile Application Security project. Analyse only apps you own, apps built for practice, or apps within an engagement or bug bounty scope. The platform security models shape everything, so learn them first."
+why: "Billions of people run mobile apps, and many handle money and identity. Testers and developers who understand both platforms and can find or prevent the common flaws are in steady demand."
+roles:
+  - { title: "Mobile security tester", level: mid, what: "Assesses Android and iOS apps." }
+  - { title: "Mobile application security engineer", level: mid, what: "Builds security into mobile apps." }
+  - { title: "Senior mobile security specialist", level: senior, what: "Leads mobile assessments and standards." }
+  - { title: "Mobile security lead", level: lead, what: "Owns mobile security across a portfolio." }
+
+prereqs:
+  - "Application security fundamentals and the OWASP Top 10."
+  - "Some mobile development, Android or iOS."
+  - "How apps talk to APIs over the network."
+  - "The law and ethics of authorised testing."
+prereq_paths: [cybersecurity, web]
+
+stages:
+  - level: beginner
+    title: "Platforms and foundations"
+    months: "2–4"
+    topics:
+      - id: mobile-platform-models
+        title: "The platform security models"
+        text: "App sandboxing, permissions, signing and secure storage on Android and iOS. The platforms do a lot of the defending; learn what they do and do not."
+        res:
+          - { name: "OWASP MASVS", by: "OWASP Foundation", url: "https://mas.owasp.org/MASVS/", type: docs, cost: free }
+      - id: mobile-top-risks
+        title: "The common mobile weaknesses"
+        text: "Insecure data storage, weak transport security, poor authentication and leaky logs. The MASVS and MASTG organise them clearly."
+        res:
+          - { name: "OWASP MASTG", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+      - id: android-basics
+        title: "Android internals"
+        text: "The APK format, components, the manifest, permissions and the runtime. Understanding the platform is most of Android testing."
+        res:
+          - { name: "OWASP MASTG (Android)", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+      - id: ios-basics
+        title: "iOS internals"
+        text: "App structure, entitlements, the keychain and code signing. iOS is more closed, which shapes how it is tested."
+        res:
+          - { name: "Apple Platform Security", by: "Apple", url: "https://support.apple.com/guide/security/welcome/web", type: docs, cost: free }
+      - id: mobile-lab
+        title: "A mobile testing lab"
+        text: "Emulators, a rooted or jailbroken test device you own, and deliberately vulnerable apps. Keep testing to apps and devices you control."
+        res:
+          - { name: "OWASP MASTG", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+      - id: mobile-methodology
+        title: "Testing methodology"
+        text: "The MASTG gives a structured method with the MASVS as the requirements. Methodology keeps your testing complete and consistent."
+        res:
+          - { name: "OWASP MASVS", by: "OWASP Foundation", url: "https://mas.owasp.org/MASVS/", type: docs, cost: free }
+    skills:
+      - "Explain the Android and iOS security models."
+      - "Recognise the common mobile weaknesses."
+      - "Set up a mobile testing lab."
+      - "Follow the MASTG methodology."
+    labs:
+      - "Set up an Android emulator and a vulnerable practice app and explore its storage and manifest."
+      - "Map the MASVS requirements to a practice app."
+    done:
+      - "Explain the platform security models and their limits."
+      - "Test a practice app against the MASVS."
+
+  - level: intermediate
+    title: "Static and dynamic analysis"
+    months: "4–8"
+    topics:
+      - id: static-analysis-mobile
+        title: "Static analysis"
+        text: "Decompile and read an app for secrets, weak crypto, insecure storage and dangerous configuration. Much of the value is in careful reading."
+        res:
+          - { name: "MobSF", by: "OpenSecurity", url: "https://mobsf.github.io/docs/", type: tool, cost: free }
+      - id: dynamic-analysis-mobile
+        title: "Dynamic analysis"
+        text: "Run the app and observe its behaviour, files and network calls on a device you control. Dynamic testing reveals what static analysis cannot."
+        res:
+          - { name: "OWASP MASTG", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+      - id: traffic-interception
+        title: "Intercepting app traffic"
+        text: "Proxy the app's API calls to test the backend and transport security, handling certificate pinning on your own test device."
+        res:
+          - { name: "OWASP MASTG", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+      - id: instrumentation
+        title: "Runtime instrumentation"
+        text: "Tools such as Frida let you inspect and change app behaviour at runtime to understand and test it, on a device you own."
+        res:
+          - { name: "Frida documentation", by: "Frida", url: "https://frida.re/docs/home/", type: tool, cost: free }
+      - id: data-storage-testing
+        title: "Data storage and crypto testing"
+        text: "Check what the app stores and how: keychains, databases, preferences and caches, and whether sensitive data is protected."
+        res:
+          - { name: "OWASP MASVS", by: "OWASP Foundation", url: "https://mas.owasp.org/MASVS/", type: docs, cost: free }
+      - id: mobile-backend
+        title: "Testing the backend"
+        text: "A mobile app is a client to an API; most serious findings are in the backend. Apply API security testing to it."
+        res:
+          - { name: "OWASP API Security Top 10", by: "OWASP Foundation", url: "https://owasp.org/API-Security/editions/2023/en/0x11-t10/", type: docs, cost: free }
+    skills:
+      - "Perform static and dynamic analysis of apps."
+      - "Intercept and test app traffic."
+      - "Use runtime instrumentation."
+      - "Test storage, crypto and the backend."
+    labs:
+      - "Run MobSF against a vulnerable practice app and triage its findings."
+      - "Intercept a practice app's traffic and test its API, bypassing pinning on your own device."
+      - "Use Frida to inspect a practice app's behaviour at runtime."
+    done:
+      - "Assess a practice app statically and dynamically end to end."
+      - "Produce findings covering storage, transport and the backend."
+
+  - level: advanced
+    title: "Depth and secure development"
+    months: "6–12"
+    topics:
+      - id: reverse-engineering-mobile
+        title: "Reverse engineering apps"
+        text: "Read decompiled code to understand logic, find hidden endpoints and spot flaws. Do this only on apps you are authorised to analyse."
+        res:
+          - { name: "OWASP MASTG", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+      - id: anti-tampering
+        title: "Anti-tampering and its testing"
+        text: "Root and jailbreak detection, obfuscation and integrity checks raise the bar for attackers. Learn how they work and how they are assessed."
+        res:
+          - { name: "OWASP MASVS", by: "OWASP Foundation", url: "https://mas.owasp.org/MASVS/", type: docs, cost: free }
+      - id: platform-features
+        title: "Platform security features"
+        text: "Biometrics, hardware-backed keystores, attestation and secure enclaves. Learn to use them in development and to assess their use."
+        res:
+          - { name: "OWASP MASTG (Android)", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+      - id: secure-mobile-dev
+        title: "Secure mobile development"
+        text: "Build apps to the MASVS: protect data, pin or validate transport, authenticate properly, and avoid leaking through logs and backups."
+        res:
+          - { name: "OWASP MASVS", by: "OWASP Foundation", url: "https://mas.owasp.org/MASVS/", type: docs, cost: free }
+      - id: mobile-privacy
+        title: "Mobile privacy"
+        text: "Apps collect location, contacts and identifiers, and store regulation now constrains this. Minimise collection and be transparent."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: mobile-reporting
+        title: "Reporting"
+        text: "Write findings developers can fix, mapped to the MASVS, with clear reproduction and impact. The fixed app is the goal."
+        res:
+          - { name: "OWASP MASTG", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+    skills:
+      - "Reverse engineer apps you are authorised to analyse."
+      - "Assess anti-tampering and platform features."
+      - "Develop apps to the MASVS."
+      - "Report against the MASVS."
+    labs:
+      - "Reverse engineer a practice app to find a hidden endpoint or flaw."
+      - "Build a small app that stores a secret correctly using the platform keystore."
+      - "Write a MASVS-mapped report for a practice app."
+    done:
+      - "Assess a complex app and report against the MASVS."
+      - "Build an app that meets MASVS data and transport requirements."
+
+  - level: expert
+    title: "Leading mobile security"
+    months: "ongoing"
+    topics:
+      - id: mobile-programme
+        title: "A mobile security programme"
+        text: "Set MASVS targets, embed testing in the mobile pipeline, and manage the risk across many apps and both platforms."
+        res:
+          - { name: "OWASP MASVS", by: "OWASP Foundation", url: "https://mas.owasp.org/MASVS/", type: docs, cost: free }
+      - id: mobile-bug-bounty
+        title: "Mobile bug bounty and research"
+        text: "Test real apps legally within bug bounty scope, and contribute research and tooling. Stay strictly within each programme's rules."
+        res:
+          - { name: "HackerOne", by: "HackerOne", url: "https://www.hackerone.com/", type: docs, cost: free }
+      - id: platform-tracking
+        title: "Keeping up with platforms"
+        text: "Android and iOS change security models yearly. Follow the platform security releases and update your methodology."
+        res:
+          - { name: "Apple Platform Security", by: "Apple", url: "https://support.apple.com/guide/security/welcome/web", type: docs, cost: free }
+    skills:
+      - "Run a mobile security programme."
+      - "Test real apps legally and research responsibly."
+    labs:
+      - "Write a mobile security standard and pipeline for a product team."
+      - "Study a mobile bug bounty scope and write a legal test plan."
+    done:
+      - "Lead mobile security across a portfolio of apps."
+      - "Have a record of ethical testing and research."
+
+tools:
+  - { name: "MobSF", url: "https://mobsf.github.io/docs/", kind: oss, what: "Automated static and dynamic mobile analysis." }
+  - { name: "Frida", url: "https://frida.re/", kind: oss, what: "Runtime instrumentation for apps you own." }
+  - { name: "jadx", url: "https://github.com/skylot/jadx", kind: oss, what: "Decompile Android apps." }
+  - { name: "objection", url: "https://github.com/sensepost/objection", kind: oss, what: "Runtime mobile exploration built on Frida." }
+  - { name: "OWASP MASTG tooling", url: "https://mas.owasp.org/MASTG/", kind: free, what: "The reference tests and tools." }
+
+certs:
+  - { name: "eMAPT", by: "INE Security", url: "https://ine.com/security/certifications/emapt-certification", level: mid, note: "Mobile application penetration testing." }
+  - { name: "GMOB", by: "GIAC", url: "https://www.giac.org/certifications/mobile-device-security-analyst-gmob/", level: mid, note: "Mobile device and app security." }
+  - { ref: secplus, note: "Security baseline." }
+
+resources:
+  - { name: "OWASP MASVS", by: "OWASP Foundation", url: "https://mas.owasp.org/MASVS/", type: docs, cost: free }
+  - { name: "OWASP MASTG", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+  - { name: "OWASP MASTG (Android)", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
+  - { name: "Apple Platform Security", by: "Apple", url: "https://support.apple.com/guide/security/welcome/web", type: docs, cost: free }
+  - { name: "Frida documentation", by: "Frida", url: "https://frida.re/docs/home/", type: docs, cost: free }
+
+frameworks: [masvs, owasp-api, nist-privacy, cwe]
+
+career:
+  - { title: "Mobile developer or application tester", years: "0–3 years" }
+  - { title: "Mobile security tester or engineer", years: "2–5 years" }
+  - { title: "Senior mobile security specialist", years: "5–9 years" }
+  - { title: "Mobile security lead", years: "9+ years" }
+
+related:
+  - { to: webapptest, why: "Mobile apps are clients to APIs you also test." }
+  - { to: appsec, why: "Secure mobile development is application security." }
+  - { to: hwsec, why: "Secure enclaves and keystores are hardware-backed." }
+  - { to: privacy, why: "Mobile apps collect sensitive personal data." }

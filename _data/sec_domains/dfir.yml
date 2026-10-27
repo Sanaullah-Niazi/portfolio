@@ -313,5 +313,5 @@ related:
   - { to: cloud, why: "More and more incidents start in cloud and SaaS accounts." }
   - { to: malware, why: "Go deep into how malicious code works." }
   - { to: cti, why: "Turn what you learn in incidents into intelligence for others." }
-  - { name: "Ransomware Defense", why: "Prepare organisations for the most common major incident." }
+  - { to: resilience, why: "Prepare organisations for the most common major incident." }
   - { to: ai-secops, why: "Use AI to speed up investigations, and check its work." }

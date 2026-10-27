@@ -1,0 +1,228 @@
+# Security roadmap: Cyber Risk Management. Shown at /roadmaps/security/risk/.
+# Field guide: see the top of secops.yml.
+
+id: risk
+category: grc
+icon: scale
+entry: intermediate
+title: "Cyber Risk Management"
+summary: "Identify, assess and treat cyber risk in business terms: risk registers, key risk indicators, FAIR quantification, enterprise and operational risk, and cyber insurance."
+keywords: "cyber risk management risk assessment risk register KRI FAIR quantification ISO 27005 NIST RMF enterprise risk operational risk cyber insurance risk appetite treatment"
+
+overview:
+  - "Cyber risk management decides where security effort goes. It identifies what could go wrong, estimates how likely and how bad, and chooses whether to reduce, transfer, accept or avoid each risk, within an appetite the business has agreed."
+  - "The discipline runs from qualitative registers and heat maps to quantified analysis with FAIR, and connects to enterprise risk, insurance and board reporting. It needs numeracy, judgement and the ability to talk about loss in money, not just in severity colours."
+why: "Security budgets are finite and attacks are not. Organisations need people who can rank risks credibly, justify spending, and give executives numbers they can compare with other business risks."
+roles:
+  - { title: "Risk analyst", level: entry, what: "Runs assessments and maintains the register." }
+  - { title: "Cyber risk manager", level: mid, what: "Owns risk process, KRIs and treatment tracking." }
+  - { title: "Risk quantification lead", level: senior, what: "Runs FAIR and financial risk analysis." }
+  - { title: "Head of cyber risk", level: lead, what: "Sets appetite and reports to the board." }
+
+prereqs:
+  - "Security fundamentals and the main threat types."
+  - "Basic statistics and comfort with numbers."
+  - "How the business makes money and what would hurt it."
+  - "Clear writing and presentation."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Risk fundamentals"
+    months: "2–3"
+    topics:
+      - id: risk-concepts
+        title: "Risk concepts"
+        text: "Threat, vulnerability, likelihood, impact, inherent versus residual risk. Get the vocabulary right so assessments are comparable."
+        res:
+          - { name: "Guide for Conducting Risk Assessments (SP 800-30)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/30/r1/final", type: docs, cost: free }
+      - id: risk-identification
+        title: "Identifying risks"
+        text: "Use threat catalogues, incident history, assessments and interviews to find risks. The risks you miss are the ones that hurt."
+        res:
+          - { name: "ENISA Threat Landscape", by: "ENISA", url: "https://www.enisa.europa.eu/topics/cyber-threats/threats-and-trends", type: docs, cost: free }
+      - id: qualitative-assessment
+        title: "Qualitative assessment"
+        text: "Likelihood and impact scales, matrices and heat maps. Simple and widely used, but learn their limits before you rely on them."
+        res:
+          - { name: "ISO/IEC 27005", by: "ISO", url: "https://www.iso.org/standard/80585.html", type: docs, cost: paid }
+      - id: risk-register
+        title: "The risk register"
+        text: "A living list of risks with owners, ratings, treatments and dates. Keep it current and short enough that people actually use it."
+        res:
+          - { name: "Guide for Conducting Risk Assessments (SP 800-30)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/30/r1/final", type: docs, cost: free }
+      - id: risk-treatment
+        title: "Treatment options"
+        text: "Reduce, transfer, accept or avoid. Each needs an owner, a decision and a record. Accepting a risk knowingly is fine; ignoring it is not."
+        res:
+          - { name: "Risk Management Framework (SP 800-37)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/37/r2/final", type: docs, cost: free }
+      - id: risk-appetite
+        title: "Risk appetite and tolerance"
+        text: "The board sets how much risk the organisation will accept. Translate that into thresholds you can assess against."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+    skills:
+      - "Use risk vocabulary correctly."
+      - "Run a qualitative assessment and maintain a register."
+      - "Record treatment decisions."
+    labs:
+      - "Assess ten risks for a small company, rate them and record treatment decisions."
+      - "Write a risk appetite statement and the thresholds that follow from it."
+    done:
+      - "Produce a usable risk register with owners and treatments."
+      - "Explain the difference between inherent and residual risk with examples."
+
+  - level: intermediate
+    title: "Risk programmes and quantification"
+    months: "3–6"
+    topics:
+      - id: risk-frameworks
+        title: "Risk frameworks"
+        text: "ISO 27005, NIST RMF and the risk parts of NIST CSF each structure the process. Pick one and run it consistently."
+        res:
+          - { name: "Risk Management Framework (SP 800-37)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/37/r2/final", type: docs, cost: free }
+      - id: fair-basics
+        title: "FAIR quantification"
+        text: "Factor Analysis of Information Risk breaks risk into frequency and magnitude, estimated as ranges, and produces loss in money. Learn the model."
+        res:
+          - { name: "FAIR Institute", by: "FAIR Institute", url: "https://www.fairinstitute.org/", type: docs, cost: free }
+      - id: estimation
+        title: "Calibrated estimation"
+        text: "Good quantification depends on honest ranges and calibrated estimators. Learn to estimate with confidence intervals and to reduce bias."
+        res:
+          - { name: "Open FAIR Body of Knowledge", by: "The Open Group", url: "https://www.opengroup.org/certifications/openfair", type: docs, cost: free }
+      - id: kris
+        title: "Key risk indicators"
+        text: "Metrics that move before a risk materialises, such as patch latency or privileged account growth. Choose a few that are measurable and predictive."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: scenario-analysis
+        title: "Scenario analysis"
+        text: "Build concrete loss scenarios, such as ransomware taking down order processing for a week, and analyse them end to end. Scenarios make risk real."
+        res:
+          - { name: "FAIR Institute", by: "FAIR Institute", url: "https://www.fairinstitute.org/", type: docs, cost: free }
+      - id: third-party-risk-link
+        title: "Risk from third parties and projects"
+        text: "Vendors, projects and changes introduce risk continuously. Plug risk assessment into procurement and change so it is not a once-a-year event."
+        res:
+          - { name: "Cybersecurity Supply Chain Risk Management (SP 800-161)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final", type: docs, cost: free }
+    skills:
+      - "Run a risk programme on a recognised framework."
+      - "Quantify risks with FAIR."
+      - "Design and track KRIs."
+      - "Build and analyse loss scenarios."
+    labs:
+      - "Quantify two scenarios with FAIR, producing loss exceedance ranges."
+      - "Define five KRIs for a sample organisation and show how to measure them."
+      - "Run a scenario workshop for a ransomware event and document the analysis."
+    done:
+      - "Produce a quantified risk analysis that an executive could use to decide spending."
+      - "Run a risk programme with KRIs reported regularly."
+
+  - level: advanced
+    title: "Enterprise risk and decisions"
+    months: "4–6"
+    topics:
+      - id: erm-integration
+        title: "Integrating with enterprise risk"
+        text: "Cyber risk belongs alongside financial, operational and strategic risk. Learn the enterprise risk process and speak its language."
+        res:
+          - { name: "COSO Enterprise Risk Management", by: "COSO", url: "https://www.coso.org/guidance-erm", type: docs, cost: free }
+      - id: cyber-insurance
+        title: "Cyber insurance"
+        text: "Insurance transfers some risk but has exclusions, requirements and limits. Understand what it covers and what insurers now demand."
+        res:
+          - { name: "Cyber insurance guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/guidance/cyber-insurance-guidance", type: docs, cost: free }
+      - id: investment-decisions
+        title: "Risk-based investment"
+        text: "Compare the cost of controls with the risk they reduce. Quantification lets you rank projects by return, not by who shouts loudest."
+        res:
+          - { name: "FAIR Institute", by: "FAIR Institute", url: "https://www.fairinstitute.org/", type: docs, cost: free }
+      - id: aggregate-risk
+        title: "Aggregation and concentration"
+        text: "Many small risks add up, and shared dependencies such as a single cloud provider concentrate them. Analyse the portfolio, not only the items."
+        res:
+          - { name: "Developing Cyber-Resilient Systems (SP 800-160 Vol. 2)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/160/v2/r1/final", type: docs, cost: free }
+      - id: regulatory-risk
+        title: "Regulatory and legal risk"
+        text: "Fines, enforcement and litigation are part of cyber loss. Factor regulatory exposure into scenarios and work with legal on it."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: risk-tooling
+        title: "Risk tooling and automation"
+        text: "Feed vulnerability, asset and incident data into risk analysis automatically, and keep the register live rather than annual."
+        res:
+          - { name: "Eramba community edition", by: "Eramba", url: "https://www.eramba.org/", type: tool, cost: free }
+    skills:
+      - "Position cyber risk within enterprise risk."
+      - "Evaluate and use cyber insurance."
+      - "Make and defend risk-based investment cases."
+      - "Analyse aggregate and concentration risk."
+    labs:
+      - "Produce an investment case comparing three controls by risk reduced per pound spent."
+      - "Review a sample cyber insurance policy and list what it would not cover in a ransomware scenario."
+    done:
+      - "Present cyber risk in the enterprise risk forum in comparable terms."
+      - "Drive a budget decision with quantified risk analysis."
+
+  - level: expert
+    title: "Leading cyber risk"
+    months: "6–12"
+    topics:
+      - id: risk-strategy
+        title: "Risk strategy and appetite"
+        text: "Work with the board to set appetite, and build the programme that keeps the organisation within it as the business and threats change."
+        res:
+          - { name: "COSO Enterprise Risk Management", by: "COSO", url: "https://www.coso.org/guidance-erm", type: docs, cost: free }
+      - id: board-risk-reporting
+        title: "Board risk reporting"
+        text: "Boards want the top risks, the trend, the decisions needed and the money at stake. One page, numbers, plain words."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: risk-culture
+        title: "Risk culture"
+        text: "A good risk culture means people raise risks early and decisions are recorded. Build it through example, process and no blame for honest reporting."
+        res:
+          - { name: "ISO/IEC 27005", by: "ISO", url: "https://www.iso.org/standard/80585.html", type: docs, cost: paid }
+    skills:
+      - "Set risk strategy with the board."
+      - "Report risk to boards in money and trends."
+    labs:
+      - "Write a board paper proposing a cyber risk appetite with quantified thresholds."
+      - "Design a quarterly risk report for a board."
+    done:
+      - "Lead a cyber risk function trusted by executives and the board."
+      - "Show risk decisions changing where money is spent."
+
+tools:
+  - { name: "FAIR-U", url: "https://www.fairinstitute.org/fair-u", kind: free, what: "Free FAIR analysis training tool." }
+  - { name: "Eramba", url: "https://www.eramba.org/", kind: community, what: "Open-source GRC with risk registers." }
+  - { name: "Monte Carlo in spreadsheets or Python", url: "https://numpy.org/", kind: oss, what: "Run your own quantified simulations." }
+  - { name: "Open FAIR tooling", url: "https://www.opengroup.org/certifications/openfair", kind: free, what: "Standard and training for Open FAIR." }
+
+certs:
+  - { name: "CRISC", by: "ISACA", url: "https://www.isaca.org/credentialing/crisc", level: mid, note: "The standard risk certification." }
+  - { name: "Open FAIR Certification", by: "The Open Group", url: "https://www.opengroup.org/certifications/openfair", level: mid, note: "Quantified risk analysis." }
+  - { ref: cissp, note: "Covers risk management in its domains." }
+  - { name: "ISO 27005 Risk Manager", by: "PECB", url: "https://pecb.com/en/education-and-certification-for-individuals/iso-iec-27005", level: mid, note: "ISO-based risk management." }
+
+resources:
+  - { name: "Guide for Conducting Risk Assessments (SP 800-30)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/30/r1/final", type: docs, cost: free }
+  - { name: "Risk Management Framework (SP 800-37)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/37/r2/final", type: docs, cost: free }
+  - { name: "FAIR Institute", by: "FAIR Institute", url: "https://www.fairinstitute.org/", type: docs, cost: free }
+  - { name: "ENISA Threat Landscape", by: "ENISA", url: "https://www.enisa.europa.eu/topics/cyber-threats/threats-and-trends", type: docs, cost: free }
+  - { name: "Cyber insurance guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/guidance/cyber-insurance-guidance", type: docs, cost: free }
+
+frameworks: [iso27005, nist-rmf, fair, nist-csf, nist-800-161, dora, cobit]
+
+career:
+  - { title: "Security, audit or IT analyst", years: "0–2 years" }
+  - { title: "Cyber risk analyst", years: "1–3 years" }
+  - { title: "Cyber risk manager or quantification lead", years: "3–7 years" }
+  - { title: "Head of cyber risk", years: "7+ years" }
+
+related:
+  - { to: grc, why: "Risk decides which controls governance requires." }
+  - { to: tprm, why: "Vendor risk is a major slice of cyber risk." }
+  - { to: resilience, why: "Resilience planning starts from the biggest loss scenarios." }
+  - { to: leadership, why: "Risk is the language security leaders use with the board." }

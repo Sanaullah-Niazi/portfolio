@@ -1,0 +1,228 @@
+# Security roadmap: Security Leadership and Programme Management. Shown at /roadmaps/security/leadership/.
+# Field guide: see the top of secops.yml.
+
+id: leadership
+category: grc
+icon: flag
+entry: advanced
+title: "Security Leadership and Programme Management"
+summary: "Run a security function: strategy, operating model, budgets, hiring, metrics and board reporting, from first security manager to CISO."
+keywords: "security leadership CISO security strategy security programme management budget metrics KPIs operating model maturity model board reporting team building security manager"
+
+overview:
+  - "Security leadership turns technical capability into an organisation-wide programme: deciding what to protect and how much to spend, building and running teams, measuring progress and representing security to executives, boards, regulators and customers."
+  - "The path runs from leading a team to running a programme to being the CISO. It needs business understanding, communication and judgement under uncertainty as much as technical depth, and the ability to make trade-offs that no framework will make for you."
+why: "Security programmes fail from poor leadership more often than from poor tools. Organisations need leaders who can set direction, win resources, keep teams, and give boards an honest picture of risk."
+roles:
+  - { title: "Security team lead", level: mid, what: "Leads a team and delivers its roadmap." }
+  - { title: "Security manager", level: senior, what: "Runs a function with budget and staff." }
+  - { title: "Director of security", level: senior, what: "Owns the programme across several functions." }
+  - { title: "CISO", level: lead, what: "Accountable for security to the executive and board." }
+
+prereqs:
+  - "Several years in one or more security domains."
+  - "Some experience leading people or projects."
+  - "Basic finance: budgets, business cases, cost of risk."
+  - "Strong written and spoken communication."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Leading a team"
+    months: "3–6"
+    topics:
+      - id: from-engineer-to-lead
+        title: "From practitioner to leader"
+        text: "Your job changes from doing the work to making the team effective. Learn delegation, prioritisation and letting go of being the best technician."
+        res:
+          - { name: "10 Steps to Cyber Security", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/10-steps", type: docs, cost: free }
+      - id: team-building
+        title: "Building and keeping a team"
+        text: "Hire for potential and diversity of thinking, onboard well, give clear goals and feedback, and fight burnout. Retention beats recruitment."
+        res:
+          - { name: "Cybersecurity Workforce Framework (NICE)", by: "NIST", url: "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center", type: docs, cost: free }
+      - id: prioritisation
+        title: "Prioritising work"
+        text: "There is always more to do than people to do it. Use risk, business impact and effort to decide, and say no clearly to the rest."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: stakeholders
+        title: "Working with stakeholders"
+        text: "IT, engineering, legal, HR, finance and the business each want different things from security. Learn what each needs and speak their language."
+        res:
+          - { name: "Board Toolkit", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/board-toolkit", type: docs, cost: free }
+      - id: incident-leadership
+        title: "Leading through incidents"
+        text: "In a crisis the team looks to you for calm, decisions and cover. Prepare your role, rehearse it, and protect the team's wellbeing afterwards."
+        res:
+          - { name: "Incident management guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/incident-management", type: docs, cost: free }
+      - id: team-metrics
+        title: "Measuring a team"
+        text: "Track what the team delivers and the risk it reduces, not hours or tickets. Use metrics to improve and to tell the team's story upward."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+    skills:
+      - "Lead and develop a security team."
+      - "Prioritise by risk and say no."
+      - "Work effectively with other functions."
+    labs:
+      - "Write a quarterly roadmap for a security team with priorities justified by risk."
+      - "Run a mock incident as the leader and review your decisions afterwards."
+    done:
+      - "Lead a team that delivers its roadmap and stays intact."
+      - "Explain your priorities to a non-security stakeholder convincingly."
+
+  - level: intermediate
+    title: "Running a programme"
+    months: "6–12"
+    topics:
+      - id: security-strategy
+        title: "Security strategy"
+        text: "A strategy says what you will protect, against what, to what level, and how you will get there over several years. Tie it to business strategy."
+        res:
+          - { name: "10 Steps to Cyber Security", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/10-steps", type: docs, cost: free }
+      - id: operating-model
+        title: "Operating models"
+        text: "Centralised, federated or hybrid; in-house or outsourced; where security sits in the organisation. Each shapes what you can do. Choose deliberately."
+        res:
+          - { name: "COBIT", by: "ISACA", url: "https://www.isaca.org/resources/cobit", type: docs, cost: free }
+      - id: budgeting
+        title: "Budgets and business cases"
+        text: "Build a budget from the strategy, justify spending by risk reduced, and manage it through the year. Learn how finance thinks."
+        res:
+          - { name: "FAIR Institute", by: "FAIR Institute", url: "https://www.fairinstitute.org/", type: docs, cost: free }
+      - id: maturity-models
+        title: "Maturity and benchmarking"
+        text: "Maturity models such as NIST CSF tiers and C2M2 show where you are and help set targets. Use them honestly; the score is not the goal."
+        res:
+          - { name: "Cybersecurity Capability Maturity Model (C2M2)", by: "US Department of Energy", url: "https://www.energy.gov/ceser/cybersecurity-capability-maturity-model-c2m2", type: docs, cost: free }
+      - id: programme-metrics
+        title: "Programme metrics and KPIs"
+        text: "Choose a small set of metrics that show risk reduced, control coverage and response capability, and report them consistently over time."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: vendor-management-lead
+        title: "Managing vendors and services"
+        text: "Most security functions buy tools and services. Learn to select, negotiate, manage and exit them without being captured by them."
+        res:
+          - { name: "Supply chain security guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/supply-chain-security", type: docs, cost: free }
+    skills:
+      - "Write and deliver a multi-year security strategy."
+      - "Design an operating model and build a budget."
+      - "Assess maturity and set targets."
+      - "Run programme metrics."
+    labs:
+      - "Write a three-year security strategy for a sample organisation with a budget and roadmap."
+      - "Run a C2M2 or CSF self-assessment and set targets with justifications."
+      - "Build a business case for a major security investment in financial terms."
+    done:
+      - "Run a security programme against a strategy, with budget and metrics."
+      - "Win a significant investment with a risk-based business case."
+
+  - level: advanced
+    title: "Executive security leadership"
+    months: "12–24"
+    topics:
+      - id: board-engagement
+        title: "Boards and executives"
+        text: "Boards want to know the top risks, whether the programme is adequate, and what decisions they need to make. Learn their language and their concerns."
+        res:
+          - { name: "Board Toolkit", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/board-toolkit", type: docs, cost: free }
+      - id: regulators-and-legal
+        title: "Regulators, legal and disclosure"
+        text: "Incident disclosure rules, regulatory relationships and personal liability now shape the CISO role. Work closely with legal and know your obligations."
+        res:
+          - { name: "Digital Operational Resilience Act (DORA)", by: "European Commission", url: "https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en", type: docs, cost: free }
+      - id: enterprise-risk-lead
+        title: "Security as enterprise risk"
+        text: "Position cyber alongside the other enterprise risks, with appetite, quantification and ownership by the business, not just by security."
+        res:
+          - { name: "COSO Enterprise Risk Management", by: "COSO", url: "https://www.coso.org/guidance-erm", type: docs, cost: free }
+      - id: org-influence
+        title: "Influence across the organisation"
+        text: "The CISO controls little directly. Progress comes from relationships, credibility and making security part of how others succeed."
+        res:
+          - { name: "10 Steps to Cyber Security", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/10-steps", type: docs, cost: free }
+      - id: crisis-leadership
+        title: "Leading a major crisis"
+        text: "A major breach tests the whole organisation. Lead the response, the communications and the recovery, and be ready for scrutiny afterwards."
+        res:
+          - { name: "Incident management guidance", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/incident-management", type: docs, cost: free }
+      - id: emerging-tech-lead
+        title: "Leading through technology change"
+        text: "AI, cloud and new regulation change the risk picture fast. Keep the strategy adaptable and the team learning."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+    skills:
+      - "Engage boards and executives effectively."
+      - "Handle regulators, legal duties and disclosure."
+      - "Lead a major crisis."
+      - "Influence without direct authority."
+    labs:
+      - "Prepare and deliver a board briefing on cyber risk and programme adequacy."
+      - "Run a board-level crisis exercise and produce the lessons learned."
+    done:
+      - "Lead security for an organisation at executive level."
+      - "Earn board trust through honest, decision-focused reporting."
+
+  - level: expert
+    title: "The CISO and beyond"
+    months: "ongoing"
+    topics:
+      - id: ciso-role
+        title: "The CISO role"
+        text: "Accountable for security across the organisation, often with limited authority and high personal exposure. Define the role, its reporting line and its support."
+        res:
+          - { name: "10 Steps to Cyber Security", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/10-steps", type: docs, cost: free }
+      - id: succession
+        title: "Developing leaders"
+        text: "Build the next generation of security leaders deliberately: stretch roles, mentoring and honest feedback. Your legacy is the people you grew."
+        res:
+          - { name: "Cybersecurity Workforce Framework (NICE)", by: "NIST", url: "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center", type: docs, cost: free }
+      - id: industry-leadership
+        title: "Leading in the industry"
+        text: "Share what you learn, contribute to standards and communities, and help raise the baseline beyond your own organisation."
+        res:
+          - { name: "FIRST", by: "Forum of Incident Response and Security Teams", url: "https://www.first.org/", type: docs, cost: free }
+    skills:
+      - "Operate as a CISO."
+      - "Develop future security leaders."
+    labs:
+      - "Write a 90-day plan for a new CISO role at a sample organisation."
+      - "Design a leadership development path for senior members of a security team."
+    done:
+      - "Serve as a CISO or equivalent with a sustained, measured programme."
+      - "Have developed leaders who now run their own programmes."
+
+tools:
+  - { name: "NIST CSF 2.0 tools", url: "https://www.nist.gov/cyberframework", kind: free, what: "Profiles and tiers for strategy and assessment." }
+  - { name: "C2M2", url: "https://www.energy.gov/ceser/cybersecurity-capability-maturity-model-c2m2", kind: free, what: "Maturity self-assessment." }
+  - { name: "FAIR-U", url: "https://www.fairinstitute.org/fair-u", kind: free, what: "Quantify risk for business cases." }
+  - { name: "NICE Framework", url: "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center", kind: free, what: "Role and skill definitions for workforce planning." }
+
+certs:
+  - { ref: cissp, note: "The baseline expected of most security leaders." }
+  - { name: "CISM", by: "ISACA", url: "https://www.isaca.org/credentialing/cism", level: senior, note: "Security management and governance." }
+  - { name: "CCISO", by: "EC-Council", url: "https://ciso.eccouncil.org/", level: senior, note: "Executive-level security leadership." }
+  - { name: "CGEIT", by: "ISACA", url: "https://www.isaca.org/credentialing/cgeit", level: senior, note: "Governance of enterprise IT." }
+
+resources:
+  - { name: "10 Steps to Cyber Security", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/10-steps", type: docs, cost: free }
+  - { name: "Board Toolkit", by: "UK NCSC", url: "https://www.ncsc.gov.uk/collection/board-toolkit", type: docs, cost: free }
+  - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+  - { name: "Cybersecurity Capability Maturity Model (C2M2)", by: "US Department of Energy", url: "https://www.energy.gov/ceser/cybersecurity-capability-maturity-model-c2m2", type: docs, cost: free }
+  - { name: "Cybersecurity Workforce Framework (NICE)", by: "NIST", url: "https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center", type: docs, cost: free }
+
+frameworks: [nist-csf, iso27001, cobit, nist-rmf, fair, nis2, dora]
+
+career:
+  - { title: "Senior practitioner in a security domain", years: "4–7 years" }
+  - { title: "Security team lead or manager", years: "6–10 years" }
+  - { title: "Director of security", years: "10–15 years" }
+  - { title: "CISO", years: "12+ years" }
+
+related:
+  - { to: risk, why: "Risk is the language of security leadership." }
+  - { to: grc, why: "Governance is the leader's framework for the programme." }
+  - { to: resilience, why: "Leaders own the response to severe disruption." }
+  - { to: awareness, why: "Culture change starts at the top." }

@@ -1,0 +1,228 @@
+# Security roadmap: Security Architecture and Zero Trust. Shown at /roadmaps/security/secarch/.
+# Field guide: see the top of secops.yml.
+
+id: secarch
+category: engineering
+icon: layers
+entry: advanced
+title: "Security Architecture and Zero Trust"
+summary: "Design systems that are secure by structure: reference architectures, defence in depth, threat modelling, design review and zero trust across identity, network and data."
+keywords: "security architecture zero trust reference architecture defence in depth threat modelling design review SABSA TOGAF enterprise security architecture secure design patterns"
+
+overview:
+  - "Security architecture decides where controls go and how systems fit together so that security holds even when individual parts fail. It works at the level of designs, patterns and principles rather than single tools."
+  - "Zero trust is the dominant modern architecture: never trust by network location, always verify identity and device, and grant the least access needed. The role spans threat modelling new designs, reviewing proposals, setting reference patterns and translating risk into technical decisions."
+why: "Many breaches come from systems that were insecure by design, not by bug. Organisations need architects who can shape designs before they are built and lead the shift to zero trust across sprawling estates."
+roles:
+  - { title: "Security engineer (design focus)", level: mid, what: "Threat models and reviews designs." }
+  - { title: "Security architect", level: senior, what: "Designs security for systems and platforms." }
+  - { title: "Enterprise security architect", level: senior, what: "Sets reference architectures across the organisation." }
+  - { title: "Chief security architect", level: lead, what: "Owns the architecture vision and standards." }
+
+prereqs:
+  - "Broad experience in at least two security domains, such as network, cloud, identity or applications."
+  - "How systems are built: infrastructure, applications, identity and data flows."
+  - "Risk management basics."
+  - "Clear diagramming and writing."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Principles and patterns"
+    months: "2–3"
+    topics:
+      - id: design-principles
+        title: "Secure design principles"
+        text: "Least privilege, defence in depth, fail secure, separation of duties, minimise attack surface and keep it simple. Every design decision should trace to a principle."
+        res:
+          - { name: "Secure Product Design Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Product_Design_Cheat_Sheet.html", type: docs, cost: free }
+      - id: threat-modelling-arch
+        title: "Threat modelling"
+        text: "Draw the system, find what can go wrong, decide what to do about it and check you did. STRIDE and attack trees are the common starting tools."
+        res:
+          - { name: "Threat Modeling Manifesto", by: "Threat Modeling Manifesto working group", url: "https://www.threatmodelingmanifesto.org/", type: docs, cost: free }
+      - id: trust-boundaries
+        title: "Trust boundaries and data flows"
+        text: "Security lives at the boundaries between components with different trust. Map the data flows and the boundaries before placing any control."
+        res:
+          - { name: "Threat Modeling Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html", type: docs, cost: free }
+      - id: control-types
+        title: "Control types and layering"
+        text: "Preventive, detective and corrective controls, layered so that no single failure is fatal. Learn to reason about what each layer catches."
+        res:
+          - { name: "NIST SP 800-53 Rev. 5", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", type: docs, cost: free }
+      - id: arch-frameworks
+        title: "Architecture frameworks"
+        text: "SABSA, TOGAF and the NIST frameworks give structure to architecture work. Use them as scaffolding, not as a substitute for thinking."
+        res:
+          - { name: "SABSA", by: "The SABSA Institute", url: "https://sabsa.org/", type: docs, cost: free }
+      - id: reading-designs
+        title: "Reading and drawing architecture"
+        text: "Learn to read network, application and data diagrams quickly and to draw your own clearly. Architecture is communicated through diagrams."
+        res:
+          - { name: "C4 model", by: "Simon Brown", url: "https://c4model.com/", type: docs, cost: free }
+    skills:
+      - "Apply secure design principles to a design."
+      - "Threat model a system."
+      - "Identify trust boundaries and layer controls."
+    labs:
+      - "Threat model a small web application with STRIDE and produce a mitigation list."
+      - "Draw a C4-style diagram of a system with its trust boundaries marked."
+    done:
+      - "Produce a threat model and control plan for a realistic system."
+      - "Explain a design's security using named principles."
+
+  - level: intermediate
+    title: "Zero trust and domain architectures"
+    months: "3–5"
+    topics:
+      - id: zero-trust-principles
+        title: "Zero trust principles"
+        text: "Verify explicitly, use least privilege and assume breach. Identity, device and context decide access, not network location."
+        res:
+          - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
+      - id: zt-identity
+        title: "Identity-centred architecture"
+        text: "Strong identity for users, devices and workloads is the foundation of zero trust. Design authentication, authorisation and policy decision points."
+        res:
+          - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+      - id: zt-network
+        title: "Network architecture under zero trust"
+        text: "Segmentation, micro-segmentation and ZTNA replace the flat trusted network. Design so that compromise of one segment stays contained."
+        res:
+          - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
+      - id: cloud-architecture
+        title: "Cloud security architecture"
+        text: "Landing zones, account structure, identity federation and guardrails. Cloud architecture mistakes are expensive to fix later."
+        res:
+          - { name: "AWS Well-Architected Security Pillar", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html", type: docs, cost: free }
+      - id: app-architecture
+        title: "Application and API architecture"
+        text: "Authentication at the edge, authorisation in the service, secrets handling and secure defaults. Set patterns that teams can reuse."
+        res:
+          - { name: "Microservices Security Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Microservices_Security_Cheat_Sheet.html", type: docs, cost: free }
+      - id: design-review
+        title: "Security design review"
+        text: "Review proposals early, ask the right questions, and give findings that teams can act on. A good review is a conversation, not a gate."
+        res:
+          - { name: "Threat Modeling Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html", type: docs, cost: free }
+    skills:
+      - "Design zero trust access for users, devices and workloads."
+      - "Design segmented networks and cloud landing zones."
+      - "Set reusable application security patterns."
+      - "Run design reviews."
+    labs:
+      - "Design a zero trust access architecture for a sample organisation, with policy decision and enforcement points."
+      - "Design a cloud landing zone with identity, logging and guardrails."
+      - "Review a design proposal and write findings with recommended patterns."
+    done:
+      - "Produce a zero trust target architecture with a migration path."
+      - "Run design reviews that teams find useful."
+
+  - level: advanced
+    title: "Enterprise architecture"
+    months: "4–6"
+    topics:
+      - id: reference-architectures
+        title: "Reference architectures"
+        text: "Write the standard patterns for common needs, such as a public web service or a data pipeline, so teams build securely by default."
+        res:
+          - { name: "Cloud Controls Matrix", by: "Cloud Security Alliance", url: "https://cloudsecurityalliance.org/research/cloud-controls-matrix", type: docs, cost: free }
+      - id: risk-to-design
+        title: "From risk to design decisions"
+        text: "Architecture choices are risk choices. Learn to quantify and compare options and to explain trade-offs to the business."
+        res:
+          - { name: "SABSA", by: "The SABSA Institute", url: "https://sabsa.org/", type: docs, cost: free }
+      - id: legacy-and-migration
+        title: "Legacy systems and migration"
+        text: "Most estates mix old and new. Design compensating controls for what cannot change and realistic paths for what can."
+        res:
+          - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+      - id: resilience-architecture
+        title: "Designing for resilience"
+        text: "Assume components will fail or be compromised. Design for containment, recovery and graceful degradation, not only prevention."
+        res:
+          - { name: "Developing Cyber-Resilient Systems (SP 800-160 Vol. 2)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/160/v2/r1/final", type: docs, cost: free }
+      - id: arch-governance
+        title: "Architecture governance"
+        text: "Standards, review boards and exception processes keep architecture consistent without blocking delivery. Design the process as carefully as the systems."
+        res:
+          - { name: "TOGAF", by: "The Open Group", url: "https://www.opengroup.org/togaf", type: docs, cost: free }
+      - id: emerging-tech-arch
+        title: "Architecting for new technology"
+        text: "AI systems, confidential computing and post-quantum cryptography each change the architecture. Learn to evaluate new technology against principles."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+    skills:
+      - "Write reference architectures teams actually use."
+      - "Turn risk analysis into design decisions."
+      - "Design for resilience and legacy constraints."
+      - "Run architecture governance."
+    labs:
+      - "Write a reference architecture for a common pattern with the controls and the rationale."
+      - "Produce a migration plan from a flat network to zero trust for a mixed legacy estate."
+    done:
+      - "Own a set of reference architectures used across teams."
+      - "Lead a significant architecture change, such as a zero trust migration."
+
+  - level: expert
+    title: "Leading architecture"
+    months: "6–12"
+    topics:
+      - id: arch-strategy
+        title: "Architecture strategy"
+        text: "Set the multi-year direction for the security architecture, aligned to business strategy and technology change, and the standards that enforce it."
+        res:
+          - { name: "SABSA", by: "The SABSA Institute", url: "https://sabsa.org/", type: docs, cost: free }
+      - id: arch-influence
+        title: "Influence without authority"
+        text: "Architects rarely own the teams that build. Persuade with clear trade-offs, reusable patterns and early involvement."
+        res:
+          - { name: "Threat Modeling Manifesto", by: "Threat Modeling Manifesto working group", url: "https://www.threatmodelingmanifesto.org/", type: docs, cost: free }
+      - id: arch-metrics
+        title: "Measuring architecture"
+        text: "Track adoption of reference patterns, zero trust maturity, exceptions and design review coverage. Show the architecture reducing risk."
+        res:
+          - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+    skills:
+      - "Set and deliver architecture strategy."
+      - "Influence engineering leaders and the business."
+    labs:
+      - "Write a three-year security architecture strategy for an organisation."
+      - "Present a zero trust business case to a mock executive group."
+    done:
+      - "Lead security architecture for an organisation with measured adoption."
+      - "Own standards that shape how every system is built."
+
+tools:
+  - { name: "OWASP Threat Dragon", url: "https://owasp.org/www-project-threat-dragon/", kind: oss, what: "Threat modelling diagrams and models." }
+  - { name: "Microsoft Threat Modeling Tool", url: "https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool", kind: free, what: "STRIDE-based threat modelling." }
+  - { name: "draw.io", url: "https://www.drawio.com/", kind: free, what: "Architecture diagrams." }
+  - { name: "Structurizr", url: "https://www.structurizr.com/", kind: community, what: "C4 model diagrams as code." }
+
+certs:
+  - { ref: cissp, note: "The common baseline for architects." }
+  - { name: "CISSP-ISSAP", by: "ISC2", url: "https://www.isc2.org/certifications/issap", level: senior, note: "Architecture concentration." }
+  - { name: "SABSA Chartered Architect", by: "The SABSA Institute", url: "https://sabsa.org/certification/", level: senior, note: "Risk-driven security architecture." }
+  - { name: "TOGAF Certification", by: "The Open Group", url: "https://www.opengroup.org/certifications/togaf-certification-portfolio", level: mid, note: "Enterprise architecture method." }
+
+resources:
+  - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
+  - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+  - { name: "Threat Modeling Manifesto", by: "Threat Modeling Manifesto working group", url: "https://www.threatmodelingmanifesto.org/", type: docs, cost: free }
+  - { name: "Secure Product Design Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Product_Design_Cheat_Sheet.html", type: docs, cost: free }
+  - { name: "Developing Cyber-Resilient Systems (SP 800-160 Vol. 2)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/160/v2/r1/final", type: docs, cost: free }
+
+frameworks: [zero-trust, nist-800-53, nist-csf, iso27001, csa-ccm, aws-wa-sec]
+
+career:
+  - { title: "Engineer in a security or infrastructure domain", years: "0–5 years" }
+  - { title: "Security engineer with a design focus", years: "4–7 years" }
+  - { title: "Security architect", years: "7–12 years" }
+  - { title: "Enterprise or chief security architect", years: "12+ years" }
+
+related:
+  - { to: iam, why: "Identity is the foundation of zero trust." }
+  - { to: network, why: "Segmentation and ZTNA are architecture decisions." }
+  - { to: cloud, why: "Landing zones and guardrails are cloud architecture." }
+  - { to: appsec, why: "Threat modelling and secure patterns start here." }

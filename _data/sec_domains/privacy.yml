@@ -225,5 +225,5 @@ career:
 related:
   - { to: datasec, why: "Data security provides the controls privacy depends on." }
   - { to: crypto, why: "Encryption and anonymisation underpin many privacy controls." }
-  - { name: "GRC and Compliance", why: "Privacy is a major part of compliance and governance." }
+  - { to: grc, why: "Privacy is a major part of compliance and governance." }
   - { to: ai-grc, why: "AI systems raise sharp new privacy questions." }

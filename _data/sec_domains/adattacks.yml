@@ -1,0 +1,229 @@
+# Security roadmap: Active Directory and Identity Attacks. Shown at /roadmaps/security/adattacks/.
+# Field guide: see the top of secops.yml.
+
+id: adattacks
+category: offence
+icon: key
+entry: advanced
+legal: true
+title: "Active Directory and Identity Attacks"
+summary: "Assess the identity backbone of enterprises under authorisation: Active Directory and Entra ID weaknesses, Kerberos, attack paths, and the hardening that closes them."
+keywords: "Active Directory security identity attacks Kerberos Entra ID Azure AD attack paths BloodHound privilege escalation lateral movement tiering authorised assessment identity security"
+
+overview:
+  - "Almost every corporate network runs on Active Directory or Entra ID, and almost every serious intrusion runs through it. Identity assessment finds the misconfigurations and weak trust relationships that let an attacker move from one account to domain-wide control, so defenders can close them."
+  - "This roadmap is a learning path for authorised assessment and, above all, for defence. It pairs every attack concept with its hardening, uses purpose-built lab environments, and expects you to test only directories you own or are explicitly engaged to assess. The goal is a more defensible identity layer."
+why: "Identity is the number one battleground in enterprise security. Assessors who can map attack paths and, crucially, explain how to harden them are essential to both red and blue teams and to every incident responder."
+roles:
+  - { title: "Identity security analyst", level: mid, what: "Assesses and hardens directory security." }
+  - { title: "AD / identity penetration tester", level: mid, what: "Assesses directories under engagement." }
+  - { title: "Identity security architect", level: senior, what: "Designs defensible identity and tiering." }
+  - { title: "Red team / detection lead", level: senior, what: "Simulates and detects identity attacks." }
+
+prereqs:
+  - "Penetration testing fundamentals."
+  - "Deep Windows and Active Directory knowledge."
+  - "How authentication protocols work: Kerberos, NTLM, SAML, OIDC."
+  - "The law and ethics of authorised testing."
+prereq_paths: [cybersecurity, foundations]
+
+stages:
+  - level: beginner
+    title: "Directory foundations"
+    months: "2–4"
+    topics:
+      - id: ad-architecture
+        title: "Active Directory architecture"
+        text: "Domains, forests, trusts, objects, group policy and the role of domain controllers. You must understand AD deeply before you can assess it."
+        res:
+          - { name: "Active Directory documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-domain-services", type: docs, cost: free }
+      - id: auth-protocols
+        title: "Authentication protocols"
+        text: "Kerberos and NTLM on-premises, SAML and OIDC in the cloud. Learn how tickets and tokens work, because the attacks abuse their design."
+        res:
+          - { name: "Kerberos explained", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview", type: docs, cost: free }
+      - id: ad-lab
+        title: "Building an AD lab"
+        text: "Stand up your own small domain to practise safely and legally. Deliberately vulnerable lab projects make this quick."
+        res:
+          - { name: "GOAD (Game of Active Directory)", by: "Orange Cyberdefense", url: "https://github.com/Orange-Cyberdefense/GOAD", type: practice, cost: free }
+      - id: entra-basics
+        title: "Entra ID and hybrid identity"
+        text: "Cloud identity, conditional access, and the sync that joins on-premises AD to Entra ID. Hybrid trust is a rich source of attack paths."
+        res:
+          - { name: "Microsoft Entra documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/entra/", type: docs, cost: free }
+      - id: enumeration-ad
+        title: "Directory enumeration"
+        text: "Reading users, groups, permissions and trusts is the start of every assessment, and much of it uses normal, authorised queries."
+        res:
+          - { name: "The Hacker Recipes", by: "The Hacker Recipes", url: "https://www.thehacker.recipes/", type: docs, cost: free }
+      - id: tiering-model
+        title: "The tiering and defence model"
+        text: "Learn Microsoft's tiered administration and the enterprise access model first, so every weakness you find maps to a known hardening."
+        res:
+          - { name: "Securing privileged access", by: "Microsoft", url: "https://learn.microsoft.com/en-us/security/privileged-access-workstations/overview", type: docs, cost: free }
+    skills:
+      - "Explain AD and Entra ID architecture."
+      - "Explain Kerberos, NTLM, SAML and OIDC."
+      - "Build and enumerate an AD lab."
+      - "Describe the tiered administration model."
+    labs:
+      - "Deploy GOAD or a similar lab and enumerate its users, groups and trusts."
+      - "Document how Kerberos authentication works, step by step, from your lab."
+    done:
+      - "Explain how a directory is structured and authenticated."
+      - "Enumerate a lab directory thoroughly."
+
+  - level: intermediate
+    title: "Attack paths and their fixes"
+    months: "4–8"
+    topics:
+      - id: attack-path-mapping
+        title: "Attack path mapping"
+        text: "Tools such as BloodHound reveal chains from a normal account to high privilege. Learn to read them and, for defenders, to cut them."
+        res:
+          - { name: "BloodHound Community docs", by: "SpecterOps", url: "https://bloodhound.specterops.io/", type: docs, cost: free }
+      - id: kerberos-attacks
+        title: "Kerberos weaknesses"
+        text: "Kerberoasting, AS-REP roasting and delegation abuse exploit how Kerberos works. Learn the concept, the detection and the configuration that prevents each."
+        res:
+          - { name: "The Hacker Recipes", by: "The Hacker Recipes", url: "https://www.thehacker.recipes/", type: docs, cost: free }
+      - id: credential-exposure
+        title: "Credential exposure"
+        text: "Cached credentials, service accounts and secrets in scripts give attackers their next hop. Find them and remove them; prefer managed service accounts."
+        res:
+          - { name: "Securing privileged access", by: "Microsoft", url: "https://learn.microsoft.com/en-us/security/privileged-access-workstations/overview", type: docs, cost: free }
+      - id: delegation
+        title: "Delegation and trust abuse"
+        text: "Misconfigured delegation and trusts let privileges cross boundaries. Learn how, and the settings that lock them down."
+        res:
+          - { name: "The Hacker Recipes", by: "The Hacker Recipes", url: "https://www.thehacker.recipes/", type: docs, cost: free }
+      - id: acl-abuse
+        title: "Permission and ACL weaknesses"
+        text: "Excessive rights on objects create quiet paths to domain control. Learn to audit ACLs and apply least privilege."
+        res:
+          - { name: "BloodHound Community docs", by: "SpecterOps", url: "https://bloodhound.specterops.io/", type: docs, cost: free }
+      - id: detection-pairing
+        title: "Detecting identity attacks"
+        text: "For every attack, learn the logs and detections that catch it. An assessor who can also tell defenders how to see it is far more valuable."
+        res:
+          - { name: "MITRE ATT&CK: Credential Access", by: "MITRE", url: "https://attack.mitre.org/tactics/TA0006/", type: docs, cost: free }
+    skills:
+      - "Map and interpret attack paths."
+      - "Explain Kerberos and delegation weaknesses and their fixes."
+      - "Audit ACLs and credentials."
+      - "Pair each attack with its detection."
+    labs:
+      - "Run BloodHound against your AD lab and find the shortest path to domain admin, then remove it."
+      - "Reproduce a Kerberoasting scenario in the lab and build the detection for it."
+    done:
+      - "Map attack paths in a lab directory and propose fixes that break them."
+      - "Explain each weakness with both its exploitation and its detection."
+
+  - level: advanced
+    title: "Hybrid, cloud and hardening"
+    months: "6–12"
+    topics:
+      - id: hybrid-attacks
+        title: "Hybrid identity attack paths"
+        text: "The sync between on-premises AD and Entra ID, and federation, create paths in both directions. Learn them and the settings that contain them."
+        res:
+          - { name: "Microsoft Entra documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/entra/", type: docs, cost: free }
+      - id: entra-attacks
+        title: "Entra ID assessment"
+        text: "Conditional access gaps, consent abuse, over-privileged applications and risky roles. Assess the cloud directory and tighten it."
+        res:
+          - { name: "Microsoft Entra security operations guide", by: "Microsoft", url: "https://learn.microsoft.com/en-us/entra/architecture/security-operations-introduction", type: docs, cost: free }
+      - id: persistence-concepts
+        title: "Persistence concepts and defence"
+        text: "Understand how attackers try to keep access in a directory so you can detect and remove it. Study this firmly from the defender's side."
+        res:
+          - { name: "MITRE ATT&CK: Persistence", by: "MITRE", url: "https://attack.mitre.org/tactics/TA0003/", type: docs, cost: free }
+      - id: hardening-ad
+        title: "Hardening Active Directory"
+        text: "Tiering, privileged access workstations, LAPS, protected users, and reducing attack paths to near zero. This is the point of the whole roadmap."
+        res:
+          - { name: "Securing privileged access", by: "Microsoft", url: "https://learn.microsoft.com/en-us/security/privileged-access-workstations/overview", type: docs, cost: free }
+      - id: assess-and-report
+        title: "Assessment and reporting"
+        text: "Deliver an identity assessment that ranks attack paths by impact and gives a realistic hardening roadmap. Impact and fixes, not a list of tricks."
+        res:
+          - { name: "Technical Guide to Information Security Testing (SP 800-115)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/115/final", type: docs, cost: free }
+      - id: purple-identity
+        title: "Purple teaming identity"
+        text: "Work with defenders to simulate identity attacks safely and verify detections. This is the most constructive use of these skills."
+        res:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+    skills:
+      - "Assess hybrid and Entra ID identity."
+      - "Detect and remove persistence."
+      - "Harden Active Directory to the tiered model."
+      - "Report attack paths with a hardening roadmap."
+    labs:
+      - "Assess a hybrid lab and document the on-premises-to-cloud paths and their fixes."
+      - "Harden your AD lab to the tiered model and re-run BloodHound to show the paths gone."
+    done:
+      - "Produce an identity assessment with ranked paths and a hardening plan."
+      - "Demonstrably reduce the attack paths in a lab directory."
+
+  - level: expert
+    title: "Identity security leadership"
+    months: "ongoing"
+    topics:
+      - id: identity-strategy
+        title: "Enterprise identity security"
+        text: "Drive tiering, privileged access management and identity threat detection across a large estate. Identity is now the core of defence."
+        res:
+          - { name: "Securing privileged access", by: "Microsoft", url: "https://learn.microsoft.com/en-us/security/privileged-access-workstations/overview", type: docs, cost: free }
+      - id: itdr
+        title: "Identity threat detection and response"
+        text: "ITDR watches identity systems for attacks in progress. Design the detections and the response for your directory."
+        res:
+          - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+      - id: research-identity
+        title: "Research and disclosure"
+        text: "Identity research moves fast. Follow it, test findings in your lab, and disclose responsibly through proper channels."
+        res:
+          - { name: "The CERT Guide to Coordinated Vulnerability Disclosure", by: "CERT/CC", url: "https://certcc.github.io/CERT-Guide-to-CVD/", type: docs, cost: free }
+    skills:
+      - "Lead enterprise identity security."
+      - "Build identity threat detection and response."
+    labs:
+      - "Write an identity hardening programme for a large organisation."
+      - "Design ITDR detections mapped to ATT&CK for a directory."
+    done:
+      - "Lead the hardening of an organisation's identity layer."
+      - "Have a record of ethical research and responsible disclosure."
+
+tools:
+  - { name: "BloodHound Community Edition", url: "https://bloodhound.specterops.io/", kind: oss, what: "Map and cut attack paths; used by red and blue teams." }
+  - { name: "PingCastle", url: "https://www.pingcastle.com/", kind: free, what: "Active Directory security assessment and scoring." }
+  - { name: "GOAD", url: "https://github.com/Orange-Cyberdefense/GOAD", kind: oss, what: "Deliberately vulnerable AD lab." }
+  - { name: "Purple Knight", url: "https://www.semperis.com/purple-knight/", kind: free, what: "Free AD and Entra ID security assessment." }
+  - { name: "Microsoft Defender for Identity", url: "https://learn.microsoft.com/en-us/defender-for-identity/", kind: paid, what: "Identity threat detection." }
+
+certs:
+  - { name: "CRTP", by: "Altered Security", url: "https://www.alteredsecurity.com/adlab", level: mid, note: "Hands-on Active Directory assessment." }
+  - { name: "OSCP (PEN-200)", by: "OffSec", url: "https://www.offsec.com/courses/pen-200/", level: mid, note: "Covers AD within a broader pentest cert." }
+  - { name: "SC-300 (Identity and Access Administrator)", by: "Microsoft", url: "https://learn.microsoft.com/en-us/credentials/certifications/identity-and-access-administrator/", level: mid, note: "Defensive identity administration." }
+
+resources:
+  - { name: "The Hacker Recipes", by: "The Hacker Recipes", url: "https://www.thehacker.recipes/", type: docs, cost: free }
+  - { name: "BloodHound Community docs", by: "SpecterOps", url: "https://bloodhound.specterops.io/", type: docs, cost: free }
+  - { name: "Securing privileged access", by: "Microsoft", url: "https://learn.microsoft.com/en-us/security/privileged-access-workstations/overview", type: docs, cost: free }
+  - { name: "GOAD (Game of Active Directory)", by: "Orange Cyberdefense", url: "https://github.com/Orange-Cyberdefense/GOAD", type: practice, cost: free }
+  - { name: "MITRE ATT&CK", by: "MITRE", url: "https://attack.mitre.org/", type: docs, cost: free }
+
+frameworks: [attack, nist-800-115, zero-trust, d3fend]
+
+career:
+  - { title: "Windows administrator or penetration tester", years: "0–3 years" }
+  - { title: "Identity security analyst or AD tester", years: "2–5 years" }
+  - { title: "Identity security architect or red teamer", years: "5–9 years" }
+  - { title: "Identity security lead", years: "9+ years" }
+
+related:
+  - { to: pentest, why: "Directory assessment is a core part of network testing." }
+  - { to: iam, why: "Identity attacks and identity defence are two views of IAM." }
+  - { to: redteam, why: "Red teams rely heavily on identity attack paths." }
+  - { to: detection, why: "Every identity attack needs a matching detection." }

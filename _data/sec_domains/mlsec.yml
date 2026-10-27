@@ -273,4 +273,4 @@ related:
   - { to: llmsec, why: "The same ideas applied to large language models and chatbots." }
   - { to: ai-redteam, why: "Test models the way an attacker would, with a method." }
   - { to: ai-supply, why: "Models, datasets and libraries are a supply chain to secure." }
-  - { name: "Data Privacy", why: "Go deeper into privacy law and privacy engineering." }
+  - { to: privacy, why: "Go deeper into privacy law and privacy engineering." }
