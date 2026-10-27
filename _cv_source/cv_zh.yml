@@ -1,0 +1,108 @@
+lang: zh
+dir: ltr
+comma: "，"
+title: 人工智能硕士 | 网络安全与 AI 威胁检测
+creds: Cisco Junior Cybersecurity Analyst · Cisco Ethical Hacker · NAVTTC 数字取证 · IELTS 6.5
+location: 巴基斯坦
+footer: 个人简历
+page: "第 [n] 页，共 [t] 页"
+stats:
+  - [CGPA 3.66 / 4.00, 人工智能硕士, 巴哈瓦尔布尔伊斯兰大学]
+  - [3 篇论文, 同行评审期刊, 2026 年]
+  - [2 年以上教学经验, 客座讲师, 信息技术系]
+  - [IELTS 6.5（B2）, 学术类, 2026 年 10 月]
+h:
+  profile: 个人简介
+  education: 教育背景
+  publications: 发表论文
+  publications_note: 标题保留正式发表时的英文原文。
+  experience: 工作经历
+  certifications: 证书
+  certifications_note: 证书名称保留官方英文名称。
+  skills: 技能
+  languages: 语言与兴趣
+  references: 推荐人
+  statement: 关于我：个人陈述
+profile: >-
+  信息技术专业毕业，获得人工智能硕士学位（CGPA 3.66/4.00），并日益专注于网络安全。我的硕士论文构建了深度学习模型（LSTM、BERT
+  和混合架构），在约 50 万个样本上区分 AI 生成的文本和人类写的文本，准确率最高达 99.65%。我以第一作者身份发表了一篇关于金融科技网络安全中
+  AI 欺诈检测的同行评审论文，并持有 Cisco 和 NAVTTC 颁发的网络安全、道德黑客和数字取证证书。我正在申请网络安全与人工智能方向的研究生学习，
+  希望在基于 AI 的威胁检测和安全运营领域发展自己的职业。
+education:
+  - degree: 人工智能硕士
+    dates: 2023年11月 – 2026年1月
+    school: 巴哈瓦尔布尔伊斯兰大学（The Islamia University of Bahawalpur）计算机学院，巴基斯坦
+    meta: CGPA 3.66 / 4.00（80.40%）· 4 个学期，含研究论文 · 学位于 2026 年 1 月 15 日颁发
+    points:
+      - "学位论文：<span lang=\"en\">“Advancing Deep Learning and Neural Network Techniques for AI and Human Text Classification”</span>，导师为 Najia Saher 教授（人工智能系主任）。"
+      - 在约 50 万条文本的平衡数据集上构建并比较了 LSTM、微调 BERT、TF-IDF + BERT + LightGBM 和 BERT + LSTM 模型；BERT + LSTM 混合模型达到 99.65% 的准确率和 0.995 的 F1 分数。
+  - degree: 信息技术学士
+    dates: 2019年10月 – 2023年7月
+    school: 俾路支省信息技术、工程与管理科学大学（BUITEMS），巴基斯坦奎达
+    meta: CGPA 2.73 / 4.00（68.13%）· 133 学分 · 学位于 2023 年 10 月 30 日授予
+    points:
+      - 安全与网络课程：信息安全、安全管理、网络安全、计算机网络、系统与网络管理、IT 基础设施、虚拟系统与服务。
+      - "毕业设计：<span lang=\"en\">“IoT-based Pure Aqua Utilization in Smart Edifice”</span>（3 人团队，导师 Raja Asif Wagan 博士）：Arduino 传感器、水泵自动控制，以及用于查看水位、水质和账单的 Android 应用。"
+  - degree: 职业健康、安全与环境工程专科文凭（三年制）
+    dates: 2017年5月 – 2020年5月
+    school: 白沙瓦技术教育学院 · 由伊斯兰堡认证与技能专业人员委员会颁发
+    meta: 85.08%，等级 B+ · 第一年后转为非全日制 · 2020 年 1 月完成课程 · 2020 年 5 月 27 日获颁文凭
+    points: []
+experience:
+  - role: 客座讲师（兼职，与硕士学习同时进行）
+    dates: 2024年3月 – 2026年6月
+    org: 费萨拉巴德政府学院大学莱亚校区 · 信息技术系
+    points:
+      - 为信息技术专业本科生讲授“信息与通信技术导论”和“计算机网络”。
+      - 准备讲义、实验、作业和小测验；批改考试并评估学生作业。
+  - role: 自由职业视频剪辑师与 Python 自动化专家
+    dates: 2021年7月 – 至今
+    org: Upwork（远程，面向国际客户）
+    points:
+      - 完成 43 个项目，Job Success Score 为 100%，总收入超过 1 万美元，累计记录 1,494 小时。
+      - 为客户剪辑并发布短视频，管理 YouTube 和 TikTok 频道。
+      - 编写 Python 脚本，用于网页抓取、数据收集和重复性发布任务的自动化。
+cert_groups:
+  - name: 网络安全与数字取证
+    items:
+      - ["Digital Forensic & Cyber Security (3-month course, Grade A)", "NAVTTC，巴基斯坦政府 · 2024年2月 – 5月"]
+      - ["Junior Cybersecurity Analyst Career Path", "Cisco Networking Academy · 2024年10月"]
+      - ["Ethical Hacker", "Cisco Networking Academy · 2024年11月"]
+      - ["Introduction to Cybersecurity", "Cisco Networking Academy · 2024年11月"]
+  - name: AI、编程与物联网
+    items:
+      - ["Programming in Python", "Meta (Coursera) · 2025年2月"]
+      - ["Advanced Chatbots with Deep Learning and Python", "Packt (Coursera) · 2025年2月"]
+      - ["AI Python for Beginners", "DeepLearning.AI (Coursera) · 2025年3月"]
+      - ["IoT for Everyone", "UET Peshawar / HEC (Coursera) · 2026年7月"]
+  - name: 其他培训
+    items:
+      - ["IOSH Managing Safely · OSHAcademy 30-hour General Industry Safety and Health", "2026年"]
+skills:
+  - [安全, 网络安全、威胁与漏洞分析、道德黑客基础、数字取证、事件响应；Wireshark、Nmap、Kali Linux（实验水平）]
+  - [AI / 数据, Python、PyTorch、TensorFlow/Keras、Hugging Face Transformers、scikit-learn、LightGBM、NumPy、Pandas、Matplotlib；自然语言处理与文本分类]
+  - [系统与网页, 计算机网络、Linux（Ubuntu）、Arduino 与物联网传感器、HTML、CSS、网页抓取与自动化脚本、Git/GitHub、Jupyter、Kaggle]
+languages:
+  - [语言, 英语：流利（IELTS Academic 6.5，B2；本科和硕士均为英语授课）· 德语：初学，2026 年 10 月开始 · 普什图语和萨莱基语：母语 · 乌尔都语和旁遮普语：流利]
+  - [兴趣, 足球（后卫）和板球比赛、登山徒步、烹饪传统美食、UFC]
+references: 可应要求提供。
+statement:
+  intro: 我走向网络安全的道路并不笔直，但每一步都把我引向了它。
+  parts:
+    - h: 我从哪里来
+      p:
+        - 我在俾路支省的查曼长大。中学毕业后，我不确定该选择什么职业，花了大约一年时间准备参军选拔，同时探索其他出路。我家乡的很多人都通过安全类资格证书发展职业，于是我在白沙瓦完成了三年制的职业健康、安全与环境工程专科，第一年全日制就读，之后转为非全日制。这段学习教会我用风险、危害和预防的方式思考问题，如今我把这种思维方式用在数字系统上。
+    - h: 我的学业
+      p:
+        - 2019 年，我开始在奎达的 BUITEMS 攻读信息技术学士学位。坦白说，我的本科 CGPA（2.73）并不能反映我的真实能力。本科期间的大部分时间里，我把精力主要放在体育上，参加板球比赛，在足球队里踢后卫；从 2021 年起，我还在 Upwork 上做自由职业，以 100% 的 Job Success Score 完成了 40 多个项目。到了本科后期，我学会了管理时间，开始认真对待学业。
+        - 在巴哈瓦尔布尔伊斯兰大学攻读人工智能硕士是我的转折点。我努力学习，以 3.66 的 CGPA 毕业，并与不同的研究团队合作发表了三篇同行评审论文。我的学位论文用深度学习（LSTM、BERT 和混合模型）区分 AI 生成的文本和人类写作，准确率达到 99.65%，目前我正在以此为基础撰写自己的期刊论文。与此同时，我在费萨拉巴德政府学院大学（莱亚校区）担任客座讲师，讲授“信息与通信技术导论”和“计算机网络”。
+    - h: 为什么选择网络安全
+      p:
+        - 我之所以在硕士阶段选择人工智能，是因为我的大学没有网络安全方向，而我认为 AI 是正确的基础：这两个领域正越来越紧密地结合在一起。之后，我通过 Cisco 的 Junior Cybersecurity Analyst 和 Ethical Hacker 课程，以及 NAVTTC 的数字取证与网络安全课程，自学建立了安全方面的技能。
+        - 我的动力也来自个人经历。我曾遭遇网络诈骗和勒索软件攻击，也看到巴基斯坦的网络防护仍然薄弱。自新冠疫情以来，企业和日常生活都转移到了线上，而 AI 正在让攻击变得更快、更有说服力。我希望站在防御的一方。
+    - h: 我的目标
+      p:
+        - 我希望继续以研究为导向的研究生学习，把我的 AI 背景与严谨、实践性强的安全训练结合起来。之后，我希望从事基于 AI 的威胁与欺诈检测工作，无论是在研究领域还是在安全运营中（SOC、蓝队或红队岗位，或治理、风险与合规），并不断考取更多专业证书。从长远来看，我希望帮助解决真实的网络安全问题，无论是在巴基斯坦，还是在我工作的任何地方。
+    - h: 学习之外
+      p:
+        - 我踢足球、打板球，喜欢去山里徒步，会做传统美食，也关注 UFC。

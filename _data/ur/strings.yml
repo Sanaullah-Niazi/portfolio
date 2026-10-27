@@ -1,0 +1,159 @@
+# ویب سائٹ کی تمام مستقل عبارتیں (مینو، عنوانات، بٹن) اردو میں۔ صرف کولن کے بعد والا متن بدلیں۔
+lang_name: اردو
+html_lang: ur
+dir: rtl
+locale: ur_PK
+months: [جنوری, فروری, مارچ, اپریل, مئی, جون, جولائی, اگست, ستمبر, اکتوبر, نومبر, دسمبر]
+months_long: [جنوری, فروری, مارچ, اپریل, مئی, جون, جولائی, اگست, ستمبر, اکتوبر, نومبر, دسمبر]
+date_short: "[m] [y]"
+date_long: "[d] [m] [y]"
+
+skip: مواد پر جائیں
+back_to_top: اوپر واپس جائیں
+nav_label: مرکزی مینو
+language: زبان
+menu_open: مینو کھولیں
+menu_close: مینو بند کریں
+theme_toggle: روشن اور تاریک انداز میں تبدیل کریں
+profiles: پروفائلز
+email: ای میل
+
+nav_about: تعارف
+nav_research: تحقیق
+nav_projects: منصوبے
+nav_experience: تجربہ
+nav_skills: مہارتیں
+nav_notes: تحریریں
+nav_contact: رابطہ
+
+btn_cv: سی وی ڈاؤن لوڈ کریں
+btn_research: تحقیق
+btn_contact: رابطہ کریں
+cv_short: سی وی
+terminal_label: ٹرمینل کے انداز میں خلاصہ
+scroll_next: اگلے حصے پر جائیں
+
+news_eyebrow: خبریں
+news_title: تازہ خبریں
+news_all: تمام خبریں
+
+focus_eyebrow: "ایک ہدف: سیکیورٹی کے لیے مصنوعی ذہانت"
+focus_title: میری مہارت کا دائرہ
+focus_lede: "نیچے دیا گیا ہر شعبہ ایک ہی مقصد کا حصہ ہے: مصنوعی ذہانت کے ذریعے حملوں کو پہچاننا اور روکنا، اور خود مصنوعی ذہانت کو محفوظ رکھنا۔ ہر شعبے کے ساتھ لکھا ہے کہ آج میں اس میں کیا دکھا سکتا ہوں۔"
+
+about_eyebrow: تعارف
+about_title: میں یہاں تک کیسے پہنچا
+journey_label: اب تک کا میرا سفر
+
+research_eyebrow: تحقیق
+research_title: مقالہ اور اشاعتیں
+research_more: خلاصے، پی ڈی ایف اور BibTeX
+thesis_label: ایم ایس مقالہ
+supervisor: نگران
+models_compared: موازنہ کیے گئے ماڈل
+pubs_title: ہم مرتبہ جائزہ شدہ مقالے
+scholar_all: گوگل اسکالر پر تمام حوالہ جات
+interests_title: تحقیقی دلچسپیاں
+interests_now: ابھی جس پر کام کر رہا ہوں
+interests_next: آگے جس پر تحقیق کرنا چاہتا ہوں
+research_page_title: تحقیق
+research_page_lede: میرا ایم ایس مقالہ اور ہم مرتبہ جائزہ شدہ تحقیقی مقالے، خلاصوں، پی ڈی ایف اور کاپی کیے جا سکنے والے حوالہ جات کے ساتھ۔
+research_profiles: تحقیقی پروفائلز
+titles_note: مقالوں کے عنوانات اپنی اصل شائع شدہ انگریزی شکل میں دکھائے گئے ہیں۔
+role_First_author: پہلا مصنف
+role_Co-author: شریک مصنف
+abstract_label: خلاصہ
+summary_label: خلاصہ
+keywords: کلیدی الفاظ
+pdf: پی ڈی ایف
+bibtex_all: تمام حوالہ جات ڈاؤن لوڈ کریں (.bib)
+copy: کاپی کریں
+copied: کاپی ہو گیا
+
+projects_eyebrow: منصوبے
+projects_title: میں کیا بنا رہا ہوں
+projects_page_title: منصوبے
+projects_lede: مصنوعی ذہانت اور سیکیورٹی میں عملی کام۔ ہر منصوبے کا اپنا صفحہ ہے جس میں کوڈ، ڈیمو اور نتائج ہیں۔
+projects_all: تمام منصوبے
+all_projects_back: تمام منصوبے
+filter_label: "موضوع کے لحاظ سے چھانٹیں:"
+filter_all: سب
+filter_shown_one: منصوبہ دکھایا گیا
+filter_shown_many: منصوبے دکھائے گئے
+topic_AI: مصنوعی ذہانت
+topic_Security: سیکیورٹی
+topic_Networks: نیٹ ورکس
+status_Completed: مکمل
+status_In_progress: جاری
+details: تفصیل
+details_about: بارے میں
+tech_stack: استعمال شدہ ٹیکنالوجی
+link_github: GitHub
+link_demo: لائیو ڈیمو
+link_paper: مقالہ
+link_video: ویڈیو
+btn_github: GitHub پر کوڈ
+btn_demo: لائیو ڈیمو کھولیں
+btn_paper: مقالہ پڑھیں
+btn_video: ویڈیو دیکھیں
+live_demo_of: لائیو ڈیمو
+video_demo_of: ویڈیو ڈیمو
+
+experience_eyebrow: تجربہ
+experience_title: تدریس اور کام
+
+skills_eyebrow: مہارتیں
+skills_title: میرے استعمال کے اوزار
+chart_title: مہارتوں کا نقشہ
+chart_hint: کوئی شعبہ چنیں اور دیکھیں کہ اس کے پیچھے کیا ثبوت ہے۔
+chart_areas: اہم شعبے
+chart_scale: درجہ
+chart_of: میں سے
+scale_1: سیکھ رہا ہوں
+scale_2: تربیت اور لیب
+scale_3: اپنے کام میں استعمال کیا
+scale_4: تحقیق اور اشاعت
+
+service_eyebrow: تدریس اور خدمات
+service_title: تدریس، جائزہ اور رضاکارانہ کام
+service_teaching: تدریس
+service_reviewing: جائزہ
+service_volunteering: رضاکارانہ کام
+
+certs_eyebrow: سرٹیفکیٹس
+certs_title: سرٹیفکیٹس اور اعزازات
+awards_title: اعزازات
+verify: تصدیق کریں
+certificate: سرٹیفکیٹ
+enlarge: بڑا کریں
+close: بند کریں
+certificate_picture: سرٹیفکیٹ کی تصویر
+
+education_eyebrow: تعلیم
+education_title: ڈگریاں
+
+notes_eyebrow: تحریریں
+notes_title: تازہ تحریریں
+notes_all: تمام تحریریں
+notes_page_title: مصنوعی ذہانت کی سیکیورٹی پر تحریریں
+notes_page_lede: مصنوعی ذہانت کی سیکیورٹی، پہچان کی ٹیکنالوجی اور جو کچھ میں سیکھ اور بنا رہا ہوں، اس پر مختصر تحریریں۔
+notes_empty: ابھی کوئی تحریر نہیں۔ پہلی تحریر جلد آ رہی ہے۔
+topics: موضوعات
+rss: آر ایس ایس فیڈ
+
+contact_eyebrow: رابطہ
+contact_title: رابطہ کریں
+contact_scholar: اسکالر
+contact_scholar_link: گوگل اسکالر پروفائل
+form_name: آپ کا نام
+form_email: آپ کا ای میل
+form_message: پیغام
+form_send: پیغام بھیجیں
+form_sending: بھیجا جا رہا ہے…
+form_sent: شکریہ، آپ کا پیغام بھیج دیا گیا۔ میں ای میل کے ذریعے جواب دوں گا۔
+form_failed: معذرت، پیغام نہیں بھیجا جا سکا۔
+form_not_ready: فارم ابھی تیار نہیں۔
+form_fallback: "براہِ کرم مجھے براہِ راست ای میل کریں:"
+footer_rights: جملہ حقوق محفوظ ہیں۔
+not_found_title: یہ صفحہ موجود نہیں
+not_found_home: ہوم پیج پر جائیں

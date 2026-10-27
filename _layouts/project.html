@@ -1,33 +1,37 @@
 ---
 layout: default
 ---
+{% include i18n.html %}
+{%- comment -%} A translated project page (lang + ref in its front matter) takes its links, tech and status from the English file. {%- endcomment -%}
 {% assign p = page %}
+{% if page.ref %}{% assign p = site.projects | where: 'slug', page.ref | first %}{% endif %}
 <article class="wrap page">
-  <p class="eyebrow"><a href="{{ '/projects/' | relative_url }}">← All projects</a></p>
+  <p class="eyebrow"><a href="{{ L }}/projects/"><span class="back-arrow" aria-hidden="true">←</span> {{ S.all_projects_back }}</a></p>
   <header class="page-head">
-    <span class="status {% if p.status == 'Completed' %}status-done{% else %}status-wip{% endif %}">{{ p.status }}</span>
-    <h1>{{ p.title }}</h1>
-    <p class="lede">{{ p.summary }}</p>
+    {% assign sk = 'status_' | append: p.status | replace: ' ', '_' %}
+    <span class="status {% if p.status == 'Completed' %}status-done{% else %}status-wip{% endif %}">{{ S[sk] | default: p.status }}</span>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.summary }}</p>
     {% if p.tech and p.tech.size > 0 %}
-    <ul class="tags" aria-label="Tech stack">{% for t in p.tech %}<li>{{ t }}</li>{% endfor %}</ul>
+    <ul class="tags" aria-label="{{ S.tech_stack }}">{% for t in p.tech %}<li>{{ t }}</li>{% endfor %}</ul>
     {% endif %}
     <div class="btn-row">
-      {% if p.links.github and p.links.github != '' %}<a class="btn" href="{{ p.links.github }}">Code on GitHub</a>{% endif %}
-      {% if p.links.demo and p.links.demo != '' %}<a class="btn" href="{{ p.links.demo }}">Open live demo</a>{% endif %}
-      {% if p.links.paper and p.links.paper != '' %}<a class="btn" href="{{ p.links.paper }}">Read the paper</a>{% endif %}
-      {% if p.links.video and p.links.video != '' %}<a class="btn" href="{{ p.links.video }}">Watch the video</a>{% endif %}
+      {% if p.links.github and p.links.github != '' %}<a class="btn" href="{{ p.links.github }}">{{ S.btn_github }}</a>{% endif %}
+      {% if p.links.demo and p.links.demo != '' %}<a class="btn" href="{{ p.links.demo }}">{{ S.btn_demo }}</a>{% endif %}
+      {% if p.links.paper and p.links.paper != '' %}<a class="btn" href="{{ p.links.paper }}">{{ S.btn_paper }}</a>{% endif %}
+      {% if p.links.video and p.links.video != '' %}<a class="btn" href="{{ p.links.video }}">{{ S.btn_video }}</a>{% endif %}
     </div>
   </header>
 
   {% if p.demo_embed and p.demo_embed != '' %}
-  <section class="embed" aria-label="Live demo">
-    <iframe src="{{ p.demo_embed }}" title="Live demo of {{ p.title }}" loading="lazy" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"></iframe>
+  <section class="embed" aria-label="{{ S.link_demo }}">
+    <iframe src="{{ p.demo_embed }}" title="{{ S.live_demo_of }} {{ page.title }}" loading="lazy" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"></iframe>
   </section>
   {% endif %}
 
   {% if p.youtube_id and p.youtube_id != '' %}
-  <section class="embed video" aria-label="Demo video">
-    <iframe src="https://www.youtube-nocookie.com/embed/{{ p.youtube_id }}" title="Video demo of {{ p.title }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <section class="embed video" aria-label="{{ S.link_video }}">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ p.youtube_id }}" title="{{ S.video_demo_of }} {{ page.title }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </section>
   {% endif %}
 

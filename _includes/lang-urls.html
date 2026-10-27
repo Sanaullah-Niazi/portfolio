@@ -1,0 +1,13 @@
+{%- comment -%}
+  Works out the address of this same page in another language. Usage: {% include lang-urls.html code="de" %} sets alt_url.
+  If that translation doesn't exist yet, it falls back to that language's home page.
+{%- endcomment -%}
+{%- assign _base = page.url -%}
+{%- if lang != 'en' -%}{%- assign _prefix = '/' | append: lang -%}{%- assign _base = page.url | remove_first: _prefix -%}{%- endif -%}
+{%- if include.code == 'en' -%}
+  {%- assign alt_url = _base -%}
+{%- else -%}
+  {%- assign alt_url = '/' | append: include.code | append: _base -%}
+  {%- assign _found = site.pages | where: 'url', alt_url | first -%}
+  {%- unless _found -%}{%- assign alt_url = '/' | append: include.code | append: '/' -%}{%- endunless -%}
+{%- endif -%}

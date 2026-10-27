@@ -1,10 +1,11 @@
+{% assign interests = D.research.interests | default: site.data.research.interests %}
 <div class="interests">
   <div class="card reveal">
-    <p class="label"><span class="state state-now" aria-hidden="true"></span><span data-i18n="interests_now">Working on now</span></p>
-    <ul>{% for i in site.data.research.interests %}{% if i.stage == 'now' %}<li><strong>{{ i.name }}</strong><span>{{ i.note }}</span></li>{% endif %}{% endfor %}</ul>
+    <p class="label"><span class="state state-now" aria-hidden="true"></span>{{ S.interests_now }}</p>
+    <ul>{% for i in interests %}{% if i.stage == 'now' %}<li><strong>{{ i.name }}</strong><span>{{ i.note }}</span></li>{% endif %}{% endfor %}</ul>
   </div>
   <div class="card card-dashed reveal">
-    <p class="label"><span class="state state-next" aria-hidden="true"></span><span data-i18n="interests_next">Want to study next</span></p>
-    <ul>{% for i in site.data.research.interests %}{% if i.stage == 'next' %}<li><strong>{{ i.name }}</strong><span>{{ i.note }}</span></li>{% endif %}{% endfor %}</ul>
+    <p class="label"><span class="state state-next" aria-hidden="true"></span>{{ S.interests_next }}</p>
+    <ul>{% for i in interests %}{% if i.stage == 'next' %}<li><strong>{{ i.name }}</strong><span>{{ i.note }}</span></li>{% endif %}{% endfor %}</ul>
   </div>
 </div>

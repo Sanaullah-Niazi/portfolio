@@ -1,8 +1,7 @@
-{%- assign me = site.data.profile -%}
-<ul class="social" aria-label="Profiles">
+<ul class="social" aria-label="{{ S.profiles }}">
   <li><a href="{{ me.github }}" aria-label="GitHub">{% include icon.html name="github" %}</a></li>
   <li><a href="{{ me.linkedin }}" aria-label="LinkedIn">{% include icon.html name="linkedin" %}</a></li>
   <li><a href="{{ me.scholar }}" aria-label="Google Scholar">{% include icon.html name="scholar" %}</a></li>
   {% if me.orcid and me.orcid != '' %}<li><a href="{{ me.orcid }}" aria-label="ORCID">{% include icon.html name="orcid" %}</a></li>{% endif %}
-  <li><a href="mailto:{{ me.email }}" aria-label="Email">{% include icon.html name="mail" %}</a></li>
+  <li><a href="mailto:{{ me.email }}" aria-label="{{ S.email }}">{% include icon.html name="mail" %}</a></li>
 </ul>

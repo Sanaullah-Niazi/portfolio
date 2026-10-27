@@ -1,0 +1,6 @@
+{%- comment -%} A date written the way the current language writes it. Usage: {% include date.html date=post.date %} (add long=true for the day and full month). {%- endcomment -%}
+{%- assign _m = include.date | date: '%-m' | minus: 1 -%}
+{%- assign _d = include.date | date: '%-d' -%}
+{%- assign _y = include.date | date: '%Y' -%}
+{%- if include.long -%}{%- assign _t = S.date_long -%}{%- assign _mn = S.months_long[_m] -%}{%- else -%}{%- assign _t = S.date_short -%}{%- assign _mn = S.months[_m] -%}{%- endif -%}
+{{- _t | replace: '[d]', _d | replace: '[m]', _mn | replace: '[y]', _y -}}

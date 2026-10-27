@@ -1,0 +1,10 @@
+- group: AI / 机器学习与自然语言处理
+  icon: brain
+  items: [Python, PyTorch, TensorFlow / Keras, Hugging Face Transformers, scikit-learn, LightGBM, NumPy, Pandas, Matplotlib, 文本分类, LSTM 与 BERT 模型]
+- group: 网络安全
+  icon: shield
+  note: 水平来自实验操作和实践培训
+  items: [网络安全, 威胁与漏洞分析, 道德黑客基础, 数字取证, 事件响应, Wireshark, Nmap, Kali Linux]
+- group: 编程与工具
+  icon: code
+  items: [Python 脚本与自动化, 网页抓取, Linux（Ubuntu）, Git 与 GitHub, Jupyter, Kaggle, 计算机网络, HTML 与 CSS, Arduino 与物联网传感器]

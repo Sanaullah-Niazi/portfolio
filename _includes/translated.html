@@ -1,0 +1,9 @@
+{%- comment -%}
+  Finds the translation of a project or note for the current language. Usage: {% include translated.html item=p %}
+  sets tr to the translated page (or the original when there is none yet, or on the English site).
+{%- endcomment -%}
+{%- assign tr = include.item -%}
+{%- if lang != 'en' -%}
+  {%- assign _t = site.pages | where: 'lang', lang | where: 'ref', include.item.slug | first -%}
+  {%- if _t -%}{%- assign tr = _t -%}{%- endif -%}
+{%- endif -%}

@@ -4,16 +4,4 @@ title: Projects
 description: AI and cybersecurity projects by Sana Ullah Khan, including phishing and scam detection with machine learning and NLP.
 permalink: /projects/
 ---
-<div class="wrap page">
-  <header class="page-head">
-    <p class="eyebrow" data-i18n="projects_eyebrow">Projects</p>
-    <h1 data-i18n="nav_projects">Projects</h1>
-    <p class="lede" data-i18n="projects_lede">Hands-on work in AI and security. Each project has its own page with code, demos and results.</p>
-  </header>
-  {% assign projects = site.projects | sort: 'order' %}
-  <h2 class="sr-only">All projects</h2>
-  {% include project-filter.html projects=projects %}
-  <div class="grid projects-grid" data-filterable>
-    {% for p in projects %}{% include project-card.html project=p %}{% endfor %}
-  </div>
-</div>
+{% include i18n.html %}{% include pages/projects.html %}

@@ -1,0 +1,24 @@
+- date: 2026-10-01
+  kind: other
+  text: 通过 IELTS Academic 考试，成绩 6.5（B2），并开始学习德语。
+  link: ""
+- date: 2026-07-01
+  kind: course
+  text: 完成课程 “IoT for Everyone”（UET Peshawar / HEC，Coursera）。
+  link: ""
+- date: 2026-06-20
+  kind: paper
+  text: 以第一作者身份在 Journal of Business Insight and Innovation 发表关于金融科技 AI 欺诈检测的论文。
+  link: https://doi.org/10.63544/jbii.v5i6.116
+- date: 2026-03-31
+  kind: paper
+  text: 以第一作者身份在 Periodicals of Management Studies 发表关于石油天然气行业 AI 与职业安全的论文。
+  link: https://doi.org/10.65181/poms.06.01.0100
+- date: 2026-03-30
+  kind: paper
+  text: 作为合著者在 International Journal of Advanced Social Studies 发表关于创业教育中生成式 AI 的论文。
+  link: https://doi.org/10.70843/ijass.2026.06107
+- date: 2026-01-15
+  kind: degree
+  text: 获得巴哈瓦尔布尔伊斯兰大学人工智能硕士学位（CGPA 3.66 / 4.00）。
+  link: ""

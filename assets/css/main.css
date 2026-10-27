@@ -393,31 +393,45 @@ main:focus { outline: none; }
 .btn-sm { min-height: 38px; padding: 0 14px; font-size: 14px; gap: 6px; border-radius: 9px; }
 .more-row { display: flex; flex-wrap: wrap; gap: 10px 28px; }
 
-/* Language switch and Urdu text */
-.lang-select { position: relative; flex: none; display: flex; align-items: center; height: 40px; border: 1px solid var(--line); border-radius: 10px;
-  background: var(--surface); color: var(--ink); transition: border-color .2s; }
-.lang-select:hover, .lang-select:focus-within { border-color: var(--accent); }
-.lang-select .icon { position: absolute; left: 11px; pointer-events: none; color: var(--muted); }
-.lang-picker { appearance: none; -webkit-appearance: none; height: 100%; padding: 0 30px 0 34px; border: 0; border-radius: 10px; background: transparent;
-  color: inherit; font: 500 14px/1 var(--sans); cursor: pointer;
-  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
-  background-position: calc(100% - 15px) 55%, calc(100% - 11px) 55%; background-size: 4px 4px; background-repeat: no-repeat; }
-.lang-picker:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.lang-picker option { color: var(--ink); background: var(--surface); }
-html:not(.js) .lang-select { display: none; }
-[dir="rtl"] .lang-select .icon { left: auto; right: 11px; }
-[dir="rtl"] .lang-picker { padding: 0 34px 0 30px; background-position: 15px 55%, 11px 55%; }
-:root { --cjk: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", sans-serif; }
-[lang|="zh"] { letter-spacing: 0 !important; text-transform: none !important; }
-[lang|="zh"] { font-family: var(--sans), var(--cjk); }
-h1[lang|="zh"], h2[lang|="zh"], h1 [lang|="zh"], h2 [lang|="zh"] { font-family: var(--display), var(--cjk); font-weight: 600; }
-:root { --urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Urdu Typesetting", serif; }
-[lang="ur"] { font-family: var(--urdu); letter-spacing: 0 !important; text-transform: none !important; line-height: 2.1; word-spacing: .05em; }
-h1[lang="ur"], h2[lang="ur"], h1 [lang="ur"], h2 [lang="ur"] { font-family: var(--urdu); line-height: 1.9; font-weight: 600; }
-.headline[lang="ur"] { line-height: 2; }
-.nav [lang="ur"], .btn [lang="ur"], .eyebrow [lang="ur"], .eyebrow[lang="ur"], .pill [lang="ur"] { line-height: 1.6; }
-.eyebrow[lang="ur"], .eyebrow [lang="ur"], .pill [lang="ur"], .label [lang="ur"] { font-size: 1.12em; }
-.lang-notice { margin: 0; padding: 8px 20px; text-align: center; font-size: 14px; color: var(--muted); background: var(--bg-2); border-bottom: 1px solid var(--line); }
+/* Language menu: a small dropdown of links (works without JavaScript too) */
+.lang-menu { position: relative; flex: none; }
+.lang-btn { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface); color: var(--ink); font: 500 14px/1 var(--sans); cursor: pointer; list-style: none; transition: border-color .2s; }
+.lang-btn::-webkit-details-marker { display: none; }
+.lang-btn .icon { color: var(--muted); }
+.lang-btn::after { content: ""; width: 6px; height: 6px; margin-left: 2px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.lang-btn:hover, .lang-menu[open] .lang-btn { border-color: var(--accent); }
+.lang-list { position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 60; min-width: 150px; padding: 6px; display: grid; gap: 2px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg); }
+.lang-list a { display: block; padding: 9px 12px; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 15px; }
+.lang-list a:hover { background: var(--bg-2); }
+.lang-list a[aria-current] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.lang-list a[lang="ur"] { font-family: var(--urdu); line-height: 1.6; }
+.lang-list a[lang|="zh"] { font-family: var(--cjk); }
+[dir="rtl"] .lang-btn::after { margin-left: 0; margin-right: 2px; }
+.not-found-langs { display: grid; gap: 6px; }
+
+/* Urdu and Chinese pages: script fonts, no capitals or letter-spacing */
+:root { --urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Urdu Typesetting", serif;
+  --cjk: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC", sans-serif; }
+html[lang="ur"] { --sans: "IBM Plex Sans", "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", system-ui, sans-serif;
+  --display: "Fraunces", "Noto Nastaliq Urdu", Georgia, serif; --mono: "IBM Plex Mono", "Noto Nastaliq Urdu", ui-monospace, monospace; }
+html[lang|="zh"] { --sans: "IBM Plex Sans", var(--cjk); --display: "Fraunces", var(--cjk); --mono: "IBM Plex Mono", var(--cjk); }
+html[lang="ur"] body { line-height: 2.05; word-spacing: .04em; }
+html[lang="ur"] :is(h1, h2, h3) { line-height: 1.75; }
+html[lang="ur"] :is(.hero h1, .terminal) { line-height: 1; }
+html[lang="ur"] .terminal { line-height: 1.7; }
+html[lang="ur"] :is(.nav a, .btn, .chip-btn, .legend-btn, .status, .topic-chip, .role, .level-chip, .lang-btn) { line-height: 1.5; }
+html[lang="ur"] :is(.eyebrow, .label, .pill, .filter-label, .news-item time, .facts dt, .dates, .status, .cert-issuer),
+html[lang|="zh"] :is(.eyebrow, .label, .pill, .filter-label, .news-item time, .facts dt, .dates, .status, .cert-issuer) { letter-spacing: 0; text-transform: none; }
+html[lang="ur"] :is(.eyebrow, .label, .pill) { font-size: 14px; }
+html[lang|="zh"] :is(.eyebrow, .label, .pill) { font-size: 13.5px; letter-spacing: .06em; }
+html[lang|="zh"] body { line-height: 1.8; }
+[lang="en"] { font-family: "IBM Plex Sans", system-ui, sans-serif; }
+.terminal[lang="en"] { font-family: var(--mono); }
+h3[lang="en"], .thesis h3[lang="en"], .paper-title[lang="en"] { font-family: "Fraunces", Georgia, serif; }
+.pub-title[lang="en"], .cert-name[lang="en"], .meta[lang="en"] { font-family: "IBM Plex Sans", system-ui, sans-serif; }
+.titles-note { font-size: 14.5px; }
 
 /* Right-to-left (Urdu) layout */
 [dir="rtl"] :is(p, h3, li, dd, dt, strong, figcaption) { unicode-bidi: plaintext; }
@@ -607,10 +621,10 @@ html:not(.js) .radar { display: none; }
   .post-list > li { flex-direction: column; gap: 2px; }
   .skills-chart, .paper { padding: 20px; }
   /* Language menu folds to a globe button; the invisible native menu on top still opens the list. */
-  .lang-select { width: 40px; justify-content: center; }
-  .lang-select .icon, [dir="rtl"] .lang-select .icon { position: static; color: var(--ink); }
-  .lang-picker, [dir="rtl"] .lang-picker { position: absolute; inset: 0; width: 100%; padding: 0; opacity: 0; }
-  .lang-select:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* Language menu folds to a globe button */
+  .lang-btn { width: 40px; padding: 0; justify-content: center; }
+  .lang-btn .icon { color: var(--ink); }
+  .lang-current, .lang-btn::after { display: none; }
   .news-strip { grid-auto-flow: row; overflow: visible; gap: 14px; }
   .news-strip .news-item, [dir="rtl"] .news-strip .news-item { padding: 0 0 14px; border: 0; border-bottom: 1px solid var(--line); }
   .news-strip .news-item:last-child { border-bottom: 0; padding-bottom: 0; }
@@ -624,3 +638,7 @@ html:not(.js) .radar { display: none; }
   .js .reveal { opacity: 1; transform: none; }
   .terminal { transform: none; }
 }
+
+/* The "back" arrow points the other way on right-to-left pages (Urdu). */
+.back-arrow { display: inline-block; }
+[dir="rtl"] .back-arrow { transform: scaleX(-1); }
