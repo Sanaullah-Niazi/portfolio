@@ -1,0 +1,110 @@
+lang: de
+dir: ltr
+title: MS Künstliche Intelligenz | Cybersicherheit & KI-gestützte Bedrohungserkennung
+creds: Cisco Junior Cybersecurity Analyst · Cisco Ethical Hacker · NAVTTC Digitale Forensik · IELTS 6.5
+location: Pakistan
+footer: Lebenslauf
+page: "Seite [n] von [t]"
+stats:
+  - [CGPA 3.66 / 4.00, MS Künstliche Intelligenz, IUB]
+  - [3 Publikationen, Begutachtete Zeitschriften, 2026]
+  - [2+ Jahre Lehre, Gastdozent, Fachbereich IT]
+  - [IELTS 6.5 (B2), Academic, Oktober 2026]
+h:
+  profile: Profil
+  education: Ausbildung
+  publications: Publikationen
+  publications_note: Titel in der veröffentlichten englischen Originalfassung.
+  experience: Berufserfahrung
+  certifications: Zertifikate
+  certifications_note: Zertifikatsnamen in der offiziellen englischen Fassung.
+  skills: Kenntnisse
+  languages: Sprachen & Interessen
+  references: Referenzen
+  statement: Über mich – Persönliches Motivationsschreiben
+profile: >-
+  Absolvent der Informationstechnik mit einem MS in Künstlicher Intelligenz (CGPA 3,66/4,00) und einem wachsenden
+  Schwerpunkt auf Cybersicherheit. In meiner Masterarbeit habe ich Deep-Learning-Modelle (LSTM, BERT und hybride
+  Architekturen) entwickelt, die KI-generierte von menschlich geschriebenen Texten mit bis zu 99,65 % Genauigkeit auf
+  rund 500.000 Beispielen unterscheiden. Ich bin Erstautor eines begutachteten Artikels über KI-gestützte
+  Betrugserkennung für die Cybersicherheit im FinTech-Bereich und habe Zertifikate von Cisco und NAVTTC in
+  Cybersicherheit, Ethical Hacking und digitaler Forensik. Ich bewerbe mich für ein weiterführendes Studium in
+  Cybersicherheit und KI, um eine Laufbahn in KI-gestützter Bedrohungserkennung und Security Operations aufzubauen.
+education:
+  - degree: MS in Künstlicher Intelligenz
+    dates: Nov. 2023 – Jan. 2026
+    school: The Islamia University of Bahawalpur, Fakultät für Informatik, Pakistan
+    meta: CGPA 3,66 / 4,00 (80,40 %) · 4 Semester mit Forschungsarbeit · Abschluss am 15. Jan. 2026
+    points:
+      - "Masterarbeit: <span lang=\"en\">„Advancing Deep Learning and Neural Network Techniques for AI and Human Text Classification“</span>, betreut von Prof. Dr. Najia Saher (Leiterin des Fachbereichs KI)."
+      - LSTM, feinabgestimmtes BERT, TF-IDF + BERT + LightGBM und BERT + LSTM auf einem ausgewogenen Datensatz von ca. 500.000 Texten entwickelt und verglichen; das hybride BERT + LSTM erreichte 99,65 % Genauigkeit und einen F1-Score von 0,995.
+  - degree: BS in Informationstechnik
+    dates: Okt. 2019 – Juli 2023
+    school: Balochistan University of IT, Engineering & Management Sciences (BUITEMS), Quetta, Pakistan
+    meta: CGPA 2,73 / 4,00 (68,13 %) · 133 Leistungspunkte · Abschluss verliehen am 30. Okt. 2023
+    points:
+      - "Kurse in Sicherheit & Netzwerken: Informationssicherheit, Sicherheitsmanagement, Cybersicherheit, Rechnernetze, System- & Netzwerkadministration, IT-Infrastruktur, virtuelle Systeme & Dienste."
+      - "Abschlussprojekt: <span lang=\"en\">„IoT-based Pure Aqua Utilization in Smart Edifice“</span> (Team aus 3 Personen, Betreuer Dr. Raja Asif Wagan): Arduino-Sensoren, automatische Pumpensteuerung und eine Android-App für Füllstand, Wasserqualität und Abrechnung."
+  - degree: Diplom in Arbeitssicherheit, Gesundheits- & Umwelttechnik (3 Jahre)
+    dates: Mai 2017 – Mai 2020
+    school: Peshawar Institute of Technical Education · verliehen vom Islamabad Board of Certified & Skilled Professionals
+    meta: 85,08 %, Note B+ · ab dem zweiten Jahr in Teilzeit · Unterricht abgeschlossen Jan. 2020 · Diplom verliehen am 27. Mai 2020
+    points: []
+experience:
+  - role: Gastdozent (Teilzeit, neben dem MS-Studium)
+    dates: März 2024 – Juni 2026
+    org: GC University Faisalabad, Campus Layyah · Fachbereich Informationstechnik
+    points:
+      - Unterricht in „Einführung in die Informations- und Kommunikationstechnik“ und „Rechnernetze“ für Bachelorstudierende der IT.
+      - Vorlesungen, Laborübungen, Aufgaben und Quizze vorbereitet; Prüfungen korrigiert und Studienleistungen bewertet.
+  - role: Freiberuflicher Videoeditor & Spezialist für Python-Automatisierung
+    dates: Juli 2021 – heute
+    org: Upwork (remote, internationale Kunden)
+    points:
+      - 43 Aufträge mit 100 % Job Success Score, über 10.000 $ Gesamtumsatz und 1.494 erfassten Stunden abgeschlossen.
+      - Kurzvideos geschnitten und veröffentlicht sowie YouTube- und TikTok-Kanäle für Kunden betreut.
+      - Python-Skripte für Web Scraping, Datenerhebung und die Automatisierung wiederkehrender Veröffentlichungsaufgaben geschrieben.
+cert_groups:
+  - name: Cybersicherheit & digitale Forensik
+    items:
+      - ["Digital Forensic & Cyber Security (3-month course, Grade A)", "NAVTTC, Regierung von Pakistan · Feb. – Mai 2024"]
+      - ["Junior Cybersecurity Analyst Career Path", "Cisco Networking Academy · Okt. 2024"]
+      - ["Ethical Hacker", "Cisco Networking Academy · Nov. 2024"]
+      - ["Introduction to Cybersecurity", "Cisco Networking Academy · Nov. 2024"]
+  - name: KI, Programmierung & IoT
+    items:
+      - ["Programming in Python", "Meta (Coursera) · Feb. 2025"]
+      - ["Advanced Chatbots with Deep Learning and Python", "Packt (Coursera) · Feb. 2025"]
+      - ["AI Python for Beginners", "DeepLearning.AI (Coursera) · März 2025"]
+      - ["IoT for Everyone", "UET Peshawar / HEC (Coursera) · Juli 2026"]
+  - name: Weitere Weiterbildungen
+    items:
+      - ["IOSH Managing Safely · OSHAcademy 30-hour General Industry Safety and Health", "2026"]
+skills:
+  - [Sicherheit, "Netzwerksicherheit, Bedrohungs- und Schwachstellenanalyse, Grundlagen des Ethical Hacking, digitale Forensik, Incident Response; Wireshark, Nmap, Kali Linux (Laborniveau)"]
+  - [KI / Daten, "Python, PyTorch, TensorFlow/Keras, Hugging Face Transformers, scikit-learn, LightGBM, NumPy, Pandas, Matplotlib; NLP und Textklassifikation"]
+  - [Systeme & Web, "Rechnernetze, Linux (Ubuntu), Arduino und IoT-Sensoren, HTML, CSS, Web Scraping und Automatisierungsskripte, Git/GitHub, Jupyter, Kaggle"]
+languages:
+  - [Sprachen, "Englisch – fließend (IELTS Academic 6.5, B2; BS und MS auf Englisch unterrichtet) · Deutsch – Anfänger, seit Oktober 2026 · Paschtu und Saraiki – Muttersprachen · Urdu und Punjabi – fließend"]
+  - [Interessen, "Fußball (Verteidiger) und Cricketturniere, Wandern in den Bergen, traditionelle Küche, UFC"]
+references: Auf Anfrage erhältlich.
+statement:
+  intro: Mein Weg zur Cybersicherheit verlief nicht geradlinig, aber jeder Schritt hat mich ihr nähergebracht.
+  parts:
+    - h: Woher ich komme
+      p:
+        - Ich bin in Chaman in Belutschistan aufgewachsen. Nach der Schule wusste ich nicht genau, welchen Beruf ich ergreifen sollte. Etwa ein Jahr lang bereitete ich mich auf die Auswahl für die Streitkräfte vor und prüfte verschiedene Möglichkeiten. Viele Menschen aus meiner Region bauten sich mit Qualifikationen im Arbeitsschutz eine Laufbahn auf. Deshalb absolvierte ich in Peshawar ein dreijähriges Diplom in Arbeitssicherheit, Gesundheits- und Umwelttechnik, im ersten Jahr in Vollzeit und danach in Teilzeit. Dort lernte ich, in Risiken, Gefahren und Prävention zu denken, eine Denkweise, die ich heute auf digitale Systeme anwende.
+    - h: Mein Studium
+      p:
+        - "2019 begann ich einen BS in Informationstechnik an der BUITEMS in Quetta. Ich will ehrlich sein: Mein Bachelor-CGPA (2,73) spiegelt nicht wider, was ich kann. Während eines großen Teils des Studiums verbrachte ich die meiste Zeit mit Sport, spielte Cricketturniere und Fußball als Verteidiger, und ab 2021 arbeitete ich außerdem freiberuflich auf Upwork, wo ich mehr als 40 Aufträge mit einem Job Success Score von 100 % abschloss. Gegen Ende meines Bachelorstudiums lernte ich, meine Zeit einzuteilen und das Studium ernst zu nehmen."
+        - Mein MS in Künstlicher Intelligenz an der Islamia University of Bahawalpur war der Wendepunkt. Ich arbeitete hart, schloss mit einem CGPA von 3,66 ab und veröffentlichte drei begutachtete Artikel mit verschiedenen Forschungsteams. In meiner Masterarbeit nutzte ich Deep Learning (LSTM, BERT und hybride Modelle), um KI-generierte Texte von menschlichem Schreiben zu unterscheiden, mit 99,65 % Genauigkeit. Derzeit bereite ich daraus einen eigenen Artikel vor. Gleichzeitig unterrichtete ich als Gastdozent an der GC University Faisalabad (Campus Layyah) „Einführung in die IKT“ und „Rechnernetze“.
+    - h: Warum Cybersicherheit
+      p:
+        - "Für meinen Master wählte ich KI, weil meine Universität keinen Schwerpunkt Cybersicherheit anbot und ich KI als die richtige Grundlage sah: Beide Felder arbeiten zunehmend Hand in Hand. Meine Sicherheitskenntnisse baute ich anschließend selbst auf, mit den Cisco-Programmen Junior Cybersecurity Analyst und Ethical Hacker und einem NAVTTC-Kurs in digitaler Forensik und Cybersicherheit."
+        - Meine Motivation ist auch persönlich. Ich wurde Opfer eines Online-Betrugs und eines Ransomware-Angriffs, und ich sehe, wie schwach der Schutz vor Cyberangriffen in Pakistan noch ist. Seit COVID-19 haben sich Unternehmen und Alltag ins Internet verlagert, während KI Angriffe schneller und überzeugender macht. Ich möchte auf der Seite stehen, die sich dagegen verteidigt.
+    - h: Meine Ziele
+      p:
+        - Ich möchte mein Studium forschungsorientiert fortsetzen und dabei meinen KI-Hintergrund mit fundierter, praktischer Sicherheitsausbildung verbinden. Danach möchte ich an KI-gestützter Bedrohungs- und Betrugserkennung arbeiten, in der Forschung oder in Security Operations (SOC, Blue- oder Red-Team-Rollen oder Governance, Risk & Compliance), und weitere Berufszertifikate erwerben. Langfristig möchte ich helfen, echte Cyberprobleme zu lösen, in Pakistan und überall, wo ich arbeite.
+    - h: Außerhalb des Studiums
+      p:
+        - Ich spiele Fußball und Cricket, wandere in den Bergen, koche traditionelle Gerichte und verfolge UFC.

@@ -1,0 +1,20 @@
+# German summaries and keywords for each paper, by its bib_key in _data/publications.yml. Titles stay in English.
+khan2026fraud:
+  summary: >-
+    Eine Befragung von 385 Fachleuten aus FinTech-Unternehmen, Digitalbanken, Zahlungsdienstleistern und
+    Cybersicherheitsfirmen in Pakistan, ausgewertet mit SmartPLS 4. Ergebnis: KI-gestützte Betrugserkennung,
+    Machine Learning, Echtzeitüberwachung und Anomalieerkennung schützen gemeinsam wirksam vor digitalem Finanzbetrug.
+  keywords: [Betrugserkennung, Machine Learning, Anomalieerkennung, FinTech, Cybersicherheit]
+khan2026safety:
+  summary: >-
+    Wie KI die Risikobewertung am Arbeitsplatz in der Öl- und Gasindustrie von reaktiv zu vorausschauend machen kann.
+    Eine Befragung von Fachleuten aus Arbeitssicherheit und KI, ausgewertet mit Regression und Strukturgleichungsmodellen,
+    zeigt: KI-Einsatz und vorausschauende Risikobewertung hängen stark mit besseren Sicherheitsergebnissen zusammen
+    (das Modell erklärt 69 % der Varianz). Datenqualität, Kosten und fehlendes Fachwissen bleiben Hürden.
+  keywords: [Künstliche Intelligenz, Predictive Analytics, Risikobewertung, Arbeitssicherheit]
+soomro2026genai:
+  summary: >-
+    Eine Befragung von 412 Studierenden, ausgewertet mit Strukturgleichungsmodellen. Der Einsatz generativer KI in der
+    Gründungsausbildung stärkt die Absicht, digitale Unternehmen zu gründen, teils über die Einstellung der Studierenden;
+    ein unterstützendes Hochschulklima verstärkt den Effekt (58 % der Varianz erklärt).
+  keywords: [Generative KI, Gründungsausbildung, Strukturgleichungsmodelle]

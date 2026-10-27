@@ -1,0 +1,10 @@
+- group: مصنوعی ذہانت / ML اور NLP
+  icon: brain
+  items: [Python, PyTorch, TensorFlow / Keras, Hugging Face Transformers, scikit-learn, LightGBM, NumPy, Pandas, Matplotlib, متن کی درجہ بندی, LSTM اور BERT ماڈلز]
+- group: سائبر سیکیورٹی
+  icon: shield
+  note: یہ سطح لیب کے کام اور عملی تربیت سے ہے
+  items: [نیٹ ورک سیکیورٹی, خطرات اور کمزوریوں کا تجزیہ, ایتھیکل ہیکنگ کی بنیادی باتیں, ڈیجیٹل فرانزک, انسیڈنٹ رسپانس, Wireshark, Nmap, Kali Linux]
+- group: پروگرامنگ اور اوزار
+  icon: code
+  items: [پائتھن اسکرپٹنگ اور آٹومیشن, ویب اسکریپنگ, Linux (Ubuntu), Git اور GitHub, Jupyter, Kaggle, کمپیوٹر نیٹ ورکس, HTML اور CSS, Arduino اور IoT سینسرز]

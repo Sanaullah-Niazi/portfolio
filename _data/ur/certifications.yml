@@ -1,0 +1,20 @@
+# سرٹیفکیٹس کے نام ان کی سرکاری انگریزی شکل میں رہتے ہیں؛ صرف گروپ اور تاریخیں ترجمہ کی گئی ہیں۔
+- group: سائبر سیکیورٹی اور ڈیجیٹل فرانزک
+  icon: shield
+  items:
+    - { name: "Digital Forensic & Cyber Security (3-month course, Grade A)", issuer: "NAVTTC, Govt. of Pakistan", date: "فروری – مئی 2024", verify_url: "", image: "" }
+    - { name: Junior Cybersecurity Analyst Career Path, issuer: Cisco Networking Academy, date: اکتوبر 2024, verify_url: "", image: "" }
+    - { name: Ethical Hacker, issuer: Cisco Networking Academy, date: نومبر 2024, verify_url: "", image: "" }
+    - { name: Introduction to Cybersecurity, issuer: Cisco Networking Academy, date: نومبر 2024, verify_url: "", image: "" }
+- group: مصنوعی ذہانت، پروگرامنگ اور IoT
+  icon: chip
+  items:
+    - { name: Programming in Python, issuer: Meta (Coursera), date: فروری 2025, verify_url: "", image: "" }
+    - { name: Advanced Chatbots with Deep Learning and Python, issuer: Packt (Coursera), date: فروری 2025, verify_url: "", image: "" }
+    - { name: AI Python for Beginners, issuer: DeepLearning.AI (Coursera), date: مارچ 2025, verify_url: "", image: "" }
+    - { name: IoT for Everyone, issuer: UET Peshawar / HEC (Coursera), date: جولائی 2026, verify_url: "", image: "" }
+- group: دیگر تربیت
+  icon: award
+  items:
+    - { name: IOSH Managing Safely, issuer: IOSH, date: "2026", verify_url: "", image: "" }
+    - { name: 30-hour General Industry Safety and Health, issuer: OSHAcademy, date: "2026", verify_url: "", image: "" }

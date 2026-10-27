@@ -1,0 +1,14 @@
+{%- comment -%} The Projects page, in every language. {%- endcomment -%}
+<div class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow">{{ S.projects_eyebrow }}</p>
+    <h1>{{ S.projects_page_title }}</h1>
+    <p class="lede">{{ S.projects_lede }}</p>
+  </header>
+  {% assign projects = site.projects | sort: 'order' %}
+  <h2 class="sr-only">{{ S.projects_all }}</h2>
+  {% include project-filter.html projects=projects %}
+  <div class="grid projects-grid" data-filterable data-shown-one="{{ S.filter_shown_one }}" data-shown-many="{{ S.filter_shown_many }}">
+    {% for p in projects %}{% include project-card.html project=p %}{% endfor %}
+  </div>
+</div>

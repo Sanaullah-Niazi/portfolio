@@ -1,15 +1,14 @@
-{% assign me = site.data.profile %}
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div class="footer-brand">
       <p class="brand-name">{{ me.name }}</p>
-      <p class="muted">{{ site.tagline }} · AI × Cybersecurity</p>
+      <p class="muted">{{ P.tagline }} · AI × Cybersecurity</p>
     </div>
     {% include social.html %}
   </div>
   <div class="wrap footer-base">
-    <span>© {{ site.time | date: '%Y' }} {{ me.name }}. <span data-i18n="footer_rights">All rights reserved.</span></span>
+    <span>© {{ site.time | date: '%Y' }} {{ me.name }}. {{ S.footer_rights }}</span>
     <span class="footer-links"><a href="{{ '/blog/feed.xml' | relative_url }}">RSS</a><a href="{{ '/.well-known/security.txt' | relative_url }}">security.txt</a></span>
   </div>
-  <a class="to-top" href="#main" aria-label="Back to top">{% include icon.html name="arrow-up" px=20 %}</a>
+  <a class="to-top" href="#main" aria-label="{{ S.back_to_top }}">{% include icon.html name="arrow-up" px=20 %}</a>
 </footer>

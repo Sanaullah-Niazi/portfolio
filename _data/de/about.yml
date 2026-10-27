@@ -1,0 +1,21 @@
+journey:
+  - title: Diplom in Arbeitssicherheit, Gesundheit & Umwelt
+    note: Risiken, Gefahren und Prävention
+  - title: BS Informationstechnik
+    note: Erste Kurse in Sicherheit und Netzwerken
+  - title: MS Künstliche Intelligenz
+    note: CGPA 3,66 · 3 Paper · Masterarbeit
+  - title: KI × Cybersicherheit
+    note: Wohin mein Weg als Nächstes führt
+story:
+  - Ich bin in Chaman in Belutschistan aufgewachsen. Mein Weg verlief nicht geradlinig. Nach der Schule absolvierte ich ein dreijähriges Diplom in Arbeitssicherheit, Gesundheits- und Umwelttechnik. Dort lernte ich, in Risiken, Gefahren und Prävention zu denken. Dieselbe Denkweise wende ich heute auf digitale Systeme an.
+  - "Danach studierte ich Informationstechnik an der BUITEMS in Quetta und belegte dort meine ersten Kurse in Sicherheit und Netzwerken. Meine Bachelornoten zeigen nicht meine beste Arbeit: Viel Zeit ging damals in Cricket, Fußball und freiberufliche Arbeit. Gegen Ende des Studiums lernte ich, meine Zeit einzuteilen und das Studium ernst zu nehmen."
+  - Mein MS in Künstlicher Intelligenz an der Islamia University of Bahawalpur war der Wendepunkt. Ich schloss mit einem CGPA von 3,66 ab, veröffentlichte drei begutachtete Paper mit verschiedenen Teams und schrieb eine Masterarbeit über die Erkennung KI-generierter Texte. Gleichzeitig unterrichtete ich als Gastdozent IT-Kurse für Bachelorstudierende.
+  - "Meine Universität bot keinen Schwerpunkt Cybersicherheit an, also habe ich mir diese Kenntnisse selbst angeeignet: mit den Cisco-Programmen Junior Cybersecurity Analyst und Ethical Hacker und einem NAVTTC-Kurs in digitaler Forensik. Die Motivation ist auch persönlich: Ich wurde Opfer eines Online-Betrugs und eines Ransomware-Angriffs, und ich sehe, wie schwach der Schutz vor Cyberangriffen in Pakistan noch ist. KI macht Angriffe schneller und überzeugender, und ich möchte auf der Seite arbeiten, die sich dagegen wehrt."
+facts:
+  - icon: globe
+    label: Sprachen
+    text: Englisch (IELTS Academic 6.5), Urdu, Paschtu, Saraiki und Punjabi; ich lerne Deutsch
+  - icon: user
+    label: Freizeit
+    text: Fußball, Cricket, Wandern und Kochen

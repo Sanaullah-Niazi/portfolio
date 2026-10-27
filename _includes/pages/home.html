@@ -1,0 +1,278 @@
+{%- comment -%} The home page. index.html (English) and ur/, de/, zh/index.html all show this, each in its own language. {%- endcomment -%}
+{% assign cv_path = '/' | append: P.cv %}
+{% assign has_cv = false %}
+{% for f in site.static_files %}{% if f.path == cv_path %}{% assign has_cv = true %}{% endif %}{% endfor %}
+{% assign t = D.research.thesis | default: site.data.research.thesis %}
+{% assign projects = site.projects | sort: 'order' %}
+
+<section class="hero" aria-labelledby="hero-title">
+  <canvas class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-fade" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="pill"><span class="pulse" aria-hidden="true"></span>{{ P.tagline }}</p>
+      <h1 id="hero-title">{{ me.name }}</h1>
+      <p class="headline">{{ P.headline }}</p>
+      <p class="intro">{{ P.intro }}</p>
+      <div class="btn-row">
+        {% if has_cv %}<a class="btn btn-primary" href="{{ P.cv | relative_url }}" download>{% include icon.html name="download" px=18 %}{{ S.btn_cv }}</a>{% endif %}
+        <a class="btn {% unless has_cv %}btn-primary{% endunless %}" href="#research">{% include icon.html name="flask" px=18 %}{{ S.btn_research }}</a>
+        <a class="btn" href="#contact">{% include icon.html name="mail" px=18 %}{{ S.btn_contact }}</a>
+      </div>
+      {% include social.html %}
+    </div>
+
+    <figure class="terminal" aria-label="{{ S.terminal_label }}" lang="en" dir="ltr">
+      <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><p>~/sana — zsh</p></div>
+      <div class="term-body">
+        <p class="cmd">whoami</p>
+        <p class="out">{{ me.name }} · MS Artificial Intelligence</p>
+        <p class="cmd">cat focus.txt</p>
+        <p class="out">AI × Cybersecurity: phishing, scam &amp; fraud detection, AI-generated text detection</p>
+        <p class="cmd">ls research/</p>
+        <p class="out"><span class="hl">thesis/</span> ({{ site.data.research.thesis.results[0].value }} accuracy) · <span class="hl">publications/</span> ({{ site.data.publications.size }} peer-reviewed)</p>
+        <p class="cmd">./open-to --list</p>
+        <p class="out">{{ me.open_to | remove: 'Open to ' | remove: '.' }}</p>
+        <p class="cmd cursor-line" aria-hidden="true"></p>
+      </div>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <ul class="highlights">
+      {% for h in P.highlights %}
+      <li class="reveal"><strong data-count="{{ h.value }}">{{ h.value }}</strong><span>{{ h.label }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <a class="scroll-cue" href="#focus" aria-label="{{ S.scroll_next }}"><span aria-hidden="true"></span></a>
+</section>
+
+{% assign news = D.news | default: site.data.news %}
+{% if news.size > 0 %}
+<section class="news-band" id="news" aria-labelledby="news-title">
+  <div class="wrap news-inner">
+    <div class="news-head">
+      <p class="eyebrow">{% include icon.html name="megaphone" px=16 %}{{ S.news_eyebrow }}</p>
+      <h2 id="news-title" class="sr-only">{{ S.news_title }}</h2>
+      <a class="link-arrow" href="{{ L }}/research/#news-all-title">{{ S.news_all }} {% include icon.html name="arrow" px=16 %}</a>
+    </div>
+    {% include news-list.html limit=4 strip=true %}
+  </div>
+</section>
+{% endif %}
+
+<section class="section" id="focus" aria-labelledby="focus-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">01</span>{{ S.focus_eyebrow }}</p>
+      <h2 id="focus-title">{{ S.focus_title }}</h2>
+      <p class="section-lede">{{ S.focus_lede }}</p>
+    </header>
+    <ol class="focus-grid">
+      {% assign focus = D.focus | default: site.data.focus %}
+      {% for f in focus %}
+      <li class="card focus-card reveal spot">
+        <span class="icon-tile">{% include icon.html name=f.icon px=22 %}</span>
+        <h3>{{ f.area }}</h3>
+        <span class="level-chip">{{ f.level }}</span>
+        <p>{{ f.evidence }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{% assign about = D.about | default: site.data.about %}
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="wrap two-col">
+    <div class="about-side reveal">
+      <header class="section-head">
+        <p class="eyebrow"><span class="num">02</span>{{ S.about_eyebrow }}</p>
+        <h2 id="about-title">{{ S.about_title }}</h2>
+      </header>
+      <ol class="journey" aria-label="{{ S.journey_label }}">
+        {% for j in about.journey %}
+        <li{% if forloop.last %} class="j-now"{% endif %}><span class="j-dot" aria-hidden="true"></span><strong>{{ j.title }}</strong><span>{{ j.note }}</span></li>
+        {% endfor %}
+      </ol>
+    </div>
+    <div class="prose reveal">
+      {% for para in about.story %}<p>{{ para }}</p>
+      {% endfor %}
+      <dl class="facts">
+        {% for f in about.facts %}<div><dt>{% include icon.html name=f.icon px=18 %}{{ f.label }}</dt><dd>{{ f.text }}</dd></div>{% endfor %}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="research" aria-labelledby="research-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">03</span>{{ S.research_eyebrow }}</p>
+      <h2 id="research-title">{{ S.research_title }}</h2>
+    </header>
+
+    {% include thesis.html %}
+
+    <h3 class="sub reveal">{{ S.pubs_title }}</h3>
+    <ol class="pubs">
+      {% for p in site.data.publications %}
+      {% assign role_key = 'role_' | append: p.role | replace: ' ', '_' %}
+      <li class="card pub reveal spot">
+        <div class="pub-top"><span class="pub-num" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ S[role_key] | default: p.role }}</span><span class="pub-year">{{ p.year }}</span></div>
+        <p class="pub-title" lang="en">{{ p.title }}</p>
+        <p class="meta" lang="en">{{ p.authors }} ({{ p.year }}). <em>{{ p.journal }}{% if p.volume %}, {{ p.volume }}{% if p.issue %}({{ p.issue }}){% endif %}{% endif %}{% if p.pages %}, {{ p.pages }}{% endif %}</em>.</p>
+        <div class="pub-links">
+          <a class="pub-link" href="https://doi.org/{{ p.doi }}">{% include icon.html name="book" px=16 %}doi:{{ p.doi }}</a>
+          {% if p.pdf and p.pdf != '' %}<a class="pub-link" href="{{ p.pdf | relative_url }}">{% include icon.html name="file" px=16 %}{{ S.pdf }}<span class="sr-only">: {{ p.title }}</span></a>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="more reveal more-row">
+      <a class="link-arrow" href="{{ L }}/research/">{{ S.research_more }} {% include icon.html name="arrow" px=16 %}</a>
+      <a class="link-arrow" href="{{ me.scholar }}">{{ S.scholar_all }} {% include icon.html name="arrow" px=16 %}</a>
+    </p>
+
+    <h3 class="sub reveal">{{ S.interests_title }}</h3>
+    {% include interests.html %}
+  </div>
+</section>
+
+<section class="section" id="projects" aria-labelledby="projects-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">04</span>{{ S.projects_eyebrow }}</p>
+      <h2 id="projects-title">{{ S.projects_title }}</h2>
+    </header>
+    {% include project-filter.html projects=projects id="home" %}
+    <div class="grid projects-grid" data-filterable data-shown-one="{{ S.filter_shown_one }}" data-shown-many="{{ S.filter_shown_many }}">
+      {% for p in projects limit: 6 %}{% include project-card.html project=p %}{% endfor %}
+    </div>
+    {% if projects.size > 6 %}<p class="more"><a class="link-arrow" href="{{ L }}/projects/">{{ S.projects_all }} ({{ projects.size }}) {% include icon.html name="arrow" px=16 %}</a></p>{% endif %}
+  </div>
+</section>
+
+<section class="section" id="experience" aria-labelledby="experience-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">05</span>{{ S.experience_eyebrow }}</p>
+      <h2 id="experience-title">{{ S.experience_title }}</h2>
+    </header>
+    <ol class="timeline">
+      {% assign experience = D.experience | default: site.data.experience %}
+      {% for e in experience %}
+      <li class="reveal">
+        <span class="t-node" aria-hidden="true">{% include icon.html name="briefcase" px=18 %}</span>
+        <div class="card t-card">
+          <p class="dates">{{ e.dates }}</p>
+          <h3>{{ e.role }}</h3>
+          <p class="meta">{{ e.org }}</p>
+          <ul>{% for pt in e.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">06</span>{{ S.skills_eyebrow }}</p>
+      <h2 id="skills-title">{{ S.skills_title }}</h2>
+    </header>
+    {% include skills-chart.html %}
+    <div class="grid grid-3">
+      {% assign skills = D.skills | default: site.data.skills %}
+      {% for g in skills %}
+      <div class="card skill-group reveal spot">
+        <div class="skill-head"><span class="icon-tile">{% include icon.html name=g.icon px=22 %}</span><div><h3>{{ g.group }}</h3>{% if g.note %}<p class="level">{{ g.note }}</p>{% endif %}</div></div>
+        <ul class="tags">{% for s in g.items %}<li>{{ s }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include service.html num="07" %}
+
+{% include certificates.html num="08" %}
+
+<section class="section" id="education" aria-labelledby="education-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">09</span>{{ S.education_eyebrow }}</p>
+      <h2 id="education-title">{{ S.education_title }}</h2>
+    </header>
+    <ol class="timeline">
+      {% assign education = D.education | default: site.data.education %}
+      {% for e in education %}
+      <li class="reveal">
+        <span class="t-node" aria-hidden="true">{% include icon.html name="cap" px=18 %}</span>
+        <div class="card t-card">
+          <p class="dates">{{ e.dates }}</p>
+          <h3>{{ e.degree }}</h3>
+          <p class="meta">{{ e.school }}</p>
+          <p>{{ e.detail }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+{% if site.posts.size > 0 %}
+<section class="section" id="notes" aria-labelledby="notes-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">10</span>{{ S.notes_eyebrow }}</p>
+      <h2 id="notes-title">{{ S.notes_title }}</h2>
+    </header>
+    <ul class="post-list">
+      {% for post in site.posts limit: 3 %}{% include translated.html item=post %}
+      <li><a href="{{ tr.url | relative_url }}"{% if tr.lang != lang and lang != 'en' %} lang="en"{% endif %}>{{ tr.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date %}</time></li>
+      {% endfor %}
+    </ul>
+    <p class="more"><a class="link-arrow" href="{{ L }}/blog/">{{ S.notes_all }} {% include icon.html name="arrow" px=16 %}</a></p>
+  </div>
+</section>
+{% endif %}
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="contact-panel reveal">
+      <div class="contact-intro">
+        <p class="eyebrow">{{ S.contact_eyebrow }}</p>
+        <h2 id="contact-title">{{ S.contact_title }}</h2>
+        <p>{{ P.open_to }}</p>
+        <ul class="contact-list">
+          <li><span class="icon-tile sm">{% include icon.html name="mail" px=18 %}</span><span class="label">{{ S.email }}</span><a href="mailto:{{ me.email }}">{{ me.email }}</a></li>
+          <li><span class="icon-tile sm">{% include icon.html name="linkedin" px=18 %}</span><span class="label">LinkedIn</span><a href="{{ me.linkedin }}">sanaullahkhanniazi</a></li>
+          <li><span class="icon-tile sm">{% include icon.html name="github" px=18 %}</span><span class="label">GitHub</span><a href="{{ me.github }}">Sanaullah-Niazi</a></li>
+          <li><span class="icon-tile sm">{% include icon.html name="scholar" px=18 %}</span><span class="label">{{ S.contact_scholar }}</span><a href="{{ me.scholar }}">{{ S.contact_scholar_link }}</a></li>
+          {% if me.orcid and me.orcid != '' %}<li><span class="icon-tile sm">{% include icon.html name="orcid" px=18 %}</span><span class="label">ORCID</span><a href="{{ me.orcid }}">{{ me.orcid | remove: 'https://orcid.org/' }}</a></li>{% endif %}
+        </ul>
+      </div>
+      <form class="contact-form" id="contact-form" method="POST"
+        action="https://api.web3forms.com/submit" data-email="{{ me.email }}"
+        data-msg-sending="{{ S.form_sending }}" data-msg-sent="{{ S.form_sent }}" data-msg-failed="{{ S.form_failed }}"
+        data-msg-not-ready="{{ S.form_not_ready }}" data-msg-fallback="{{ S.form_fallback }}">
+        <input type="hidden" name="access_key" value="{{ site.web3forms_access_key }}">
+        <input type="hidden" name="subject" value="New message from {{ site.url | remove: 'https://' }}{% if lang != 'en' %} ({{ lang }}){% endif %}">
+        <input type="hidden" name="from_name" value="{{ site.title }} website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label for="cf-name">{{ S.form_name }}</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+        <label for="cf-email">{{ S.form_email }}</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+        <label for="cf-message">{{ S.form_message }}</label>
+        <textarea id="cf-message" name="message" rows="5" maxlength="5000" required></textarea>
+        <button class="btn btn-primary" type="submit">{% include icon.html name="message" px=18 %}{{ S.form_send }}</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>

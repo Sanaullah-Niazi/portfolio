@@ -1,0 +1,20 @@
+# Certificate names stay in their official English form; only the groups and dates are translated.
+- group: Cybersicherheit & digitale Forensik
+  icon: shield
+  items:
+    - { name: "Digital Forensic & Cyber Security (3-month course, Grade A)", issuer: "NAVTTC, Govt. of Pakistan", date: "Feb. – Mai 2024", verify_url: "", image: "" }
+    - { name: Junior Cybersecurity Analyst Career Path, issuer: Cisco Networking Academy, date: Okt. 2024, verify_url: "", image: "" }
+    - { name: Ethical Hacker, issuer: Cisco Networking Academy, date: Nov. 2024, verify_url: "", image: "" }
+    - { name: Introduction to Cybersecurity, issuer: Cisco Networking Academy, date: Nov. 2024, verify_url: "", image: "" }
+- group: KI, Programmierung & IoT
+  icon: chip
+  items:
+    - { name: Programming in Python, issuer: Meta (Coursera), date: Feb. 2025, verify_url: "", image: "" }
+    - { name: Advanced Chatbots with Deep Learning and Python, issuer: Packt (Coursera), date: Feb. 2025, verify_url: "", image: "" }
+    - { name: AI Python for Beginners, issuer: DeepLearning.AI (Coursera), date: März 2025, verify_url: "", image: "" }
+    - { name: IoT for Everyone, issuer: UET Peshawar / HEC (Coursera), date: Juli 2026, verify_url: "", image: "" }
+- group: Weitere Weiterbildungen
+  icon: award
+  items:
+    - { name: IOSH Managing Safely, issuer: IOSH, date: "2026", verify_url: "", image: "" }
+    - { name: 30-hour General Industry Safety and Health, issuer: OSHAcademy, date: "2026", verify_url: "", image: "" }

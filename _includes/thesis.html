@@ -1,11 +1,12 @@
-{% assign t = site.data.research.thesis %}
+{% assign t = D.research.thesis | default: site.data.research.thesis %}
+{% assign t_en = site.data.research.thesis %}
 <article class="card thesis reveal">
   <div class="thesis-text">
-    <p class="label"><span data-i18n="thesis_label">MS thesis</span> · {{ t.year }}</p>
-    <h3>{{ t.title }}</h3>
-    <p class="meta">{{ t.degree }} · Supervisor: {{ t.supervisor }}</p>
+    <p class="label">{{ S.thesis_label }} · {{ t_en.year }}</p>
+    <h3 lang="en">{{ t_en.title }}</h3>
+    <p class="meta">{{ t.degree }} · {{ S.supervisor }}: {{ t.supervisor }}</p>
     <p>{{ t.summary }}</p>
-    <p class="label sub-label" id="models-{{ include.id | default: 'home' }}">Models compared</p>
+    <p class="label sub-label" id="models-{{ include.id | default: 'home' }}">{{ S.models_compared }}</p>
     <ol class="pipeline" aria-labelledby="models-{{ include.id | default: 'home' }}">{% for m in t.models %}<li>{{ m }}</li>{% endfor %}</ol>
   </div>
   <div class="thesis-stats">

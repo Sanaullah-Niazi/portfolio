@@ -1,0 +1,14 @@
+{%- comment -%}
+  Picks the language of the current page and sets:
+  lang (en/ur/de/zh), L (link prefix: "" or "/de"), S (fixed text, from strings.yml),
+  me (links and contact details, same in every language) and D (translated content, falls back to English).
+  Usage: {% include i18n.html %} at the top of a page or layout; includes called afterwards can use these.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: 'en' -%}
+{%- if lang == 'en' -%}
+  {%- assign D = site.data -%}{%- assign L = '' -%}{%- assign S = site.data.strings -%}
+{%- else -%}
+  {%- assign D = site.data[lang] -%}{%- assign L = '/' | append: lang -%}{%- assign S = D.strings -%}
+{%- endif -%}
+{%- assign me = site.data.profile -%}
+{%- assign P = D.profile | default: site.data.profile -%}

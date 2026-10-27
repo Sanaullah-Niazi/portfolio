@@ -1,0 +1,30 @@
+- area: 机器学习与自然语言处理
+  short: ML 与 NLP
+  icon: brain
+  level: 研究水平
+  score: 4
+  evidence: 硕士论文使用 LSTM、BERT 和混合模型区分 AI 文本与人类文本（准确率 99.65%，约 50 万条文本）。
+- area: 威胁与欺诈检测
+  short: 欺诈检测
+  icon: radar
+  level: 已发表研究
+  score: 4
+  evidence: 以第一作者身份发表了一篇关于金融科技领域 AI 欺诈检测与网络安全的同行评审论文。
+- area: AI 安全
+  short: AI 安全
+  icon: lock
+  level: 当前方向
+  score: 3
+  evidence: 目前在做 AI 生成内容检测；接下来想研究对抗性机器学习和大语言模型安全。
+- area: SOC 与蓝队
+  short: SOC 与蓝队
+  icon: monitor
+  level: 培训与实验
+  score: 2
+  evidence: 完成 Cisco Junior Cybersecurity Analyst 职业路径，以及为期三个月的 NAVTTC 数字取证与网络安全课程（成绩 A）。
+- area: 渗透测试与道德黑客
+  short: 渗透测试
+  icon: bug
+  level: 培训与实验
+  score: 2
+  evidence: 完成 Cisco Ethical Hacker 课程；使用 Kali Linux、Nmap 和 Wireshark 进行实验操作。

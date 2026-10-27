@@ -1,0 +1,10 @@
+- group: KI / ML & NLP
+  icon: brain
+  items: [Python, PyTorch, TensorFlow / Keras, Hugging Face Transformers, scikit-learn, LightGBM, NumPy, Pandas, Matplotlib, Textklassifikation, LSTM- & BERT-Modelle]
+- group: Cybersicherheit
+  icon: shield
+  note: Niveau aus Laborarbeit und praktischem Training
+  items: [Netzwerksicherheit, Bedrohungs- & Schwachstellenanalyse, Grundlagen Ethical Hacking, Digitale Forensik, Incident Response, Wireshark, Nmap, Kali Linux]
+- group: Programmierung & Werkzeuge
+  icon: code
+  items: [Python-Skripting & Automatisierung, Web Scraping, Linux (Ubuntu), Git & GitHub, Jupyter, Kaggle, Rechnernetze, HTML & CSS, Arduino & IoT-Sensoren]

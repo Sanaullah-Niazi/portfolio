@@ -1,0 +1,159 @@
+# 网站上所有固定文字（菜单、标题、按钮）的简体中文版本。只改冒号后面的文字。
+lang_name: 中文
+html_lang: zh-Hans
+dir: ltr
+locale: zh_CN
+months: [1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+months_long: [1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+date_short: "[y]年[m]"
+date_long: "[y]年[m][d]日"
+
+skip: 跳到正文
+back_to_top: 回到顶部
+nav_label: 主导航
+language: 语言
+menu_open: 打开菜单
+menu_close: 关闭菜单
+theme_toggle: 切换浅色和深色模式
+profiles: 个人主页
+email: 电子邮件
+
+nav_about: 关于我
+nav_research: 研究
+nav_projects: 项目
+nav_experience: 经历
+nav_skills: 技能
+nav_notes: 文章
+nav_contact: 联系
+
+btn_cv: 下载简历
+btn_research: 研究
+btn_contact: 联系我
+cv_short: 简历
+terminal_label: 终端风格的简介
+scroll_next: 滚动到下一部分
+
+news_eyebrow: 动态
+news_title: 最新动态
+news_all: 全部动态
+
+focus_eyebrow: 一个方向：用 AI 保障安全
+focus_title: 我的定位
+focus_lede: 下面每个方向都服务于同一个目标：用 AI 发现并阻止攻击，同时让 AI 本身保持安全。每一项旁边写着我目前能拿出来的成果。
+
+about_eyebrow: 关于我
+about_title: 我是怎么走到这里的
+journey_label: 我的成长路径
+
+research_eyebrow: 研究
+research_title: 学位论文与发表成果
+research_more: 摘要、PDF 和 BibTeX
+thesis_label: 硕士论文
+supervisor: 导师
+models_compared: 比较的模型
+pubs_title: 同行评审论文
+scholar_all: 在 Google Scholar 查看全部引用
+interests_title: 研究兴趣
+interests_now: 目前在做
+interests_next: 接下来想研究
+research_page_title: 研究
+research_page_lede: 我的硕士论文和同行评审论文，附有摘要、PDF 和可直接复制的引用格式。
+research_profiles: 学术主页
+titles_note: 论文和学位论文的标题保留其正式发表时的英文原文。
+role_First_author: 第一作者
+role_Co-author: 合著者
+abstract_label: 摘要
+summary_label: 概要
+keywords: 关键词
+pdf: PDF
+bibtex_all: 下载全部引用（.bib）
+copy: 复制
+copied: 已复制
+
+projects_eyebrow: 项目
+projects_title: 我在做的项目
+projects_page_title: 项目
+projects_lede: AI 与安全方向的实践项目。每个项目都有单独的页面，包含代码、演示和结果。
+projects_all: 全部项目
+all_projects_back: 全部项目
+filter_label: 按主题筛选：
+filter_all: 全部
+filter_shown_one: 个项目
+filter_shown_many: 个项目
+topic_AI: AI
+topic_Security: 安全
+topic_Networks: 网络
+status_Completed: 已完成
+status_In_progress: 进行中
+details: 详情
+details_about: 关于
+tech_stack: 技术栈
+link_github: GitHub
+link_demo: 在线演示
+link_paper: 论文
+link_video: 视频
+btn_github: 在 GitHub 查看代码
+btn_demo: 打开在线演示
+btn_paper: 阅读论文
+btn_video: 观看视频
+live_demo_of: 在线演示：
+video_demo_of: 视频演示：
+
+experience_eyebrow: 经历
+experience_title: 教学与工作
+
+skills_eyebrow: 技能
+skills_title: 我使用的工具
+chart_title: 技能图谱
+chart_hint: 选择一个方向，查看它背后的依据。
+chart_areas: 重点方向
+chart_scale: 等级
+chart_of: /
+scale_1: 正在学习
+scale_2: 培训与实验
+scale_3: 已用于自己的工作
+scale_4: 研究并已发表
+
+service_eyebrow: 教学与服务
+service_title: 教学、审稿与志愿工作
+service_teaching: 教学
+service_reviewing: 审稿
+service_volunteering: 志愿工作
+
+certs_eyebrow: 证书
+certs_title: 证书与奖项
+awards_title: 奖项
+verify: 验证
+certificate: 证书
+enlarge: 放大
+close: 关闭
+certificate_picture: 证书图片
+
+education_eyebrow: 教育
+education_title: 学历
+
+notes_eyebrow: 文章
+notes_title: 最新文章
+notes_all: 全部文章
+notes_page_title: AI 安全随笔
+notes_page_lede: 关于 AI 安全、检测技术，以及我正在学习和构建的东西的短文。
+notes_empty: 还没有文章，第一篇正在路上。
+topics: 主题
+rss: RSS 订阅
+
+contact_eyebrow: 联系
+contact_title: 联系我
+contact_scholar: Scholar
+contact_scholar_link: Google Scholar 主页
+form_name: 您的姓名
+form_email: 您的电子邮件
+form_message: 留言
+form_send: 发送留言
+form_sending: 正在发送…
+form_sent: 谢谢，您的留言已发送。我会通过电子邮件回复。
+form_failed: 抱歉，留言未能发送。
+form_not_ready: 表单尚未设置好。
+form_fallback: 请直接发邮件给我：
+footer_rights: 保留所有权利。
+not_found_title: 这个页面不存在
+not_found_home: 返回首页
