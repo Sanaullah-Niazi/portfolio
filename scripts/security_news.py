@@ -338,7 +338,7 @@ def ask_claude(prompt):
     """The brief from Claude (paid, needs an ANTHROPIC_API_KEY secret)."""
     import anthropic  # only needed for this option
 
-    client = anthropic.Anthropic()
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"].strip())
     resp = client.beta.messages.create(
         model=BRIEF_MODEL,
         max_tokens=16000,
@@ -376,7 +376,7 @@ def gemini_models(key):
 def ask_gemini(prompt):
     """The brief from Google's Gemini API (free tier, needs a GEMINI_API_KEY secret from aistudio.google.com).
     Tries a few models in turn, so a retired or busy model doesn't stop the brief."""
-    key = os.environ["GEMINI_API_KEY"]
+    key = os.environ["GEMINI_API_KEY"].strip()  # a pasted secret often carries a space or line break
     system = BRIEF_SYSTEM + "\n\nAnswer with one JSON object only, shaped like this JSON Schema:\n" + json.dumps(BRIEF_SCHEMA)
     for model in gemini_models(key):
         body = json.dumps({
@@ -421,7 +421,7 @@ def write_brief(items, now):
 
     payload = [{"id": n, "headline": i["title"], "source": i["source"], "excerpt": i["excerpt"]} for n, i in enumerate(recent)]
     prompt = f"Today is {day}. Headlines:\n" + json.dumps(payload, ensure_ascii=False, indent=1)
-    if os.environ.get("ANTHROPIC_API_KEY"):
+    if os.environ.get("ANTHROPIC_API_KEY", "").strip():
         brief, model = ask_claude(prompt), BRIEF_MODEL
     else:
         brief, model = ask_gemini(prompt)
@@ -498,7 +498,7 @@ def main():
     DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     log(f"Saved {len(items)} headlines and {len(data['kev'])} exploited vulnerabilities.")
 
-    if not args.no_brief and (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("GEMINI_API_KEY")):
+    if not args.no_brief and (os.environ.get("ANTHROPIC_API_KEY", "").strip() or os.environ.get("GEMINI_API_KEY", "").strip()):
         try:
             write_brief(items, now)
         except Exception as e:  # the headlines still go live if the brief fails
