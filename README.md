@@ -17,7 +17,7 @@ This site is built with [Jekyll](https://jekyllrb.com), which GitHub Pages runs 
 | Teaching, reviewing and volunteering | `_data/service.yml` |
 | Awards | `_data/awards.yml` |
 | Skills chart (how far each point reaches) | `score:` in `_data/focus.yml` |
-| Urdu text for the language switch | `_data/ur.yml` |
+| Text for the language menu | `_data/ur.yml` (Urdu), `_data/de.yml` (German), `_data/zh.yml` (Chinese) |
 | Teaching and work | `_data/experience.yml` |
 | Degrees | `_data/education.yml` |
 | Certifications (verification links and pictures) | `_data/certifications.yml` |
@@ -52,11 +52,11 @@ Upload a picture of a certificate to `assets/img/certificates/` and write its fi
 
 ## Project topics
 
-Each project file has a `topics:` line, for example `topics: [AI, Security]`. The filter buttons above the projects are built from these, so a new topic gets its own button automatically. Add a matching `topic_Name:` line to `_data/ur.yml` for its Urdu label.
+Each project file has a `topics:` line, for example `topics: [AI, Security]`. The filter buttons above the projects are built from these, so a new topic gets its own button automatically. Add a matching `topic_Name:` line to `_data/ur.yml`, `de.yml` and `zh.yml` for its translated label.
 
-## Language switch (English / Urdu)
+## Language menu (English, Urdu, German, Chinese)
 
-The `اردو` button in the header switches the menu, headings, buttons and the short intro to Urdu and turns the layout right-to-left. The visitor's choice is remembered. Detailed content (papers, projects, CV entries) stays in English. All Urdu text lives in `_data/ur.yml`; change the text in quotes, not the key before the colon.
+The globe menu in the header switches the menu, headings, buttons and the short intro to Urdu, German or Simplified Chinese. Urdu also turns the layout right-to-left. The visitor's choice is remembered. Detailed content (papers, projects, CV entries) stays in English, and a one-line note at the top says so. The text for each language lives in `_data/ur.yml`, `_data/de.yml` and `_data/zh.yml`; change the text in quotes, not the key before the colon. A key missing from a file simply shows in English.
 
 ## Link previews
 
@@ -80,7 +80,7 @@ The site is served at `sanaullahniazi.com` (registered and DNS-managed on Cloudf
 
 ## Accessibility
 
-The site is checked with axe (an automated accessibility tester) in light, dark and Urdu modes. Everything works with a keyboard (Tab, Enter, Esc), there is a "Skip to content" link, images and icons have text alternatives, colours meet WCAG AA contrast, and animations stop for visitors who ask their device for reduced motion. When you add a certificate picture, its description is made from the certificate name automatically.
+The site is checked with axe (an automated accessibility tester) in light and dark mode and in every language. Everything works with a keyboard (Tab, Enter, Esc), there is a "Skip to content" link, images and icons have text alternatives, colours meet WCAG AA contrast, and animations stop for visitors who ask their device for reduced motion. When you add a certificate picture, its description is made from the certificate name automatically.
 
 ## Security
 
