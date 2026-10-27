@@ -35,7 +35,7 @@ stages:
         title: "How money moves"
         text: "Card networks, bank transfers, real-time payments, SWIFT and the systems behind them. You cannot protect a flow you do not understand."
         res:
-          - { name: "Payment systems overview", by: "Bank for International Settlements", url: "https://www.bis.org/cpmi/", type: docs, cost: free }
+          - { name: "Payment systems overview", by: "Bank for International Settlements", url: "https://www.bis.org/cpmi/index.htm", type: docs, cost: free }
       - id: financial-threats
         title: "Threats to financial institutions"
         text: "Organised crime, banking trojans, business email compromise, insider fraud and state actors targeting payment systems. Study the big heists."

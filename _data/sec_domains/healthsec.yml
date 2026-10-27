@@ -85,7 +85,7 @@ stages:
         title: "Medical device inventory and risk"
         text: "Find every connected device passively, record its software and vendor support status, and rate its risk. MDS2 forms from manufacturers help."
         res:
-          - { name: "MDS2 form", by: "NEMA", url: "https://www.nema.org/standards/view/manufacturer-disclosure-statement-for-medical-device-security", type: docs, cost: free }
+          - { name: "MDS2 standard (ANSI/NEMA HN 1)", by: "NEMA", url: "https://webstore.ansi.org/Standards/NEMA/ANSINEMAHN2019", type: docs, cost: paid }
       - id: ehr-security
         title: "EHR and clinical system security"
         text: "Role-based access, break-glass procedures, audit trails and monitoring for snooping. Clinicians need fast access; build controls that respect that."

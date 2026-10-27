@@ -184,7 +184,7 @@ stages:
         title: "Safety by design"
         text: "The cheapest abuse to fight is the abuse a feature never enabled. Get involved in product design and threat model features for abuse."
         res:
-          - { name: "Safety by Design", by: "eSafety Commissioner", url: "https://www.esafety.gov.au/industry/safety-by-design", type: docs, cost: free }
+          - { name: "Digital Trust & Safety best practices", by: "DTSP", url: "https://dtspartnership.org/best-practices/", type: docs, cost: free }
     skills:
       - "Set fraud and trust strategy."
       - "Meet online safety and fraud regulation."
@@ -212,7 +212,7 @@ resources:
   - { name: "Credential Stuffing Prevention Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html", type: docs, cost: free }
   - { name: "Trust and Safety Professional Association", by: "TSPA", url: "https://www.tspa.org/", type: docs, cost: free }
   - { name: "Digital Services Act", by: "European Commission", url: "https://digital-strategy.ec.europa.eu/en/policies/digital-services-act", type: docs, cost: free }
-  - { name: "Safety by Design", by: "eSafety Commissioner", url: "https://www.esafety.gov.au/industry/safety-by-design", type: docs, cost: free }
+  - { name: "Digital Trust & Safety best practices", by: "DTSP", url: "https://dtspartnership.org/best-practices/", type: docs, cost: free }
 
 frameworks: [nist-800-63, owasp-top10, pci-dss, fido, gdpr]
 

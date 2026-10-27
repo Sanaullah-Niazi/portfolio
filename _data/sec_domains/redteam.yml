@@ -138,7 +138,7 @@ stages:
         title: "Control validation"
         text: "Test whether specific controls, such as EDR or email filtering, actually work against the techniques they should stop, and report gaps to owners."
         res:
-          - { name: "MITRE Engenuity ATT&CK Evaluations", by: "MITRE Engenuity", url: "https://attackevals.mitre-engenuity.org/", type: docs, cost: free }
+          - { name: "MITRE ATT&CK adversary emulation plans", by: "MITRE", url: "https://attack.mitre.org/resources/adversary-emulation-plans/", type: docs, cost: free }
       - id: threat-led-testing
         title: "Threat-led penetration testing"
         text: "Regulated frameworks such as TIBER-EU and CBEST run intelligence-led red teams against live financial systems under strict governance. Learn how they work."
