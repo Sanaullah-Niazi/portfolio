@@ -16,6 +16,10 @@ How it works:
 Settings are in `wrangler.toml`: the 404 page, `/page` redirecting to `/page/` like on GitHub Pages, and
 `src/index.js`, which keeps Google's verification file answering at its exact `.html` address.
 
+Security headers (HSTS, X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy and the `frame-ancestors`
+part of the Content-Security-Policy) are in `_headers` at the top of the repository. Jekyll copies it into `_site/`,
+and Cloudflare reads it on upload and adds those headers to every file. The file itself isn't served.
+
 It uses the same `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets as the website checker.
 
 `www/` is a second, tiny Worker that sends `www.sanaullahniazi.com` to `sanaullahniazi.com` with a permanent redirect.
