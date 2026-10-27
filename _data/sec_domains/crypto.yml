@@ -1,0 +1,230 @@
+# Security roadmap: Applied Cryptography and PKI. Shown at /roadmaps/security/crypto/.
+# Field guide: see the top of secops.yml.
+
+id: crypto
+category: data
+icon: key
+entry: intermediate
+title: "Applied Cryptography"
+summary: "Use cryptography correctly: pick the right primitives, manage keys and certificates, run a PKI, and avoid the implementation mistakes that quietly break security."
+keywords: "applied cryptography PKI public key infrastructure TLS certificates key management symmetric asymmetric hashing digital signatures HSM cryptographic protocols encryption"
+
+overview:
+  - "Applied cryptography is about using crypto correctly rather than inventing it. Most real failures are not broken algorithms but misused ones: wrong modes, reused nonces, bad key handling and unvalidated certificates."
+  - "The field covers the core primitives, the protocols built from them such as TLS, the public key infrastructure that manages trust, and the key management that holds it all together. It is foundational to almost every other security domain."
+why: "Cryptography protects nearly everything: traffic, stored data, identities and signatures. Teams need people who can apply it correctly and spot the subtle misuse that undermines it, without needing to be research cryptographers."
+roles:
+  - { title: "Security engineer (crypto focus)", level: mid, what: "Applies cryptography correctly in systems." }
+  - { title: "PKI engineer", level: mid, what: "Runs certificate authorities and key infrastructure." }
+  - { title: "Cryptography engineer", level: senior, what: "Designs and reviews cryptographic systems." }
+  - { title: "Security architect", level: senior, what: "Sets cryptographic standards across the organisation." }
+
+prereqs:
+  - "Comfort with basic maths and binary data."
+  - "How networks and TLS fit together at a high level."
+  - "Some programming, to read and test crypto code."
+  - "Security fundamentals."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Cryptographic foundations"
+    months: "2–4"
+    topics:
+      - id: crypto-goals
+        title: "What cryptography provides"
+        text: "Confidentiality, integrity, authentication and non-repudiation are the goals. Match the primitive to the goal; encryption alone does not give you integrity."
+        res:
+          - { name: "Cryptographic Storage Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html", type: docs, cost: free }
+      - id: symmetric
+        title: "Symmetric encryption"
+        text: "One shared key encrypts and decrypts. Learn AES, the modes, and why authenticated encryption such as AES-GCM should be the default."
+        res:
+          - { name: "Crypto 101", by: "Laurens Van Houtven", url: "https://www.crypto101.io/", type: book, cost: free }
+      - id: hashing
+        title: "Hashing and MACs"
+        text: "Hashes give fixed-length fingerprints; MACs add a key for integrity. Use password hashing such as Argon2 for passwords, never a plain hash."
+        res:
+          - { name: "Password Storage Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html", type: docs, cost: free }
+      - id: asymmetric
+        title: "Asymmetric cryptography"
+        text: "Public and private key pairs enable key exchange and signatures. Learn RSA and elliptic curve, and where each is used."
+        res:
+          - { name: "Crypto 101", by: "Laurens Van Houtven", url: "https://www.crypto101.io/", type: book, cost: free }
+      - id: randomness
+        title: "Randomness and nonces"
+        text: "Cryptography lives or dies on good randomness. Use a cryptographic random generator, never a plain one, and never reuse a nonce."
+        res:
+          - { name: "Recommendation for Random Number Generation (SP 800-90A)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/90/a/r1/final", type: docs, cost: free }
+      - id: crypto-pitfalls
+        title: "Common pitfalls"
+        text: "Rolling your own crypto, hardcoded keys, ECB mode, reused nonces and skipped certificate checks cause most breaks. Learn the patterns to avoid them."
+        res:
+          - { name: "Cryptographic Failures (OWASP Top 10)", by: "OWASP Foundation", url: "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/", type: docs, cost: free }
+    skills:
+      - "Match primitives to confidentiality, integrity and authentication."
+      - "Use authenticated encryption and proper password hashing."
+      - "Spot common cryptographic misuse."
+    labs:
+      - "Encrypt and authenticate a message with AES-GCM in a language of your choice."
+      - "Break a deliberately weak scheme, such as ECB or a reused nonce, in a lab."
+    done:
+      - "Explain the goals of cryptography and which primitive serves each."
+      - "Write code that encrypts and authenticates data correctly."
+
+  - level: intermediate
+    title: "Protocols, TLS and PKI"
+    months: "3–5"
+    topics:
+      - id: tls
+        title: "TLS"
+        text: "TLS secures most internet traffic. Learn the handshake, cipher suites and what changed in TLS 1.3, and how to configure it well."
+        res:
+          - { name: "TLS 1.3 (RFC 8446)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc8446", type: docs, cost: free }
+      - id: certificates
+        title: "Certificates and X.509"
+        text: "Certificates bind a public key to an identity, signed by a trusted authority. Learn their structure, chains and validation."
+        res:
+          - { name: "TLS Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Security_Cheat_Sheet.html", type: docs, cost: free }
+      - id: pki
+        title: "Public key infrastructure"
+        text: "A PKI is the certificate authorities, policies and processes that make trust work at scale. Learn the hierarchy, issuance and the trust model."
+        res:
+          - { name: "Internet X.509 PKI (RFC 5280)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc5280", type: docs, cost: free }
+      - id: cert-lifecycle
+        title: "Certificate lifecycle"
+        text: "Issue, renew, revoke and automate certificates. Expired certificates cause outages; automation such as ACME prevents them."
+        res:
+          - { name: "Let's Encrypt documentation", by: "Internet Security Research Group", url: "https://letsencrypt.org/docs/", type: docs, cost: free }
+      - id: signatures
+        title: "Digital signatures and code signing"
+        text: "Signatures prove origin and integrity for documents, code and updates. Learn how they work and how signing keys must be protected."
+        res:
+          - { name: "Digital Signature Standard (FIPS 186-5)", by: "NIST", url: "https://csrc.nist.gov/pubs/fips/186-5/final", type: docs, cost: free }
+      - id: key-exchange
+        title: "Key exchange and forward secrecy"
+        text: "Diffie-Hellman lets two parties agree a key over an open channel; ephemeral exchange gives forward secrecy. Understand why it matters."
+        res:
+          - { name: "Crypto 101", by: "Laurens Van Houtven", url: "https://www.crypto101.io/", type: book, cost: free }
+    skills:
+      - "Configure TLS securely and validate certificates properly."
+      - "Explain and operate a PKI."
+      - "Automate the certificate lifecycle."
+      - "Use digital signatures correctly."
+    labs:
+      - "Stand up a small internal CA and issue and revoke a certificate."
+      - "Configure a server for TLS 1.3 and test it with an SSL scanner."
+      - "Automate certificate issuance and renewal with ACME in a lab."
+    done:
+      - "Run a small PKI with issuance, renewal and revocation."
+      - "Configure and verify a strong TLS setup."
+
+  - level: advanced
+    title: "Key management and advanced crypto"
+    months: "4–6"
+    topics:
+      - id: key-management-crypto
+        title: "Key management"
+        text: "Generate, store, rotate, back up and destroy keys with separation of duties and auditing. Key management is where most cryptosystems actually fail."
+        res:
+          - { name: "NIST SP 800-57 Part 1 (Key Management)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final", type: docs, cost: free }
+      - id: hsm
+        title: "HSMs and secure key storage"
+        text: "Hardware security modules keep keys in tamper-resistant hardware so they are never exposed. Learn when they are needed and how to use them."
+        res:
+          - { name: "FIPS 140-3 (Security Requirements for Cryptographic Modules)", by: "NIST", url: "https://csrc.nist.gov/pubs/fips/140-3/final", type: docs, cost: free }
+      - id: secrets-management
+        title: "Secrets management"
+        text: "Application secrets and keys need a vault, short lifetimes and audited access, not config files and environment variables. Integrate it into pipelines."
+        res:
+          - { name: "Secrets Management Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html", type: docs, cost: free }
+      - id: crypto-review
+        title: "Reviewing cryptographic code"
+        text: "Learn to review how crypto is used: key handling, modes, randomness, certificate validation and library misuse. Most bugs are in the usage, not the maths."
+        res:
+          - { name: "Cryptographic Storage Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html", type: docs, cost: free }
+      - id: advanced-protocols
+        title: "Advanced protocols"
+        optional: true
+        text: "Zero-knowledge proofs, homomorphic encryption and secure multiparty computation enable new use cases. Know what is practical and what is still research."
+        res:
+          - { name: "A Graduate Course in Applied Cryptography", by: "Boneh and Shoup", url: "https://toc.cryptobook.us/", type: book, cost: free }
+      - id: crypto-agility
+        title: "Cryptographic agility"
+        text: "Build systems so algorithms and keys can be swapped without a rewrite. This is what makes migrations, including to post-quantum, survivable."
+        res:
+          - { name: "Migration to Post-Quantum Cryptography", by: "NIST NCCoE", url: "https://www.nccoe.nist.gov/crypto-agility-considerations-migrating-post-quantum-cryptographic-algorithms", type: docs, cost: free }
+    skills:
+      - "Run proper key management, with an HSM where needed."
+      - "Integrate secrets management into applications and pipelines."
+      - "Review cryptographic usage in code."
+      - "Design for cryptographic agility."
+    labs:
+      - "Use a cloud KMS or software HSM to manage keys for an application."
+      - "Integrate a secrets manager so an app never stores a key in config."
+      - "Review a sample app and find its cryptographic misuse."
+    done:
+      - "Show an application with sound key and secrets management."
+      - "Produce a cryptographic review of a codebase with findings."
+
+  - level: expert
+    title: "Cryptographic strategy"
+    months: "6–12"
+    topics:
+      - id: crypto-standards
+        title: "Setting cryptographic standards"
+        text: "Define approved algorithms, key lengths and protocols for the organisation, and retire weak ones. Keep it current as guidance changes."
+        res:
+          - { name: "Cryptographic Standards and Guidelines", by: "NIST", url: "https://csrc.nist.gov/projects/cryptographic-standards-and-guidelines", type: docs, cost: free }
+      - id: crypto-inventory
+        title: "Cryptographic inventory"
+        text: "You cannot manage or migrate what you cannot see. Build an inventory of where and how cryptography is used across systems."
+        res:
+          - { name: "Migration to Post-Quantum Cryptography", by: "NIST NCCoE", url: "https://www.nccoe.nist.gov/crypto-agility-considerations-migrating-post-quantum-cryptographic-algorithms", type: docs, cost: free }
+      - id: pqc-strategy
+        title: "Planning for post-quantum"
+        text: "Quantum computers will break today's public key crypto. Start inventorying, prioritising and planning the migration now; see the post-quantum roadmap."
+        res:
+          - { name: "Post-Quantum Cryptography project", by: "NIST", url: "https://csrc.nist.gov/projects/post-quantum-cryptography", type: docs, cost: free }
+    skills:
+      - "Set and maintain cryptographic standards."
+      - "Build a cryptographic inventory and migration plan."
+    labs:
+      - "Write a cryptographic standard for an organisation."
+      - "Build a cryptographic inventory for a sample estate and prioritise a migration."
+    done:
+      - "Own cryptographic standards and an inventory for an organisation."
+      - "Produce a credible plan to migrate a weak algorithm out of use."
+
+tools:
+  - { name: "OpenSSL", url: "https://www.openssl.org/", kind: oss, what: "The standard toolkit for TLS, certificates and crypto operations." }
+  - { name: "HashiCorp Vault", url: "https://developer.hashicorp.com/vault", kind: community, what: "Secrets, encryption and key management as a service." }
+  - { name: "testssl.sh", url: "https://testssl.sh/", kind: oss, what: "Check a server's TLS configuration from the command line." }
+  - { name: "step-ca", url: "https://smallstep.com/docs/step-ca/", kind: oss, what: "Run your own small certificate authority with ACME." }
+  - { name: "Let's Encrypt / certbot", url: "https://certbot.eff.org/", kind: free, what: "Free automated certificates for public services." }
+
+certs:
+  - { ref: secplus, note: "Covers cryptography basics." }
+  - { ref: cissp, note: "Includes a cryptography domain." }
+  - { name: "EC-Council Certified Encryption Specialist", by: "EC-Council", url: "https://www.eccouncil.org/train-certify/ec-council-certified-encryption-specialist-eces/", level: mid, note: "Focused cryptography certification." }
+
+resources:
+  - { name: "Crypto 101", by: "Laurens Van Houtven", url: "https://www.crypto101.io/", type: book, cost: free }
+  - { name: "A Graduate Course in Applied Cryptography", by: "Boneh and Shoup", url: "https://toc.cryptobook.us/", type: book, cost: free }
+  - { name: "Cryptographic Storage Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html", type: docs, cost: free }
+  - { name: "TLS 1.3 (RFC 8446)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc8446", type: docs, cost: free }
+  - { name: "NIST SP 800-57 Part 1 (Key Management)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final", type: docs, cost: free }
+
+frameworks: [nist-800-57, fips140, pqc, nist-csf]
+
+career:
+  - { title: "Developer or security engineer", years: "0–3 years" }
+  - { title: "Security engineer with a crypto focus", years: "2–5 years" }
+  - { title: "PKI or cryptography engineer", years: "4–8 years" }
+  - { title: "Security architect (cryptography)", years: "8+ years" }
+
+related:
+  - { to: pqc, why: "Post-quantum is the next migration applied crypto must plan for." }
+  - { to: datasec, why: "Encryption and key management protect data at rest." }
+  - { to: network, why: "TLS and certificates secure network traffic." }
+  - { to: iam, why: "Certificates and signatures underpin strong authentication." }

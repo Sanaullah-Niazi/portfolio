@@ -1,0 +1,224 @@
+# Security roadmap: Post-Quantum Cryptography. Shown at /roadmaps/security/pqc/.
+# Field guide: see the top of secops.yml.
+
+id: pqc
+category: data
+icon: atom
+entry: advanced
+title: "Post-Quantum Cryptography"
+summary: "Understand why quantum computers threaten today's public key cryptography, learn the new NIST standards, and plan and run the migration before it is urgent."
+keywords: "post-quantum cryptography PQC quantum-safe ML-KEM ML-DSA Kyber Dilithium FIPS 203 204 205 crypto agility migration harvest now decrypt later hybrid key exchange"
+
+overview:
+  - "A large enough quantum computer would break RSA and elliptic curve cryptography, which protect most of today's traffic, signatures and identities. Data captured now can be decrypted later, so the risk starts before the machine exists."
+  - "NIST has standardised new algorithms designed to resist quantum attacks. The work now is understanding them, building a cryptographic inventory, making systems agile, and migrating in a sensible order. It is mostly an engineering and programme challenge, not a maths one."
+why: "Governments and regulators have set migration timelines, and the harvest-now-decrypt-later threat is real for long-lived secrets. Organisations need people who understand the new standards and can run a multi-year migration across sprawling systems."
+roles:
+  - { title: "Security engineer (PQC focus)", level: mid, what: "Tests and integrates post-quantum algorithms." }
+  - { title: "Cryptography engineer", level: senior, what: "Designs hybrid and post-quantum systems." }
+  - { title: "PQC migration lead", level: senior, what: "Runs the inventory and migration programme." }
+  - { title: "Security architect", level: lead, what: "Sets the quantum-readiness strategy." }
+
+prereqs:
+  - "Solid applied cryptography: TLS, PKI, key management."
+  - "How certificates, signatures and key exchange are used in your systems."
+  - "Some programming, to test libraries."
+  - "Programme management basics, for the migration."
+prereq_paths: [cybersecurity]
+
+stages:
+  - level: beginner
+    title: "The quantum threat"
+    months: "1–2"
+    topics:
+      - id: quantum-threat
+        title: "Why quantum breaks today's crypto"
+        text: "Shor's algorithm would break RSA, Diffie-Hellman and elliptic curves. Symmetric crypto and hashes are weakened less and mostly need larger sizes. Know which is which."
+        res:
+          - { name: "Post-Quantum Cryptography project", by: "NIST", url: "https://csrc.nist.gov/projects/post-quantum-cryptography", type: docs, cost: free }
+      - id: hndl
+        title: "Harvest now, decrypt later"
+        text: "Encrypted data recorded today can be decrypted once a quantum computer exists. Anything that must stay secret for years is already at risk."
+        res:
+          - { name: "Quantum-Readiness: Migration to Post-Quantum Cryptography", by: "CISA, NSA and NIST", url: "https://www.cisa.gov/resources-tools/resources/quantum-readiness-migration-post-quantum-cryptography", type: docs, cost: free }
+      - id: pqc-timelines
+        title: "Timelines and mandates"
+        text: "Governments have published migration deadlines and guidance. Know the ones that apply to you; they shape how urgent the work is."
+        res:
+          - { name: "Transition to Post-Quantum Cryptography Standards (NIST IR 8547)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8547/ipd", type: docs, cost: free }
+      - id: pqc-families
+        title: "The post-quantum algorithm families"
+        text: "Lattice, hash-based, code-based and others each trade off size, speed and maturity. Lattice schemes won the first standards; hash-based signatures are the conservative fallback."
+        res:
+          - { name: "Post-Quantum Cryptography project", by: "NIST", url: "https://csrc.nist.gov/projects/post-quantum-cryptography", type: docs, cost: free }
+      - id: pqc-myths
+        title: "Separating hype from reality"
+        text: "Quantum key distribution and quantum random generators are often sold as the answer; they are not a migration. Post-quantum algorithms run on ordinary computers."
+        res:
+          - { name: "Quantum Key Distribution and Quantum Cryptography (NSA)", by: "NSA", url: "https://www.nsa.gov/Cybersecurity/Quantum-Key-Distribution-QKD-and-Quantum-Cryptography-QC/", type: docs, cost: free }
+    skills:
+      - "Explain which cryptography quantum computers break and which they only weaken."
+      - "Explain the harvest-now-decrypt-later risk to a non-specialist."
+      - "Know the main algorithm families and their trade-offs."
+    labs:
+      - "Write a one-page briefing on the quantum threat for your organisation."
+      - "List which of your systems hold data that must stay secret for more than ten years."
+    done:
+      - "Explain the quantum threat and the migration timelines clearly."
+      - "Identify the long-lived secrets in a sample organisation."
+
+  - level: intermediate
+    title: "The new standards"
+    months: "2–4"
+    topics:
+      - id: ml-kem
+        title: "ML-KEM (FIPS 203)"
+        text: "The standard post-quantum key encapsulation mechanism, from Kyber. Learn how it replaces Diffie-Hellman and RSA for key exchange, and its key and ciphertext sizes."
+        res:
+          - { name: "FIPS 203: Module-Lattice-Based Key-Encapsulation Mechanism", by: "NIST", url: "https://csrc.nist.gov/pubs/fips/203/final", type: docs, cost: free }
+      - id: ml-dsa
+        title: "ML-DSA (FIPS 204)"
+        text: "The primary post-quantum signature standard, from Dilithium. Learn where it replaces RSA and ECDSA signatures and how much larger the signatures are."
+        res:
+          - { name: "FIPS 204: Module-Lattice-Based Digital Signature Standard", by: "NIST", url: "https://csrc.nist.gov/pubs/fips/204/final", type: docs, cost: free }
+      - id: slh-dsa
+        title: "SLH-DSA (FIPS 205) and hash-based signatures"
+        text: "A stateless hash-based signature from SPHINCS+, with very conservative security but large signatures. Stateful schemes such as LMS and XMSS suit firmware signing."
+        res:
+          - { name: "FIPS 205: Stateless Hash-Based Digital Signature Standard", by: "NIST", url: "https://csrc.nist.gov/pubs/fips/205/final", type: docs, cost: free }
+      - id: hybrid
+        title: "Hybrid schemes"
+        text: "Combine a classical and a post-quantum algorithm so security holds if either survives. Hybrid key exchange is already deployed in major browsers and servers."
+        res:
+          - { name: "Hybrid key exchange in TLS 1.3 (IETF draft)", by: "IETF", url: "https://datatracker.ietf.org/doc/draft-ietf-tls-hybrid-design/", type: docs, cost: free }
+      - id: pqc-in-protocols
+        title: "Post-quantum in TLS, SSH and VPNs"
+        text: "Protocols are adding post-quantum key exchange first, signatures later. Learn what your TLS libraries, SSH and VPN products already support."
+        res:
+          - { name: "Open Quantum Safe project", by: "Open Quantum Safe", url: "https://openquantumsafe.org/", type: tool, cost: free }
+      - id: pqc-performance
+        title: "Size and performance impacts"
+        text: "Bigger keys, signatures and handshakes affect bandwidth, constrained devices and certificate chains. Measure before you commit."
+        res:
+          - { name: "Open Quantum Safe project", by: "Open Quantum Safe", url: "https://openquantumsafe.org/", type: tool, cost: free }
+    skills:
+      - "Explain ML-KEM, ML-DSA and SLH-DSA and where each fits."
+      - "Design and justify hybrid schemes."
+      - "Know current protocol and library support."
+      - "Measure performance impacts."
+    labs:
+      - "Build a TLS connection with hybrid post-quantum key exchange using the Open Quantum Safe tools."
+      - "Sign and verify with ML-DSA and compare signature sizes with ECDSA."
+      - "Measure the handshake cost of post-quantum TLS against classical TLS."
+    done:
+      - "Demonstrate a working post-quantum key exchange and signature in a lab."
+      - "Explain the trade-offs of each standard to an engineering team."
+
+  - level: advanced
+    title: "Inventory and migration"
+    months: "4–8"
+    topics:
+      - id: crypto-inventory-pqc
+        title: "Cryptographic inventory"
+        text: "Find every use of public key crypto: TLS endpoints, certificates, code signing, VPNs, tokens, hardware and third-party products. This is the hardest and most important step."
+        res:
+          - { name: "Migration to Post-Quantum Cryptography", by: "NIST NCCoE", url: "https://www.nccoe.nist.gov/crypto-agility-considerations-migrating-post-quantum-cryptographic-algorithms", type: docs, cost: free }
+      - id: pqc-prioritisation
+        title: "Prioritising the migration"
+        text: "Start with long-lived secrets, root-of-trust signing and anything exposed to recording. Rank by data lifetime, exposure and how hard the system is to change."
+        res:
+          - { name: "Quantum-Readiness: Migration to Post-Quantum Cryptography", by: "CISA, NSA and NIST", url: "https://www.cisa.gov/resources-tools/resources/quantum-readiness-migration-post-quantum-cryptography", type: docs, cost: free }
+      - id: crypto-agility-pqc
+        title: "Building cryptographic agility"
+        text: "Make algorithms configurable and keys replaceable so this migration, and the next one, is a configuration change rather than a rewrite."
+        res:
+          - { name: "Migration to Post-Quantum Cryptography", by: "NIST NCCoE", url: "https://www.nccoe.nist.gov/crypto-agility-considerations-migrating-post-quantum-cryptographic-algorithms", type: docs, cost: free }
+      - id: pqc-pki
+        title: "Post-quantum PKI and certificates"
+        text: "Certificate authorities, chains and HSMs all need post-quantum support. Plan for larger certificates and for hybrid or composite options during transition."
+        res:
+          - { name: "Post-Quantum Cryptography project", by: "NIST", url: "https://csrc.nist.gov/projects/post-quantum-cryptography", type: docs, cost: free }
+      - id: pqc-vendors
+        title: "Vendors and supply chain"
+        text: "Much of your cryptography is inside products you do not control. Ask vendors for their post-quantum roadmaps and write it into procurement."
+        res:
+          - { name: "Quantum-Readiness: Migration to Post-Quantum Cryptography", by: "CISA, NSA and NIST", url: "https://www.cisa.gov/resources-tools/resources/quantum-readiness-migration-post-quantum-cryptography", type: docs, cost: free }
+      - id: pqc-testing
+        title: "Testing and interoperability"
+        text: "Post-quantum changes break assumptions about sizes and timing. Test interoperability across libraries, versions and partners before rollout."
+        res:
+          - { name: "Open Quantum Safe project", by: "Open Quantum Safe", url: "https://openquantumsafe.org/", type: tool, cost: free }
+    skills:
+      - "Build a cryptographic inventory across an estate."
+      - "Prioritise migration by data lifetime and exposure."
+      - "Engineer cryptographic agility into systems."
+      - "Manage vendor post-quantum readiness."
+    labs:
+      - "Inventory the cryptography in a sample estate using scanning tools and manual review."
+      - "Migrate a lab service to hybrid post-quantum TLS without breaking clients."
+      - "Write post-quantum requirements for a procurement."
+    done:
+      - "Produce a cryptographic inventory and a prioritised migration plan."
+      - "Migrate a real service to post-quantum key exchange."
+
+  - level: expert
+    title: "Leading quantum readiness"
+    months: "6–12"
+    topics:
+      - id: pqc-programme
+        title: "Running the migration programme"
+        text: "A post-quantum migration spans years, teams and vendors. Run it as a programme with inventory, phases, metrics and executive sponsorship."
+        res:
+          - { name: "Migration to Post-Quantum Cryptography", by: "NIST NCCoE", url: "https://www.nccoe.nist.gov/crypto-agility-considerations-migrating-post-quantum-cryptographic-algorithms", type: docs, cost: free }
+      - id: pqc-policy
+        title: "Standards and policy"
+        text: "Set the approved algorithms, hybrid rules and deadlines for the organisation, and keep them current as standards and guidance evolve."
+        res:
+          - { name: "Transition to Post-Quantum Cryptography Standards (NIST IR 8547)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8547/ipd", type: docs, cost: free }
+      - id: pqc-watch
+        title: "Tracking the field"
+        text: "Standards, attacks on candidates and protocol support all keep changing. Build a habit of following NIST, the IETF and the research community."
+        res:
+          - { name: "PQCrypto conference series", by: "IACR community", url: "https://pqcrypto.org/", type: docs, cost: free }
+    skills:
+      - "Lead a multi-year migration programme."
+      - "Set organisational post-quantum policy."
+    labs:
+      - "Write a quantum-readiness strategy with phases and metrics."
+      - "Brief an executive group on the migration plan and its cost."
+    done:
+      - "Run a post-quantum migration programme with measurable progress."
+      - "Own the organisation's post-quantum policy and reporting."
+
+tools:
+  - { name: "liboqs (Open Quantum Safe)", url: "https://openquantumsafe.org/liboqs/", kind: oss, what: "C library of post-quantum algorithms for experimentation." }
+  - { name: "OQS provider for OpenSSL", url: "https://github.com/open-quantum-safe/oqs-provider", kind: oss, what: "Add post-quantum algorithms to OpenSSL 3." }
+  - { name: "OpenSSL", url: "https://www.openssl.org/", kind: oss, what: "Recent versions ship ML-KEM and ML-DSA support." }
+  - { name: "Bouncy Castle", url: "https://www.bouncycastle.org/", kind: oss, what: "Java and C# crypto library with post-quantum algorithms." }
+  - { name: "CBOM (CycloneDX)", url: "https://cyclonedx.org/capabilities/cbom/", kind: oss, what: "Cryptography bill of materials format for inventories." }
+
+certs:
+  - { ref: cissp, note: "No dedicated PQC certification yet; CISSP covers cryptography broadly." }
+  - { name: "EC-Council Certified Encryption Specialist", by: "EC-Council", url: "https://www.eccouncil.org/train-certify/ec-council-certified-encryption-specialist-eces/", level: mid, note: "General cryptography grounding." }
+
+resources:
+  - { name: "Post-Quantum Cryptography project", by: "NIST", url: "https://csrc.nist.gov/projects/post-quantum-cryptography", type: docs, cost: free }
+  - { name: "FIPS 203: ML-KEM", by: "NIST", url: "https://csrc.nist.gov/pubs/fips/203/final", type: docs, cost: free }
+  - { name: "FIPS 204: ML-DSA", by: "NIST", url: "https://csrc.nist.gov/pubs/fips/204/final", type: docs, cost: free }
+  - { name: "Quantum-Readiness: Migration to Post-Quantum Cryptography", by: "CISA, NSA and NIST", url: "https://www.cisa.gov/resources-tools/resources/quantum-readiness-migration-post-quantum-cryptography", type: docs, cost: free }
+  - { name: "Migration to Post-Quantum Cryptography", by: "NIST NCCoE", url: "https://www.nccoe.nist.gov/crypto-agility-considerations-migrating-post-quantum-cryptographic-algorithms", type: docs, cost: free }
+  - { name: "Open Quantum Safe project", by: "Open Quantum Safe", url: "https://openquantumsafe.org/", type: tool, cost: free }
+
+frameworks: [pqc, fips140, nist-800-57, nist-csf]
+
+career:
+  - { title: "Security or cryptography engineer", years: "2–5 years" }
+  - { title: "Security engineer with a PQC focus", years: "4–7 years" }
+  - { title: "PQC migration lead", years: "6–10 years" }
+  - { title: "Security architect (cryptography)", years: "10+ years" }
+
+related:
+  - { to: crypto, why: "Applied cryptography is the foundation this builds on." }
+  - { to: datasec, why: "Long-lived data is what the quantum threat endangers first." }
+  - { name: "Software Supply Chain Security", why: "Most of your cryptography is in vendor products." }
+  - { name: "Security Architecture and Zero Trust", why: "Crypto agility is an architecture decision." }

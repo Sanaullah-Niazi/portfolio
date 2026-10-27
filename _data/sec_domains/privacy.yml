@@ -1,0 +1,229 @@
+# Security roadmap: Privacy Engineering and Data Protection. Shown at /roadmaps/security/privacy/.
+# Field guide: see the top of secops.yml.
+
+id: privacy
+category: data
+icon: shield
+entry: intermediate
+title: "Privacy Engineering"
+summary: "Build systems that collect less, protect what they hold, honour people's rights over their data, and meet privacy law by design rather than after the fact."
+keywords: "privacy engineering data protection GDPR CCPA privacy by design PETs privacy enhancing technologies differential privacy DPIA consent data subject rights anonymisation pseudonymisation"
+
+overview:
+  - "Privacy engineering turns privacy principles and laws into the way systems are actually built: collecting only what is needed, keeping it only as long as needed, protecting it, and letting people see, correct and delete their own data."
+  - "The work ranges from writing privacy into designs and running impact assessments to applying privacy-enhancing technologies such as anonymisation, pseudonymisation and differential privacy. It sits between legal, product and security teams and needs a bit of all three."
+why: "Privacy law now carries real fines and real engineering requirements. Products need people who can meet those requirements without grinding development to a halt, and who can build privacy in rather than bolting it on."
+roles:
+  - { title: "Privacy analyst", level: entry, what: "Runs assessments and tracks data subject requests." }
+  - { title: "Privacy engineer", level: mid, what: "Builds privacy controls and PETs into systems." }
+  - { title: "Privacy architect", level: senior, what: "Designs privacy across products and data flows." }
+  - { title: "Data protection officer", level: senior, what: "Oversees compliance and is the regulator contact." }
+  - { title: "Head of privacy", level: lead, what: "Owns the privacy programme and strategy." }
+
+prereqs:
+  - "How applications and data stores handle personal data."
+  - "Data security and encryption basics."
+  - "An idea of the privacy laws that apply where you operate."
+  - "Clear writing, for assessments and notices."
+prereq_paths: [cybersecurity, data]
+
+stages:
+  - level: beginner
+    title: "Privacy foundations"
+    months: "2–3"
+    topics:
+      - id: privacy-principles
+        title: "Privacy principles"
+        text: "Purpose limitation, data minimisation, accuracy, storage limits, security and accountability underlie most privacy law. Learn the principles and the rest follows."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: personal-data
+        title: "What counts as personal data"
+        text: "Personal data is broader than names: it includes identifiers, location, device IDs and anything that can single someone out. Special categories need extra care."
+        res:
+          - { name: "GDPR text (EUR-Lex)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", type: docs, cost: free }
+      - id: privacy-laws
+        title: "The main privacy laws"
+        text: "Know the shape of GDPR, CCPA/CPRA and the sectoral laws that apply to you. You need the principles and duties, not every clause."
+        res:
+          - { name: "GDPR text (EUR-Lex)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", type: docs, cost: free }
+      - id: data-mapping
+        title: "Data mapping and records"
+        text: "Document what personal data you hold, why, where it flows and how long you keep it. The record of processing is the backbone of a privacy programme."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: lawful-basis
+        title: "Lawful basis and consent"
+        text: "Every use of personal data needs a reason the law accepts. Consent is only one option and has strict rules; understand the alternatives."
+        res:
+          - { name: "GDPR text (EUR-Lex)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", type: docs, cost: free }
+      - id: privacy-notices
+        title: "Privacy notices"
+        text: "Tell people plainly what you collect, why, who you share it with and their rights. Clear notices are a legal duty and a trust builder."
+        res:
+          - { name: "Privacy Cheat Sheet (data handling)", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/User_Privacy_Protection_Cheat_Sheet.html", type: docs, cost: free }
+    skills:
+      - "Explain privacy principles and apply them to a system."
+      - "Recognise personal and special-category data."
+      - "Produce a record of processing."
+    labs:
+      - "Map the personal data flows of a small sample application end to end."
+      - "Write a plain-language privacy notice for that application."
+    done:
+      - "Explain the core privacy principles and the main laws' duties."
+      - "Produce a data map and a lawful-basis analysis for a system."
+
+  - level: intermediate
+    title: "Privacy by design and assessments"
+    months: "3–5"
+    topics:
+      - id: privacy-by-design
+        title: "Privacy by design and default"
+        text: "Build privacy into designs from the start and set the most protective option as the default. It is both good practice and a legal expectation."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: dpia
+        title: "Privacy impact assessments"
+        text: "A DPIA works through what could go wrong for people from a new processing activity and how to reduce it. Run it early, when you can still change the design."
+        res:
+          - { name: "PIA methodology", by: "CNIL", url: "https://www.cnil.fr/en/privacy-impact-assessment-pia", type: docs, cost: free }
+      - id: data-subject-rights
+        title: "Data subject rights"
+        text: "People can ask to see, correct, delete and port their data. Build the processes and the system support to answer within the legal deadlines."
+        res:
+          - { name: "GDPR text (EUR-Lex)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", type: docs, cost: free }
+      - id: consent-management
+        title: "Consent and preference management"
+        text: "Capture, store and honour consent and preferences, and make withdrawing as easy as giving. Cookie and tracking consent is a common pitfall."
+        res:
+          - { name: "Privacy Framework (consent)", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: anonymisation
+        title: "Anonymisation and pseudonymisation"
+        text: "Pseudonymisation replaces identifiers but data can still be re-linked; true anonymisation is hard and, when done, takes data out of scope. Know the difference."
+        res:
+          - { name: "De-Identification of Personal Information (NISTIR 8053)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8053/final", type: docs, cost: free }
+      - id: vendor-privacy
+        title: "Vendors and data sharing"
+        text: "When you share personal data with processors and partners, contracts and checks must carry the duties with it. Cross-border transfers need extra safeguards."
+        res:
+          - { name: "GDPR text (EUR-Lex)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", type: docs, cost: free }
+    skills:
+      - "Run a privacy impact assessment."
+      - "Build processes for data subject rights."
+      - "Choose between anonymisation and pseudonymisation correctly."
+      - "Handle vendor and cross-border data sharing."
+    labs:
+      - "Run a DPIA on a feature that uses personal data and record the mitigations."
+      - "Build a lab process that answers an access and a deletion request end to end."
+      - "Pseudonymise a dataset and show how it could still be re-identified."
+    done:
+      - "Produce a completed DPIA with mitigations for a realistic feature."
+      - "Demonstrate a working data subject request process."
+
+  - level: advanced
+    title: "Privacy-enhancing technologies"
+    months: "4–6"
+    topics:
+      - id: differential-privacy
+        title: "Differential privacy"
+        text: "Add carefully calibrated noise so you can publish statistics without exposing individuals. Powerful but easy to misapply; understand the privacy budget."
+        res:
+          - { name: "Differential Privacy (NIST blog series)", by: "NIST", url: "https://www.nist.gov/blogs/cybersecurity-insights/differential-privacy-privacy-preserving-data-analysis-introduction", type: docs, cost: free }
+      - id: pets-overview
+        title: "Privacy-enhancing technologies"
+        text: "Secure multiparty computation, federated learning and synthetic data let you use data while revealing less. Know what each is good and bad at."
+        res:
+          - { name: "Guidance on Privacy-Enhancing Technologies", by: "ICO", url: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/privacy-enhancing-technologies/", type: docs, cost: free }
+      - id: encryption-privacy
+        title: "Encryption for privacy"
+        text: "Encryption and key separation limit who can read personal data, including your own staff and processors. It supports, but does not replace, the other controls."
+        res:
+          - { name: "NIST SP 800-57 Part 1 (Key Management)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final", type: docs, cost: free }
+      - id: privacy-in-ml
+        title: "Privacy in machine learning"
+        text: "Models can memorise and leak training data. Combine minimisation, differential privacy and access controls when personal data trains a model."
+        res:
+          - { name: "AI Risk Management Framework", by: "NIST", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: docs, cost: free }
+      - id: breach-privacy
+        title: "Personal data breaches"
+        text: "Privacy breaches have tight notification deadlines and specific duties to regulators and people. Fold these into incident response ahead of time."
+        res:
+          - { name: "GDPR text (EUR-Lex)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", type: docs, cost: free }
+      - id: privacy-automation
+        title: "Automating privacy"
+        text: "At scale, data mapping, rights requests and retention need tooling, not spreadsheets. Automate discovery, deletion and consent where you can."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+    skills:
+      - "Judge where differential privacy and other PETs fit."
+      - "Build privacy into machine learning systems."
+      - "Fold privacy duties into incident response."
+    labs:
+      - "Apply a differential-privacy library to publish a statistic from a dataset."
+      - "Build a retention job that deletes personal data past its retention period."
+    done:
+      - "Choose and justify PETs for a realistic data-use case."
+      - "Show an automated control, such as retention-based deletion, working."
+
+  - level: expert
+    title: "Privacy strategy and leadership"
+    months: "6–12"
+    topics:
+      - id: privacy-programme
+        title: "Running a privacy programme"
+        text: "Tie together policy, assessments, rights, training and tooling into a programme the business can live with, and show the regulator you did."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: privacy-culture
+        title: "Privacy culture and training"
+        text: "Most privacy failures are everyday choices by people who were not thinking about privacy. Build awareness and make the right thing the easy thing."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+      - id: privacy-metrics
+        title: "Measuring privacy"
+        text: "Track assessment coverage, rights-request timeliness, retention compliance and incidents. Report risk and trust, not activity."
+        res:
+          - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+    skills:
+      - "Run a privacy programme across a business."
+      - "Build privacy awareness and culture."
+    labs:
+      - "Write a privacy programme plan with assessments, rights and training."
+      - "Design privacy metrics a board would understand."
+    done:
+      - "Run a privacy programme that meets its legal deadlines with evidence."
+      - "Lead a cross-team privacy improvement, such as a rights-request overhaul."
+
+tools:
+  - { name: "Presidio", url: "https://microsoft.github.io/presidio/", kind: oss, what: "Detect and redact personal data in text and images." }
+  - { name: "OpenDP", url: "https://opendp.org/", kind: oss, what: "Open-source differential privacy library and tools." }
+  - { name: "Amnesia", url: "https://amnesia.openaire.eu/", kind: free, what: "Data anonymisation tool for datasets." }
+  - { name: "ARX Data Anonymization Tool", url: "https://arx.deidentifier.org/", kind: oss, what: "Anonymise datasets and measure re-identification risk." }
+  - { name: "OneTrust (and similar)", url: "https://www.onetrust.com/products/privacy-automation/", kind: paid, what: "Privacy management and consent platforms (one of several)." }
+
+certs:
+  - { name: "CIPP", by: "IAPP", url: "https://iapp.org/certify/cipp/", level: mid, note: "The standard privacy-law certification, by region." }
+  - { name: "CIPT", by: "IAPP", url: "https://iapp.org/certify/cipt/", level: mid, note: "Privacy in technology, aimed at engineers." }
+  - { name: "CIPM", by: "IAPP", url: "https://iapp.org/certify/cipm/", level: senior, note: "Managing a privacy programme." }
+
+resources:
+  - { name: "NIST Privacy Framework", by: "NIST", url: "https://www.nist.gov/privacy-framework", type: docs, cost: free }
+  - { name: "GDPR text (EUR-Lex)", by: "European Union", url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj", type: docs, cost: free }
+  - { name: "PIA methodology", by: "CNIL", url: "https://www.cnil.fr/en/privacy-impact-assessment-pia", type: docs, cost: free }
+  - { name: "Guidance on Privacy-Enhancing Technologies", by: "ICO", url: "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/privacy-enhancing-technologies/", type: docs, cost: free }
+  - { name: "De-Identification of Personal Information (NISTIR 8053)", by: "NIST", url: "https://csrc.nist.gov/pubs/ir/8053/final", type: docs, cost: free }
+
+frameworks: [nist-privacy, iso27701, gdpr, ccpa, hipaa, nist-800-53]
+
+career:
+  - { title: "Analyst, developer or security role touching personal data", years: "0–2 years" }
+  - { title: "Privacy analyst", years: "1–3 years" }
+  - { title: "Privacy engineer", years: "3–6 years" }
+  - { title: "Privacy architect or data protection officer", years: "6–10 years" }
+  - { title: "Head of privacy", years: "10+ years" }
+
+related:
+  - { to: datasec, why: "Data security provides the controls privacy depends on." }
+  - { to: crypto, why: "Encryption and anonymisation underpin many privacy controls." }
+  - { name: "GRC and Compliance", why: "Privacy is a major part of compliance and governance." }
+  - { to: ai-grc, why: "AI systems raise sharp new privacy questions." }

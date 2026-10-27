@@ -147,8 +147,8 @@ categories:
     icon: lock
     title: "Information security and data protection"
     summary: "Protecting information itself: who can see it, where it lives and how long it is kept."
-    domains: []
-    planned: ["Information Security Management (ISMS)", "Data Security", "Data Loss Prevention (DLP)", "Database Security", "Big Data Security", "Data Privacy", "Cryptography", "Post-Quantum Cryptography", "Secrets and Key Management", "Records and Document Security", "Data Governance", "Data Sovereignty and Residency", "Privacy-Enhancing Technologies", "Intellectual Property Protection", "Information Lifecycle Security"]
+    domains: [datasec, privacy, crypto, pqc]
+    planned: []
 
   - id: engineering
     icon: code
