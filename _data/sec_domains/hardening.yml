@@ -199,7 +199,7 @@ tools:
   - { name: "Ansible", url: "https://docs.ansible.com/", kind: oss, what: "Apply and enforce configuration as code." }
   - { name: "OpenSCAP", url: "https://www.open-scap.org/", kind: oss, what: "Scan systems against security benchmarks." }
   - { name: "Lynis", url: "https://cisofy.com/lynis/", kind: oss, what: "Security auditing and hardening for Linux." }
-  - { name: "CIS-CAT Lite", url: "https://www.cisecurity.org/cybersecurity-tools/cis-cat-lite", kind: free, what: "Checks systems against CIS Benchmarks." }
+  - { name: "CIS-CAT Pro", url: "https://www.cisecurity.org/cybersecurity-tools/cis-cat-pro", kind: paid, what: "Checks systems against CIS Benchmarks (a free Lite edition exists)." }
   - { name: "Packer", url: "https://developer.hashicorp.com/packer", kind: oss, what: "Build hardened machine images." }
   - { name: "Wazuh", url: "https://wazuh.com/", kind: oss, what: "File integrity monitoring and compliance." }
 

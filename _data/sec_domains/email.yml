@@ -52,7 +52,7 @@ stages:
         text: "DMARC ties SPF and DKIM to the visible From address and tells receivers what to do with fakes. Reports show who is sending as you."
         res:
           - { name: "DMARC (RFC 7489)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc7489", type: docs, cost: free }
-          - { name: "DMARC overview", by: "dmarc.org", url: "https://dmarc.org/overview/", type: docs, cost: free }
+          - { name: "DMARC (RFC 7489)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc7489", type: docs, cost: free }
       - id: phishing-types
         title: "Phishing and BEC"
         text: "Learn the families: credential phishing, malware delivery, business email compromise and invoice fraud. Each needs a different defence."
@@ -185,7 +185,7 @@ stages:
         title: "Measuring messaging security"
         text: "Track DMARC enforcement, phish that reach inboxes, report rates and account takeovers. Report trends, not raw blocked counts."
         res:
-          - { name: "dmarc.org", by: "dmarc.org", url: "https://dmarc.org/", type: docs, cost: free }
+          - { name: "DMARC (RFC 7489)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc7489", type: docs, cost: free }
     skills:
       - "Set messaging and collaboration security strategy."
       - "Run a human risk programme."
@@ -197,7 +197,7 @@ stages:
       - "Lead the rollout of DMARC enforcement or a collaboration security baseline."
 
 tools:
-  - { name: "DMARC checkers", url: "https://dmarc.org/resources/deployment-tools/", kind: free, what: "Verify SPF, DKIM and DMARC setup." }
+  - { name: "MXToolbox DMARC check", url: "https://mxtoolbox.com/dmarc.aspx", kind: free, what: "Verify SPF, DKIM and DMARC setup." }
   - { name: "Gophish", url: "https://getgophish.com/", kind: oss, what: "Run phishing simulations." }
   - { name: "MXToolbox", url: "https://mxtoolbox.com/", kind: free, what: "Check DNS, mail and authentication records." }
   - { name: "Microsoft Defender for Office 365", url: "https://learn.microsoft.com/en-us/defender-office-365/", kind: paid, what: "Email and collaboration protection with strong docs." }
@@ -209,7 +209,7 @@ certs:
   - { ref: cc, note: "Entry-level security certification." }
 
 resources:
-  - { name: "DMARC overview", by: "dmarc.org", url: "https://dmarc.org/overview/", type: docs, cost: free }
+  - { name: "DMARC (RFC 7489)", by: "IETF", url: "https://www.rfc-editor.org/rfc/rfc7489", type: docs, cost: free }
   - { name: "Phishing Guidance: Stopping the Attack Cycle at Phase One", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/phishing-guidance-stopping-attack-cycle-phase-one", type: docs, cost: free }
   - { name: "Microsoft Defender for Office 365", by: "Microsoft", url: "https://learn.microsoft.com/en-us/defender-office-365/", type: docs, cost: free }
   - { name: "Google Workspace security best practices", by: "Google", url: "https://support.google.com/a/answer/7587183", type: docs, cost: free }

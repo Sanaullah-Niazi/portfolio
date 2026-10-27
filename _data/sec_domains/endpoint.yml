@@ -199,7 +199,7 @@ tools:
   - { name: "Microsoft Defender for Endpoint", url: "https://learn.microsoft.com/en-us/defender-endpoint/", kind: paid, what: "Widely used EDR with a strong free documentation set." }
   - { name: "Wazuh", url: "https://wazuh.com/", kind: oss, what: "Open-source HIDS, EDR and compliance monitoring." }
   - { name: "osquery", url: "https://osquery.io/", kind: oss, what: "Query endpoint state with SQL." }
-  - { name: "CIS-CAT Lite", url: "https://www.cisecurity.org/cybersecurity-tools/cis-cat-lite", kind: free, what: "Checks systems against CIS Benchmarks." }
+  - { name: "CIS-CAT Pro", url: "https://www.cisecurity.org/cybersecurity-tools/cis-cat-pro", kind: paid, what: "Checks systems against CIS Benchmarks (a free Lite edition exists)." }
   - { name: "Velociraptor", url: "https://docs.velociraptor.app/", kind: oss, what: "Endpoint visibility and collection." }
   - { name: "Lynis", url: "https://cisofy.com/lynis/", kind: oss, what: "Security auditing and hardening checks for Linux." }
 
