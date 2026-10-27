@@ -46,7 +46,7 @@ stages:
         title: "Android internals"
         text: "The APK format, components, the manifest, permissions and the runtime. Understanding the platform is most of Android testing."
         res:
-          - { name: "Android security checklist", by: "Google", url: "https://developer.android.com/privacy-and-security/security-tips", type: docs, cost: free }
+          - { name: "OWASP MASTG (Android)", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
       - id: ios-basics
         title: "iOS internals"
         text: "App structure, entitlements, the keychain and code signing. iOS is more closed, which shapes how it is tested."
@@ -139,7 +139,7 @@ stages:
         title: "Platform security features"
         text: "Biometrics, hardware-backed keystores, attestation and secure enclaves. Learn to use them in development and to assess their use."
         res:
-          - { name: "Android security checklist", by: "Google", url: "https://developer.android.com/privacy-and-security/security-tips", type: docs, cost: free }
+          - { name: "OWASP MASTG (Android)", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
       - id: secure-mobile-dev
         title: "Secure mobile development"
         text: "Build apps to the MASVS: protect data, pin or validate transport, authenticate properly, and avoid leaking through logs and backups."
@@ -212,7 +212,7 @@ certs:
 resources:
   - { name: "OWASP MASVS", by: "OWASP Foundation", url: "https://mas.owasp.org/MASVS/", type: docs, cost: free }
   - { name: "OWASP MASTG", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
-  - { name: "Android security checklist", by: "Google", url: "https://developer.android.com/privacy-and-security/security-tips", type: docs, cost: free }
+  - { name: "OWASP MASTG (Android)", by: "OWASP Foundation", url: "https://mas.owasp.org/MASTG/", type: docs, cost: free }
   - { name: "Apple Platform Security", by: "Apple", url: "https://support.apple.com/guide/security/welcome/web", type: docs, cost: free }
   - { name: "Frida documentation", by: "Frida", url: "https://frida.re/docs/home/", type: docs, cost: free }
 
