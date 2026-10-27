@@ -51,6 +51,10 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+  # Daily security briefs, written by scripts/security_news.py (see .github/workflows/security-news.yml).
+  briefs:
+    output: true
+    permalink: /security-news/:name/
 
 defaults:
   - scope: { path: "" }
@@ -64,6 +68,8 @@ defaults:
     values: { layout: project }
   - scope: { path: "", type: posts }
     values: { layout: post }
+  - scope: { path: "", type: briefs }
+    values: { layout: brief }
 
 permalink: /blog/:year/:title/
 
@@ -90,4 +96,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - templates/
+  - scripts/
   - vendor/
