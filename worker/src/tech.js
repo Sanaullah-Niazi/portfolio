@@ -37,7 +37,8 @@ const FINGERPRINTS = [
   ["LiteSpeed", "server", ({ h }) => /LiteSpeed/i.test(h.server || "")],
   ["OpenResty", "server", ({ h }) => ver(h.server, /openresty\/?([\d.]+)?/i)],
   ["Caddy", "server", ({ h }) => /Caddy/i.test(h.server || "")],
-  ["Cloudflare", "cdn", ({ h }) => !!h["cf-ray"]],
+  // Not cf-ray: a Worker's own outgoing requests can come back with one even from sites Cloudflare doesn't serve.
+  ["Cloudflare", "cdn", ({ h }) => /^cloudflare/i.test(h.server || "")],
   ["Amazon CloudFront", "cdn", ({ h }) => !!h["x-amz-cf-id"]],
   ["Fastly", "cdn", ({ h }) => /fastly/i.test(h["x-served-by"] || "") || !!h["x-fastly-request-id"]],
   ["Akamai", "cdn", ({ h }) => /AkamaiGHost/i.test(h.server || "")],
