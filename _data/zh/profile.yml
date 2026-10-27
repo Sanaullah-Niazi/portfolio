@@ -1,9 +1,7 @@
 # 首页顶部的中文文字。链接和联系方式来自 _data/profile.yml。
 tagline: 青年研究者 · 人工智能硕士
-headline: AI × 网络安全：构建能识别威胁、欺诈和 AI 生成内容的智能系统。
-intro: >-
-  我是一名青年研究者，拥有人工智能硕士学位。我构建机器学习和自然语言处理模型，用来分辨真假：区分 AI
-  生成的文本和人类写的文本，区分欺诈交易和正常交易，区分诈骗信息和真实信息。下一步，我希望让 AI 系统本身更加安全。
+hero_kicker: AI × 网络安全
+hero_title: "用 AI 识别威胁、欺诈和[虚假内容]。"
 cv: assets/cv/Sana_Ullah_Khan_CV_zh.pdf
 open_to: 欢迎硕士和博士职位、研究合作，以及 SOC / 网络安全和机器学习相关的工作机会。
 highlights:

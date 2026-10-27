@@ -6,46 +6,33 @@
 {% assign projects = site.projects | sort: 'order' %}
 
 <section class="hero" aria-labelledby="hero-title">
-  <canvas class="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-fade" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div class="hero-text">
-      <p class="pill"><span class="pulse" aria-hidden="true"></span>{{ P.tagline }}</p>
-      <h1 id="hero-title">{{ me.name }}</h1>
-      <p class="headline">{{ P.headline }}</p>
-      <p class="intro">{{ P.intro }}</p>
-      <div class="btn-row">
-        {% if has_cv %}<a class="btn btn-primary" href="{{ P.cv | relative_url }}" download>{% include icon.html name="download" px=18 %}{{ S.btn_cv }}</a>{% endif %}
-        <a class="btn {% unless has_cv %}btn-primary{% endunless %}" href="#research">{% include icon.html name="flask" px=18 %}{{ S.btn_research }}</a>
-        <a class="btn" href="#contact">{% include icon.html name="mail" px=18 %}{{ S.btn_contact }}</a>
+  <div class="hero-band">
+    {% if me.photo %}<picture class="hero-photo">
+      <source type="image/webp" srcset="{{ '/assets/img/profile/sana-640.webp' | relative_url }} 640w, {{ '/assets/img/profile/sana-800.webp' | relative_url }} 800w" sizes="(max-width: 980px) 100vw, 46vw">
+      <img src="{{ me.photo | relative_url }}" alt="{{ S.photo_alt }}" width="800" height="800" fetchpriority="high" decoding="async">
+    </picture>{% endif %}
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="hero-kicker">{{ P.hero_kicker }}</p>
+        <h1 id="hero-title"><span class="sr-only">{{ me.name }}: </span>{{ P.hero_title | escape | replace: '[', '<em>' | replace: ']', '</em>' }}</h1>
+        <p class="hero-who"><strong>{{ me.name }}</strong> · {{ P.tagline }}</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#research">{% include icon.html name="flask" px=18 %}{{ S.btn_research }}</a>
+          {% if has_cv %}<a class="btn" href="{{ P.cv | relative_url }}" download>{% include icon.html name="download" px=18 %}{{ S.btn_cv }}</a>{% endif %}
+          <a class="btn" href="#contact">{% include icon.html name="mail" px=18 %}{{ S.btn_contact }}</a>
+        </div>
+        {% include social.html no_mail=true %}
       </div>
-      {% include social.html %}
     </div>
-
-    <figure class="terminal" aria-label="{{ S.terminal_label }}" lang="en" dir="ltr">
-      <div class="term-bar" aria-hidden="true"><span></span><span></span><span></span><p>~/sana — zsh</p></div>
-      <div class="term-body">
-        <p class="cmd">whoami</p>
-        <p class="out">{{ me.name }} · MS Artificial Intelligence</p>
-        <p class="cmd">cat focus.txt</p>
-        <p class="out">AI × Cybersecurity: phishing, scam &amp; fraud detection, AI-generated text detection</p>
-        <p class="cmd">ls research/</p>
-        <p class="out"><span class="hl">thesis/</span> ({{ site.data.research.thesis.results[0].value }} accuracy) · <span class="hl">publications/</span> ({{ site.data.publications.size }} peer-reviewed)</p>
-        <p class="cmd">./open-to --list</p>
-        <p class="out">{{ me.open_to | remove: 'Open to ' | remove: '.' }}</p>
-        <p class="cmd cursor-line" aria-hidden="true"></p>
-      </div>
-    </figure>
   </div>
 
   <div class="wrap">
     <ul class="highlights">
       {% for h in P.highlights %}
-      <li class="reveal"><strong data-count="{{ h.value }}">{{ h.value }}</strong><span>{{ h.label }}</span></li>
+      <li><strong data-count="{{ h.value }}">{{ h.value }}</strong><span>{{ h.label }}</span></li>
       {% endfor %}
     </ul>
   </div>
-  <a class="scroll-cue" href="#focus" aria-label="{{ S.scroll_next }}"><span aria-hidden="true"></span></a>
 </section>
 
 {% assign news = D.news | default: site.data.news %}
@@ -121,10 +108,6 @@
         <p class="eyebrow"><span class="num">02</span>{{ S.about_eyebrow }}</p>
         <h2 id="about-title">{{ S.about_title }}</h2>
       </header>
-      {% if me.photo %}<picture class="portrait">
-        <source type="image/webp" srcset="{{ '/assets/img/profile/sana-320.webp' | relative_url }} 320w, {{ '/assets/img/profile/sana-640.webp' | relative_url }} 640w" sizes="(max-width: 600px) 200px, 260px">
-        <img src="{{ me.photo | relative_url }}" alt="{{ S.photo_alt }}" width="260" height="260" loading="lazy" decoding="async">
-      </picture>{% endif %}
       <ol class="journey" aria-label="{{ S.journey_label }}">
         {% for j in about.journey %}
         <li{% if forloop.last %} class="j-now"{% endif %}><span class="j-dot" aria-hidden="true"></span><strong>{{ j.title }}</strong>{% if j.dates %}<span class="j-dates">{{ j.dates }}</span>{% endif %}<span>{{ j.note }}</span></li>

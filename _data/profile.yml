@@ -1,11 +1,9 @@
 # Your basic details. Everything on the home page header comes from here.
 name: Sana Ullah Khan
 tagline: Early-career researcher · MS Artificial Intelligence
-headline: "AI × Cybersecurity: building intelligent systems that detect threats, fraud and AI-generated content."
-intro: >-
-  I am an early-career researcher with an MS in Artificial Intelligence. I build machine learning
-  and NLP models that tell real from fake: AI-generated from human text, fraud from normal
-  transactions, scams from genuine messages. Next, I want to make AI systems themselves secure.
+# Big statement at the top of the home page. Words in [square brackets] are shown in the highlight colour.
+hero_kicker: AI × Cybersecurity
+hero_title: "Detecting threats, fraud and [fake content] with AI."
 # Your portrait. Shown in the About section and given to search engines. Leave empty to hide it.
 photo: /assets/img/profile/sana-800.jpg
 location: Pakistan
