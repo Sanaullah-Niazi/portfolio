@@ -441,7 +441,7 @@ def write_brief(items, now):
             links.append(f"[{clean_md(src['source'], 60)}]({url})")
             if n not in used:
                 used.append(n)
-        body.append(f"### {clean_md(st['heading'], 120)}\n\n{clean_md(st['text'], 1200)}\n\n"
+        body.append(f"### {clean_md(str(st['heading']).lstrip('# '), 120)}\n\n{clean_md(st['text'], 1200)}\n\n"
                     f"<span class=\"brief-src\">{'Sources' if len(links) > 1 else 'Source'}: {', '.join(links)}</span>\n")
     if len(body) < 2:
         log("No brief today: the model's stories had no usable sources.")
