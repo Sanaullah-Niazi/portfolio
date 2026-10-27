@@ -1,0 +1,236 @@
+# Security roadmap: Container and Kubernetes Security. Shown at /roadmaps/security/container/.
+# Field guide: see the top of secops.yml.
+
+id: container
+category: infra
+icon: cloud
+entry: intermediate
+title: "Container and Kubernetes Security"
+summary: "Secure containers and Kubernetes from image to runtime: build safe images, lock down clusters, and detect attacks at run time."
+keywords: "container security Docker image security Kubernetes cluster security runtime security pod security admission control network policy service mesh policy as code Falco Trivy RBAC"
+
+overview:
+  - "Containers package an application with its dependencies, and Kubernetes runs thousands of them across many machines. This brings speed, and a large attack surface: vulnerable images, over-privileged containers, weak cluster settings and a powerful control plane."
+  - "Container security covers the whole life: building and scanning images, hardening the cluster and its workloads, controlling what can be deployed, and detecting attacks at run time. It blends classic hardening with cloud-native tools and ideas such as policy as code."
+why: "Most modern applications run in containers, and misconfigured Kubernetes clusters are breached regularly. Teams need people who understand both how Kubernetes works and how it is attacked."
+roles:
+  - { title: "DevOps engineer with security focus", level: entry, what: "Builds secure images and applies safe defaults in pipelines." }
+  - { title: "Container security engineer", level: mid, what: "Secures images, clusters and workloads and runs scanning." }
+  - { title: "Kubernetes security engineer", level: mid, what: "Hardens clusters, admission control and network policy." }
+  - { title: "Cloud-native security architect", level: senior, what: "Designs secure container platforms across teams." }
+  - { title: "Head of platform security", level: lead, what: "Owns the security of the container platform." }
+
+prereqs:
+  - "Comfortable with Linux and the command line."
+  - "Docker basics: images, containers and registries."
+  - "Kubernetes basics: pods, deployments, services and namespaces."
+  - "Networking and the Cloud Security roadmap's basics help."
+prereq_paths: [cloud-devops, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Container and image security"
+    months: "2–3"
+    topics:
+      - id: container-basics
+        title: "How containers work"
+        text: "Namespaces, cgroups and capabilities give containers their isolation, which is weaker than a VM's. Knowing the mechanism tells you where it can fail."
+        res:
+          - { name: "Docker security", by: "Docker", url: "https://docs.docker.com/engine/security/", type: docs, cost: free }
+      - id: image-security
+        title: "Building secure images"
+        text: "Start from minimal, trusted base images, pin versions, do not run as root, and keep secrets out of the image. Small images have fewer vulnerabilities."
+        res:
+          - { name: "Docker build best practices", by: "Docker", url: "https://docs.docker.com/build/building/best-practices/", type: docs, cost: free }
+      - id: image-scanning
+        title: "Image scanning"
+        text: "Scan images for known vulnerabilities and bad configuration before they ship, and again in the registry as new vulnerabilities are found."
+        res:
+          - { name: "Trivy", by: "Aqua Security", url: "https://trivy.dev/", type: tool, cost: free }
+          - { name: "Grype", by: "Anchore", url: "https://github.com/anchore/grype", type: tool, cost: free }
+      - id: registry-security
+        title: "Registry security"
+        text: "Control who can push and pull images, scan what is stored, and prefer private registries for anything internal."
+        res:
+          - { name: "Harbor", by: "CNCF", url: "https://goharbor.io/", type: tool, cost: free }
+      - id: runtime-flags
+        title: "Safe container settings"
+        text: "Run as a non-root user, drop capabilities, use a read-only root filesystem, and never use privileged mode unless you truly must."
+        res:
+          - { name: "Docker security", by: "Docker", url: "https://docs.docker.com/engine/security/", type: docs, cost: free }
+      - id: secrets-containers
+        title: "Secrets in containers"
+        text: "Do not bake secrets into images or pass them as plain environment variables. Use a secrets manager or the orchestrator's secret store."
+        res:
+          - { name: "Secrets Management Cheat Sheet", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html", type: docs, cost: free }
+    skills:
+      - "Build minimal, non-root, scanned container images."
+      - "Scan images in a pipeline and a registry."
+      - "Run containers with safe settings and no baked-in secrets."
+    labs:
+      - "Take a bloated image, slim it down, make it run as non-root, and cut its vulnerabilities with Trivy."
+      - "Add image scanning to a CI pipeline that fails on high-severity findings."
+    done:
+      - "Explain why containers are weaker isolation than VMs."
+      - "Ship an image that passes a vulnerability and configuration scan."
+
+  - level: intermediate
+    title: "Kubernetes cluster security"
+    months: "3–5"
+    topics:
+      - id: k8s-architecture
+        title: "Kubernetes attack surface"
+        text: "The API server, etcd, kubelet and controllers each need securing. Learn how the pieces fit and where attackers aim."
+        res:
+          - { name: "Kubernetes security", by: "Kubernetes", url: "https://kubernetes.io/docs/concepts/security/", type: docs, cost: free }
+      - id: rbac
+        title: "RBAC and service accounts"
+        text: "Give users and workloads only the permissions they need. Over-broad roles and default service account tokens are common footholds."
+        res:
+          - { name: "Kubernetes RBAC", by: "Kubernetes", url: "https://kubernetes.io/docs/reference/access-authn-authz/rbac/", type: docs, cost: free }
+      - id: pod-security
+        title: "Pod security standards"
+        text: "Enforce the baseline and restricted standards so pods cannot run privileged, mount the host or escalate. Apply them with the built-in admission controller."
+        res:
+          - { name: "Pod Security Standards", by: "Kubernetes", url: "https://kubernetes.io/docs/concepts/security/pod-security-standards/", type: docs, cost: free }
+      - id: network-policy
+        title: "Network policies"
+        text: "By default every pod can talk to every pod. Network policies restrict traffic to what is needed, limiting how far an attacker can move."
+        res:
+          - { name: "Network Policies", by: "Kubernetes", url: "https://kubernetes.io/docs/concepts/services-networking/network-policies/", type: docs, cost: free }
+      - id: cluster-benchmarks
+        title: "Cluster hardening"
+        text: "Harden the control plane and nodes against the CIS Kubernetes Benchmark, and scan your cluster to find gaps."
+        res:
+          - { name: "kube-bench", by: "Aqua Security", url: "https://github.com/aquasecurity/kube-bench", type: tool, cost: free }
+      - id: secrets-k8s
+        title: "Kubernetes secrets"
+        text: "Kubernetes secrets are only base64 by default. Encrypt them at rest, limit who can read them, and consider an external secrets manager."
+        res:
+          - { name: "Encrypting Secret Data at Rest", by: "Kubernetes", url: "https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/", type: docs, cost: free }
+    skills:
+      - "Design least-privilege RBAC."
+      - "Enforce pod security standards and network policies."
+      - "Harden a cluster against the CIS Benchmark."
+      - "Protect secrets in the cluster."
+    labs:
+      - "Run kube-bench on a local cluster (kind or minikube) and fix the findings."
+      - "Write network policies that isolate a sensitive workload and confirm the isolation."
+      - "Enforce the restricted pod security standard and watch it block a privileged pod."
+    done:
+      - "Show a cluster that blocks privileged pods and limits pod-to-pod traffic."
+      - "Explain how a compromised pod is contained by your settings."
+
+  - level: advanced
+    title: "Policy, runtime and the supply chain"
+    months: "4–6"
+    topics:
+      - id: admission-control
+        title: "Admission control and policy as code"
+        text: "Check every deployment against policy before it runs: block unsigned images, privileged pods or missing labels, with OPA Gatekeeper or Kyverno."
+        res:
+          - { name: "Kyverno", by: "CNCF", url: "https://kyverno.io/", type: tool, cost: free }
+          - { name: "OPA Gatekeeper", by: "Open Policy Agent", url: "https://open-policy-agent.github.io/gatekeeper/website/", type: tool, cost: free }
+      - id: runtime-security
+        title: "Runtime security"
+        text: "Detect attacks as they happen: a shell in a container, a new binary, an unexpected connection. Falco watches kernel events for this."
+        res:
+          - { name: "Falco", by: "CNCF", url: "https://falco.org/", type: tool, cost: free }
+      - id: image-signing
+        title: "Image signing and provenance"
+        text: "Sign images and verify signatures at admission, so only images your pipeline built can run. Cosign makes this practical."
+        res:
+          - { name: "Sigstore Cosign", by: "Sigstore", url: "https://docs.sigstore.dev/cosign/signing/signing_with_containers/", type: tool, cost: free }
+      - id: service-mesh
+        title: "Service mesh security"
+        text: "A service mesh can give automatic mutual TLS, identity and fine-grained traffic policy between services. Weigh the security gain against the complexity."
+        res:
+          - { name: "Istio security", by: "Istio", url: "https://istio.io/latest/docs/concepts/security/", type: docs, cost: free }
+      - id: runtime-isolation
+        title: "Stronger isolation"
+        text: "For untrusted or high-risk workloads, sandboxes such as gVisor or Kata Containers add a real boundary beyond normal containers."
+        res:
+          - { name: "gVisor", by: "Google", url: "https://gvisor.dev/", type: tool, cost: free }
+      - id: k8s-threat
+        title: "Kubernetes threats and detection"
+        text: "Map attacks to ATT&CK for Containers, and send audit logs and runtime events to the SOC for detection."
+        res:
+          - { name: "MITRE ATT&CK for Containers", by: "MITRE", url: "https://attack.mitre.org/matrices/enterprise/containers/", type: docs, cost: free }
+    skills:
+      - "Enforce policy as code at admission."
+      - "Detect attacks at run time with Falco."
+      - "Sign and verify images."
+      - "Add a service mesh or stronger isolation where it is justified."
+    labs:
+      - "Write Kyverno policies that block unsigned images and privileged pods, and test them."
+      - "Run Falco and trigger it by opening a shell in a running container."
+      - "Sign an image with Cosign and make the cluster reject unsigned ones."
+    done:
+      - "Show a cluster where only signed, policy-compliant images run."
+      - "Detect a simulated container breakout attempt at run time."
+
+  - level: expert
+    title: "Platform strategy and leadership"
+    months: "6–12"
+    topics:
+      - id: secure-platform
+        title: "Building a secure container platform"
+        text: "Give teams a paved road: hardened clusters, scanned registries, default policies, signing and runtime detection, so secure is the default."
+        res:
+          - { name: "Kubernetes security", by: "Kubernetes", url: "https://kubernetes.io/docs/concepts/security/", type: docs, cost: free }
+      - id: multi-tenancy
+        title: "Multi-tenancy"
+        text: "Running many teams on one cluster safely needs strong namespace isolation, quotas, policy and sometimes separate clusters. Know the trade-offs."
+        res:
+          - { name: "Kubernetes multi-tenancy", by: "Kubernetes", url: "https://kubernetes.io/docs/concepts/security/multi-tenancy/", type: docs, cost: free }
+      - id: container-metrics
+        title: "Measuring container security"
+        text: "Track image vulnerability trends, policy violations blocked, signing coverage and runtime alerts. Report what reduces risk."
+        res:
+          - { name: "CNCF Cloud Native Security Whitepaper", by: "CNCF", url: "https://github.com/cncf/tag-security/tree/main/community/resources/security-whitepaper", type: docs, cost: free }
+    skills:
+      - "Design a secure, multi-tenant container platform."
+      - "Report container security posture to leadership."
+    labs:
+      - "Write a secure-by-default platform standard for container teams."
+      - "Set up a demo paved-road cluster with scanning, policy, signing and Falco."
+    done:
+      - "Run a container platform where the secure path is the easy path."
+      - "Lead the rollout of policy as code or runtime security across teams."
+
+tools:
+  - { name: "Trivy", url: "https://trivy.dev/", kind: oss, what: "Scans images, clusters and IaC for vulnerabilities and misconfiguration." }
+  - { name: "kube-bench", url: "https://github.com/aquasecurity/kube-bench", kind: oss, what: "Checks clusters against the CIS Kubernetes Benchmark." }
+  - { name: "Falco", url: "https://falco.org/", kind: oss, what: "Runtime security and threat detection for containers." }
+  - { name: "Kyverno", url: "https://kyverno.io/", kind: oss, what: "Policy as code for Kubernetes." }
+  - { name: "OPA Gatekeeper", url: "https://open-policy-agent.github.io/gatekeeper/website/", kind: oss, what: "Admission control with Open Policy Agent." }
+  - { name: "Cosign", url: "https://docs.sigstore.dev/cosign/signing/signing_with_containers/", kind: oss, what: "Sign and verify container images." }
+  - { name: "Harbor", url: "https://goharbor.io/", kind: oss, what: "Secure container registry with scanning and signing." }
+  - { name: "kube-hunter", url: "https://github.com/aquasecurity/kube-hunter", kind: oss, what: "Finds weaknesses in Kubernetes clusters." }
+
+certs:
+  - { name: "Certified Kubernetes Security Specialist (CKS)", by: "The Linux Foundation", url: "https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/", level: advanced, note: "The standard Kubernetes security certification; needs CKA first." }
+  - { ref: cka, note: "Kubernetes administration, the prerequisite for CKS." }
+  - { ref: aws-sec, note: "Cloud security context for managed Kubernetes." }
+
+resources:
+  - { name: "Kubernetes security", by: "Kubernetes", url: "https://kubernetes.io/docs/concepts/security/", type: docs, cost: free }
+  - { name: "Docker security", by: "Docker", url: "https://docs.docker.com/engine/security/", type: docs, cost: free }
+  - { name: "CNCF Cloud Native Security Whitepaper", by: "CNCF", url: "https://github.com/cncf/tag-security/tree/main/community/resources/security-whitepaper", type: docs, cost: free }
+  - { name: "MITRE ATT&CK for Containers", by: "MITRE", url: "https://attack.mitre.org/matrices/enterprise/containers/", type: docs, cost: free }
+  - { name: "NIST SP 800-190 (Application Container Security Guide)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/190/final", type: docs, cost: free }
+  - { name: "Kubernetes Goat", by: "Madhu Akula", url: "https://madhuakula.com/kubernetes-goat/", type: practice, cost: free }
+
+frameworks: [nist-800-190, cis-benchmarks, attack, slsa, nist-csf]
+
+career:
+  - { title: "DevOps or platform engineer", years: "0–3 years" }
+  - { title: "Container security engineer", years: "3–6 years" }
+  - { title: "Cloud-native security architect", years: "6–9 years" }
+  - { title: "Head of platform security", years: "10+ years" }
+
+related:
+  - { to: cloud, why: "Most Kubernetes runs in the cloud." }
+  - { name: "DevSecOps and CI/CD Security", why: "Image security belongs in the pipeline." }
+  - { to: hardening, why: "The same hardening discipline, for containers." }
+  - { to: ai-supply, why: "AI workloads run on this same infrastructure." }

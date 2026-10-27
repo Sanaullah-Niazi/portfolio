@@ -1,0 +1,231 @@
+# Security roadmap: Infrastructure Hardening and Configuration. Shown at /roadmaps/security/hardening/.
+# Field guide: see the top of secops.yml.
+
+id: hardening
+category: infra
+icon: tools
+entry: intermediate
+title: "Infrastructure Hardening and Configuration"
+summary: "Set servers, hypervisors, virtual desktops and storage up securely, keep them that way, and spot drift and tampering."
+keywords: "infrastructure hardening secure configuration CIS benchmarks server hardening hypervisor VDI storage security configuration drift file integrity monitoring asset management baselines"
+
+overview:
+  - "Most breaches do not need a clever exploit; they need a server that was set up quickly and never locked down. Infrastructure hardening is the discipline of configuring servers, hypervisors, virtual desktops and storage securely from the start, and keeping them that way as they change."
+  - "The work mixes benchmarks and standards, automation to apply and enforce them, and monitoring to catch drift and tampering. It is quiet, high-value work: a well-hardened estate removes whole categories of attack before any detection is needed."
+why: "Misconfiguration is one of the most common root causes of breaches. Organisations need people who can turn benchmarks into a hardened, monitored reality across hundreds of systems."
+roles:
+  - { title: "System administrator", level: entry, what: "Builds and maintains servers to a secure standard." }
+  - { title: "Infrastructure security engineer", level: mid, what: "Creates and enforces hardened baselines across the estate." }
+  - { title: "Virtualisation security engineer", level: mid, what: "Secures hypervisors, virtual desktops and the management plane." }
+  - { title: "Senior infrastructure security engineer", level: senior, what: "Designs hardening and configuration management at scale." }
+  - { title: "Head of infrastructure security", level: lead, what: "Owns secure configuration strategy and standards." }
+
+prereqs:
+  - "Solid Windows and Linux server administration."
+  - "Networking and how services talk to each other."
+  - "Scripting (PowerShell, Bash) and ideally a configuration tool."
+  - "The Endpoint and Operating System Security roadmap helps."
+prereq_paths: [foundations, cybersecurity]
+
+stages:
+  - level: beginner
+    title: "Secure configuration foundations"
+    months: "2–3"
+    topics:
+      - id: why-hardening
+        title: "Why configuration matters"
+        text: "Default settings favour convenience over security. Learn how attackers use default accounts, open services and weak settings, and what hardening removes."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: benchmarks
+        title: "Benchmarks and standards"
+        text: "CIS Benchmarks, DISA STIGs and vendor guides give tested, specific settings for each system. Learn to read them and choose the right profile."
+        res:
+          - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+          - { name: "DISA STIGs", by: "US Department of Defense (DISA)", url: "https://public.cyber.mil/stigs/", type: docs, cost: free }
+      - id: server-hardening
+        title: "Server hardening"
+        text: "Minimal install, no unused services, least privilege, strong authentication, logging and a host firewall. The same ideas on Windows and Linux servers."
+        res:
+          - { name: "Lynis", by: "CISOfy", url: "https://cisofy.com/lynis/", type: tool, cost: free }
+      - id: service-hardening
+        title: "Hardening services"
+        text: "Web servers, databases and other services each have their own secure configuration: TLS, authentication, limits and safe defaults."
+        res:
+          - { name: "Mozilla SSL Configuration Generator", by: "Mozilla", url: "https://ssl-config.mozilla.org/", type: tool, cost: free }
+      - id: asset-management
+        title: "Asset and configuration management"
+        text: "You cannot harden what you do not track. Keep an accurate inventory and a record of how each system should be configured."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: logging-baseline
+        title: "Baseline logging"
+        text: "Decide what every system must log, where it goes and how long it is kept, so hardening can be checked and incidents investigated."
+        res:
+          - { name: "NIST SP 800-92 (Guide to Computer Security Log Management)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/92/final", type: docs, cost: free }
+    skills:
+      - "Harden a Windows and a Linux server against a benchmark."
+      - "Secure common services such as a web server and a database."
+      - "Keep an accurate asset and configuration inventory."
+    labs:
+      - "Harden a Linux server with Lynis and a Windows server against a CIS Benchmark, and record your scores."
+      - "Configure TLS on a web server to a modern standard and test it."
+    done:
+      - "Explain the main hardening steps for a server and a common service."
+      - "Show benchmark scores before and after hardening."
+
+  - level: intermediate
+    title: "Automation and virtualisation"
+    months: "3–5"
+    topics:
+      - id: config-as-code
+        title: "Configuration as code"
+        text: "Define hardened configuration in code and apply it automatically with Ansible, Puppet or DSC, so every system is built the same way."
+        res:
+          - { name: "Ansible documentation", by: "Red Hat", url: "https://docs.ansible.com/", type: docs, cost: free }
+      - id: hardened-images
+        title: "Hardened golden images"
+        text: "Build secure base images once and deploy from them, so new systems start hardened. Rebuild and re-scan them regularly."
+        res:
+          - { name: "OpenSCAP", by: "OpenSCAP project", url: "https://www.open-scap.org/", type: tool, cost: free }
+      - id: hypervisor-security
+        title: "Hypervisor and virtualisation security"
+        text: "The hypervisor controls every VM on it, and its management plane is a prime target. Harden it, isolate management, and patch it quickly."
+        res:
+          - { name: "VMware Security Advisories", by: "Broadcom", url: "https://www.broadcom.com/support/vmware-security-advisories", type: docs, cost: free }
+      - id: vdi-security
+        title: "Virtual desktop security"
+        text: "VDI concentrates many users on shared infrastructure. Harden the images, isolate sessions and control what leaves the virtual desktop."
+        res:
+          - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+      - id: storage-security
+        title: "Storage and backup security"
+        text: "File shares, object storage and backups hold the crown jewels. Control access, encrypt data and make backups immutable so ransomware cannot touch them."
+        res:
+          - { name: "NIST SP 800-209 (Security Guidelines for Storage Infrastructure)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/209/final", type: docs, cost: free }
+      - id: compliance-scanning
+        title: "Automated compliance scanning"
+        text: "Scan systems against benchmarks on a schedule with OpenSCAP or CIS-CAT, and report which systems drift from the standard."
+        res:
+          - { name: "OpenSCAP", by: "OpenSCAP project", url: "https://www.open-scap.org/", type: tool, cost: free }
+    skills:
+      - "Apply hardened configuration as code across many systems."
+      - "Build and maintain hardened golden images."
+      - "Secure hypervisors, VDI and storage."
+      - "Scan the estate for benchmark compliance automatically."
+    labs:
+      - "Write an Ansible playbook that hardens a Linux server to a benchmark and re-applies on drift."
+      - "Build a hardened image, scan it with OpenSCAP, and fix the findings."
+    done:
+      - "Show new systems built hardened from code, not by hand."
+      - "Produce a compliance report across several systems."
+
+  - level: advanced
+    title: "Drift, integrity and scale"
+    months: "4–6"
+    topics:
+      - id: drift-detection
+        title: "Configuration drift detection"
+        text: "Systems slowly diverge from the standard. Detect drift and either alert on it or automatically bring the system back."
+        res:
+          - { name: "Ansible documentation", by: "Red Hat", url: "https://docs.ansible.com/", type: docs, cost: free }
+      - id: fim
+        title: "File integrity monitoring"
+        text: "Watch critical files and configuration for unauthorised change, a strong signal of compromise or a mistake."
+        res:
+          - { name: "Wazuh file integrity monitoring", by: "Wazuh", url: "https://documentation.wazuh.com/current/user-manual/capabilities/file-integrity/index.html", type: docs, cost: free }
+      - id: secure-build-pipeline
+        title: "Secure build pipelines"
+        text: "Bake hardening and scanning into the pipeline that builds images and infrastructure, so security is automatic and tested."
+        res:
+          - { name: "Packer", by: "HashiCorp", url: "https://developer.hashicorp.com/packer", type: tool, cost: free }
+      - id: network-device-hardening
+        title: "Network device hardening"
+        text: "Routers, switches and firewalls need hardening too: management access, secure protocols, logging and configuration backups."
+        res:
+          - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+      - id: privileged-access
+        title: "Securing administrative access"
+        text: "Admin access to infrastructure is the real prize. Use jump hosts, just-in-time access and separate admin accounts and workstations."
+        res:
+          - { name: "Privileged access strategy", by: "Microsoft", url: "https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-strategy", type: docs, cost: free }
+      - id: measuring-hardening
+        title: "Measuring coverage"
+        text: "Track how much of the estate meets the standard, where drift happens most and how long it takes to fix. Numbers drive improvement."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+    skills:
+      - "Detect and remediate configuration drift automatically."
+      - "Monitor file integrity on critical systems."
+      - "Bake hardening into build pipelines."
+      - "Secure administrative access to infrastructure."
+    labs:
+      - "Set up file integrity monitoring and trigger it with a configuration change."
+      - "Build a Packer pipeline that produces a hardened, scanned image."
+    done:
+      - "Show drift detected and corrected automatically across an estate."
+      - "Demonstrate that admin access requires a separate account and path."
+
+  - level: expert
+    title: "Strategy and leadership"
+    months: "6–12"
+    topics:
+      - id: hardening-strategy
+        title: "Hardening strategy"
+        text: "Decide standards, exceptions and how security fits with uptime and change control across the whole estate."
+        res:
+          - { name: "NIST SP 800-123 (Guide to General Server Security)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/123/final", type: docs, cost: free }
+      - id: hardening-governance
+        title: "Standards and exceptions"
+        text: "Publish the standard, approve exceptions with end dates, and make the hardened path the easiest path for engineers."
+        res:
+          - { name: "CIS Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: resilience-hardening
+        title: "Hardening for resilience"
+        text: "Immutable backups, isolated recovery environments and tested restores make the estate survivable, not just hard to breach."
+        res:
+          - { name: "NIST SP 800-209 (Security Guidelines for Storage Infrastructure)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/209/final", type: docs, cost: free }
+    skills:
+      - "Set secure configuration strategy for an organisation."
+      - "Govern standards and exceptions."
+    labs:
+      - "Write a server hardening standard with profiles and an exception process."
+      - "Design an immutable backup and tested recovery scheme for a lab environment."
+    done:
+      - "Run a hardening programme with measured estate coverage."
+      - "Lead a major hardening or configuration-management rollout."
+
+tools:
+  - { name: "Ansible", url: "https://docs.ansible.com/", kind: oss, what: "Apply and enforce configuration as code." }
+  - { name: "OpenSCAP", url: "https://www.open-scap.org/", kind: oss, what: "Scan systems against security benchmarks." }
+  - { name: "Lynis", url: "https://cisofy.com/lynis/", kind: oss, what: "Security auditing and hardening for Linux." }
+  - { name: "CIS-CAT Lite", url: "https://www.cisecurity.org/cybersecurity-tools/cis-cat-lite", kind: free, what: "Checks systems against CIS Benchmarks." }
+  - { name: "Packer", url: "https://developer.hashicorp.com/packer", kind: oss, what: "Build hardened machine images." }
+  - { name: "Wazuh", url: "https://wazuh.com/", kind: oss, what: "File integrity monitoring and compliance." }
+
+certs:
+  - { ref: secplus, note: "A common baseline." }
+  - { ref: cka, note: "Infrastructure automation skills." }
+  - { name: "GIAC Certified UNIX Security Administrator (GCUX)", by: "GIAC", url: "https://www.giac.org/certifications/", level: mid, note: "Unix and Linux hardening (check current availability)." }
+
+resources:
+  - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+  - { name: "DISA STIGs", by: "US Department of Defense (DISA)", url: "https://public.cyber.mil/stigs/", type: docs, cost: free }
+  - { name: "NIST SP 800-123 (Guide to General Server Security)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/123/final", type: docs, cost: free }
+  - { name: "OpenSCAP", by: "OpenSCAP project", url: "https://www.open-scap.org/", type: tool, cost: free }
+  - { name: "Ansible documentation", by: "Red Hat", url: "https://docs.ansible.com/", type: docs, cost: free }
+  - { name: "ANSSI hardening guides", by: "ANSSI (France)", url: "https://cyber.gouv.fr/publications", type: docs, cost: free }
+
+frameworks: [cis-benchmarks, cis-controls, nist-csf, nist-800-53]
+
+career:
+  - { title: "System administrator", years: "0–3 years" }
+  - { title: "Infrastructure security engineer", years: "3–6 years" }
+  - { title: "Senior infrastructure security engineer", years: "6–9 years" }
+  - { title: "Head of infrastructure security", years: "10+ years" }
+
+related:
+  - { to: endpoint, why: "The same discipline for user devices." }
+  - { to: container, why: "Hardening for containers and Kubernetes." }
+  - { to: cloud, why: "Configuration security is most of cloud security." }
+  - { name: "Business Continuity and Cyber Resilience", why: "Immutable backups and recovery build on hardening." }
