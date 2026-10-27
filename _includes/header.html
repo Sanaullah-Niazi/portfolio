@@ -14,6 +14,8 @@
       <a href="{{ base }}#experience">{{ S.nav_experience }}</a>
       <a href="{{ base }}#skills">{{ S.nav_skills }}</a>
       <a href="{{ L }}/blog/">{{ S.nav_notes }}</a>
+      {%- assign tools_url = L | append: '/tools/' %}
+      <a href="{{ tools_url }}"{% if page.url == tools_url %} class="is-active" aria-current="page"{% endif %}>{{ S.nav_tools }}</a>
       <a class="nav-cta" href="{{ base }}#contact">{{ S.nav_contact }}</a>
     </nav>
     <div class="header-actions">

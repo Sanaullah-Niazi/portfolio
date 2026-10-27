@@ -46,7 +46,7 @@
     document.addEventListener("click", function (e) {
       if (nav.classList.contains("is-open") && !e.target.closest(".site-header")) setMenu(false);
     });
-    window.matchMedia("(min-width: 861px)").addEventListener("change", function () { setMenu(false); });
+    window.matchMedia("(min-width: 1101px)").addEventListener("change", function () { setMenu(false); });
   }
 
   // Header shadow, reading-progress bar and back-to-top button, updated once per frame at most.
