@@ -1,7 +1,7 @@
 # Updates the Security news page (/security-news/) once a day: collects new headlines with
 # scripts/security_news.py, commits them, and GitHub Pages publishes the site again.
-# It also writes a short AI daily brief with the free GitHub Models (no key needed; the
-# models: read permission below allows it). With an ANTHROPIC_API_KEY secret it uses Claude instead.
+# It also writes a short AI daily brief when the repository has a GEMINI_API_KEY secret (free,
+# from aistudio.google.com) or an ANTHROPIC_API_KEY secret (Claude, paid).
 # Run it by hand any time from the Actions tab ("Security news" > "Run workflow").
 name: Security news
 
@@ -13,7 +13,6 @@ on:
 permissions:
   contents: write
   pages: write
-  models: read
 
 concurrency:
   group: security-news
@@ -25,6 +24,7 @@ jobs:
     timeout-minutes: 15
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
@@ -37,8 +37,6 @@ jobs:
         run: pip install --quiet "anthropic>=0.80"
 
       - name: Collect the news and write the brief
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
         run: python3 scripts/security_news.py
 
       - name: Commit the update

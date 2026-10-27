@@ -6,8 +6,8 @@ Run once a day by .github/workflows/security-news.yml. It:
      excerpt of each story (never the full article) in _data/security_news.json;
   2. adds the newest entries of CISA's Known Exploited Vulnerabilities catalog;
   3. asks an AI model to write a short daily brief in its own words from today's headlines,
-     saved in _briefs/ with links to every source it used. By default it uses the free
-     GitHub Models with the workflow's GITHUB_TOKEN; if an ANTHROPIC_API_KEY is set, Claude.
+     saved in _briefs/ with links to every source it used. It uses Google's Gemini (free
+     tier) when a GEMINI_API_KEY is set, or Claude when an ANTHROPIC_API_KEY is set.
 
 Only the Python standard library is needed, except for Claude (`pip install anthropic`).
 Usage: python3 scripts/security_news.py [--no-brief] [--feed-dir DIR]
@@ -55,9 +55,8 @@ KEV_MAX = 12
 BRIEF_HOURS = 36        # the brief covers stories published in this window
 BRIEF_MAX_STORIES = 30
 BRIEF_MODEL = os.environ.get("NEWS_MODEL", "claude-opus-5-5")  # used when an ANTHROPIC_API_KEY is set
-# Free models on GitHub Models, used otherwise. The first one that answers writes the brief.
-GITHUB_MODELS = os.environ.get("GITHUB_MODELS", "openai/gpt-4.1-mini,openai/gpt-4o-mini,meta/Llama-4-Scout-17B-16E-Instruct").split(",")
-GITHUB_MODELS_URL = "https://models.github.ai/inference/chat/completions"
+# Google's Gemini API (OpenAI-compatible endpoint), used when a GEMINI_API_KEY is set: it has a free tier.
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
 # Topic tags, used by the filter buttons on the page. A story gets every tag whose pattern matches its
 # headline or excerpt. The ids must match sn_topic_<id> in _data/strings.yml (and its translations).
@@ -355,24 +354,41 @@ def ask_claude(prompt):
     return json.loads("".join(b.text for b in resp.content if b.type == "text"))
 
 
-def ask_github_models(prompt):
-    """The brief from GitHub Models (free, uses the workflow's own GITHUB_TOKEN; no key to set up).
-    Tries each model in GITHUB_MODELS in turn, so a retired or busy model doesn't stop the brief."""
-    token = os.environ["GITHUB_TOKEN"]
+def gemini_models(key):
+    """Free Gemini models to try, newest Flash first. The list is read from the API, so a new or
+    retired model needs no change here; GEMINI_MODELS overrides it."""
+    if os.environ.get("GEMINI_MODELS"):
+        return os.environ["GEMINI_MODELS"].split(",")
+    found = []
+    try:
+        req = urllib.request.Request(GEMINI_URL + "models", headers={"Authorization": "Bearer " + key})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            ids = [m.get("id", "").removeprefix("models/") for m in json.loads(r.read()).get("data", [])]
+        skip = re.compile(r"lite|image|tts|audio|live|embed|vision|exp|preview|thinking", re.I)
+        flash = [i for i in ids if "flash" in i and i.startswith("gemini-") and not skip.search(i)]
+        version = lambda i: [int(n) for n in re.findall(r"\d+", i.split("-")[1])] if len(i.split("-")) > 1 else [0]
+        found = sorted(flash, key=version, reverse=True)
+    except Exception as e:
+        log(f"Gemini model list: skipped ({e.__class__.__name__}: {e})")
+    return list(dict.fromkeys(found[:3] + ["gemini-2.5-flash"]))
+
+
+def ask_gemini(prompt):
+    """The brief from Google's Gemini API (free tier, needs a GEMINI_API_KEY secret from aistudio.google.com).
+    Tries a few models in turn, so a retired or busy model doesn't stop the brief."""
+    key = os.environ["GEMINI_API_KEY"]
     system = BRIEF_SYSTEM + "\n\nAnswer with one JSON object only, shaped like this JSON Schema:\n" + json.dumps(BRIEF_SCHEMA)
-    for model in GITHUB_MODELS:
+    for model in gemini_models(key):
         body = json.dumps({
             "model": model,
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": prompt}],
             "response_format": {"type": "json_object"},
-            "max_tokens": 3000,
         }).encode()
-        req = urllib.request.Request(GITHUB_MODELS_URL, data=body, method="POST", headers={
-            "Authorization": "Bearer " + token, "Accept": "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28", "Content-Type": "application/json"})
+        req = urllib.request.Request(GEMINI_URL + "chat/completions", data=body, method="POST", headers={
+            "Authorization": "Bearer " + key, "Content-Type": "application/json"})
         raw = b""
         try:
-            with urllib.request.urlopen(req, timeout=120) as r:
+            with urllib.request.urlopen(req, timeout=180) as r:
                 raw = r.read()
             content = json.loads(raw)["choices"][0]["message"]["content"] or ""
             # Some models wrap the JSON in a ```json fence or add a sentence around it.
@@ -408,7 +424,7 @@ def write_brief(items, now):
     if os.environ.get("ANTHROPIC_API_KEY"):
         brief, model = ask_claude(prompt), BRIEF_MODEL
     else:
-        brief, model = ask_github_models(prompt)
+        brief, model = ask_gemini(prompt)
     if not brief:
         return False
 
@@ -482,7 +498,7 @@ def main():
     DATA_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     log(f"Saved {len(items)} headlines and {len(data['kev'])} exploited vulnerabilities.")
 
-    if not args.no_brief and (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("GITHUB_TOKEN")):
+    if not args.no_brief and (os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("GEMINI_API_KEY")):
         try:
             write_brief(items, now)
         except Exception as e:  # the headlines still go live if the brief fails
