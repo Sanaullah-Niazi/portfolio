@@ -222,28 +222,29 @@
     return { text: text.trim(), link: link };
   }
 
-  function issueCard(issue, idx) {
-    var title, what, fix, link = null;
+  // Title, meaning and fix of an issue in the visitor's language (also used by the PDF).
+  function issueText(issue) {
     if (issue.code === "lh") {
       var d = lhParts(issue.p.description);
-      title = issue.p.title + (issue.p.savings ? " (−" + num(+issue.p.savings, 1) + " s)" : issue.p.display ? " (" + issue.p.display + ")" : "");
-      what = d.text;
-      fix = tr("w_lh_fix");
-      link = d.link;
-    } else {
-      var p = issue.p;
-      if (p.device) { p = Object.assign({}, p); p.device = tr("w_" + p.device); }
-      title = tr("wi_" + issue.code, p);
-      what = tr("wi_" + issue.code + "_w", p);
-      fix = tr("wi_" + issue.code + "_f", p);
+      return {
+        title: issue.p.title + (issue.p.savings ? " (−" + num(+issue.p.savings, 1) + " s)" : issue.p.display ? " (" + issue.p.display + ")" : ""),
+        what: d.text, fix: tr("w_lh_fix"), link: d.link,
+      };
     }
+    var p = issue.p;
+    if (p.device) { p = Object.assign({}, p); p.device = tr("w_" + p.device); }
+    return { title: tr("wi_" + issue.code, p), what: tr("wi_" + issue.code + "_w", p), fix: tr("wi_" + issue.code + "_f", p), link: null };
+  }
+
+  function issueCard(issue, idx) {
+    var t = issueText(issue);
     return h("li", { class: "web-issue sev-" + issue.sev },
       h("div", { class: "web-issue-head" },
         idx != null ? h("span", { class: "web-issue-n" }, num(idx + 1)) : null,
         h("span", { class: "web-sev sev-" + issue.sev }, tr("sev_" + issue.sev)),
-        h("h4", null, title)),
-      what ? h("p", null, h("strong", null, tr("w_what") + ": "), what) : null,
-      h("p", null, h("strong", null, tr("w_fix") + ": "), fix, link ? " " : null, link ? h("a", { href: link, rel: "noopener noreferrer", target: "_blank" }, tr("w_learn")) : null));
+        h("h4", null, t.title)),
+      t.what ? h("p", null, h("strong", null, tr("w_what") + ": "), t.what) : null,
+      h("p", null, h("strong", null, tr("w_fix") + ": "), t.fix, t.link ? " " : null, t.link ? h("a", { href: t.link, rel: "noopener noreferrer", target: "_blank" }, tr("w_learn")) : null));
   }
 
   function facts(rows) {
@@ -404,7 +405,7 @@
       else prompt("", shareUrl);
     });
     var pdfBtn = h("button", { class: "btn btn-primary btn-sm", type: "button" }, h("span", null, tr("w_pdf")));
-    pdfBtn.addEventListener("click", function () { window.print(); });
+    pdfBtn.addEventListener("click", function () { downloadPdf(d, pdfBtn); });
     var freshBtn = h("button", { class: "btn btn-sm", type: "button" }, h("span", null, tr("w_fresh")));
     freshBtn.addEventListener("click", function () {
       input.value = d.url;
@@ -460,6 +461,40 @@
     out.appendChild(foot);
     out.hidden = false;
     document.body.classList.add("has-web-report");
+  }
+
+  // ---------- PDF ----------
+  // The PDF is its own designed document (health-report-pdf.js), drawn page by page into a real PDF file.
+  // That file and its two libraries load only when someone asks for a PDF.
+  var JS_DIR = (document.currentScript && document.currentScript.src || "/assets/js/").replace(/[^/]*$/, "");
+  var PDF_LIBS = [JS_DIR + "../lib/jspdf-4.2.1.min.js", JS_DIR + "../lib/html2canvas-pro-2.5.2.min.js", JS_DIR + "health-report-pdf.js"];
+  var pdfLoading = null;
+  function loadScript(src) {
+    return new Promise(function (ok, fail) {
+      var s = h("script", { src: src });
+      s.onload = ok; s.onerror = function () { fail(new Error("load " + src)); };
+      document.head.appendChild(s);
+    });
+  }
+  function downloadPdf(d, btn) {
+    if (btn.disabled) return;
+    var label = btn.querySelector("span");
+    btn.disabled = true;
+    label.textContent = tr("w_pdf_making");
+    if (!pdfLoading) pdfLoading = PDF_LIBS.reduce(function (p, src) { return p.then(function () { return loadScript(src); }); }, Promise.resolve());
+    pdfLoading.then(function () {
+      return window.webReportPdf(d, {
+        tr: tr, h: h, num: num, ltr: ltr, fmtDate: fmtDate, rtl: rtl, lang: lang, CATS: CATS, FACTS: FACTS,
+        issueText: issueText, ring: ring, scoreClass: scoreClass,
+        shareUrl: location.origin + location.pathname + "?r=" + encodeURIComponent(d.id),
+        brand: document.title.split(" | ").pop(),
+        passive: document.querySelector("#web .tool-note") ? document.querySelector("#web .tool-note").textContent : "",
+      });
+    }).catch(function (e) {
+      pdfLoading = null;
+      if (window.console) console.error(e);
+      alert(tr("w_pdf_fail"));
+    }).then(function () { btn.disabled = false; label.textContent = tr("w_pdf"); });
   }
 
   // ---------- Start ----------

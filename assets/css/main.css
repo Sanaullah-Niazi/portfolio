@@ -1142,3 +1142,89 @@ pre.code { margin: 0; padding: 14px 16px; border-radius: 10px; background: #0b12
   body.has-web-report a { color: inherit; }
   .web-ring, .web-bar i, .web-grade, .web-sev { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* The downloadable PDF (assets/js/health-report-pdf.js): A4 pages drawn off screen, always in light colours. */
+.wpdf { position: absolute; top: 0; left: -10000px; width: 794px;
+  --bg: #f5f7fa; --surface: #ffffff; --ink: #0f1b2d; --muted: #536175; --line: #dbe2ea; --accent: #0b5f6b; --accent-soft: #e2f0f1;
+  color: var(--ink); font-family: var(--sans); }
+.wpdf-page { width: 794px; height: 1123px; box-sizing: border-box; padding: 40px 56px 32px; background: #fff; display: flex; flex-direction: column; overflow: hidden; }
+.wpdf-head, .wpdf-foot { display: flex; justify-content: space-between; gap: 16px; font-size: 11.5px; color: var(--muted); }
+.wpdf-head { padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.wpdf-foot { padding-top: 10px; border-top: 1px solid var(--line); margin-top: 16px; }
+.wpdf-body { flex: 1 1 auto; min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 14px; }
+.wpdf h2 { font: 600 28px/1.25 var(--display); color: var(--ink); margin: 0 0 4px; }
+.wpdf h3 { font: 600 18px/1.3 var(--display); color: var(--ink); margin: 8px 0 10px; }
+.wpdf p { margin: 0; }
+.wpdf-lead { font-size: 15.5px; line-height: 1.65; }
+.wpdf-note { font-size: 13px; color: var(--muted); }
+.wpdf-good { color: #15803d; font-weight: 500; }
+.wpdf-label { font: 500 11.5px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+/* Cover */
+.wpdf-cover { padding: 0; }
+.wpdf-cover .wpdf-body { gap: 30px; }
+.wpdf-cover-band { background: #0f1b2d; color: #fff; padding: 56px 56px 44px; display: grid; gap: 10px; }
+.wpdf-cover-band h1 { font: 600 36px/1.2 var(--display); margin: 10px 0 6px; color: #fff; }
+.wpdf-brand { font: 500 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: #8fd3db; }
+.wpdf-host { font: 600 24px/1.3 var(--display); color: #8fd3db; }
+.wpdf-url, .wpdf-date { font-size: 14px; color: #c9d4e0; overflow-wrap: anywhere; }
+.wpdf-cover-score { display: flex; align-items: center; gap: 36px; padding: 0 56px; }
+.wpdf-cover-score .web-ring-wrap { flex: 0 0 auto; }
+.wpdf-big { font: 600 40px/1.1 var(--display); }
+.wpdf-gradeline { font-size: 16px; color: var(--muted); margin-top: 6px; }
+.wpdf-tiles { list-style: none; margin: 0 56px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.wpdf-tiles li { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13.5px; color: var(--muted); }
+.wpdf-tiles b { font: 600 24px/1 var(--display); }
+.wpdf-cover .wpdf-body > div:last-of-type, .wpdf .wpdf-cover-note { margin: 0 56px; }
+.wpdf-counts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.wpdf-counts li { border-radius: 12px; padding: 12px 14px; display: grid; gap: 2px; background: #f5f7fa; border-top: 4px solid var(--muted); }
+.wpdf-counts b { font: 600 26px/1.1 var(--display); }
+.wpdf-counts span { font-size: 13px; color: var(--muted); }
+.wpdf-counts .sev-critical { border-top-color: #991b1b; } .wpdf-counts .sev-high { border-top-color: #dc2626; }
+.wpdf-counts .sev-medium { border-top-color: #ea580c; } .wpdf-counts .sev-low { border-top-color: #ca8a04; }
+.wpdf .wpdf-cover-note { margin-top: auto; margin-bottom: 40px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+/* Summary */
+.wpdf-scores { width: 100%; border-collapse: collapse; font-size: 14px; }
+.wpdf-scores th, .wpdf-scores td { padding: 9px 0; border-top: 1px solid var(--line); text-align: start; }
+.wpdf-scores th { font-weight: 400; width: 42%; }
+.wpdf-bar span { display: block; height: 8px; border-radius: 99px; background: #eef2f6; margin-inline-end: 16px; overflow: hidden; }
+.wpdf-bar i { display: block; height: 100%; border-radius: 99px; background: var(--muted); }
+.wpdf-score { width: 48px; text-align: end !important; font: 600 16px/1 var(--display); }
+.wpdf-top { display: flex; gap: 14px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 13.5px; line-height: 1.55; }
+.wpdf-top-n { font: 600 22px/1.1 var(--display); color: var(--accent); min-width: 20px; }
+.wpdf-top > div { display: grid; gap: 4px; }
+.wpdf-top-title { font-weight: 600; font-size: 14.5px; }
+/* Findings */
+.wpdf-sev-h { padding-bottom: 4px; }
+.wpdf-issue { border: 1px solid var(--line); border-inline-start: 4px solid var(--muted); border-radius: 10px; padding: 12px 16px; display: grid; gap: 5px; font-size: 13.5px; line-height: 1.55; }
+.wpdf-issue.sev-critical { border-inline-start-color: #991b1b; } .wpdf-issue.sev-high { border-inline-start-color: #dc2626; }
+.wpdf-issue.sev-medium { border-inline-start-color: #ea580c; } .wpdf-issue.sev-low { border-inline-start-color: #ca8a04; }
+.wpdf-issue p { overflow-wrap: anywhere; }
+.wpdf-issue-meta { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+.wpdf-issue-title { font-weight: 600; font-size: 15px; }
+.wpdf-more { font-size: 12px; color: var(--muted); }
+.wpdf-link { color: var(--accent); }
+.wpdf .web-sev { font-size: 10.5px; padding: 4px 8px; }
+/* Details */
+.wpdf-cat-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 6px; }
+.wpdf-cat-h b { font: 600 18px/1 var(--display); }
+.wpdf .web-facts { margin: 0; font-size: 13px; }
+.wpdf .web-facts > div { grid-template-columns: 190px minmax(0, 1fr); padding: 7px 0; }
+.wpdf-cat-more { margin-top: -14px; }
+/* Screenshots */
+.wpdf-shots { display: flex; gap: 18px; align-items: flex-start; }
+.wpdf-shots figure { margin: 0; display: grid; gap: 6px; }
+.wpdf-shot-d { flex: 3 1 0; min-width: 0; } .wpdf-shot-m { flex: 1 1 0; min-width: 0; }
+.wpdf-shots img { width: 100%; height: auto; max-height: 820px; object-fit: cover; object-position: top; border: 1px solid var(--line); border-radius: 8px; }
+.wpdf-shots figcaption { font-size: 12px; color: var(--muted); text-align: center; }
+.wpdf-about { display: grid; gap: 10px; font-size: 13.5px; line-height: 1.65; color: var(--muted); }
+.wpdf-about h2 { margin-top: 10px; }
+/* :not(#_) lifts these above the dark-theme colour rules, so the PDF stays light in dark mode too. */
+:root:not(#_) .wpdf .g-a { color: #15803d; } :root:not(#_) .wpdf .g-b { color: #4d7c0f; } :root:not(#_) .wpdf .g-c { color: #c2410c; }
+:root:not(#_) .wpdf .web-sev.sev-high { background: #fde2dd; color: #9f1d0f; } :root:not(#_) .wpdf .web-sev.sev-medium { background: #ffedd5; color: #9a3412; }
+:root:not(#_) .wpdf .web-sev.sev-low { background: #fff3d6; color: #7a5300; }
+:root:not(#_) .wpdf .g-f { color: #b91c1c; } :root:not(#_) .wpdf .g-na { color: var(--muted); } :root:not(#_) .wpdf .web-grade { color: #fff; }
+.wpdf-bar i.g-a { background: #16a34a; } .wpdf-bar i.g-b { background: #65a30d; } .wpdf-bar i.g-c { background: #ea580c; } .wpdf-bar i.g-f { background: #dc2626; }
+/* Nastaliq needs taller lines, and letter-spacing splits its joined letters apart. */
+html[lang="ur"] .wpdf :is(.wpdf-issue, .wpdf-top, .wpdf-about, .wpdf-lead, .wpdf-cover-note, .web-facts) { line-height: 2; }
+html[lang="ur"] .wpdf, html[lang="ur"] .wpdf * { letter-spacing: 0 !important; }
+.wpdf .web-cwv { font-size: 13px; } .wpdf .web-cwv th[scope="row"] { width: 52%; }
