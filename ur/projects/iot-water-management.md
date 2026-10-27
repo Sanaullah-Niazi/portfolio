@@ -6,6 +6,7 @@ ref: iot-water-management
 permalink: /ur/projects/iot-water-management/
 title: "اسمارٹ عمارتوں کے لیے IoT پر مبنی پانی کا انتظام"
 summary: "میرا بی ایس کا آخری سال کا منصوبہ، “IoT-based Pure Aqua Utilization in Smart Edifice”۔ Arduino سینسرز اور پمپ کا خودکار کنٹرول، ساتھ ایک Android ایپ جو ٹینک کی سطح، پانی کا معیار اور بل دکھاتی ہے۔"
+description: "میرا بی ایس کا آخری سال کا منصوبہ، “IoT-based Pure Aqua Utilization in Smart Edifice”۔ Arduino سینسرز اور پمپ کا خودکار کنٹرول، ساتھ ایک Android ایپ جو ٹینک کی سطح، پانی کا معیار اور بل دکھاتی ہے۔"
 ---
 
 ## مسئلہ

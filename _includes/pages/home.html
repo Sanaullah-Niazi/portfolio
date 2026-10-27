@@ -297,3 +297,7 @@
     </div>
   </div>
 </section>
+{%- comment -%} Tells search engines who this site is about (Person schema). The profile links come from social.links in _config.yml. {%- endcomment %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","@id":{{ '/#person' | absolute_url | jsonify }},"name":{{ me.name | jsonify }},"alternateName":"Sanaullah Khan Niazi","url":{{ '/' | absolute_url | jsonify }},"image":{{ site.defaults[0].values.image.path | absolute_url | jsonify }},"jobTitle":"AI cybersecurity researcher","description":{{ site.description | strip | jsonify }},"knowsAbout":["Artificial intelligence","Machine learning","Natural language processing","Cybersecurity","Phishing detection","Scam and fraud detection","AI-generated text detection"],"homeLocation":{"@type":"Country","name":{{ me.location | jsonify }}},"sameAs":{{ site.social.links | jsonify }}}
+</script>

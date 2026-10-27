@@ -6,6 +6,7 @@ ref: ai-text-detector
 permalink: /zh/projects/ai-text-detector/
 title: "区分 AI 生成文本与人类写作"
 summary: 我的硕士论文项目。用深度学习模型区分 AI 生成的文本和人类写的文本，在一个约含 50 万个样本的平衡数据集上训练和比较。
+description: "我的硕士论文项目。用深度学习模型区分 AI 生成的文本和人类写的文本，在一个约含 50 万个样本的平衡数据集上训练和比较。"
 ---
 
 ## 问题

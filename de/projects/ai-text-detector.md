@@ -6,6 +6,7 @@ ref: ai-text-detector
 permalink: /de/projects/ai-text-detector/
 title: "KI-generierte Texte von menschlichem Schreiben unterscheiden"
 summary: Mein Masterarbeitsprojekt. Deep-Learning-Modelle, die KI-generierte von menschlich verfassten Texten unterscheiden, trainiert und verglichen auf einem ausgewogenen Datensatz mit etwa 500.000 Beispielen.
+description: "Mein Masterarbeitsprojekt. Deep-Learning-Modelle, die KI-generierte von menschlich verfassten Texten unterscheiden, trainiert und verglichen auf einem ausgewogenen Datensatz mit etwa 500.000 Beispielen."
 ---
 
 ## Problem

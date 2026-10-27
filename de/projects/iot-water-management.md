@@ -6,6 +6,7 @@ ref: iot-water-management
 permalink: /de/projects/iot-water-management/
 title: "IoT-Wassermanagement für intelligente Gebäude"
 summary: Mein Bachelor-Abschlussprojekt „IoT-based Pure Aqua Utilization in Smart Edifice“. Arduino-Sensoren und automatische Pumpensteuerung, dazu eine Android-App für Füllstand, Wasserqualität und Abrechnung.
+description: "Mein Bachelor-Abschlussprojekt „IoT-based Pure Aqua Utilization in Smart Edifice“. Arduino-Sensoren und automatische Pumpensteuerung, dazu eine Android-App für Füllstand, Wasserqualität und Abrechnung."
 ---
 
 ## Problem
