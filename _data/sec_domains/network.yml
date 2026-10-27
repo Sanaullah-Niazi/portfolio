@@ -32,7 +32,54 @@ stages:
   - level: beginner
     title: "How networks work, and how to see the traffic"
     months: "3–4"
-    topics: ["TCP/IP and subnetting", "Switching and VLANs", "Routing basics", "DNS and DHCP", "Packet capture", "Common ports and services", "Basic firewall rules", "Network scanning"]
+    topics:
+      - id: tcp-ip
+        title: "TCP/IP and subnetting"
+        text: "Everything in network security builds on how IP addressing, TCP and UDP work. Learn the layers, the TCP handshake, and how to split an address range into subnets by hand."
+        res:
+          - { name: "Computer Networks: A Systems Approach", by: "Larry Peterson and Bruce Davie", url: "https://book.systemsapproach.org/", type: book, cost: free }
+          - { name: "Network+ video course", by: "Professor Messer", url: "https://www.professormesser.com/", type: video, cost: free }
+      - id: switching-vlans
+        title: "Switching and VLANs"
+        text: "Switches connect devices inside a network, and VLANs split one physical network into separate ones. VLANs are the first tool for keeping guests, staff and servers apart."
+        res:
+          - { name: "Cisco Networking Academy courses", by: "Cisco", url: "https://www.netacad.com/", type: course, cost: free }
+          - { name: "Cisco Packet Tracer", by: "Cisco", url: "https://www.netacad.com/cisco-packet-tracer", type: practice, cost: free }
+      - id: routing
+        title: "Routing basics"
+        text: "Routers move traffic between networks using routing tables and protocols such as OSPF and BGP. Understand how a packet finds its way, and why a wrong route can be a security problem."
+        res:
+          - { name: "Computer Networks: A Systems Approach", by: "Larry Peterson and Bruce Davie", url: "https://book.systemsapproach.org/", type: book, cost: free }
+          - { name: "GNS3", by: "GNS3", url: "https://www.gns3.com/", type: practice, cost: free }
+      - id: dns-dhcp
+        title: "DNS and DHCP"
+        text: "DHCP hands out addresses and DNS turns names into addresses. Both are abused by attackers, for spoofing, tunnelling and command-and-control, so know what normal looks like."
+        res:
+          - { name: "Computer Networks: A Systems Approach", by: "Larry Peterson and Bruce Davie", url: "https://book.systemsapproach.org/", type: book, cost: free }
+      - id: packet-capture
+        title: "Packet capture"
+        text: "Capturing traffic lets you see exactly what crossed the wire. Learn Wireshark display filters, following streams, and capturing on the command line with tcpdump."
+        res:
+          - { name: "Wireshark documentation", by: "Wireshark Foundation", url: "https://www.wireshark.org/docs/", type: docs, cost: free }
+          - { name: "tcpdump", by: "The Tcpdump Group", url: "https://www.tcpdump.org/", type: docs, cost: free }
+          - { name: "Practical Packet Analysis, 3rd edition", by: "Chris Sanders (No Starch Press)", url: "https://nostarch.com/packetanalysis3", type: book, cost: paid }
+      - id: ports-services
+        title: "Common ports and services"
+        text: "Know the usual ports for SSH, RDP, SMB, HTTP, DNS and mail, what each service does, and which ones should never face the internet."
+        res:
+          - { name: "Nmap Network Scanning (online book)", by: "Gordon Lyon", url: "https://nmap.org/book/", type: book, cost: free }
+      - id: firewall-rules
+        title: "Basic firewall rules"
+        text: "Firewall rules decide which traffic is allowed. Learn default deny, rule order, and how to write rules that allow only what a service really needs."
+        res:
+          - { name: "OPNsense documentation", by: "Deciso", url: "https://docs.opnsense.org/", type: docs, cost: free }
+          - { name: "pfSense CE", by: "Netgate", url: "https://www.pfsense.org/", type: practice, cost: free }
+      - id: scanning
+        title: "Network scanning"
+        text: "Scanning finds which hosts are up and which services they run. Defenders scan their own networks to find what they did not know about. Scan only networks you own or may test."
+        res:
+          - { name: "Nmap", by: "Gordon Lyon", url: "https://nmap.org/", type: practice, cost: free }
+          - { name: "Nmap Network Scanning (online book)", by: "Gordon Lyon", url: "https://nmap.org/book/", type: book, cost: free }
     skills:
       - "Subnet a network and plan addresses for a small office."
       - "Capture traffic with Wireshark or tcpdump and follow a TCP conversation."
@@ -50,7 +97,51 @@ stages:
   - level: intermediate
     title: "Firewalls, segmentation, VPNs and detection"
     months: "4–6"
-    topics: ["Stateful firewalls", "Network segmentation and DMZs", "VPNs (IPsec, WireGuard, TLS)", "IDS and IPS", "Network security monitoring", "Wireless security (WPA3, 802.1X)", "Proxy and DNS filtering", "Common network attacks (ARP spoofing, DNS poisoning)"]
+    topics:
+      - id: stateful-firewalls
+        title: "Stateful firewalls"
+        text: "A stateful firewall tracks connections, so replies are allowed back in without opening the door to everything. Learn NAT, zones and logging on a real open-source firewall."
+        res:
+          - { name: "OPNsense documentation", by: "Deciso", url: "https://docs.opnsense.org/", type: docs, cost: free }
+      - id: segmentation
+        title: "Network segmentation and DMZs"
+        text: "Segmentation splits a network into zones so one compromised machine cannot reach everything. Public-facing servers go in a DMZ, away from internal systems."
+        res:
+          - { name: "CIS Critical Security Controls", by: "Center for Internet Security", url: "https://www.cisecurity.org/controls", type: docs, cost: free }
+      - id: vpns
+        title: "VPNs"
+        text: "VPNs encrypt traffic between sites or between a remote user and the office. Learn how IPsec, WireGuard and TLS VPNs differ, and why VPN gateways are a favourite target."
+        res:
+          - { name: "WireGuard", by: "Jason A. Donenfeld", url: "https://www.wireguard.com/", type: docs, cost: free }
+          - { name: "CISA Known Exploited Vulnerabilities catalog", by: "CISA", url: "https://www.cisa.gov/known-exploited-vulnerabilities-catalog", type: docs, cost: free }
+      - id: ids-ips
+        title: "IDS and IPS"
+        text: "Intrusion detection systems alert on suspicious traffic; prevention systems also block it. Learn how signatures work, how to tune them, and how to avoid blocking real users."
+        res:
+          - { name: "Suricata documentation", by: "OISF", url: "https://docs.suricata.io/", type: docs, cost: free }
+          - { name: "Snort", by: "Cisco", url: "https://www.snort.org/", type: docs, cost: free }
+      - id: net-nsm
+        title: "Network security monitoring"
+        text: "Monitoring means collecting connection logs, alerts and some full packets, then using them to spot and investigate attacks. Zeek is the standard open-source tool for the logs."
+        res:
+          - { name: "Zeek documentation", by: "Zeek Project", url: "https://docs.zeek.org/", type: docs, cost: free }
+          - { name: "The Practice of Network Security Monitoring", by: "Richard Bejtlich (No Starch Press)", url: "https://nostarch.com/nsm", type: book, cost: paid }
+      - id: wireless
+        title: "Wireless security"
+        optional: true
+        text: "Wi-Fi needs strong encryption (WPA3) and, in companies, per-user sign-in with 802.1X. Learn the common wireless attacks and how to stop rogue access points."
+        res:
+          - { name: "Wi-Fi security", by: "Wi-Fi Alliance", url: "https://www.wi-fi.org/discover-wi-fi/security", type: docs, cost: free }
+      - id: dns-filtering
+        title: "Proxy and DNS filtering"
+        text: "Web proxies and DNS filtering block known-bad sites and log where users go. Know their limits: encrypted DNS and direct IP connections can get around them."
+        res:
+          - { name: "Protective DNS", by: "CISA", url: "https://www.cisa.gov/resources-tools/services/protective-domain-name-system-resolver", type: docs, cost: free }
+      - id: net-attacks
+        title: "Common network attacks"
+        text: "ARP spoofing, DNS poisoning, rogue DHCP and man-in-the-middle attacks all abuse trust inside a network. Try them in your own lab and learn the switch features that stop them."
+        res:
+          - { name: "MITRE ATT&CK: Adversary-in-the-Middle", by: "MITRE", url: "https://attack.mitre.org/techniques/T1557/", type: docs, cost: free }
     skills:
       - "Design and configure a segmented network with a firewall between zones."
       - "Set up a site-to-site and a remote-access VPN."
@@ -68,7 +159,52 @@ stages:
   - level: advanced
     title: "Secure architecture and zero trust"
     months: "6–9"
-    topics: ["Zero trust architecture", "Network access control (802.1X, NAC)", "Microsegmentation", "Secure web gateways and SASE", "Cloud networking (VPCs, security groups)", "Network automation", "DDoS protection", "Encrypted traffic analysis"]
+    topics:
+      - id: zero-trust
+        title: "Zero trust architecture"
+        text: "Zero trust drops the idea of a trusted internal network. Every request is checked for identity, device health and context, wherever it comes from."
+        res:
+          - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
+          - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+      - id: nac
+        title: "Network access control"
+        text: "802.1X and NAC check a device and its user before it joins the network, and can put unknown devices in a quarantine VLAN."
+        res:
+          - { name: "FreeRADIUS documentation", by: "FreeRADIUS", url: "https://www.freeradius.org/documentation/", type: docs, cost: free }
+      - id: microsegmentation
+        title: "Microsegmentation"
+        text: "Microsegmentation applies rules to individual workloads instead of whole subnets, so even two servers in the same zone only talk if they need to."
+        res:
+          - { name: "Zero Trust Architecture (SP 800-207)", by: "NIST", url: "https://csrc.nist.gov/pubs/sp/800/207/final", type: docs, cost: free }
+      - id: sase
+        title: "Secure web gateways and SASE"
+        optional: true
+        text: "SASE moves firewalling, web filtering and secure access into a cloud service close to users. Know what it replaces and where it fits next to existing networks."
+        res:
+          - { name: "Zero Trust Maturity Model", by: "CISA", url: "https://www.cisa.gov/zero-trust-maturity-model", type: docs, cost: free }
+      - id: cloud-networking
+        title: "Cloud networking"
+        text: "Cloud networks use VPCs, subnets, security groups and route tables. The ideas are familiar, but mistakes such as an open security group are made in seconds and at scale."
+        res:
+          - { name: "Amazon VPC user guide", by: "Amazon Web Services", url: "https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html", type: docs, cost: free }
+          - { name: "Azure network security groups", by: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview", type: docs, cost: free }
+      - id: net-automation
+        title: "Network automation"
+        text: "Writing network configuration as code, reviewed and versioned in Git, stops drift and mistakes. Ansible is the usual starting point."
+        res:
+          - { name: "Ansible documentation", by: "Red Hat", url: "https://docs.ansible.com/", type: docs, cost: free }
+      - id: ddos
+        title: "DDoS protection"
+        optional: true
+        text: "Distributed denial-of-service attacks flood a service until it falls over. Learn the attack types, what can be absorbed on your side, and when you need a provider's help."
+        res:
+          - { name: "Understanding and Responding to DDoS Attacks", by: "CISA", url: "https://www.cisa.gov/resources-tools/resources/understanding-and-responding-distributed-denial-service-attacks", type: docs, cost: free }
+      - id: encrypted-traffic
+        title: "Encrypted traffic analysis"
+        text: "Most traffic is encrypted, but its metadata still tells a lot. TLS fingerprints such as JA4, certificates and connection timing can reveal malware without decrypting anything."
+        res:
+          - { name: "JA4+ network fingerprinting", by: "FoxIO", url: "https://github.com/FoxIO-LLC/ja4", type: docs, cost: free }
+          - { name: "Zeek documentation", by: "Zeek Project", url: "https://docs.zeek.org/", type: docs, cost: free }
     skills:
       - "Design a zero trust access model that checks identity and device health, not network location."
       - "Automate firewall and network configuration with code and version control."
@@ -86,7 +222,41 @@ stages:
   - level: expert
     title: "Architecture leadership and research"
     months: "12–24"
-    topics: ["Enterprise network security architecture", "Large-scale monitoring design", "Protocol security research", "Standards and vendor strategy", "OT and IoT network segmentation", "Post-quantum readiness in network protocols"]
+    topics:
+      - id: enterprise-net-arch
+        title: "Enterprise network security architecture"
+        text: "Design the network for a whole organisation: sites, clouds, remote users and partners, with clear zones, controls and monitoring points."
+        res:
+          - { name: "NIST Cybersecurity Framework 2.0", by: "NIST", url: "https://www.nist.gov/cyberframework", type: docs, cost: free }
+      - id: monitoring-design
+        title: "Large-scale monitoring design"
+        text: "Decide where to place sensors, how much traffic to keep, and how to process it at 10 or 100 gigabits per second without losing what matters."
+        res:
+          - { name: "Arkime", by: "Arkime", url: "https://arkime.com/", type: docs, cost: free }
+          - { name: "Security Onion documentation", by: "Security Onion Solutions", url: "https://docs.securityonion.net/", type: docs, cost: free }
+      - id: protocol-research
+        title: "Protocol security research"
+        optional: true
+        text: "Study how network protocols fail, test implementations in a lab, and report weaknesses responsibly to vendors and standards bodies."
+        res:
+          - { name: "Attacking Network Protocols", by: "James Forshaw (No Starch Press)", url: "https://nostarch.com/networkprotocols", type: book, cost: paid }
+      - id: vendor-strategy
+        title: "Standards and vendor strategy"
+        text: "Set standards every team follows, and choose vendors on evidence: tests, references and how well they fit your architecture."
+        res:
+          - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs, cost: free }
+      - id: ot-iot-segmentation
+        title: "OT and IoT network segmentation"
+        optional: true
+        text: "Industrial and IoT devices are hard to patch, so separating them from the rest of the network is often the main defence. The Purdue model is the usual starting point."
+        res:
+          - { name: "Industrial control systems", by: "CISA", url: "https://www.cisa.gov/topics/industrial-control-systems", type: docs, cost: free }
+      - id: pq-network
+        title: "Post-quantum readiness in network protocols"
+        optional: true
+        text: "TLS, VPNs and SSH are moving to post-quantum key exchange. Learn what is changing, which devices will need upgrades, and how to plan the move."
+        res:
+          - { name: "Post-quantum cryptography", by: "NIST", url: "https://csrc.nist.gov/projects/post-quantum-cryptography", type: docs, cost: free }
     skills:
       - "Set network security standards for a large organisation and get teams to adopt them."
       - "Evaluate vendors and architectures on evidence, not marketing."
