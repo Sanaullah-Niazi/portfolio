@@ -6,6 +6,8 @@ intro: >-
   I am an early-career researcher with an MS in Artificial Intelligence. I build machine learning
   and NLP models that tell real from fake: AI-generated from human text, fraud from normal
   transactions, scams from genuine messages. Next, I want to make AI systems themselves secure.
+# Your portrait. Shown in the About section and given to search engines. Leave empty to hide it.
+photo: /assets/img/profile/sana-800.jpg
 location: Pakistan
 email: onlysanaullah@gmail.com
 github: https://github.com/Sanaullah-Niazi
@@ -18,7 +20,7 @@ tryhackme: "https://tryhackme.com/p/onlysanaullah"
 # Hack The Box profile, for later. Shown next to TryHackMe once filled in.
 hackthebox: ""
 # Buy Me a Coffee or GitHub Sponsors link. The "Support these free tools" line appears on tool pages once filled in.
-support: ""
+support: "https://buymeacoffee.com/sanaullah_niazi"
 
 # Put a public version of your CV (without phone number, address, school results or referee contacts)
 # at this path. The "Download CV" button appears once the file exists.

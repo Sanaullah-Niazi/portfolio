@@ -121,6 +121,10 @@
         <p class="eyebrow"><span class="num">02</span>{{ S.about_eyebrow }}</p>
         <h2 id="about-title">{{ S.about_title }}</h2>
       </header>
+      {% if me.photo %}<picture class="portrait">
+        <source type="image/webp" srcset="{{ '/assets/img/profile/sana-320.webp' | relative_url }} 320w, {{ '/assets/img/profile/sana-640.webp' | relative_url }} 640w" sizes="(max-width: 600px) 200px, 260px">
+        <img src="{{ me.photo | relative_url }}" alt="{{ S.photo_alt }}" width="260" height="260" loading="lazy" decoding="async">
+      </picture>{% endif %}
       <ol class="journey" aria-label="{{ S.journey_label }}">
         {% for j in about.journey %}
         <li{% if forloop.last %} class="j-now"{% endif %}><span class="j-dot" aria-hidden="true"></span><strong>{{ j.title }}</strong>{% if j.dates %}<span class="j-dates">{{ j.dates }}</span>{% endif %}<span>{{ j.note }}</span></li>
