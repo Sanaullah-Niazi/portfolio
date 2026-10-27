@@ -3,7 +3,7 @@
 {%- endcomment -%}
 {%- assign PV = site.data.privacy[lang] | default: site.data.privacy.en -%}
 {%- assign email_tok = "{email}" -%}{%- assign days_tok = "{days}" -%}{%- assign an_tok = "{analytics}" -%}
-{%- if site.cloudflare_analytics_token != "" %}{% assign an_name = "Cloudflare Web Analytics" %}{% elsif site.goatcounter != "" %}{% assign an_name = "GoatCounter" %}{% else %}{% assign an_name = "" %}{% endif -%}
+{%- if site.cloudflare_analytics_token != "" or site.cloudflare_analytics_auto %}{% assign an_name = "Cloudflare Web Analytics" %}{% elsif site.goatcounter != "" %}{% assign an_name = "GoatCounter" %}{% else %}{% assign an_name = "" %}{% endif -%}
 {%- capture email_link %}<a href="mailto:{{ me.email }}">{{ me.email }}</a>{% endcapture -%}
 <div class="wrap page">
   <header class="page-head">
