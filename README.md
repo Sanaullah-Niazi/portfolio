@@ -85,6 +85,22 @@ To update it right away, open the repository's **Actions** tab, pick **Security 
 
 **AI daily brief.** The job also writes a short daily brief in its own words from the day's headlines, using Google's Gemini on its free tier. To turn it on, get a free key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey) (sign in with a Google account, no card needed), then add it to the repository as a secret called `GEMINI_API_KEY` (Settings > Secrets and variables > Actions > New repository secret). Each brief is saved in `_briefs/` (one file per day, shown at `/security-news/<date>/`), says that it was written by AI, and links to every story it used. If a model is busy or retired, the job tries the next one, and on a bad day it simply skips the brief; the headlines still update. If you'd rather have Claude write the briefs (paid, a few cents a day), add an `ANTHROPIC_API_KEY` secret instead. To remove a brief, delete its file from `_briefs/`.
 
+## Tool repositories
+
+The tools also live in their own public repositories, so each one shows on the GitHub profile:
+[free-security-tools](https://github.com/Sanaullah-Niazi/free-security-tools),
+[website-health-checker](https://github.com/Sanaullah-Niazi/website-health-checker),
+[security-learning-roadmaps](https://github.com/Sanaullah-Niazi/security-learning-roadmaps) and
+[security-news-bot](https://github.com/Sanaullah-Niazi/security-news-bot). They're MIT licensed.
+
+This repository stays the main copy. After every change here, `.github/workflows/sync-tool-repos.yml` copies the
+right files into each of them (the list is in `scripts/sync_mirrors.py`, their READMEs in `mirrors/<repo>/README.md`).
+Always edit here: changes made directly in a tool repository are overwritten by the next sync.
+
+It needs a repository secret named `SYNC_TOKEN`: a fine-grained personal access token with
+**Contents: Read and write** on the four tool repositories. To sync right away, open **Actions**, pick
+**Sync tool repos** and press **Run workflow**.
+
 ## Add your CV
 
 Save a public version of your CV as `assets/cv/Sana_Ullah_Khan_CV.pdf` (on github.com: open the `assets/cv` folder, **Add file → Upload files**). The "Download CV" button appears automatically once the file is there. Each language points to its own CV through the `cv:` line in its `profile.yml`. Remove your phone number, address, date of birth, school results and referees' contact details from that version first, because anyone can download it.

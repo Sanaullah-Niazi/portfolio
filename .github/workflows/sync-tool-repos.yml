@@ -1,0 +1,85 @@
+# Copies the tools into their own public repositories, so each one shows on the GitHub profile:
+#   free-security-tools, website-health-checker, security-learning-roadmaps, security-news-bot
+# This repository stays the main copy. Which files go where: scripts/sync_mirrors.py. READMEs: mirrors/<repo>/.
+# Edits made directly in a tool repository are overwritten by the next sync, so always edit here.
+#
+# Setup (once): create the four repositories empty on GitHub, then add a repository secret named SYNC_TOKEN
+# (Settings > Secrets and variables > Actions) holding a fine-grained personal access token with
+# "Contents: Read and write" on those four repositories. A repository that doesn't exist yet is skipped.
+name: Sync tool repos
+
+on:
+  push:
+    branches: [main]
+  # The daily news commit is pushed by another workflow, which doesn't start this one on its own.
+  workflow_run:
+    workflows: ["Security news"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-tool-repos
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SYNC_TOKEN: ${{ secrets.SYNC_TOKEN }}
+      OWNER: ${{ github.repository_owner }}
+    steps:
+      - name: Check the token
+        if: env.SYNC_TOKEN == ''
+        run: echo "::notice::No SYNC_TOKEN secret yet, so the tool repos were not updated. Setup steps are at the top of this workflow file."
+
+      - uses: actions/checkout@v4
+        if: env.SYNC_TOKEN != ''
+        with:
+          ref: main
+
+      - name: Build and push each tool repo
+        if: env.SYNC_TOKEN != ''
+        run: |
+          python3 scripts/sync_mirrors.py "$RUNNER_TEMP/build"
+          sha=$(git rev-parse HEAD)
+          subject=$(git log -1 --format=%s)
+          # "Merge pull request #12 from ..." says little here: use the pull request's title instead.
+          case "$subject" in "Merge pull request"*) title=$(git log -1 --format=%b | head -n 1); [ -n "$title" ] && subject="$title";; esac
+          # "#12" would point at this repo's own issues there, so name the website repository.
+          subject=$(printf '%s' "$subject" | sed -E "s|(^\|[^/[:alnum:]])#([0-9]+)|\1${GITHUB_REPOSITORY}#\2|g")
+          # Commits are credited to whoever made the change here, so they count on their GitHub profile.
+          name="${{ github.actor }}"
+          email="${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+          failed=0
+          for repo in $(python3 scripts/sync_mirrors.py --list); do
+            dir="$RUNNER_TEMP/repos/$repo"
+            url="https://x-access-token:${SYNC_TOKEN}@github.com/${OWNER}/${repo}.git"
+            if ! git clone --quiet --depth 1 "$url" "$dir" 2>/dev/null; then
+              echo "::warning::Could not open ${OWNER}/${repo}. Create it on GitHub and give SYNC_TOKEN access to it."
+              failed=1
+              continue
+            fi
+            cd "$dir"
+            if git rev-parse --quiet --verify origin/main >/dev/null; then
+              git checkout --quiet -B main origin/main
+            else
+              git checkout --quiet --orphan main   # a new, empty repository
+            fi
+            find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+            cp -a "$RUNNER_TEMP/build/$repo/." .
+            git add -A
+            if git diff --cached --quiet; then
+              echo "$repo: already up to date"
+            else
+              git -c user.name="$name" -c user.email="$email" commit --quiet \
+                -m "$subject" -m "Synced from ${GITHUB_REPOSITORY}@${sha}"
+              git push --quiet origin main
+              echo "$repo: updated"
+            fi
+            cd "$GITHUB_WORKSPACE"
+          done
+          exit $failed

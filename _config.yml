@@ -107,4 +107,5 @@ exclude:
   - Gemfile.lock
   - templates/
   - scripts/
+  - mirrors/
   - vendor/
