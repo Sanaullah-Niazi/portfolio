@@ -18,16 +18,14 @@ Settings are in `wrangler.toml`: the 404 page, `/page` redirecting to `/page/` l
 
 It uses the same `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repository secrets as the website checker.
 
-## Moving sanaullahniazi.com over (once)
+`www/` is a second, tiny Worker that sends `www.sanaullahniazi.com` to `sanaullahniazi.com` with a permanent redirect.
 
-While GitHub Pages still serves sanaullahniazi.com, the Cloudflare copy answers at https://new.sanaullahniazi.com
-so it can be checked first. To switch:
+## Moving sanaullahniazi.com over (done once)
 
-1. In the Cloudflare dashboard, open **sanaullahniazi.com → DNS → Records** and delete the records that point to
-   GitHub: the `A` records for `sanaullahniazi.com` (`185.199.108.153` to `185.199.111.153`), any `AAAA` records for it
-   (`2606:50c0:8000::153` and similar), and the `CNAME` for `www` (`sanaullah-niazi.github.io`).
-   Leave every other record alone (`api`, `new`, the MX and TXT records for email, Google and Bing).
-2. Right after, merge the "switch" pull request (it points `routes` in `wrangler.toml` at `sanaullahniazi.com` and
-   sends `www.sanaullahniazi.com` there with a permanent redirect). Its deploy creates the new DNS records itself. The site is unreachable for a minute
-   or two in between.
-3. Once it answers, GitHub Pages can be turned off (repository **Settings → Pages**), or left on as a spare copy.
+The Cloudflare copy was first tested at new.sanaullahniazi.com while GitHub Pages kept serving the domain. To switch,
+the DNS records that pointed to GitHub were deleted in **Cloudflare → sanaullahniazi.com → DNS → Records** (the `A`
+records `185.199.108.153` to `185.199.111.153`, any `AAAA` records `2606:50c0:…`, and the `www` `CNAME` to
+`sanaullah-niazi.github.io`), and the next deploy created the new ones. The leftover `new` record can be deleted too.
+
+To go back to GitHub Pages, delete the two Workers' custom domains (Workers & Pages → the Worker → Settings → Domains)
+and add GitHub's records again.

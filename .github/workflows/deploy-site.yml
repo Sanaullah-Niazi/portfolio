@@ -25,7 +25,7 @@ concurrency:
 
 env:
   # Where the uploaded site answers. Checked after each upload.
-  SITE_URL: https://new.sanaullahniazi.com
+  SITE_URL: https://sanaullahniazi.com
 
 jobs:
   deploy:
@@ -68,6 +68,7 @@ jobs:
         run: |
           npm ci
           npx wrangler deploy
+          npx wrangler deploy --config www/wrangler.toml
 
       - name: Check the new version is live
         run: |

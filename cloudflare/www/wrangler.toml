@@ -1,0 +1,7 @@
+# Sends www.sanaullahniazi.com/anything to sanaullahniazi.com/anything with a permanent redirect, like GitHub Pages did.
+# Deployed by .github/workflows/deploy-site.yml after the site itself.
+name = "sanaullahniazi-www"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+workers_dev = false
+routes = [{ pattern = "www.sanaullahniazi.com", custom_domain = true }]
