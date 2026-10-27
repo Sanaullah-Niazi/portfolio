@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-27T02:34:28Z",
+ "updated": "2026-10-27T02:59:25Z",
  "sources": [
   {
    "name": "The Hacker News",
@@ -161,6 +161,15 @@
   }
  ],
  "items": [
+  {
+   "title": "ISC Stormcast For Tuesday, October 27th, 2026 https://isc.sans.edu/podcastdetail/10152, (Tue, Oct 27th)",
+   "url": "https://isc.sans.edu/diary/rss/33462",
+   "source": "SANS ISC",
+   "source_id": "sans",
+   "published": "2026-10-27T02:55:13Z",
+   "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
+   "topics": []
+  },
   {
    "title": "Apple Patches for October 2026, (Mon, Oct 26th)",
    "url": "https://isc.sans.edu/diary/rss/33458",
@@ -425,6 +434,17 @@
    "excerpt": "Small loader code injected into the stores served a payload to visitors or did nothing to avoid detection.",
    "topics": [
     "malware"
+   ]
+  },
+  {
+   "title": "CISA Adds Two Known Exploited Vulnerabilities to Catalog",
+   "url": "https://www.cisa.gov/news-events/alerts/2026/10/26/cisa-adds-two-known-exploited-vulnerabilities-catalog",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-26T12:00:00Z",
+   "excerpt": "CISA has added two new vulnerabilities to its Known Exploited Vulnerabilities (KEV) Catalog and updated the PHP Alert, Critical Vulnerabilities in PHP Require Immediate Patching: CVE-2026-109618 – PHP Memory Corruption Vulnerability CVE-2026-109619 – PHP…",
+   "topics": [
+    "vulnerabilities"
    ]
   },
   {
@@ -798,6 +818,17 @@
    ]
   },
   {
+   "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+   "url": "https://www.cisa.gov/news-events/alerts/2026/10/23/cisa-adds-one-known-exploited-vulnerability-catalog-0",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-23T12:00:00Z",
+   "excerpt": "CISA has added one new vulnerability to its Known Exploited Vulnerabilities (KEV) Catalog, based on evidence of active exploitation. CVE-2026-110447 Collabora Online – Built-in CODE Server OS Command Injection Vulnerability This type of vulnerability is a…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
    "title": "PHP Warns of Another Unpatched RCE Risk Two Days After Emergency PHP2Shell Patches",
    "url": "https://thehackernews.com/2026/10/urgent-php-warns-of-another-unpatched.html",
    "source": "The Hacker News",
@@ -860,6 +891,222 @@
    ]
   },
   {
+   "title": "Siemens SIMATIC S7 Webserver API",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-10",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary .NET Client Library for SIMATIC S7 Webserver API contains multiple vulnerabilities that could allow an attacker to obtain sensitive information or write arbitrary files outside the intended download directory. Siemens has released a new…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens APOGEE, TALON and Desigo PXC/PXM Products",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-08",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary The products listed below contain multiple vulnerabilities that could allow an attacker to cause a denial of service and potentially impact the availability of the affected device. Siemens has released new versions for several affected…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens RUGGEDCOM CROSSBOW",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-12",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary RUGGEDCOM CROSSBOW contains multiple vulnerabilities that could allow an attacker to execute arbitrary SQL commands on the underlying database, retrieve sensitive administrative credentials, escalate privileges, and perform unauthorized…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens RUGGEDCOM APE1808 Devices",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-18",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary Nozomi Networks has published information on vulnerabilities in Nozomi Guardian/CMC. This advisory lists the related Siemens Industrial products affected by these vulnerabilities. Siemens recommends to contact customer support to receive…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens Industrial Edge App Publisher",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-02",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary The Industrial Edge App Publisher contains a vulnerability chain involving improper certificate validation and the rendering of unescaped data from backend responses. These issues can be combined to allow an attacker on the network to…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens SIMATIC S7-1500 CPU 1518(F)-4 PN/DP MFP",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-11",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary Multiple vulnerabilities have been identified in the additional GNU/Linux subsystem of the firmware version V3.1.7 for the SIMATIC S7-1500 CPU 1518(F)-4 PN/DP MFP (incl. SIPLUS variant). Siemens is preparing fixes and recommends specific…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens WinCC",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-13",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary Multiple SIMATIC WinCC versions are affected by a database privilege escalation vulnerability that could allow an authenticated user with access to the database to execute commands on the underlying host system. Siemens has released new…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens Industrial Edge Device Kit",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-09",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary Users of Industrial Edge Devices are advised to consult the respective Security Advisories for their devices (for Siemens Industrial Edge devices see Additional Information). Industrial Edge Device Kit contains multiple path traversal…",
+   "topics": []
+  },
+  {
+   "title": "Siemens Capital Embedded AR Classic",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-04",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary The products listed below contain an out-of-bounds read vulnerability that could allow an attacker to cause abnormal product behavior, instability, or denial of service. Siemens has released a new version for Capital Embedded AR Classic…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "InterSystems Corporation InterSystems IRIS for Health",
+   "url": "https://www.cisa.gov/news-events/ics-medical-advisories/icsma-26-295-01",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary Successful exploitation of this vulnerability could allow an attacker to view transmitted data and use that data to log into the device. The following versions of InterSystems Corporation InterSystems IRIS for Health are affected…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens PSS(R)SINCAL",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-06",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary PSS(R)SINCAL uses WibuKey third-party product that contains an out-of-bounds write vulnerability. An attacker could exploit this vulnerability to cause a system crash, resulting in a denial-of-service condition. This affects PSS SINCAL only…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens Software Center",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-03",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary The affected application loads dynamic-link libraries (DLLs) from an uncontrolled search path. This could allow an authenticated local attacker to place a specially crafted DLL in a directory that the application searches, leading to…",
+   "topics": []
+  },
+  {
+   "title": "Siemens SIMATIC IPCs",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-07",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary The products listed below contain a vulnerability that could allow an attacker to boot an operating system or UEFI application signed with that test key, bypassing UEFI Secure Boot protections even when Secure Boot is enabled. Siemens has…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens Industrial Edge Devices",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-17",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary Siemens Industrial Edge Devices contain multiple path traversal vulnerabilities that could facilitate an authenticated remote attacker to access sensitive internal information. Siemens has released new versions for several affected products…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Managing AI Token Consumption for Operational Resilience",
+   "url": "https://www.cisa.gov/resources-tools/resources/managing-ai-token-consumption-operational-resilience",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "CISA, the Canadian Centre for Cyber Security (Cyber Centre), and partners are releasing joint guidance, Managing AI Token Consumption for Operational Resilience, to help organizations understand and manage token usage in support of operations. As…",
+   "topics": [
+    "ai"
+   ]
+  },
+  {
+   "title": "Siemens SIMATIC S7-1500 TM MFP",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-16",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary Multiple vulnerabilities have been identified in the additional GNU/Linux subsystem of the SIMATIC S7-1500 TM MFP V1.1.1. Siemens is preparing fixes and recommends specific mitigations for products where fixes are not or not yet available.…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Kiloview E3 NDI Encoder",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-01",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary Successful exploitation of this these vulnerabilities could allow an attacker to fully compromise the device. The following versions of Kiloview E3 NDI Encoder are affected: E3 Firmware <1.30 (CVE-2026-109122, CVE-2026-111100…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens SENTRON 3NA COM Fuse",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-05",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary SENTRON 3NA COM Fuse contains a Denial-of-Service vulnerability. Improper handling of a network management message could allow an attacker to trigger a denial-of-service (DoS) condition. Successful exploitation may require the affected…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens SIMATIC S7 PLCs Web Server",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-14",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary SIMATIC S7-1500 devices contain multiple vulnerabilities in the web server that could allow an attacker to execute malicious code in an authorized user’s browser session and perform PLC operations within the scope of that user’s…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
+   "title": "Siemens RUGGEDCOM CROSSBOW Station Access Controller",
+   "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-295-15",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-22T12:00:00Z",
+   "excerpt": "View CSAF Summary RUGGEDCOM CROSSBOW Station Access Controller (SAC) contains multiple vulnerabilities in the integrated SQLite component that could allow an attacker to execute arbitrary code, cause a denial of service, or obtain sensitive information.…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
    "title": "ISC Stormcast For Thursday, October 22nd, 2026 https://isc.sans.edu/podcastdetail/10146, (Thu, Oct 22nd)",
    "url": "https://isc.sans.edu/diary/rss/33446",
    "source": "SANS ISC",
@@ -891,6 +1138,17 @@
    ]
   },
   {
+   "title": "Critical Vulnerabilities in PHP Require Immediate Patching",
+   "url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-21T12:00:00Z",
+   "excerpt": "Update October 26, 2026: CISA has updated this Alert to reflect the addition of CVE-2026-109618 and CVE-2026-109619 to its Known Exploited Vulnerabilities (KEV) Catalog on Oct. 26, 2026. Update October 23, 2026: CISA has updated this Alert to: (1) provide a…",
+   "topics": [
+    "vulnerabilities"
+   ]
+  },
+  {
    "title": "Workshop on Economics and Information Security (WEIS) Archive",
    "url": "https://www.schneier.com/blog/archives/2026/10/workshop-on-economics-and-information-security-weis-archive.html",
    "source": "Schneier on Security",
@@ -907,6 +1165,17 @@
    "published": "2026-10-21T02:00:03Z",
    "excerpt": "(c) SANS Internet Storm Center. https://isc.sans.edu Creative Commons Attribution-Noncommercial 3.0 United States License.",
    "topics": []
+  },
+  {
+   "title": "#StopRansomware: SafePay Ransomware",
+   "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-293a",
+   "source": "CISA advisories",
+   "source_id": "cisa",
+   "published": "2026-10-20T12:00:00Z",
+   "excerpt": "Advisory at a Glance Title #StopRansomware: SafePay Ransomware Original Publication October 20, 2026 Executive Summary This advisory details recent activity by the SafePay ransomware group. SafePay actors have been highly active since August 2024, targeting…",
+   "topics": [
+    "ransomware"
+   ]
   },
   {
    "title": "Possible new Cellebrite iPhone Radio Zero-Day",
