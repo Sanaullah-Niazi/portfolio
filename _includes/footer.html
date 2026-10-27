@@ -1,10 +1,33 @@
+{%- assign home = L | append: '/' %}
+{%- if page.url == home %}{% assign base = '' %}{% else %}{% assign base = home %}{% endif %}
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div class="footer-brand">
       <p class="brand-name">{{ me.name }}</p>
       <p class="muted">{{ P.tagline }} · AI × Cybersecurity</p>
+      {% include social.html %}
     </div>
-    {% include social.html %}
+    {%- comment -%} A short map of the site, so every page can reach every other one. {%- endcomment %}
+    <nav class="footer-nav footer-explore" aria-label="{{ S.footer_explore }}">
+      <p class="footer-title">{{ S.footer_explore }}</p>
+      <ul>
+        <li><a href="{{ base }}#about">{{ S.nav_about }}</a></li>
+        <li><a href="{{ L }}/research/">{{ S.nav_research }}</a></li>
+        <li><a href="{{ L }}/projects/">{{ S.nav_projects }}</a></li>
+        <li><a href="{{ base }}#experience">{{ S.nav_experience }}</a></li>
+        <li><a href="{{ base }}#skills">{{ S.nav_skills }}</a></li>
+        <li><a href="{{ L }}/blog/">{{ S.nav_notes }}</a></li>
+        <li><a href="{{ base }}#contact">{{ S.nav_contact }}</a></li>
+      </ul>
+    </nav>
+    <nav class="footer-nav" aria-label="{{ S.footer_resources }}">
+      <p class="footer-title">{{ S.footer_resources }}</p>
+      <ul>
+        <li><a href="{{ L }}/tools/">{{ S.nav_tools }}</a></li>
+        <li><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a></li>
+        <li><a href="{{ L }}/security-news/">{{ S.nav_news }}</a></li>
+      </ul>
+    </nav>
   </div>
   <div class="wrap footer-base">
     <span>© {{ site.time | date: '%Y' }} {{ me.name }}. {{ S.footer_rights }}</span>

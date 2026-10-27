@@ -159,7 +159,7 @@
 <section class="section tools-band" id="tools" aria-labelledby="tools-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow">{{ S.tools_eyebrow }}</p>
+      <p class="eyebrow"><span class="num">05</span>{{ S.tools_eyebrow }}</p>
       <h2 id="tools-title">{{ S.tools_title }}</h2>
       <p class="section-lede">{{ S.tools_lede }}</p>
     </header>
@@ -179,7 +179,7 @@
 <section class="section" id="experience" aria-labelledby="experience-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">05</span>{{ S.experience_eyebrow }}</p>
+      <p class="eyebrow"><span class="num">06</span>{{ S.experience_eyebrow }}</p>
       <h2 id="experience-title">{{ S.experience_title }}</h2>
     </header>
     <ol class="timeline">
@@ -199,33 +199,12 @@
   </div>
 </section>
 
-<section class="section" id="skills" aria-labelledby="skills-title">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">06</span>{{ S.skills_eyebrow }}</p>
-      <h2 id="skills-title">{{ S.skills_title }}</h2>
-    </header>
-    {% include skills-chart.html %}
-    <div class="grid grid-3">
-      {% assign skills = D.skills | default: site.data.skills %}
-      {% for g in skills %}
-      <div class="card skill-group reveal spot">
-        <div class="skill-head"><span class="icon-tile">{% include icon.html name=g.icon px=22 %}</span><div><h3>{{ g.group }}</h3>{% if g.note %}<p class="level">{{ g.note }}</p>{% endif %}</div></div>
-        <ul class="tags">{% for s in g.items %}<li>{{ s }}</li>{% endfor %}</ul>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
 {% include service.html num="07" %}
-
-{% include certificates.html num="08" %}
 
 <section class="section" id="education" aria-labelledby="education-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">09</span>{{ S.education_eyebrow }}</p>
+      <p class="eyebrow"><span class="num">08</span>{{ S.education_eyebrow }}</p>
       <h2 id="education-title">{{ S.education_title }}</h2>
     </header>
     <ol class="timeline">
@@ -245,11 +224,32 @@
   </div>
 </section>
 
+<section class="section" id="skills" aria-labelledby="skills-title">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow"><span class="num">09</span>{{ S.skills_eyebrow }}</p>
+      <h2 id="skills-title">{{ S.skills_title }}</h2>
+    </header>
+    {% include skills-chart.html %}
+    <div class="grid grid-3">
+      {% assign skills = D.skills | default: site.data.skills %}
+      {% for g in skills %}
+      <div class="card skill-group reveal spot">
+        <div class="skill-head"><span class="icon-tile">{% include icon.html name=g.icon px=22 %}</span><div><h3>{{ g.group }}</h3>{% if g.note %}<p class="level">{{ g.note }}</p>{% endif %}</div></div>
+        <ul class="tags">{% for s in g.items %}<li>{{ s }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include certificates.html num="10" %}
+
 {% if site.posts.size > 0 %}
 <section class="section" id="notes" aria-labelledby="notes-title">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">10</span>{{ S.notes_eyebrow }}</p>
+      <p class="eyebrow"><span class="num">11</span>{{ S.notes_eyebrow }}</p>
       <h2 id="notes-title">{{ S.notes_title }}</h2>
     </header>
     <ul class="post-list">

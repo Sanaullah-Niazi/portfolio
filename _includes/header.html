@@ -7,20 +7,17 @@
       <svg class="brand-mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M16 2.5 4.5 7v8.2c0 7 4.9 12.4 11.5 14.3 6.6-1.9 11.5-7.3 11.5-14.3V7L16 2.5z" class="bm-shield"/><circle cx="11" cy="13" r="1.9" class="bm-dot"/><circle cx="21" cy="12" r="1.9" class="bm-dot"/><circle cx="16" cy="20.5" r="1.9" class="bm-dot"/><path d="M11 13l10-1M11 13l5 7.5M21 12l-5 8.5" class="bm-line"/></svg>
       <span class="brand-name">{{ me.name }}</span>
     </a>
+    {%- comment -%}
+      The main menu: About and Contact jump to sections of the home page, the rest open their own pages.
+      A link is marked as the current one on its page and on every page under it (a project, a post, a tool).
+    {%- endcomment %}
     <nav class="nav" id="site-nav" aria-label="{{ S.nav_label }}">
       <a href="{{ base }}#about">{{ S.nav_about }}</a>
-      <a href="{{ base }}#research">{{ S.nav_research }}</a>
-      <a href="{{ base }}#projects">{{ S.nav_projects }}</a>
-      <a href="{{ base }}#experience">{{ S.nav_experience }}</a>
-      <a href="{{ base }}#skills">{{ S.nav_skills }}</a>
-      <a href="{{ L }}/blog/">{{ S.nav_notes }}</a>
-      {%- assign news_url = L | append: '/security-news/' %}
-      <a href="{{ news_url }}"{% if page.url == news_url %} class="is-active" aria-current="page"{% endif %}>{{ S.nav_news }}</a>
-      {%- assign tools_url = L | append: '/tools/' %}
-      <a href="{{ tools_url }}"{% if page.url == tools_url %} class="is-active" aria-current="page"{% endif %}>{{ S.nav_tools }}</a>
-      {%- assign roadmaps_url = L | append: '/roadmaps/' %}
-      {%- assign url_start = page.url | slice: 0, roadmaps_url.size %}
-      <a href="{{ roadmaps_url }}"{% if page.url == roadmaps_url %} class="is-active" aria-current="page"{% elsif url_start == roadmaps_url %} class="is-active"{% endif %}>{{ S.nav_roadmaps }}</a>
+      {%- assign nav_items = "research|nav_research,projects|nav_projects,blog|nav_notes,tools|nav_tools,roadmaps|nav_roadmaps,security-news|nav_news" | split: "," %}
+      {%- for item in nav_items %}{% assign parts = item | split: "|" %}{% assign nav_key = parts[1] %}
+      {%- assign nav_url = L | append: '/' | append: parts[0] | append: '/' %}{% assign url_start = page.url | slice: 0, nav_url.size %}
+      <a href="{{ nav_url }}"{% if page.url == nav_url %} class="is-active" aria-current="page"{% elsif url_start == nav_url %} class="is-active"{% endif %}>{{ S[nav_key] }}</a>
+      {%- endfor %}
       <a class="nav-cta" href="{{ base }}#contact">{{ S.nav_contact }}</a>
     </nav>
     <div class="header-actions">

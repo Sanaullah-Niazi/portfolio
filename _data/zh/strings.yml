@@ -191,5 +191,7 @@ form_failed: 抱歉，留言未能发送。
 form_not_ready: 表单尚未设置好。
 form_fallback: 请直接发邮件给我：
 footer_rights: 保留所有权利。
+footer_explore: 浏览
+footer_resources: 免费资源
 not_found_title: 这个页面不存在
 not_found_home: 返回首页
