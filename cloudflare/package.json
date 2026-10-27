@@ -1,0 +1,11 @@
+{
+  "name": "sanaullahniazi-site",
+  "private": true,
+  "description": "Serves the built website (_site/) from Cloudflare. Deployed by .github/workflows/deploy-site.yml",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,19 @@
+# Serves the website from Cloudflare. GitHub Actions builds the site with Jekyll into _site/ and uploads it
+# (.github/workflows/deploy-site.yml). A new upload is live everywhere within seconds: there is no cache to wait for.
+name = "sanaullahniazi-site"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+workers_dev = false
+
+# The domain is on Cloudflare, so the DNS record is created on deploy. www is sent here by www/ (a permanent redirect).
+routes = [{ pattern = "sanaullahniazi.com", custom_domain = true }]
+
+[assets]
+directory = "../_site"
+binding = "ASSETS"
+# Unknown addresses get the site's 404 page, with a 404 status.
+not_found_handling = "404-page"
+# /about/ serves about/index.html and /about redirects to /about/, the same as GitHub Pages.
+html_handling = "auto-trailing-slash"
+# Files that must keep their exact .html address (see src/index.js). Everything else is served without running code.
+run_worker_first = ["/google68fd583c48fd5ed6.html"]
