@@ -26,6 +26,7 @@ nav_skills: 技能
 nav_notes: 文章
 nav_tools: 工具
 nav_roadmaps: 学习路线
+nav_news: 新闻
 nav_contact: 联系
 
 btn_cv: 下载简历
@@ -142,6 +143,35 @@ notes_page_lede: 关于 AI 安全、检测技术，以及我正在学习和构�
 notes_empty: 还没有文章，第一篇正在路上。
 topics: 主题
 rss: RSS 订阅
+
+sn_eyebrow: 安全新闻
+sn_page_title: 安全新闻
+sn_lede: 来自可信来源的最新网络安全新闻，每天自动收集。每条标题都链接到原始报道。
+sn_updated: 最后更新
+sn_brief_eyebrow: 每日简报
+sn_brief_read: 阅读简报
+sn_brief_older: 往期简报
+sn_brief_note: 本简报由 AI 根据当天的新闻标题自动撰写。采取行动前，请先查看所附的来源链接。
+sn_brief_sources: 本简报依据的报道
+sn_brief_all: 全部安全新闻
+sn_kev_title: 正在被利用的漏洞
+sn_kev_lede: CISA 已确认攻击者目前正在利用的漏洞。如果你在使用其中任何产品，请优先打补丁。
+sn_kev_added: 收录于
+sn_kev_ransomware: 已被用于勒索软件攻击
+sn_latest_title: 最新标题
+sn_shown_one: 条报道
+sn_shown_many: 条报道
+sn_topic_vulnerabilities: 漏洞
+sn_topic_ransomware: 勒索软件
+sn_topic_phishing: 钓鱼与诈骗
+sn_topic_breaches: 数据泄露
+sn_topic_malware: 恶意软件
+sn_topic_ai: AI 安全
+sn_about_title: 新闻来源
+sn_about: 标题每天从下列来源自动收集一次。每条标题下的简短摘录来自发布者自己的订阅源，完整报道请在其网站上阅读。
+sn_kev_source: 被利用漏洞列表来自 CISA 的“已知被利用漏洞”（KEV）目录。
+sn_in_english: 新闻内容以英文显示，与来源发布的原文一致。
+sn_empty: 下一次每日更新后，第一批标题将显示在这里。
 
 contact_eyebrow: 联系
 contact_title: 联系我

@@ -28,6 +28,7 @@ nav_skills: Skills
 nav_notes: Notes
 nav_tools: Tools
 nav_roadmaps: Roadmaps
+nav_news: News
 nav_contact: Contact
 
 btn_cv: Download CV
@@ -144,6 +145,35 @@ notes_page_lede: Short write-ups on AI security, detection and what I'm learning
 notes_empty: No notes yet. The first one is on its way.
 topics: Topics
 rss: RSS feed
+
+sn_eyebrow: Security news
+sn_page_title: Security news
+sn_lede: The latest cybersecurity news from trusted sources, collected automatically every day. Each headline links to the original report.
+sn_updated: Last updated
+sn_brief_eyebrow: Daily brief
+sn_brief_read: Read the brief
+sn_brief_older: Earlier briefs
+sn_brief_note: Written automatically by AI from the day's headlines. Check the linked sources before you act on it.
+sn_brief_sources: Stories this brief is based on
+sn_brief_all: All security news
+sn_kev_title: Actively exploited flaws
+sn_kev_lede: Vulnerabilities that CISA has confirmed attackers are using right now. If you run any of these, patch them first.
+sn_kev_added: Added
+sn_kev_ransomware: Used in ransomware attacks
+sn_latest_title: Latest headlines
+sn_shown_one: story shown
+sn_shown_many: stories shown
+sn_topic_vulnerabilities: Vulnerabilities
+sn_topic_ransomware: Ransomware
+sn_topic_phishing: Phishing and scams
+sn_topic_breaches: Data breaches
+sn_topic_malware: Malware
+sn_topic_ai: AI security
+sn_about_title: Where the news comes from
+sn_about: Headlines are collected automatically once a day from the sources below. The short excerpt under each headline comes from the publisher's own feed; the full story is on their site.
+sn_kev_source: The list of exploited flaws comes from the CISA Known Exploited Vulnerabilities catalog.
+sn_in_english: The news itself is shown in English, as the sources publish it.
+sn_empty: The first headlines will appear here after the next daily update.
 
 contact_eyebrow: Contact
 contact_title: Get in touch
