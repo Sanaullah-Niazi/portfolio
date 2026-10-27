@@ -142,9 +142,11 @@ markdown: kramdown
 sass:
   style: compressed
 
-# Jekyll skips folders that start with a dot, so list the security.txt folder here.
+# Jekyll skips names that start with a dot or an underscore, so list the security.txt folder and the
+# Cloudflare headers file here.
 include:
   - .well-known
+  - _headers
 
 exclude:
   - README.md
