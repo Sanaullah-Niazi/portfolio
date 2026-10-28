@@ -25,7 +25,7 @@ prereqs:
   - "Some understanding of radio and signals."
   - "Linux comfort for wireless tooling."
   - "The law and radio regulations for your region, and authorised-testing ethics."
-prereq_paths: [cybersecurity, foundations]
+prereq_paths: [networking, cybersecurity]
 
 stages:
   - level: beginner

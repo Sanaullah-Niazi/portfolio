@@ -94,6 +94,55 @@ paths:
         build: "部署你的完整应用，每次推送都自动运行测试，并对照 OWASP Top 10 检查。"
         ready: "陌生人在使用你的应用，而且它出问题时你会知道。"
 
+  networking:
+    title: "计算机网络"
+    summary: "数据在计算机之间究竟如何传输：地址、协议、路由，以及你在每个安全岗位上都要防守或测试的流量。"
+    who: "所有准备进入安全、云或 IT 支持领域的人。每个安全岗位都要求你能读懂网络流量。"
+    roles: ["网络管理员", "网络安全工程师", "SOC 分析师", "云工程师"]
+    stages:
+      - title: "网络如何工作"
+        learn: ["OSI 和 TCP/IP 模型", "IP 地址与子网划分", "以太网、MAC 地址和 ARP", "交换机和路由器", "端口和套接字"]
+        build: "画出你的家庭网络：每台设备的 IP 和 MAC 地址、你的路由器，以及数据包如何到达互联网。"
+        ready: "你能手工划分 /24 子网，并解释从输入网址到看到页面之间发生了什么。"
+      - title: "每天都会看到的协议"
+        learn: ["TCP 和 UDP", "DNS", "DHCP 和 NAT", "HTTP、HTTPS 和 TLS", "ICMP、ping 和 traceroute"]
+        build: "加载一个网站时用 Wireshark 抓取自己的流量，并标出 DNS 查询、TCP 握手和 TLS 握手。"
+        ready: "你能打开一个抓包文件，说出哪台设备通过什么协议与谁通信，以及原因。"
+      - title: "交换、路由与 IPv6"
+        learn: ["VLAN 和 Trunk", "静态和动态路由（OSPF）", "BGP 如何连接互联网", "Wi-Fi 标准与安全", "IPv6 地址"]
+        build: "在 Packet Tracer 中搭建一个小型办公网络：两个 VLAN、它们之间的路由器、DHCP，以及无法访问办公网的访客 Wi-Fi。"
+        ready: "你能设计分段的网络，并排查两台机器为什么无法通信。"
+      - title: "网络安全"
+        learn: ["防火墙与网络分段", "VPN", "用 Nmap 扫描自己的网络", "IDS 与网络监控", "在抓包中发现攻击"]
+        build: "用 Nmap 扫描你的家庭实验环境，关闭不该开放的服务，再分析一个恶意流量练习并写出发生了什么。"
+        ready: "你能在自己的网络中找出暴露的服务，并根据流量解释一次攻击。"
+  linux:
+    title: "Linux 与操作系统"
+    summary: "像专业人士一样使用 Linux 和 Windows：命令行、操作系统的内部原理、运行服务器，以及加固它们。"
+    who: "所有准备进入安全、DevOps 或云领域的人。大多数服务器、安全工具和攻击都发生在这些系统上。"
+    roles: ["Linux 系统管理员", "安全工程师", "DevOps 工程师", "SOC 分析师"]
+    stages:
+      - title: "Linux 命令行"
+        learn: ["在文件系统中移动", "文件、用户和权限", "管道和重定向", "grep、find、sed 和 awk", "用包管理器安装软件"]
+        build: "完成 OverTheWire Bandit 的前 20 关，并记录你学到的每条命令。"
+        ready: "你能不用鼠标在终端完成日常工作，并通过阅读 man 手册学会新命令。"
+      - title: "操作系统如何工作"
+        learn: ["进程和线程", "内存与虚拟内存", "文件系统", "系统调用", "计算机如何启动"]
+        build: "用 C 或 Python 写一个小型 shell，能运行命令、支持管道并处理 Ctrl+C。"
+        ready: "你能一步步解释运行一个程序时发生了什么。"
+      - title: "运行 Linux 服务器"
+        learn: ["用户、组和 sudo", "用 systemd 管理服务", "日志与 journalctl", "SSH 密钥", "定时任务与备份"]
+        build: "在虚拟机中搭建一台 Linux 服务器：提供一个网页，只允许 SSH 密钥登录，并且每晚自动备份。"
+        ready: "你能从日志中找出服务失败的原因并修复它。"
+      - title: "Windows 与 PowerShell"
+        learn: ["PowerShell 基础", "Windows 服务和注册表", "事件日志", "Active Directory：用户、组和域", "组策略"]
+        build: "搭建一个包含一台域控制器和一台客户端的小型 Windows 实验环境，并写一个 PowerShell 脚本列出每个用户及其最后登录时间。"
+        ready: "你能解释 Windows 域登录是如何进行的，以及记录在哪里。"
+      - title: "脚本与加固"
+        learn: ["Bash 脚本", "用 Python 自动化任务", "主机防火墙", "CIS 基准", "审计系统中的薄弱配置"]
+        build: "用 Lynis 审计你的服务器，修复最重要的问题，并写一个脚本检查它们保持修复状态。"
+        ready: "你能加固一台新服务器，并证明你做了哪些更改。"
+
   cybersecurity:
     title: "网络安全"
     summary: "了解系统是如何被攻击的，从而保护它们：网络、Web 应用、检测与响应。"

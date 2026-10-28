@@ -84,7 +84,7 @@ groups:
   - id: start
     icon: cap
     title: "Start here"
-    paths: [foundations, cybersecurity]
+    paths: [foundations, networking, linux, cybersecurity]
   - id: build
     icon: code
     title: "Build and run systems"
@@ -207,6 +207,96 @@ paths:
           - { name: "OWASP Top 10", by: "OWASP Foundation", url: "https://owasp.org/Top10/2025/", type: docs }
           - { name: "OWASP Cheat Sheet Series", by: "OWASP Foundation", url: "https://cheatsheetseries.owasp.org/", type: docs }
           - { name: "GitHub Actions documentation", by: "GitHub", url: "https://docs.github.com/en/actions", type: docs }
+
+  - id: networking
+    icon: wifi
+    title: "Computer networking"
+    summary: "How data really moves between computers: addresses, protocols, routing and the traffic you will defend or attack in every security job."
+    who: "Anyone heading into security, cloud or IT support. Every security role assumes you can read network traffic."
+    needs: ["foundations"]
+    roles: ["Network administrator", "Network security engineer", "SOC analyst", "Cloud engineer"]
+    stages:
+      - title: "How networks work"
+        weeks: "3–4"
+        learn: ["The OSI and TCP/IP models", "IP addresses and subnetting", "Ethernet, MAC addresses and ARP", "Switches and routers", "Ports and sockets"]
+        build: "Draw your home network: every device, its IP and MAC address, your router, and how a packet reaches the internet."
+        ready: "You can subnet a /24 by hand and explain what happens between typing a web address and seeing the page."
+        resources:
+          - { name: "Computer Networks: A Systems Approach", by: "Larry Peterson and Bruce Davie", url: "https://book.systemsapproach.org/", type: book }
+          - { name: "Network+ training course", by: "Professor Messer", url: "https://www.professormesser.com/network-plus/n10-009/n10-009-video/n10-009-training-course/", type: video }
+      - title: "The protocols you will see every day"
+        weeks: "4–6"
+        learn: ["TCP and UDP", "DNS", "DHCP and NAT", "HTTP, HTTPS and TLS", "ICMP, ping and traceroute"]
+        build: "Capture your own traffic in Wireshark while you load a website, and label the DNS lookup, the TCP handshake and the TLS handshake."
+        ready: "You can open a packet capture and say which device talked to which, over what protocol, and why."
+        resources:
+          - { name: "Wireshark User's Guide", by: "Wireshark Foundation", url: "https://www.wireshark.org/docs/wsug_html_chunked/", type: docs }
+          - { name: "HTTP", by: "MDN (Mozilla)", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP", type: docs }
+      - title: "Switching, routing and IPv6"
+        weeks: "4–6"
+        learn: ["VLANs and trunking", "Static and dynamic routing (OSPF)", "How BGP connects the internet", "Wi-Fi standards and security", "IPv6 addressing"]
+        build: "Build a small office network in Packet Tracer: two VLANs, a router between them, DHCP and a guest Wi-Fi that cannot reach the office."
+        ready: "You can design a segmented network and troubleshoot why two machines cannot talk."
+        resources:
+          - { name: "Cisco Packet Tracer", by: "Cisco Networking Academy", url: "https://www.netacad.com/cisco-packet-tracer", type: tool }
+          - { name: "Cisco Networking Academy", by: "Cisco", url: "https://www.netacad.com/", type: course }
+      - title: "Network security"
+        weeks: "4–6"
+        learn: ["Firewalls and segmentation", "VPNs", "Scanning your own network with Nmap", "IDS and network monitoring", "Spotting attacks in packet captures"]
+        build: "Scan your home lab with Nmap, close what should not be open, then analyse one malware traffic exercise and write up what happened."
+        ready: "You can find exposed services on a network you own and explain an attack from its traffic."
+        resources:
+          - { name: "Nmap Network Scanning", by: "Gordon Lyon (Nmap project)", url: "https://nmap.org/book/", type: book }
+          - { name: "Malware Traffic Analysis exercises", by: "Brad Duncan", url: "https://www.malware-traffic-analysis.net/", type: practice }
+
+  - id: linux
+    icon: terminal
+    title: "Linux and operating systems"
+    summary: "Use Linux and Windows like a professional: the command line, how an operating system works inside, running servers, and locking them down."
+    who: "Anyone heading into security, DevOps or cloud. Most servers, security tools and attacks live on these systems."
+    needs: ["foundations"]
+    roles: ["Linux system administrator", "Security engineer", "DevOps engineer", "SOC analyst"]
+    stages:
+      - title: "The Linux command line"
+        weeks: "3–4"
+        learn: ["Moving around the file system", "Files, users and permissions", "Pipes and redirection", "grep, find, sed and awk", "Installing software with a package manager"]
+        build: "Finish the first 20 levels of OverTheWire Bandit and keep notes on every command you learned."
+        ready: "You can do everyday work in a terminal without a mouse and read a man page to learn a new command."
+        resources:
+          - { name: "The Linux Command Line", by: "William Shotts", url: "https://linuxcommand.org/tlcl.php", type: book }
+          - { name: "OverTheWire: Bandit", by: "OverTheWire", url: "https://overthewire.org/wargames/bandit/", type: practice }
+      - title: "How operating systems work"
+        weeks: "4–6"
+        learn: ["Processes and threads", "Memory and virtual memory", "File systems", "System calls", "How a computer boots"]
+        build: "Write a tiny shell in C or Python that runs commands, supports pipes, and handles Ctrl+C."
+        ready: "You can explain what happens, step by step, when you run a program."
+        resources:
+          - { name: "Operating Systems: Three Easy Pieces", by: "Remzi and Andrea Arpaci-Dusseau (University of Wisconsin)", url: "https://pages.cs.wisc.edu/~remzi/OSTEP/", type: book }
+          - { name: "The Missing Semester of Your CS Education", by: "MIT", url: "https://missing.csail.mit.edu/", type: course }
+      - title: "Running a Linux server"
+        weeks: "4–6"
+        learn: ["Users, groups and sudo", "Services with systemd", "Logs and journalctl", "SSH keys", "Scheduled jobs and backups"]
+        build: "Set up a Linux server in a virtual machine that serves a web page, logs in only with SSH keys, and backs itself up every night."
+        ready: "You can find out why a service failed from its logs and fix it."
+        resources:
+          - { name: "Ubuntu Server documentation", by: "Canonical", url: "https://documentation.ubuntu.com/server/", type: docs }
+          - { name: "ArchWiki", by: "Arch Linux community", url: "https://wiki.archlinux.org/", type: docs }
+      - title: "Windows and PowerShell"
+        weeks: "3–4"
+        learn: ["PowerShell basics", "Windows services and the registry", "Event logs", "Active Directory: users, groups and domains", "Group Policy"]
+        build: "Build a small Windows lab with one domain controller and one client, and write a PowerShell script that lists every user and their last sign-in."
+        ready: "You can explain how a Windows domain sign-in works and where it is logged."
+        resources:
+          - { name: "PowerShell documentation", by: "Microsoft", url: "https://learn.microsoft.com/en-us/powershell/scripting/overview", type: docs }
+          - { name: "Active Directory Domain Services overview", by: "Microsoft", url: "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview", type: docs }
+      - title: "Scripting and hardening"
+        weeks: "3–4"
+        learn: ["Bash scripting", "Automating tasks with Python", "Firewalls on the host", "CIS Benchmarks", "Auditing a system for weak settings"]
+        build: "Audit your server with Lynis, fix the most important findings, and write a script that checks they stay fixed."
+        ready: "You can harden a fresh server and prove what you changed."
+        resources:
+          - { name: "CIS Benchmarks", by: "Center for Internet Security", url: "https://www.cisecurity.org/cis-benchmarks", type: docs }
+          - { name: "Lynis", by: "CISOfy", url: "https://cisofy.com/lynis/", type: tool }
 
   - id: cybersecurity
     icon: shield
