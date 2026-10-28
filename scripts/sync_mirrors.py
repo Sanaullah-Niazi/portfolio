@@ -25,6 +25,7 @@ MIRRORS = {
         ("assets/js/tools.js", None),
         ("assets/js/eff-short-words.js", None),
         ("assets/js/pil.js", None),
+        ("assets/js/youtube.js", None),
         ("_data/pil_attacks.yml", None),
         ("_data/pil_rules.json", None),
         ("_includes/pages/tool.html", None),

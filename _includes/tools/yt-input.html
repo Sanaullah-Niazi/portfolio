@@ -1,0 +1,8 @@
+{%- comment -%} The link box at the top of each YouTube tool. Usage: {% include tools/yt-input.html id="yttag" label=T.yt_video_label go=T.yttag_go icon="tag" %} {%- endcomment -%}
+  <form class="yt-form" id="{{ include.id }}-form" novalidate>
+    <label class="field-label" for="{{ include.id }}-input">{{ include.label }}</label>
+    <div class="field-row">
+      <input class="field mono" id="{{ include.id }}-input" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr" placeholder="{{ include.placeholder | default: 'https://www.youtube.com/watch?v=…' }}" maxlength="300" required>
+      <button class="btn btn-primary btn-sm" type="submit">{% include icon.html name=include.icon px=16 %}<span>{{ include.go }}</span></button>
+    </div>
+  </form>

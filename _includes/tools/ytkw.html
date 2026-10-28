@@ -1,0 +1,34 @@
+{%- comment -%} Countries and languages are listed by code; youtube.js shows their names in the page's language. {%- endcomment -%}
+{%- assign regions = "US,PK,IN,GB,DE,AT,CH,AE,SA,CA,AU,BD,ID,MY,TR,EG,NG,BR,MX,FR,ES,IT,NL,JP,KR,TW,HK,SG,PH" | split: "," -%}
+{%- assign kw_langs = "en,ur,hi,de,zh,ar,ps,bn,es,fr,pt,id,tr,ru,ja,ko" | split: "," -%}
+{%- case lang -%}{%- when "ur" -%}{% assign my_region = "PK" %}{%- when "de" -%}{% assign my_region = "DE" %}{%- when "zh" -%}{% assign my_region = "TW" %}{%- else -%}{% assign my_region = "US" %}{%- endcase -%}
+<section class="card tool yt" id="ytkw" aria-label="{{ T.ytkw_title }}" data-api="{{ site.health_checker.api }}">
+  <div class="seg" role="group" aria-label="{{ T.ytkw_title }}">
+    <button class="chip-btn" type="button" aria-pressed="true" data-mode="seed">{{ T.ytkw_mode_seed }}</button>
+    <button class="chip-btn" type="button" aria-pressed="false" data-mode="trend">{{ T.ytkw_mode_trend }}</button>
+  </div>
+  <form class="yt-form" id="ytkw-form" novalidate>
+    <label class="field-label" for="ytkw-input">{{ T.ytkw_label }}</label>
+    <div class="field-row">
+      <input class="field" id="ytkw-input" type="text" autocomplete="off" spellcheck="false" placeholder="{{ T.ytkw_placeholder }}" maxlength="80" required>
+      <button class="btn btn-primary btn-sm" type="submit">{% include icon.html name="search" px=16 %}<span>{{ T.ytkw_go }}</span></button>
+    </div>
+    <div class="check-row">
+      <label class="check"><span>{{ T.yt_lang_label }}</span>
+        <select id="ytkw-hl" class="field field-inline yt-lang">{% for c in kw_langs %}<option value="{{ c }}"{% if c == lang %} selected{% endif %}>{{ c }}</option>{% endfor %}</select></label>
+      <label class="check"><span>{{ T.yt_region_label }}</span>
+        <select id="ytkw-gl" class="field field-inline yt-region">{% for c in regions %}<option value="{{ c }}"{% if c == my_region %} selected{% endif %}>{{ c }}</option>{% endfor %}</select></label>
+    </div>
+  </form>
+  <form class="yt-form" id="ytkw-trend" novalidate hidden>
+    <div class="check-row">
+      <label class="check"><span>{{ T.yt_region_label }}</span>
+        <select id="ytkw-tgl" class="field field-inline yt-region">{% for c in regions %}<option value="{{ c }}"{% if c == my_region %} selected{% endif %}>{{ c }}</option>{% endfor %}</select></label>
+      <label class="check"><span>{{ T.ytkw_cat_label }}</span>
+        <select id="ytkw-cat" class="field field-inline"><option value="">{{ T.ytkw_cat_all }}</option></select></label>
+    </div>
+    <div class="btn-row"><button class="btn btn-primary btn-sm" type="submit">{% include icon.html name="chart" px=16 %}<span>{{ T.ytkw_trend_go }}</span></button></div>
+  </form>
+  <div class="tool-out" id="ytkw-out" aria-live="polite"></div>
+  <p class="tool-note">{{ T.ytkw_note }}</p>
+</section>

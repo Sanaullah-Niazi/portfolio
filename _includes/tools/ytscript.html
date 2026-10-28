@@ -1,0 +1,15 @@
+<section class="card tool yt" id="ytscript" aria-label="{{ T.ytscript_title }}" data-api="{{ site.health_checker.api }}">
+  {% include tools/yt-input.html id="ytscript" label=T.yt_video_label go=T.ytscript_go icon="captions" %}
+  <div class="check-row">
+    <label class="check"><input type="checkbox" id="ytscript-times"> <span>{{ T.ytscript_times }}</span></label>
+  </div>
+  <div class="tool-out" id="ytscript-out" aria-live="polite"></div>
+  <details class="yt-paste" id="ytscript-paste">
+    <summary>{{ T.ytscript_paste_title }}</summary>
+    <p class="tool-msg">{{ T.ytscript_paste_help }}</p>
+    <label class="field-label" for="ytscript-pasted">{{ T.ytscript_paste_label }}</label>
+    <textarea class="field" id="ytscript-pasted" rows="6" spellcheck="false" placeholder="0:00&#10;…&#10;0:04&#10;…"></textarea>
+    <div class="btn-row"><button class="btn btn-sm" type="button" id="ytscript-clean"><span>{{ T.ytscript_clean }}</span></button></div>
+  </details>
+  <p class="tool-note">{{ T.yt_note }}</p>
+</section>

@@ -51,11 +51,13 @@
 
 {%- comment -%} "Free resources" band: the tools (with a few featured ones), the roadmaps and the security news, right under the hero. {%- endcomment %}
 {%- assign T = D.tools | default: site.data.tools %}{% assign start_tools = "web,ph,leak,hid" | split: "," %}
+{%- comment -%} "%n security and developer tools" counts those two groups; the YouTube tools have their own hub. {%- endcomment %}
+{%- assign main_tools = site.data.tool_list | where_exp: "t", "t.group != 'youtube'" %}
 <section class="start-band" id="resources" aria-labelledby="start-title">
   <div class="wrap start-grid">
     <div class="start-tools">
       <h2 id="start-title" class="eyebrow">{% include icon.html name="tools" px=16 %}{{ S.start_label }}</h2>
-      <p class="start-lede">{{ S.start_tools | replace: "%n", site.data.tool_list.size }}</p>
+      <p class="start-lede">{{ S.start_tools | replace: "%n", main_tools.size }}</p>
       <ul class="start-chips">
         {%- for key in start_tools %}{% assign st = site.data.tool_list | where: "key", key | first %}{% assign tk = key | append: "_title" %}
         <li><a href="{{ L }}/tools/{{ st.slug }}/">{% include icon.html name=st.icon px=16 %}{{ T[tk] }}</a></li>
@@ -191,7 +193,7 @@
       </li>
     {%- endfor %}
     </ul>
-    <p class="more"><a class="link-arrow" href="{{ L }}/tools/">{{ S.tools_all | replace: "%n", site.data.tool_list.size }} {% include icon.html name="arrow" px=16 %}</a></p>
+    <p class="more"><a class="link-arrow" href="{{ L }}/tools/">{{ S.tools_all | replace: "%n", main_tools.size }} {% include icon.html name="arrow" px=16 %}</a></p>
   </div>
 </section>
 
