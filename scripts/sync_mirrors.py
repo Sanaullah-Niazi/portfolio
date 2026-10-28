@@ -24,6 +24,9 @@ MIRRORS = {
     "free-security-tools": [
         ("assets/js/tools.js", None),
         ("assets/js/eff-short-words.js", None),
+        ("assets/js/pil.js", None),
+        ("_data/pil_attacks.yml", None),
+        ("_data/pil_rules.json", None),
         ("_includes/pages/tool.html", None),
         ("_includes/pages/tools.html", None),
         ("_includes/tools/*.html", None),
@@ -36,6 +39,8 @@ MIRRORS = {
     ],
     "website-health-checker": [
         ("worker/**", None),
+        ("_data/pil_rules.json", None),
+        ("_data/pil_attacks.yml", None),
         ("assets/js/health-checker.js", None),
         ("assets/js/health-report-pdf.js", None),
         ("_includes/tools/web.html", None),

@@ -9,6 +9,7 @@
 - { key: look, slug: lookalike-domain-checker,  icon: globe,    group: security }
 - { key: exif, slug: photo-metadata-remover,    icon: image,    group: security }
 - { key: hid,  slug: hidden-text-detector,      icon: eye,      group: security, old: hidden }
+- { key: pil,  slug: prompt-injection-lab,      icon: flask,    group: security }
 - { key: hash, slug: hash-generator,            icon: hash,     group: security, old: hash }
 - { key: jwt,  slug: jwt-decoder,               icon: token,    group: security, old: jwt }
 - { key: json, slug: json-formatter,            icon: braces,   group: dev }
