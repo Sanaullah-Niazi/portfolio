@@ -18,7 +18,7 @@
     <div>
       <h1>{{ T[title_key] }}</h1>
       <p class="lede">{{ T[lede_key] }}</p>
-      <p class="pill">{% include icon.html name="lock" px=15 %}<span>{% if k == "leak" %}{{ T.leak_private }}{% elsif k == "web" %}{% assign days_tok = "{days}" %}{{ T.web_private | replace: days_tok, site.health_checker.report_days }}{% else %}{{ T.private }}{% endif %}</span></p>
+      <p class="pill">{% include icon.html name="lock" px=15 %}<span>{% if k == "leak" %}{{ T.leak_private }}{% elsif k == "pil" %}{{ T.pil_private }}{% elsif k == "web" %}{% assign days_tok = "{days}" %}{{ T.web_private | replace: days_tok, site.health_checker.report_days }}{% else %}{{ T.private }}{% endif %}</span></p>
     </div>
   </header>
 

@@ -2,7 +2,7 @@
 # {email} is replaced with the email address in _data/profile.yml, {days} with health_checker.report_days in _config.yml,
 # {analytics} with the statistics service set in _config.yml (Cloudflare Web Analytics or GoatCounter).
 # A section with analytics: true shows p while a statistics service is set, and p_off when none is.
-updated: 2026-10-27
+updated: 2026-10-28
 
 en:
   title: "Privacy policy"
@@ -18,6 +18,10 @@ en:
         - "The report, including the scanned address, is stored so you can share it and is deleted automatically after {days} days. Results for the same address may be reused for a few hours so the free API limits aren't exceeded."
         - "To stop abuse, the page uses Cloudflare Turnstile to check that you're human, and limits how many scans one visitor can run. For the limit, the server stores a one-way hash of your IP address (never the address itself) with a counter that's deleted after a day at most. No account, name or email is needed."
         - "The checks are passive and read only what's publicly visible. Only scan websites you own or have permission to test."
+    - h: "Prompt injection lab"
+      p:
+        - "When you run an attack in the prompt injection lab, the text of the attack is sent to the lab's server on Cloudflare Workers, which passes it to an AI model on Cloudflare Workers AI and sends the reply back to your browser. Neither the attack nor the reply is stored."
+        - "To stop abuse, the lab uses Cloudflare Turnstile to check that you're human, and limits how many lab sessions one visitor can start and how many attacks a session can run. For these limits the server keeps a one-way hash of your IP address (never the address itself) and a counter, both deleted within a day. Don't paste personal or confidential information into an attack."
     - h: "The other tools"
       p:
         - "The other tools on /tools/ run entirely in your browser: what you type or the files you choose are not uploaded. The one exception is the leaked password checker, which sends only the first 5 characters of your password's SHA-1 hash to Have I Been Pwned, never the password."
@@ -54,6 +58,10 @@ ur:
         - "رپورٹ، اسکین کیے گئے پتے سمیت، اس لیے محفوظ کی جاتی ہے کہ آپ اسے شیئر کر سکیں، اور {days} دن بعد خود بخود حذف ہو جاتی ہے۔ مفت API حدود سے آگے نہ جانے کے لیے ایک ہی پتے کے نتائج چند گھنٹے دوبارہ استعمال ہو سکتے ہیں۔"
         - "غلط استعمال روکنے کے لیے صفحہ Cloudflare Turnstile سے جانچتا ہے کہ آپ انسان ہیں، اور ایک وزیٹر کی جانچ کی تعداد محدود رکھتا ہے۔ اس حد کے لیے سرور آپ کے IP ایڈریس کا یک طرفہ hash محفوظ کرتا ہے (اصل ایڈریس کبھی نہیں)، جس کا کاؤنٹر زیادہ سے زیادہ ایک دن بعد حذف ہو جاتا ہے۔ کسی اکاؤنٹ، نام یا ای میل کی ضرورت نہیں۔"
         - "جانچ غیر فعال ہے اور صرف وہی پڑھتی ہے جو عوامی طور پر نظر آتا ہے۔ صرف وہی ویب سائٹس اسکین کریں جو آپ کی ہیں یا جن کی اجازت ہے۔"
+    - h: "پرامپٹ انجیکشن لیب"
+      p:
+        - "جب آپ پرامپٹ انجیکشن لیب میں حملہ چلاتے ہیں تو حملے کا ٹیکسٹ Cloudflare Workers پر لیب کے سرور کو بھیجا جاتا ہے، جو اسے Cloudflare Workers AI کے ایک AI ماڈل کو دیتا ہے اور جواب آپ کے براؤزر کو واپس بھیجتا ہے۔ نہ حملہ محفوظ کیا جاتا ہے نہ جواب۔"
+        - "غلط استعمال روکنے کے لیے لیب Cloudflare Turnstile سے جانچتی ہے کہ آپ انسان ہیں، اور یہ حد رکھتی ہے کہ ایک وزیٹر کتنے لیب سیشن شروع کر سکتا ہے اور ایک سیشن میں کتنے حملے ہو سکتے ہیں۔ اس کے لیے سرور آپ کے IP ایڈریس کا یک طرفہ ہیش (کبھی ایڈریس خود نہیں) اور ایک گنتی رکھتا ہے، جو ایک دن کے اندر حذف ہو جاتے ہیں۔ حملے میں ذاتی یا خفیہ معلومات نہ ڈالیں۔"
     - h: "دوسرے ٹولز"
       p:
         - "/tools/ کے دوسرے ٹولز مکمل طور پر آپ کے براؤزر میں چلتے ہیں: آپ جو لکھتے ہیں یا جو فائلیں چنتے ہیں وہ اپ لوڈ نہیں ہوتیں۔ واحد استثنا لیک پاس ورڈ چیکر ہے، جو Have I Been Pwned کو صرف آپ کے پاس ورڈ کے SHA-1 hash کے پہلے 5 حروف بھیجتا ہے، پاس ورڈ کبھی نہیں۔"
@@ -90,6 +98,10 @@ de:
         - "Der Bericht wird samt geprüfter Adresse gespeichert, damit Sie ihn teilen können, und nach {days} Tagen automatisch gelöscht. Ergebnisse für dieselbe Adresse können einige Stunden wiederverwendet werden, damit die kostenlosen API-Grenzen nicht überschritten werden."
         - "Um Missbrauch zu verhindern, prüft die Seite mit Cloudflare Turnstile, dass Sie ein Mensch sind, und begrenzt die Zahl der Prüfungen pro Besucher. Dafür speichert der Server einen Einweg-Hash Ihrer IP-Adresse (nie die Adresse selbst) mit einem Zähler, der spätestens nach einem Tag gelöscht wird. Konto, Name oder E-Mail sind nicht nötig."
         - "Die Prüfungen sind passiv und lesen nur, was öffentlich sichtbar ist. Prüfen Sie nur Websites, die Ihnen gehören oder für die Sie eine Erlaubnis haben."
+    - h: "Prompt-Injection-Labor"
+      p:
+        - "Wenn Sie im Prompt-Injection-Labor einen Angriff ausführen, wird sein Text an den Server des Labors auf Cloudflare Workers gesendet, der ihn an ein KI-Modell bei Cloudflare Workers AI weitergibt und die Antwort an Ihren Browser zurückschickt. Weder der Angriff noch die Antwort werden gespeichert."
+        - "Gegen Missbrauch prüft das Labor mit Cloudflare Turnstile, dass Sie ein Mensch sind, und begrenzt, wie viele Laborsitzungen ein Besucher starten und wie viele Angriffe eine Sitzung ausführen kann. Dafür speichert der Server einen Einweg-Hash Ihrer IP-Adresse (nie die Adresse selbst) und einen Zähler, die beide innerhalb eines Tages gelöscht werden. Fügen Sie keine persönlichen oder vertraulichen Informationen in einen Angriff ein."
     - h: "Die anderen Tools"
       p:
         - "Die anderen Tools unter /tools/ laufen vollständig in Ihrem Browser: Eingaben und ausgewählte Dateien werden nicht hochgeladen. Einzige Ausnahme ist der Check auf geleakte Passwörter, der nur die ersten 5 Zeichen des SHA-1-Hashs Ihres Passworts an Have I Been Pwned sendet, nie das Passwort."
@@ -126,6 +138,10 @@ zh:
         - "报告（包括被检测的网址）会被保存以便分享，并在 {days} 天后自动删除。为了不超出免费 API 额度，同一网址的结果可能会在几小时内重复使用。"
         - "为了防止滥用，页面使用 Cloudflare Turnstile 确认你是真人，并限制每位访客的检测次数。为此，服务器只保存你 IP 地址的单向哈希（从不保存地址本身）和一个计数器，最多一天后删除。不需要账号、姓名或邮箱。"
         - "检测是被动的，只读取公开可见的内容。请只检测你自己的网站或已获授权测试的网站。"
+    - h: "提示词注入实验室"
+      p:
+        - "当你在提示词注入实验室运行攻击时，攻击文本会发送到实验室在 Cloudflare Workers 上的服务器，服务器把它交给 Cloudflare Workers AI 上的 AI 模型，再把回复发回你的浏览器。攻击和回复都不会被保存。"
+        - "为防止滥用，实验室使用 Cloudflare Turnstile 确认你是真人，并限制每位访客可开启的实验会话数量以及每个会话可运行的攻击次数。为此，服务器会保存你 IP 地址的单向哈希（从不保存地址本身）和一个计数，两者都会在一天内删除。请不要在攻击中填写个人或机密信息。"
     - h: "其他工具"
       p:
         - "/tools/ 下的其他工具完全在你的浏览器中运行：你输入的内容或选择的文件都不会上传。唯一的例外是密码泄露检测，它只把密码 SHA-1 哈希的前 5 个字符发送给 Have I Been Pwned，从不发送密码本身。"
