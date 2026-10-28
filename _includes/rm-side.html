@@ -1,0 +1,36 @@
+{%- comment -%}
+  The sidebar on every roadmap page: all learning paths, every security roadmap by category, and the certification tracks,
+  like the contents of a book. The current page is marked and its category is open; the other categories fold away.
+  Usage: {% include rm-side.html path="web" %} on a learning path, {% include rm-side.html domain="secops" cat="core" %} on a security roadmap.
+{%- endcomment -%}
+{%- assign RS = site.data.roadmaps -%}{%- assign TS = D.roadmaps | default: RS -%}
+{%- assign SRS = site.data.sec_roadmaps -%}
+{%- assign CES = site.data.cert_roadmaps -%}{%- assign TCS = D.cert_roadmaps | default: CES -%}
+{%- assign ss_base = L | append: '/roadmaps/security/' %}{% assign ss_page = site.pages | where: 'url', ss_base | first %}
+{%- if ss_page %}{% assign ss_en = '' %}{% else %}{% assign ss_base = '/roadmaps/security/' %}{% assign ss_en = ' hreflang="en"' %}{% endif %}
+{%- assign ss_n = 0 %}{% for rs_c in SRS.categories %}{% assign ss_n = ss_n | plus: rs_c.domains.size %}{% endfor %}
+<p class="rm-side-g"><a href="{{ L }}/roadmaps/#learning-paths">{{ TS.tier_paths_title | default: RS.tier_paths_title }}</a></p>
+<ul class="rm-side-list">
+  {%- for rs_g in RS.groups %}{% for rs_id in rs_g.paths %}{% assign rs_p = RS.paths | where: 'id', rs_id | first %}{% assign rs_tp = TS.paths[rs_id] %}
+  <li><a href="{{ L }}/roadmaps/{{ rs_id }}/"{% if include.path == rs_id %} class="is-on" aria-current="page"{% endif %}>{% include icon.html name=rs_p.icon px=16 %}<span>{{ rs_tp.title | default: rs_p.title }}</span></a></li>
+  {%- endfor %}{% endfor %}
+</ul>
+<p class="rm-side-g"><a href="{{ ss_base }}"{{ ss_en }}>{{ TS.tier_security_title | default: RS.tier_security_title }}</a><span>{{ ss_n }}</span></p>
+<div class="rm-side-cats" lang="en" dir="ltr">
+  {%- for rs_c in SRS.categories %}
+  <details{% if include.cat == rs_c.id %} open{% endif %}>
+    <summary>{% include icon.html name=rs_c.icon px=16 %}<span>{{ rs_c.short | default: rs_c.title }}</span><span class="rm-side-n">{{ rs_c.domains.size }}</span></summary>
+    <ul>
+      {%- for rs_d in rs_c.domains %}{% assign rs_sd = site.data.sec_domains[rs_d] %}
+      <li><a href="{{ ss_base }}{{ rs_d }}/"{{ ss_en }}{% if include.domain == rs_d %} class="is-on" aria-current="page"{% endif %}>{{ rs_sd.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </details>
+  {%- endfor %}
+</div>
+<p class="rm-side-g"><a href="{{ L }}/roadmaps/certifications/">{{ TS.tier_certs_title | default: RS.tier_certs_title }}</a><span>{{ CES.tracks.size }}</span></p>
+<ul class="rm-side-list">
+  {%- for rs_t in CES.tracks %}{% assign rs_tt = TCS.tracks[rs_t.id] %}
+  <li><a href="{{ L }}/roadmaps/certifications/#{{ rs_t.id }}">{% include icon.html name="award" px=16 %}<span>{{ rs_tt.title | default: rs_t.title }}</span></a></li>
+  {%- endfor %}
+</ul>

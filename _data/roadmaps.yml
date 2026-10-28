@@ -54,14 +54,53 @@ security_cta_text: "A career roadmap for each area of security, from Beginner to
 sections_label: "Sections"
 roadmaps_word: "roadmaps"
 specialise: "Specialise: security roadmaps"
-tier_paths_title: "Learning paths"
-tier_paths_text: "Step-by-step routes into a field, in the order I'd learn them again. New to computing? Start with Foundations."
+tier_paths_title: "Foundations for security"
+tier_paths_text: "Step-by-step learning paths that every security career builds on. New to computing? Start with Foundations of computer science."
 tier_security_title: "Cybersecurity & AI security roadmaps"
 tier_security_text: "Comfortable with the basics? These [n] career roadmaps go deep into every area of security. Pick a category to explore."
 tier_certs_title: "Certifications"
 tier_certs_text: "Which certification to take, in what order, and what each one really costs."
 security_all: "Browse all [n] roadmaps"
 security_all_text: "Search and filter every security roadmap in one place."
+# The library: the hub at /roadmaps/, the bar above every roadmap page, and the sidebar on each roadmap.
+lib_title: "Roadmaps library"
+lib_lede: "Everything in order: learn the foundations, specialise in an area of security, then prove it with a certification. Every roadmap is two clicks away."
+lib_label: "Roadmaps library"
+bar_paths: "Foundations"
+bar_security: "Security"
+search_label: "Search all roadmaps"
+search_placeholder: "Search, for example networking, SOC, LLM or Security+"
+search_none: "Nothing matches. Try a shorter word."
+popular: "Popular"
+prev: "Previous"
+next: "Next"
+on_page: "On this page"
+browse: "Browse all roadmaps"
+legend_label: "Key"
+legend_level: "Starts at [l]"
+
+# ---- Groups of learning paths in the first section of the library, in order. A path appears once. ----
+groups:
+  - id: start
+    icon: cap
+    title: "Start here"
+    paths: [foundations, cybersecurity]
+  - id: build
+    icon: code
+    title: "Build and run systems"
+    paths: [web, cloud-devops]
+  - id: ai
+    icon: brain
+    title: "AI and data"
+    paths: [ai-ml, ai-security, data]
+
+# ---- Shortcuts in the bar above every roadmap page: security roadmap ids, with a short label. ----
+quick:
+  - { to: secops, label: "SOC analyst" }
+  - { to: pentest, label: "Pentesting" }
+  - { to: cloud, label: "Cloud security" }
+  - { to: llmsec, label: "LLM security" }
+  - { to: grc, label: "GRC" }
 
 # ---- The paths. "needs" lists the ids of paths (or "foundations") to do first. ----
 paths:

@@ -1,0 +1,20 @@
+{%- comment -%}
+  The bar under the main menu on every roadmap page: the three sections of the library, then a few popular roadmaps.
+  Usage: {% include rm-bar.html active="paths" %} (paths, security or certs; leave out on the library itself).
+  The security roadmaps are in English only: they link to the English pages until a translation exists.
+{%- endcomment -%}
+{%- assign RB = site.data.roadmaps -%}{%- assign TB = D.roadmaps | default: RB -%}
+{%- assign sb_base = L | append: '/roadmaps/security/' %}{% assign sb_page = site.pages | where: 'url', sb_base | first %}
+{%- if sb_page %}{% assign sb_en = '' %}{% else %}{% assign sb_base = '/roadmaps/security/' %}{% assign sb_en = ' hreflang="en"' %}{% endif %}
+<nav class="rm-bar" aria-label="{{ TB.lib_label | default: RB.lib_label }}">
+  <div class="wrap rm-bar-in">
+    <a href="{{ L }}/roadmaps/#learning-paths"{% if include.active == 'paths' %} class="is-on"{% endif %}>{% include icon.html name="map" px=16 %}<span>{{ TB.bar_paths | default: RB.bar_paths }}</span></a>
+    <a href="{{ L }}/roadmaps/#security-roadmaps"{% if include.active == 'security' %} class="is-on"{% endif %}>{% include icon.html name="shield" px=16 %}<span>{{ TB.bar_security | default: RB.bar_security }}</span></a>
+    <a href="{{ L }}/roadmaps/certifications/"{% if include.active == 'certs' %} class="is-on"{% endif %}>{% include icon.html name="award" px=16 %}<span>{{ TB.tier_certs_title | default: RB.tier_certs_title }}</span></a>
+    <span class="rm-bar-sep" aria-hidden="true"></span>
+    <span class="rm-bar-label">{{ TB.popular | default: RB.popular }}</span>
+    {%- for q in RB.quick %}
+    <a class="rm-bar-q" href="{{ sb_base }}{{ q.to }}/"{{ sb_en }}>{{ q.label }}</a>
+    {%- endfor %}
+  </div>
+</nav>

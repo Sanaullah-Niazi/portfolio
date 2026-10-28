@@ -7,6 +7,7 @@
 {%- assign T = D.sec_roadmaps | default: R -%}
 {%- assign levels = T.levels | default: R.levels -%}
 {%- assign W = T.page | default: R.page -%}
+{% include rm-bar.html active="security" %}
 <div class="wrap page roadmaps-page sr-index">
   <header class="page-head">
     <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> {{ T.eyebrow | default: R.eyebrow }}</p>
