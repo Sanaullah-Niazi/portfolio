@@ -22,6 +22,10 @@ en:
       p:
         - "When you run an attack in the prompt injection lab, the text of the attack is sent to the lab's server on Cloudflare Workers, which passes it to an AI model on Cloudflare Workers AI and sends the reply back to your browser. Neither the attack nor the reply is stored."
         - "To stop abuse, the lab uses Cloudflare Turnstile to check that you're human, and limits how many lab sessions one visitor can start and how many attacks a session can run. For these limits the server keeps a one-way hash of your IP address (never the address itself) and a counter, both deleted within a day. Don't paste personal or confidential information into an attack."
+    - h: "YouTube tools"
+      p:
+        - "When you use a YouTube tool, the video link, channel or keyword you enter is sent to my server on Cloudflare Workers, which looks it up with the official YouTube Data API, YouTube's search suggestions or YouTube's caption service and sends the answer back. Google's privacy policy applies to those services. Nothing you look up is stored; answers may be kept in Cloudflare's cache for a few hours so the free API limits last."
+        - "To share the free limits fairly, the server counts lookups per visitor with a one-way hash of your IP address (never the address itself), deleted within a day. Thumbnails and video pictures are loaded straight from YouTube's image server (i.ytimg.com)."
     - h: "The other tools"
       p:
         - "The other tools on /tools/ run entirely in your browser: what you type or the files you choose are not uploaded. The one exception is the leaked password checker, which sends only the first 5 characters of your password's SHA-1 hash to Have I Been Pwned, never the password."
@@ -62,6 +66,10 @@ ur:
       p:
         - "جب آپ پرامپٹ انجیکشن لیب میں حملہ چلاتے ہیں تو حملے کا ٹیکسٹ Cloudflare Workers پر لیب کے سرور کو بھیجا جاتا ہے، جو اسے Cloudflare Workers AI کے ایک AI ماڈل کو دیتا ہے اور جواب آپ کے براؤزر کو واپس بھیجتا ہے۔ نہ حملہ محفوظ کیا جاتا ہے نہ جواب۔"
         - "غلط استعمال روکنے کے لیے لیب Cloudflare Turnstile سے جانچتی ہے کہ آپ انسان ہیں، اور یہ حد رکھتی ہے کہ ایک وزیٹر کتنے لیب سیشن شروع کر سکتا ہے اور ایک سیشن میں کتنے حملے ہو سکتے ہیں۔ اس کے لیے سرور آپ کے IP ایڈریس کا یک طرفہ ہیش (کبھی ایڈریس خود نہیں) اور ایک گنتی رکھتا ہے، جو ایک دن کے اندر حذف ہو جاتے ہیں۔ حملے میں ذاتی یا خفیہ معلومات نہ ڈالیں۔"
+    - h: "یوٹیوب ٹولز"
+      p:
+        - "جب آپ کوئی یوٹیوب ٹول استعمال کرتے ہیں تو آپ کا لکھا ہوا ویڈیو لنک، چینل یا کی ورڈ Cloudflare Workers پر میرے سرور کو بھیجا جاتا ہے، جو اسے آفیشل YouTube Data API، یوٹیوب کی سرچ تجاویز یا یوٹیوب کی کیپشن سروس سے تلاش کر کے جواب واپس بھیجتا ہے۔ ان سروسز پر گوگل کی پرائیویسی پالیسی لاگو ہوتی ہے۔ آپ جو تلاش کرتے ہیں وہ محفوظ نہیں ہوتا؛ مفت API حدود کو بچانے کے لیے جوابات چند گھنٹے Cloudflare کے کیش میں رہ سکتے ہیں۔"
+        - "مفت حدود کو منصفانہ بانٹنے کے لیے سرور آپ کے IP ایڈریس کے یک طرفہ hash (ایڈریس خود کبھی نہیں) کے ساتھ ہر وزیٹر کی تلاشیں گنتا ہے، جو ایک دن کے اندر ڈیلیٹ ہو جاتا ہے۔ تھمب نیل اور ویڈیو کی تصویریں براہ راست یوٹیوب کے امیج سرور ‏(i.ytimg.com) سے لوڈ ہوتی ہیں۔"
     - h: "دوسرے ٹولز"
       p:
         - "/tools/ کے دوسرے ٹولز مکمل طور پر آپ کے براؤزر میں چلتے ہیں: آپ جو لکھتے ہیں یا جو فائلیں چنتے ہیں وہ اپ لوڈ نہیں ہوتیں۔ واحد استثنا لیک پاس ورڈ چیکر ہے، جو Have I Been Pwned کو صرف آپ کے پاس ورڈ کے SHA-1 hash کے پہلے 5 حروف بھیجتا ہے، پاس ورڈ کبھی نہیں۔"
@@ -102,6 +110,10 @@ de:
       p:
         - "Wenn Sie im Prompt-Injection-Labor einen Angriff ausführen, wird sein Text an den Server des Labors auf Cloudflare Workers gesendet, der ihn an ein KI-Modell bei Cloudflare Workers AI weitergibt und die Antwort an Ihren Browser zurückschickt. Weder der Angriff noch die Antwort werden gespeichert."
         - "Gegen Missbrauch prüft das Labor mit Cloudflare Turnstile, dass Sie ein Mensch sind, und begrenzt, wie viele Laborsitzungen ein Besucher starten und wie viele Angriffe eine Sitzung ausführen kann. Dafür speichert der Server einen Einweg-Hash Ihrer IP-Adresse (nie die Adresse selbst) und einen Zähler, die beide innerhalb eines Tages gelöscht werden. Fügen Sie keine persönlichen oder vertraulichen Informationen in einen Angriff ein."
+    - h: "YouTube-Tools"
+      p:
+        - "Wenn Sie ein YouTube-Tool nutzen, wird der eingegebene Videolink, Kanal oder Begriff an meinen Server auf Cloudflare Workers gesendet. Er schlägt ihn über die offizielle YouTube Data API, die YouTube-Suchvorschläge oder den Untertiteldienst von YouTube nach und schickt die Antwort zurück. Für diese Dienste gilt die Datenschutzerklärung von Google. Nichts, was Sie nachschlagen, wird gespeichert; Antworten können einige Stunden im Cache von Cloudflare liegen, damit die kostenlosen API-Kontingente reichen."
+        - "Damit die kostenlosen Kontingente fair verteilt werden, zählt der Server Abfragen pro Besucher mit einem Einweg-Hash Ihrer IP-Adresse (nie der Adresse selbst), der innerhalb eines Tages gelöscht wird. Thumbnails und Vorschaubilder werden direkt vom Bildserver von YouTube (i.ytimg.com) geladen."
     - h: "Die anderen Tools"
       p:
         - "Die anderen Tools unter /tools/ laufen vollständig in Ihrem Browser: Eingaben und ausgewählte Dateien werden nicht hochgeladen. Einzige Ausnahme ist der Check auf geleakte Passwörter, der nur die ersten 5 Zeichen des SHA-1-Hashs Ihres Passworts an Have I Been Pwned sendet, nie das Passwort."
@@ -142,6 +154,10 @@ zh:
       p:
         - "当你在提示词注入实验室运行攻击时，攻击文本会发送到实验室在 Cloudflare Workers 上的服务器，服务器把它交给 Cloudflare Workers AI 上的 AI 模型，再把回复发回你的浏览器。攻击和回复都不会被保存。"
         - "为防止滥用，实验室使用 Cloudflare Turnstile 确认你是真人，并限制每位访客可开启的实验会话数量以及每个会话可运行的攻击次数。为此，服务器会保存你 IP 地址的单向哈希（从不保存地址本身）和一个计数，两者都会在一天内删除。请不要在攻击中填写个人或机密信息。"
+    - h: "YouTube 工具"
+      p:
+        - "当你使用 YouTube 工具时，你输入的视频链接、频道或关键词会发送到我在 Cloudflare Workers 上的服务器，服务器通过官方 YouTube Data API、YouTube 搜索建议或 YouTube 字幕服务查询后把结果发回。这些服务适用 Google 的隐私政策。你查询的内容不会被保存；为了让免费的 API 额度够用，结果可能会在 Cloudflare 的缓存中保留几个小时。"
+        - "为了公平分配免费额度，服务器会用你 IP 地址的单向哈希（从不保存地址本身）统计每位访客的查询次数，并在一天内删除。缩略图和视频图片直接从 YouTube 的图片服务器（i.ytimg.com）加载。"
     - h: "其他工具"
       p:
         - "/tools/ 下的其他工具完全在你的浏览器中运行：你输入的内容或选择的文件都不会上传。唯一的例外是密码泄露检测，它只把密码 SHA-1 哈希的前 5 个字符发送给 Have I Been Pwned，从不发送密码本身。"

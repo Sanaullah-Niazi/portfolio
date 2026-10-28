@@ -3,18 +3,31 @@
   (_includes/pages/tool.html). The list and order are in _data/tool_list.yml, the text in _data/tools.yml
   (English) and _data/<code>/tools.yml.
 {%- endcomment -%}
+{%- comment -%} The YouTube hub (/tools/youtube/, page.tool_group: youtube) uses the same layout with only that group. {%- endcomment -%}
 {%- assign T = D.tools | default: site.data.tools -%}
-<div class="wrap page tools-page">
+{%- assign privacy_url = L | append: "/privacy/" %}{% assign tools_url = L | append: "/tools/" %}{% assign tok_privacy = "{privacy}" %}{% assign tok_all = "{all}" -%}
+{%- if page.tool_group == "youtube" -%}{% assign groups = "youtube" | split: "," %}{% assign yt_hub = true %}{% else %}{% assign groups = "security,dev,youtube" | split: "," %}{% assign yt_hub = false %}{% endif -%}
+<div class="wrap page tools-page{% if yt_hub %} yt-hub{% endif %}">
+  {%- if yt_hub %}
+  <nav class="crumbs" aria-label="{{ T.crumbs }}"><a href="{{ L }}/tools/">{{ T.title }}</a> <span aria-hidden="true">/</span> <span aria-current="page">{{ T.yt_hub_title }}</span></nav>
+  <header class="page-head">
+    <p class="eyebrow">{{ T.yt_hub_eyebrow }}</p>
+    <h1>{{ T.yt_hub_title }}</h1>
+    <p class="lede">{{ T.yt_hub_lede }}</p>
+    <p class="pill">{% include icon.html name="youtube" px=15 %}<span>{{ T.yt_private }}</span></p>
+  </header>
+  {%- else %}
   <header class="page-head">
     <p class="eyebrow">{{ T.eyebrow }}</p>
     <h1>{{ T.title }}</h1>
     <p class="lede">{{ T.lede }}</p>
     <p class="pill">{% include icon.html name="lock" px=15 %}<span>{{ T.private }}</span></p>
   </header>
-  {%- for g in (1..2) %}{% if g == 1 %}{% assign group = "security" %}{% else %}{% assign group = "dev" %}{% endif %}
+  {%- endif %}
+  {%- for group in groups %}
   {%- assign gk = "group_" | append: group %}
   <section class="tool-group" aria-labelledby="group-{{ group }}">
-    <h2 id="group-{{ group }}">{{ T[gk] }}</h2>
+    <h2 id="group-{{ group }}">{% if group == "youtube" and yt_hub == false %}<a href="{{ L }}/tools/youtube/">{{ T[gk] }}</a>{% else %}{{ T[gk] }}{% endif %}</h2>
     <ul class="tool-cards">
     {%- assign tools = site.data.tool_list | where: "group", group %}
     {%- for t in tools %}{% assign tk = t.key | append: "_title" %}{% assign ck = t.key | append: "_card" %}
@@ -27,6 +40,18 @@
     </ul>
   </section>
   {%- endfor %}
+  {%- if yt_hub %}
+  <section class="card tools-about" id="about-these-tools" aria-labelledby="about-tools-title">
+    <h2 id="about-tools-title">{{ T.yt_about_title }}</h2>
+    <ul>
+      {%- for pt in T.yt_about_points %}
+      <li>{{ pt | replace: tok_privacy, privacy_url | replace: tok_all, tools_url }}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+  <p class="muted tools-foot"><span>{{ T.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
+</div>
+  {%- else %}
   {%- comment -%} "About these tools": what they are for, privacy, no guarantee, bugs, code. Text in _data/tools.yml (about_*). {%- endcomment %}
   {%- assign tok_privacy = "{privacy}" %}{% assign tok_contact = "{contact}" %}{% assign tok_code = "{code}" %}
   {%- assign privacy_url = L | append: "/privacy/" %}{% assign contact_url = L | append: "/#contact" %}
@@ -40,6 +65,8 @@
   </section>
   <p class="muted tools-foot"><span>{{ T.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
 </div>
+  {%- endif %}
+{%- if yt_hub %}{% assign ld_tools = site.data.tool_list | where: "group", "youtube" %}{% assign ld_name = T.yt_hub_title %}{% else %}{% assign ld_tools = site.data.tool_list %}{% assign ld_name = T.title %}{% endif %}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","name":{{ T.title | jsonify }},"itemListElement":[{% for t in site.data.tool_list %}{% assign tk = t.key | append: "_title" %}{"@type":"ListItem","position":{{ forloop.index }},"name":{{ T[tk] | jsonify }},"url":{{ L | append: '/tools/' | append: t.slug | append: '/' | absolute_url | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
+{"@context":"https://schema.org","@type":"ItemList","name":{{ ld_name | jsonify }},"itemListElement":[{% for t in ld_tools %}{% assign tk = t.key | append: "_title" %}{"@type":"ListItem","position":{{ forloop.index }},"name":{{ T[tk] | jsonify }},"url":{{ L | append: '/tools/' | append: t.slug | append: '/' | absolute_url | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
 </script>

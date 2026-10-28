@@ -1,6 +1,7 @@
 # The tools on /tools/, in the order they are listed. Same in every language.
 # slug: the page address (/tools/<slug>/, /de/tools/<slug>/ ...). key: the prefix of the tool's text in _data/tools.yml
-# and the name of its markup in _includes/tools/<key>.html. group: security or dev. words: needs the passphrase word list.
+# and the name of its markup in _includes/tools/<key>.html. group: security, dev or youtube (the YouTube tools also have
+# their own hub at /tools/youtube/ and live under it). words: needs the passphrase word list.
 - { key: web,  slug: website-health-checker,    icon: radar,    group: security }
 - { key: pw,   slug: password-strength-checker, icon: key,      group: security, old: password }
 - { key: leak, slug: leaked-password-checker,   icon: alert,    group: security }
@@ -17,3 +18,8 @@
 - { key: url,  slug: url-encoder-decoder,       icon: percent,  group: dev }
 - { key: ts,   slug: unix-timestamp-converter,  icon: clock,    group: dev }
 - { key: uuid, slug: uuid-generator,            icon: fingerprint, group: dev }
+- { key: yttag,    slug: youtube/tag-extractor,        icon: tag,      group: youtube }
+- { key: ytscript, slug: youtube/transcript-extractor, icon: captions, group: youtube }
+- { key: ytchan,   slug: youtube/channel-keywords,     icon: users,    group: youtube }
+- { key: ytkw,     slug: youtube/keyword-ideas,        icon: search,   group: youtube }
+- { key: ytthumb,  slug: youtube/thumbnail-downloader, icon: image,    group: youtube }

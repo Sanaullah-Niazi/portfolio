@@ -4,6 +4,8 @@
 {%- comment -%} Security policy: only this site's own scripts run; the form may only post to Web3Forms, and the leaked password checker may only ask the Pwned Passwords range API (it sends 5 characters of a hash). GitHub Pages can't send headers, so it goes in a meta tag. {%- endcomment %}
 {%- comment -%} The website checker and prompt injection lab pages also load the Turnstile CAPTCHA and talk to the site's Worker (site.health_checker). {%- endcomment %}
 {%- if page.tool == "web" or page.tool == "pil" %}{% assign csp_script = " https://challenges.cloudflare.com" %}{% assign csp_connect = " " | append: site.health_checker.api %}{% endif %}
+{%- comment -%} The YouTube tools (key yt...) look things up through the same Worker. {%- endcomment %}
+{%- assign tool_prefix = page.tool | slice: 0, 2 %}{% if tool_prefix == "yt" %}{% assign csp_connect = " " | append: site.health_checker.api %}{% endif %}
 {%- comment -%} Visitor statistics (only when _config.yml has a Cloudflare Web Analytics token, Cloudflare's automatic setup or a GoatCounter code): the script, and where it reports page views. {%- endcomment %}
 {%- if site.cloudflare_analytics_token != "" %}{% assign cf_beacon = true %}{% endif %}
 {%- if site.cloudflare_analytics_token != "" or site.cloudflare_analytics_auto %}{% assign csp_script = csp_script | append: " https://static.cloudflareinsights.com" %}{% assign csp_connect = csp_connect | append: " https://cloudflareinsights.com" %}{% endif %}
