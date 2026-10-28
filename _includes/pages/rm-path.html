@@ -1,0 +1,127 @@
+{%- comment -%}
+  One learning path page (/roadmaps/<id>/), in every language. The page stub sets "path: <id>"; the stages and links
+  come from _data/roadmaps.yml and the translated text from _data/<code>/roadmaps.yml, as on the library page.
+  Previous and Next follow the order of the paths in the library ("groups:" in _data/roadmaps.yml).
+{%- endcomment -%}
+{%- assign R = site.data.roadmaps -%}
+{%- assign T = D.roadmaps | default: R -%}
+{%- assign CE = site.data.cert_roadmaps -%}
+{%- assign TC = D.cert_roadmaps | default: CE -%}
+{%- assign p = R.paths | where: 'id', page.path | first -%}
+{%- assign tp = T.paths[p.id] -%}
+{%- assign g = nil %}{% capture order %}{% for gr in R.groups %}{% for id in gr.paths %}{{ id }},{% endfor %}{% endfor %}{% endcapture %}
+{%- for gr in R.groups %}{% if gr.paths contains p.id %}{% assign g = gr %}{% endif %}{% endfor %}
+{%- assign order = order | split: ',' %}{% assign prev_id = nil %}{% assign next_id = nil %}
+{%- for id in order %}{% if id == p.id %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
+{%- if i > 0 %}{% assign pi = i | minus: 1 %}{% assign prev_id = order[pi] %}{% endif %}{% assign j = i | plus: 1 %}{% if j < order.size %}{% assign next_id = order[j] %}{% endif %}
+{%- comment -%} Total time: add up the low and high ends of each stage's "6–8" weeks. {%- endcomment -%}
+{%- assign lo = 0 %}{% assign hi = 0 %}{% assign open_ended = false %}
+{%- for s in p.stages %}
+  {%- if s.weeks %}{% assign wk = s.weeks | split: '–' %}{% assign lo = lo | plus: wk.first %}{% assign hi = hi | plus: wk.last %}{% else %}{% assign open_ended = true %}{% endif %}
+{%- endfor %}
+{%- capture total %}<bdi dir="ltr">{{ lo }}–{{ hi }}</bdi>{% endcapture %}
+{%- assign weeks_label = T.weeks | default: R.weeks %}
+{%- capture prevnext %}
+<nav class="rm-pn" aria-label="{{ T.prev | default: R.prev }} / {{ T.next | default: R.next }}">
+  {%- if prev_id %}{% assign pp = R.paths | where: 'id', prev_id | first %}{% assign tpp = T.paths[prev_id] %}
+  <a class="rm-pn-prev" href="{{ L }}/roadmaps/{{ prev_id }}/" rel="prev">{% include icon.html name="arrow" px=16 %}<span><small>{{ T.prev | default: R.prev }}</small>{{ tpp.title | default: pp.title }}</span></a>
+  {%- else %}<a class="rm-pn-prev" href="{{ L }}/roadmaps/">{% include icon.html name="arrow" px=16 %}<span><small>{{ T.prev | default: R.prev }}</small>{{ T.lib_title | default: R.lib_title }}</span></a>{% endif %}
+  {%- if next_id %}{% assign np = R.paths | where: 'id', next_id | first %}{% assign tnp = T.paths[next_id] %}
+  <a class="rm-pn-next" href="{{ L }}/roadmaps/{{ next_id }}/" rel="next"><span><small>{{ T.next | default: R.next }}</small>{{ tnp.title | default: np.title }}</span>{% include icon.html name="arrow" px=16 %}</a>
+  {%- else %}<a class="rm-pn-next" href="{{ L }}/roadmaps/#security-roadmaps"><span><small>{{ T.next | default: R.next }}</small>{{ T.tier_security_title | default: R.tier_security_title }}</span>{% include icon.html name="arrow" px=16 %}</a>{% endif %}
+</nav>
+{%- endcapture %}
+{% include rm-bar.html active="paths" %}
+<div class="wrap page roadmaps-page rm-doc-page">
+  <header class="page-head">
+    <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ T.lib_title | default: R.lib_title }}</a> <span aria-hidden="true">/</span> <a href="{{ L }}/roadmaps/#learning-paths">{{ T.tier_paths_title | default: R.tier_paths_title }}</a>{% if g %} <span aria-hidden="true">/</span> {{ T.groups[g.id] | default: g.title }}{% endif %}</p>
+    <h1>{{ tp.title | default: p.title }}</h1>
+    <p class="lede">{{ tp.summary | default: p.summary }}</p>
+    <p class="pill">{% include icon.html name=p.icon px=15 %}<span>{{ T.time | default: R.time }}: {{ weeks_label | replace: '[n]', total }}{% if open_ended %} + {{ T.ongoing | default: R.ongoing }}{% endif %}</span></p>
+  </header>
+
+  <div class="rm-doc">
+    <aside class="rm-side" aria-label="{{ T.lib_label | default: R.lib_label }}">{% include rm-side.html path=p.id %}</aside>
+    <details class="rm-side-mob">
+      <summary>{% include icon.html name="layers" px=17 %}<span>{{ T.browse | default: R.browse }}</span></summary>
+      <div class="rm-side">{% include rm-side.html path=p.id %}</div>
+    </details>
+
+    <nav class="rm-toc" aria-label="{{ T.on_page | default: R.on_page }}">
+      <span class="label">{{ T.on_page | default: R.on_page }}</span>
+      <ol>
+        {%- for s in p.stages %}{% assign ts = tp.stages[forloop.index0] %}
+        <li><a href="#{{ p.id }}-{{ forloop.index }}">{{ ts.title | default: s.title }}</a></li>
+        {%- endfor %}
+      </ol>
+    </nav>
+
+    <article class="rm-main rm-path" id="{{ p.id }}">
+      {{ prevnext }}
+      <dl class="rm-facts">
+        <div><dt>{{ T.time | default: R.time }}</dt><dd>{{ weeks_label | replace: '[n]', total }}{% if open_ended %} + {{ T.ongoing | default: R.ongoing }}{% endif %}</dd></div>
+        {%- if p.needs %}
+        <div><dt>{{ T.needs | default: R.needs }}</dt><dd>
+          {%- for n in p.needs %}{% assign np = R.paths | where: 'id', n | first %}{% assign ntp = T.paths[n] %}
+          <a href="{{ L }}/roadmaps/{{ n }}/">{{ ntp.title | default: np.title }}</a>{% unless forloop.last %}, {% endunless %}
+          {%- endfor %}</dd></div>
+        {%- endif %}
+        <div><dt>{{ T.leads_to | default: R.leads_to }}</dt><dd>{{ tp.roles | default: p.roles | join: ', ' }}</dd></div>
+      </dl>
+      <p class="rm-who">{{ tp.who | default: p.who }}</p>
+      {%- if p.note %}
+      <p class="tool-note rm-note">{% include icon.html name="lock" px=16 %}<span>{{ tp.note | default: p.note }}</span></p>
+      {%- endif %}
+
+      <ol class="rm-stages">
+        {%- for s in p.stages %}
+        {%- assign ts = tp.stages[forloop.index0] %}
+        <li class="rm-stage" id="{{ p.id }}-{{ forloop.index }}">
+          <details{% if forloop.first %} open{% endif %}>
+            <summary>
+              <span class="rm-step"><span class="sr-only">{{ T.stage | default: R.stage }} </span>{{ forloop.index }}<span class="sr-only">: </span></span>
+              <span class="rm-stage-title">{{ ts.title | default: s.title }}</span>
+              {% include sep.html %}<span class="rm-weeks">{% if s.weeks %}{% capture wk %}<bdi dir="ltr">{{ s.weeks }}</bdi>{% endcapture %}{{ weeks_label | replace: '[n]', wk }}{% else %}{{ T.ongoing | default: R.ongoing }}{% endif %}</span>
+            </summary>
+            <div class="rm-stage-body">
+              <div>
+                <h3 class="label">{{ T.learn | default: R.learn }}</h3>
+                <ul class="tags">
+                  {%- assign learn = ts.learn | default: s.learn %}
+                  {%- for l in learn %}<li>{{ l }}</li>{% endfor %}
+                </ul>
+              </div>
+              <div>
+                <h3 class="label">{{ T.resources | default: R.resources }}</h3>
+                <ul class="rm-res">
+                  {%- for r in s.resources %}
+                  <li>
+                    {%- assign r_first = r.url | slice: 0 %}
+                    {%- if r.local %}<a href="{{ L }}{{ r.url }}">{{ r.name }}</a>
+                    {%- elsif r_first == '/' %}<a href="{{ r.url }}"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ r.name }}</a>
+                    {%- else %}<a href="{{ r.url }}" rel="noopener"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ r.name }}</a>{% endif %}
+                    <span class="rm-res-meta"><span class="rm-type">{{ T.types[r.type] | default: R.types[r.type] }}</span>{% if r.audit %}{% include sep.html %}<span class="rm-type is-audit">{{ T.audit | default: R.audit }}</span>{% endif %}{% include sep.html %}<span class="muted">{{ r.by }}</span></span>
+                  </li>
+                  {%- endfor %}
+                </ul>
+              </div>
+              <div class="rm-pair">
+                <p><strong>{{ T.build | default: R.build }}:</strong> {{ ts.build | default: s.build }}</p>
+                <p><strong>{{ T.ready | default: R.ready }}:</strong> {{ ts.ready | default: s.ready }}</p>
+              </div>
+            </div>
+          </details>
+        </li>
+        {%- endfor %}
+      </ol>
+      {%- assign ctrack = CE.tracks | where: 'roadmap', p.id | first %}
+      <p class="rm-back">
+        {%- if p.to_security %}<a href="{{ L }}/roadmaps/#security-roadmaps">{% include icon.html name="shield" px=15 %}<span>{{ T.specialise | default: R.specialise }}</span></a>{% endif %}
+        {%- if ctrack %}<a href="{{ L }}/roadmaps/certifications/#{{ ctrack.id }}">{% include icon.html name="award" px=15 %}<span>{{ TC.certs_cta | default: CE.certs_cta }}</span></a>{% endif %}
+        <a href="{{ L }}/roadmaps/">{% include icon.html name="arrow-up" px=15 %}<span>{{ T.back | default: R.back }}</span></a></p>
+      {{ prevnext }}
+    </article>
+  </div>
+
+  <p class="muted tools-foot"><span>{{ T.reviewed_label | default: R.reviewed_label }}: <time datetime="{{ R.reviewed | date: '%Y-%m-%d' }}">{% include date.html date=R.reviewed long=true %}</time>. {{ T.foot | default: R.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
+</div>

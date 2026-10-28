@@ -25,7 +25,7 @@ prereqs:
   - "Networking and how services talk to each other."
   - "Scripting (PowerShell, Bash) and ideally a configuration tool."
   - "The Endpoint and Operating System Security roadmap helps."
-prereq_paths: [foundations, cybersecurity]
+prereq_paths: [linux, cybersecurity]
 
 stages:
   - level: beginner

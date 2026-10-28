@@ -26,7 +26,7 @@ prereqs:
   - "IP addressing and subnetting (IPv4 and the basics of IPv6)."
   - "Common protocols: DNS, DHCP, HTTP and HTTPS, SSH, SMTP."
   - "The Linux command line, enough to run and read the output of networking tools."
-prereq_paths: [foundations, cybersecurity]
+prereq_paths: [foundations, networking, cybersecurity]
 
 stages:
   - level: beginner

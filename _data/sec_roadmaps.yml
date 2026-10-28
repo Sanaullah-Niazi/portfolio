@@ -127,10 +127,11 @@ page:
   back: "All security roadmaps"
   top: "Back to top"
 
-# ---- The categories, in the order shown ----
+# ---- The categories, in the order shown. "short" is the name in the roadmap sidebar. ----
 categories:
   - id: core
     icon: shield
+    short: "Core domains"
     title: "Core domains"
     summary: "The six foundations of a security career. Start here."
     domains: [secops, network, iam, cloud, appsec, dfir]
@@ -138,6 +139,7 @@ categories:
 
   - id: infra
     icon: monitor
+    short: "Infrastructure"
     title: "IT security and infrastructure"
     summary: "Securing the machines, networks and services an organisation runs on."
     domains: [endpoint, hardening, container, email, webedge]
@@ -145,6 +147,7 @@ categories:
 
   - id: data
     icon: lock
+    short: "Data protection"
     title: "Information security and data protection"
     summary: "Protecting information itself: who can see it, where it lives and how long it is kept."
     domains: [datasec, privacy, crypto, pqc]
@@ -152,6 +155,7 @@ categories:
 
   - id: engineering
     icon: code
+    short: "Engineering and product"
     title: "Application, engineering and product security"
     summary: "Building security into software, pipelines and products from the first line of code."
     domains: [devsecops, supplychain, secarch, prodsec, hwsec]
@@ -159,6 +163,7 @@ categories:
 
   - id: defence
     icon: radar
+    short: "Defensive security"
     title: "Defensive security and threat management"
     summary: "Finding, understanding and stopping attacks."
     domains: [detection, hunting, cti, malware, vulnmgmt, soar]
@@ -166,6 +171,7 @@ categories:
 
   - id: offence
     icon: bug
+    short: "Offensive security"
     title: "Offensive security and assessment"
     summary: "Testing defences the way attackers would, with permission and within agreed rules."
     domains: [pentest, webapptest, adattacks, redteam, vulnresearch, mobile, wireless]
@@ -173,6 +179,7 @@ categories:
 
   - id: grc
     icon: briefcase
+    short: "GRC and audit"
     title: "Governance, risk, compliance and audit"
     summary: "Deciding what to protect, proving it is protected, and keeping the business running."
     domains: [grc, risk, audit, tprm, resilience, awareness, leadership]
@@ -180,6 +187,7 @@ categories:
 
   - id: ai
     icon: brain
+    short: "AI security"
     title: "AI and machine learning security"
     summary: "Securing AI systems, and using AI to defend everything else."
     domains: [llmsec, agentsec, mlsec, ai-redteam, ai-grc, ai-supply, ai-secops]
@@ -187,6 +195,7 @@ categories:
 
   - id: special
     icon: chip
+    short: "Specialised and emerging"
     title: "Specialised and emerging"
     summary: "Security for particular industries, physical systems and new technology."
     domains: [otics, iot, automotive, finsec, healthsec, telecom, fraud, blockchain]

@@ -94,6 +94,55 @@ paths:
         build: "Veröffentlichen Sie Ihre App mit automatischen Tests bei jedem Push und prüfen Sie sie gegen die OWASP Top 10."
         ready: "Fremde nutzen Ihre App, und Sie merken es, wenn sie ausfällt."
 
+  networking:
+    title: "Computernetzwerke"
+    summary: "Wie Daten wirklich zwischen Computern reisen: Adressen, Protokolle, Routing und der Verkehr, den Sie in jedem Sicherheitsjob verteidigen oder angreifen."
+    who: "Alle, die in Sicherheit, Cloud oder IT-Support wollen. Jede Sicherheitsrolle setzt voraus, dass Sie Netzwerkverkehr lesen können."
+    roles: ["Netzwerkadministrator/in", "Netzwerk-Sicherheitsingenieur/in", "SOC-Analyst/in", "Cloud Engineer"]
+    stages:
+      - title: "Wie Netzwerke funktionieren"
+        learn: ["Das OSI- und das TCP/IP-Modell", "IP-Adressen und Subnetting", "Ethernet, MAC-Adressen und ARP", "Switches und Router", "Ports und Sockets"]
+        build: "Zeichnen Sie Ihr Heimnetz: jedes Gerät mit IP- und MAC-Adresse, Ihren Router und den Weg eines Pakets ins Internet."
+        ready: "Sie können ein /24 von Hand aufteilen und erklären, was zwischen dem Eintippen einer Webadresse und der fertigen Seite passiert."
+      - title: "Die Protokolle, die Sie täglich sehen"
+        learn: ["TCP und UDP", "DNS", "DHCP und NAT", "HTTP, HTTPS und TLS", "ICMP, ping und traceroute"]
+        build: "Zeichnen Sie Ihren Verkehr in Wireshark auf, während Sie eine Website laden, und markieren Sie DNS-Abfrage, TCP-Handshake und TLS-Handshake."
+        ready: "Sie öffnen einen Mitschnitt und sagen, welches Gerät mit welchem über welches Protokoll gesprochen hat, und warum."
+      - title: "Switching, Routing und IPv6"
+        learn: ["VLANs und Trunking", "Statisches und dynamisches Routing (OSPF)", "Wie BGP das Internet verbindet", "WLAN-Standards und -Sicherheit", "IPv6-Adressierung"]
+        build: "Bauen Sie in Packet Tracer ein kleines Büronetz: zwei VLANs, ein Router dazwischen, DHCP und ein Gäste-WLAN ohne Zugang zum Büro."
+        ready: "Sie entwerfen ein segmentiertes Netz und finden heraus, warum zwei Rechner nicht miteinander sprechen."
+      - title: "Netzwerksicherheit"
+        learn: ["Firewalls und Segmentierung", "VPNs", "Das eigene Netz mit Nmap scannen", "IDS und Netzwerküberwachung", "Angriffe in Mitschnitten erkennen"]
+        build: "Scannen Sie Ihr Heimlabor mit Nmap, schließen Sie, was nicht offen sein sollte, und analysieren Sie eine Malware-Traffic-Übung mit kurzem Bericht."
+        ready: "Sie finden offene Dienste in einem eigenen Netz und erklären einen Angriff anhand seines Verkehrs."
+  linux:
+    title: "Linux und Betriebssysteme"
+    summary: "Linux und Windows wie ein Profi nutzen: die Kommandozeile, wie ein Betriebssystem innen arbeitet, Server betreiben und sie absichern."
+    who: "Alle, die in Sicherheit, DevOps oder Cloud wollen. Die meisten Server, Sicherheitswerkzeuge und Angriffe spielen sich auf diesen Systemen ab."
+    roles: ["Linux-Systemadministrator/in", "Security Engineer", "DevOps Engineer", "SOC-Analyst/in"]
+    stages:
+      - title: "Die Linux-Kommandozeile"
+        learn: ["Im Dateisystem navigieren", "Dateien, Benutzer und Rechte", "Pipes und Umleitungen", "grep, find, sed und awk", "Software mit einem Paketmanager installieren"]
+        build: "Lösen Sie die ersten 20 Level von OverTheWire Bandit und notieren Sie jeden neuen Befehl."
+        ready: "Sie erledigen Alltagsarbeit im Terminal ohne Maus und lernen neue Befehle aus der man-Seite."
+      - title: "Wie Betriebssysteme funktionieren"
+        learn: ["Prozesse und Threads", "Speicher und virtueller Speicher", "Dateisysteme", "Systemaufrufe", "Wie ein Computer startet"]
+        build: "Schreiben Sie in C oder Python eine kleine Shell, die Befehle ausführt, Pipes unterstützt und Strg+C behandelt."
+        ready: "Sie erklären Schritt für Schritt, was beim Start eines Programms passiert."
+      - title: "Einen Linux-Server betreiben"
+        learn: ["Benutzer, Gruppen und sudo", "Dienste mit systemd", "Logs und journalctl", "SSH-Schlüssel", "Geplante Aufgaben und Backups"]
+        build: "Richten Sie in einer virtuellen Maschine einen Linux-Server ein, der eine Webseite ausliefert, nur SSH-Schlüssel akzeptiert und sich jede Nacht sichert."
+        ready: "Sie finden in den Logs heraus, warum ein Dienst ausgefallen ist, und beheben es."
+      - title: "Windows und PowerShell"
+        learn: ["PowerShell-Grundlagen", "Windows-Dienste und die Registry", "Ereignisprotokolle", "Active Directory: Benutzer, Gruppen und Domänen", "Gruppenrichtlinien"]
+        build: "Bauen Sie ein kleines Windows-Labor mit einem Domänencontroller und einem Client und schreiben Sie ein PowerShell-Skript, das alle Benutzer mit ihrer letzten Anmeldung auflistet."
+        ready: "Sie erklären, wie eine Anmeldung in einer Windows-Domäne abläuft und wo sie protokolliert wird."
+      - title: "Skripte und Härtung"
+        learn: ["Bash-Skripte", "Aufgaben mit Python automatisieren", "Host-Firewalls", "CIS Benchmarks", "Ein System auf schwache Einstellungen prüfen"]
+        build: "Prüfen Sie Ihren Server mit Lynis, beheben Sie die wichtigsten Befunde und schreiben Sie ein Skript, das prüft, dass sie behoben bleiben."
+        ready: "Sie härten einen frischen Server und belegen, was Sie geändert haben."
+
   cybersecurity:
     title: "Cybersicherheit"
     summary: "Verstehen, wie Systeme angegriffen werden, um sie zu verteidigen: Netzwerke, Web-Apps, Erkennung und Reaktion."
@@ -240,3 +289,31 @@ paths:
         ready: "Sie wissen vor Ihren Nutzern, wenn Ihr Dienst nicht gesund ist."
 security_cta: "Roadmaps für Cybersicherheit und KI-Sicherheit"
 security_cta_text: "Ein Karrierepfad für jeden Bereich der Sicherheit, von Einsteiger bis Experte, mit Laboren, Tools und Zertifizierungen (auf Englisch)."
+
+# The library (hub, bar and sidebar).
+lib_title: "Lernpfad-Bibliothek"
+lib_lede: "Alles in der richtigen Reihenfolge: Grundlagen lernen, sich auf einen Bereich der Sicherheit spezialisieren und es mit einer Zertifizierung belegen. Jeder Lernpfad ist zwei Klicks entfernt."
+lib_label: "Lernpfad-Bibliothek"
+bar_paths: "Grundlagen"
+bar_security: "Sicherheit"
+search_label: "Alle Lernpfade durchsuchen"
+search_placeholder: "Suchen, zum Beispiel Netzwerke, SOC, LLM oder Security+"
+search_none: "Keine Treffer. Versuchen Sie ein kürzeres Wort."
+popular: "Beliebt"
+prev: "Zurück"
+next: "Weiter"
+on_page: "Auf dieser Seite"
+browse: "Alle Lernpfade ansehen"
+legend_label: "Legende"
+legend_level: "Beginnt bei [l]"
+tier_paths_title: "Grundlagen für die Sicherheit"
+tier_paths_text: "Schritt-für-Schritt-Lernpfade, auf denen jede Karriere in der Sicherheit aufbaut. Neu in der Informatik? Beginnen Sie mit den Grundlagen der Informatik."
+tier_security_title: "Roadmaps für Cybersicherheit und KI-Sicherheit"
+tier_security_text: "Die Grundlagen sitzen? Diese [n] Karriere-Roadmaps gehen tief in jeden Bereich der Sicherheit (auf Englisch)."
+tier_certs_title: "Zertifizierungen"
+tier_certs_text: "Welche Zertifizierung, in welcher Reihenfolge, und was sie wirklich kostet."
+security_all: "Alle [n] Roadmaps ansehen"
+groups:
+  start: "Hier starten"
+  build: "Systeme bauen und betreiben"
+  ai: "KI und Daten"

@@ -4,6 +4,7 @@
 {%- endcomment -%}
 {%- assign C = site.data.cert_roadmaps -%}
 {%- assign T = D.cert_roadmaps | default: C -%}
+{% include rm-bar.html active="certs" %}
 <div class="wrap page roadmaps-page certs-page">
   <header class="page-head">
     <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> {{ T.eyebrow | default: C.eyebrow }}</p>
@@ -77,7 +78,7 @@
       {%- endfor %}
     </ol>
     <p class="rm-back ct-foot-links">
-      {%- if t.roadmap %}<a href="{{ L }}/roadmaps/#{{ t.roadmap }}">{% include icon.html name="map" px=15 %}<span>{{ T.roadmap_link | default: C.roadmap_link }}</span></a>{% endif %}
+      {%- if t.roadmap %}<a href="{{ L }}/roadmaps/{{ t.roadmap }}/">{% include icon.html name="map" px=15 %}<span>{{ T.roadmap_link | default: C.roadmap_link }}</span></a>{% endif %}
       <a href="#top-tracks">{% include icon.html name="arrow-up" px=15 %}<span>{{ T.back | default: C.back }}</span></a>
     </p>
   </section>

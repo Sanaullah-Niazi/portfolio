@@ -25,7 +25,7 @@ prereqs:
   - "Networking basics."
   - "Command line and some scripting (PowerShell, Bash)."
   - "A basic idea of how malware and attacks work."
-prereq_paths: [foundations, cybersecurity]
+prereq_paths: [linux, cybersecurity]
 
 stages:
   - level: beginner

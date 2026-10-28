@@ -203,7 +203,7 @@ tools:
   - { name: "Wireshark", url: "https://www.wireshark.org/", kind: oss, what: "Dissect CAN, automotive Ethernet and OCPP." }
 
 certs:
-  - { name: "Automotive Cybersecurity Professional (CSP)", by: "TÜV SÜD", url: "https://www.tuvsud.com/en/services/training/automotive-cyber-security-professional", level: mid, note: "ISO 21434 and R155 focused." }
+  - { name: "Automotive Cybersecurity Level 2 (Professional)", by: "TÜV SÜD", url: "https://www.tuvsud.com/en-us/store/academy-us/transportation-industry/cyber-security-and-data-protection/17-34-22-0002", level: mid, note: "ISO 21434 and R155 focused." }
   - { name: "GIAC GICSP", by: "GIAC", url: "https://www.giac.org/certifications/global-industrial-cyber-security-professional-gicsp/", level: mid, note: "OT skills that transfer to transport." }
   - { ref: cissp, note: "Broad baseline for leads." }
 

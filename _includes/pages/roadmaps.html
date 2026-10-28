@@ -1,9 +1,10 @@
 {%- comment -%}
-  The Roadmaps page, in every language. Paths, stages and links are in _data/roadmaps.yml (English).
-  _data/<code>/roadmaps.yml only holds translated text, keyed by path id; anything missing there shows in English.
-
-  The page is three tiers: Learning paths, then the Cybersecurity & AI security roadmaps
-  (categories from _data/sec_roadmaps.yml), then Certifications.
+  The Roadmaps library (/roadmaps/), in every language: one page that lists everything in order, like a library catalogue.
+    1. Foundations for security: the learning paths, in the groups from _data/roadmaps.yml ("groups:"). Each path has its own page.
+    2. Cybersecurity & AI security: every roadmap in _data/sec_roadmaps.yml, by category (English only for now).
+    3. Certifications: every career track in _data/cert_roadmaps.yml, with its certifications in order.
+  _data/<code>/roadmaps.yml only holds translated text; anything missing there shows in English.
+  The search box (assets/js/rm-library.js) filters the lists; without JavaScript it stays hidden and everything is listed.
 {%- endcomment -%}
 {%- assign R = site.data.roadmaps -%}
 {%- assign T = D.roadmaps | default: R -%}
@@ -11,19 +12,128 @@
 {%- assign TC = D.cert_roadmaps | default: CE -%}
 {%- assign SR = site.data.sec_roadmaps -%}
 {%- assign nrm = 0 %}{% for c in SR.categories %}{% assign nrm = nrm | plus: c.domains.size %}{% endfor %}
-<div class="wrap page roadmaps-page">
+{%- assign ncert = 0 %}{% for t in CE.tracks %}{% for s in t.steps %}{% assign ncert = ncert | plus: s.certs.size %}{% endfor %}{% endfor %}
+{%- assign weeks_label = T.weeks | default: R.weeks %}
+{%- comment -%} The security roadmaps are in English only for now: link the translation once it exists, the English page until then. {%- endcomment %}
+{%- assign sec_base = L | append: '/roadmaps/security/' %}{% assign sec_page = site.pages | where: 'url', sec_base | first %}
+{%- if sec_page %}{% assign sec_en = '' %}{% else %}{% assign sec_base = '/roadmaps/security/' %}{% assign sec_en = ' hreflang="en"' %}{% endif %}
+{%- capture path_ids %}{% for p in R.paths %}{{ p.id }} {% endfor %}{% endcapture %}
+{% include rm-bar.html %}
+<div class="wrap page roadmaps-page rm-lib" data-paths="{{ path_ids | strip }}" data-base="{{ L }}/roadmaps/">
   <header class="page-head">
     <p class="eyebrow">{{ T.eyebrow | default: R.eyebrow }}</p>
-    <h1>{{ T.title | default: R.title }}</h1>
-    <p class="lede">{{ T.lede | default: R.lede }}</p>
-    <p class="pill">{% include icon.html name="shield" px=15 %}<span>{{ T.pill | default: R.pill }}</span></p>
+    <h1>{{ T.lib_title | default: R.lib_title }}</h1>
+    <p class="lede">{{ T.lib_lede | default: R.lib_lede }}</p>
+    <label class="rm-search" hidden>
+      <span class="sr-only">{{ T.search_label | default: R.search_label }}</span>
+      {% include icon.html name="search" px=19 %}
+      <input type="search" id="rm-q" placeholder="{{ T.search_placeholder | default: R.search_placeholder }}" autocomplete="off" spellcheck="false">
+    </label>
+    <nav class="rm-flow" aria-label="{{ T.sections_label | default: R.sections_label }}">
+      <a href="#learning-paths"><b>1</b>{{ T.tier_paths_title | default: R.tier_paths_title }}</a>
+      <a href="#security-roadmaps"><b>2</b>{{ T.bar_security | default: R.bar_security }}</a>
+      <a href="#certifications"><b>3</b>{{ T.tier_certs_title | default: R.tier_certs_title }}</a>
+    </nav>
   </header>
 
-  <nav class="rm-jump" aria-label="{{ T.sections_label | default: R.sections_label }}">
-    <a href="#learning-paths">{% include icon.html name="map" px=16 %}<span>{{ T.tier_paths_title | default: R.tier_paths_title }}</span></a>
-    <a href="#security-roadmaps">{% include icon.html name="shield" px=16 %}<span>{{ T.tier_security_title | default: R.tier_security_title }}</span></a>
-    <a href="#certifications">{% include icon.html name="award" px=16 %}<span>{{ T.tier_certs_title | default: R.tier_certs_title }}</span></a>
-  </nav>
+  <p class="rm-none muted" id="rm-none" hidden>{{ T.search_none | default: R.search_none }}</p>
+
+  {%- comment -%} ---- 1. Foundations for security: the learning paths ---- {%- endcomment %}
+  <section class="rm-sec" id="learning-paths" aria-labelledby="learning-paths-title">
+    <header class="rm-sec-head">
+      <span class="rm-sec-num" aria-hidden="true">1</span>
+      <div>
+        <h2 id="learning-paths-title">{{ T.tier_paths_title | default: R.tier_paths_title }}</h2>
+        <p class="muted">{{ T.tier_paths_text | default: R.tier_paths_text }}</p>
+      </div>
+    </header>
+    <div class="rm-lib-grid">
+      {%- for g in R.groups %}
+      <div class="rm-box">
+        <h3 class="rm-box-h">{% include icon.html name=g.icon px=18 %}<span>{{ T.groups[g.id] | default: g.title }}</span><span class="rm-count">{{ g.paths.size }}</span></h3>
+        <ul>
+          {%- for id in g.paths %}{% assign p = R.paths | where: 'id', id | first %}{% assign tp = T.paths[id] %}
+          {%- assign lo = 0 %}{% assign hi = 0 %}{% assign open_ended = false %}
+          {%- for s in p.stages %}{% if s.weeks %}{% assign wk = s.weeks | split: '–' %}{% assign lo = lo | plus: wk.first %}{% assign hi = hi | plus: wk.last %}{% else %}{% assign open_ended = true %}{% endif %}{% endfor %}
+          {%- capture total %}<bdi dir="ltr">{{ lo }}–{{ hi }}</bdi>{% endcapture %}
+          <li data-k="{{ tp.title | default: p.title }} {{ p.title }} {{ tp.summary | default: p.summary | escape }}">
+            <a href="{{ L }}/roadmaps/{{ id }}/">
+              <span class="rm-item-t">{{ tp.title | default: p.title }}{% if p.start %} <span class="rm-start">{{ T.start_here | default: R.start_here }}</span>{% endif %}</span>
+              <span class="rm-item-d">{{ weeks_label | replace: '[n]', total }}{% if open_ended %} + {{ T.ongoing | default: R.ongoing }}{% endif %}</span>
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  {%- comment -%} ---- 2. Cybersecurity & AI security roadmaps ---- {%- endcomment %}
+  {%- assign W = SR.page %}
+  <section class="rm-sec" id="security-roadmaps" aria-labelledby="security-roadmaps-title">
+    <header class="rm-sec-head">
+      <span class="rm-sec-num" aria-hidden="true">2</span>
+      <div>
+        <h2 id="security-roadmaps-title">{{ T.tier_security_title | default: R.tier_security_title }}</h2>
+        <p class="muted">{{ T.tier_security_text | default: R.tier_security_text | replace: '[n]', nrm }}</p>
+      </div>
+      <a class="rm-sec-all" href="{{ sec_base }}"{{ sec_en }}>{{ T.security_all | default: R.security_all | replace: '[n]', nrm }} {% include icon.html name="arrow" px=16 %}</a>
+    </header>
+    <div class="rm-lib-grid" lang="en" dir="ltr">
+      {%- for c in SR.categories %}
+      <div class="rm-box">
+        <h3 class="rm-box-h">{% include icon.html name=c.icon px=18 %}<span>{{ c.short | default: c.title }}</span><span class="rm-count">{{ c.domains.size }}</span></h3>
+        <ul>
+          {%- for d in c.domains %}{% assign X = site.data.sec_domains[d] %}
+          {%- assign lv = X.entry %}{% if lv == 'entry' %}{% assign lv = 'beginner' %}{% endif %}
+          {%- assign lo = 0 %}{% assign hi = 0 %}
+          {%- for s in X.stages %}{% assign m = s.months | split: '–' %}{% assign lo = lo | plus: m.first %}{% assign hi = hi | plus: m.last %}{% endfor %}
+          {%- capture total %}{{ lo }}–{{ hi }}{% endcapture %}
+          <li data-k="{{ X.title }} {{ c.title }} {{ X.keywords | escape }}">
+            <a href="{{ sec_base }}{{ d }}/"{{ sec_en }}>
+              <span class="rm-item-t">{{ X.title }}</span>
+              <span class="rm-dot is-{{ lv }}" aria-hidden="true"></span>
+              <span class="rm-item-d">{{ SR.starts_at }}: {{ SR.levels[lv] }} · {{ W.months | default: '[n] months' | replace: '[n]', total }}</span>
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  {%- comment -%} ---- 3. Certifications, by career ---- {%- endcomment %}
+  <section class="rm-sec" id="certifications" aria-labelledby="certifications-title">
+    <header class="rm-sec-head">
+      <span class="rm-sec-num" aria-hidden="true">3</span>
+      <div>
+        <h2 id="certifications-title">{{ T.tier_certs_title | default: R.tier_certs_title }}</h2>
+        <p class="muted">{{ T.tier_certs_text | default: R.tier_certs_text }}</p>
+      </div>
+      <a class="rm-sec-all" href="{{ L }}/roadmaps/certifications/">{{ TC.certs_cta | default: CE.certs_cta }} {% include icon.html name="arrow" px=16 %}</a>
+    </header>
+    <div class="rm-lib-grid">
+      {%- for t in CE.tracks %}{% assign tt = TC.tracks[t.id] %}
+      {%- assign n = 0 %}{% for s in t.steps %}{% assign n = n | plus: s.certs.size %}{% endfor %}
+      <div class="rm-box">
+        <h3 class="rm-box-h">{% include icon.html name=t.icon px=18 %}<span>{{ tt.title | default: t.title }}</span><span class="rm-count">{{ n }}</span></h3>
+        <ul>
+          {%- for s in t.steps %}{% assign step = forloop.index %}{% for id in s.certs %}{% assign cc = CE.certs[id] %}
+          <li data-k="{{ cc.name }} {{ cc.by }} {{ tt.title | default: t.title }}">
+            <a href="{{ L }}/roadmaps/certifications/#{{ t.id }}">
+              <span class="rm-item-t">{{ cc.name }}</span>
+              <span class="rm-dot is-{{ cc.level }}" aria-hidden="true"></span>
+              <span class="rm-item-d">{{ TC.step | default: CE.step }} {{ step }} · {{ cc.by }}</span>
+            </a>
+          </li>
+          {%- endfor %}{% endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
 
   <section class="card rm-how" aria-labelledby="rm-how-title">
     <h2 id="rm-how-title" class="tool-title">{{ T.how_title | default: R.how_title }}</h2>
@@ -34,167 +144,6 @@
       {%- endfor %}
     </ol>
   </section>
-
-  {%- comment -%} ---- Tier 1: Learning paths ---- {%- endcomment -%}
-  <div class="rm-tier" id="learning-paths">
-    <span class="rm-tier-num" aria-hidden="true">1</span>
-    <div>
-      <h2 class="rm-tier-title">{{ T.tier_paths_title | default: R.tier_paths_title }}</h2>
-      <p class="muted">{{ T.tier_paths_text | default: R.tier_paths_text }}</p>
-    </div>
-  </div>
-
-  <nav class="rm-index" id="top-paths" aria-label="{{ T.paths_label | default: R.paths_label }}">
-    {%- for p in R.paths %}
-    {%- assign tp = T.paths[p.id] %}
-    <a class="card spot rm-index-card{% if p.start %} is-start{% endif %}" href="#{{ p.id }}">
-      <span class="icon-tile">{% include icon.html name=p.icon px=22 %}</span>
-      <span class="rm-index-text">
-        <strong>{{ tp.title | default: p.title }}</strong>
-        <span class="muted">{{ tp.summary | default: p.summary }}</span>
-        {%- if p.start %}<span class="rm-badge">{{ T.start_here | default: R.start_here }}</span>{% endif %}
-      </span>
-    </a>
-    {%- endfor %}
-  </nav>
-
-  {%- for p in R.paths %}
-  {%- assign tp = T.paths[p.id] %}
-  {%- comment -%} Total time: add up the low and high ends of each stage's "6–8" weeks. {%- endcomment -%}
-  {%- assign lo = 0 %}{% assign hi = 0 %}{% assign open_ended = false %}
-  {%- for s in p.stages %}
-    {%- if s.weeks %}
-      {%- assign wk = s.weeks | split: '–' %}
-      {%- assign lo = lo | plus: wk.first %}{% assign hi = hi | plus: wk.last %}
-    {%- else %}{% assign open_ended = true %}{% endif %}
-  {%- endfor %}
-  {%- capture total %}<bdi dir="ltr">{{ lo }}–{{ hi }}</bdi>{% endcapture %}
-  {%- assign weeks_label = T.weeks | default: R.weeks %}
-  <section class="card rm-path" id="{{ p.id }}" aria-labelledby="{{ p.id }}-title">
-    <div class="tool-head">
-      <span class="icon-tile">{% include icon.html name=p.icon px=22 %}</span>
-      <div>
-        <h2 id="{{ p.id }}-title" class="tool-title">{{ tp.title | default: p.title }}</h2>
-        <p class="muted">{{ tp.summary | default: p.summary }}</p>
-      </div>
-    </div>
-
-    <dl class="rm-facts">
-      <div><dt>{{ T.time | default: R.time }}</dt><dd>{{ weeks_label | replace: '[n]', total }}{% if open_ended %} + {{ T.ongoing | default: R.ongoing }}{% endif %}</dd></div>
-      {%- if p.needs %}
-      <div><dt>{{ T.needs | default: R.needs }}</dt><dd>
-        {%- for n in p.needs %}{% assign np = R.paths | where: 'id', n | first %}{% assign ntp = T.paths[n] %}
-        <a href="#{{ n }}">{{ ntp.title | default: np.title }}</a>{% unless forloop.last %}, {% endunless %}
-        {%- endfor %}</dd></div>
-      {%- endif %}
-      <div><dt>{{ T.leads_to | default: R.leads_to }}</dt><dd>{{ tp.roles | default: p.roles | join: ', ' }}</dd></div>
-    </dl>
-    <p class="rm-who">{{ tp.who | default: p.who }}</p>
-    {%- if p.note %}
-    <p class="tool-note rm-note">{% include icon.html name="lock" px=16 %}<span>{{ tp.note | default: p.note }}</span></p>
-    {%- endif %}
-
-    <ol class="rm-stages">
-      {%- for s in p.stages %}
-      {%- assign ts = tp.stages[forloop.index0] %}
-      <li class="rm-stage" id="{{ p.id }}-{{ forloop.index }}">
-        <details{% if forloop.first %} open{% endif %}>
-          <summary>
-            <span class="rm-step"><span class="sr-only">{{ T.stage | default: R.stage }} </span>{{ forloop.index }}<span class="sr-only">: </span></span>
-            <span class="rm-stage-title">{{ ts.title | default: s.title }}</span>
-            {% include sep.html %}<span class="rm-weeks">{% if s.weeks %}{% capture wk %}<bdi dir="ltr">{{ s.weeks }}</bdi>{% endcapture %}{{ weeks_label | replace: '[n]', wk }}{% else %}{{ T.ongoing | default: R.ongoing }}{% endif %}</span>
-          </summary>
-          <div class="rm-stage-body">
-            <div>
-              <h3 class="label">{{ T.learn | default: R.learn }}</h3>
-              <ul class="tags">
-                {%- assign learn = ts.learn | default: s.learn %}
-                {%- for l in learn %}<li>{{ l }}</li>{% endfor %}
-              </ul>
-            </div>
-            <div>
-              <h3 class="label">{{ T.resources | default: R.resources }}</h3>
-              <ul class="rm-res">
-                {%- for r in s.resources %}
-                <li>
-                  {%- assign r_first = r.url | slice: 0 %}
-                  {%- if r.local %}<a href="{{ L }}{{ r.url }}">{{ r.name }}</a>
-                  {%- elsif r_first == '/' %}<a href="{{ r.url }}"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ r.name }}</a>
-                  {%- else %}<a href="{{ r.url }}" rel="noopener"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ r.name }}</a>{% endif %}
-                  <span class="rm-res-meta"><span class="rm-type">{{ T.types[r.type] | default: R.types[r.type] }}</span>{% if r.audit %}{% include sep.html %}<span class="rm-type is-audit">{{ T.audit | default: R.audit }}</span>{% endif %}{% include sep.html %}<span class="muted">{{ r.by }}</span></span>
-                </li>
-                {%- endfor %}
-              </ul>
-            </div>
-            <div class="rm-pair">
-              <p><strong>{{ T.build | default: R.build }}:</strong> {{ ts.build | default: s.build }}</p>
-              <p><strong>{{ T.ready | default: R.ready }}:</strong> {{ ts.ready | default: s.ready }}</p>
-            </div>
-          </div>
-        </details>
-      </li>
-      {%- endfor %}
-    </ol>
-    {%- assign ctrack = CE.tracks | where: 'roadmap', p.id | first %}
-    <p class="rm-back">
-      {%- if p.to_security %}<a href="#security-roadmaps">{% include icon.html name="shield" px=15 %}<span>{{ T.specialise | default: R.specialise }}</span></a>{% endif %}
-      {%- if ctrack %}<a href="{{ L }}/roadmaps/certifications/#{{ ctrack.id }}">{% include icon.html name="award" px=15 %}<span>{{ TC.certs_cta | default: CE.certs_cta }}</span></a>{% endif %}
-      <a href="#top-paths">{% include icon.html name="arrow-up" px=15 %}<span>{{ T.back | default: R.back }}</span></a></p>
-  </section>
-  {%- endfor %}
-
-  {%- comment -%} ---- Tier 2: Cybersecurity & AI security roadmaps ---- {%- endcomment -%}
-  <div class="rm-tier" id="security-roadmaps">
-    <span class="rm-tier-num" aria-hidden="true">2</span>
-    <div>
-      <h2 class="rm-tier-title">{{ T.tier_security_title | default: R.tier_security_title }}</h2>
-      <p class="muted">{{ T.tier_security_text | default: R.tier_security_text | replace: '[n]', nrm }}</p>
-    </div>
-  </div>
-
-  {%- comment -%} The security roadmaps are in English only for now: link the translation once it exists, the English page until then. {%- endcomment %}
-  {%- assign sec_base = L | append: '/roadmaps/security/' %}{% assign sec_page = site.pages | where: 'url', sec_base | first %}
-  {%- if sec_page %}{% assign sec_en = '' %}{% else %}{% assign sec_base = '/roadmaps/security/' %}{% assign sec_en = ' hreflang="en"' %}{% endif %}
-  <nav class="rm-index" aria-label="{{ T.tier_security_title | default: R.tier_security_title }}">
-    {%- for c in SR.categories %}
-    <a class="card spot rm-index-card" href="{{ sec_base }}#{{ c.id }}"{{ sec_en }}>
-      <span class="icon-tile">{% include icon.html name=c.icon px=22 %}</span>
-      <span class="rm-index-text">
-        <strong>{{ c.title }}</strong>
-        <span class="muted">{{ c.summary }}</span>
-        <span class="rm-badge is-count">{{ c.domains.size }} {{ T.roadmaps_word | default: R.roadmaps_word }}</span>
-      </span>
-    </a>
-    {%- endfor %}
-  </nav>
-
-  <div class="sr-ctas">
-    <a class="card spot rm-cta" href="{{ sec_base }}"{{ sec_en }}>
-      <span class="icon-tile">{% include icon.html name="search" px=22 %}</span>
-      <span class="rm-index-text"><strong>{{ T.security_all | default: R.security_all | replace: '[n]', nrm }}</strong><span class="muted">{{ T.security_all_text | default: R.security_all_text }}</span></span>
-      {% include icon.html name="arrow" px=18 %}
-    </a>
-    <a class="card spot rm-cta" href="{{ sec_base }}frameworks/"{{ sec_en }}>
-      <span class="icon-tile">{% include icon.html name="book" px=22 %}</span>
-      <span class="rm-index-text"><strong>{{ SR.frameworks_cta }}</strong><span class="muted">{{ SR.frameworks_cta_text }}</span></span>
-      {% include icon.html name="arrow" px=18 %}
-    </a>
-  </div>
-
-  {%- comment -%} ---- Tier 3: Certifications ---- {%- endcomment -%}
-  <div class="rm-tier" id="certifications">
-    <span class="rm-tier-num" aria-hidden="true">3</span>
-    <div>
-      <h2 class="rm-tier-title">{{ T.tier_certs_title | default: R.tier_certs_title }}</h2>
-      <p class="muted">{{ T.tier_certs_text | default: R.tier_certs_text }}</p>
-    </div>
-  </div>
-
-  <a class="card spot rm-cta" href="{{ L }}/roadmaps/certifications/">
-    <span class="icon-tile">{% include icon.html name="award" px=22 %}</span>
-    <span class="rm-index-text"><strong>{{ TC.certs_cta | default: CE.certs_cta }}</strong><span class="muted">{{ TC.certs_cta_text | default: CE.certs_cta_text }}</span></span>
-    {% include icon.html name="arrow" px=18 %}
-  </a>
 
   <section class="card card-dashed rm-trust" aria-labelledby="rm-trust-title">
     <h2 id="rm-trust-title" class="tool-title">{{ T.trust_title | default: R.trust_title }}</h2>

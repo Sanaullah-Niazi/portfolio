@@ -16,34 +16,66 @@
 {%- assign lo = 0 %}{% assign hi = 0 %}
 {%- for s in X.stages %}{% assign m = s.months | split: '–' %}{% assign lo = lo | plus: m.first %}{% assign hi = hi | plus: m.last %}{% endfor -%}
 {%- capture total %}<bdi dir="ltr">{{ lo }}–{{ hi }}</bdi>{% endcapture -%}
-<div class="wrap page roadmaps-page sr-page" lang="en" dir="ltr">
+{%- comment -%} Previous and Next follow the order on the library page: category by category. {%- endcomment -%}
+{%- capture order %}{% for c in R.categories %}{% for d in c.domains %}{{ d }},{% endfor %}{% endfor %}{% endcapture %}
+{%- assign order = order | split: ',' %}{% assign prev_id = nil %}{% assign next_id = nil %}
+{%- for d in order %}{% if d == X.id %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
+{%- if i > 0 %}{% assign pi = i | minus: 1 %}{% assign prev_id = order[pi] %}{% endif %}{% assign j = i | plus: 1 %}{% if j < order.size %}{% assign next_id = order[j] %}{% endif %}
+{%- assign RM = site.data.roadmaps %}{% assign TM = D.roadmaps | default: RM %}
+{%- capture prevnext %}
+<nav class="rm-pn" aria-label="{{ TM.prev | default: RM.prev }} / {{ TM.next | default: RM.next }}">
+  {%- if prev_id %}{% assign pd = site.data.sec_domains[prev_id] %}
+  <a class="rm-pn-prev" href="{{ L }}/roadmaps/security/{{ prev_id }}/" rel="prev">{% include icon.html name="arrow" px=16 %}<span><small>{{ TM.prev | default: RM.prev }}</small>{{ pd.title }}</span></a>
+  {%- else %}<a class="rm-pn-prev" href="{{ L }}/roadmaps/security/">{% include icon.html name="arrow" px=16 %}<span><small>{{ TM.prev | default: RM.prev }}</small>{{ T.title | default: R.title }}</span></a>{% endif %}
+  {%- if next_id %}{% assign nd = site.data.sec_domains[next_id] %}
+  <a class="rm-pn-next" href="{{ L }}/roadmaps/security/{{ next_id }}/" rel="next"><span><small>{{ TM.next | default: RM.next }}</small>{{ nd.title }}</span>{% include icon.html name="arrow" px=16 %}</a>
+  {%- else %}<a class="rm-pn-next" href="{{ L }}/roadmaps/certifications/"><span><small>{{ TM.next | default: RM.next }}</small>{{ CE.certs_cta }}</span>{% include icon.html name="arrow" px=16 %}</a>{% endif %}
+</nav>
+{%- endcapture %}
+{% include rm-bar.html active="security" %}
+<div class="wrap page roadmaps-page sr-page rm-doc-page" lang="en" dir="ltr">
   <header class="page-head">
-    <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> <a href="{{ L }}/roadmaps/security/">{{ T.eyebrow | default: R.eyebrow }}</a> <span aria-hidden="true">/</span> {{ cat.title }}</p>
+    <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ TM.lib_title | default: RM.lib_title }}</a> <span aria-hidden="true">/</span> <a href="{{ L }}/roadmaps/security/">{{ T.eyebrow | default: R.eyebrow }}</a> <span aria-hidden="true">/</span> {{ cat.title }}</p>
     <h1>{{ X.title }}</h1>
     <p class="lede">{{ X.summary }}</p>
     <p class="pill">{% include icon.html name=X.icon px=15 %}<span>{{ W.estimate }}: {{ W.months | replace: '[n]', total }} · {{ W.estimate_note }}</span></p>
   </header>
 
+  <div class="rm-doc">
+    <aside class="rm-side" aria-label="{{ TM.lib_label | default: RM.lib_label }}">{% include rm-side.html domain=X.id cat=X.category %}</aside>
+    <details class="rm-side-mob">
+      <summary>{% include icon.html name=cat.icon px=17 %}<span>{{ cat.short | default: cat.title }}</span><span class="rm-side-n">{{ TM.browse | default: RM.browse }}</span></summary>
+      <div class="rm-side">{% include rm-side.html domain=X.id cat=X.category %}</div>
+    </details>
+
+    <nav class="rm-toc" aria-label="{{ W.contents }}">
+      <span class="label">{{ W.contents }}</span>
+      <ul>
+        <li><a href="#overview">{{ W.overview }}</a></li>
+        <li><a href="#prerequisites">{{ W.prereqs }}</a></li>
+        <li><a href="#path">{{ W.path }}</a></li>
+        <li class="mp-no-js"><a href="#topics">{{ W.all_topics }}</a></li>
+        <li><a href="#tools">{{ W.tools }}</a></li>
+        <li><a href="#certifications">{{ W.certs }}</a></li>
+        <li><a href="#resources">{{ W.resources }}</a></li>
+        <li><a href="#frameworks">{{ W.frameworks }}</a></li>
+        <li><a href="#career">{{ W.career }}</a></li>
+      </ul>
+    </nav>
+
+    <div class="rm-main">
+  {{ prevnext }}
+  {%- assign lv = X.entry %}{% if lv == 'entry' %}{% assign lv = 'beginner' %}{% endif %}
+  <dl class="rm-facts">
+    <div><dt>{{ R.starts_at }}</dt><dd><span class="rm-dot is-{{ lv }}" aria-hidden="true"></span> {{ levels[lv] }}</dd></div>
+    <div><dt>{{ W.estimate }}</dt><dd>{{ W.months | replace: '[n]', total }}</dd></div>
+    <div><dt>{{ R.category_label }}</dt><dd><a href="{{ L }}/roadmaps/security/#{{ cat.id }}">{{ cat.short | default: cat.title }}</a></dd></div>
+  </dl>
   {%- if X.legal %}
   <p class="tool-note rm-note">{% include icon.html name="lock" px=16 %}<span>{{ T.legal | default: R.legal }}</span></p>
   {%- endif %}
 
   {% include sec-map.html %}
-
-  <nav class="card sr-toc" aria-label="{{ W.contents }}">
-    <span class="label">{{ W.contents }}</span>
-    <ul>
-      <li><a href="#overview">{{ W.overview }}</a></li>
-      <li><a href="#prerequisites">{{ W.prereqs }}</a></li>
-      <li><a href="#path">{{ W.path }}</a></li>
-      <li class="mp-no-js"><a href="#topics">{{ W.all_topics }}</a></li>
-      <li><a href="#tools">{{ W.tools }}</a></li>
-      <li><a href="#certifications">{{ W.certs }}</a></li>
-      <li><a href="#resources">{{ W.resources }}</a></li>
-      <li><a href="#frameworks">{{ W.frameworks }}</a></li>
-      <li><a href="#career">{{ W.career }}</a></li>
-    </ul>
-  </nav>
 
   <section class="card sr-sec" id="overview" aria-labelledby="overview-title">
     <h2 id="overview-title" class="tool-title">{{ W.overview }}</h2>
@@ -69,7 +101,7 @@
     {%- assign GR = site.data.roadmaps %}
     <p class="rm-back">
       {%- for id in X.prereq_paths %}{% assign gp = GR.paths | where: 'id', id | first %}
-      <a href="{{ L }}/roadmaps/#{{ id }}">{% include icon.html name="map" px=15 %}<span>{{ gp.title }}</span></a>
+      <a href="{{ L }}/roadmaps/{{ id }}/">{% include icon.html name="map" px=15 %}<span>{{ gp.title }}</span></a>
       {%- endfor %}
     </p>
     {%- endif %}
@@ -153,5 +185,9 @@
     <a href="{{ L }}/roadmaps/security/">{% include icon.html name="arrow-up" px=15 %}<span>{{ W.back }}</span></a>
     <a href="#main">{% include icon.html name="arrow-up" px=15 %}<span>{{ W.top }}</span></a>
   </p>
+  {{ prevnext }}
+    </div>
+  </div>
+
   <p class="muted tools-foot"><span>{{ T.reviewed_label | default: R.reviewed_label }}: <time datetime="{{ R.reviewed | date: '%Y-%m-%d' }}">{% include date.html date=R.reviewed long=true %}</time>. {{ T.foot | default: R.foot }}</span> <a href="{{ L }}/#contact">{{ S.nav_contact }}</a></p>
 </div>

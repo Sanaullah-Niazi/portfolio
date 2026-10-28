@@ -7,6 +7,7 @@
 {%- assign R = site.data.sec_roadmaps -%}
 {%- assign core = F.frameworks | where: 'core', true -%}
 {%- assign more = F.frameworks | where_exp: 'f', 'f.core != true' -%}
+{% include rm-bar.html active="security" %}
 <div class="wrap page roadmaps-page sr-index sr-fw-page">
   <header class="page-head">
     <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> <a href="{{ L }}/roadmaps/security/">{{ R.eyebrow }}</a> <span aria-hidden="true">/</span> {{ T.eyebrow | default: F.eyebrow }}</p>

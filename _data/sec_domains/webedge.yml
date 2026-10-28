@@ -25,7 +25,7 @@ prereqs:
   - "How DNS, HTTP and TLS work."
   - "Web application basics and common web attacks."
   - "Cloud basics help for the SASE topics."
-prereq_paths: [cybersecurity, foundations]
+prereq_paths: [networking, cybersecurity]
 
 stages:
   - level: beginner
