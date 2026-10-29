@@ -1,5 +1,5 @@
-// The YouTube creator tools (/tools/youtube/): tag extractor, transcript extractor, channel details, video SEO score,
-// outlier finder, channel comparison, keyword ideas and thumbnail downloader. The page asks the site's Worker
+// The YouTube creator tools (/tools/youtube/): tag extractor, transcript extractor, channel details, channel health
+// report, video SEO score, outlier finder, channel comparison, keyword ideas and thumbnail downloader. The page asks the site's Worker
 // (worker/src/yt.js), which uses the official YouTube Data API with a key kept on the server. Like tools.js, results are built with DOM nodes, never innerHTML, so a video title
 // or description can't run as code.
 (function () {
@@ -87,9 +87,11 @@
   function ytLink(path, text) { return h("a", { href: "https://www.youtube.com/" + path, rel: "noopener", target: "_blank" }, text); }
 
   // Errors come back as {error: code}; each code has its own sentence (yt_err_* in _data/tools.yml).
+  // A request that doesn't reach the server at all (a dropped connection, a server restarting) is tried once more.
   function call(route, params) {
     var q = new URLSearchParams(params).toString();
-    return fetch(API + "/yt/" + route + "?" + q).then(function (r) {
+    var get = function () { return fetch(API + "/yt/" + route + "?" + q); };
+    return get().catch(function () { return new Promise(function (ok) { setTimeout(ok, 1200); }).then(get); }).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (j) {
         if (!r.ok || j.error) throw new Error(j.error || "upstream");
         return j;
@@ -313,7 +315,9 @@
           tagNames.length ? row(copyBtn(tr("yt_copy_comma"), function () { return tagNames.join(", "); })) : null),
         c.topics.length ? section(tr("ytchan_topics"), chips(c.topics)) : null,
         c.top && c.top.length ? section(tr("ytchan_top"), top) : null,
-        c.description ? h("details", { class: "yt-desc" }, h("summary", null, tr("ytchan_about")), h("p", { dir: "auto" }, c.description)) : null);
+        c.description ? h("details", { class: "yt-desc" }, h("summary", null, tr("ytchan_about")), h("p", { dir: "auto" }, c.description)) : null,
+        row(h("a", { class: "btn btn-primary btn-sm", href: toolUrl("channel-health-report", "c", c.handle || c.id) }, h("span", { text: tr("ytchan_to_report") })),
+            h("a", { class: "btn btn-sm", href: toolUrl("outlier-finder", "c", c.id) }, h("span", { text: tr("ytout_title") }))));
     }, function (e) { fill(chanOut, msg(errorText(e), "bad")); });
   });
 
@@ -516,58 +520,356 @@
     }, function (e) { fill(outOut, msg(errorText(e), "bad")); });
   });
 
+  // ---------- Channel health report ----------
+  // One channel's uploads in a period, scored on five public signals, with what to improve and a PDF to download.
+  var PARTS = ["consistency", "reach", "engagement", "momentum", "seo"];
+  function scoreClass(n) { return n == null ? "na" : n >= 85 ? "a" : n >= 70 ? "b" : n >= 50 ? "c" : "f"; }
+  function ring(score, grade) {
+    var NS = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 120 120");
+    svg.setAttribute("class", "web-ring g-" + scoreClass(score));
+    svg.setAttribute("aria-hidden", "true");
+    var bg = document.createElementNS(NS, "circle"), fg = document.createElementNS(NS, "circle");
+    [bg, fg].forEach(function (c) { c.setAttribute("cx", "60"); c.setAttribute("cy", "60"); c.setAttribute("r", "52"); });
+    bg.setAttribute("class", "web-ring-bg");
+    fg.setAttribute("class", "web-ring-fg");
+    var len = 2 * Math.PI * 52;
+    fg.setAttribute("stroke-dasharray", len.toFixed(1));
+    fg.setAttribute("stroke-dashoffset", (len * (1 - (score || 0) / 100)).toFixed(1));
+    svg.appendChild(bg); svg.appendChild(fg);
+    return h("div", { class: "web-ring-wrap" }, svg,
+      h("div", { class: "web-ring-text" }, h("strong", null, score == null ? "–" : num(score)), h("span", null, "/100")),
+      h("span", { class: "web-grade g-" + scoreClass(score), "aria-label": tr("ytrep_grade") + " " + (grade || "–") }, grade || "–"));
+  }
+  // A list of labelled bars. Widths are set through el.style: the site's security policy blocks style="" attributes.
+  function bars(items) {
+    var ul = h("ul", { class: "web-bars" });
+    items.forEach(function (it) {
+      var i = h("i", { class: it.cls || "" });
+      i.style.width = Math.max(0, Math.min(100, it.pct || 0)) + "%";
+      ul.appendChild(h("li", { title: it.title || null }, h("span", { dir: "auto" }, it.label), h("span", { class: "web-bar", "aria-hidden": "true" }, i), h("b", { class: it.cls || null }, it.value)));
+    });
+    return ul;
+  }
+  function scoreBars(r) {
+    return bars(PARTS.map(function (k) {
+      var s = r.scores[k];
+      return { label: tr("ytrep_part_" + k), pct: s, value: s == null ? "–" : num(s), cls: "g-" + scoreClass(s), title: tr("ytrep_part_" + k + "_why") };
+    }));
+  }
+  var SEV = { high: "sev-high", medium: "sev-med", low: "sev-low", good: "sev-ok" };
+  function tipText(t) {
+    var n = t.n == null ? "" : typeof t.n === "number" ? num(t.n) : t.n;
+    return tr("ytrep_tip_" + t.code, { n: n });
+  }
+  function tipList(tips) {
+    var ul = h("ul", { class: "findings" });
+    tips.forEach(function (t) { ul.appendChild(h("li", { class: SEV[t.sev] || "sev-info" }, t.text || tipText(t))); });
+    return ul;
+  }
+  function periodText(r) {
+    return r.period === "all" ? tr("ytrep_p_all") : tr("ytrep_p_" + r.period);
+  }
+  // The period as it reads inside a sentence ("the last 90 days").
+  function periodIn(r) { return tr("ytrep_in_" + r.period); }
+  function basedOn(r) {
+    return tr(r.period === "all" ? "ytrep_based_all" : "ytrep_based", { n: num(r.sample), p: periodIn(r) }) + (r.capped ? " " + tr("ytrep_capped", { n: num(r.sample) }) : "");
+  }
+  // Views of each upload in the period, oldest on the left, with the channel's median as a dashed line.
+  function viewsChart(r) {
+    var vids = r.uploads.slice().reverse();
+    if (vids.length < 2) return null;
+    var NS = "http://www.w3.org/2000/svg", W = 720, H = 200, pad = 4;
+    var max = Math.max.apply(null, vids.map(function (v) { return v.views || 0; })) || 1;
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 " + W + " " + (H + 2));
+    svg.setAttribute("class", "yt-chart");
+    svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", tr("ytrep_chart_views"));
+    var step = W / vids.length, bw = Math.max(1, Math.min(28, step - 2));
+    vids.forEach(function (v, i) {
+      var bh = Math.max(2, ((v.views || 0) / max) * (H - pad));
+      var g = document.createElementNS(NS, "g");
+      var hit = document.createElementNS(NS, "rect");
+      hit.setAttribute("x", (i * step).toFixed(1)); hit.setAttribute("y", "0"); hit.setAttribute("width", step.toFixed(1)); hit.setAttribute("height", H);
+      hit.setAttribute("class", "yt-chart-hit");
+      var b = document.createElementNS(NS, "rect");
+      b.setAttribute("x", (i * step + (step - bw) / 2).toFixed(1)); b.setAttribute("y", (H - bh).toFixed(1));
+      b.setAttribute("width", bw.toFixed(1)); b.setAttribute("height", bh.toFixed(1)); b.setAttribute("rx", Math.min(4, bw / 2));
+      b.setAttribute("class", "yt-chart-bar" + (v.score >= 3 ? " is-hot" : ""));
+      var t = document.createElementNS(NS, "title");
+      t.textContent = v.title + " · " + tr("yt_views_n", { n: short(v.views) }) + " · " + date(v.published) + (v.score != null ? " · ×" + num(v.score) : "");
+      g.appendChild(t); g.appendChild(hit); g.appendChild(b);
+      svg.appendChild(g);
+    });
+    if (r.medianViews) {
+      var y = (H - (r.medianViews / max) * (H - pad)).toFixed(1);
+      var line = document.createElementNS(NS, "line");
+      line.setAttribute("x1", "0"); line.setAttribute("x2", W); line.setAttribute("y1", y); line.setAttribute("y2", y);
+      line.setAttribute("class", "yt-chart-median");
+      svg.appendChild(line);
+    }
+    var base = document.createElementNS(NS, "line");
+    base.setAttribute("x1", "0"); base.setAttribute("x2", W); base.setAttribute("y1", H + 1); base.setAttribute("y2", H + 1);
+    base.setAttribute("class", "yt-chart-base");
+    svg.appendChild(base);
+    return h("figure", { class: "yt-fig" }, svg,
+      h("figcaption", null,
+        h("span", null, date(vids[0].published)),
+        h("span", null, h("i", { class: "yt-key yt-key-median" }), tr("ytrep_median_line", { n: short(r.medianViews) }), "  ", h("i", { class: "yt-key yt-key-hot" }), tr("ytrep_hot_bars")),
+        h("span", null, date(vids[vids.length - 1].published))));
+  }
+  // Median views by the weekday a video went out, in the visitor's own time zone.
+  function weekdays(r) {
+    var by = [[], [], [], [], [], [], []];
+    r.uploads.forEach(function (v) { if (v.published) by[new Date(v.published).getDay()].push(v.views || 0); });
+    var med = function (a) { a = a.slice().sort(function (x, y) { return x - y; }); var m = Math.floor(a.length / 2); return a.length ? (a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2) : null; };
+    var fmt = new Intl.DateTimeFormat(lang, { weekday: "long" });
+    var rows = [1, 2, 3, 4, 5, 6, 0].map(function (d) { return { d: d, n: by[d].length, m: med(by[d]), name: fmt.format(new Date(2024, 0, 1 + ((d + 6) % 7))) }; });
+    var max = Math.max.apply(null, rows.map(function (x) { return x.m || 0; })) || 1;
+    var best = rows.filter(function (x) { return x.n >= 2; }).sort(function (a, b) { return b.m - a.m; })[0];
+    return {
+      best: best,
+      el: bars(rows.map(function (x) {
+        return { label: x.name, pct: ((x.m || 0) / max) * 100, value: x.n ? short(x.m) : "–", cls: best && x.d === best.d ? "g-a" : "", title: tr("ytrep_day_n", { n: num(x.n) }) };
+      })),
+    };
+  }
+  function videoList(list) {
+    var ol = h("ol", { class: "yt-list yt-out-list" });
+    list.forEach(function (v) {
+      var hot = v.score >= 3 ? "hot" : v.score >= 1.5 ? "up" : v.score < 0.5 ? "down" : "mid";
+      ol.appendChild(h("li", null,
+        h("img", { src: "https://i.ytimg.com/vi/" + v.id + "/mqdefault.jpg", alt: "", width: "96", height: "54", loading: "lazy" }),
+        h("span", { dir: "auto" }, ytLink("watch?v=" + v.id, v.title),
+          h("small", null, tr("yt_views_n", { n: short(v.views) }) + " · " + date(v.published) + (v.duration ? " · " + clock(v.duration) : ""))),
+        h("b", { class: "yt-x yt-x-" + hot, title: tr("ytout_x_title") }, v.score == null ? "–" : "×" + num(v.score))));
+    });
+    return ol;
+  }
+  function pct(n) { return n == null ? null : num(n) + "%"; }
+  function settled(r) { var week = Date.now() - 7 * 86400000; return r.uploads.filter(function (v) { return Date.parse(v.published) < week; }); }
+  function channelHeadEl(r) {
+    return h("div", { class: "yt-head yt-chan" },
+      r.thumb ? h("img", { class: "yt-avatar", src: r.thumb, alt: "", width: "72", height: "72", loading: "lazy" }) : null,
+      h("div", null,
+        h("p", { class: "yt-title", dir: "auto" }, ytLink(r.handle || "channel/" + r.id, r.title)),
+        h("p", { class: "tool-msg" }, (r.subscribers == null ? tr("yt_subs_hidden") : tr("yt_subs_n", { n: short(r.subscribers) })) + " · " + tr("yt_videos_n", { n: num(r.videos) }))));
+  }
+  function numbers(r) {
+    return [
+      [tr("ytrep_uploads"), num(r.sample)],
+      [tr("ytrep_upload_views"), num(r.totals.views)],
+      [tr("ytvs_median_p"), num(r.medianViews)],
+      [tr("ytrep_avg"), num(r.avgViews)],
+      [tr("ytvs_reach"), pct(r.reach)],
+      [tr("ytvs_engagement"), pct(r.engagement)],
+      [tr("ytchan_per_week"), r.perWeek == null ? null : num(r.perWeek)],
+      [tr("ytrep_since_last"), r.sinceLast == null ? null : tr("ytrep_days", { n: num(r.sinceLast) })],
+      [tr("ytrep_longest_gap"), r.longestGap == null ? null : tr("ytrep_days", { n: num(r.longestGap) })],
+      [tr("ytrep_momentum"), r.momentum.change == null ? null : tr("ytrep_momentum_v", { a: short(r.momentum.recent), b: short(r.momentum.earlier) })],
+      [tr("ytrep_shorts"), r.formats.shorts ? tr("ytrep_format_v", { n: num(r.formats.shorts), m: short(r.formats.shortsMedian) }) : "0"],
+      [tr("ytrep_long"), r.formats.long ? tr("ytrep_format_v", { n: num(r.formats.long), m: short(r.formats.longMedian) }) : "0"],
+      [tr("ytchan_created"), date(r.created)],
+    ];
+  }
+  function seoFacts(r) {
+    return ["tags", "titles", "descriptions", "chapters", "hashtags", "links", "captions", "language"].map(function (k) { return [tr("ytrep_seo_" + k), pct(r.seo[k])]; })
+      .concat([[tr("ytrep_seo_keywords"), r.keywords ? num(r.keywords) : tr("yt_no")]]);
+  }
+
+  // The PDF is drawn by yt-report-pdf.js, loaded with jsPDF and html2canvas-pro only when someone asks for it.
+  var SELF = document.currentScript && document.currentScript.src || "/assets/js/youtube.js";
+  var JS_DIR = SELF.replace(/[?#].*$/, "").replace(/[^/]*$/, "");
+  var VERSION = (SELF.match(/\?v=\w+/) || [""])[0];
+  var PDF_LIBS = [JS_DIR + "../lib/jspdf-4.2.1.min.js", JS_DIR + "../lib/html2canvas-pro-2.5.2.min.js", JS_DIR + "yt-report-pdf.js" + VERSION];
+  var pdfLoading = null;
+  function loadScript(src) {
+    return new Promise(function (ok, fail) {
+      var s = h("script", { src: src });
+      s.onload = ok; s.onerror = function () { fail(new Error("load " + src)); };
+      document.head.appendChild(s);
+    });
+  }
+  function pdfBtn(kind, data) {
+    var b = h("button", { class: "btn btn-primary btn-sm", type: "button" }, h("span", { text: tr("ytrep_pdf") }));
+    b.addEventListener("click", function () {
+      if (b.disabled) return;
+      var label = b.querySelector("span");
+      b.disabled = true; label.textContent = tr("ytrep_pdf_making");
+      if (!pdfLoading) pdfLoading = PDF_LIBS.reduce(function (p, src) { return p.then(function () { return loadScript(src); }); }, Promise.resolve());
+      pdfLoading.then(function () {
+        return window.ytReportPdf(kind, data, {
+          tr: tr, h: h, num: num, short: short, date: date, clock: clock, rtl: rtl, lang: lang, ring: ring, bars: bars, scoreBars: scoreBars,
+          tipList: tipList, periodText: periodText, periodIn: periodIn, basedOn: basedOn, numbers: numbers, seoFacts: seoFacts, weekdays: weekdays, settled: settled, facts: facts,
+          catchUp: catchUp, tagGaps: tagGaps, vsVerdict: vsVerdict, vsRows: vsRows,
+          PARTS: PARTS, scoreClass: scoreClass, brand: document.title.split(" | ").pop(),
+          url: location.href,
+        });
+      }).catch(function (e) {
+        pdfLoading = null;
+        if (window.console) console.error(e);
+        alert(tr("ytrep_pdf_fail"));
+      }).then(function () { b.disabled = false; label.textContent = tr("ytrep_pdf"); });
+    });
+    return b;
+  }
+
+  function periodPicker(id) {
+    var sel = document.getElementById(id + "-p");
+    if (!sel) return { get: function () { return "90"; } };
+    var start = new URLSearchParams(location.search).get("p");
+    if (start && [].some.call(sel.options, function (o) { return o.value === start; })) sel.value = start;
+    return {
+      el: sel,
+      get: function () {
+        var u = new URL(location.href);
+        u.searchParams.set("p", sel.value);
+        history.replaceState(null, "", u);
+        return sel.value;
+      },
+    };
+  }
+
+  var repOut = document.getElementById("ytrep-out");
+  if (repOut) {
+    var repPeriod = periodPicker("ytrep");
+    var runReport = function (value) {
+      busy(repOut);
+      call("report", { c: value, p: repPeriod.get(), hl: lang }).then(function (r) {
+        var best = settled(r).slice().sort(function (a, b) { return (b.views || 0) - (a.views || 0); });
+        var day = weekdays(r);
+        fill(repOut,
+          channelHeadEl(r),
+          h("div", { class: "web-summary-main yt-rep-sum" }, ring(r.overall, r.grade),
+            h("div", { class: "web-summary-text" },
+              h("h2", null, tr("ytrep_sum_" + (r.grade || "na"))),
+              h("p", { class: "muted" }, basedOn(r)))),
+          section(tr("ytrep_parts"), scoreBars(r)),
+          section(tr("ytrep_tips"), r.tips.length ? tipList(r.tips) : msg(tr("ytrep_tips_none"))),
+          section(tr("ytrep_numbers", { p: periodIn(r) }), facts(numbers(r))),
+          r.uploads.length > 1 ? section(tr("ytrep_chart_views"), viewsChart(r)) : null,
+          r.uploads.length >= 4 ? section(tr("ytrep_days_title"), day.best ? msg(tr("ytrep_best_day", { d: day.best.name })) : null, day.el) : null,
+          best.length ? section(tr("ytrep_best"), videoList(best.slice(0, 5))) : null,
+          best.length >= 8 ? section(tr("ytrep_worst"), videoList(best.slice(-5).reverse())) : null,
+          section(tr("ytrep_seo"), facts(seoFacts(r))),
+          row(pdfBtn("health", r),
+              h("a", { class: "btn btn-sm", href: toolUrl("outlier-finder", "c", r.id) }, h("span", { text: tr("ytout_title") })),
+              h("a", { class: "btn btn-sm", href: toolUrl("channel-comparison", "a", r.handle || r.id) }, h("span", { text: tr("ytrep_to_compare") })),
+              h("a", { class: "btn btn-sm", href: toolUrl("channel-keywords", "c", r.id) }, h("span", { text: tr("ytrep_to_keywords") }))));
+      }, function (e) { fill(repOut, msg(errorText(e), "bad")); });
+    };
+    wire("ytrep", "c", runReport);
+    if (repPeriod.el) repPeriod.el.addEventListener("change", function () {
+      var v = document.getElementById("ytrep-input").value.trim();
+      if (v) runReport(v);
+    });
+  }
+
   // ---------- Channel vs channel ----------
+  // Both channels' health reports for the same period, side by side, and what the channel behind should do to catch up.
+  function catchUp(lead, back) {
+    var tips = [], keep = [];
+    var L = lead.title, B = back.title;
+    var gap = function (k) { return (lead.scores[k] || 0) - (back.scores[k] || 0); };
+    if (gap("consistency") >= 10 && lead.perWeek != null) tips.push({ sev: "high", text: tr("ytvs_do_consistency", { name: L, a: num(lead.perWeek), b: num(back.perWeek || 0) }) });
+    if (gap("reach") >= 10 && lead.reach != null) tips.push({ sev: "high", text: tr("ytvs_do_reach", { name: L, a: num(lead.reach), b: num(back.reach || 0) }) });
+    if (gap("engagement") >= 10 && lead.engagement != null) tips.push({ sev: "medium", text: tr("ytvs_do_engagement", { name: L, a: num(lead.engagement), b: num(back.engagement || 0) }) });
+    if (gap("momentum") >= 10 && back.momentum.change != null && back.momentum.change < 1) tips.push({ sev: "medium", text: tr("ytvs_do_momentum", { n: num(Math.round((1 - back.momentum.change) * 100)) }) });
+    ["chapters", "captions", "descriptions", "tags", "hashtags"].forEach(function (k) {
+      if (lead.seo[k] != null && (lead.seo[k] - (back.seo[k] || 0)) >= 25) tips.push({ sev: "low", text: tr("ytvs_do_seo_" + k, { name: L, a: num(lead.seo[k]), b: num(back.seo[k] || 0) }) });
+    });
+    var share = function (r) { return r.sample ? r.formats.shorts / r.sample : 0; };
+    if (lead.formats.shortsMedian && lead.formats.longMedian && share(lead) - share(back) >= 0.3) tips.push({ sev: "medium", text: tr("ytvs_do_shorts", { name: L, a: num(Math.round(share(lead) * 100)), b: num(Math.round(share(back) * 100)) }) });
+    if (share(back) - share(lead) >= 0.3) tips.push({ sev: "medium", text: tr("ytvs_do_long", { name: L, a: num(Math.round((1 - share(lead)) * 100)), b: num(Math.round((1 - share(back)) * 100)) }) });
+    if (!back.keywords && lead.keywords) tips.push({ sev: "low", text: tr("ytrep_tip_channel_keywords") });
+    PARTS.forEach(function (k) { if (gap(k) <= -10) keep.push({ sev: "good", text: tr("ytvs_keep_" + k, { name: B }) }); });
+    return { tips: tips, keep: keep };
+  }
+  function tagGaps(A, B) {
+    var names = function (c) { return (c.tags || []).map(function (t) { return t.tag; }); };
+    var setB = {}; names(B).forEach(function (t) { setB[t.toLowerCase()] = 1; });
+    var setA = {}; names(A).forEach(function (t) { setA[t.toLowerCase()] = 1; });
+    return {
+      shared: names(A).filter(function (t) { return setB[t.toLowerCase()]; }),
+      onlyA: names(A).filter(function (t) { return !setB[t.toLowerCase()]; }).slice(0, 20),
+      onlyB: names(B).filter(function (t) { return !setA[t.toLowerCase()]; }).slice(0, 20),
+    };
+  }
+  function vsRows(A, B) {
+    var per = function (c) { return c.videos ? Math.round(c.views / c.videos) : null; };
+    var last = function (c) { return c.sinceLast == null ? null : new Date(Date.now() - c.sinceLast * 86400000).toISOString(); };
+    var p = function (n) { return num(n) + "%"; };
+    return [
+      ["ytrep_overall", A.overall, B.overall, num],
+      ["yt_subscribers", A.subscribers, B.subscribers, short],
+      ["ytchan_total_views", A.views, B.views, short],
+      ["ytchan_videos", A.videos, B.videos, num],
+      ["ytvs_per_video", per(A), per(B), short],
+      ["ytrep_uploads", A.sample, B.sample, num],
+      ["ytvs_median_p", A.medianViews, B.medianViews, short],
+      ["ytvs_reach", A.reach, B.reach, p],
+      ["ytvs_engagement", A.engagement, B.engagement, p],
+      ["ytchan_per_week", A.perWeek, B.perWeek, num],
+      ["ytchan_created", A.created, B.created, date, "older"],
+      ["ytchan_last", last(A), last(B), date, "newer"],
+    ];
+  }
+  function vsTable(A, B) {
+    var table = h("table", { class: "yt-vs" });
+    table.appendChild(h("thead", null, h("tr", null, h("th", { scope: "col" }, ""), h("th", { scope: "col", dir: "auto" }, A.title), h("th", { scope: "col", dir: "auto" }, B.title))));
+    var body = h("tbody");
+    var addRow = function (label, a, b, f, kind) {
+      var win = -1;
+      if (a != null && b != null && a !== b) {
+        if (kind === "older") win = Date.parse(a) < Date.parse(b) ? 0 : 1;
+        else if (kind === "newer") win = Date.parse(a) > Date.parse(b) ? 0 : 1;
+        else win = a > b ? 0 : 1;
+      }
+      body.appendChild(h("tr", null, h("th", { scope: "row" }, label),
+        h("td", { class: win === 0 ? "is-win" : null }, a == null ? tr("yt_hidden") : f(a)),
+        h("td", { class: win === 1 ? "is-win" : null }, b == null ? tr("yt_hidden") : f(b))));
+    };
+    vsRows(A, B).forEach(function (x) { addRow(tr(x[0]), x[1], x[2], x[3], x[4]); });
+    PARTS.forEach(function (k) { addRow(tr("ytrep_part_" + k), A.scores[k], B.scores[k], num); });
+    table.appendChild(body);
+    return h("div", { class: "yt-vs-wrap" }, table);
+  }
+  function vsVerdict(A, B) {
+    if (A.overall == null || B.overall == null || A.overall === B.overall) return { lead: null, back: null, text: tr("ytvs_tie_score") };
+    var lead = A.overall > B.overall ? A : B, back = lead === A ? B : A;
+    return { lead: lead, back: back, text: tr("ytvs_lead_score", { name: lead.title, a: num(lead.overall), other: back.title, b: num(back.overall) }) };
+  }
+
   var vsOut = document.getElementById("ytvs-out");
   if (vsOut) {
     var vsForm = document.getElementById("ytvs-form"), inA = document.getElementById("ytvs-a"), inB = document.getElementById("ytvs-b");
+    var vsPeriod = periodPicker("ytvs");
     var compare = function (a, b) {
       busy(vsOut);
-      Promise.all([call("channel", { c: a, hl: lang }), call("channel", { c: b, hl: lang })]).then(function (r) {
+      var p = vsPeriod.get();
+      Promise.all([call("report", { c: a, p: p, hl: lang }), call("report", { c: b, p: p, hl: lang })]).then(function (r) {
         var A = r[0], B = r[1];
-        var per = function (c) { return c.videos ? Math.round(c.views / c.videos) : null; };
-        var reach = function (c) { return c.subscribers && c.medianViews != null ? Math.round((c.medianViews / c.subscribers) * 1000) / 10 : null; };
-        var rows = [
-          ["yt_subscribers", A.subscribers, B.subscribers, short],
-          ["ytchan_total_views", A.views, B.views, short],
-          ["ytchan_videos", A.videos, B.videos, num],
-          ["ytvs_per_video", per(A), per(B), short],
-          ["ytvs_median", A.medianViews, B.medianViews, short],
-          ["ytvs_reach", reach(A), reach(B), function (n) { return num(n) + "%"; }],
-          ["ytvs_engagement", A.engagement, B.engagement, function (n) { return num(n) + "%"; }],
-          ["ytchan_per_week", A.perWeek, B.perWeek, num],
-          ["ytchan_created", A.created, B.created, date, "older"],
-          ["ytchan_last", A.lastUpload, B.lastUpload, date, "newer"],
-        ];
-        var table = h("table", { class: "yt-vs" });
-        table.appendChild(h("thead", null, h("tr", null, h("th", { scope: "col" }, ""), h("th", { scope: "col", dir: "auto" }, A.title), h("th", { scope: "col", dir: "auto" }, B.title))));
-        var body = h("tbody"), wins = [0, 0];
-        rows.forEach(function (x) {
-          var a = x[1], b = x[2], f = x[3], win = -1;
-          if (a != null && b != null && a !== b) {
-            if (x[4] === "older") win = Date.parse(a) < Date.parse(b) ? 0 : 1;
-            else if (x[4] === "newer") win = Date.parse(a) > Date.parse(b) ? 0 : 1;
-            else win = a > b ? 0 : 1;
-            if (!x[4]) wins[win]++;
-          }
-          body.appendChild(h("tr", null, h("th", { scope: "row" }, tr(x[0])),
-            h("td", { class: win === 0 ? "is-win" : null }, a == null ? tr("yt_hidden") : f(a)),
-            h("td", { class: win === 1 ? "is-win" : null }, b == null ? tr("yt_hidden") : f(b))));
-        });
-        table.appendChild(body);
-        var names = function (c) { return (c.tags || []).map(function (t) { return t.tag; }); };
-        var setB = {}; names(B).forEach(function (t) { setB[t.toLowerCase()] = 1; });
-        var setA = {}; names(A).forEach(function (t) { setA[t.toLowerCase()] = 1; });
-        var shared = names(A).filter(function (t) { return setB[t.toLowerCase()]; });
-        var onlyA = names(A).filter(function (t) { return !setB[t.toLowerCase()]; }).slice(0, 20);
-        var onlyB = names(B).filter(function (t) { return !setA[t.toLowerCase()]; }).slice(0, 20);
-        var lead = wins[0] === wins[1] ? tr("ytvs_tie") : tr("ytvs_lead", { name: wins[0] > wins[1] ? A.title : B.title, n: num(Math.max(wins[0], wins[1])), m: num(wins[0] + wins[1]) });
+        var v = vsVerdict(A, B), g = tagGaps(A, B);
+        var plan = v.back ? catchUp(v.lead, v.back) : null;
         fill(vsOut,
-          msg(lead),
-          h("div", { class: "yt-vs-wrap" }, table),
-          section(tr("ytvs_shared", { n: num(shared.length) }), shared.length ? chips(shared) : msg(tr("ytvs_shared_none")), shared.length ? row(copyBtn(tr("yt_copy_comma"), function () { return shared.join(", "); })) : null),
-          onlyA.length ? section(tr("ytvs_only", { name: A.title }), chips(onlyA)) : null,
-          onlyB.length ? section(tr("ytvs_only", { name: B.title }), chips(onlyB)) : null,
-          row(h("a", { class: "btn btn-sm", href: toolUrl("outlier-finder", "c", A.id) }, h("span", { text: tr("ytvs_outliers", { name: A.title }) })),
+          h("div", { class: "yt-vs-rings" },
+            h("div", null, ring(A.overall, A.grade), h("p", { class: "yt-title", dir: "auto" }, ytLink(A.handle || "channel/" + A.id, A.title))),
+            h("div", null, ring(B.overall, B.grade), h("p", { class: "yt-title", dir: "auto" }, ytLink(B.handle || "channel/" + B.id, B.title)))),
+          msg(v.text + " " + tr("ytvs_period", { p: periodIn(A) })),
+          vsTable(A, B),
+          plan ? section(tr("ytvs_plan", { name: v.back.title }), plan.tips.length ? tipList(plan.tips) : msg(tr("ytvs_plan_none")),
+            g && v.back === A && g.onlyB.length ? msg(tr("ytvs_do_topics", { name: v.lead.title, t: g.onlyB.slice(0, 8).join(", ") })) : null,
+            g && v.back === B && g.onlyA.length ? msg(tr("ytvs_do_topics", { name: v.lead.title, t: g.onlyA.slice(0, 8).join(", ") })) : null) : null,
+          plan && plan.keep.length ? section(tr("ytvs_keep", { name: v.back.title }), tipList(plan.keep)) : null,
+          section(tr("ytvs_shared", { n: num(g.shared.length) }), g.shared.length ? chips(g.shared) : msg(tr("ytvs_shared_none")), g.shared.length ? row(copyBtn(tr("yt_copy_comma"), function () { return g.shared.join(", "); })) : null),
+          g.onlyA.length ? section(tr("ytvs_only", { name: A.title }), chips(g.onlyA)) : null,
+          g.onlyB.length ? section(tr("ytvs_only", { name: B.title }), chips(g.onlyB)) : null,
+          row(pdfBtn("compare", { A: A, B: B }),
+              h("a", { class: "btn btn-sm", href: toolUrl("channel-health-report", "c", A.handle || A.id) + "&p=" + p }, h("span", { text: tr("ytvs_report_of", { name: A.title }) })),
+              h("a", { class: "btn btn-sm", href: toolUrl("channel-health-report", "c", B.handle || B.id) + "&p=" + p }, h("span", { text: tr("ytvs_report_of", { name: B.title }) })),
+              h("a", { class: "btn btn-sm", href: toolUrl("outlier-finder", "c", A.id) }, h("span", { text: tr("ytvs_outliers", { name: A.title }) })),
               h("a", { class: "btn btn-sm", href: toolUrl("outlier-finder", "c", B.id) }, h("span", { text: tr("ytvs_outliers", { name: B.title }) }))));
       }, function (e) { fill(vsOut, msg(errorText(e), "bad")); });
     };
@@ -583,6 +885,7 @@
     });
     var sp = new URLSearchParams(location.search);
     if (sp.get("a") && sp.get("b")) { inA.value = sp.get("a"); inB.value = sp.get("b"); compare(sp.get("a"), sp.get("b")); }
+    else if (sp.get("a")) inA.value = sp.get("a");
   }
 
   // ---------- Thumbnail downloader ----------

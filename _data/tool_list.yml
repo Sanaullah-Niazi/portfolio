@@ -21,6 +21,7 @@
 - { key: yttag,    slug: youtube/tag-extractor,        icon: tag,      group: youtube }
 - { key: ytscript, slug: youtube/transcript-extractor, icon: captions, group: youtube }
 - { key: ytchan,   slug: youtube/channel-keywords,     icon: users,    group: youtube }
+- { key: ytrep,    slug: youtube/channel-health-report, icon: pulse,   group: youtube }
 - { key: ytseo,    slug: youtube/video-seo-score,      icon: chart,    group: youtube }
 - { key: ytout,    slug: youtube/outlier-finder,       icon: trending, group: youtube }
 - { key: ytvs,     slug: youtube/channel-comparison,   icon: scale,    group: youtube }

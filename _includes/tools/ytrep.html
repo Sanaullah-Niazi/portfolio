@@ -1,0 +1,6 @@
+<section class="card tool yt" id="ytrep" aria-label="{{ T.ytrep_title }}" data-api="{{ site.health_checker.api }}">
+  {% include tools/yt-input.html id="ytrep" label=T.ytchan_label go=T.ytrep_go icon="pulse" placeholder="https://www.youtube.com/@channel" %}
+  {% include tools/yt-period.html id="ytrep" %}
+  <div class="tool-out" id="ytrep-out" aria-live="polite"></div>
+  <p class="tool-note">{{ T.ytrep_note }}</p>
+</section>

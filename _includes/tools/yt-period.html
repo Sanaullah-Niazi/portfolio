@@ -1,0 +1,10 @@
+{%- comment -%} The period picker of the channel health report and the channel comparison. Usage: {% include tools/yt-period.html id="ytrep" %} {%- endcomment -%}
+<div class="yt-period">
+  <label class="field-label" for="{{ include.id }}-p">{{ T.ytrep_period }}</label>
+  <select class="field field-inline" id="{{ include.id }}-p">
+    <option value="30">{{ T.ytrep_p_30 }}</option>
+    <option value="90" selected>{{ T.ytrep_p_90 }}</option>
+    <option value="365">{{ T.ytrep_p_365 }}</option>
+    <option value="all">{{ T.ytrep_p_all }}</option>
+  </select>
+</div>

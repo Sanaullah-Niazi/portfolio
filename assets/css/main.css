@@ -898,6 +898,50 @@ pre.code { margin: 0; padding: 14px 16px; border-radius: 10px; background: #0612
 .yt-vs tbody th { font-weight: 400; color: var(--muted); }
 .yt-vs td.is-win { font-weight: 600; color: #16a34a; }
 .yt-vs td.is-win::after { content: "\00a0▲"; font-size: 11px; }
+/* Channel health report */
+.yt-period { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.yt-period .field-label { margin: 0; }
+.yt-rep-sum { margin-top: 4px; }
+.yt-rep-sum h2 { font-size: clamp(20px, 2.4vw, 26px); }
+.yt-fig { margin: 0; display: grid; gap: 8px; }
+.yt-chart { width: 100%; height: auto; display: block; }
+.yt-chart-hit { fill: transparent; }
+.yt-chart-bar { fill: color-mix(in srgb, var(--accent) 55%, var(--surface)); }
+.yt-chart-bar.is-hot { fill: var(--accent); }
+.yt-chart g:hover .yt-chart-bar { fill: var(--ink); }
+.yt-chart-median { stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 5 4; opacity: .7; }
+.yt-chart-base { stroke: var(--line); stroke-width: 1; }
+.yt-fig figcaption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.yt-key { display: inline-block; width: 14px; height: 10px; margin-inline-end: 6px; vertical-align: middle; border-radius: 2px; }
+.yt-key-median { height: 0; border-top: 2px dashed var(--ink); border-radius: 0; opacity: .7; }
+.yt-key-hot { background: var(--accent); }
+.yt-vs-rings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; justify-items: center; text-align: center; }
+.yt-vs-rings > div { display: grid; gap: 8px; justify-items: center; }
+.yt-vs-rings .web-ring-wrap { width: 120px; height: 120px; }
+.yt-vs-rings .web-ring-text strong { font-size: 32px; }
+/* Its PDF (with the website checker's .wpdf styles) */
+.ypdf-why { display: grid; gap: 6px; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+.ypdf-tip { border-inline-start: 4px solid var(--line); padding-inline-start: 12px; }
+.ypdf-tip.sev-high { border-inline-start-color: #dc2626; } .ypdf-tip.sev-medium { border-inline-start-color: #ea580c; }
+.ypdf-tip.sev-low { border-inline-start-color: #ca8a04; } .ypdf-tip.sev-good { border-inline-start-color: #16a34a; }
+.ypdf-cols { position: relative; height: 180px; display: flex; align-items: flex-end; gap: 2px; border-bottom: 1px solid var(--line); }
+.ypdf-cols i { flex: 1 1 0; min-width: 0; border-radius: 3px 3px 0 0; background: #8fc3c9; }
+.ypdf-cols i.is-hot { background: var(--accent); }
+.ypdf-median { position: absolute; inset-inline: 0; border-top: 2px dashed var(--ink); opacity: .6; }
+.ypdf-cols-key { display: flex; justify-content: space-between; gap: 10px; font-size: 11.5px; color: var(--muted); margin-top: 6px !important; }
+.ypdf-video { padding: 8px 0; border-top: 1px solid var(--line); display: grid; gap: 2px; font-size: 13.5px; }
+.ypdf-video .wpdf-link { color: var(--ink); }
+.ypdf-rings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding: 0 56px; justify-items: center; text-align: center; }
+.ypdf-rings > div { display: grid; gap: 6px; justify-items: center; }
+.ypdf-ring-name { font: 600 18px/1.3 var(--display); }
+.wpdf .ypdf-verdict { margin: 0 56px; }
+.ypdf-vs { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.ypdf-vs th, .ypdf-vs td { padding: 8px 8px; border-top: 1px solid var(--line); text-align: start; }
+.ypdf-vs tr:first-child th { font-weight: 600; border-top: 0; }
+.ypdf-vs th[scope="row"] { font-weight: 400; color: var(--muted); width: 40%; }
+.ypdf-vs td.is-win { font-weight: 600; color: #15803d; }
+.ypdf-tags { font-size: 13px; line-height: 1.7; }
+.wpdf .web-bars li { font-size: 13px; }
 @media (max-width: 640px) {
   .yt-head { grid-template-columns: 1fr; }
   .yt-thumb { width: 100%; }
@@ -908,6 +952,8 @@ pre.code { margin: 0; padding: 14px 16px; border-radius: 10px; background: #0612
   .yt-list li .btn { grid-column: 2; justify-self: start; }
   .yt-kv { grid-template-columns: 1fr; }
   .yt-vs-inputs { grid-template-columns: 1fr; }
+  .yt-vs-rings .web-ring-wrap { width: 96px; height: 96px; }
+  .web-summary-main.yt-rep-sum { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .yt-out-list li { grid-template-columns: 80px minmax(0, 1fr) 4em; }
 }
 
