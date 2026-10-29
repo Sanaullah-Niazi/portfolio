@@ -1,0 +1,5 @@
+<section class="card tool yt" id="ytout" aria-label="{{ T.ytout_title }}" data-api="{{ site.health_checker.api }}">
+  {% include tools/yt-input.html id="ytout" label=T.ytchan_label go=T.ytout_go icon="trending" placeholder="https://www.youtube.com/@channel" %}
+  <div class="tool-out" id="ytout-out" aria-live="polite"></div>
+  <p class="tool-note">{{ T.ytout_note }}</p>
+</section>

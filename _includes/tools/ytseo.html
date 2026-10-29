@@ -1,0 +1,7 @@
+<section class="card tool yt" id="ytseo" aria-label="{{ T.ytseo_title }}" data-api="{{ site.health_checker.api }}">
+  {% include tools/yt-input.html id="ytseo" label=T.yt_video_label go=T.ytseo_go icon="chart" %}
+  <label class="field-label" for="ytseo-kw">{{ T.ytseo_kw_label }}</label>
+  <input class="field" id="ytseo-kw" type="text" autocomplete="off" spellcheck="false" placeholder="{{ T.ytseo_kw_placeholder }}" maxlength="80">
+  <div class="tool-out" id="ytseo-out" aria-live="polite"></div>
+  <p class="tool-note">{{ T.ytseo_note }}</p>
+</section>

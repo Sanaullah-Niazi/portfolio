@@ -1,6 +1,6 @@
-// The YouTube creator tools (/tools/youtube/): tag extractor, transcript extractor, channel details, keyword ideas and
-// thumbnail downloader. The page asks the site's Worker (worker/src/yt.js), which uses the official YouTube Data API
-// with a key kept on the server. Like tools.js, results are built with DOM nodes, never innerHTML, so a video title
+// The YouTube creator tools (/tools/youtube/): tag extractor, transcript extractor, channel details, video SEO score,
+// outlier finder, channel comparison, keyword ideas and thumbnail downloader. The page asks the site's Worker
+// (worker/src/yt.js), which uses the official YouTube Data API with a key kept on the server. Like tools.js, results are built with DOM nodes, never innerHTML, so a video title
 // or description can't run as code.
 (function () {
   var box = document.querySelector(".tool.yt");
@@ -401,6 +401,188 @@
           section(tr("ytkw_trend_videos"), vids));
       }, function (e) { fill(kwOut, msg(errorText(e), "bad")); });
     });
+  }
+
+  // ---------- Video SEO score ----------
+  // Rules of thumb from YouTube's own creator advice: a clear title the right length with the main keyword early,
+  // a full description that repeats it, chapters, a few hashtags, captions and engaged viewers. Each check has a
+  // weight; the score is the share of points earned.
+  var seoOut = document.getElementById("ytseo-out");
+  if (seoOut) {
+    var seoChecks = function (v, kw) {
+      var out = [], title = v.title || "", desc = v.description || "", low = function (s) { return s.toLocaleLowerCase(lang); };
+      var add = function (key, weight, level, vars) { out.push({ key: key, weight: weight, level: level, vars: vars }); };
+      var tlen = Array.from(title).length;
+      add(tlen < 20 ? "ytseo_title_short" : tlen > 70 ? "ytseo_title_long" : "ytseo_title_ok", 10, tlen < 20 || tlen > 70 ? 0.4 : 1, { n: tlen });
+      var letters = title.replace(/[^A-Za-z]/g, ""), caps = letters.length > 8 && letters.replace(/[^A-Z]/g, "").length / letters.length > 0.6;
+      if (caps) add("ytseo_caps", 3, 0);
+      if (kw) {
+        var k = low(kw), at = low(title).indexOf(k);
+        add(at < 0 ? "ytseo_kw_title_no" : at <= tlen * 0.4 ? "ytseo_kw_title_start" : "ytseo_kw_title_late", 15, at < 0 ? 0 : at <= tlen * 0.4 ? 1 : 0.7, { k: kw });
+        var inDesc = low(desc.slice(0, 200)).indexOf(k) >= 0;
+        add(inDesc ? "ytseo_kw_desc_ok" : "ytseo_kw_desc_no", 10, inDesc ? 1 : 0, { k: kw });
+        var inTags = (v.tags || []).some(function (t) { return low(t).indexOf(k) >= 0; });
+        add(inTags ? "ytseo_kw_tags_ok" : "ytseo_kw_tags_no", 5, inTags ? 1 : 0, { k: kw });
+      }
+      var words = desc.split(/\s+/).filter(Boolean).length;
+      add(words >= 200 ? "ytseo_desc_ok" : words >= 80 ? "ytseo_desc_mid" : "ytseo_desc_short", 10, words >= 200 ? 1 : words >= 80 ? 0.5 : 0, { n: words });
+      var stamps = (desc.match(/(^|\n)\s*\(?\d{1,2}:\d{2}(:\d{2})?\)?\s/g) || []).length;
+      var chapters = stamps >= 3 && /(^|\n)\s*\(?0?0:00/.test(desc);
+      if (v.duration >= 240) add(chapters ? "ytseo_chapters_ok" : "ytseo_chapters_no", 5, chapters ? 1 : 0);
+      var nh = (v.hashtags || []).length;
+      add(nh > 15 ? "ytseo_hash_many" : nh === 0 ? "ytseo_hash_none" : "ytseo_hash_ok", 5, nh > 15 ? 0 : nh === 0 ? 0.3 : 1, { n: nh });
+      var nt = (v.tags || []).length;
+      add(nt === 0 ? "ytseo_tags_none" : nt < 5 ? "ytseo_tags_few" : "ytseo_tags_ok", 5, nt === 0 ? 0.3 : nt < 5 ? 0.7 : 1, { n: nt });
+      add(/https?:\/\//.test(desc) ? "ytseo_links_ok" : "ytseo_links_no", 3, /https?:\/\//.test(desc) ? 1 : 0.3);
+      add(v.captions ? "ytseo_captions_ok" : "ytseo_captions_no", 7, v.captions ? 1 : 0);
+      add(v.language ? "ytseo_lang_ok" : "ytseo_lang_no", 4, v.language ? 1 : 0.3);
+      if (v.views >= 100 && v.likes != null) {
+        var rate = (v.likes / v.views) * 100;
+        add(rate >= 4 ? "ytseo_likes_good" : rate >= 2 ? "ytseo_likes_ok" : "ytseo_likes_low", 10, rate >= 4 ? 1 : rate >= 2 ? 0.7 : 0.3, { n: num(Math.round(rate * 10) / 10) });
+      }
+      if (v.views >= 100 && v.comments != null) {
+        var cr = (v.comments / v.views) * 1000;
+        add(cr >= 5 ? "ytseo_comments_good" : cr >= 1 ? "ytseo_comments_ok" : "ytseo_comments_low", 5, cr >= 5 ? 1 : cr >= 1 ? 0.7 : 0.3, { n: num(Math.round(cr * 10) / 10) });
+      }
+      return out;
+    };
+    wire("ytseo", "v", function (value) {
+      if (!videoId(value)) { fill(seoOut, msg(tr("yt_err_bad_video"), "bad")); return; }
+      busy(seoOut);
+      var kwBox = document.getElementById("ytseo-kw");
+      call("video", { v: value, hl: lang }).then(function (v) {
+        var kw = kwBox.value.trim() || (v.tags && v.tags[0]) || "";
+        var checks = seoChecks(v, kw), total = 0, got = 0;
+        checks.forEach(function (c) { total += c.weight; got += c.weight * c.level; });
+        var score = Math.round((got / total) * 100);
+        var grade = score >= 85 ? "great" : score >= 70 ? "good" : score >= 50 ? "fair" : "poor";
+        var list = h("ul", { class: "findings" });
+        checks.slice().sort(function (a, b) { return a.level - b.level || b.weight - a.weight; }).forEach(function (c) {
+          list.appendChild(h("li", { class: c.level >= 1 ? "sev-ok" : c.level >= 0.5 ? "sev-low" : "sev-high" }, tr(c.key, c.vars)));
+        });
+        fill(seoOut,
+          videoHead(v),
+          h("div", { class: "yt-score yt-score-" + grade },
+            h("strong", null, num(score)), h("span", null, h("b", null, tr("ytseo_grade_" + grade)), tr("ytseo_out_of"))),
+          kw ? msg(tr(kwBox.value.trim() ? "ytseo_kw_used" : "ytseo_kw_guess", { k: kw })) : msg(tr("ytseo_kw_none")),
+          section(tr("ytseo_checks"), list),
+          row(h("a", { class: "btn btn-sm", href: toolUrl("tag-extractor", "v", v.id) }, h("span", { text: tr("ytchan_get_tags") })),
+              h("a", { class: "btn btn-sm", href: toolUrl("keyword-ideas", "q", kw || v.title) }, h("span", { text: tr("ytseo_more_kw") }))));
+      }, function (e) { fill(seoOut, msg(errorText(e), "bad")); });
+    });
+  }
+
+  // ---------- Outlier finder ----------
+  // The latest 100 uploads, each against the channel's median views: 3× or more is an outlier, an idea worth studying.
+  var outOut = document.getElementById("ytout-out");
+  if (outOut) wire("ytout", "c", function (value) {
+    busy(outOut);
+    call("outliers", { c: value, hl: lang }).then(function (r) {
+      var sortBy = "score", onlyHot = false;
+      var listBox = h("div");
+      var draw = function () {
+        var vids = r.uploads.filter(function (v) { return !onlyHot || v.score >= 3; });
+        vids.sort(function (a, b) { return sortBy === "new" ? Date.parse(b.published) - Date.parse(a.published) : (b[sortBy] || 0) - (a[sortBy] || 0); });
+        var ol = h("ol", { class: "yt-list yt-out-list" });
+        vids.forEach(function (v) {
+          var hot = v.score >= 3 ? "hot" : v.score >= 1.5 ? "up" : v.score < 0.5 ? "down" : "mid";
+          ol.appendChild(h("li", null,
+            h("img", { src: "https://i.ytimg.com/vi/" + v.id + "/mqdefault.jpg", alt: "", width: "96", height: "54", loading: "lazy" }),
+            h("span", { dir: "auto" }, ytLink("watch?v=" + v.id, v.title),
+              h("small", null, tr("yt_views_n", { n: short(v.views) }) + " · " + tr("ytout_per_day", { n: short(v.perDay) }) + " · " + date(v.published) + (v.duration ? " · " + clock(v.duration) : "") + (v.fresh ? " · " + tr("ytout_fresh") : ""))),
+            h("b", { class: "yt-x yt-x-" + hot, title: tr("ytout_x_title") }, v.score == null ? "–" : "×" + num(v.score))));
+        });
+        fill(listBox, vids.length ? ol : msg(tr("ytout_none")));
+      };
+      var sel = h("select", { class: "field field-inline", "aria-label": tr("ytout_sort") });
+      [["score", "ytout_sort_score"], ["views", "ytout_sort_views"], ["perDay", "ytout_sort_day"], ["new", "ytout_sort_new"]].forEach(function (o) { sel.appendChild(h("option", { value: o[0] }, tr(o[1]))); });
+      sel.addEventListener("change", function () { sortBy = sel.value; draw(); });
+      var hotBox = h("input", { type: "checkbox" });
+      hotBox.addEventListener("change", function () { onlyHot = hotBox.checked; draw(); });
+      var hotCount = r.uploads.filter(function (v) { return v.score >= 3; }).length;
+      draw();
+      fill(outOut,
+        h("div", { class: "yt-head yt-chan" },
+          r.thumb ? h("img", { class: "yt-avatar", src: r.thumb, alt: "", width: "72", height: "72", loading: "lazy" }) : null,
+          h("div", null,
+            h("p", { class: "yt-title", dir: "auto" }, ytLink(r.handle || "channel/" + r.id, r.title)),
+            h("p", { class: "tool-msg" }, (r.subscribers == null ? tr("yt_subs_hidden") : tr("yt_subs_n", { n: short(r.subscribers) })) + " · " + tr("yt_videos_n", { n: num(r.videos) })))),
+        msg(tr("ytout_summary", { n: num(r.sample), m: short(r.medianViews), k: num(hotCount) })),
+        h("div", { class: "check-row" }, h("label", { class: "check" }, h("span", { text: tr("ytout_sort") }), sel), h("label", { class: "check" }, hotBox, h("span", { text: " " + tr("ytout_only_hot") }))),
+        listBox,
+        hotCount ? row(copyBtn(tr("ytout_copy"), function () {
+          return r.uploads.filter(function (v) { return v.score >= 3; }).sort(function (a, b) { return b.score - a.score; }).map(function (v) { return "×" + v.score + "  " + v.title; }).join("\n");
+        })) : null);
+    }, function (e) { fill(outOut, msg(errorText(e), "bad")); });
+  });
+
+  // ---------- Channel vs channel ----------
+  var vsOut = document.getElementById("ytvs-out");
+  if (vsOut) {
+    var vsForm = document.getElementById("ytvs-form"), inA = document.getElementById("ytvs-a"), inB = document.getElementById("ytvs-b");
+    var compare = function (a, b) {
+      busy(vsOut);
+      Promise.all([call("channel", { c: a, hl: lang }), call("channel", { c: b, hl: lang })]).then(function (r) {
+        var A = r[0], B = r[1];
+        var per = function (c) { return c.videos ? Math.round(c.views / c.videos) : null; };
+        var reach = function (c) { return c.subscribers && c.medianViews != null ? Math.round((c.medianViews / c.subscribers) * 1000) / 10 : null; };
+        var rows = [
+          ["yt_subscribers", A.subscribers, B.subscribers, short],
+          ["ytchan_total_views", A.views, B.views, short],
+          ["ytchan_videos", A.videos, B.videos, num],
+          ["ytvs_per_video", per(A), per(B), short],
+          ["ytvs_median", A.medianViews, B.medianViews, short],
+          ["ytvs_reach", reach(A), reach(B), function (n) { return num(n) + "%"; }],
+          ["ytvs_engagement", A.engagement, B.engagement, function (n) { return num(n) + "%"; }],
+          ["ytchan_per_week", A.perWeek, B.perWeek, num],
+          ["ytchan_created", A.created, B.created, date, "older"],
+          ["ytchan_last", A.lastUpload, B.lastUpload, date, "newer"],
+        ];
+        var table = h("table", { class: "yt-vs" });
+        table.appendChild(h("thead", null, h("tr", null, h("th", { scope: "col" }, ""), h("th", { scope: "col", dir: "auto" }, A.title), h("th", { scope: "col", dir: "auto" }, B.title))));
+        var body = h("tbody"), wins = [0, 0];
+        rows.forEach(function (x) {
+          var a = x[1], b = x[2], f = x[3], win = -1;
+          if (a != null && b != null && a !== b) {
+            if (x[4] === "older") win = Date.parse(a) < Date.parse(b) ? 0 : 1;
+            else if (x[4] === "newer") win = Date.parse(a) > Date.parse(b) ? 0 : 1;
+            else win = a > b ? 0 : 1;
+            if (!x[4]) wins[win]++;
+          }
+          body.appendChild(h("tr", null, h("th", { scope: "row" }, tr(x[0])),
+            h("td", { class: win === 0 ? "is-win" : null }, a == null ? tr("yt_hidden") : f(a)),
+            h("td", { class: win === 1 ? "is-win" : null }, b == null ? tr("yt_hidden") : f(b))));
+        });
+        table.appendChild(body);
+        var names = function (c) { return (c.tags || []).map(function (t) { return t.tag; }); };
+        var setB = {}; names(B).forEach(function (t) { setB[t.toLowerCase()] = 1; });
+        var setA = {}; names(A).forEach(function (t) { setA[t.toLowerCase()] = 1; });
+        var shared = names(A).filter(function (t) { return setB[t.toLowerCase()]; });
+        var onlyA = names(A).filter(function (t) { return !setB[t.toLowerCase()]; }).slice(0, 20);
+        var onlyB = names(B).filter(function (t) { return !setA[t.toLowerCase()]; }).slice(0, 20);
+        var lead = wins[0] === wins[1] ? tr("ytvs_tie") : tr("ytvs_lead", { name: wins[0] > wins[1] ? A.title : B.title, n: num(Math.max(wins[0], wins[1])), m: num(wins[0] + wins[1]) });
+        fill(vsOut,
+          msg(lead),
+          h("div", { class: "yt-vs-wrap" }, table),
+          section(tr("ytvs_shared", { n: num(shared.length) }), shared.length ? chips(shared) : msg(tr("ytvs_shared_none")), shared.length ? row(copyBtn(tr("yt_copy_comma"), function () { return shared.join(", "); })) : null),
+          onlyA.length ? section(tr("ytvs_only", { name: A.title }), chips(onlyA)) : null,
+          onlyB.length ? section(tr("ytvs_only", { name: B.title }), chips(onlyB)) : null,
+          row(h("a", { class: "btn btn-sm", href: toolUrl("outlier-finder", "c", A.id) }, h("span", { text: tr("ytvs_outliers", { name: A.title }) })),
+              h("a", { class: "btn btn-sm", href: toolUrl("outlier-finder", "c", B.id) }, h("span", { text: tr("ytvs_outliers", { name: B.title }) }))));
+      }, function (e) { fill(vsOut, msg(errorText(e), "bad")); });
+    };
+    vsForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var a = inA.value.trim(), b = inB.value.trim();
+      if (!a) { inA.focus(); return; }
+      if (!b) { inB.focus(); return; }
+      var u = new URL(location.href);
+      u.searchParams.set("a", a); u.searchParams.set("b", b);
+      history.replaceState(null, "", u);
+      compare(a, b);
+    });
+    var sp = new URLSearchParams(location.search);
+    if (sp.get("a") && sp.get("b")) { inA.value = sp.get("a"); inB.value = sp.get("b"); compare(sp.get("a"), sp.get("b")); }
   }
 
   // ---------- Thumbnail downloader ----------
