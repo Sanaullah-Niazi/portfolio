@@ -877,6 +877,27 @@ pre.code { margin: 0; padding: 14px 16px; border-radius: 10px; background: #0612
 .yt-thumb-card figcaption .btn-row { flex-basis: 100%; }
 .yt-thumb-card.is-missing img { opacity: .35; }
 .yt-thumb-card:first-child img { max-width: 720px; }
+.yt-score { display: flex; align-items: center; gap: 16px; padding: 16px 18px; border-radius: 12px; background: var(--accent-soft); }
+.yt-score strong { font: 700 48px/1 var(--display); }
+.yt-score span { display: grid; gap: 2px; color: var(--muted); font-size: 14px; }
+.yt-score b { color: var(--ink); font-size: 18px; }
+.yt-score-great strong, .yt-score-good strong { color: #16a34a; }
+.yt-score-fair strong { color: #ca8a04; }
+.yt-score-poor strong { color: #dc2626; }
+.yt-out-list li { grid-template-columns: 96px minmax(0, 1fr) 4.5em; }
+.yt-x { justify-self: end; font: 600 15px/1 var(--mono); padding: 6px 8px; border-radius: 7px; background: var(--accent-soft); color: var(--muted); }
+.yt-x-hot { background: #16a34a; color: #fff; }
+.yt-x-up { color: #16a34a; }
+.yt-x-down { color: #dc2626; }
+.yt-vs-inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.yt-vs-inputs > div { display: grid; gap: 6px; }
+.yt-vs-wrap { overflow-x: auto; }
+.yt-vs { width: 100%; border-collapse: collapse; font-size: 15px; }
+.yt-vs th, .yt-vs td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: start; }
+.yt-vs thead th { font-size: 14px; overflow-wrap: anywhere; }
+.yt-vs tbody th { font-weight: 400; color: var(--muted); }
+.yt-vs td.is-win { font-weight: 600; color: #16a34a; }
+.yt-vs td.is-win::after { content: "\00a0▲"; font-size: 11px; }
 @media (max-width: 640px) {
   .yt-head { grid-template-columns: 1fr; }
   .yt-thumb { width: 100%; }
@@ -886,6 +907,8 @@ pre.code { margin: 0; padding: 14px 16px; border-radius: 10px; background: #0612
   .yt-list img { width: 80px; height: 45px; }
   .yt-list li .btn { grid-column: 2; justify-self: start; }
   .yt-kv { grid-template-columns: 1fr; }
+  .yt-vs-inputs { grid-template-columns: 1fr; }
+  .yt-out-list li { grid-template-columns: 80px minmax(0, 1fr) 4em; }
 }
 
 /* Roadmaps page (text and links in _data/roadmaps.yml) */

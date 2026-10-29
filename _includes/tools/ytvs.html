@@ -1,0 +1,17 @@
+<section class="card tool yt" id="ytvs" aria-label="{{ T.ytvs_title }}" data-api="{{ site.health_checker.api }}">
+  <form class="yt-form" id="ytvs-form" novalidate>
+    <div class="yt-vs-inputs">
+      <div>
+        <label class="field-label" for="ytvs-a">{{ T.ytvs_a_label }}</label>
+        <input class="field mono" id="ytvs-a" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr" placeholder="@channel" maxlength="300" required>
+      </div>
+      <div>
+        <label class="field-label" for="ytvs-b">{{ T.ytvs_b_label }}</label>
+        <input class="field mono" id="ytvs-b" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr" placeholder="@another" maxlength="300" required>
+      </div>
+    </div>
+    <div class="btn-row"><button class="btn btn-primary btn-sm" type="submit">{% include icon.html name="scale" px=16 %}<span>{{ T.ytvs_go }}</span></button></div>
+  </form>
+  <div class="tool-out" id="ytvs-out" aria-live="polite"></div>
+  <p class="tool-note">{{ T.yt_note }}</p>
+</section>
