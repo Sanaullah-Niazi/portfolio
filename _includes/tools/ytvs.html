@@ -10,8 +10,9 @@
         <input class="field mono" id="ytvs-b" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr" placeholder="@another" maxlength="300" required>
       </div>
     </div>
+    {% include tools/yt-period.html id="ytvs" %}
     <div class="btn-row"><button class="btn btn-primary btn-sm" type="submit">{% include icon.html name="scale" px=16 %}<span>{{ T.ytvs_go }}</span></button></div>
   </form>
   <div class="tool-out" id="ytvs-out" aria-live="polite"></div>
-  <p class="tool-note">{{ T.yt_note }}</p>
+  <p class="tool-note">{{ T.ytrep_note }}</p>
 </section>
