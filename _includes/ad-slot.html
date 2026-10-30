@@ -6,6 +6,6 @@
 {%- if show_ads %}
 <aside class="wrap ad-slot" aria-label="{{ S.ad_label | default: 'Advertisement' }}">
   <ins class="adsbygoogle" data-ad-client="{{ site.ads.client }}" data-ad-slot="{{ site.ads.slot }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script src="{{ '/assets/js/ads.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/ads.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 </aside>
 {%- endif %}

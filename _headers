@@ -13,3 +13,19 @@
 # Self-hosted fonts never change under the same name (a new version gets a new file name), so browsers may keep them a year.
 /assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Every page loads the stylesheet and scripts with ?v=<build time> (head.html), so each deploy gets new addresses and
+# browsers may keep a copy for a year. Before this, Cloudflare's default (max-age=0) made every page view ask again
+# for main.css and main.js before showing anything. A file loaded without ?v= must not go in these two folders.
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# The PDF libraries have their version in the file name.
+/assets/lib/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Pictures keep their names when replaced, so a browser keeps them a day and then checks quietly in the background.
+/assets/img/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
