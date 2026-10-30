@@ -36,9 +36,10 @@ jobs:
         if: env.SYNC_TOKEN == ''
         run: echo "::notice::No SYNC_TOKEN secret yet, so the tool repos were not updated. Setup steps are at the top of this workflow file."
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         if: env.SYNC_TOKEN != ''
         with:
+          persist-credentials: false
           ref: main
 
       - name: Build and push each tool repo

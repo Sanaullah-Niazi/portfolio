@@ -1,0 +1,20 @@
+# Dependabot opens a pull request when something the site is built or deployed with gets an update, including
+# security fixes. Grouped and monthly, so it's one pull request per area at most once a month.
+version: 2
+updates:
+  # GitHub Actions are pinned to exact commits (a moved tag can't slip in other code); this keeps those pins current.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
+  # wrangler, which uploads the site and the API Worker.
+  - package-ecosystem: npm
+    directories: ["/worker", "/cloudflare"]
+    schedule:
+      interval: monthly
+    groups:
+      wrangler:
+        patterns: ["*"]
