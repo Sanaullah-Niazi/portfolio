@@ -127,6 +127,38 @@
     document.querySelectorAll(".ring").forEach(function (r) { io.observe(r); });
   }
 
+  // Links to a section of this page (Contact, About, back to top). The home page is long (about 13,000px on a laptop,
+  // 23,000px on a phone), so gliding down to Contact took 1.5 s and the section then still faded in. A far jump is now
+  // instant and the section it lands on shows at once; a short one still glides.
+  function showNow(section) {
+    var els = [].slice.call(section.querySelectorAll(".reveal, .ring"));
+    if (section.matches(".reveal, .ring")) els.push(section);
+    els.forEach(function (el) {
+      el.style.transition = "none";
+      el.classList.add("is-in");
+      if (el.classList.contains("ring")) el.classList.add("is-drawn");
+    });
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      els.forEach(function (el) { el.style.transition = ""; });
+    }); });
+  }
+  function jumpTarget(hash) {
+    try { return hash.length > 1 && document.getElementById(decodeURIComponent(hash.slice(1))); } catch (e) { return null; }
+  }
+  var landed = jumpTarget(location.hash);
+  if (landed) showNow(landed);
+  window.addEventListener("load", function () { root.style.scrollBehavior = ""; });
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="#"]');
+    if (!a || e.defaultPrevented || a.host !== location.host || a.pathname !== location.pathname) return;
+    var target = jumpTarget(a.hash);
+    if (!target || Math.abs(target.getBoundingClientRect().top) < window.innerHeight * 1.5) return;
+    showNow(target);
+    // The browser still follows the link itself (address bar, focus, hashchange); only the glide is switched off.
+    root.style.scrollBehavior = "auto";
+    setTimeout(function () { root.style.scrollBehavior = ""; }, 50);
+  });
+
   // Cards follow the pointer with a soft glow.
   if (window.matchMedia("(hover: hover)").matches) {
     document.querySelectorAll(".spot").forEach(function (card) {
