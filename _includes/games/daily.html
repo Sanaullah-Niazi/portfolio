@@ -1,0 +1,60 @@
+{%- comment -%}
+  Daily Hack: the puzzle box. The puzzle itself is built by assets/js/games.js from the day's number, using the raw
+  material in _data/daily_hack.yml and the text in _data/games.yml (daily_...), both written into the JSON block below.
+{%- endcomment -%}
+<section class="card game-box dh" id="daily" aria-label="{{ G.daily_title }}">
+  <p class="muted">{{ G.daily_loading }}</p>
+</section>
+<template id="daily-result-tpl">
+  <div class="dh-result hack-result">
+    <div class="dh-verdict">
+      <h2 class="dh-result-title" tabindex="-1"></h2>
+      <p class="dh-grid" aria-hidden="true"></p>
+      <p class="hack-vs" hidden></p>
+    </div>
+    <div class="dh-lesson">
+      <h3>{{ G.daily_lesson }}</h3>
+      <p class="dh-lesson-text"></p>
+      <p class="hack-tool dh-tool" hidden></p>
+    </div>
+    <div class="hack-share">
+      <div class="hack-share-text">
+        <h3>{{ G.daily_share_title }}</h3>
+        <p class="muted">{{ G.daily_share_hint }}</p>
+        <div class="hack-share-btns">
+          <button class="btn btn-primary btn-sm" type="button" data-act="share" hidden>{% include icon.html name="share" px=16 %}<span>{{ G.hack_share }}</span></button>
+          <a class="btn btn-sm share-wa" data-net="wa" target="_blank" rel="noopener">{% include icon.html name="message" px=16 %}<span>WhatsApp</span></a>
+          <a class="btn btn-sm" data-net="x" target="_blank" rel="noopener"><span>X</span></a>
+          <a class="btn btn-sm" data-net="fb" target="_blank" rel="noopener"><span>Facebook</span></a>
+          <a class="btn btn-sm" data-net="li" target="_blank" rel="noopener">{% include icon.html name="linkedin" px=16 %}<span>LinkedIn</span></a>
+          <button class="btn btn-sm" type="button" data-act="copy">{% include icon.html name="copy" px=16 %}<span>{{ G.daily_copy }}</span></button>
+          <a class="btn btn-sm" data-act="download">{% include icon.html name="download" px=16 %}<span>{{ G.hack_download }}</span></a>
+        </div>
+      </div>
+      <img class="hack-card-img" alt="" width="1080" height="1080">
+    </div>
+    <div class="dh-stats">
+      <h3>{{ G.daily_stats }}</h3>
+      <dl class="dh-nums">
+        <div><dt>{{ G.daily_played }}</dt><dd data-stat="played"></dd></div>
+        <div><dt>{{ G.daily_win }}</dt><dd data-stat="win"></dd></div>
+        <div><dt>{{ G.daily_streak }}</dt><dd data-stat="streak"></dd></div>
+        <div><dt>{{ G.daily_best }}</dt><dd data-stat="best"></dd></div>
+      </dl>
+      <p class="label">{{ G.daily_dist }}</p>
+      <div class="dh-bars"></div>
+    </div>
+    <div class="dh-next">
+      <p>{% include icon.html name="clock" px=18 %}<span>{{ G.daily_next }}</span> <strong class="dh-countdown" dir="ltr"></strong></p>
+      <div class="dh-more"></div>
+    </div>
+  </div>
+</template>
+{%- assign tools_T = D.tools | default: site.data.tools -%}
+{%- capture daily_json -%}
+{"text":{{ G | jsonify }},
+"pool":{{ site.data.daily_hack | jsonify }},
+"tools":{ {%- for t in site.data.tool_list %}{% assign tk = t.key | append: "_title" %}{{ t.slug | jsonify }}:{"name":{{ tools_T[tk] | jsonify }},"url":{{ L | append: "/tools/" | append: t.slug | append: "/" | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor -%} },
+"url":{{ page.url | absolute_url | jsonify }},"lang":{{ lang | jsonify }}}
+{%- endcapture %}
+<script type="application/json" id="daily-data">{{ daily_json }}</script>
