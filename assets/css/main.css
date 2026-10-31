@@ -1879,3 +1879,74 @@ html[lang="ur"] :is(.hack-opt, .hack-q, .hack-title, .hack-fixes li) { line-heig
   .dh-opts.is-mono .dh-opt-text { font-size: 14px; }
 }
 html[lang="ur"] :is(.dh-q, .dh-clues li, .dh-hint, .dh-why, .dh-lesson-text, .dh-result-title, .dh-note) { line-height: 1.9; }
+
+/* Scam or Not (/games/scam-or-not/): a message on a phone, the Scam / Legit buttons and the red flags. */
+.som { --dh-good: #15803d; --dh-bad: #c62828; --som-sms: #eef1f5; --som-wa: #dcf8c6; --som-wa-bg: #efeae2; --som-ink: #111b21; }
+:root[data-theme="dark"] .som { --dh-good: #4ade80; --dh-bad: #f87171; --som-sms: #2a3342; --som-wa: #005c4b; --som-wa-bg: #0b141a; --som-ink: #e9edef; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .som { --dh-good: #4ade80; --dh-bad: #f87171; --som-sms: #2a3342; --som-wa: #005c4b; --som-wa-bg: #0b141a; --som-ink: #e9edef; } }
+.som-note { display: flex; align-items: flex-start; gap: 8px; font-size: 15px; }
+.som-note .icon { flex: none; margin-top: 3px; color: var(--accent); }
+.som-ask { font-size: clamp(20px, 2.6vw, 24px); }
+.som-phone { position: relative; display: grid; gap: 0; width: 100%; max-width: 460px; justify-self: center; border-radius: 26px; overflow: hidden;
+  border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow-lg); transition: border-color .25s, box-shadow .25s; }
+.som-bar { display: flex; align-items: center; gap: 8px; padding: 10px 16px; font: 500 12.5px/1.2 var(--mono); color: var(--muted); background: var(--bg-2); border-bottom: 1px solid var(--line); }
+.som-ch { padding: 3px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.som-day { margin-inline-start: auto; }
+.som-who { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.som-avatar { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; font: 700 17px/1 var(--display); background: var(--bg-2); color: var(--muted); border: 1px solid var(--line); }
+.som-from { display: flex; align-items: center; gap: 6px; font: 600 16.5px/1.3 var(--sans); color: var(--ink); }
+.som-tick { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; font-size: 11px; font-weight: 700; background: #25d366; color: #fff; }
+.som-sub { font-size: 13.5px; color: var(--muted); }
+.som-thread { display: grid; gap: 8px; padding: 16px 14px 20px; min-height: 150px; align-content: start; }
+.is-wa .som-thread { background: var(--som-wa-bg); }
+.som-bubble { justify-self: start; max-width: 92%; padding: 10px 12px 6px; border-radius: 4px 16px 16px 16px; font-size: 16px; line-height: 1.5; color: var(--som-ink);
+  background: var(--som-sms); overflow-wrap: anywhere; }
+[dir="rtl"] .som-bubble { border-radius: 16px 4px 16px 16px; }
+.is-wa .som-bubble { background: var(--surface); box-shadow: 0 1px 1px rgba(0, 0, 0, .08); color: var(--ink); }
+.som-time { display: block; margin-top: 2px; font: 500 11.5px/1.2 var(--mono); color: var(--muted); text-align: end; }
+.som-link { color: #1558b0; text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
+:root[data-theme="dark"] .som-link { color: #8ab4f8; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .som-link { color: #8ab4f8; } }
+.som-phone::after { content: attr(data-stamp); position: absolute; top: 58px; inset-inline-end: 14px; padding: 4px 12px; border-radius: 8px; border: 3px solid currentColor;
+  font: 800 18px/1.2 var(--display); letter-spacing: .08em; text-transform: uppercase; transform: rotate(-8deg); opacity: 0; transition: opacity .25s, transform .25s; pointer-events: none; }
+.som-phone.is-scam { border-color: var(--dh-bad); }
+.som-phone.is-legit { border-color: var(--dh-good); }
+.som-phone.is-scam::after { color: var(--dh-bad); background: color-mix(in srgb, var(--surface) 88%, transparent); opacity: 1; transform: rotate(-8deg) scale(1); }
+.som-phone.is-legit::after { color: var(--dh-good); background: color-mix(in srgb, var(--surface) 88%, transparent); opacity: 1; }
+.som-picks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 460px; justify-self: center; }
+.som-pick { justify-content: center; gap: 8px; min-height: 54px; font-size: 17px; font-weight: 600; border-width: 2px; }
+.som-pick.is-scam:hover:not(:disabled) { border-color: var(--dh-bad); background: color-mix(in srgb, var(--dh-bad) 8%, var(--surface)); }
+.som-pick.is-legit:hover:not(:disabled) { border-color: var(--dh-good); background: color-mix(in srgb, var(--dh-good) 8%, var(--surface)); }
+.som-pick:disabled { cursor: default; opacity: .55; }
+.som-pick.is-chosen { opacity: 1; }
+.som-pick.is-scam.is-chosen { border-color: var(--dh-bad); background: color-mix(in srgb, var(--dh-bad) 12%, var(--surface)); }
+.som-pick.is-legit.is-chosen { border-color: var(--dh-good); background: color-mix(in srgb, var(--dh-good) 12%, var(--surface)); }
+.som-feedback { display: grid; gap: 10px; width: 100%; max-width: 640px; justify-self: center; padding: 18px 20px; border-radius: 14px; border: 1px solid var(--line); background: var(--bg-2);
+  animation: hack-pop .3s ease-out; }
+.som-feedback.is-right { border-color: color-mix(in srgb, var(--dh-good) 55%, var(--line)); }
+.som-feedback.is-wrong { border-color: color-mix(in srgb, var(--dh-bad) 55%, var(--line)); }
+.som-verdict { font: 700 clamp(19px, 2.4vw, 22px)/1.3 var(--display); outline: none; }
+.som-feedback.is-right .som-verdict { color: var(--dh-good); }
+.som-feedback.is-wrong .som-verdict { color: var(--dh-bad); }
+.som-why { display: grid; gap: 8px; }
+.som-why li { position: relative; padding-inline-start: 28px; font-size: 15.5px; line-height: 1.55; }
+.som-why li::before { content: "🚩"; position: absolute; inset-inline-start: 0; top: 1px; font-size: 14px; }
+.was-legit .som-why li::before { content: "✅"; }
+.som-feedback .btn-row { margin-top: 4px; }
+.som-split { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; color: var(--muted); }
+.som-missed ul { display: grid; gap: 10px; }
+.som-missed li { display: grid; gap: 4px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font-size: 15px; }
+.som-missed li.was-scam { border-inline-start: 4px solid var(--dh-bad); }
+.som-missed li.was-legit { border-inline-start: 4px solid var(--dh-good); }
+.som-missed li.is-none { color: var(--muted); }
+.som-quote { color: var(--muted); }
+.som .hack-q-head .dh-dots { margin-inline-start: auto; }
+@media (prefers-reduced-motion: reduce) { .som-feedback { animation: none; } .som-phone::after { transition: none; } }
+@media (max-width: 520px) {
+  .som-phone { border-radius: 20px; }
+  .som-bubble { font-size: 15.5px; }
+  .som .dh-dots { gap: 4px; }
+  .som .dh-dot { width: 10px; height: 10px; }
+}
+html[lang="ur"] :is(.som-bubble, .som-why li, .som-verdict, .som-missed li) { line-height: 1.95; }
+.som-missed li::before { content: none; }

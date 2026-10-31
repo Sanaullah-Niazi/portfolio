@@ -1,0 +1,67 @@
+{%- comment -%}
+  Scam or Not: the game box. The intro is written here; the messages and the result are drawn by assets/js/games.js
+  from the JSON block below (words from _data/games.yml scam_..., the messages' details from _data/scam_or_not.yml).
+{%- endcomment -%}
+<section class="card game-box som" id="scam" aria-label="{{ G.scam_title }}">
+  <div class="hack-intro" data-step="intro">
+    <p class="hack-friend" hidden>{% include icon.html name="users" px=18 %}<span></span></p>
+    <p>{{ G.scam_intro }}</p>
+    <p class="muted som-note">{% include icon.html name="alert" px=16 %}<span>{{ G.scam_note }}</span></p>
+    <div class="btn-row">
+      <button class="btn btn-primary" type="button" data-act="start" disabled>{{ G.scam_start }} {% include icon.html name="arrow" px=18 %}</button>
+    </div>
+    <p class="muted hack-best" hidden></p>
+  </div>
+</section>
+<template id="scam-result-tpl">
+  <div class="hack-result" data-step="result">
+    <div class="hack-score">
+      <div class="hack-ring" role="img"><span class="hack-num" dir="ltr"></span><span class="hack-unit">{{ G.scam_label }}</span></div>
+      <div class="hack-verdict">
+        <p class="eyebrow">{{ G.scam_you_are }}</p>
+        <h2 class="hack-title" tabindex="-1"></h2>
+        <p class="hack-text"></p>
+        <p class="som-split"><span data-stat="caught"></span><span data-stat="trusted"></span></p>
+        <p class="hack-vs" hidden></p>
+      </div>
+    </div>
+    <div class="hack-share">
+      <div class="hack-share-text">
+        <h3>{{ G.scam_share_title }}</h3>
+        <p class="muted">{{ G.scam_share_hint }}</p>
+        <div class="hack-share-btns">
+          <button class="btn btn-primary btn-sm" type="button" data-act="share" hidden>{% include icon.html name="share" px=16 %}<span>{{ G.hack_share }}</span></button>
+          <a class="btn btn-sm share-wa" data-net="wa" target="_blank" rel="noopener">{% include icon.html name="message" px=16 %}<span>WhatsApp</span></a>
+          <a class="btn btn-sm" data-net="x" target="_blank" rel="noopener"><span>X</span></a>
+          <a class="btn btn-sm" data-net="fb" target="_blank" rel="noopener"><span>Facebook</span></a>
+          <a class="btn btn-sm" data-net="li" target="_blank" rel="noopener">{% include icon.html name="linkedin" px=16 %}<span>LinkedIn</span></a>
+          <button class="btn btn-sm" type="button" data-act="copy">{% include icon.html name="copy" px=16 %}<span>{{ G.hack_copy }}</span></button>
+          <a class="btn btn-sm" data-act="download" download="scam-or-not.png">{% include icon.html name="download" px=16 %}<span>{{ G.hack_download }}</span></a>
+        </div>
+      </div>
+      <img class="hack-card-img" alt="" width="1080" height="1080">
+    </div>
+    <div class="hack-fixes som-missed">
+      <h3>{{ G.scam_missed }}</h3>
+      <ul></ul>
+    </div>
+    <div class="hack-fixes">
+      <h3>{{ G.scam_rules_title }}</h3>
+      <ol>{% for r in G.scam_rules %}<li><span>{{ r }}</span></li>{% endfor %}</ol>
+      <p class="hack-tool som-tool" hidden></p>
+    </div>
+    <div class="btn-row">
+      <button class="btn" type="button" data-act="retake">{% include icon.html name="refresh" px=17 %}<span>{{ G.scam_again }}</span></button>
+    </div>
+  </div>
+</template>
+{%- assign tools_T = D.tools | default: site.data.tools -%}
+{%- assign som_tool = site.data.tool_list | where: "slug", site.data.scam_or_not.tool | first -%}
+{%- assign som_tk = som_tool.key | append: "_title" -%}
+{%- capture scam_json -%}
+{"text":{{ G | jsonify }},
+"pool":{{ site.data.scam_or_not | jsonify }},
+"tool":{"name":{{ tools_T[som_tk] | jsonify }},"url":{{ L | append: "/tools/" | append: site.data.scam_or_not.tool | append: "/" | jsonify }}},
+"url":{{ page.url | absolute_url | jsonify }},"lang":{{ lang | jsonify }}}
+{%- endcapture %}
+<script type="application/json" id="scam-data">{{ scam_json }}</script>

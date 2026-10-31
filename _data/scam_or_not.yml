@@ -1,0 +1,43 @@
+# Scam or Not (/games/scam-or-not/): the messages, without their words. Same in every language.
+# The words (message text, contact names and the red flags) are in _data/games.yml under scam_msgs, keyed by id,
+# and in the translations. Every brand, name, number and link here is made up for the game. Phone and account numbers
+# are always partly hidden with dots so none of them can be called, and the links are shown as plain text, never as links.
+#
+# id: the key in scam_msgs. scam: true for a scam, false for a real message. cc: pk (Pakistan) or in (India).
+# ch: sms or wa (WhatsApp). from: what the phone shows as the sender (a number or a sender name).
+# tag: unknown (a number not in your contacts), contact (a saved contact, name in scam_msgs), brand (a company's
+# sender name) or verified (a WhatsApp business account with a tick). time: the time shown under the message.
+# To add a message: a line here and its words in all four games.yml files.
+
+# How many messages one round has, and how many of them are scams (picked at random between the two numbers).
+round: 10
+scams_min: 5
+scams_max: 6
+
+msgs:
+  # ----- Scams -----
+  - { id: wallet_block,   scam: true,  cc: pk, ch: sms, tag: unknown,  from: "+92 3•• •••4417",  time: "09:12" }
+  - { id: lucky_draw,     scam: true,  cc: pk, ch: wa,  tag: unknown,  from: "+92 3•• •••8120",  time: "11:47" }
+  - { id: bank_code,      scam: true,  cc: pk, ch: wa,  tag: unknown,  from: "+92 3•• •••0563",  time: "16:05" }
+  - { id: wrong_transfer, scam: true,  cc: pk, ch: sms, tag: unknown,  from: "+92 3•• •••2731",  time: "20:31" }
+  - { id: relief_fund,    scam: true,  cc: pk, ch: sms, tag: unknown,  from: "+92 3•• •••6604",  time: "08:26" }
+  - { id: parcel_fee,     scam: true,  cc: pk, ch: sms, tag: unknown,  from: "+92 3•• •••3395",  time: "13:58" }
+  - { id: like_job,       scam: true,  cc: in, ch: wa,  tag: unknown,  from: "+91 9•••• ••417",  time: "10:03" }
+  - { id: power_cut,      scam: true,  cc: in, ch: sms, tag: unknown,  from: "+91 7•••• ••213",  time: "18:44" }
+  - { id: kyc_expired,    scam: true,  cc: in, ch: sms, tag: unknown,  from: "+91 8•••• ••590",  time: "07:39" }
+  - { id: new_number,     scam: true,  cc: pk, ch: wa,  tag: unknown,  from: "+92 3•• •••7712",  time: "22:10" }
+  - { id: wa_code,        scam: true,  cc: pk, ch: wa,  tag: contact,  from: "",                 time: "23:16" }
+  - { id: refund_app,     scam: true,  cc: pk, ch: wa,  tag: unknown,  from: "+92 3•• •••1458",  time: "15:20" }
+  # ----- Real messages -----
+  - { id: wallet_receipt, scam: false, cc: pk, ch: sms, tag: brand,    from: "TezPay",           time: "20:30" }
+  - { id: bank_otp,       scam: false, cc: pk, ch: sms, tag: brand,    from: "ChandniBnk",       time: "12:41" }
+  - { id: parcel_cod,     scam: false, cc: pk, ch: sms, tag: brand,    from: "SwiftPost",        time: "10:15" }
+  - { id: upi_debit,      scam: false, cc: in, ch: sms, tag: brand,    from: "AD-SITBNK",        time: "19:52" }
+  - { id: mehndi,         scam: false, cc: pk, ch: wa,  tag: contact,  from: "",                 time: "21:08" }
+  - { id: data_bundle,    scam: false, cc: pk, ch: sms, tag: brand,    from: "Orbit",            time: "17:33" }
+  - { id: card_due,       scam: false, cc: in, ch: sms, tag: brand,    from: "VM-SITBNK",        time: "09:30" }
+  - { id: order_shipped,  scam: false, cc: pk, ch: wa,  tag: verified, from: "Bazaarly",         time: "14:22" }
+  - { id: new_login,      scam: false, cc: pk, ch: sms, tag: brand,    from: "TezPay",           time: "11:42" }
+
+# The site tool suggested under the result.
+tool: phishing-link-checker

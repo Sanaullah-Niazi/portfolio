@@ -9,7 +9,6 @@ play: "Spielen"
 mins: "{n} Min."
 soon_title: "Demnächst"
 soon:
-  - { icon: message, title: "Betrug oder nicht?", text: "Echt wirkende SMS, WhatsApp- und Bank-Nachrichten. Erkennen Sie den Betrug, bevor er Sie erkennt." }
   - { icon: flask, title: "Trick the AI", text: "Ein Chatbot bewacht über 10 Level ein geheimes Passwort. Überreden Sie ihn, es zu verraten." }
 idea: "Eine Idee für ein Spiel?"
 idea_link: "Schreiben Sie mir"
@@ -239,3 +238,216 @@ daily_info:
       a: "Ja. Wenn Sie fertig sind, spielen Sie mit dem Button das Rätsel davor. Alte Rätsel sind gutes Training, zählen aber nicht für Ihre Serie."
     - q: "Wie halte ich meine Serie?"
       a: "Knacken Sie jeden Tag das Rätsel. Ein verpasster Tag oder ein nicht geknacktes Rätsel setzt die Serie auf null zurück. Die Serie wird in diesem Browser gespeichert, spielen Sie also auf demselben Handy oder Computer."
+
+# ---------- Scam or Not ----------
+scam_title: "Betrug oder nicht?"
+scam_card: "10 echt wirkende SMS und WhatsApp-Nachrichten: Wallet-Warnungen, Bankcodes, Paketgebühren und Gewinnspiele. Betrug oder echt? Sie entscheiden."
+scam_lede: "Zehn Nachrichten wie die auf Ihrem Handy: Wallet-Warnungen, Bankcodes, Paketgebühren, Gewinnspiele und WhatsApps von einer „neuen Nummer“. Entscheiden Sie bei jeder: Betrug oder echt? Sehen Sie die Warnsignale und fordern Sie Ihre Familie heraus."
+scam_private: "Erfundene Marken und Nummern · Nichts verlässt Ihren Browser"
+scam_intro: "Jede Nachricht hier kopiert einen Trick, den Betrüger in Pakistan und Indien wirklich verwenden, und einige sind völlig normal. Achten Sie darauf, wer sie geschickt hat, was sie von Ihnen will und welches Gefühl sie Ihnen machen soll. Dann entscheiden Sie: Betrug oder echt?"
+scam_note: "Alle Marken, Namen, Nummern und Links in diesem Spiel sind erfunden. Bitte nicht aufrufen oder anrufen."
+scam_start: "Los geht's"
+scam_q_of: "Nachricht {n} von {total}"
+scam_ask: "Betrug oder echt?"
+scam_btn_scam: "Betrug"
+scam_btn_legit: "Echt"
+scam_right_scam: "Richtig, das ist Betrug!"
+scam_right_legit: "Richtig, die ist echt."
+scam_wrong_scam: "Vorsicht, das ist Betrug!"
+scam_wrong_legit: "Doch, die ist echt."
+scam_flags: "Die Warnsignale"
+scam_ok: "Warum sie echt ist"
+scam_next: "Nächste Nachricht"
+scam_see: "Mein Ergebnis"
+scam_tags: { unknown: "Nicht in Ihren Kontakten", contact: "Gespeicherter Kontakt", brand: "Absendername", verified: "Bestätigtes Unternehmen" }
+scam_ch: { sms: "SMS", wa: "WhatsApp" }
+scam_cc: { pk: "Pakistan", in: "Indien" }
+scam_today: "Heute"
+scam_label: "richtig"
+scam_you_are: "Sie sind"
+scam_caught: "Betrug erkannt: {n} von {total}"
+scam_trusted: "Echten Nachrichten vertraut: {n} von {total}"
+scam_missed: "Darauf sind Sie hereingefallen"
+scam_missed_none: "Auf nichts. Keine einzige Nachricht hat Sie getäuscht."
+scam_was_scam: "Betrug"
+scam_was_legit: "Echt"
+scam_rules_title: "5 Regeln, die fast jeden Betrug stoppen"
+scam_rules:
+  - "Keine echte Bank, Wallet oder Firma fragt nach Ihrem Einmalcode, Ihrer PIN oder Ihrem Passwort. Niemals."
+  - "Prüfen Sie den Absender. Eine Bank, Wallet oder ein Kurier, der von einer normalen Handynummer schreibt, ist ein Warnsignal."
+  - "Zahlen Sie nie eine Gebühr, um einen Gewinn, eine Erstattung, einen Job oder staatliche Hilfe zu bekommen."
+  - "Nutzen Sie nie den Link in einer Nachricht. Öffnen Sie die offizielle App oder tippen Sie die Adresse selbst ein."
+  - "Eine „neue Nummer“ will Geld? Rufen Sie die alte Nummer an, bevor Sie etwas schicken."
+scam_friend: "Ihr Freund hat {score} bei genau diesen 10 Nachrichten geschafft. Schaffen Sie mehr?"
+scam_best: "Ihr bisher bestes Ergebnis: {score}"
+scam_beat: "Sie haben Ihren Freund geschlagen ({score})!"
+scam_lost: "Diese Runde geht an Ihren Freund ({score}). Lesen Sie die Warnsignale und versuchen Sie es noch einmal."
+scam_tie: "Unentschieden mit Ihrem Freund ({score})."
+scam_share_title: "Ergebnis teilen"
+scam_share_hint: "Schicken Sie es in die Familiengruppe. Ihr Link gibt allen dieselben 10 Nachrichten."
+scam_share_text: "Ich habe {score} bei „Betrug oder nicht?“: {title} {emoji} Erkennen Sie eine gefälschte Bank-, Wallet- oder WhatsApp-Nachricht? Schlagen Sie mein Ergebnis:"
+scam_card_url: "sanaullahniazi.com/games"
+scam_again: "10 neue Nachrichten spielen"
+scam_results:
+  - { min: 0, emoji: "🪤", title: "Traumopfer für Betrüger", text: "Betrüger hätten gern Ihre Nummer. Lesen Sie die Warnsignale unten: Wer die Tricks kennt, sieht sie sofort." }
+  - { min: 4, emoji: "🎣", title: "Leichter Fang", text: "Einige Betrugsnachrichten sind glatt an Ihnen vorbeigerutscht. Die fünf Regeln unten hätten jede davon gestoppt." }
+  - { min: 6, emoji: "🧐", title: "Langsam misstrauisch", text: "Die offensichtlichen erkennen Sie, die cleveren kommen noch durch. Ein paar Runden mehr, und das ändert sich." }
+  - { min: 8, emoji: "🦉", title: "Schwer zu täuschen", text: "Fast nichts kommt an Ihnen vorbei. Sorgen Sie jetzt dafür, dass Ihre Eltern das auch sagen können." }
+  - { min: 10, emoji: "📡", title: "Betrugsradar", text: "Zehn von zehn. Betrüger brauchen einen neuen Beruf. Teilen Sie das, damit Ihre ganze Familie so gut wird wie Sie." }
+scam_msgs:
+  wallet_block:
+    t: "Sehr geehrter Kunde, Ihr TezPay-Konto wird HEUTE GESPERRT, weil Ihre biometrische Überprüfung unvollständig ist. Jetzt aktualisieren, damit es aktiv bleibt: tezpay-verify.top/kyc Ignorieren = dauerhafte Sperre."
+    why:
+      - "Sie kommt von einer normalen Handynummer. Echte TezPay-Nachrichten zeigen den Absendernamen TezPay, keine Nummer."
+      - "Sie droht mit einer Frist („HEUTE GESPERRT“), damit Sie handeln, bevor Sie nachdenken."
+      - "Der Link ist nicht die Website von TezPay. Einen Namen wie tezpay-verify.top kann jeder kaufen."
+      - "Wallets machen biometrische Prüfungen in ihrer App oder im Laden, nie über einen Link per SMS."
+  lucky_draw:
+    name: "TezPay Gewinnspiel 🎁"
+    t: "Mubarak ho! 🎉 Ihre Nummer hat Rs 2,50,000 und ein Motorrad beim Jubiläums-Gewinnspiel zu 10 Jahren TezPay gewonnen. Um Ihren Preis abzuholen, schicken Sie die Bearbeitungsgebühr von Rs 3,500 an 03••-•••8120 und senden Sie per WhatsApp ein Foto Ihres Ausweises (CNIC, Vorder- und Rückseite)."
+    why:
+      - "Sie haben bei keinem Gewinnspiel mitgemacht, also können Sie auch nichts gewonnen haben."
+      - "Echte Gewinne verlangen nie zuerst eine Gebühr. Die Gebühr ist der Betrug."
+      - "Sie will ein Foto Ihres Ausweises, mit dem man SIM-Karten und Konten auf Ihren Namen eröffnen kann."
+      - "Die Gebühr geht an eine private Nummer, nicht an eine Firma."
+  bank_code:
+    name: "Chandni Bank Hotline"
+    t: "Assalam o Alaikum. Hier ist die Zentrale der Chandni Bank. Von Ihrem Konto wurde versehentlich eine Überweisung über Rs 48,000 ausgeführt. Um sie rückgängig zu machen, schicken Sie uns bitte den 6-stelligen Code, den Sie gerade per SMS bekommen haben."
+    why:
+      - "Banken fragen nie nach einem Einmalcode. Wer diesen Code hat, kann Ihr Konto leerräumen."
+      - "Auf WhatsApp kann jeder jeden Namen eintippen. Der Name macht daraus nicht die Bank."
+      - "Eine beängstigende Abbuchung mit einer einfachen Lösung ist ein klassischer Trick, um Sie zu hetzen."
+      - "Wenn Sie besorgt sind, rufen Sie selbst die Nummer auf der Rückseite Ihrer Karte an."
+  wrong_transfer:
+    t:
+      - "TezPay: Sie haben Rs 15,000 von ASIF ALI erhalten. Trx ID: 4471902385. Ihr neuer Kontostand beträgt Rs 15,312."
+      - "Bhai, ich habe versehentlich 15.000 an Ihre Nummer geschickt 🙏 Das ist das Schulgeld meiner Kinder. Bitte schicken Sie es an diese Nummer zurück."
+    why:
+      - "Die „Quittung“ kam von einer normalen Handynummer. Echte TezPay-Meldungen kommen vom Absendernamen TezPay."
+      - "Öffnen Sie die TezPay-App und prüfen Sie Ihren Kontostand: Das Geld ist nie angekommen."
+      - "Die traurige Geschichte direkt danach soll Sie dazu bringen, echtes Geld für falsches zurückzuschicken."
+      - "Wenn wirklich jemand Geld falsch überwiesen hat, kann die Hotline der Wallet es zurückholen. Sie müssen das nicht tun."
+  relief_fund:
+    t: "Khushhali-Hilfsprogramm: Ihre CNIC wurde für eine Finanzhilfe von Rs 25,000 ausgewählt. Um den Betrag zu erhalten, schicken Sie Ihren Namen und Ihre CNIC-Nummer an diese Nummer, zusammen mit einer Anmeldegebühr von Rs 500. Angebot nur 24 Stunden gültig."
+    why:
+      - "Staatliche Hilfe verlangt nie eine Anmeldegebühr."
+      - "Offizielle Programme schreiben von ihrer eigenen Kurzwahl, nicht von einer privaten Handynummer."
+      - "„Nur 24 Stunden gültig“ ist Druck, keine Regel."
+      - "Prüfen Sie die offizielle Website oder das Büro des Programms selbst, bevor Sie Ihre CNIC weitergeben."
+  parcel_fee:
+    t: "SwiftPost: Ihr Paket liegt wegen einer unvollständigen Adresse in unserem Lager. Zahlen Sie innerhalb von 12 Stunden die Zustellgebühr von Rs 150, sonst geht es zurück: swiftpost.redelivery-help.com"
+    why:
+      - "Die echte Website ist hier redelivery-help.com. Das „swiftpost“ am Anfang ist nur Dekoration."
+      - "Haben Sie überhaupt ein Paket erwartet? Betrüger schicken das an alle und warten auf einen Treffer."
+      - "Die kleine Gebühr ist der Köder. Eigentlich wollen sie Ihre Kartennummer und den Code auf der falschen Seite."
+      - "Sie kam von einer normalen Nummer, nicht vom Absendernamen von SwiftPost."
+  like_job:
+    name: "Priya HR"
+    t: "Hallo, ich bin Priya von einer Digitalmarketing-Agentur 😊 Wir bieten einen Teilzeitjob an: Einfach YouTube-Videos liken und von zu Hause ₹3,000 bis ₹8,000 am Tag verdienen. Keine Erfahrung nötig. Treten Sie unserer Telegram-Gruppe bei, um Ihre erste Aufgabe zu bekommen!"
+    why:
+      - "Echte Jobs zahlen nicht Tausende am Tag fürs Liken."
+      - "Die ersten Aufgaben zahlen ein bisschen, um Vertrauen zu gewinnen. Dann sollen Sie in größere Aufgaben „investieren“, und das Geld ist weg."
+      - "Sie haben sich nie auf diesen Job beworben. Er hat Sie gefunden."
+      - "Der Wechsel zu Telegram bringt Sie weg von allen, die Sie warnen könnten."
+  power_cut:
+    t: "Sehr geehrter Kunde, Ihr Strom wird heute Abend um 21:30 Uhr abgestellt, weil Ihre Rechnung vom letzten Monat nicht aktualisiert wurde. Bitte kontaktieren Sie sofort unseren Stromberater 7•••• ••213. Danke"
+    why:
+      - "Stromanbieter verschicken keine Abschaltwarnungen von privaten Nummern."
+      - "Es gibt keine Kundennummer und keinen Betrag: Die Nachricht könnte an jeden gehen."
+      - "„Heute Abend um 21:30 Uhr“ ist Zeitdruck, damit Sie ohne Prüfen anrufen."
+      - "Der „Berater“ wird Sie bitten, eine App zu installieren oder über einen Link zu zahlen. Prüfen Sie Ihre Rechnung lieber in der offiziellen App."
+  kyc_expired:
+    t: "Sehr geehrter Kunde der Sitara Bank, Ihr KYC ist abgelaufen und Ihr Konto wird in 24 Stunden gesperrt. Aktualisieren Sie jetzt Ihre PAN-Daten: sitarabank-kyc.in/update"
+    why:
+      - "Banken sperren keine Konten über SMS-Links. Sie bitten Sie, KYC in ihrer App oder in der Filiale zu aktualisieren."
+      - "sitarabank-kyc.in ist nicht die Website der Bank, nur ein Name, der so aussehen soll."
+      - "Sie kam von einer Handynummer, nicht vom Absendernamen der Bank."
+      - "Die 24-Stunden-Frist soll Sie davon abhalten, nachzuprüfen."
+  new_number:
+    t: "Ammi, das ist meine neue Nummer, mein Handy ist ins Wasser gefallen 😔 Ich brauche dringend Rs 20,000, bitte schick sie an dieses TezPay-Konto: 03••-•••7712. Ich erkläre es später, ich kann gerade nicht reden, ich bin im Unterricht."
+    why:
+      - "„Das ist meine neue Nummer“ plus eine dringende Bitte um Geld ist eine der häufigsten WhatsApp-Betrugsmaschen."
+      - "Sie vermeiden einen Anruf, weil er sie verraten würde. Rufen Sie die alte Nummer Ihres Kindes an oder fragen Sie etwas, das nur es wissen kann."
+      - "Schicken Sie nie Geld an eine neue Nummer, bevor Sie die Stimme der Person gehört haben."
+  wa_code:
+    name: "Bilal (Cousin)"
+    t: "Hey, sorry, ich habe meinen WhatsApp-Code aus Versehen an deine Nummer geschickt 🙈 Kannst du mir den 6-stelligen Code weiterleiten, den du gerade bekommen hast? Ist dringend"
+    why:
+      - "Dieser Code ist für IHR WhatsApp-Konto. Wer ihn weitergibt, gibt sein Konto weg."
+      - "Das Konto Ihres Cousins wurde wahrscheinlich schon übernommen, und der Betrüger nutzt es, um Sie zu erreichen."
+      - "Schalten Sie bei WhatsApp die Bestätigung in zwei Schritten ein, damit ein Code allein nicht reicht."
+      - "Rufen Sie Ihren Cousin an und warnen Sie ihn. Antworten Sie nicht im Chat."
+  refund_app:
+    name: "Bazaarly Kundenservice"
+    t: "Ihre Erstattung von Rs 4,999 wurde genehmigt ✅ Um sie auf Ihr Konto zu bekommen, installieren Sie die Bildschirmfreigabe-App QuickHelp und nennen Sie unserem Mitarbeiter den 9-stelligen Code."
+    why:
+      - "Erstattungen brauchen nie eine Bildschirmfreigabe-App. Damit sieht der Betrüger Ihren Bildschirm, auch Ihre Codes und PINs."
+      - "Eine echte Firma chattet über ihr bestätigtes Unternehmenskonto, nicht von einer unbekannten Nummer mit Firmennamen."
+      - "Prüfen Sie Ihre Erstattung selbst in der App des Shops, unter Ihren Bestellungen."
+  wallet_receipt:
+    t: "Rs 15,000 erhalten von ASIF ALI 03••-•••2731. Trx ID 8841230957. Neuer Kontostand: Rs 15,312. Geben Sie Ihre PIN oder Ihren Code niemals weiter."
+    why:
+      - "Sie kommt vom Absendernamen TezPay, im selben Verlauf wie Ihre früheren TezPay-Nachrichten."
+      - "Sie verlangt nichts von Ihnen: kein Link, kein Anruf, kein Code."
+      - "Sie können sie prüfen, indem Sie in der TezPay-App auf Ihren Kontostand schauen."
+  bank_otp:
+    t: "482913 ist Ihr Einmalcode für die Anmeldung bei Chandni Bank Online. Er ist 5 Minuten gültig. Die Chandni Bank wird Sie NIEMALS nach diesem Code fragen. Geben Sie ihn an niemanden weiter."
+    why:
+      - "Sie kam, als Sie sich selbst angemeldet haben: Sie haben den Code angefordert."
+      - "Sie kommt vom Absendernamen der Bank und warnt Sie, den Code nie weiterzugeben."
+      - "Er gehört nur in die App oder Website der Bank. Wenn jemand anruft oder schreibt und danach fragt, ist das der Betrug."
+  parcel_cod:
+    t: "Ihr Paket SP4471902 von Bazaarly wird heute zugestellt. Fahrer: Imran. Nachnahme: Rs 1,850. Verfolgen Sie es in der SwiftPost-App."
+    why:
+      - "Sie passt zu einer Bestellung, die Sie aufgegeben haben, und zum Nachnahmebetrag, den Sie gewählt haben."
+      - "Kein Link, keine Gebühr zum Online-Bezahlen, keine Frist."
+      - "Sie schickt Sie in die offizielle App statt zu einem Link."
+  upi_debit:
+    t: "₹1,250.00 von Konto XX4417 am 31. Okt. per UPI an FreshCart abgebucht. Nicht Sie? Rufen Sie die Nummer auf der Rückseite Ihrer Debitkarte an."
+    why:
+      - "Sie kommt vom Absendernamen der Bank und sagt nur, was passiert ist."
+      - "Sie verweist auf die Nummer auf Ihrer eigenen Karte, nicht auf eine Nummer in der Nachricht."
+      - "Kein Link und keine Frage nach Codes oder PINs."
+  mehndi:
+    name: "Ayesha (Uni)"
+    t: "Kommst du am Samstag zu Sanas Mehndi? 💃 Ich schicke den Standort, wenn ich da bin. Zieh was Gelbes an!"
+    why:
+      - "Sie kommt von einem gespeicherten Kontakt, den Sie kennen, und klingt wie immer."
+      - "Sie fragt nicht nach Geld, Codes, Links oder persönlichen Daten."
+      - "Nicht alles ist Betrug. Wer weiß, wie normal aussieht, erkennt leichter, was nicht normal ist."
+  data_bundle:
+    t: "Sehr geehrter Kunde, Sie haben 80 % Ihres monatlichen Internetpakets verbraucht. Übrig: 2 GB, gültig bis 15. Nov. Ihren Verbrauch sehen Sie in der Orbit-App."
+    why:
+      - "Sie kommt vom Absendernamen Ihres Netzbetreibers und passt zu Ihrem Tarif."
+      - "Sie informiert nur und verweist auf die offizielle App."
+      - "Kein Gewinn, keine Drohung, keine Gebühr."
+  card_due:
+    t: "Erinnerung: Ihre Kreditkartenrechnung der Sitara Bank über ₹8,430 ist am 5. Nov. fällig. Zahlen Sie über die Sitara-Bank-App oder das Online-Banking. Bitte ignorieren, falls bereits bezahlt."
+    why:
+      - "Sie kommt vom Absendernamen der Bank und betrifft eine Karte, die Sie wirklich haben."
+      - "Sie sagt, Sie sollen in der App der Bank zahlen, nicht über einen Link oder auf ein privates Konto."
+      - "„Bitte ignorieren, falls bereits bezahlt“ ist der ruhige Ton einer echten Erinnerung, keine Drohung."
+  order_shipped:
+    t: "Hallo! 📦 Ihre Bestellung #BZ-20931 (kabellose Ohrhörer) wurde verschickt und kommt in 2 bis 3 Tagen an. Sie können sie jederzeit in der Bazaarly-App unter „Meine Bestellungen“ verfolgen."
+    why:
+      - "Sie kommt vom bestätigten Unternehmenskonto von Bazaarly (das Häkchen neben dem Namen) und passt zu Ihrer Bestellung."
+      - "Sie verweist auf die App und verlangt nichts."
+      - "Echte Firmenchats bitten Sie nie, andere Apps zu installieren, Gebühren zu zahlen oder Codes zu teilen."
+  new_login:
+    t: "Ihr TezPay-Konto wurde am 31. Okt. um 11:42 auf einem neuen Android-Handy angemeldet. Wenn Sie das nicht waren, öffnen Sie die TezPay-App und gehen Sie zu Einstellungen > Geräte."
+    why:
+      - "Sie kommt vom Absendernamen TezPay und sagt, was passiert ist."
+      - "Es gibt keinen Link. Sie sollen selbst die App benutzen."
+      - "Wenn Sie es nicht waren, ist das genau der richtige Rat: in der App prüfen, nicht antworten."
+scam_info:
+  about:
+    - "Jede Runde zeigt 10 Nachrichten, zufällig aus einer größeren Sammlung gewählt: Wallet-Meldungen, Bankcodes, Paket- und Kuriernachrichten, Gewinnspiele, staatliche Hilfe, Jobangebote und Familienmitglieder mit einer „neuen Nummer“. Manche sind Betrug, manche ganz normale Nachrichten. Entscheiden Sie, welche welche ist."
+    - "Nach jeder Antwort sehen Sie die Warnsignale oder die Gründe, warum eine echte Nachricht echt ist. Die meisten Betrugsmaschen in Pakistan und Indien nutzen dieselben wenigen Tricks: ein Absender, der nicht der ist, der er vorgibt zu sein, eine Frist, eine Gebühr, die Geld freischalten soll, ein Link zu einer falschen Website oder die Frage nach Ihrem Einmalcode."
+    - "Alle Marken, Namen, Nummern und Links in diesem Spiel sind erfunden, und die Nummern sind teilweise verdeckt, damit niemand sie anrufen kann. Ihre Antworten werden nirgendwohin geschickt. Nur Ihr bestes Ergebnis wird gespeichert, auf Ihrem eigenen Gerät."
+  faq:
+    - q: "Sind das echte Betrugsnachrichten?"
+      a: "Sie wurden für dieses Spiel geschrieben, aber jede kopiert einen Trick, der in Pakistan und Indien wirklich benutzt wird: angebliche Wallet-Sperren, Gewinnspiele mit Bearbeitungsgebühr, „falsche Überweisungen“, Fragen nach Einmalcodes, Paketgebühren, KYC-Aktualisierungen und Nachrichten von Familienmitgliedern mit „neuer Nummer“."
+    - q: "Wie funktioniert die Herausforderung an Freunde?"
+      a: "Ihr Link enthält Ihr Ergebnis und Ihre 10 Nachrichten. Wer ihn öffnet, spielt genau dieselben 10 Nachrichten und sieht, ob er Sie schlägt."
+    - q: "Ich habe so eine Nachricht bekommen. Was soll ich tun?"
+      a: "Tippen Sie nicht auf den Link, antworten Sie nicht und geben Sie nie einen Code weiter. Öffnen Sie die offizielle App oder rufen Sie die Nummer auf Ihrer Karte an. Blockieren und melden Sie die Nummer dann in Ihrer Messaging-App."

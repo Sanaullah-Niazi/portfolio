@@ -845,4 +845,334 @@
 
     render(null);
   })();
+
+  // ================= Scam or Not =================
+  // Ten messages a round, picked at random from _data/scam_or_not.yml with their words from _data/games.yml (scam_...).
+  // Which ten (and in what order) comes from a number, so a shared link (?s=8&r=123456) gives a friend the same round.
+  (function scam() {
+    var box = document.getElementById("scam"), dataEl = document.getElementById("scam-data");
+    if (!box || !dataEl) return;
+    var DATA;
+    try { DATA = JSON.parse(dataEl.textContent); } catch (e) { return; }
+    var T = DATA.text, K = DATA.pool, W = T.scam_msgs || {}, lang = DATA.lang, BEST_KEY = "game-scam-best";
+    var ROUND = K.round || 10, locale = root.getAttribute("lang") || "en";
+
+    function tr(s, vars) {
+      return String(s || "").replace(/\{(\w+)\}/g, function (m, k) {
+        return vars && k in vars ? (rtl ? "⁨" + vars[k] + "⁩" : String(vars[k])) : m;
+      });
+    }
+    function plain(s) { return String(s).replace(/[⁨⁩]/g, ""); }
+    function num(n) { return new Intl.NumberFormat(locale).format(n); }
+    function seeded(seed) {
+      var a = seed >>> 0;
+      return function () {
+        a = (a + 0x6D2B79F5) >>> 0;
+        var t = a;
+        t = Math.imul(t ^ t >>> 15, t | 1);
+        t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+    function shuffle(r, arr) {
+      arr = arr.slice();
+      for (var i = arr.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)), t = arr[i]; arr[i] = arr[j]; arr[j] = t; }
+      return arr;
+    }
+    // The round for a seed: a few scams and a few real messages, mixed.
+    function roundOf(seed) {
+      var r = seeded(seed), all = K.msgs.filter(function (m) { return W[m.id]; });
+      var scams = all.filter(function (m) { return m.scam; }), real = all.filter(function (m) { return !m.scam; });
+      var lo = K.scams_min || 5, hi = K.scams_max || lo;
+      var k = Math.min(scams.length, lo + Math.floor(r() * (hi - lo + 1)));
+      var picked = shuffle(r, scams).slice(0, k).concat(shuffle(r, real).slice(0, Math.max(0, ROUND - k)));
+      return shuffle(r, picked);
+    }
+
+    // A friend's result arrives in the link they shared: ?s=8&r=123456 (their score and their round).
+    var params = new URLSearchParams(location.search);
+    var friend = null, fSeed = null;
+    if (/^\d{1,2}$/.test(params.get("s") || "") && /^\d{1,9}$/.test(params.get("r") || "") && +params.get("s") <= ROUND) {
+      friend = +params.get("s"); fSeed = +params.get("r");
+    }
+
+    var seed, msgs, answers, step;
+    var intro = box.querySelector(".hack-intro"), startBtn = intro.querySelector('[data-act="start"]');
+    if (friend !== null) {
+      var fr = intro.querySelector(".hack-friend");
+      fr.querySelector("span").textContent = tr(T.scam_friend, { score: num(friend) + "/" + num(ROUND) });
+      fr.hidden = false;
+    }
+    var best = store(BEST_KEY);
+    if (best !== null && /^\d{1,2}$/.test(best)) {
+      var bp = intro.querySelector(".hack-best");
+      bp.textContent = tr(T.scam_best, { score: num(+best) + "/" + num(ROUND) });
+      bp.hidden = false;
+    }
+    function begin(useFriend) {
+      seed = useFriend && fSeed !== null ? fSeed : Math.floor(Math.random() * 1e9);
+      if (!useFriend) friend = null;
+      msgs = roundOf(seed); answers = []; step = 0;
+      showMessage();
+    }
+    startBtn.disabled = false;
+    startBtn.addEventListener("click", function () { begin(true); });
+
+    function clear() { while (box.firstChild) box.removeChild(box.firstChild); }
+
+    // Links and numbers inside a message are shown as plain text (never clickable), kept left-to-right.
+    var TOKEN = /([a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|top|in|pk|net|org)(?:\/[^\s]*)?)|(\+?[0-9•][0-9• -]{4,}[0-9•])/gi;
+    function richText(el, s) {
+      var last = 0, m;
+      TOKEN.lastIndex = 0;
+      while ((m = TOKEN.exec(s))) {
+        if (m.index > last) el.appendChild(document.createTextNode(s.slice(last, m.index)));
+        el.appendChild(m[1] ? h("span", { class: "som-link", dir: "ltr", text: m[1] }) : h("bdi", { dir: "ltr", text: m[2] }));
+        last = m.index + m[0].length;
+      }
+      if (last < s.length) el.appendChild(document.createTextNode(s.slice(last)));
+      return el;
+    }
+    function texts(w) { return Array.isArray(w.t) ? w.t : [w.t]; }
+
+    // The message as it would look on a phone.
+    function phone(m) {
+      var w = W[m.id], unknown = m.tag === "unknown";
+      var main = m.tag === "contact" ? w.name : m.from;
+      var who = h("div", { class: "som-who" },
+        h("span", { class: "som-avatar", "aria-hidden": "true", text: unknown ? "?" : Array.from(main)[0] }),
+        h("div", null,
+          h("p", { class: "som-from" }, h("bdi", { dir: m.tag === "contact" ? "auto" : "ltr", text: main }),
+            m.tag === "verified" ? h("span", { class: "som-tick", title: T.scam_tags.verified, text: "✓" }) : null),
+          h("p", { class: "som-sub" }, (unknown && w.name ? h("bdi", { dir: "auto", text: "~ " + w.name }) : null),
+            (unknown && w.name ? " · " : ""), T.scam_tags[m.tag])));
+      var thread = h("div", { class: "som-thread" });
+      var list = texts(w);
+      list.forEach(function (s, i) {
+        var b = richText(h("p", { class: "som-bubble" }), s);
+        if (i === list.length - 1) b.appendChild(h("span", { class: "som-time", dir: "ltr", text: m.time }));
+        thread.appendChild(b);
+      });
+      return h("div", { class: "som-phone is-" + m.ch },
+        h("div", { class: "som-bar" }, h("span", { class: "som-ch", text: T.scam_ch[m.ch] }), h("span", { text: T.scam_cc[m.cc] }), h("span", { class: "som-day", text: T.scam_today })),
+        who, thread);
+    }
+
+    function showMessage() {
+      clear();
+      var m = msgs[step], total = msgs.length;
+      var fill = h("span");
+      fill.style.width = (step / total * 100) + "%";
+      var label = tr(T.scam_q_of, { n: num(step + 1), total: num(total) });
+      var bar = h("div", { class: "hack-progress", role: "progressbar", "aria-valuemin": "0", "aria-valuemax": String(total), "aria-valuenow": String(step), "aria-label": label }, fill);
+      var dots = h("span", { class: "dh-dots", "aria-hidden": "true" });
+      for (var i = 0; i < total; i++) dots.appendChild(h("span", { class: "dh-dot" + (i < step ? (answers[i] === msgs[i].scam ? " is-right" : " is-wrong") : "") }));
+      var head = h("div", { class: "hack-q-head" }, h("span", { class: "label", text: label }), dots);
+      var title = h("h2", { class: "hack-q som-ask", tabindex: "-1", id: "som-q", text: T.scam_ask });
+      var ph = phone(m);
+      var btnScam = h("button", { class: "btn som-pick is-scam", type: "button" }, h("span", { "aria-hidden": "true", text: "🚩" }), h("span", { text: T.scam_btn_scam }));
+      var btnLegit = h("button", { class: "btn som-pick is-legit", type: "button" }, h("span", { "aria-hidden": "true", text: "✅" }), h("span", { text: T.scam_btn_legit }));
+      var picks = h("div", { class: "som-picks", role: "group", "aria-labelledby": "som-q" }, btnScam, btnLegit);
+      var wrap = h("div", { class: "hack-question som-q", "data-step": "q" }, bar, head, title, ph, picks);
+      btnScam.addEventListener("click", function () { answer(true); });
+      btnLegit.addEventListener("click", function () { answer(false); });
+      box.appendChild(wrap);
+      title.focus({ preventScroll: true });
+      if (box.getBoundingClientRect().top < 0) box.scrollIntoView({ block: "start" });
+
+      function answer(saidScam) {
+        if (answers[step] !== undefined) return;
+        answers[step] = saidScam;
+        var right = saidScam === m.scam, w = W[m.id];
+        btnScam.disabled = btnLegit.disabled = true;
+        (saidScam ? btnScam : btnLegit).classList.add("is-chosen");
+        ph.classList.add(m.scam ? "is-scam" : "is-legit");
+        ph.setAttribute("data-stamp", m.scam ? T.scam_was_scam : T.scam_was_legit);
+        dots.children[step].className = "dh-dot " + (right ? "is-right" : "is-wrong");
+        var verdict = m.scam ? (right ? T.scam_right_scam : T.scam_wrong_scam) : (right ? T.scam_right_legit : T.scam_wrong_legit);
+        var ul = h("ul", { class: "som-why" });
+        (w.why || []).forEach(function (s) { ul.appendChild(richText(h("li"), s)); });
+        var last = step + 1 >= msgs.length;
+        var next = h("button", { class: "btn btn-primary", type: "button" }, h("span", { text: last ? T.scam_see : T.scam_next }));
+        next.addEventListener("click", function () { step++; if (step < msgs.length) showMessage(); else showResult(); });
+        var fb = h("div", { class: "som-feedback " + (right ? "is-right" : "is-wrong") + (m.scam ? " was-scam" : " was-legit") },
+          h("p", { class: "som-verdict", tabindex: "-1", role: "status" }, h("span", { "aria-hidden": "true", text: right ? "✓ " : "✗ " }), verdict),
+          h("p", { class: "label", text: m.scam ? T.scam_flags : T.scam_ok }), ul,
+          h("div", { class: "btn-row" }, next));
+        wrap.appendChild(fb);
+        fb.querySelector(".som-verdict").focus({ preventScroll: true });
+        var r = fb.getBoundingClientRect();
+        if (r.bottom > window.innerHeight) fb.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      }
+    }
+
+    var COLORS = ["#f87171", "#fb923c", "#facc15", "#22d3ee", "#34d399"];
+    function tierOf(score) {
+      var R = T.scam_results, i = 0;
+      for (var j = 0; j < R.length; j++) if (score >= R[j].min) i = j;
+      return { i: i, r: R[i] };
+    }
+
+    function showResult() {
+      var total = msgs.length, score = 0, caught = 0, nScam = 0, trusted = 0, nReal = 0;
+      msgs.forEach(function (m, i) {
+        var ok = answers[i] === m.scam;
+        if (ok) score++;
+        if (m.scam) { nScam++; if (ok) caught++; } else { nReal++; if (ok) trusted++; }
+      });
+      var tier = tierOf(score), r = tier.r, color = COLORS[Math.min(tier.i, COLORS.length - 1)];
+      var prev = store(BEST_KEY);
+      if (prev === null || !/^\d{1,2}$/.test(prev) || score > +prev) store(BEST_KEY, String(score));
+
+      clear();
+      var node = document.getElementById("scam-result-tpl").content.cloneNode(true);
+      var res = node.querySelector(".hack-result");
+      res.style.setProperty("--p", Math.round(score / total * 100));
+      res.style.setProperty("--c", color);
+      res.querySelector(".hack-num").textContent = num(score) + "/" + num(total);
+      res.querySelector(".hack-ring").setAttribute("aria-label", num(score) + "/" + num(total) + " " + T.scam_label);
+      res.querySelector(".hack-title").textContent = r.title + " " + r.emoji;
+      res.querySelector(".hack-text").textContent = r.text;
+      res.querySelector('[data-stat="caught"]').textContent = tr(T.scam_caught, { n: num(caught), total: num(nScam) });
+      res.querySelector('[data-stat="trusted"]').textContent = tr(T.scam_trusted, { n: num(trusted), total: num(nReal) });
+      if (friend !== null && seed === fSeed) {
+        var vs = res.querySelector(".hack-vs");
+        vs.textContent = tr(score > friend ? T.scam_beat : score < friend ? T.scam_lost : T.scam_tie, { score: num(friend) + "/" + num(total) });
+        vs.hidden = false;
+      }
+
+      // The messages that fooled you, with what they really were.
+      var ul = res.querySelector(".som-missed ul");
+      msgs.forEach(function (m, i) {
+        if (answers[i] === m.scam) return;
+        var w = W[m.id], s = texts(w).join(" ");
+        if (Array.from(s).length > 110) s = Array.from(s).slice(0, 108).join("") + "…";
+        ul.appendChild(h("li", { class: m.scam ? "was-scam" : "was-legit" },
+          h("strong", { text: (m.scam ? "🚩 " + T.scam_was_scam : "✅ " + T.scam_was_legit) }),
+          richText(h("span", { class: "som-quote" }), s)));
+      });
+      if (!ul.children.length) ul.appendChild(h("li", { class: "is-none", text: T.scam_missed_none }));
+
+      if (DATA.tool && DATA.tool.name) {
+        var tl = res.querySelector(".som-tool");
+        tl.appendChild(document.createTextNode(T.hack_try_tool + " "));
+        tl.appendChild(h("a", { href: DATA.tool.url, text: DATA.tool.name }));
+        tl.hidden = false;
+      }
+
+      // Sharing: the link carries the score and the round, so a friend gets the same ten messages.
+      var link = DATA.url + "?s=" + score + "&r=" + seed;
+      var text = plain(tr(T.scam_share_text, { score: score + "/" + total, title: r.title, emoji: r.emoji }));
+      var nets = {
+        wa: "https://wa.me/?text=" + encodeURIComponent(text + " " + link),
+        x: "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(link),
+        fb: "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(link),
+        li: "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(link)
+      };
+      res.querySelectorAll("[data-net]").forEach(function (a) { a.href = nets[a.getAttribute("data-net")]; });
+      var copyBtn = res.querySelector('[data-act="copy"]');
+      copyBtn.addEventListener("click", function () {
+        var label = copyBtn.querySelector("span"), old = label.textContent;
+        var ok = function () { label.textContent = T.hack_copied; setTimeout(function () { label.textContent = old; }, 2000); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text + " " + link).then(ok, function () {});
+      });
+      var img = res.querySelector(".hack-card-img"), dl = res.querySelector('[data-act="download"]'), cardBlob = null;
+      img.alt = text;
+      drawCard(score, total, r, color).then(function (canvas) {
+        if (!canvas) return;
+        var url = canvas.toDataURL("image/png");
+        img.src = url; dl.href = url;
+        canvas.toBlob(function (b) { cardBlob = b; });
+      });
+      var shareBtn = res.querySelector('[data-act="share"]');
+      if (navigator.share) {
+        shareBtn.hidden = false;
+        shareBtn.addEventListener("click", function () {
+          var payload = { title: T.scam_title, text: text, url: link };
+          if (cardBlob && window.File) {
+            var file = new File([cardBlob], "scam-or-not.png", { type: "image/png" });
+            if (navigator.canShare && navigator.canShare({ files: [file] })) payload.files = [file];
+          }
+          navigator.share(payload).catch(function () {});
+        });
+      }
+      res.querySelector('[data-act="retake"]').addEventListener("click", function () { begin(false); });
+
+      box.appendChild(node);
+      box.querySelector(".hack-title").focus({ preventScroll: true });
+      if (box.getBoundingClientRect().top < 0) box.scrollIntoView({ block: "start" });
+    }
+
+    // ---------- The share card: a 1080x1080 picture with the score, the title and one square per message ----------
+    function drawCard(score, total, r, color) {
+      var text = lang === "ur" ? '"Noto Nastaliq Urdu", sans-serif'
+        : lang === "zh" ? '"PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, sans-serif'
+        : '"Space Grotesk", system-ui, sans-serif';
+      var body = lang === "ur" || lang === "zh" ? text : '"Inter", system-ui, sans-serif';
+      var loads = [];
+      if (document.fonts && document.fonts.load) {
+        ['700 120px "Space Grotesk"', '500 30px "JetBrains Mono"', '400 30px "Inter"'].forEach(function (f) { loads.push(document.fonts.load(f, "Aa0/")); });
+        if (lang === "ur") loads.push(document.fonts.load('400 40px "Noto Nastaliq Urdu"', r.title + T.scam_title + T.scam_label));
+      }
+      return Promise.all(loads).catch(function () {}).then(function () {
+        var S = 1080, c = document.createElement("canvas");
+        c.width = S; c.height = S;
+        var x = c.getContext("2d");
+        if (!x) return null;
+        var g = x.createLinearGradient(0, 0, S, S);
+        g.addColorStop(0, "#061226"); g.addColorStop(1, "#0a2342");
+        x.fillStyle = g; x.fillRect(0, 0, S, S);
+        var glow = x.createRadialGradient(540, 380, 40, 540, 380, 560);
+        glow.addColorStop(0, hexA(color, .2)); glow.addColorStop(1, "rgba(6,18,38,0)");
+        x.fillStyle = glow; x.fillRect(0, 0, S, S);
+        x.strokeStyle = "rgba(255,255,255,.045)"; x.lineWidth = 1;
+        for (var v = 0; v <= S; v += 54) {
+          x.beginPath(); x.moveTo(v + .5, 0); x.lineTo(v + .5, S); x.stroke();
+          x.beginPath(); x.moveTo(0, v + .5); x.lineTo(S, v + .5); x.stroke();
+        }
+        x.strokeStyle = "rgba(34,211,238,.35)"; x.lineWidth = 3;
+        roundRect(x, 30, 30, S - 60, S - 60, 36); x.stroke();
+        x.textAlign = "center"; x.textBaseline = "alphabetic";
+        x.direction = rtl ? "rtl" : "ltr";
+
+        x.fillStyle = "#22d3ee";
+        var head = lang === "en" || lang === "de" ? T.scam_title.toUpperCase() : T.scam_title;
+        fit(x, "🚩 " + head, lang === "ur" ? "400 {s}px " + text : lang === "zh" ? "600 {s}px " + text : '500 {s}px "JetBrains Mono", monospace', 42, 900);
+        x.fillText("🚩 " + head, 540, lang === "ur" ? 165 : 150);
+
+        x.direction = "ltr";
+        x.fillStyle = "#ffffff";
+        x.font = '700 200px "Space Grotesk", system-ui, sans-serif';
+        x.fillText(score + "/" + total, 540, 370);
+        x.direction = rtl ? "rtl" : "ltr";
+        x.fillStyle = "#b8c6dc";
+        x.font = (lang === "ur" ? "400 34px " : "500 38px ") + body;
+        x.fillText(T.scam_label, 540, lang === "ur" ? 490 : 472);
+
+        // One square per message: green when you got it right, red when it fooled you.
+        var size = 66, gap = 14, left = 540 - (total * size + (total - 1) * gap) / 2;
+        for (var i = 0; i < total; i++) {
+          var ok = answers[i] === msgs[i].scam;
+          x.fillStyle = ok ? "#34d399" : "#f87171";
+          roundRect(x, left + i * (size + gap), 545, size, size, 14); x.fill();
+        }
+
+        x.fillStyle = "#9fb0c8";
+        x.font = (lang === "ur" ? "400 32px " : "400 36px ") + body;
+        x.fillText(T.scam_you_are, 540, lang === "ur" ? 705 : 720);
+        x.fillStyle = "#ffffff";
+        var t = r.title + " " + r.emoji;
+        fit(x, t, (lang === "ur" ? "400" : "700") + " {s}px " + text, lang === "ur" ? 64 : 80, 940);
+        x.fillText(t, 540, lang === "ur" ? 850 : 820);
+
+        x.fillStyle = color;
+        x.fillRect(440, 920, 200, 4);
+        x.fillStyle = "#22d3ee";
+        x.direction = "ltr";
+        x.font = '500 32px "JetBrains Mono", monospace';
+        x.fillText(T.scam_card_url, 540, 990);
+        return c;
+      });
+    }
+  })();
 })();
