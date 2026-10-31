@@ -13,7 +13,7 @@
     {%- endcomment %}
     <nav class="nav" id="site-nav" aria-label="{{ S.nav_label }}">
       <a href="{{ base }}#about">{{ S.nav_about }}</a>
-      {%- assign nav_items = "research|nav_research,projects|nav_projects,blog|nav_notes,tools|nav_tools,roadmaps|nav_roadmaps,security-news|nav_news" | split: "," %}
+      {%- assign nav_items = "research|nav_research,projects|nav_projects,blog|nav_notes,tools|nav_tools,games|nav_games,roadmaps|nav_roadmaps,security-news|nav_news" | split: "," %}
       {%- for item in nav_items %}{% assign parts = item | split: "|" %}{% assign nav_key = parts[1] %}
       {%- assign nav_url = L | append: '/' | append: parts[0] | append: '/' %}{% assign url_start = page.url | slice: 0, nav_url.size %}
       <a href="{{ nav_url }}"{% if page.url == nav_url %} class="is-active" aria-current="page"{% elsif url_start == nav_url %} class="is-active"{% endif %}>{{ S[nav_key] }}</a>

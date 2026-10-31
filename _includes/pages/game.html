@@ -1,0 +1,64 @@
+{%- comment -%}
+  One game's page, in every language. The page file (games/<slug>/index.html, de/games/<slug>/... ) sets `game: <key>`,
+  its own title and description. The game's markup is in _includes/games/<key>.html, its text in _data/games.yml
+  (English) and _data/<code>/games.yml, and the code in assets/js/games.js, which reads its text from the JSON block
+  the markup writes. Nothing is sent anywhere: the games run in the browser.
+{%- endcomment -%}
+{%- assign G = D.games | default: site.data.games -%}
+{%- assign game = site.data.game_list | where: "key", page.game | first -%}
+{%- assign k = game.key -%}
+{%- assign title_key = k | append: "_title" -%}{%- assign lede_key = k | append: "_lede" -%}{%- assign priv_key = k | append: "_private" -%}{%- assign info_key = k | append: "_info" -%}
+{%- assign info = G[info_key] -%}
+<div class="wrap page games-page game-page">
+  <nav class="crumbs" aria-label="{{ G.crumbs }}"><a href="{{ L }}/games/">{{ G.title }}</a> <span aria-hidden="true">/</span> <span aria-current="page">{{ G[title_key] }}</span></nav>
+  <header class="page-head tool-page-head">
+    <span class="icon-tile lg">{% include icon.html name=game.icon px=28 %}</span>
+    <div>
+      <h1>{{ G[title_key] }}</h1>
+      <p class="lede">{{ G[lede_key] }}</p>
+      <p class="pill">{% include icon.html name="lock" px=15 %}<span>{{ G[priv_key] }}</span></p>
+    </div>
+  </header>
+
+  <noscript><p class="card">{{ G.nojs }}</p></noscript>
+
+  {% include games/{{ k }}.html %}
+
+  {%- if info %}
+  <section class="tool-info" aria-labelledby="how-title">
+    <h2 id="how-title">{{ G.how }}</h2>
+    {% for p in info.about %}<p>{{ p }}</p>
+    {% endfor %}
+  </section>
+  {%- if info.faq %}
+  <section class="tool-info" aria-labelledby="faq-title">
+    <h2 id="faq-title">{{ G.faq }}</h2>
+    <div class="faq">
+    {%- for f in info.faq %}
+      <details{% if forloop.first %} open{% endif %}><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
+    {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+  {%- endif %}
+
+  <section class="tool-info" aria-labelledby="more-title">
+    <h2 id="more-title">{{ G.more }}</h2>
+    <nav class="tool-index" aria-labelledby="more-title">
+    {%- for g in site.data.game_list %}{% if g.key != k %}{% assign gt = g.key | append: "_title" %}
+      <a class="card spot" href="{{ L }}/games/{{ g.slug }}/"><span class="icon-tile sm">{% include icon.html name=g.icon px=18 %}</span><span>{{ G[gt] }}</span></a>
+    {%- endif %}{% endfor %}
+      <a class="card spot" href="{{ L }}/games/"><span class="icon-tile sm">{% include icon.html name="gamepad" px=18 %}</span><span>{{ G.all_games }}</span></a>
+      <a class="card spot" href="{{ L }}/tools/"><span class="icon-tile sm">{% include icon.html name="tools" px=18 %}</span><span>{{ S.nav_tools }}</span></a>
+    </nav>
+  </section>
+</div>
+{%- capture ld_items -%}
+{%- for f in info.faq -%}{"@type":"Question","name":{{ f.q | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a | jsonify }}}}{% unless forloop.last %},{% endunless %}{%- endfor -%}
+{%- endcapture %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":{{ G[title_key] | jsonify }},"url":{{ page.url | absolute_url | jsonify }},"description":{{ page.description | jsonify }},"inLanguage":{{ S.html_lang | jsonify }},"applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":{{ me.name | jsonify }},"url":{{ site.url | jsonify }}}}{% if ld_items != "" %},
+{"@type":"FAQPage","mainEntity":[{{ ld_items }}]}{% endif %}
+]}
+</script>
