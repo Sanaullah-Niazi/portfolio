@@ -116,6 +116,7 @@ btn_github: 在 GitHub 查看代码
 btn_demo: 打开在线演示
 btn_paper: 阅读论文
 btn_video: 观看视频
+btn_apk: 下载 Android 应用
 live_demo_of: 在线演示：
 video_demo_of: 视频演示：
 
@@ -147,6 +148,7 @@ verify: 验证
 certificate: 证书
 enlarge: 放大
 close: 关闭
+picture_larger: 放大的图片
 certificate_picture: 证书图片
 
 education_eyebrow: 教育

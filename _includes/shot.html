@@ -1,0 +1,17 @@
+{%- comment -%}
+  A screenshot on a project page, in a browser or phone frame. Click (or Enter) opens it larger in the page's lightbox.
+  Usage: {% include shot.html dir="/assets/img/projects/aquapulse/" name="owner-01-overview" kind="browser" alt="..." caption="..." %}
+  Files: <name>.webp (large) and <name>-800.webp (browser, plain) or <name>-390.webp (phone).
+  kind: browser (1600×1000 and 800×500), phone (780×1688 and 390×844) or plain (give w and h of the 800 px file).
+{%- endcomment -%}
+{%- assign k = include.kind | default: "browser" -%}
+{%- if k == "phone" -%}{%- assign sm = "-390" -%}{%- assign w = 390 -%}{%- assign h = 844 -%}{%- assign sizes = "(max-width: 600px) 45vw, 260px" -%}
+{%- else -%}{%- assign sm = "-800" -%}{%- assign w = include.w | default: 800 -%}{%- assign h = include.h | default: 500 -%}{%- assign sizes = "(max-width: 860px) 92vw, 640px" -%}{%- endif -%}
+{%- assign base = include.dir | append: include.name -%}
+<figure class="shot-fig shot-{{ k }}">
+  <button type="button" class="shot frame-{{ k }}" data-full="{{ base | append: '.webp' | relative_url }}" data-caption="{{ include.caption | strip_html | escape }}">
+    {%- if k == "browser" %}<span class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></span>{% endif %}
+    <img src="{{ base | append: sm | append: '.webp' | relative_url }}" srcset="{{ base | append: sm | append: '.webp' | relative_url }} {{ w }}w, {{ base | append: '.webp' | relative_url }} {{ w | times: 2 }}w" sizes="{{ sizes }}" width="{{ w }}" height="{{ h }}" alt="{{ include.alt | escape }}" loading="lazy" decoding="async">
+  </button>
+  {%- if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

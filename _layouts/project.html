@@ -19,9 +19,20 @@ layout: default
       {% if p.links.github and p.links.github != '' %}<a class="btn" href="{{ p.links.github }}">{{ S.btn_github }}</a>{% endif %}
       {% if p.links.demo and p.links.demo != '' %}<a class="btn" href="{{ p.links.demo }}">{{ S.btn_demo }}</a>{% endif %}
       {% if p.links.paper and p.links.paper != '' %}<a class="btn" href="{{ p.links.paper }}">{{ S.btn_paper }}</a>{% endif %}
+      {% if p.links.apk and p.links.apk != '' %}<a class="btn" href="{{ p.links.apk }}">{{ S.btn_apk }}</a>{% endif %}
       {% if p.links.video and p.links.video != '' %}<a class="btn" href="{{ p.links.video }}">{{ S.btn_video }}</a>{% endif %}
     </div>
   </header>
+
+  {%- comment -%} hero_video: a short muted loop under the title (self-hosted, so the CSP needs nothing new). {%- endcomment -%}
+  {% if p.hero_video %}
+  <figure class="hero-media">
+    <video autoplay muted loop playsinline controls preload="metadata" data-motion width="{{ p.hero_video.width }}" height="{{ p.hero_video.height }}" poster="{{ p.hero_video.poster | relative_url }}" aria-label="{{ page.hero_caption | default: p.hero_video.caption | strip_html }}">
+      <source src="{{ p.hero_video.src | relative_url }}" type="video/mp4">
+    </video>
+    <figcaption>{{ page.hero_caption | default: p.hero_video.caption }}</figcaption>
+  </figure>
+  {% endif %}
 
   {% if p.demo_embed and p.demo_embed != '' %}
   <section class="embed" aria-label="{{ S.link_demo }}">
@@ -35,7 +46,14 @@ layout: default
   </section>
   {% endif %}
 
-  <div class="prose">
+  <div class="prose{% if page.wide %} prose-wide{% endif %}">
     {{ content }}
   </div>
+  {% if page.wide %}
+  <dialog class="lightbox" aria-label="{{ S.picture_larger }}">
+    <form method="dialog"><button class="icon-btn lightbox-close" aria-label="{{ S.close }}">×</button></form>
+    <img alt="" hidden>
+    <p class="lightbox-caption"></p>
+  </dialog>
+  {% endif %}
 </article>

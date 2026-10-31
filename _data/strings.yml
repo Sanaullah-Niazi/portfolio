@@ -118,6 +118,7 @@ btn_github: Code on GitHub
 btn_demo: Open live demo
 btn_paper: Read the paper
 btn_video: Watch the video
+btn_apk: Download the Android app
 live_demo_of: Live demo of
 video_demo_of: Video demo of
 
@@ -149,6 +150,7 @@ verify: Verify
 certificate: certificate
 enlarge: Enlarge
 close: Close
+picture_larger: Larger picture
 certificate_picture: Certificate picture
 
 education_eyebrow: Education
