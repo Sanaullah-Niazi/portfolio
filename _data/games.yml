@@ -12,7 +12,6 @@ play: "Play"
 mins: "{n} min"
 soon_title: "Coming soon"
 soon:
-  - { icon: message, title: "Scam or Not", text: "Real-looking SMS, WhatsApp and bank messages. Spot the scams before they spot you." }
   - { icon: flask, title: "Trick the AI", text: "A chatbot guards a secret password over 10 levels. Talk it into telling you." }
 idea: "Have an idea for a game?"
 idea_link: "Tell me"
@@ -244,3 +243,220 @@ daily_info:
       a: "Yes. After you finish, use the button to play the puzzle before it. Old puzzles are fun practice but don't count toward your streak."
     - q: "How do I keep my streak?"
       a: "Crack the puzzle every day. A missed day or a puzzle you couldn't crack starts the streak again from zero. The streak lives in this browser, so play on the same phone or computer."
+
+# ---------- Scam or Not ----------
+# The messages themselves are under scam_msgs, keyed by the ids in _data/scam_or_not.yml. t: the message (a list for
+# two messages in a row), name: the name WhatsApp shows (a saved contact, or the name an unknown number gave itself),
+# why: the red flags for a scam, or the reasons a real message is real. Every brand, name, number and link is made up.
+scam_title: "Scam or Not"
+scam_card: "10 real-looking SMS and WhatsApp messages: wallet alerts, bank codes, parcel fees and prize draws. Scam or legit? Your call."
+scam_lede: "Ten messages like the ones on your phone: wallet alerts, bank codes, parcel fees, lucky draws and \"new number\" WhatsApps. Decide if each one is a scam or legit, see the red flags, and challenge your family to beat your score."
+scam_private: "Made-up brands and numbers · Nothing leaves your browser"
+scam_intro: "Every message here copies a trick scammers really use in Pakistan and India, and a few are perfectly normal. Look at who sent it, what it asks you to do and how it tries to make you feel. Then decide: scam or legit?"
+scam_note: "All brands, names, numbers and links in this game are invented. Don't try to visit or call them."
+scam_start: "Start"
+scam_q_of: "Message {n} of {total}"
+scam_ask: "Scam or legit?"
+scam_btn_scam: "Scam"
+scam_btn_legit: "Legit"
+scam_right_scam: "Correct, it's a scam!"
+scam_right_legit: "Correct, it's legit."
+scam_wrong_scam: "Careful, this one is a scam!"
+scam_wrong_legit: "Actually, this one is legit."
+scam_flags: "The red flags"
+scam_ok: "Why it's legit"
+scam_next: "Next message"
+scam_see: "See my score"
+scam_tags: { unknown: "Not in your contacts", contact: "Saved contact", brand: "Sender name", verified: "Verified business" }
+scam_ch: { sms: "SMS", wa: "WhatsApp" }
+scam_cc: { pk: "Pakistan", in: "India" }
+scam_today: "Today"
+scam_label: "correct"
+scam_you_are: "You are"
+scam_caught: "Scams caught: {n} of {total}"
+scam_trusted: "Real messages trusted: {n} of {total}"
+scam_missed: "The ones that fooled you"
+scam_missed_none: "None. Not a single message fooled you."
+scam_was_scam: "Scam"
+scam_was_legit: "Legit"
+scam_rules_title: "5 rules that stop almost every scam"
+scam_rules:
+  - "No real bank, wallet or company asks for your OTP, PIN or password. Ever."
+  - "Check the sender. A bank, wallet or courier writing from an ordinary mobile number is a red flag."
+  - "Never pay a fee to receive a prize, refund, job or government aid."
+  - "Don't use the link in a message. Open the official app or type the address yourself."
+  - "A \"new number\" asking for money? Call the old number before you send anything."
+scam_friend: "Your friend got {score} on these same 10 messages. Can you beat them?"
+scam_best: "Your best so far: {score}"
+scam_beat: "You beat your friend ({score})!"
+scam_lost: "Your friend wins this round ({score}). Read the red flags and try again."
+scam_tie: "It's a tie with your friend ({score})."
+scam_share_title: "Share your result"
+scam_share_hint: "Send it to the family WhatsApp group. Your link gives them the same 10 messages."
+scam_share_text: "I got {score} on Scam or Not: {title} {emoji} Can you tell a fake bank, wallet or WhatsApp message from a real one? Beat my score:"
+scam_card_url: "sanaullahniazi.com/games"
+scam_again: "Play 10 new messages"
+# Results, from the lowest score up. min: the lowest score (out of 10) for this title.
+scam_results:
+  - { min: 0, emoji: "🪤", title: "Scammer's Dream", text: "Scammers would love to have your number. Read the red flags below: once you know the tricks, they're easy to see." }
+  - { min: 4, emoji: "🎣", title: "Easy Catch", text: "Some scams slipped right past you. The five rules below would have stopped every one of them." }
+  - { min: 6, emoji: "🧐", title: "Getting Suspicious", text: "You spot the obvious ones, but the clever ones still get through. A few more rounds and they won't." }
+  - { min: 8, emoji: "🦉", title: "Hard to Fool", text: "Almost nothing gets past you. Now make sure your parents can say the same." }
+  - { min: 10, emoji: "📡", title: "Scam Radar", text: "Ten out of ten. Scammers will need a new career. Share this so your whole family gets as good as you." }
+scam_msgs:
+  wallet_block:
+    t: "Dear customer, your TezPay account will be BLOCKED today because your biometric verification is incomplete. Update now to keep it active: tezpay-verify.top/kyc Ignore = permanent block."
+    why:
+      - "It comes from an ordinary mobile number. Real TezPay messages show the sender name TezPay, not a number."
+      - "It threatens you with a deadline (\"BLOCKED today\") so you act before you think."
+      - "The link isn't TezPay's website. Anyone can buy a name like tezpay-verify.top."
+      - "Wallets do biometric checks in their app or at a shop, never through a link in an SMS."
+  lucky_draw:
+    name: "TezPay Lucky Draw 🎁"
+    t: "Mubarak ho! 🎉 Your number has won Rs 2,50,000 and a motorbike in the TezPay 10th Anniversary Lucky Draw. To claim your prize, send the Rs 3,500 processing fee to 03••-•••8120 and WhatsApp a photo of your CNIC (front and back)."
+    why:
+      - "You never entered a draw, so you can't have won one."
+      - "Real prizes never ask you to pay a fee first. The fee is the scam."
+      - "It asks for a photo of your ID card, which can be used to get SIMs and accounts in your name."
+      - "The fee goes to a personal number, not to a company."
+  bank_code:
+    name: "Chandni Bank Helpline"
+    t: "Assalam o Alaikum. This is Chandni Bank head office. A transaction of Rs 48,000 was made from your account by mistake. To reverse it, please send us the 6-digit code you just received by SMS."
+    why:
+      - "Banks never ask for a one-time code. Whoever has that code can empty your account."
+      - "Anyone can type any name on WhatsApp. The name doesn't make it the bank."
+      - "A scary transaction with an easy fix is a classic way to rush you."
+      - "If you're worried, call the number printed on the back of your card yourself."
+  wrong_transfer:
+    t:
+      - "TezPay: You have received Rs 15,000 from ASIF ALI. Trx ID: 4471902385. Your new balance is Rs 15,312."
+      - "Bhai, I sent 15,000 to your number by mistake 🙏 It's my children's school fee. Please send it back to this number."
+    why:
+      - "The \"receipt\" came from an ordinary mobile number. Real TezPay alerts come from the sender name TezPay."
+      - "Open your TezPay app and check your balance: the money never arrived."
+      - "The sad story right after is there to make you send real money back for fake money."
+      - "If someone really sent money by mistake, the wallet's helpline can reverse it. You don't have to."
+  relief_fund:
+    t: "Khushhali Relief Programme: Your CNIC has been selected for Rs 25,000 financial aid. To receive the amount, send your name and CNIC number to this number with a Rs 500 registration fee. Offer valid for 24 hours only."
+    why:
+      - "Government aid never charges a registration fee."
+      - "Official programmes write from their own short code, not a personal mobile number."
+      - "\"Valid for 24 hours only\" is pressure, not policy."
+      - "Check the programme's official website or office yourself before you share your CNIC."
+  parcel_fee:
+    t: "SwiftPost: Your parcel is on hold at our warehouse due to an incomplete address. Pay the Rs 150 redelivery fee within 12 hours or it will be returned: swiftpost.redelivery-help.com"
+    why:
+      - "The real website here is redelivery-help.com. The \"swiftpost\" at the start is just decoration."
+      - "Were you even waiting for a parcel? Scammers send this to everyone and wait for a lucky match."
+      - "The tiny fee is bait. What they really want is your card number and OTP on the fake page."
+      - "It was sent from an ordinary number, not SwiftPost's sender name."
+  like_job:
+    name: "Priya HR"
+    t: "Hello, I'm Priya from a digital marketing agency 😊 We're offering a part-time job: just like YouTube videos and earn ₹3,000 to ₹8,000 a day from home. No experience needed. Join our Telegram group to get your first task!"
+    why:
+      - "Real jobs don't pay thousands a day for tapping like."
+      - "The first tasks pay a little to win your trust. Then you're asked to \"invest\" in bigger tasks, and the money disappears."
+      - "You never applied for this job. It found you."
+      - "Moving you to Telegram takes you away from anyone who could warn you."
+  power_cut:
+    t: "Dear consumer, your electricity power will be disconnected tonight at 9:30 pm because your previous month bill was not updated. Please immediately contact our electricity officer 7•••• ••213. Thank you"
+    why:
+      - "Power companies don't send cut-off warnings from personal numbers."
+      - "There's no consumer number or amount: it could be sent to anyone."
+      - "\"Tonight at 9:30 pm\" is urgency, so you call without checking."
+      - "The \"officer\" will ask you to install an app or pay through a link. Check your bill in the official app instead."
+  kyc_expired:
+    t: "Dear Sitara Bank user, your account KYC has expired and your account will be suspended in 24 hours. Update your PAN details now: sitarabank-kyc.in/update"
+    why:
+      - "Banks don't suspend accounts through SMS links. They ask you to update KYC in their app or at a branch."
+      - "sitarabank-kyc.in isn't the bank's website, just a name made to look like it."
+      - "It was sent from a mobile number, not the bank's sender name."
+      - "The 24-hour deadline is there to stop you from checking."
+  new_number:
+    t: "Ammi, this is my new number, my phone fell in water 😔 I urgently need Rs 20,000, please send it to this TezPay account: 03••-•••7712. I'll explain later, I can't talk now, I'm in class."
+    why:
+      - "\"This is my new number\" plus an urgent request for money is one of the most common WhatsApp scams."
+      - "They avoid a call because a call would give them away. Call your child's old number, or ask something only they would know."
+      - "Never send money to a new number before you've heard the person's voice."
+  wa_code:
+    name: "Bilal (cousin)"
+    t: "Hey, sorry, I sent my WhatsApp code to your number by mistake 🙈 Can you forward me the 6-digit code you just got? It's urgent"
+    why:
+      - "That code is for YOUR WhatsApp account. Sharing it hands your account to someone else."
+      - "Your cousin's account has probably been taken over already, and the scammer is using it to reach you."
+      - "Turn on WhatsApp two-step verification, so a code alone isn't enough to take your account."
+      - "Call your cousin to warn them. Don't reply in the chat."
+  refund_app:
+    name: "Bazaarly Customer Support"
+    t: "Your refund of Rs 4,999 has been approved ✅ To receive it in your account, install the QuickHelp screen-sharing app and share the 9-digit code with our agent."
+    why:
+      - "Refunds never need a screen-sharing app. It lets the scammer watch your screen, including your OTPs and PINs."
+      - "A real company chats from its verified business account, not an unknown number with a company name on it."
+      - "Check your refund yourself in the shop's app, under your orders."
+  wallet_receipt:
+    t: "Rs 15,000 received from ASIF ALI 03••-•••2731. Trx ID 8841230957. New balance: Rs 15,312. Never share your PIN or OTP with anyone."
+    why:
+      - "It comes from the sender name TezPay, in the same thread as your earlier TezPay messages."
+      - "It doesn't ask you to do anything: no link, no call, no code."
+      - "You can confirm it by checking your balance in the TezPay app."
+  bank_otp:
+    t: "482913 is your one-time code to log in to Chandni Bank Online. It is valid for 5 minutes. Chandni Bank will NEVER ask for this code. Do not share it with anyone."
+    why:
+      - "It arrived while you were logging in yourself: you asked for it."
+      - "It comes from the bank's sender name and warns you never to share the code."
+      - "It's only safe to type into the bank's own app or website. If anyone calls or messages asking for it, that's the scam."
+  parcel_cod:
+    t: "Your parcel SP4471902 from Bazaarly is out for delivery today. Rider: Imran. Cash on delivery: Rs 1,850. Track it in the SwiftPost app."
+    why:
+      - "It matches an order you placed and the cash-on-delivery amount you chose."
+      - "No link, no fee to pay online, no deadline."
+      - "It sends you to the official app instead of a link."
+  upi_debit:
+    t: "₹1,250.00 debited from A/c XX4417 on 31-Oct via UPI to FreshCart. Not you? Call the number on the back of your debit card."
+    why:
+      - "It comes from the bank's sender name and only tells you what happened."
+      - "It sends you to the number on your own card, not to a number inside the message."
+      - "No link and no request for codes or PINs."
+  mehndi:
+    name: "Ayesha (uni)"
+    t: "Are you coming to Sana's mehndi on Saturday? 💃 I'll send the location pin when I reach. Wear something yellow!"
+    why:
+      - "It's from a saved contact you know, written the way she always writes."
+      - "It doesn't ask for money, codes, links or personal details."
+      - "Not everything is a scam. Knowing what normal looks like helps you spot what isn't."
+  data_bundle:
+    t: "Dear customer, you have used 80% of your monthly internet bundle. Remaining: 2 GB, valid till 15-Nov. Open the Orbit app to see your usage."
+    why:
+      - "It's from your network's own sender name and matches your package."
+      - "It only gives information and points you to the official app."
+      - "No prize, no threat, no fee."
+  card_due:
+    t: "Reminder: your Sitara Bank credit card bill of ₹8,430 is due on 05-Nov. Pay through the Sitara Bank app or net banking. Please ignore if already paid."
+    why:
+      - "It's from the bank's sender name, about a card you really have."
+      - "It tells you to pay in the bank's own app, not through a link or into a personal account."
+      - "\"Please ignore if already paid\" is the calm tone of a real reminder, not a threat."
+  order_shipped:
+    t: "Hi! 📦 Your order #BZ-20931 (wireless earbuds) has been shipped and will arrive in 2 to 3 days. You can track it anytime in the Bazaarly app under My Orders."
+    why:
+      - "It's from Bazaarly's verified business account (the tick next to the name) and matches what you ordered."
+      - "It sends you to the app and asks for nothing."
+      - "Real company chats never ask you to install other apps, pay fees or share codes."
+  new_login:
+    t: "Your TezPay account was logged in on a new Android phone on 31-Oct at 11:42. If this wasn't you, open the TezPay app and go to Settings > Devices."
+    why:
+      - "It's from TezPay's own sender name and tells you what happened."
+      - "There's no link. It tells you to use the app yourself."
+      - "If it wasn't you, that's exactly the right advice: check in the app, not by replying."
+scam_info:
+  about:
+    - "Each round shows 10 messages picked at random from a bigger set: mobile wallet alerts, bank codes, parcel and courier messages, lucky draws, government aid, job offers and family members with a \"new number\". Some are scams, and some are perfectly normal messages. Decide which is which."
+    - "After every answer you see the red flags, or the reasons a real message is real. Most scams in Pakistan and India use the same few tricks: a sender that isn't who it claims to be, a deadline, a fee to unlock money, a link to a fake website, or a request for your OTP."
+    - "Every brand, name, number and link in this game is made up, and the numbers are partly hidden so none of them can be called. Nothing you answer is sent anywhere. Only your best score is kept, on your own device."
+  faq:
+    - q: "Are these real scam messages?"
+      a: "They're written for this game, but each one copies a trick that's really used in Pakistan and India: fake wallet blocks, lucky draws with a processing fee, \"wrong transfer\" refunds, OTP requests, parcel fees, KYC updates and \"new number\" messages from family."
+    - q: "How does Challenge a Friend work?"
+      a: "Your share link includes your score and which 10 messages you got. Whoever opens it plays the same 10 messages and sees whether they beat you."
+    - q: "I got a message like one of these. What should I do?"
+      a: "Don't tap the link, don't reply and never share a code. Open the official app or call the number printed on your card to check. Then block and report the number in your messaging app."

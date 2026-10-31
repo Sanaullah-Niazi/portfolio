@@ -4,4 +4,5 @@
 # mins: about how long one round takes. To add a game: one line here, its text in _data/games.yml (and the translations),
 # its markup, its code, and a page file per language (games/<slug>/index.html, ur/games/<slug>/index.html ...).
 - { key: daily, slug: daily-hack, icon: clock, mins: 1 }
+- { key: scam, slug: scam-or-not, icon: message, mins: 3 }
 - { key: hack, slug: how-hackable-are-you, icon: shield, mins: 2 }
