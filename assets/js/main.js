@@ -277,11 +277,11 @@
     });
   });
 
-  // Certificate pictures open larger in a dialog (Esc or the × button closes it).
+  // Certificate pictures and project screenshots open larger in a dialog (Esc or the × button closes it).
   var lightbox = document.querySelector(".lightbox");
   if (lightbox && lightbox.showModal) {
     var lbImg = lightbox.querySelector("img"), lbCap = lightbox.querySelector(".lightbox-caption");
-    document.querySelectorAll(".cert-thumb.has-img").forEach(function (btn) {
+    document.querySelectorAll(".cert-thumb.has-img, button.shot[data-full]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         lbImg.src = btn.getAttribute("data-full");
         lbImg.alt = btn.querySelector("img").alt;
@@ -291,6 +291,11 @@
       });
     });
     lightbox.addEventListener("click", function (e) { if (e.target === lightbox) lightbox.close(); });
+  }
+
+  // A project's looping video stops for visitors who asked their system for less motion (it keeps its play button).
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll("video[data-motion]").forEach(function (v) { v.removeAttribute("autoplay"); v.pause(); });
   }
 
   // Contact form: posts to Web3Forms, which emails the message to the site owner.

@@ -116,6 +116,7 @@ btn_github: Code auf GitHub
 btn_demo: Live-Demo öffnen
 btn_paper: Paper lesen
 btn_video: Video ansehen
+btn_apk: Android-App herunterladen
 live_demo_of: Live-Demo von
 video_demo_of: Video-Demo von
 
@@ -147,6 +148,7 @@ verify: Prüfen
 certificate: Zertifikat
 enlarge: Vergrößern
 close: Schließen
+picture_larger: Bild vergrößert
 certificate_picture: Bild des Zertifikats
 
 education_eyebrow: Ausbildung
