@@ -3,5 +3,5 @@
 # and the name of its markup in _includes/games/<key>.html; its code is in assets/js/games.js.
 # mins: about how long one round takes. To add a game: one line here, its text in _data/games.yml (and the translations),
 # its markup, its code, and a page file per language (games/<slug>/index.html, ur/games/<slug>/index.html ...).
+- { key: daily, slug: daily-hack, icon: clock, mins: 1 }
 - { key: hack, slug: how-hackable-are-you, icon: shield, mins: 2 }
-

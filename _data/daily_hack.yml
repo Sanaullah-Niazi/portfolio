@@ -1,0 +1,64 @@
+# Daily Hack (/games/daily-hack/): the raw material each day's puzzle is built from. Same in every language.
+# Every puzzle is made in the browser from the day's number, so everyone gets the same puzzle on the same date.
+# Changing a list here changes the puzzles from then on (and of past days), so add to the end of a list rather than
+# reordering it. The text around the puzzles (questions, hints, explanations) is in _data/games.yml (daily_...).
+
+# Day 1. Puzzle #N is the Nth day from this date, in the player's own time zone.
+start: "2026-10-31"
+tries: 3
+
+# The order of puzzle kinds through the week, repeated. link/mail: spot the fake (or the real) address,
+# crack: guess a password from a profile, decode: read a scrambled message, strong: pick the strongest password.
+schedule: [link, crack, decode, strong, mail, crack, decode, link, strong, decode, mail, crack, link, strong]
+
+# Real sites. d: the real domain, subs: real subdomains used for logins, paths: pages on the site,
+# from: sender names their emails use.
+brands:
+  - { b: "PayPal", d: "paypal.com", subs: [www], paths: ["signin", "myaccount/summary", "myaccount/settings"], from: [service, no-reply] }
+  - { b: "Google", d: "google.com", subs: [accounts, myaccount, mail], paths: ["signin", "security", "u/0/"], from: [no-reply, accounts-noreply] }
+  - { b: "Amazon", d: "amazon.com", subs: [www], paths: ["your-orders", "gp/css/homepage.html", "ap/signin"], from: [account-update, shipment-tracking, auto-confirm] }
+  - { b: "Microsoft", d: "microsoft.com", subs: [account, login, www], paths: ["security", "billing/payments", "profile"], from: [account-security-noreply, msa] }
+  - { b: "Netflix", d: "netflix.com", subs: [www, help], paths: ["login", "YourAccount", "billing"], from: [info, account] }
+  - { b: "Instagram", d: "instagram.com", subs: [www, help], paths: ["accounts/login", "accounts/edit", "direct/inbox"], from: [security, no-reply] }
+  - { b: "Facebook", d: "facebook.com", subs: [www, m, business], paths: ["login", "settings", "help/contact"], from: [security, notification] }
+  - { b: "WhatsApp", d: "whatsapp.com", subs: [www, faq, web], paths: ["download", "security", "contact"], from: [no-reply, support] }
+  - { b: "Apple", d: "apple.com", subs: [account, support, www], paths: ["sign-in", "account/manage", "billing"], from: [no_reply, appleid] }
+  - { b: "LinkedIn", d: "linkedin.com", subs: [www], paths: ["login", "mypreferences/d/security", "messaging"], from: [security-noreply, messages-noreply] }
+  - { b: "Daraz", d: "daraz.pk", subs: [www, my, member], paths: ["customer/order", "account/profile", "wallet"], from: [no-reply, care] }
+  - { b: "JazzCash", d: "jazzcash.com.pk", subs: [www, merchants], paths: ["login", "accounts", "help"], from: [noreply, support] }
+  - { b: "Easypaisa", d: "easypaisa.com.pk", subs: [www], paths: ["login", "account", "help-center"], from: [noreply, care] }
+  - { b: "DHL", d: "dhl.com", subs: [www, mydhl, mydhli], paths: ["tracking", "pk-en/home/tracking.html", "de-de/home/tracking.html"], from: [noreply, track] }
+  - { b: "Alipay", d: "alipay.com", subs: [www, auth, render], paths: ["login", "account", "security"], from: [service, notice] }
+  - { b: "Spotify", d: "spotify.com", subs: [accounts, www, support], paths: ["login", "account/overview", "account/subscription"], from: [no-reply] }
+  - { b: "Dropbox", d: "dropbox.com", subs: [www], paths: ["login", "account/security", "home"], from: [no-reply] }
+  - { b: "Binance", d: "binance.com", subs: [www, accounts], paths: ["login", "my/security", "my/wallet"], from: [do_not_reply] }
+  - { b: "Steam", d: "steampowered.com", subs: [store, help], paths: ["login", "account", "wishlist"], from: [noreply] }
+
+# Made-up attacker websites used for the fakes.
+evil: ["account-verify.net", "secure-login.co", "id-check.info", "support-center.xyz", "update-billing.com", "safe-auth.io",
+  "login-help.net", "verify-now.link", "customer-portal.top", "resolution-center.site", "security-alert.click", "auth-service.me"]
+# Words attackers glue on with a hyphen: paypal-<word>.com
+hyphen: [secure, login, support, verify, account, help, billing, alerts, service, update]
+# Endings swapped in for the real one.
+tlds: ["co", "net", "info", "support", "online", "app", "help", "com.co"]
+
+# "Crack the password": made-up people.
+names: [Ayesha, Hamza, Fatima, Bilal, Zara, Usman, Hira, Ali, Sana, Omar, Lena, Jonas, Mia, Felix, Wei, Mei, Lin, Hao, Sara, Adam, Noor, Daniyal, Emma, Leon]
+pets: [Simba, Coco, Luna, Tiger, Mithu, Bella, Max, Oreo, Snowy, Rocky, Bruno, Kitty, Milo, Shadow, Pumpkin, Toffee, Bolt, Ginger]
+cities: [Lahore, Karachi, Multan, Quetta, Berlin, Munich, Hamburg, Shanghai, Beijing, Dubai, London, Istanbul, Peshawar, Sialkot]
+symbols: ["!", "@", "#", "$", "*"]
+
+# "Decode the message": the secret words. Every word needs others of the same length to be the wrong answers.
+words: [MANGO, TIGER, RIVER, CLOUD, OCEAN, LEMON, ROBOT, PIXEL, NINJA, CANDY, STORM, GHOST, PIANO, TOAST, ZEBRA, CHESS, LASER, CABLE, QUEEN, HONEY,
+  PLANET, ROCKET, SHADOW, CASTLE, GARDEN, PYTHON, ORANGE, SILVER, DRAGON, BUTTER, CIRCLE, FOREST, BRIDGE, CAMERA, MUFFIN, ANCHOR, BASKET, PEPPER, WINTER, TICKET,
+  BALLOON, CHICKEN, DIAMOND, KITCHEN, LIBRARY, PENGUIN, RAINBOW, TEACHER, VOLCANO, MONSTER, PUMPKIN, CAPTAIN, BLANKET, CRYSTAL, HARVEST]
+decode: [reverse, caesar, a1z26, nato, hex, atbash, leet, caesar, reverse, hex]
+
+# "Pick the strongest password": words for the strong passphrases, and the weak ones' raw material.
+phrase_words: [mango, river, tiger, cloud, pencil, orbit, velvet, canyon, maple, rocket, lantern, falcon, pickle, comet, harbor, walnut, tundra, violin,
+  cactus, saffron, jungle, meadow, quartz, pebble, biscuit, glacier, otter, tulip, ember, nectar, bamboo, cobalt]
+common: [password, iloveyou, sunshine, football, princess, dragon, monkey, welcome, letmein, baseball, superman, pakistan, shadow, cricket]
+walks: ["qwertyuiop", "1qaz2wsx3edc", "asdfghjkl", "zxcvbnm123", "qazwsxedcrfv", "1q2w3e4r5t6y", "qwerty123456", "poiuytrewq"]
+
+# The site tool shown with each kind's lesson.
+tools: { link: phishing-link-checker, mail: lookalike-domain-checker, crack: password-generator, decode: base64-encoder-decoder, strong: password-strength-checker }
