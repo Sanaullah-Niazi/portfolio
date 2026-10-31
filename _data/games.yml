@@ -1,0 +1,107 @@
+# The text of the Games section (/games/ and each game's page) in English.
+# The same keys exist in _data/ur/games.yml, _data/de/games.yml and _data/zh/games.yml.
+# Only change the text after the colon, never the key before it. {n} and similar are filled in by the page.
+
+# ---------- The hub (/games/) ----------
+eyebrow: "Games"
+title: "Security games"
+lede: "Short, free games that teach you how hackers think. Play in a couple of minutes, share your score, and challenge your friends."
+private: "Free · No sign-up · Runs in your browser"
+crumbs: "Breadcrumb"
+play: "Play"
+mins: "{n} min"
+soon_title: "Coming soon"
+soon:
+  - { icon: clock, title: "Daily Hack", text: "One new puzzle every day, the same for everyone. Crack it, keep your streak, compare with friends." }
+  - { icon: message, title: "Scam or Not", text: "Real-looking SMS, WhatsApp and bank messages. Spot the scams before they spot you." }
+  - { icon: flask, title: "Trick the AI", text: "A chatbot guards a secret password over 10 levels. Talk it into telling you." }
+idea: "Have an idea for a game?"
+idea_link: "Tell me"
+more: "More games"
+all_games: "All games"
+how: "How it works"
+faq: "Questions people ask"
+nojs: "This game needs JavaScript. Turn it on to play."
+
+# ---------- How hackable are you? ----------
+hack_title: "How hackable are you?"
+hack_card: "11 quick questions about your everyday habits. Get your hackability score and a funny title to share."
+hack_lede: "11 quick questions about your passwords, phone and messages. Find out how easy you'd be to hack, get a title to show off, and challenge your friends."
+hack_private: "Your answers never leave your browser"
+hack_intro: "Answer honestly, nobody sees your answers, not even me. At the end you get your hackability score from 0% (hackers give up) to 100% (hackers say thank you), plus the three fixes that would help you most."
+hack_start: "Start the test"
+hack_q_of: "Question {n} of {total}"
+hack_back: "Back"
+hack_friend: "Your friend is {score}% hackable. Can you beat them?"
+hack_best: "Your best so far: {score}% hackable"
+hack_label: "hackable"
+hack_you_are: "You are"
+hack_fixes: "Your top fixes"
+hack_fixes_none: "Nothing to fix. Seriously, teach your friends."
+hack_try_tool: "Try it:"
+hack_share_title: "Share your result"
+hack_share_hint: "Send it to friends and see who is the most hackable."
+hack_share: "Share"
+hack_download: "Save image"
+hack_copy: "Copy link"
+hack_copied: "Link copied"
+hack_retake: "Take it again"
+hack_beat: "You beat your friend ({score}%)!"
+hack_lost: "Your friend wins this round ({score}%). Fix a few things and try again."
+hack_tie: "It's a tie with your friend ({score}%)."
+hack_share_text: "I'm {score}% hackable: {title} {emoji} How hackable are you? Take the 2-minute test:"
+hack_card_cta: "Take the test"
+hack_card_url: "sanaullahniazi.com/games"
+hack_questions:
+  - q: "How many of your accounts share the same password?"
+    a: ["None, every account has its own", "A few of them", "Most of them", "One password rules them all"]
+    fix: "Give every account its own password. A password manager remembers them for you, so you only need one strong master password."
+  - q: "Do you use two-step verification (an OTP or an authenticator app) on your email and WhatsApp?"
+    a: ["Yes, on all my important accounts", "On some of them", "What's that?"]
+    fix: "Turn on two-step verification for your email, WhatsApp and bank. Even if someone steals your password, they still can't get in."
+  - q: "Your main password looks most like..."
+    a: ["A long phrase like mango-river-tiger-cloud", "Something like P@ssw0rd!", "My name and birth year, like Ali1998", "123456 or password"]
+    fix: "Use a long passphrase of four or more random words. Names, birth years and swapping letters for symbols are the first things attackers try."
+  - q: "An SMS says: \"Your parcel is on hold, pay Rs 150 here\" with a link. You..."
+    a: ["Ignore it and check the courier's own app", "Open the link just to see", "Pay, it's only 150"]
+    fix: "Never pay or log in through a link in an unexpected message. Open the company's official app or type its address yourself."
+  - q: "Someone calls from \"your bank\" and asks for the code you just got by SMS."
+    a: ["Hang up, banks never ask for it", "Ask them to prove who they are first", "Read it out, they sound official"]
+    fix: "Never share a one-time code with anyone, even someone who knows your name and account details. That code is the key to your account."
+  - q: "On free WiFi at a café or airport, you..."
+    a: ["Use mobile data or a VPN for anything private", "Browse, but skip banking", "Do everything, banking included"]
+    fix: "Use mobile data for banking and logins on public WiFi, and say no when a hotspot asks you to install anything."
+  - q: "Your phone says \"Update available\". You..."
+    a: ["Install it the same day", "Tap Later for a few weeks", "Tap Later forever"]
+    fix: "Install updates as soon as you can. Most of them fix security holes that attackers already know about."
+  - q: "Where do you install apps from?"
+    a: ["Only the official Play Store or App Store", "Mostly the store, sometimes an APK someone sends me", "Wherever the free or modded version is"]
+    fix: "Only install apps from the official store. Modded apps and APKs from chats are one of the easiest ways to get spyware."
+  - q: "Your social media profile shows..."
+    a: ["Very little, and it's private", "Some photos, friends only", "Birthday, school, pet's name and phone number, all public"]
+    fix: "Make your profile private and hide your birthday, school and pet's name: they are common security questions. Remove the hidden location from photos before you post them."
+  - q: "If your phone were stolen today..."
+    a: ["It's locked with a PIN or fingerprint and backed up", "It's locked, but nothing is backed up", "There's no screen lock at all"]
+    fix: "Set a screen lock (a PIN of six digits or more) and turn on backups, so a lost phone is just a lost phone."
+  - q: "Have you ever checked if your password was leaked in a data breach?"
+    a: ["Yes, and I changed the leaked ones", "No, but I'd like to", "Never heard of that"]
+    fix: "Check whether your passwords are already in a breach list, and change any that are. Leaked passwords are tried on every site within days."
+# Results, from the safest to the riskiest. max: the highest score (in %) for this title.
+hack_results:
+  - { max: 14, emoji: "🥷", title: "Cyber Ninja", text: "Hackers look at you, sigh, and move on to someone easier. You're in the top tier." }
+  - { max: 34, emoji: "🛡️", title: "Human Firewall", text: "Solid habits with a couple of small holes. Close them and you're untouchable." }
+  - { max: 54, emoji: "🍀", title: "Lucky So Far", text: "Nothing bad has happened yet, but luck isn't a security plan. A few fixes go a long way." }
+  - { max: 74, emoji: "🍪", title: "Hacker's Favourite Snack", text: "Attackers would enjoy you. The good news: the fixes below take minutes, not days." }
+  - { max: 100, emoji: "🚨", title: "Walking Data Breach", text: "Your accounts are an open buffet. Start with the first fix below today, then work down the list." }
+hack_info:
+  about:
+    - "This quiz looks at the everyday habits that decide most real hacks: reused and weak passwords, missing two-step verification, scam links and calls, old software, unofficial apps and oversharing. Each answer carries points, and your score is how many risk points you collected out of the maximum."
+    - "Attackers rarely break in with clever code. Most accounts are taken over with a leaked password, a fake link or a phone call asking for a code. That's why small habits matter more than expensive tools."
+    - "Your answers are only used on this page, in your browser. Nothing is sent or saved anywhere except your best score, which stays on your own device."
+  faq:
+    - q: "Is my data sent anywhere?"
+      a: "No. The quiz runs entirely in your browser. Your answers are never sent, and only your best score is kept on your own device so you can beat it later."
+    - q: "How is the score calculated?"
+      a: "Each answer is worth 0 to 3 risk points depending on how often that habit leads to real account takeovers. Your score is your points as a percentage of the maximum, so 0% is perfect and 100% is the riskiest possible."
+    - q: "How can I lower my score quickly?"
+      a: "Turn on two-step verification for your email and WhatsApp, stop reusing passwords, and never share one-time codes. Those three changes stop most account takeovers."

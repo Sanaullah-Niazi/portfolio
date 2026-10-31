@@ -549,7 +549,7 @@ h3[lang="en"], .thesis h3[lang="en"], .paper-title[lang="en"] { font-family: "Sp
 [dir="rtl"] .scroll-progress { transform-origin: 100% 50%; }
 [dir="rtl"] .prose ul { padding-left: 0; padding-right: 1.2em; }
 [dir="rtl"] pre, [dir="rtl"] code, [dir="rtl"] .bib-box { direction: ltr; text-align: left; }
-@media (max-width: 1040px) { [dir="rtl"] .js .header-actions { margin-left: 0; margin-right: auto; } }
+@media (max-width: 1160px) { [dir="rtl"] .js .header-actions { margin-left: 0; margin-right: auto; } }
 @media (max-width: 640px) { [dir="rtl"] .timeline { padding-right: 0; } }
 @media (min-width: 861px) {
   [dir="rtl"] .projects-grid > .project-card:only-child .project-visual { border-right: 0; border-left: 1px solid var(--line); }
@@ -1391,10 +1391,11 @@ a.mp-node:focus-visible, .mp-stage-node:focus-visible { outline: 3px solid var(-
   .focus-card:nth-child(5) { grid-column: 1 / -1; }
 }
 /* Narrow screens: the nav folds into a menu */
-/* The header lines up with the page. Its seven links fit on one line down to small laptops, in every language. */
-@media (max-width: 1160px) { .nav a { padding: 8px 8px; font-size: 14.5px; } .nav a.is-active::after { left: 8px; right: 8px; } }
+/* The header lines up with the page. Its eight links fit on one line down to small laptops (1161px), in every language
+   (German is the longest), so they sit a little closer together than the rest of the page's text. */
+@media (min-width: 1161px) { .nav { gap: 2px; } .nav a { padding: 8px 6px; font-size: 14.5px; } .nav a.is-active::after { left: 6px; right: 6px; } }
 /* Below that the menu folds into the menu button. */
-@media (max-width: 1040px) {
+@media (max-width: 1160px) {
   .js .menu-toggle { display: grid; }
   .js .nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 2px; margin: 0;
     padding: 10px max(16px, env(safe-area-inset-left, 0px)) 18px; background: var(--surface); border-bottom: 1px solid var(--line); box-shadow: var(--shadow-lg);
@@ -1731,3 +1732,78 @@ html[lang="ur"] .wpdf, html[lang="ur"] .wpdf * { letter-spacing: 0 !important; }
   :root:not([data-theme="light"]) .pil-score td.is-stopped { color: #8fdcab; }
 }
 .pil .btn[hidden] { display: none; }
+
+/* Games (/games/): the hub's cards and each game's box. */
+.games-page .game-box + .tool-info { margin-top: 8px; }
+.game-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.game-card { gap: 12px; }
+.game-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.game-card .level-chip { display: inline-flex; align-items: center; gap: 5px; }
+.game-card h2, .game-card h3 { font: 600 21px/1.25 var(--display); letter-spacing: -.01em; position: static; }
+.game-card h2 a { color: var(--ink); text-decoration: none; position: static; }
+.game-card h2 a::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.game-card h2 a:focus-visible { outline: none; }
+.game-card:has(a:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.game-card p { font-size: 15.5px; color: var(--muted); }
+.game-card .link-arrow { color: var(--accent); margin-top: 2px; }
+.game-card:hover .link-arrow .icon { transform: translateX(4px); }
+[dir="rtl"] .game-card .link-arrow .icon, [dir="rtl"] .game-box .btn-primary .icon { transform: scaleX(-1); }
+.game-card.is-soon { opacity: .85; }
+.game-card.is-soon .icon-tile { filter: grayscale(.6); }
+
+.game-box { padding: clamp(20px, 4vw, 36px); gap: 18px; scroll-margin-top: calc(var(--header-h) + 12px); }
+.game-box .btn[hidden], .game-box [hidden] { display: none; }
+.hack-intro { display: grid; gap: 18px; max-width: 68ch; }
+.hack-intro > p { font-size: 17.5px; }
+.hack-friend { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 12px; font-weight: 600;
+  background: var(--accent-soft); color: var(--ink); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+.hack-friend .icon { color: var(--accent); }
+.hack-question { display: grid; gap: 18px; }
+.hack-progress { height: 6px; border-radius: 6px; background: var(--bg-2); overflow: hidden; }
+.hack-progress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width .35s ease; }
+.hack-q-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 38px; }
+.hack-q { font: 600 clamp(22px, 3vw, 28px)/1.3 var(--display); letter-spacing: -.01em; outline: none; }
+.hack-opts { display: grid; gap: 10px; }
+.hack-opt { display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px 16px; text-align: start; cursor: pointer;
+  font: 500 16.5px/1.45 var(--sans); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  transition: border-color .2s, background-color .2s, transform .15s; }
+.hack-opt:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface)); }
+.hack-opt:active { transform: scale(.99); }
+.hack-opt.is-picked { border-color: var(--accent); background: var(--accent-soft); }
+.hack-key { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; font: 500 13px/1 var(--mono);
+  color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); }
+.hack-opt.is-picked .hack-key { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+
+.hack-result { display: grid; gap: 30px; }
+.hack-score { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(20px, 4vw, 40px); align-items: center; }
+.hack-ring { --size: clamp(150px, 26vw, 200px); width: var(--size); height: var(--size); border-radius: 50%; display: grid; place-content: center; text-align: center;
+  background: radial-gradient(closest-side, var(--surface) 78%, transparent 79% 100%), conic-gradient(var(--c) calc(var(--p) * 1%), var(--bg-2) 0);
+  animation: hack-pop .5s cubic-bezier(.2, .8, .2, 1); }
+.hack-num { font: 700 clamp(38px, 6vw, 52px)/1 var(--display); letter-spacing: -.02em; }
+.hack-unit { font-size: 14px; color: var(--muted); margin-top: 4px; }
+.hack-verdict { display: grid; gap: 10px; justify-items: start; }
+.hack-title { font: 700 clamp(28px, 4.4vw, 42px)/1.1 var(--display); letter-spacing: -.02em; outline: none; }
+.hack-text { font-size: 17.5px; max-width: 52ch; }
+.hack-vs { font-weight: 600; color: var(--accent); }
+.hack-share { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 260px); gap: 24px; align-items: center; padding: 22px; border-radius: 14px;
+  background: var(--bg-2); border: 1px solid var(--line); }
+.hack-share-text { display: grid; gap: 8px; }
+.hack-share h3, .hack-fixes h3 { font: 600 21px/1.25 var(--display); }
+.hack-share-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.hack-card-img { width: 100%; aspect-ratio: 1; border-radius: 12px; box-shadow: var(--shadow-lg); background: var(--navy); }
+.hack-fixes { display: grid; gap: 12px; }
+.hack-fixes ol { display: grid; gap: 10px; counter-reset: fix; }
+.hack-fixes li { counter-increment: fix; display: grid; gap: 4px; position: relative; padding: 14px 16px; padding-inline-start: 54px;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.hack-fixes li::before { content: counter(fix); position: absolute; inset-inline-start: 16px; top: 14px; width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center; font: 600 13px/1 var(--mono); background: var(--accent-soft); color: var(--accent); }
+.hack-tool { font-size: 15px; color: var(--muted); }
+@keyframes hack-pop { from { transform: scale(.85); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .hack-ring { animation: none; } .hack-progress span { transition: none; } }
+@media (max-width: 640px) {
+  .hack-score { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .hack-verdict { justify-items: center; }
+  .hack-share { grid-template-columns: 1fr; padding: 18px; }
+  .hack-card-img { max-width: 300px; justify-self: center; }
+}
+html[lang="ur"] :is(.hack-opt, .hack-q, .hack-title, .hack-fixes li) { line-height: 1.9; }

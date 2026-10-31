@@ -1,0 +1,7 @@
+# The games on /games/, in the order they are listed. Same in every language.
+# slug: the page address (/games/<slug>/, /de/games/<slug>/ ...). key: the prefix of the game's text in _data/games.yml
+# and the name of its markup in _includes/games/<key>.html; its code is in assets/js/games.js.
+# mins: about how long one round takes. To add a game: one line here, its text in _data/games.yml (and the translations),
+# its markup, its code, and a page file per language (games/<slug>/index.html, ur/games/<slug>/index.html ...).
+- { key: hack, slug: how-hackable-are-you, icon: shield, mins: 2 }
+

@@ -1,0 +1,41 @@
+{%- comment -%}
+  The Games hub (/games/), in every language: a card for each game, then the ones on the way.
+  The list and order are in _data/game_list.yml, the text in _data/games.yml (English) and _data/<code>/games.yml.
+  Each game has its own page (_includes/pages/game.html).
+{%- endcomment -%}
+{%- assign G = D.games | default: site.data.games -%}
+{%- assign tok_n = "{n}" -%}
+<div class="wrap page games-page">
+  <header class="page-head">
+    <p class="eyebrow">{{ G.eyebrow }}</p>
+    <h1>{{ G.title }}</h1>
+    <p class="lede">{{ G.lede }}</p>
+    <p class="pill">{% include icon.html name="gamepad" px=15 %}<span>{{ G.private }}</span></p>
+  </header>
+  <ul class="game-cards">
+  {%- for g in site.data.game_list %}{% assign gt = g.key | append: "_title" %}{% assign gc = g.key | append: "_card" %}
+    <li class="card spot game-card">
+      <div class="game-card-top"><span class="icon-tile">{% include icon.html name=g.icon px=24 %}</span><span class="level-chip">{% include icon.html name="clock" px=13 %} {{ G.mins | replace: tok_n, g.mins }}</span></div>
+      <h2><a href="{{ L }}/games/{{ g.slug }}/">{{ G[gt] }}</a></h2>
+      <p>{{ G[gc] }}</p>
+      <span class="link-arrow" aria-hidden="true">{{ G.play }} {% include icon.html name="arrow" px=16 %}</span>
+    </li>
+  {%- endfor %}
+  </ul>
+  <section class="tool-group" aria-labelledby="soon-title">
+    <h2 id="soon-title">{{ G.soon_title }}</h2>
+    <ul class="game-cards">
+    {%- for s in G.soon %}
+      <li class="card card-dashed game-card is-soon">
+        <span class="icon-tile">{% include icon.html name=s.icon px=22 %}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+      </li>
+    {%- endfor %}
+    </ul>
+  </section>
+  <p class="muted tools-foot"><span>{{ G.idea }}</span> <a href="{{ L }}/#contact">{{ G.idea_link }}</a></p>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ItemList","name":{{ G.title | jsonify }},"itemListElement":[{% for g in site.data.game_list %}{% assign gt = g.key | append: "_title" %}{"@type":"ListItem","position":{{ forloop.index }},"name":{{ G[gt] | jsonify }},"url":{{ L | append: '/games/' | append: g.slug | append: '/' | absolute_url | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]}
+</script>

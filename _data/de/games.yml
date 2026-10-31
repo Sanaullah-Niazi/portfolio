@@ -1,0 +1,102 @@
+# Text of the Games section (/de/games/). Only change the text after the colon.
+
+eyebrow: "Spiele"
+title: "Sicherheitsspiele"
+lede: "Kurze, kostenlose Spiele, die zeigen, wie Hacker denken. In ein paar Minuten gespielt: Ergebnis teilen und Freunde herausfordern."
+private: "Kostenlos · Ohne Anmeldung · Läuft im Browser"
+crumbs: "Brotkrümelnavigation"
+play: "Spielen"
+mins: "{n} Min."
+soon_title: "Demnächst"
+soon:
+  - { icon: clock, title: "Daily Hack", text: "Jeden Tag ein neues Rätsel, für alle dasselbe. Knacken Sie es, halten Sie Ihre Serie und vergleichen Sie sich mit Freunden." }
+  - { icon: message, title: "Betrug oder nicht?", text: "Echt wirkende SMS, WhatsApp- und Bank-Nachrichten. Erkennen Sie den Betrug, bevor er Sie erkennt." }
+  - { icon: flask, title: "Trick the AI", text: "Ein Chatbot bewacht über 10 Level ein geheimes Passwort. Überreden Sie ihn, es zu verraten." }
+idea: "Eine Idee für ein Spiel?"
+idea_link: "Schreiben Sie mir"
+more: "Weitere Spiele"
+all_games: "Alle Spiele"
+how: "So funktioniert es"
+faq: "Häufige Fragen"
+nojs: "Dieses Spiel braucht JavaScript. Schalten Sie es ein, um zu spielen."
+
+hack_title: "Wie hackbar sind Sie?"
+hack_card: "11 kurze Fragen zu Ihren Alltagsgewohnheiten. Sie bekommen Ihren Hackbarkeits-Wert und einen witzigen Titel zum Teilen."
+hack_lede: "11 kurze Fragen zu Passwörtern, Handy und Nachrichten. Finden Sie heraus, wie leicht Sie zu hacken wären, holen Sie sich einen Titel zum Angeben und fordern Sie Ihre Freunde heraus."
+hack_private: "Ihre Antworten verlassen Ihren Browser nie"
+hack_intro: "Antworten Sie ehrlich, niemand sieht Ihre Antworten, nicht einmal ich. Am Ende bekommen Sie Ihren Hackbarkeits-Wert von 0 % (Hacker geben auf) bis 100 % (Hacker sagen danke) und die drei Verbesserungen, die Ihnen am meisten bringen."
+hack_start: "Test starten"
+hack_q_of: "Frage {n} von {total}"
+hack_back: "Zurück"
+hack_friend: "Ihr Freund ist zu {score} % hackbar. Schaffen Sie es besser?"
+hack_best: "Ihr bisher bestes Ergebnis: {score} % hackbar"
+hack_label: "hackbar"
+hack_you_are: "Sie sind"
+hack_fixes: "Ihre wichtigsten Verbesserungen"
+hack_fixes_none: "Nichts zu verbessern. Ehrlich, zeigen Sie es Ihren Freunden."
+hack_try_tool: "Ausprobieren:"
+hack_share_title: "Ergebnis teilen"
+hack_share_hint: "Schicken Sie es an Freunde und finden Sie heraus, wer am leichtesten zu hacken ist."
+hack_share: "Teilen"
+hack_download: "Bild speichern"
+hack_copy: "Link kopieren"
+hack_copied: "Link kopiert"
+hack_retake: "Noch einmal"
+hack_beat: "Sie haben Ihren Freund geschlagen ({score} %)!"
+hack_lost: "Diese Runde geht an Ihren Freund ({score} %). Verbessern Sie ein paar Dinge und versuchen Sie es noch einmal."
+hack_tie: "Unentschieden mit Ihrem Freund ({score} %)."
+hack_share_text: "Ich bin zu {score} % hackbar: {title} {emoji} Wie hackbar sind Sie? Machen Sie den 2-Minuten-Test:"
+hack_card_cta: "Zum Test"
+hack_card_url: "sanaullahniazi.com/games"
+hack_questions:
+  - q: "Wie viele Ihrer Konten haben dasselbe Passwort?"
+    a: ["Keins, jedes Konto hat sein eigenes", "Ein paar", "Die meisten", "Ein Passwort für alles"]
+    fix: "Geben Sie jedem Konto ein eigenes Passwort. Ein Passwort-Manager merkt sie sich für Sie, Sie brauchen dann nur noch ein starkes Master-Passwort."
+  - q: "Nutzen Sie die Zwei-Faktor-Anmeldung (Code per SMS oder Authenticator-App) für E-Mail und WhatsApp?"
+    a: ["Ja, bei allen wichtigen Konten", "Bei manchen", "Was ist das?"]
+    fix: "Schalten Sie die Zwei-Faktor-Anmeldung für E-Mail, WhatsApp und Bank ein. Selbst mit Ihrem gestohlenen Passwort kommt dann niemand hinein."
+  - q: "Ihr wichtigstes Passwort sieht am ehesten so aus:"
+    a: ["Ein langer Satz wie mango-fluss-tiger-wolke", "So etwas wie P@ssw0rt!", "Name und Geburtsjahr, wie Anna1998", "123456 oder passwort"]
+    fix: "Nutzen Sie eine lange Passphrase aus vier oder mehr zufälligen Wörtern. Namen, Geburtsjahre und Sonderzeichen statt Buchstaben probieren Angreifer zuerst."
+  - q: "Eine SMS sagt: „Ihr Paket wird zurückgehalten, zahlen Sie hier 1,99 €“ und enthält einen Link. Sie..."
+    a: ["Ignorieren sie und schauen in der App des Paketdienstes nach", "Öffnen den Link, nur um zu sehen", "Zahlen, sind ja nur 1,99 €"]
+    fix: "Zahlen oder melden Sie sich nie über einen Link in einer unerwarteten Nachricht an. Öffnen Sie die offizielle App oder tippen Sie die Adresse selbst ein."
+  - q: "Jemand ruft „von Ihrer Bank“ an und fragt nach dem Code, den Sie gerade per SMS bekommen haben."
+    a: ["Auflegen, Banken fragen nie danach", "Erst einen Beweis verlangen, wer dran ist", "Vorlesen, klingt ja offiziell"]
+    fix: "Geben Sie einen Einmal-Code nie weiter, auch nicht an jemanden, der Ihren Namen und Ihre Kontodaten kennt. Dieser Code ist der Schlüssel zu Ihrem Konto."
+  - q: "Im kostenlosen WLAN im Café oder am Flughafen..."
+    a: ["Nutze ich für alles Private mobile Daten oder ein VPN", "Surfe ich, aber ohne Online-Banking", "Mache ich alles, auch Banking"]
+    fix: "Nutzen Sie im öffentlichen WLAN für Banking und Anmeldungen mobile Daten, und installieren Sie nichts, wenn ein Hotspot Sie dazu auffordert."
+  - q: "Ihr Handy meldet „Update verfügbar“. Sie..."
+    a: ["Installieren es am selben Tag", "Tippen ein paar Wochen lang auf Später", "Tippen für immer auf Später"]
+    fix: "Installieren Sie Updates so bald wie möglich. Die meisten schließen Sicherheitslücken, die Angreifer schon kennen."
+  - q: "Woher installieren Sie Apps?"
+    a: ["Nur aus dem offiziellen Play Store oder App Store", "Meist aus dem Store, manchmal eine APK, die mir jemand schickt", "Von da, wo es die kostenlose oder gemoddete Version gibt"]
+    fix: "Installieren Sie Apps nur aus dem offiziellen Store. Gemoddete Apps und APKs aus Chats sind einer der einfachsten Wege zu Spyware."
+  - q: "Ihr Social-Media-Profil zeigt..."
+    a: ["Sehr wenig, und es ist privat", "Ein paar Fotos, nur für Freunde", "Geburtstag, Schule, Name des Haustiers und Telefonnummer, alles öffentlich"]
+    fix: "Stellen Sie Ihr Profil auf privat und verbergen Sie Geburtstag, Schule und Haustiernamen: Das sind typische Sicherheitsfragen. Entfernen Sie vor dem Posten den versteckten Standort aus Fotos."
+  - q: "Wenn Ihr Handy heute gestohlen würde..."
+    a: ["Es ist mit PIN oder Fingerabdruck gesperrt und gesichert", "Es ist gesperrt, aber nichts ist gesichert", "Es hat gar keine Bildschirmsperre"]
+    fix: "Richten Sie eine Bildschirmsperre ein (eine PIN mit mindestens sechs Ziffern) und schalten Sie Backups ein, dann ist ein verlorenes Handy nur ein verlorenes Handy."
+  - q: "Haben Sie schon einmal geprüft, ob Ihr Passwort bei einem Datenleck veröffentlicht wurde?"
+    a: ["Ja, und ich habe die betroffenen geändert", "Nein, würde ich aber gern", "Noch nie davon gehört"]
+    fix: "Prüfen Sie, ob Ihre Passwörter schon in einer Leak-Liste stehen, und ändern Sie diese. Geleakte Passwörter werden innerhalb von Tagen auf allen Seiten ausprobiert."
+hack_results:
+  - { max: 14, emoji: "🥷", title: "Cyber-Ninja", text: "Hacker sehen Sie an, seufzen und suchen sich jemand Leichteren. Sie gehören zur Spitze." }
+  - { max: 34, emoji: "🛡️", title: "Menschliche Firewall", text: "Solide Gewohnheiten mit ein paar kleinen Lücken. Schließen Sie sie, und Sie sind unantastbar." }
+  - { max: 54, emoji: "🍀", title: "Bisher Glück gehabt", text: "Noch ist nichts passiert, aber Glück ist kein Sicherheitskonzept. Ein paar Verbesserungen bringen viel." }
+  - { max: 74, emoji: "🍪", title: "Lieblingssnack der Hacker", text: "Angreifer hätten ihre Freude an Ihnen. Die gute Nachricht: Die Verbesserungen unten dauern Minuten, nicht Tage." }
+  - { max: 100, emoji: "🚨", title: "Wandelndes Datenleck", text: "Ihre Konten sind ein offenes Buffet. Fangen Sie heute mit der ersten Verbesserung an und arbeiten Sie sich durch die Liste." }
+hack_info:
+  about:
+    - "Dieses Quiz prüft die Alltagsgewohnheiten, die über die meisten echten Hacks entscheiden: wiederverwendete und schwache Passwörter, fehlende Zwei-Faktor-Anmeldung, Betrugslinks und -anrufe, veraltete Software, inoffizielle Apps und zu viel Preisgegebenes. Jede Antwort bringt Punkte, und Ihr Wert zeigt, wie viele Risikopunkte Sie vom Maximum gesammelt haben."
+    - "Angreifer brechen selten mit cleverem Code ein. Die meisten Konten werden mit einem geleakten Passwort, einem falschen Link oder einem Anruf übernommen, der nach einem Code fragt. Deshalb zählen kleine Gewohnheiten mehr als teure Tools."
+    - "Ihre Antworten werden nur auf dieser Seite in Ihrem Browser verwendet. Nichts wird gesendet oder gespeichert, außer Ihrem besten Ergebnis, das auf Ihrem eigenen Gerät bleibt."
+  faq:
+    - q: "Werden meine Daten irgendwohin gesendet?"
+      a: "Nein. Das Quiz läuft vollständig in Ihrem Browser. Ihre Antworten werden nie gesendet, nur Ihr bestes Ergebnis bleibt auf Ihrem Gerät, damit Sie es später schlagen können."
+    - q: "Wie wird der Wert berechnet?"
+      a: "Jede Antwort bringt 0 bis 3 Risikopunkte, je nachdem, wie oft diese Gewohnheit zu echten Kontoübernahmen führt. Ihr Wert ist Ihre Punktzahl in Prozent des Maximums: 0 % ist perfekt, 100 % das größtmögliche Risiko."
+    - q: "Wie senke ich meinen Wert schnell?"
+      a: "Schalten Sie die Zwei-Faktor-Anmeldung für E-Mail und WhatsApp ein, verwenden Sie Passwörter nicht mehrfach und geben Sie nie Einmal-Codes weiter. Diese drei Schritte verhindern die meisten Kontoübernahmen."
