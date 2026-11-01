@@ -30,6 +30,7 @@ nav_tools: 工具
 nav_games: 游戏
 nav_roadmaps: 学习路线
 nav_news: 安全新闻
+nav_scholarships: 奖学金
 nav_contact: 联系
 
 btn_cv: 下载简历
@@ -95,6 +96,8 @@ start_rm_title: "学习路线"
 start_rm_text: "通往网络安全、AI 和数据领域的分步路线，附免费资源，每个阶段都有一个项目。"
 start_sn_title: "安全新闻"
 start_sn_text: "来自可信来源的今日安全头条，以及每日简报。"
+start_so_title: "安全方向奖学金"
+start_so_text: "安全方向的资助博士、硕士职位、奖学金和研究员项目，每日更新。"
 all_projects_back: 全部项目
 filter_label: 按主题筛选：
 filter_all: 全部
@@ -197,6 +200,86 @@ sn_about: 标题每天从下列来源自动收集一次。每条标题下的简�
 sn_kev_source: 被利用漏洞列表来自 CISA 的“已知被利用漏洞”（KEV）目录。
 sn_in_english: 新闻内容以英文显示，与来源发布的原文一致。
 sn_empty: 下一次每日更新后，第一批标题将显示在这里。
+# Security scholarships page (/scholarships/)
+so_eyebrow: 奖学金与博士职位
+so_page_title: 安全方向奖学金、博士和硕士职位
+so_lede: 各类安全方向的资助博士和硕士名额、奖学金和研究员项目，从网络与系统安全到 AI 与大模型安全、隐私和密码学。每天从可信来源收集，每条都链接到原始招聘信息。
+so_stat_open: 正在开放
+so_stat_programs: 每年开放的大型项目
+so_stat_sources: 每天检查的来源
+so_daily: 每日更新
+so_open_title: 正在开放
+so_open_lede: 来自全球大学和研究实验室的最新招聘。截止日期已过的会自动移除。
+so_filters: 筛选机会
+so_search: 搜索
+so_search_ph: "搜索：LLM、cryptography、Germany…"
+so_any: 全部
+so_f_level: 类型
+so_f_region: 地区
+so_f_field: 方向
+so_f_deadline: 截止日期
+so_f_sort: 排序
+so_dl_30: 30 天内截止
+so_dl_90: 90 天内截止
+so_dl_stated: 有明确截止日期
+so_sort_deadline: 截止日期，最近的在前
+so_sort_new: 最新发布在前
+so_reset: 清除筛选
+so_shown_one: 个机会
+so_shown_many: 个机会
+so_posted: 发布于
+so_deadline: 截止日期
+so_closes_today: 今天截止
+so_closes_one: 还剩 1 天
+so_closes_many: "还剩 %n 天"
+so_rolling: 招满为止，请尽早申请。
+so_no_deadline: 招聘信息中没有截止日期，请查看原始页面。
+so_none_match: 没有符合这些筛选条件的机会。试试减少筛选，或看看下面的年度项目。
+so_empty: 下一次每日更新后，第一批机会将显示在这里。在此之前，可以先看下面的大型年度项目。
+so_level_phd: 博士
+so_level_masters: 硕士
+so_level_scholarship: 奖学金
+so_level_fellowship: 研究员项目
+so_level_postdoc: 博士后
+so_region_uk: 英国
+so_region_europe: 欧洲
+so_region_usa: 美国
+so_region_canada: 加拿大
+so_region_china: 中国大陆、香港、台湾
+so_region_asia: 亚洲
+so_region_middleeast: 中东
+so_region_oceania: 澳大利亚、新西兰
+so_region_africa: 非洲
+so_region_latam: 拉丁美洲
+so_region_global: 全球或未注明
+so_field_ai: AI 与大模型安全
+so_field_crypto: 密码学
+so_field_privacy: 隐私
+so_field_network: 网络安全
+so_field_cloud: 云安全
+so_field_systems: 软件与系统安全
+so_field_hardware: 硬件、物联网与信息物理系统
+so_field_forensics: 取证与威胁情报
+so_field_human: 人为因素与诈骗
+so_field_policy: 网络政策与风险
+so_field_general: 安全（综合）
+so_prog_title: 每年开放的大型项目
+so_prog_lede: 每年都会重新开放的知名奖学金和研究员项目。有些只面向安全方向；其他的面向所有专业，安全方向的学生同样可以申请。日期每年都会变化，请以官方页面为准。
+so_security_only: 仅限安全方向
+so_official: 官方页面
+so_link_checked: 链接检查于
+so_about_title: 这个列表是怎么来的
+so_about_1: 本网站上的一个小程序每天读取下列招聘网站和奖学金网站的公开订阅源（RSS），只保留与安全相关、且属于博士、硕士、奖学金、研究员项目或博士后的信息，从招聘信息中读取截止日期，并移除已经截止的条目。没有截止日期的条目会在 45 天后移除。
+so_about_2: 它只读取这些网站公开提供给所有人订阅的内容，并先检查每个网站对机器人的规定（robots.txt）。不会编造任何内容；每一条都链接到原始招聘信息。括号里的数字是每个来源当前开放的条目数量。
+so_limits_title: 它看不到什么
+so_limit_1: 只发布在教授个人主页、邮件列表或社交媒体上、从未出现在招聘网站上的职位。
+so_limit_2: 不提供订阅源或要求机器人不要读取的网站，例如 EURAXESS、LinkedIn，以及中国、日本和韩国的大多数国家级平台。对于这些，请使用下面的年度项目，并自行搜索这些网站。
+so_limit_3: 截止日期是从招聘信息的文字中读取的。如果写法比较特殊，可能会遗漏，所以请务必查看原始页面。
+so_limit_4: 方向和国家是根据招聘信息的用词推断的，所以偶尔可能归错类。
+so_check_note: 申请前请务必阅读原始招聘信息。资助、申请条件和截止日期由大学或资助方决定，而不是本网站。
+so_in_english: 招聘信息以英文显示，与来源发布的一致。
+so_suggest: 发现缺少的安全奖学金或好的来源？
+so_suggest_link: 告诉我
 
 contact_eyebrow: 联系
 contact_title: 联系我

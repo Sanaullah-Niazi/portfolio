@@ -30,6 +30,7 @@ nav_tools: Tools
 nav_games: Spiele
 nav_roadmaps: Lernpfade
 nav_news: Sicherheitsnews
+nav_scholarships: Stipendien
 nav_contact: Kontakt
 
 btn_cv: Lebenslauf herunterladen
@@ -95,6 +96,8 @@ start_rm_title: "Lern-Roadmaps"
 start_rm_text: "Schritt-für-Schritt-Wege in Cybersicherheit, KI und Daten, mit kostenlosen Ressourcen und einem Projekt pro Etappe."
 start_sn_title: "Sicherheitsnews"
 start_sn_text: "Die heutigen Sicherheitsmeldungen aus vertrauenswürdigen Quellen und eine kurze tägliche Zusammenfassung."
+start_so_title: "Stipendien in IT-Sicherheit"
+start_so_text: "Finanzierte PhD- und Masterstellen, Stipendien und Fellowships in IT-Sicherheit, täglich aktualisiert."
 all_projects_back: Alle Projekte
 filter_label: "Nach Thema filtern:"
 filter_all: Alle
@@ -197,6 +200,86 @@ sn_about: Die Schlagzeilen werden einmal am Tag automatisch aus den unten genann
 sn_kev_source: Die Liste der ausgenutzten Schwachstellen stammt aus dem Known-Exploited-Vulnerabilities-Katalog der CISA.
 sn_in_english: Die Nachrichten selbst erscheinen auf Englisch, so wie die Quellen sie veröffentlichen.
 sn_empty: Die ersten Schlagzeilen erscheinen hier nach der nächsten täglichen Aktualisierung.
+# Security scholarships page (/scholarships/)
+so_eyebrow: Stipendien und Promotionsstellen
+so_page_title: Stipendien, PhD- und Masterstellen in IT-Sicherheit
+so_lede: Finanzierte PhD- und Masterplätze, Stipendien und Fellowships in allen Bereichen der Sicherheit, von Cyber- und Netzwerksicherheit bis zu KI- und LLM-Sicherheit, Datenschutz und Kryptografie. Täglich aus vertrauenswürdigen Quellen gesammelt; jeder Eintrag verlinkt die Originalausschreibung.
+so_stat_open: gerade offen
+so_stat_programs: große jährliche Programme
+so_stat_sources: Quellen, täglich geprüft
+so_daily: Täglich aktualisiert
+so_open_title: Gerade offen
+so_open_lede: Neue Ausschreibungen von Universitäten und Forschungslaboren weltweit. Was abgelaufen ist, verschwindet automatisch.
+so_filters: Angebote filtern
+so_search: Suche
+so_search_ph: "Suche: LLM, Kryptografie, Germany, TU Delft…"
+so_any: Alle
+so_f_level: Art
+so_f_region: Wo
+so_f_field: Gebiet
+so_f_deadline: Frist
+so_f_sort: Sortieren
+so_dl_30: Endet in 30 Tagen
+so_dl_90: Endet in 90 Tagen
+so_dl_stated: Mit Frist
+so_sort_deadline: Frist, nächste zuerst
+so_sort_new: Neueste zuerst
+so_reset: Filter löschen
+so_shown_one: Angebot angezeigt
+so_shown_many: Angebote angezeigt
+so_posted: veröffentlicht
+so_deadline: Frist
+so_closes_today: endet heute
+so_closes_one: noch 1 Tag
+so_closes_many: "noch %n Tage"
+so_rolling: Offen, bis die Stelle besetzt ist. Bald bewerben.
+so_no_deadline: Keine Frist in der Ausschreibung. Bitte die Originalseite prüfen.
+so_none_match: Nichts passt zu diesen Filtern. Weniger Filter versuchen oder unten die jährlichen Programme ansehen.
+so_empty: Die ersten Angebote erscheinen hier nach der nächsten täglichen Aktualisierung. Bis dahin stehen unten die großen jährlichen Programme.
+so_level_phd: PhD
+so_level_masters: Master
+so_level_scholarship: Stipendium
+so_level_fellowship: Fellowship
+so_level_postdoc: Postdoc
+so_region_uk: Vereinigtes Königreich
+so_region_europe: Europa
+so_region_usa: USA
+so_region_canada: Kanada
+so_region_china: China, Hongkong, Taiwan
+so_region_asia: Asien
+so_region_middleeast: Naher Osten
+so_region_oceania: Australien, Neuseeland
+so_region_africa: Afrika
+so_region_latam: Lateinamerika
+so_region_global: Weltweit oder nicht angegeben
+so_field_ai: KI- und LLM-Sicherheit
+so_field_crypto: Kryptografie
+so_field_privacy: Datenschutz
+so_field_network: Netzwerksicherheit
+so_field_cloud: Cloud-Sicherheit
+so_field_systems: Software- und Systemsicherheit
+so_field_hardware: Hardware, IoT und cyber-physische Systeme
+so_field_forensics: Forensik und Threat Intelligence
+so_field_human: Mensch und Betrug
+so_field_policy: Cyberpolitik und Risiko
+so_field_general: Sicherheit, allgemein
+so_prog_title: Große Programme, die jedes Jahr öffnen
+so_prog_lede: Bekannte Stipendien und Fellowships, die jedes Jahr wiederkommen. Manche gibt es nur für Sicherheit; die anderen stehen allen Fächern offen, also auch Studierenden der IT-Sicherheit. Die Termine ändern sich jedes Jahr, daher bitte die offizielle Seite prüfen.
+so_security_only: Nur Sicherheit
+so_official: Offizielle Seite
+so_link_checked: Link geprüft am
+so_about_title: So entsteht diese Liste
+so_about_1: Jeden Tag liest ein kleines Programm dieser Website die öffentlichen Feeds der unten genannten Stellenbörsen und Stipendienseiten. Es behält nur Ausschreibungen zur Sicherheit, die eine PhD-, Master-, Stipendien-, Fellowship- oder Postdoc-Stelle sind, liest die Frist aus der Ausschreibung und entfernt alles, was abgelaufen ist. Ausschreibungen ohne Frist werden nach 45 Tagen entfernt.
+so_about_2: Es liest nur, was diese Seiten für alle zum Abonnieren veröffentlichen, und prüft vorher die Regeln jeder Seite für Bots (robots.txt). Nichts wird erfunden; jeder Eintrag verlinkt seine Originalausschreibung. Die Zahl in Klammern zeigt, wie viele offene Ausschreibungen aus jeder Quelle stammen.
+so_limits_title: Was sie nicht sieht
+so_limit_1: Ausschreibungen, die nur auf der Seite eines Professors, in einer Mailingliste oder in sozialen Medien stehen und nie eine Stellenbörse erreichen.
+so_limit_2: Seiten ohne Feed oder die Bots das Lesen untersagen, etwa EURAXESS, LinkedIn und die meisten nationalen Portale in China, Japan und Korea. Dafür die jährlichen Programme unten nutzen und selbst dort suchen.
+so_limit_3: Die Frist wird aus dem Text der Ausschreibung gelesen. Ist sie ungewöhnlich geschrieben, kann sie fehlen, daher immer die Originalseite prüfen.
+so_limit_4: Gebiet und Land werden aus den Worten der Ausschreibung abgeleitet, daher kann gelegentlich etwas falsch einsortiert sein.
+so_check_note: Vor der Bewerbung immer die Originalausschreibung lesen. Finanzierung, Voraussetzungen und Fristen legt die Universität oder der Geldgeber fest, nicht diese Website.
+so_in_english: Die Ausschreibungen werden auf Englisch angezeigt, wie ihre Quellen sie veröffentlichen.
+so_suggest: Fehlt ein Sicherheitsstipendium oder eine gute Quelle?
+so_suggest_link: Schreib mir
 
 contact_eyebrow: Kontakt
 contact_title: Kontakt aufnehmen

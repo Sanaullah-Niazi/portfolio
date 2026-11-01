@@ -30,6 +30,10 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Probe candidate feeds (temporary)
+        if: github.event_name == 'pull_request'
+        run: python3 .github/probe_feeds.py 'https://www.jobs.ac.uk/feeds/subject-areas/computer-sciences' 'https://www.jobs.ac.uk/feeds' 'https://www.jobs.ac.uk/feeds/type-roles/research.rss' 'https://www.jobs.ac.uk/feeds/type-roles/academic-or-research.rss' 'https://www.academictransfer.com/en/jobs/rss/' 'https://www.higheredjobs.com/rss/categoryFeed.cfm?catID=103' 'https://jobrxiv.org/feed/?post_type=job_listing' 'https://cra.org/ads/feed/' 'https://iacr.org/jobs/' 'https://opportunitydesk.org/?s=cyber+security&feed=rss2' 'https://www.scholars4dev.com/?s=cyber+security&feed=rss2' 'https://www.scholars4dev.com/?s=computer+science&feed=rss2' 'https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=phd+security' 'https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=studentship' 'https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=doctoral+cyber' 'https://scholarshipdb.net/rss' 'https://www.nature.com/naturecareers/rss' 'https://academicjobsonline.org/ajo/rss' 'https://www.jobbnorge.no/en/rss' 'https://main.hercjobs.org/jobs/?display=rss&keywords=cyber+security' 'https://jobs.nottingham.ac.uk/rss/rss.aspx?cat=600' 'https://www.academicpositions.com/feed/rss?field=computer-security-and-reliability' 'https://www.findamasters.com/robots.txt' 'https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=scholarship+cyber'
+
       - name: Collect the openings
         run: python3 scripts/security_opportunities.py ${{ github.event_name == 'pull_request' && '--report' || '' }}
 
