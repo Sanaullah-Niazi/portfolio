@@ -1,0 +1,52 @@
+# Updates the Security scholarships page (/scholarships/) once a day: collects security PhD and master's positions,
+# scholarships and fellowships from public feeds with scripts/security_opportunities.py, drops closed ones,
+# checks the links of the yearly programmes in _data/sec_programs.yml, and commits the result. "Deploy website"
+# then publishes it. Run it by hand any time from the Actions tab ("Security scholarships" > "Run workflow").
+# On a pull request that changes the script it only does a test run and prints what it found (nothing is saved).
+name: Security scholarships
+
+on:
+  schedule:
+    - cron: "41 3 * * *"   # every day at 03:41 UTC (08:41 in Pakistan)
+  workflow_dispatch:
+  pull_request:
+    paths: ["scripts/security_opportunities.py", "_data/sec_programs.yml", ".github/workflows/security-opportunities.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: security-opportunities-${{ github.event_name }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Collect the openings
+        run: python3 scripts/security_opportunities.py ${{ github.event_name == 'pull_request' && '--report' || '' }}
+
+      - name: Commit the update
+        if: github.event_name != 'pull_request'
+        run: |
+          git add _data/security_opportunities.json
+          if git diff --cached --quiet; then
+            echo "Nothing new."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update security scholarships"
+          git pull --rebase --quiet
+          git push
+
+      - name: Show the data (temporary, for the preview)
+        if: github.event_name == 'pull_request'
+        run: echo "JSONSTART"; cat _data/security_opportunities.json; echo "JSONEND"

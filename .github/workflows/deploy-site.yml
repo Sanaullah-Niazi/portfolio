@@ -1,6 +1,6 @@
 # Builds the website with Jekyll and uploads it to Cloudflare (cloudflare/wrangler.toml). The new version is live
 # within seconds of the upload, on every Cloudflare server at once, so there is no cache delay like on GitHub Pages.
-# Runs on every push to main, after the daily Security news update, or by hand from the Actions tab
+# Runs on every push to main, after the daily Security news and Scholarships updates, or by hand from the Actions tab
 # ("Deploy website" > "Run workflow"). It uses the same CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID secrets as
 # deploy-worker.yml. More in cloudflare/README.md.
 name: Deploy website
@@ -9,10 +9,11 @@ on:
   push:
     branches: [main]
     paths-ignore: ["worker/**", "mirrors/**", ".github/workflows/deploy-worker.yml"]
-  # The daily news commit is pushed by another workflow, which doesn't start this one on its own.
+  # The daily news and scholarship commits are pushed by other workflows, which don't start this one on their own.
   workflow_run:
-    workflows: ["Security news"]
+    workflows: ["Security news", "Security scholarships"]
     types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:

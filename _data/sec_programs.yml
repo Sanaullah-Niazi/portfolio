@@ -1,0 +1,367 @@
+# Big scholarship, fellowship and PhD programmes that open again every year, shown on /scholarships/ under the
+# daily list. Each link goes to the programme's own official page. scripts/security_opportunities.py opens every
+# link once a day; a link that fails three days running is hidden until it works again (check it and fix the url).
+# Dates change every year, so none are written here: the page sends people to the official page for this year's.
+#
+#   id:       unique, lowercase
+#   url:      the official page (keep it the first key after id; the daily check reads it)
+#   name:     the programme's own name
+#   by:       who runs or funds it
+#   where:    region id (uk, europe, usa, canada, china, asia, middleeast, oceania, africa, latam, global)
+#   levels:   any of masters, phd, postdoc, fellowship, scholarship
+#   security: true if it is only for security; false if it is open to all fields (security students can apply)
+#   note:     one plain sentence on who it is for (English)
+
+# --- Security only ---
+- id: sfs
+  url: https://sfs.opm.gov/
+  name: CyberCorps Scholarship for Service (SFS)
+  by: US National Science Foundation and Office of Personnel Management
+  where: usa
+  levels: [masters, phd, scholarship]
+  security: true
+  note: Pays tuition and a stipend for cybersecurity degrees at partner US universities, in return for working in US government cybersecurity after graduating. For US citizens.
+
+- id: cispa-phd
+  url: https://career.cispa.de/phd/
+  name: CISPA PhD positions
+  by: CISPA Helmholtz Center for Information Security
+  where: europe
+  levels: [phd]
+  security: true
+  note: Funded PhD positions at one of the largest security research centres in Europe, in Saarbrücken, Germany. Open to all nationalities.
+
+- id: mpi-sp
+  url: https://www.mpi-sp.org/
+  name: Max Planck Institute for Security and Privacy
+  by: Max Planck Society
+  where: europe
+  levels: [phd, postdoc]
+  security: true
+  note: Research institute in Bochum, Germany, that hires PhD students and postdocs in security, privacy and cryptography. Open positions are on its website.
+
+- id: cyberus
+  url: https://www.uni.lu/fstm-en/study-programs/erasmus-mundus-joint-master-in-cybersecurity/
+  name: CYBERUS Erasmus Mundus Joint Master in Cybersecurity
+  by: European Union (Erasmus Mundus) and partner universities
+  where: europe
+  levels: [masters, scholarship]
+  security: true
+  note: Two-year cybersecurity master's taught across several European universities, with EU scholarships for the best applicants.
+
+- id: ncsc-ace
+  url: https://www.ncsc.gov.uk/information/academic-centres-excellence-cyber-security-research
+  name: Academic Centres of Excellence in Cyber Security Research
+  by: UK National Cyber Security Centre
+  where: uk
+  levels: [phd]
+  security: true
+  note: The UK universities the NCSC recognises for cyber security research. A good list of where to look for funded security PhDs in the UK.
+
+- id: isc2-scholarships
+  url: https://www.iamcybersafe.org/s/scholarships
+  name: ISC2 Center for Cyber Safety and Education scholarships
+  by: ISC2 Center for Cyber Safety and Education
+  where: global
+  levels: [masters, scholarship]
+  security: true
+  note: Scholarships for students studying cybersecurity, including graduate and women's scholarships.
+
+- id: wicys
+  url: https://www.wicys.org/
+  name: Women in CyberSecurity (WiCyS)
+  by: WiCyS
+  where: usa
+  levels: [scholarship]
+  security: true
+  note: Runs scholarships, conference grants and training for women in cybersecurity.
+
+- id: otf-icf
+  url: https://www.opentech.fund/funds/information-controls-fellowship/
+  name: Information Controls Fellowship
+  by: Open Technology Fund
+  where: global
+  levels: [fellowship]
+  security: true
+  note: Paid research fellowships on internet censorship, surveillance and digital security, hosted by a partner organisation.
+
+# --- AI and computing (security research fits) ---
+- id: google-phd
+  url: https://research.google/programs-and-events/phd-fellowship/
+  name: Google PhD Fellowship
+  by: Google
+  where: global
+  levels: [phd, fellowship]
+  security: false
+  note: Supports PhD students doing research in computer science, including security and privacy. Students are nominated by their university.
+
+- id: msr-phd
+  url: https://www.microsoft.com/en-us/research/academic-program/phd-fellowship/
+  name: Microsoft Research PhD Fellowship
+  by: Microsoft Research
+  where: global
+  levels: [phd, fellowship]
+  security: false
+  note: Fellowship for PhD students in computing research areas, including security and privacy.
+
+- id: nvidia-fellowship
+  url: https://research.nvidia.com/graduate-fellowships
+  name: NVIDIA Graduate Fellowship
+  by: NVIDIA
+  where: global
+  levels: [phd, fellowship]
+  security: false
+  note: Funds PhD students working on computing research close to NVIDIA's areas, including AI.
+
+- id: apple-aiml
+  url: https://machinelearning.apple.com/work-with-us
+  name: Apple Scholars in AI/ML
+  by: Apple
+  where: global
+  levels: [phd, fellowship]
+  security: false
+  note: PhD fellowship for machine learning research, including privacy-preserving ML.
+
+- id: ellis-phd
+  url: https://ellis.eu/phd-postdoc
+  name: ELLIS PhD and Postdoc Program
+  by: European Laboratory for Learning and Intelligent Systems
+  where: europe
+  levels: [phd, postdoc]
+  security: false
+  note: One application for PhD places with top machine learning advisors across Europe; it includes robust, secure and trustworthy ML.
+
+- id: ercim
+  url: https://fellowship.ercim.eu/
+  name: ERCIM Alain Bensoussan Fellowship
+  by: European Research Consortium for Informatics and Mathematics
+  where: europe
+  levels: [postdoc, fellowship]
+  security: false
+  note: Postdoc fellowships at European research institutes in computer science, including security.
+
+- id: msca-dn
+  url: https://marie-sklodowska-curie-actions.ec.europa.eu/actions/doctoral-networks
+  name: Marie Skłodowska-Curie Doctoral Networks
+  by: European Commission
+  where: europe
+  levels: [phd]
+  security: false
+  note: Fully paid PhD positions in European research networks; many are on security, privacy and trustworthy AI. Open to every nationality.
+
+- id: mbzuai
+  url: https://mbzuai.ac.ae/
+  name: MBZUAI graduate scholarships
+  by: Mohamed bin Zayed University of Artificial Intelligence
+  where: middleeast
+  levels: [masters, phd, scholarship]
+  security: false
+  note: AI university in Abu Dhabi. Its master's and PhD students get a full scholarship and a monthly allowance, according to the university.
+
+- id: kaust
+  url: https://www.kaust.edu.sa/
+  name: KAUST graduate fellowship
+  by: King Abdullah University of Science and Technology
+  where: middleeast
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Admitted master's and PhD students in Saudi Arabia receive a fellowship covering tuition and living costs.
+
+# --- Government scholarships (all fields, security included) ---
+- id: chevening
+  url: https://www.chevening.org/scholarships/
+  name: Chevening Scholarships
+  by: UK Government (FCDO)
+  where: uk
+  levels: [masters, scholarship]
+  security: false
+  note: Fully funded one-year master's in the UK for future leaders from eligible countries, including Pakistan.
+
+- id: commonwealth
+  url: https://cscuk.fcdo.gov.uk/scholarships/
+  name: Commonwealth Scholarships
+  by: Commonwealth Scholarship Commission in the UK
+  where: uk
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Master's and PhD scholarships in the UK for people from eligible Commonwealth countries.
+
+- id: gates-cambridge
+  url: https://www.gatescambridge.org/
+  name: Gates Cambridge Scholarship
+  by: Gates Cambridge Trust
+  where: uk
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Full-cost scholarships for students from outside the UK to do a postgraduate degree at the University of Cambridge.
+
+- id: rhodes
+  url: https://www.rhodeshouse.ox.ac.uk/scholarships/
+  name: Rhodes Scholarship
+  by: Rhodes Trust
+  where: uk
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Postgraduate study at the University of Oxford for applicants from eligible countries.
+
+- id: daad
+  url: https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/
+  name: DAAD scholarship database
+  by: German Academic Exchange Service (DAAD)
+  where: europe
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Search every DAAD scholarship for master's and doctoral study in Germany by your country and subject.
+
+- id: erasmus-mundus
+  url: https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en
+  name: Erasmus Mundus master's catalogue
+  by: European Union
+  where: europe
+  levels: [masters, scholarship]
+  security: false
+  note: Every Erasmus Mundus joint master's with EU scholarships; search it for cybersecurity, privacy and AI programmes.
+
+- id: swiss-excellence
+  url: https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html
+  name: Swiss Government Excellence Scholarships
+  by: Swiss State Secretariat for Education, Research and Innovation
+  where: europe
+  levels: [phd, postdoc, scholarship]
+  security: false
+  note: Scholarships for foreign researchers to do a PhD or postdoc at a Swiss university.
+
+- id: eth-esop
+  url: https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html
+  name: ETH Zurich Excellence Scholarship & Opportunity Programme
+  by: ETH Zurich
+  where: europe
+  levels: [masters, scholarship]
+  security: false
+  note: Covers living and study costs for excellent master's students at ETH Zurich, including its cyber security master's.
+
+- id: eiffel
+  url: https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence
+  name: Eiffel Excellence Scholarship
+  by: French Ministry for Europe and Foreign Affairs
+  where: europe
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Scholarships for international master's and PhD students in France. Universities apply on the student's behalf.
+
+- id: si-scholarship
+  url: https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/
+  name: Swedish Institute Scholarships for Global Professionals
+  by: Swedish Institute
+  where: europe
+  levels: [masters, scholarship]
+  security: false
+  note: Master's scholarships in Sweden for professionals from eligible countries.
+
+- id: stipendium-hungaricum
+  url: https://stipendiumhungaricum.hu/
+  name: Stipendium Hungaricum
+  by: Government of Hungary
+  where: europe
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Government scholarships for international students in Hungary, for countries with an agreement, including Pakistan.
+
+- id: fulbright
+  url: https://foreign.fulbrightonline.org/
+  name: Fulbright Foreign Student Program
+  by: US Department of State
+  where: usa
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Graduate study in the United States for students from abroad. Apply through the Fulbright commission or US embassy in your country.
+
+- id: nsf-grfp
+  url: https://www.nsfgrfp.org/
+  name: NSF Graduate Research Fellowship
+  by: US National Science Foundation
+  where: usa
+  levels: [phd, fellowship]
+  security: false
+  note: Research fellowship for early graduate students in the US, including computer and information security. For US citizens and permanent residents.
+
+- id: knight-hennessy
+  url: https://knight-hennessy.stanford.edu/
+  name: Knight-Hennessy Scholars
+  by: Stanford University
+  where: usa
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Fully funded graduate study at Stanford for students from any country.
+
+- id: csc
+  url: https://www.campuschina.org/
+  name: Chinese Government Scholarship
+  by: China Scholarship Council
+  where: china
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Official site for Chinese Government scholarships for international master's and PhD students in China.
+
+- id: hkpfs
+  url: https://cerg1.ugc.edu.hk/hkpfs/index.html
+  name: Hong Kong PhD Fellowship Scheme
+  by: Research Grants Council of Hong Kong
+  where: china
+  levels: [phd, fellowship]
+  security: false
+  note: PhD fellowships at Hong Kong universities for students from anywhere.
+
+- id: mext
+  url: https://www.studyinjapan.go.jp/en/planning/scholarships/mext-scholarships/
+  name: MEXT Japanese Government Scholarship
+  by: Government of Japan
+  where: asia
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Japanese Government scholarships for research students and graduate degrees in Japan. Apply through the Japanese embassy or a university.
+
+- id: gks
+  url: https://www.studyinkorea.go.kr/
+  name: Global Korea Scholarship
+  by: Government of Korea (NIIED)
+  where: asia
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Korean Government scholarships for international graduate students in Korea.
+
+- id: singa
+  url: https://www.a-star.edu.sg/Scholarships/for-graduate-studies/singapore-international-graduate-award-singa
+  name: Singapore International Graduate Award (SINGA)
+  by: A*STAR, NUS, NTU and SUTD
+  where: asia
+  levels: [phd, scholarship]
+  security: false
+  note: PhD scholarships in Singapore for international students in science and engineering.
+
+- id: hec
+  url: https://www.hec.gov.pk/english/scholarshipsgrants/Pages/default.aspx
+  name: HEC scholarships
+  by: Higher Education Commission, Pakistan
+  where: asia
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Scholarships for Pakistani students for master's and PhD study in Pakistan and abroad.
+
+- id: turkiye
+  url: https://www.turkiyeburslari.gov.tr/
+  name: Türkiye Scholarships
+  by: Government of Türkiye
+  where: middleeast
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Fully funded government scholarships for international students in Türkiye.
+
+- id: australia-awards
+  url: https://www.dfat.gov.au/people-to-people/australia-awards
+  name: Australia Awards
+  by: Australian Government (DFAT)
+  where: oceania
+  levels: [masters, phd, scholarship]
+  security: false
+  note: Australian Government scholarships for people from eligible developing countries to study in Australia.
