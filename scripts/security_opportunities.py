@@ -350,7 +350,10 @@ def parse_iacr(raw):
         if not link.startswith("http"):
             link = "https://iacr.org/jobs/item/" + n
         body = (plain(place.group(1)) + ". " if place else "") + (plain(desc.group(1)) if desc else "")
-        rows.append((title.group(1), link, posted.group(1) if posted else "", body))
+        name = plain(title.group(1))
+        if place and len(name.split()) <= 3:  # "PhD student" alone says little; add who is hiring
+            name += " · " + plain(place.group(1)).split(";")[0].split(",")[0].strip()
+        rows.append((name, link, posted.group(1) if posted else "", body))
     return rows[:PER_SOURCE]
 
 
