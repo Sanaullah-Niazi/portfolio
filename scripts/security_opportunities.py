@@ -56,7 +56,7 @@ SOURCES = [
      "url": "https://api.daad.de/api/feeds/rss/en/phd.xml"},
     # Every job at the Max Planck institutes (MPI for Security and Privacy, Software Systems, Informatics...).
     {"id": "mpg", "name": "Max Planck Society", "home": "https://www.mpg.de/career", "country": "Germany",
-     "url": "https://www.mpg.de/feeds/jobs.rss"},
+     "url": "https://www.mpg.de/feeds/jobs.rss", "title_only": True},
     {"id": "scholars4dev", "name": "Scholars4Dev", "home": "https://www.scholars4dev.com", "url": "https://www.scholars4dev.com/feed/"},
     {"id": "opportunitydesk", "name": "Opportunity Desk", "home": "https://opportunitydesk.org", "url": "https://opportunitydesk.org/feed/"},
 ]
@@ -75,22 +75,20 @@ MADGEX_SEARCHES = ["cybersecurity", "cryptography", "privacy", "postdoc security
 for _id, _name, _home, _c in MADGEX:
     for _q in MADGEX_SEARCHES:
         SOURCES.append({"id": _id + "-" + re.sub(r"[^a-z]+", "-", _q), "name": _name, "home": _home, "country": _c,
-                        "url": _home + "/jobsrss/?keywords=" + Q(_q)})
+                        "url": _home + "/jobsrss/?keywords=" + Q(_q), "title_only": True})
 # Swedish universities publish every vacancy (PhD and postdoc posts included) as a feed on Varbi.
 VARBI = [("kth", "KTH Royal Institute of Technology"), ("lu", "Lund University"), ("uu", "Uppsala University"),
          ("umu", "Umeå University"), ("su", "Stockholm University"), ("kau", "Karlstad University"),
-         ("bth", "Blekinge Institute of Technology"), ("ltu", "Luleå University of Technology"), ("oru", "Örebro University"),
-         ("mdu", "Mälardalen University"), ("hh", "Halmstad University"), ("lnu", "Linnaeus University"),
-         ("his", "University of Skövde"), ("miun", "Mid Sweden University"), ("sh", "Södertörn University")]
+         ("hh", "Halmstad University"), ("miun", "Mid Sweden University")]
 for _id, _name in VARBI:
     SOURCES.append({"id": "varbi-" + _id, "name": _name, "home": f"https://{_id}.varbi.com/en/", "country": "Sweden",
-                    "url": f"https://{_id}.varbi.com/en/what:rssfeed/"})
+                    "url": f"https://{_id}.varbi.com/en/what:rssfeed/", "title_only": True})
 # Every vacancy at the University of Cambridge, PhD studentships included.
 SOURCES.append({"id": "cambridge", "name": "University of Cambridge Jobs", "home": "https://www.jobs.cam.ac.uk",
-                "country": "United Kingdom", "url": "https://www.jobs.cam.ac.uk/job/?format=rss"})
+                "country": "United Kingdom", "url": "https://www.jobs.cam.ac.uk/job/?format=rss", "title_only": True})
 for _q in JOBRXIV_SEARCHES:  # jobRxiv: research jobs posted by the labs themselves
     SOURCES.append({"id": "jobrxiv-" + _q, "name": "jobRxiv", "home": "https://jobrxiv.org",
-                    "url": "https://jobrxiv.org/?feed=job_feed&search_keywords=" + Q(_q)})
+                    "url": "https://jobrxiv.org/?feed=job_feed&search_keywords=" + Q(_q), "title_only": True})
 for _q in THE_SEARCHES:
     SOURCES.append({"id": "the-" + re.sub(r"[^a-z]+", "-", _q.lower()), "name": "Times Higher Education Jobs",
                     "home": "https://www.timeshighereducation.com/unijobs/",
@@ -135,7 +133,7 @@ FIELDS = [
 ]
 FIELD_RES = [(f, re.compile(p, re.I)) for f, p in FIELDS]
 SECURITY_RE = re.compile(
-    r"cyber|\bsecur(e|ity|ing)\b|cryptograph|cryptolog|privacy|\bforensic|malware|intrusion|side[- ]channel|"
+    r"cyber|\bsecurity\b|cryptograph|cryptolog|privacy|\bforensic|malware|intrusion|side[- ]channel|"
     r"adversarial|prompt injection|post[- ]quantum|homomorphic|zero[- ]knowledge|trustworthy (AI|ML|machine)|AI safety|"
     r"vulnerabilit|threat (detection|intelligence|model)|attack (detection|surface)|\bfuzz|penetration test|anonymi[sz]|"
     r"authentication|access control|blockchain|digital trust|resilien(t|ce) (system|infrastructure)|"
@@ -153,7 +151,7 @@ NOT_SECURITY_RE = re.compile(
 LEVELS = [
     ("masters", r"\bmaster'?s?\b|\bM\.?Sc\b|\bMSc\b|\bMEng\b|\bM\.?S\.? (degree|program|in)\b|\bMRes\b|\bLL\.?M\b"),
     ("postdoc", r"post[- ]?doc|postdoctoral|postdoktor|research fellow|research associate"),
-    ("phd", r"\bPh\.?\s?D\b|doctoral|doctorate|\bDPhil\b|studentship|\bEngD\b|\bDoktorand|graduate research assistant"),
+    ("phd", r"\bPh\.?\s?D(s|'s)?\b|doctoral|doctorate|\bDPhil\b|studentship|\bEngD\b|\bDoktorand|graduate research assistant"),
     ("fellowship", r"fellowship|\bfellows?\b"),
     ("scholarship", r"scholarship|bursary|bursaries|stipend|grant for|grants for|tuition (waiver|fee)|award for (student|stud)|funding for (student|stud)|funded (place|position)"),
 ]
@@ -309,7 +307,7 @@ def classify(title, body, source):
     """(level, fields, region, country) for a posting, or None if it isn't a security PhD/master's/scholarship/fellowship."""
     text = title + " \n " + body
     if not source.get("all_security"):  # IACR lists only cryptology and security positions
-        if not SECURITY_RE.search(title) and not SECURITY_RE.search(body[:600]):
+        if not SECURITY_RE.search(title) and (source.get("title_only") or not SECURITY_RE.search(body[:600])):
             return None
         if NOT_SECURITY_RE.search(title) or (not SECURITY_RE.search(NOT_SECURITY_RE.sub("", text))):
             return None
@@ -434,6 +432,17 @@ def key_title(title):
     return re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
 
 
+def title_words(title):
+    return frozenset(w for w in key_title(title).split() if len(w) > 2 and w not in ("the", "and", "for", "with"))
+
+
+def same_posting(a, b):
+    """Two boards often carry one posting under titles in a different order ("University X: Postdoc in Y" and
+    "Postdoc in Y | University X"); the same words, or one title's words all inside the other's, mean the same posting."""
+    small, big = (a, b) if len(a) <= len(b) else (b, a)
+    return len(small) >= 5 and small <= big
+
+
 def collect(feed_dir, now, report):
     today = now.date()
     found, status = [], {}
@@ -498,7 +507,7 @@ def merge(found, old_items, now, complete=()):
     """New copies first (their text follows the feed), then yesterday's, minus anything closed or stale.
     `complete` names sources that were read in full today: their postings that are gone from the source are dropped."""
     today = now.date()
-    seen_u, seen_t, items = set(), set(), []
+    seen_u, seen_t, seen_w, items = set(), set(), [], []
     # A closing date found on the posting's own page yesterday is kept when the feed copy still has none.
     earlier = {key_url(o["url"]): o for o in old_items}
     for it in found:
@@ -506,8 +515,8 @@ def merge(found, old_items, now, complete=()):
         if o and not it["deadline"] and o.get("page_checked"):
             it["deadline"], it["page_checked"] = o["deadline"], o["page_checked"]
     for it in found + [o for o in old_items if o["source"] not in complete]:
-        ku, kt = key_url(it["url"]), key_title(it["title"])
-        if ku in seen_u or kt in seen_t:
+        ku, kt, tw = key_url(it["url"]), key_title(it["title"]), title_words(it["title"])
+        if ku in seen_u or kt in seen_t or any(same_posting(tw, w) for w in seen_w):
             continue
         posted = dt.date.fromisoformat(it["posted"])
         if posted > today + dt.timedelta(days=2) or (today - posted).days > MAX_AGE_DAYS:
@@ -519,6 +528,7 @@ def merge(found, old_items, now, complete=()):
             continue  # no closing date and old: probably filled, so it goes
         seen_u.add(ku)
         seen_t.add(kt)
+        seen_w.append(tw)
         items.append(it)
     items.sort(key=lambda i: (i["deadline"] or "9999", i["posted"]))
     return items[:MAX_ITEMS]
