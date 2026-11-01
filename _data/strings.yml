@@ -32,6 +32,7 @@ nav_tools: Tools
 nav_games: Games
 nav_roadmaps: Roadmaps
 nav_news: Security news
+nav_scholarships: Scholarships
 nav_contact: Contact
 
 btn_cv: Download CV
@@ -97,6 +98,8 @@ start_rm_title: "Learning roadmaps"
 start_rm_text: "Step-by-step paths into cybersecurity, AI and data, with free resources and a project for each stage."
 start_sn_title: "Security news"
 start_sn_text: "Today's security headlines from trusted sources, and a short daily brief."
+start_so_title: "Security scholarships"
+start_so_text: "Funded PhD and master's positions, scholarships and fellowships in security, updated daily."
 all_projects_back: All projects
 filter_label: "Filter by topic:"
 filter_all: All
@@ -199,6 +202,112 @@ sn_about: Headlines are collected automatically once a day from the sources belo
 sn_kev_source: The list of exploited flaws comes from the CISA Known Exploited Vulnerabilities catalog.
 sn_in_english: The news itself is shown in English, as the sources publish it.
 sn_empty: The first headlines will appear here after the next daily update.
+# Security scholarships page (/scholarships/), _includes/pages/scholarships.html and assets/js/scholarships.js.
+so_eyebrow: Scholarships and PhD positions
+so_page_title: Security scholarships, PhD and master's positions
+so_lede: Funded PhD and master's places, scholarships and fellowships in every kind of security, from cyber and network security to AI and LLM security, privacy and cryptography. Collected every day from trusted sources; each one links to the original posting.
+so_stat_open: open right now
+so_stat_programs: big yearly programmes
+so_stat_sources: sources checked daily
+so_daily: Updated every day
+so_open_title: Open right now
+so_open_lede: New postings from universities and research labs around the world. Anything whose deadline has passed is removed automatically.
+so_filters: Filter the opportunities
+so_search: Search
+so_search_ph: "Search: LLM, cryptography, Germany, TU Delft…"
+so_any: Any
+so_f_level: Type
+so_f_region: Where
+so_f_country: Country
+so_apply: Details and apply
+so_on: on
+so_view_posting: "Open the posting"
+so_is_official: "official page"
+so_is_listing: "listing site (no official link found)"
+so_seen: Still listed by the source on
+so_opens_original: Opens the original posting
+so_f_field: Area
+so_f_deadline: Deadline
+so_f_sort: Sort by
+so_dl_30: Closes within 30 days
+so_dl_90: Closes within 90 days
+so_dl_stated: Has a deadline
+so_sort_deadline: Deadline, soonest first
+so_sort_new: Newest first
+so_reset: Clear filters
+so_shown_one: opportunity shown
+so_shown_many: opportunities shown
+so_posted: posted
+so_deadline: Deadline
+so_closes_today: closes today
+so_closes_one: 1 day left
+so_closes_many: "%n days left"
+so_rolling: Open until filled. Apply soon.
+so_no_deadline: No deadline in the posting. Check the original page.
+so_none_match: Nothing matches these filters. Try fewer filters, or look at the yearly programmes below.
+so_empty: The first opportunities will appear here after the next daily update. Meanwhile, the big yearly programmes are below.
+so_level_phd: PhD
+so_level_masters: Master's
+so_level_scholarship: Scholarship
+so_level_fellowship: Fellowship
+so_level_postdoc: Postdoc
+so_region_uk: United Kingdom
+so_region_europe: Europe
+so_region_usa: United States
+so_region_canada: Canada
+so_region_china: China, Hong Kong, Taiwan
+so_region_asia: Asia
+so_region_middleeast: Middle East
+so_region_oceania: Australia, New Zealand
+so_region_africa: Africa
+so_region_latam: Latin America
+so_region_global: Worldwide or not stated
+so_field_ai: AI and LLM security
+so_field_crypto: Cryptography
+so_field_privacy: Privacy
+so_field_network: Network security
+so_field_cloud: Cloud security
+so_field_systems: Software and systems security
+so_field_hardware: Hardware, IoT and cyber-physical
+so_field_forensics: Forensics and threat intelligence
+so_field_human: Human factors and scams
+so_field_policy: Cyber policy and risk
+so_field_general: Security, general
+so_prog_title: Big programmes that open every year
+so_prog_lede: Well-known scholarships and fellowships that come back each year. Some are only for security; the others are open to every subject, so security students can apply too. Dates change every year, so check the official page.
+so_security_only: Security only
+so_official: Official page
+so_link_checked: link checked
+so_dir_title: "Where to look yourself"
+so_dir_lede: "No single website lists every funded position. These are the official sites and the biggest databases to check by hand. Some of them don't allow automatic reading, so their postings can't appear in the daily list above."
+so_dir_pakistan: "From Pakistan"
+so_dir_databases: "PhD, research job and scholarship databases"
+so_dir_countries: "Official country portals"
+so_dir_security: "Security and cryptography"
+so_badge_official: "Official"
+so_badge_listing: "Listing site"
+so_terms_title: "Words to search for"
+so_terms_text: "Funded positions are called many things. Search for these together with \"security\", \"cyber\", \"privacy\" or \"cryptography\":"
+so_verify_title: "Before you apply: is it real?"
+so_verify_1: "Find the same opening on the university's, lab's or funder's own website. A LinkedIn post or a listing site is not the source."
+so_verify_2: "Apply only through the university's own admissions or job portal."
+so_verify_3: "Check what is paid: tuition, a monthly stipend or salary, insurance, travel. A place without funding is not a scholarship."
+so_verify_4: "Check that your nationality and degree are accepted. Some awards are only for citizens."
+so_verify_5: "Check the deadline on the original page, not on a copy."
+so_verify_6: "Never pay anyone to \"guarantee\" a scholarship, admission or selection. Real funders don't ask for that."
+so_about_title: How this list works
+so_about_1: Every day a small program on this site reads the public feeds of the job boards and scholarship sites below. It keeps only postings that are about security and are a PhD, master's, scholarship, fellowship or postdoc, reads the deadline from the posting, and removes anything that has closed. Postings with no deadline are removed after 45 days.
+so_about_2: It only reads what these sites publish for anyone to subscribe to, and it checks each site's rules for bots (robots.txt) first. Nothing is invented; every entry links to its original posting. Numbers in brackets are how many open postings came from each source.
+so_about_3: Each posting shows the last day its source still listed it, and the button takes you straight to the original posting to read the details and apply. When a source lists every open position (like IACR), a posting it takes down is removed here the next day.
+so_limits_title: What it can't see
+so_limit_1: Postings that are only on a professor's own page, a mailing list or social media, and never reach a job board.
+so_limit_2: Sites that don't offer a feed or that ask bots not to read them, such as EURAXESS, LinkedIn and most national portals in China, Japan and Korea. For those, use the yearly programmes below and search the sites yourself.
+so_limit_3: The deadline is read from the posting's text. If a posting writes it in an unusual way it may be missing, so always check the original page.
+so_limit_4: The area and country are worked out from the posting's words, so now and then one may be filed in the wrong place.
+so_check_note: Always read the original posting before you apply. Funding, eligibility and deadlines are decided by the university or funder, not by this site.
+so_in_english: Postings are shown in English, as their sources publish them.
+so_suggest: Know a security scholarship or a good source that's missing?
+so_suggest_link: Tell me
 
 contact_eyebrow: Contact
 contact_title: Get in touch
