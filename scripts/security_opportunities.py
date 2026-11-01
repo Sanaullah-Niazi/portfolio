@@ -23,6 +23,7 @@ Usage: python3 scripts/security_opportunities.py [--feed-dir DIR] [--no-pages] [
 import argparse
 import datetime as dt
 import hashlib
+import html
 import json
 import re
 import sys
@@ -46,36 +47,37 @@ UA = "Mozilla/5.0 (compatible; sanaullahniazi.com scholarships bot; +https://san
 # Where the openings come from: feeds the sites publish for subscribers. "country" is used when the posting
 # itself doesn't name one. A feed that fails, or that the site's robots.txt doesn't allow, is skipped.
 Q = urllib.parse.quote_plus
-SECURITY_SEARCHES = ["cyber security", "information security", "cryptography", "privacy", "AI security", "network security"]
 SOURCES = [
-    {"id": "jobsacuk-cyber", "name": "jobs.ac.uk", "home": "https://www.jobs.ac.uk", "country": "United Kingdom",
-     "url": "https://www.jobs.ac.uk/jobs/cyber-security/?format=rss"},
-    {"id": "jobsacuk-cs", "name": "jobs.ac.uk", "home": "https://www.jobs.ac.uk", "country": "United Kingdom",
-     "url": "https://www.jobs.ac.uk/jobs/computer-science/?format=rss"},
-    {"id": "jobsacuk-ai", "name": "jobs.ac.uk", "home": "https://www.jobs.ac.uk", "country": "United Kingdom",
-     "url": "https://www.jobs.ac.uk/jobs/artificial-intelligence/?format=rss"},
-    {"id": "jobsacuk-phd", "name": "jobs.ac.uk", "home": "https://www.jobs.ac.uk", "country": "United Kingdom",
-     "url": "https://www.jobs.ac.uk/feeds/subject-areas/computer-science"},
+    # IACR's list of open positions in cryptology: a web page (no feed), read with parse_iacr().
+    {"id": "iacr", "name": "IACR Jobs", "home": "https://iacr.org/jobs/", "url": "https://iacr.org/jobs/", "kind": "iacr",
+     "all_security": True},
     {"id": "daad-phd", "name": "DAAD PhDGermany", "home": "https://www.daad.de/en/", "country": "Germany",
      "url": "https://api.daad.de/api/feeds/rss/en/phd.xml"},
-    {"id": "academicpositions", "name": "Academic Positions", "home": "https://academicpositions.com",
-     "url": "https://academicpositions.com/feed/rss?field=computer-security-and-reliability"},
-    {"id": "academicpositions-cs", "name": "Academic Positions", "home": "https://academicpositions.com",
-     "url": "https://academicpositions.com/feed/rss?field=computer-science-electrical-engineering"},
-    {"id": "iacr", "name": "IACR", "home": "https://iacr.org/jobs/", "url": "https://iacr.org/news/rss", "only": r"^\s*Job Posting"},
     {"id": "scholars4dev", "name": "Scholars4Dev", "home": "https://www.scholars4dev.com", "url": "https://www.scholars4dev.com/feed/"},
     {"id": "opportunitydesk", "name": "Opportunity Desk", "home": "https://opportunitydesk.org", "url": "https://opportunitydesk.org/feed/"},
 ]
-for _q in SECURITY_SEARCHES:
+# Job boards whose search results come as a feed. Each search is one feed.
+THE_SEARCHES = ["cyber security", "information security", "cryptography", "privacy", "AI security", "network security",
+                "phd security", "phd cyber", "studentship security", "doctoral cyber", "postdoc security", "fellowship cyber", "scholarship cyber"]
+HERC_SEARCHES = ["cyber security", "cybersecurity", "cryptography", "privacy", "phd security", "postdoctoral security"]
+WP_SEARCHES = ["cyber security", "cybersecurity", "information security"]
+for _q in THE_SEARCHES:
+    SOURCES.append({"id": "the-" + re.sub(r"[^a-z]+", "-", _q.lower()), "name": "Times Higher Education Jobs",
+                    "home": "https://www.timeshighereducation.com/unijobs/",
+                    "url": "https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=" + Q(_q)})
+for _q in HERC_SEARCHES:
+    SOURCES.append({"id": "herc-" + re.sub(r"[^a-z]+", "-", _q.lower()), "name": "HERC Jobs", "home": "https://main.hercjobs.org",
+                    "country": "United States", "url": "https://main.hercjobs.org/jobs/?display=rss&keywords=" + Q(_q)})
+for _q in WP_SEARCHES:
     _slug = re.sub(r"[^a-z]+", "-", _q.lower())
     SOURCES += [
-        {"id": "findaphd-" + _slug, "name": "FindAPhD", "home": "https://www.findaphd.com",
-         "url": "https://www.findaphd.com/phds/rss/?Keywords=" + Q(_q)},
-        {"id": "academictransfer-" + _slug, "name": "AcademicTransfer", "home": "https://www.academictransfer.com", "country": "Netherlands",
-         "url": "https://www.academictransfer.com/en/jobs/rss/?q=" + Q(_q)},
-        {"id": "the-" + _slug, "name": "Times Higher Education Jobs", "home": "https://www.timeshighereducation.com/unijobs/",
-         "url": "https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=" + Q(_q)},
+        {"id": "scholars4dev-" + _slug, "name": "Scholars4Dev", "home": "https://www.scholars4dev.com",
+         "url": "https://www.scholars4dev.com/?s=" + Q(_q) + "&feed=rss2"},
+        {"id": "opportunitydesk-" + _slug, "name": "Opportunity Desk", "home": "https://opportunitydesk.org",
+         "url": "https://opportunitydesk.org/?s=" + Q(_q) + "&feed=rss2"},
     ]
+# Checked and left out (2026-11): FindAPhD/FindAMasters and EURAXESS forbid bots in robots.txt; Academic Positions,
+# ScholarshipDb and AcademicTransfer refuse bots or have no working feed; jobs.ac.uk's old feed addresses are gone.
 
 PER_SOURCE = 200            # newest entries read from each feed
 EXCERPT_CHARS = 280         # a short teaser only; the full posting stays on the source's site
@@ -91,7 +93,7 @@ FIELDS = [
     ("ai", r"\b(AI|LLM|LLMs|machine learning|deep learning|artificial intelligence|neural)\b.{0,60}\b(secur|safe|robust|adversarial|attack|privacy|trustworth|jailbreak|alignment)|"
            r"\b(secur|safe|robust|adversarial|attack|privacy|trustworth)\w*.{0,60}\b(AI|LLM|LLMs|machine learning|deep learning|artificial intelligence|neural|foundation model|generative)\b|"
            r"prompt injection|adversarial (machine|example|attack|robust)|AI safety|trustworthy AI|red[- ]?teaming"),
-    ("crypto", r"cryptograph|cryptolog|cryptanaly|post[- ]quantum|\bPQC\b|lattice[- ]based|homomorphic|zero[- ]knowledge|\bzk|secure multi[- ]?party|\bMPC\b|blockchain|quantum[- ]safe|quantum key|encryption"),
+    ("crypto", r"cryptograph|cryptolog|\bcrypto\b|\blattice|cryptanaly|post[- ]quantum|\bPQC\b|lattice[- ]based|homomorphic|zero[- ]knowledge|\bzk|secure multi[- ]?party|\bMPC\b|blockchain|quantum[- ]safe|quantum key|encryption"),
     ("privacy", r"privacy|anonym|differential privacy|data protection|\bGDPR\b|confidential computing"),
     ("network", r"network security|intrusion detection|\bIDS\b|\b5G\b.{0,40}secur|\b6G\b.{0,40}secur|wireless secur|internet security|\bDDoS\b|firewall|zero[- ]trust"),
     ("cloud", r"cloud secur|cloud.{0,30}(attack|threat|privacy|trust)|container secur|kubernetes|serverless secur|edge.{0,20}secur|\bDevSecOps\b"),
@@ -154,7 +156,7 @@ COUNTRIES = {
     "africa": ["Africa", "African", "Nigeria", "Kenya", "Ghana", "South Africa", "Egypt", "Morocco", "Tunisia", "Ethiopia", "Rwanda", "Uganda", "Tanzania"],
     "latam": ["Brazil", "Mexico", "Chile", "Argentina", "Colombia", "Peru", "Latin America"],
 }
-COUNTRY_TO_REGION = {"United Kingdom": "uk", "Germany": "europe", "Netherlands": "europe"}
+COUNTRY_TO_REGION = {"United Kingdom": "uk", "Germany": "europe", "Netherlands": "europe", "United States": "usa"}
 # Countries and regions themselves; a posting that names one is filed there before any city or university is
 # looked at ("New York University Abu Dhabi ... United Arab Emirates" is in the Middle East, not the USA).
 COUNTRY_NAMES = {"United Kingdom", "UK", "England", "Scotland", "Wales", "Northern Ireland", "Germany", "Netherlands", "France", "Belgium",
@@ -244,10 +246,11 @@ def find_deadline(text, today):
 def classify(title, body, source):
     """(level, fields, region, country) for a posting, or None if it isn't a security PhD/master's/scholarship/fellowship."""
     text = title + " \n " + body
-    if not SECURITY_RE.search(title) and not SECURITY_RE.search(body[:600]):
-        return None
-    if NOT_SECURITY_RE.search(title) or (not SECURITY_RE.search(NOT_SECURITY_RE.sub("", text))):
-        return None
+    if not source.get("all_security"):  # IACR lists only cryptology and security positions
+        if not SECURITY_RE.search(title) and not SECURITY_RE.search(body[:600]):
+            return None
+        if NOT_SECURITY_RE.search(title) or (not SECURITY_RE.search(NOT_SECURITY_RE.sub("", text))):
+            return None
     level = next((l for l, rx in LEVEL_RES if rx.search(title)), None)
     if not level:
         # Scholarship sites put "scholarship"/"fellowship" in the title; job boards put "PhD" there.
@@ -285,16 +288,23 @@ def allowed(url):
     base = f"{parts.scheme}://{parts.netloc}"
     if base not in _robots:
         rp = urllib.robotparser.RobotFileParser()
-        try:
-            raw, status, _ = fetch(base + "/robots.txt", timeout=15)
-            rp.parse(raw.decode("utf-8", "replace").splitlines())
-        except urllib.error.HTTPError as e:
-            if e.code in (401, 403):
-                rp.disallow_all = True      # the site turns robots away
-            else:
-                rp.allow_all = True         # no robots.txt: nothing is off limits
-        except Exception:
-            rp = None                       # couldn't tell: stay away this time
+        for attempt in range(2):
+            try:
+                raw, status, _ = fetch(base + "/robots.txt", timeout=15)
+                rp.parse(raw.decode("utf-8", "replace").splitlines())
+                break
+            except urllib.error.HTTPError as e:
+                if e.code in (401, 403):
+                    rp.disallow_all = True      # the site turns robots away
+                elif e.code == 404:
+                    rp.allow_all = True         # no robots.txt: nothing is off limits
+                else:
+                    rp = None                   # couldn't tell: stay away this time
+                break
+            except Exception:
+                if attempt == 1:
+                    rp = None                   # couldn't tell: stay away this time
+                time.sleep(3)
         _robots[base] = rp
     rp = _robots[base]
     return bool(rp) and rp.can_fetch(UA, url)
@@ -314,6 +324,31 @@ def parse_feed(raw, source):
                          text_of(it, "pubDate", "{http://purl.org/dc/elements/1.1/}date"),
                          text_of(it, "{http://purl.org/rss/1.0/modules/content/}encoded", "description")))
     return rows
+
+
+def parse_iacr(raw):
+    """IACR's jobs page: each posting is a <h5><a href=URL id="url-N"><span id="position-N">title</span></a></h5>,
+    then <h6 id="place-N">organisation, place</h6> and <div id="description-N">. Returns the same rows as parse_feed."""
+    page = raw.decode("utf-8", "replace")
+    rows = []
+    for m in re.finditer(r'<a\s+href="([^"]+)"\s+id="url-(\d+)"', page):
+        n = m.group(2)
+        chunk = page[m.start(): m.start() + 40_000]
+        nxt = re.search(r'id="url-(?!' + n + r'")\d+"', chunk[10:])
+        if nxt:
+            chunk = chunk[: nxt.start() + 10]
+        title = re.search(r'id="position-' + n + r'"[^>]*>(.*?)</span>', chunk, re.S)
+        place = re.search(r'id="place-' + n + r'"[^>]*>(.*?)</h6>', chunk, re.S)
+        desc = re.search(r'id="description-' + n + r'"[^>]*>(.*)', chunk, re.S)
+        posted = re.search(r"(?:[Pp]osted|[Ll]ast updated)[^0-9]{0,40}(\d{4}-\d{2}-\d{2})", chunk)
+        if not title:
+            continue
+        link = html.unescape(m.group(1))
+        if not link.startswith("http"):
+            link = "https://iacr.org/jobs/item/" + n
+        body = (plain(place.group(1)) + ". " if place else "") + (plain(desc.group(1)) if desc else "")
+        rows.append((title.group(1), link, posted.group(1) if posted else "", body))
+    return rows[:PER_SOURCE]
 
 
 def posting_id(url):
@@ -346,7 +381,7 @@ def collect(feed_dir, now, report):
                     log(f"{s['id']}: skipped, robots.txt doesn't allow it")
                     continue
                 raw, _, _ = fetch(s["url"])
-            rows = parse_feed(raw, s)
+            rows = parse_iacr(raw) if s.get("kind") == "iacr" else parse_feed(raw, s)
         except Exception as e:  # one broken feed should not stop the others
             status[s["id"]] = f"failed ({e.__class__.__name__})"
             log(f"{s['id']}: skipped ({e.__class__.__name__}: {e})")

@@ -30,10 +30,6 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Probe candidate feeds (temporary)
-        if: github.event_name == 'pull_request'
-        run: python3 .github/probe_feeds.py 'https://iacr.org/jobs/' 'https://www.jobs.ac.uk/' 'https://www.jobs.ac.uk/feeds/subject-areas/computer-sciences/' 'https://www.jobs.ac.uk/search/?keywords=cyber+security' 'https://www.nature.com/naturecareers/jobs/rss?keywords=security' 'https://jobs.ethz.ch/rss' 'https://www.jobs.cam.ac.uk/job/?format=rss' 'https://main.hercjobs.org/jobs/?display=rss&keywords=phd+security' 'https://main.hercjobs.org/jobs/?display=rss&keywords=cryptography' 'https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=phd+cyber' 'https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=postdoc+security' 'https://jobs.inria.fr/public/classic/en/offres/rss' 'https://www.academics.de/robots.txt' 'https://iacr.org/robots.txt'
-
       - name: Collect the openings
         run: python3 scripts/security_opportunities.py ${{ github.event_name == 'pull_request' && '--report' || '' }}
 
@@ -53,4 +49,8 @@ jobs:
 
       - name: Show the data (temporary, for the preview)
         if: github.event_name == 'pull_request'
-        run: echo "JSONSTART"; cat _data/security_opportunities.json; echo "JSONEND"
+        run: python3 -c "import json; d=json.load(open('_data/security_opportunities.json')); d.pop('programs'); print('JSONSTART'); print(json.dumps(d)); print('JSONEND')"
+
+      - name: Probe candidate feeds (temporary)
+        if: github.event_name == 'pull_request'
+        run: python3 .github/probe_feeds.py 'https://iacr.org/jobs/' 'https://www.jobs.ac.uk/' 'https://www.jobs.ac.uk/feeds/subject-areas/computer-sciences/' 'https://www.jobs.ac.uk/search/?keywords=cyber+security'

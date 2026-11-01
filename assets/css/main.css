@@ -698,7 +698,7 @@ html:not(.js) .radar { display: none; }
 .so-filters label { display: grid; gap: 4px; font-size: 13.5px; color: var(--muted); }
 .so-filters select { min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 15px/1.3 var(--sans); max-width: 100%; }
 .so-filters select:focus, .so-search input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
-.so-search { flex: 1 1 100%; display: flex !important; align-items: center; gap: 8px; position: relative; }
+.so-filters .so-search { flex: 1 1 100%; display: flex; align-items: center; gap: 8px; position: relative; }
 .so-search .icon { position: absolute; inset-inline-start: 12px; color: var(--muted); }
 .so-search input { width: 100%; min-height: 46px; padding-block: 0; padding-inline: 40px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 16px/1.4 var(--sans); }
 .so-reset { min-height: 42px; }
