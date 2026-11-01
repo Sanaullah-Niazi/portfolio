@@ -33,10 +33,6 @@ jobs:
       - name: Collect the openings
         run: python3 scripts/security_opportunities.py ${{ github.event_name == 'pull_request' && '--report' || '' }}
 
-      - name: Show the data (temporary)
-        if: github.event_name == 'pull_request'
-        run: python3 -c "import json,base64,zlib;print('DATA:'+base64.b64encode(zlib.compress(open('_data/security_opportunities.json','rb').read(),9)).decode())"
-
       - name: Commit the update
         if: github.event_name != 'pull_request'
         run: |

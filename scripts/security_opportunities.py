@@ -45,7 +45,8 @@ PROGRAMS_FILE = ROOT / "_data" / "sec_programs.yml"
 UA = "Mozilla/5.0 (compatible; sanaullahniazi.com scholarships bot; +https://sanaullahniazi.com/scholarships/)"
 
 # Where the openings come from: feeds the sites publish for subscribers. "country" is used when the posting
-# itself doesn't name one. A feed that fails, or that the site's robots.txt doesn't allow, is skipped.
+# itself doesn't name one. "title_only": a general job board, so the title itself must say it is about security
+# (a postdoc whose title doesn't say so is left out, even if its text mentions security). A feed that fails, or that the site's robots.txt doesn't allow, is skipped.
 Q = urllib.parse.quote_plus
 SOURCES = [
     # IACR's list of open positions in cryptology: a web page (no feed), read with parse_iacr().
@@ -92,10 +93,11 @@ for _q in JOBRXIV_SEARCHES:  # jobRxiv: research jobs posted by the labs themsel
 for _q in THE_SEARCHES:
     SOURCES.append({"id": "the-" + re.sub(r"[^a-z]+", "-", _q.lower()), "name": "Times Higher Education Jobs",
                     "home": "https://www.timeshighereducation.com/unijobs/",
-                    "url": "https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=" + Q(_q)})
+                    "url": "https://www.timeshighereducation.com/unijobs/jobsrss/?keywords=" + Q(_q), "title_only": True})
 for _q in HERC_SEARCHES:
     SOURCES.append({"id": "herc-" + re.sub(r"[^a-z]+", "-", _q.lower()), "name": "HERC Jobs", "home": "https://main.hercjobs.org",
-                    "country": "United States", "url": "https://main.hercjobs.org/jobs/?display=rss&keywords=" + Q(_q)})
+                    "country": "United States", "url": "https://main.hercjobs.org/jobs/?display=rss&keywords=" + Q(_q),
+                    "title_only": True})
 for _q in WP_SEARCHES:
     _slug = re.sub(r"[^a-z]+", "-", _q.lower())
     SOURCES += [
@@ -157,7 +159,7 @@ LEVELS = [
 ]
 LEVEL_RES = [(l, re.compile(p, re.I)) for l, p in LEVELS]
 # Faculty and staff jobs (not what this page is for), unless the title also says PhD/fellowship/etc.
-STAFF_RE = re.compile(r"\b(lecturer|professor|professorship|chair in|head of|director|manager|officer|administrator|"
+STAFF_RE = re.compile(r"\b(faculty|lecturer|professor|professorship|chair in|head of|director|manager|officer|administrator|"
                       r"engineer|developer|analyst|technician|coordinator|consultant|specialist|architect|tutor|teacher|instructor)\b", re.I)
 
 # --- Where ---------------------------------------------------------------------------------------------
@@ -311,6 +313,9 @@ def classify(title, body, source):
             return None
         if NOT_SECURITY_RE.search(title) or (not SECURITY_RE.search(NOT_SECURITY_RE.sub("", text))):
             return None
+    years = [int(y) for y in re.findall(r"\b(20[2-9]\d)\b", title)]
+    if years and max(years) < dt.date.today().year:
+        return None  # "Fall 2025" in a title read in 2026: an old posting
     level = next((l for l, rx in LEVEL_RES if rx.search(title)), None)
     if not level:
         # Scholarship sites put "scholarship"/"fellowship" in the title; job boards put "PhD" there.
