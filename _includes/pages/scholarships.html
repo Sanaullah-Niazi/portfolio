@@ -11,8 +11,14 @@
 {%- capture en_attr %}{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}{% endcapture -%}
 {%- assign levels = "phd,masters,scholarship,fellowship,postdoc" | split: "," -%}
 {%- assign regions = "uk,europe,usa,canada,china,asia,middleeast,oceania,africa,latam,global" | split: "," -%}
+{%- comment -%} Countries that appear in the list or the programmes, as "code:region"; the script shows each name in the
+  page's language (Intl.DisplayNames) and sorts them. {%- endcomment -%}
+{%- assign cl = "" -%}
+{%- for it in items %}{% if it.country and it.country != "" %}{% assign e = it.country | append: ":" | append: it.region %}{% unless cl contains e %}{% assign cl = cl | append: e | append: "," %}{% endunless %}{% endif %}{% endfor -%}
+{%- for p in progs %}{% if p.country %}{% assign e = p.country | append: ":" | append: p.where %}{% unless cl contains e %}{% assign cl = cl | append: e | append: "," %}{% endunless %}{% endif %}{% endfor -%}
+{%- assign countries = cl | split: "," | sort -%}
 {%- assign fields = "ai,crypto,privacy,network,cloud,systems,hardware,forensics,human,policy,general" | split: "," -%}
-<div class="wrap page so" data-so data-today="{{ site.time | date: '%Y-%m-%d' }}"
+<div class="wrap page so" data-so data-lang="{{ lang }}" data-today="{{ site.time | date: '%Y-%m-%d' }}"
      data-closes-today="{{ S.so_closes_today }}" data-closes-one="{{ S.so_closes_one }}" data-closes-many="{{ S.so_closes_many }}"
      data-shown-one="{{ S.so_shown_one }}" data-shown-many="{{ S.so_shown_many }}">
   <header class="page-head">
@@ -37,6 +43,8 @@
         <select name="level"><option value="">{{ S.so_any }}</option>{% for l in levels %}{% assign k = 'so_level_' | append: l %}<option value="{{ l }}">{{ S[k] }}</option>{% endfor %}</select></label>
       <label><span>{{ S.so_f_region }}</span>
         <select name="region"><option value="">{{ S.so_any }}</option>{% for r in regions %}{% assign k = 'so_region_' | append: r %}<option value="{{ r }}">{{ S[k] }}</option>{% endfor %}</select></label>
+      <label><span>{{ S.so_f_country }}</span>
+        <select name="country"><option value="">{{ S.so_any }}</option>{% for c in countries %}{% assign cp = c | split: ":" %}<option value="{{ cp[0] }}" data-region="{{ cp[1] }}" data-cc="{{ cp[0] }}">{{ cp[0] }}</option>{% endfor %}</select></label>
       <label><span>{{ S.so_f_field }}</span>
         <select name="field"><option value="">{{ S.so_any }}</option>{% for f in fields %}{% assign k = 'so_field_' | append: f %}<option value="{{ f }}">{{ S[k] }}</option>{% endfor %}</select></label>
       <label><span>{{ S.so_f_deadline }}</span>
@@ -54,9 +62,9 @@
     {% if items.size > 0 %}
     <ol class="so-list" data-so-list>
       {%- for it in items %}
-      <li data-level="{{ it.level }}" data-region="{{ it.region }}" data-fields="{{ it.fields | join: '|' }}" data-deadline="{{ it.deadline }}" data-posted="{{ it.posted }}">
+      <li data-level="{{ it.level }}" data-region="{{ it.region }}" data-country="{{ it.country }}" data-fields="{{ it.fields | join: '|' }}" data-deadline="{{ it.deadline }}" data-posted="{{ it.posted }}">
         <p class="so-meta"><span class="so-level so-level-{{ it.level }}">{% assign k = 'so_level_' | append: it.level %}{{ S[k] }}</span>
-          {% assign k = 'so_region_' | append: it.region %}<span>{{ S[k] }}</span> · <span class="so-src">{{ it.source | escape }}</span> · {{ S.so_posted }} <time datetime="{{ it.posted }}">{% include date.html date=it.posted %}</time></p>
+          {% if it.country and it.country != "" %}<span data-cc="{{ it.country }}">{{ it.country }}</span>{% else %}{% assign k = 'so_region_' | append: it.region %}<span>{{ S[k] }}</span>{% endif %} · <span class="so-src">{{ it.source | escape }}</span> · {{ S.so_posted }} <time datetime="{{ it.posted }}">{% include date.html date=it.posted %}</time></p>
         <h3{{ en_attr }}><a href="{{ it.url | escape }}" rel="noopener nofollow">{{ it.title | escape }}</a></h3>
         <p class="so-deadline">
           {%- if it.deadline != "" %}{% include icon.html name="clock" px=16 %}{{ S.so_deadline }}: <time datetime="{{ it.deadline }}">{% include date.html date=it.deadline long=true %}</time> <span class="so-left" data-left></span>
@@ -64,6 +72,10 @@
           {%- else %}{% include icon.html name="alert" px=16 %}{{ S.so_no_deadline }}{% endif %}</p>
         {% if it.excerpt != "" %}<p class="so-excerpt"{{ en_attr }}>{{ it.excerpt | escape }}</p>{% endif %}
         <ul class="tags" aria-label="{{ S.so_f_field }}">{% for f in it.fields %}{% assign k = 'so_field_' | append: f %}<li>{{ S[k] | default: f }}</li>{% endfor %}</ul>
+        {%- assign host = it.url | split: "/" %}{% assign host = host[2] | remove_first: "www." %}
+        <p class="so-actions"><a class="btn btn-primary so-apply" href="{{ it.url | escape }}" rel="noopener nofollow" title="{{ S.so_opens_original }}">{{ S.so_apply }} {% include icon.html name="arrow" px=16 %}</a>
+          <span class="so-host"{{ en_attr }}>{% include icon.html name="link" px=14 %}{{ host | escape }}</span>
+          {%- if it.seen %} <span class="so-seen">{% include icon.html name="check" px=14 %}{{ S.so_seen }} <time datetime="{{ it.seen }}">{% include date.html date=it.seen long=true %}</time></span>{% endif %}</p>
       </li>
       {%- endfor %}
     </ol>
@@ -79,7 +91,7 @@
     <ul class="so-progs" data-so-progs>
       {%- for p in progs %}
       {%- assign chk = data.programs[p.id] %}{% if chk and chk.ok == false %}{% continue %}{% endif %}
-      <li class="card" data-level="{{ p.levels | join: '|' }}" data-region="{{ p.where }}" data-fields="{% if p.security %}security{% else %}general{% endif %}">
+      <li class="card" data-level="{{ p.levels | join: '|' }}" data-region="{{ p.where }}" data-country="{{ p.country }}" data-fields="{% if p.security %}security{% else %}general{% endif %}">
         <p class="so-meta">{% assign k = 'so_region_' | append: p.where %}<span>{{ S[k] }}</span>{% if p.security %} · <span class="so-sec">{% include icon.html name="shield" px=14 %}{{ S.so_security_only }}</span>{% endif %}</p>
         <h3{{ en_attr }}><a href="{{ p.url }}" rel="noopener">{{ p.name }}</a></h3>
         <p class="so-by"{{ en_attr }}>{{ p.by }}</p>

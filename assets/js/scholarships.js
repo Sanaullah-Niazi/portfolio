@@ -21,6 +21,21 @@
   }
   function fmt(t, n) { return t.replace("%n", n); }
 
+  // Country names in the page's language (the HTML carries the two-letter code); the country menu is then sorted by name.
+  var names = null;
+  try { names = new Intl.DisplayNames([root.getAttribute("data-lang") || "en"], { type: "region" }); } catch (e) { names = null; }
+  if (names) {
+    Array.prototype.forEach.call(root.querySelectorAll("[data-cc]"), function (el) {
+      try { el.textContent = names.of(el.getAttribute("data-cc")) || el.textContent; } catch (e) { /* keep the code */ }
+    });
+    var csel = form.elements.country;
+    if (csel) {
+      var opts = Array.prototype.slice.call(csel.options, 1);
+      opts.sort(function (a, b) { return a.textContent.localeCompare(b.textContent); });
+      opts.forEach(function (o) { csel.appendChild(o); });
+    }
+  }
+
   var items = list ? Array.prototype.slice.call(list.children) : [];
   items.forEach(function (li) {
     var d = dayOf(li.getAttribute("data-deadline"));
@@ -40,7 +55,7 @@
 
   // Filters are kept in the address (?level=phd&region=uk), so a filtered list can be shared.
   var params = new URLSearchParams(location.search);
-  ["q", "level", "region", "field", "deadline", "sort"].forEach(function (k) {
+  ["q", "level", "region", "country", "field", "deadline", "sort"].forEach(function (k) {
     var el = form.elements[k];
     if (el && params.get(k)) el.value = params.get(k);
   });
@@ -51,9 +66,13 @@
     var q = form.elements.q.value.trim().toLowerCase();
     var level = form.elements.level.value, region = form.elements.region.value;
     var field = form.elements.field.value, dl = form.elements.deadline.value, sort = form.elements.sort.value;
+    var country = form.elements.country ? form.elements.country.value : "";
+    var opt = country && form.elements.country.selectedOptions[0];
+    var countryRegion = opt ? opt.getAttribute("data-region") : "";
     var shown = 0;
     items.forEach(function (li) {
       var ok = has(li, "data-level", level) && has(li, "data-region", region) && has(li, "data-fields", field) &&
+        (!country || li.getAttribute("data-country") === country) &&
         (!q || li._text.indexOf(q) !== -1);
       if (ok && dl === "stated") ok = li._left !== null;
       else if (ok && dl) ok = li._left !== null && li._left <= +dl;
@@ -67,14 +86,17 @@
       sorted.forEach(function (li) { list.appendChild(li); });
     }
     cards.forEach(function (li) {
-      li.hidden = !(has(li, "data-level", level) && (!region || li.getAttribute("data-region") === region || li.getAttribute("data-region") === "global") &&
+      // A programme shows for a country if it is in that country, or (when it has no single country) covers its region or the world.
+      var r = li.getAttribute("data-region"), c = li.getAttribute("data-country");
+      var inCountry = !country || c === country || (!c && (r === countryRegion || r === "global"));
+      li.hidden = !(has(li, "data-level", level) && (!region || r === region || r === "global") && inCountry &&
         (!q || li._text.indexOf(q) !== -1));
     });
     if (count) count.textContent = shown + " " + root.getAttribute(shown === 1 ? "data-shown-one" : "data-shown-many");
     if (none) none.hidden = shown !== 0;
 
     var p = new URLSearchParams();
-    ["q", "level", "region", "field", "deadline"].forEach(function (k) { if (form.elements[k].value) p.set(k, form.elements[k].value); });
+    ["q", "level", "region", "country", "field", "deadline"].forEach(function (k) { if (form.elements[k] && form.elements[k].value) p.set(k, form.elements[k].value); });
     if (sort !== "deadline") p.set("sort", sort);
     var qs = p.toString();
     history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);

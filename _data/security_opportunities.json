@@ -42,6 +42,7 @@
    "posted": "2026-09-18",
    "deadline": "2026-11-01",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "The University of Manchester, Department of Computer science; Manchester, United Kingdom. We are actively recruiting PhD students. The candidates will be working on Isogeny-based Cryptography with Dr. Tako Boris Fouotsa. The research directions to be explored include but are not…"
   },
   {
@@ -59,6 +60,7 @@
    "posted": "2026-10-21",
    "deadline": "2026-11-08",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "Technical University of Darmstadt, Germany. The Cryptography and Privacy Engineering Group (ENCRYPTO) @CS Department @TU Darmstadt offers a full position for a Postdoctoral Researcher, available immediately and for 2 years.Our mission is to demonstrate that privacy can be…"
   },
   {
@@ -77,6 +79,7 @@
    "posted": "2026-10-30",
    "deadline": "2026-11-08",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "University of Oldenburg, Germany. The University of Oldenburg invites applications for a PhD student position in the Safety-Security-Interaction group, under the supervision of Prof. Dr. Andreas Peter and Dr. Federico Mazzone. Full-time position Start date: flexible, to be…"
   },
   {
@@ -93,6 +96,7 @@
    "posted": "2026-10-19",
    "deadline": "2026-11-18",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "NEW YORK UNIVERSITY ABU DHABI: New York University Abu Dhabi, seeks to recruit a postdoctoral associate to work on state-of-art research ... Abu Dhabi, United Arab Emirates"
   },
   {
@@ -109,6 +113,7 @@
    "posted": "2026-09-29",
    "deadline": "2026-12-15",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "National University of Singapore (NUS), School of Computing; Singapore. The ChocoLab at the National University of Singapore (NUS) is recruiting PhD students for the August 2027 intake. We study the security and correctness of the lower levels of computing. We find…"
   },
   {
@@ -126,6 +131,7 @@
    "posted": "2026-10-30",
    "deadline": "2026-12-31",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "CWI (Centrum Wiskunde & Informatica), Computer Security group; Amsterdam, The Netherlands. CWI Amsterdam has an opening for a fully funded 4-year PhD position in the Computer Security group (headed by Prof. Marten van Dijk), supervised by Dr. Chenglu Jin. The position is part of…"
   },
   {
@@ -143,6 +149,7 @@
    "posted": "2026-10-30",
    "deadline": "2027-01-05",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "Newcastle University, UK. PhD Studentship in Privacy-Preserving AI — Newcastle University, UK Applications are invited for a PhD project on “Privacy-Preserving AI for Assessing UK Data Centre Water Demand”, supervised by Dr Aydin Abadi at Newcastle University, with Dr Thomas…"
   },
   {
@@ -160,6 +167,7 @@
    "posted": "2026-09-29",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "Mohamed bin Zayed University of Artificial Intelligence (MBZUAI); Abu Dhabi, UAE. The Computing and Mathematical Sciences Division at MBZUAI is recruiting in the broad area of cryptography and privacy. Successful candidates will work with Assistant Professor Jaspal Singh…"
   },
   {
@@ -178,6 +186,7 @@
    "posted": "2026-09-29",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "University of the Bundeswehr, Research Institute CODE. The Research Institute CODE in Munich is inviting applications for a Postdoctoral researcher position, funded according to the German federal salary scheme TV-ÖD E13/E14, full-time, 3 years. Successful candidates will join…"
   },
   {
@@ -195,6 +204,7 @@
    "posted": "2026-09-29",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "University of Miami, Electrical and Computer Engineering; Coral Gables, Florida, USA. I’m recruiting PhD students to join my lab at the University of Miami in Spring or Fall 2027. Our lab studies how AI agents interacting with other agents behave, how they fail, and what it…"
   },
   {
@@ -211,6 +221,7 @@
    "posted": "2026-10-08",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "University of Melbourne and Indian Institute of Technology, Kanpur. One fully funded project on “NIST standardization and beyond: Solving practical problems for seamless transition to post-quantum cryptography” is available under the Melbourne-India Postgraduate Academy (MIPA).…"
   },
   {
@@ -229,6 +240,7 @@
    "posted": "2026-10-08",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "Aarhus University, Department of Computer Science. The Aarhus Crypto Group invites expressions of interest for a two-year postdoc within the SPADE project (Secure Privacy-Preserving Analytics in Distributed Environments), starting on 1 January 2027 or later. SPADE is led by…"
   },
   {
@@ -245,6 +257,7 @@
    "posted": "2026-10-08",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "Technical University of Denmark, Copenhagen, Denmark. Are you a cybersecurity researcher interested in cyber-deception, empirical security, and adaptive cyber defense? Do you enjoy combining security experimentation with data-driven methods? This fully funded two-year…"
   },
   {
@@ -261,6 +274,7 @@
    "posted": "2026-10-08",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "ENS Lyon, CNRS, France. The candidate will be working on algorithmic and mathematical aspects of lattice-based and isogeny-based cryptography, in the context of to the ERC project AGATHA CRYPTY. The candidate should hold a PhD degree in Mathematics or Computer Science. They…"
   },
   {
@@ -278,6 +292,7 @@
    "posted": "2026-10-08",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "National Sun Yat-sen University, Department of Computer Science and Engineering; Kaohsiung, Taiwan. Applications are invited for a Postdoctoral Fellow in applied cryptography at the CANSEC Lab, Department of Computer Science and Engineering, National Sun Yat-sen University…"
   },
   {
@@ -295,6 +310,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": true,
+   "seen": "2026-11-01",
    "excerpt": "The Canadian Institute for Cybersecurity (CIC) University of New Brunswick (UNB). Research Areas Post-quantum cryptography and quantum-safe migration Cryptographic protocol design, analysis, and implementation Public-key cryptography, digital signatures, and key establishment…"
   },
   {
@@ -311,6 +327,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "Hefei National Laboratory, Hefei, China. A full‑time postdoctoral fellowship in symmetric-key cryptography is available at Hefei National Laboratory, China. The research work will focus on the following topics: 1. Design and cryptanalysis of symmetric key primitives, covering…"
   },
   {
@@ -327,6 +344,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "Stevens Institute of Technology, Hoboken, New Jersey, USA. I’m recruiting PhD students to join my group at Stevens Institute of Technology in Hoboken, New Jersey, directly across the Hudson River from New York City. Full funding is available to support new students. My research…"
   },
   {
@@ -343,6 +361,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "CEA-LIST, Paris-Saclay, France. We are looking for motivated Master's (M2) students with a strong background in mathematics, computer science, or cryptography for a internship on \"Homomorphic Authentication mechanisms for Encrypted Computation\". The topic will explore the…"
   },
   {
@@ -359,6 +378,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": false,
+   "seen": "2026-11-01",
    "excerpt": "University of Warwick, Dept. of Computer Science; Coventry, UK. I (https://varun-maram.github.io/) am recruiting PhD students to work with me on post-quantum cryptography and related areas at the University of Warwick, with an expected start in October 2027. The research topics…"
   }
  ],

@@ -49,8 +49,9 @@ UA = "Mozilla/5.0 (compatible; sanaullahniazi.com scholarships bot; +https://san
 Q = urllib.parse.quote_plus
 SOURCES = [
     # IACR's list of open positions in cryptology: a web page (no feed), read with parse_iacr().
+    # "complete": the page lists every open position, so one that has left it is no longer open.
     {"id": "iacr", "name": "IACR Jobs", "home": "https://iacr.org/jobs/", "url": "https://iacr.org/jobs/", "kind": "iacr",
-     "all_security": True},
+     "all_security": True, "complete": True},
     {"id": "daad-phd", "name": "DAAD PhDGermany", "home": "https://www.daad.de/en/", "country": "Germany",
      "url": "https://api.daad.de/api/feeds/rss/en/phd.xml"},
     {"id": "scholars4dev", "name": "Scholars4Dev", "home": "https://www.scholars4dev.com", "url": "https://www.scholars4dev.com/feed/"},
@@ -453,6 +454,7 @@ def collect(feed_dir, now, report):
                 "posted": posted.strftime("%Y-%m-%d"),
                 "deadline": deadline.isoformat() if deadline else "",
                 "rolling": bool(not deadline and ROLLING_RE.search(body)),
+                "seen": today.isoformat(),  # the last day the source still listed it
                 "excerpt": shorten(body, EXCERPT_CHARS),
             })
             kept += 1
@@ -461,11 +463,18 @@ def collect(feed_dir, now, report):
     return found, status
 
 
-def merge(found, old_items, now):
-    """New copies first (their text follows the feed), then yesterday's, minus anything closed or stale."""
+def merge(found, old_items, now, complete=()):
+    """New copies first (their text follows the feed), then yesterday's, minus anything closed or stale.
+    `complete` names sources that were read in full today: their postings that are gone from the source are dropped."""
     today = now.date()
     seen_u, seen_t, items = set(), set(), []
-    for it in found + old_items:
+    # A closing date found on the posting's own page yesterday is kept when the feed copy still has none.
+    earlier = {key_url(o["url"]): o for o in old_items}
+    for it in found:
+        o = earlier.get(key_url(it["url"]))
+        if o and not it["deadline"] and o.get("page_checked"):
+            it["deadline"], it["page_checked"] = o["deadline"], o["page_checked"]
+    for it in found + [o for o in old_items if o["source"] not in complete]:
         ku, kt = key_url(it["url"]), key_title(it["title"])
         if ku in seen_u or kt in seen_t:
             continue
@@ -569,7 +578,9 @@ def main():
     if working == 0:
         log("No feed could be read; leaving the page as it is.")
         return 1
-    items = merge(found, old.get("items", []), now)
+    complete = {s["name"] for s in SOURCES if s.get("complete") and status.get(s["id"], "").endswith("kept")
+                and not status[s["id"]].startswith("0 read")}  # an empty page means it changed, not that all closed
+    items = merge(found, old.get("items", []), now, complete)
     if not args.no_pages and not args.feed_dir:
         fill_deadlines(items, now, PAGE_LOOKUPS)
         items = merge(items, [], now)

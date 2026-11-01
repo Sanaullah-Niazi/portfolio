@@ -216,6 +216,11 @@ so_search_ph: "搜索：LLM、cryptography、Germany…"
 so_any: 全部
 so_f_level: 类型
 so_f_region: 地区
+so_f_country: 国家/地区
+so_apply: 详情与申请
+so_on: 于
+so_seen: 来源最近一次仍列出于
+so_opens_original: 打开原始招聘页面
 so_f_field: 方向
 so_f_deadline: 截止日期
 so_f_sort: 排序

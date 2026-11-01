@@ -216,6 +216,11 @@ so_search_ph: "تلاش: LLM، cryptography، Germany…"
 so_any: کوئی بھی
 so_f_level: قسم
 so_f_region: کہاں
+so_f_country: ملک
+so_apply: تفصیل اور درخواست
+so_on: پر
+so_seen: ذریعے پر آخری بار دیکھا گیا
+so_opens_original: اصل اشتہار کھلتا ہے
 so_f_field: شعبہ
 so_f_deadline: آخری تاریخ
 so_f_sort: ترتیب

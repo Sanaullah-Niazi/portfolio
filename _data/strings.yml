@@ -218,6 +218,11 @@ so_search_ph: "Search: LLM, cryptography, Germany, TU Delft…"
 so_any: Any
 so_f_level: Type
 so_f_region: Where
+so_f_country: Country
+so_apply: Details and apply
+so_on: on
+so_seen: Still listed by the source on
+so_opens_original: Opens the original posting
 so_f_field: Area
 so_f_deadline: Deadline
 so_f_sort: Sort by

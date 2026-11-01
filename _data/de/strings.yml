@@ -216,6 +216,11 @@ so_search_ph: "Suche: LLM, Kryptografie, Germany, TU Delft…"
 so_any: Alle
 so_f_level: Art
 so_f_region: Wo
+so_f_country: Land
+so_apply: Details und Bewerbung
+so_on: auf
+so_seen: Noch bei der Quelle gelistet am
+so_opens_original: Öffnet die Originalausschreibung
 so_f_field: Gebiet
 so_f_deadline: Frist
 so_f_sort: Sortieren

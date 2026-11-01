@@ -722,6 +722,11 @@ html:not(.js) .radar { display: none; }
 .so-by { font-size: 14px; color: var(--muted); }
 .so-sec { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); }
 .so-link { font-size: 15px; }
+.so-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 4px; }
+.so-apply { min-height: 42px; padding: 0 16px; font-size: 15px; }
+.so-host, .so-seen { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); font: 13px/1.4 var(--mono); }
+.so-seen .icon { color: var(--accent); }
+[dir="rtl"] .so-apply .icon { transform: scaleX(-1); }
 .so-link .muted { font-size: 13px; }
 .so-limits { display: grid; gap: 6px; padding-inline-start: 1.2em; list-style: disc; }
 .so-about h3 { font-size: 19px; margin-top: 6px; }
