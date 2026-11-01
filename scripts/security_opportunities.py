@@ -114,7 +114,7 @@ NOT_SECURITY_RE = re.compile(
     r"food security|social security|energy security|water security|job security|financial security|security guard|"
     r"security officer|security staff|securit(y|ies) (law|market|exchange)|national security studies|"
     r"securitization|securitisation|security and defence studies|health security|climate security|"
-    r"cyberball|cybernetic", re.I)
+    r"nuclear security|international security|cyberball|cybernetic", re.I)
 
 # --- What kind of opening ------------------------------------------------------------------------------
 # Order matters: the first match wins (postdoc before PhD, so "Post-Doctoral" isn't read as "doctoral"). ids must match so_level_<id> in _data/strings.yml.
@@ -144,7 +144,7 @@ COUNTRIES = {
                "Lausanne", "Geneva", "Vienna", "Graz", "Stockholm", "KTH", "Chalmers", "Copenhagen", "DTU", "Aarhus", "Oslo", "NTNU",
                "Helsinki", "Aalto", "Dublin", "Madrid", "Barcelona", "Lisbon", "Milan", "Rome", "Turin", "Leuven", "KU Leuven", "Ghent", "Brussels"],
     "usa": ["United States", "USA", "U.S.", "California", "New York", "Texas", "Massachusetts", "Washington, DC", "Pennsylvania", "Illinois",
-            "Georgia Tech", "MIT", "Stanford", "Berkeley", "Carnegie Mellon", "Purdue", "Virginia", "Maryland", "Florida", "Arizona", "Michigan"],
+            "Georgia Tech", "MIT", "Harvard", "Princeton", "Columbia University", "Cornell", "Stanford", "Berkeley", "Carnegie Mellon", "Purdue", "Virginia", "Maryland", "Florida", "Arizona", "Michigan"],
     "canada": ["Canada", "Ontario", "Quebec", "Québec", "British Columbia", "Alberta", "Toronto", "Montreal", "Montréal", "Vancouver", "Waterloo", "Ottawa"],
     "china": ["China", "Chinese", "Beijing", "Shanghai", "Shenzhen", "Hangzhou", "Nanjing", "Wuhan", "Guangzhou", "Hefei", "Tsinghua", "Zhejiang",
               "Hong Kong", "Macau", "Taiwan", "Taipei"],
@@ -259,17 +259,20 @@ def classify(title, body, source):
         return None
     if STAFF_RE.search(title) and not re.search(r"ph\.?d|doctoral|studentship|fellowship|scholarship|postdoc|master", title, re.I):
         return None
-    fields = [f for f, rx in FIELD_RES if rx.search(text)]
+    head = title + " \n " + body[:500]  # the area comes from the title and the start of the text, not every word of it
+    fields = [f for f, rx in FIELD_RES if rx.search(head)]
     if not fields:
         fields = ["general"]
     places = PLACE_NOISE_RE.sub(" ", text)
     region, country = "", source.get("country", "")
-    hits = [(m.start(), r) for r, rx in REGION_RES for m in [rx.search(places)] if m] or \
-           [(m.start(), r) for r, rx in PLACE_RES for m in [rx.search(places)] if m]
+    # A country named in the posting wins; then the job board's own country (HERC is American, so its "Cambridge"
+    # is in Massachusetts); then a city or university named in the posting.
+    hits = [(m.start(), r) for r, rx in REGION_RES for m in [rx.search(places)] if m]
+    if not hits and country:
+        hits = [(0, COUNTRY_TO_REGION.get(country, ""))]
+    hits = hits or [(m.start(), r) for r, rx in PLACE_RES for m in [rx.search(places)] if m]
     if hits:
         region = min(hits)[1]
-    elif country:
-        region = COUNTRY_TO_REGION.get(country, "")
     return level, fields, region or "global", country
 
 

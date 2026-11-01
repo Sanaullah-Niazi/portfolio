@@ -694,11 +694,11 @@ html:not(.js) .radar { display: none; }
 .so-section { display: grid; gap: 14px; }
 .so-stats { display: flex; flex-wrap: wrap; gap: 10px 28px; color: #b8c6dc; }
 .so-stats strong { font: 700 26px/1 var(--display); color: #fff; margin-inline-end: 4px; }
-.so-filters { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: end; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.so-filters { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr)); gap: 10px 12px; align-items: end; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
 .so-filters label { display: grid; gap: 4px; font-size: 13.5px; color: var(--muted); }
-.so-filters select { min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 15px/1.3 var(--sans); max-width: 100%; }
+.so-filters select { width: 100%; min-height: 42px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 15px/1.3 var(--sans); }
 .so-filters select:focus, .so-search input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
-.so-filters .so-search { flex: 1 1 100%; display: flex; align-items: center; gap: 8px; position: relative; }
+.so-filters .so-search { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; position: relative; }
 .so-search .icon { position: absolute; inset-inline-start: 12px; color: var(--muted); }
 .so-search input { width: 100%; min-height: 46px; padding-block: 0; padding-inline: 40px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: 16px/1.4 var(--sans); }
 .so-reset { min-height: 42px; }
@@ -725,10 +725,7 @@ html:not(.js) .radar { display: none; }
 .so-link .muted { font-size: 13px; }
 .so-limits { display: grid; gap: 6px; padding-inline-start: 1.2em; list-style: disc; }
 .so-about h3 { font-size: 19px; margin-top: 6px; }
-@media (max-width: 640px) {
-  .so-filters label:not(.so-search) { flex: 1 1 calc(50% - 6px); }
-  .so-filters select { width: 100%; }
-}
+@media (max-width: 640px) { .so-filters { grid-template-columns: 1fr 1fr; } }
 
 /* Tools page */
 .tools-page { gap: 24px; }
@@ -1432,9 +1429,9 @@ a.mp-node:focus-visible, .mp-stage-node:focus-visible { outline: 3px solid var(-
   .focus-card:nth-child(5) { grid-column: 1 / -1; }
 }
 /* Narrow screens: the nav folds into a menu */
-/* The header lines up with the page. Its eight links fit on one line down to small laptops (1161px), in every language
+/* The header lines up with the page. Its nine links fit on one line down to small laptops (1161px), in every language
    (German is the longest), so they sit a little closer together than the rest of the page's text. */
-@media (min-width: 1161px) { .nav { gap: 2px; } .nav a { padding: 8px 6px; font-size: 14.5px; } .nav a.is-active::after { left: 6px; right: 6px; } }
+@media (min-width: 1161px) { .nav { gap: 0; } .nav a { padding: 8px 5px; font-size: 14px; } .nav a.is-active::after { left: 5px; right: 5px; } }
 /* Below that the menu folds into the menu button. */
 @media (max-width: 1160px) {
   .js .menu-toggle { display: grid; }

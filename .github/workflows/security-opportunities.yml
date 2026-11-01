@@ -50,7 +50,3 @@ jobs:
       - name: Show the data (temporary, for the preview)
         if: github.event_name == 'pull_request'
         run: python3 -c "import json; d=json.load(open('_data/security_opportunities.json')); d.pop('programs'); print('JSONSTART'); print(json.dumps(d)); print('JSONEND')"
-
-      - name: Probe candidate feeds (temporary)
-        if: github.event_name == 'pull_request'
-        run: python3 .github/probe_feeds.py 'https://iacr.org/jobs/' 'https://www.jobs.ac.uk/' 'https://www.jobs.ac.uk/feeds/subject-areas/computer-sciences/' 'https://www.jobs.ac.uk/search/?keywords=cyber+security'
