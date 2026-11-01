@@ -278,6 +278,7 @@ so_link_checked: link checked
 so_about_title: How this list works
 so_about_1: Every day a small program on this site reads the public feeds of the job boards and scholarship sites below. It keeps only postings that are about security and are a PhD, master's, scholarship, fellowship or postdoc, reads the deadline from the posting, and removes anything that has closed. Postings with no deadline are removed after 45 days.
 so_about_2: It only reads what these sites publish for anyone to subscribe to, and it checks each site's rules for bots (robots.txt) first. Nothing is invented; every entry links to its original posting. Numbers in brackets are how many open postings came from each source.
+so_about_3: Each posting shows the last day its source still listed it, and the button takes you straight to the original posting to read the details and apply. When a source lists every open position (like IACR), a posting it takes down is removed here the next day.
 so_limits_title: What it can't see
 so_limit_1: Postings that are only on a professor's own page, a mailing list or social media, and never reach a job board.
 so_limit_2: Sites that don't offer a feed or that ask bots not to read them, such as EURAXESS, LinkedIn and most national portals in China, Japan and Korea. For those, use the yearly programmes below and search the sites yourself.

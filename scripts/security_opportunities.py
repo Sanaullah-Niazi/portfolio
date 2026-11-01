@@ -54,14 +54,43 @@ SOURCES = [
      "all_security": True, "complete": True},
     {"id": "daad-phd", "name": "DAAD PhDGermany", "home": "https://www.daad.de/en/", "country": "Germany",
      "url": "https://api.daad.de/api/feeds/rss/en/phd.xml"},
+    # Every job at the Max Planck institutes (MPI for Security and Privacy, Software Systems, Informatics...).
+    {"id": "mpg", "name": "Max Planck Society", "home": "https://www.mpg.de/career", "country": "Germany",
+     "url": "https://www.mpg.de/feeds/jobs.rss"},
     {"id": "scholars4dev", "name": "Scholars4Dev", "home": "https://www.scholars4dev.com", "url": "https://www.scholars4dev.com/feed/"},
     {"id": "opportunitydesk", "name": "Opportunity Desk", "home": "https://opportunitydesk.org", "url": "https://opportunitydesk.org/feed/"},
 ]
 # Job boards whose search results come as a feed. Each search is one feed.
 THE_SEARCHES = ["cyber security", "information security", "cryptography", "privacy", "AI security", "network security",
-                "phd security", "phd cyber", "studentship security", "doctoral cyber", "postdoc security", "fellowship cyber", "scholarship cyber"]
+                "phd security", "phd cyber", "studentship security", "doctoral cyber", "postdoc security", "fellowship cyber", "scholarship cyber",
+                "phd cryptography", "phd privacy", "machine learning security", "AI safety", "postdoc cryptography"]
 HERC_SEARCHES = ["cyber security", "cybersecurity", "cryptography", "privacy", "phd security", "postdoctoral security"]
 WP_SEARCHES = ["cyber security", "cybersecurity", "information security"]
+JOBRXIV_SEARCHES = ["security", "cybersecurity", "cryptography", "privacy"]
+# More job boards on the same software as Times Higher Education (a "jobsrss" feed for each search).
+MADGEX = [("chronicle", "The Chronicle of Higher Education Jobs", "https://jobs.chronicle.com", "United States"),
+          ("insidehighered", "Inside Higher Ed Careers", "https://careers.insidehighered.com", "United States"),
+          ("sciencecareers", "Science Careers", "https://jobs.sciencecareers.org", "")]
+MADGEX_SEARCHES = ["cybersecurity", "cryptography", "privacy", "postdoc security", "phd security"]
+for _id, _name, _home, _c in MADGEX:
+    for _q in MADGEX_SEARCHES:
+        SOURCES.append({"id": _id + "-" + re.sub(r"[^a-z]+", "-", _q), "name": _name, "home": _home, "country": _c,
+                        "url": _home + "/jobsrss/?keywords=" + Q(_q)})
+# Swedish universities publish every vacancy (PhD and postdoc posts included) as a feed on Varbi.
+VARBI = [("kth", "KTH Royal Institute of Technology"), ("lu", "Lund University"), ("uu", "Uppsala University"),
+         ("umu", "Umeå University"), ("su", "Stockholm University"), ("kau", "Karlstad University"),
+         ("bth", "Blekinge Institute of Technology"), ("ltu", "Luleå University of Technology"), ("oru", "Örebro University"),
+         ("mdu", "Mälardalen University"), ("hh", "Halmstad University"), ("lnu", "Linnaeus University"),
+         ("his", "University of Skövde"), ("miun", "Mid Sweden University"), ("sh", "Södertörn University")]
+for _id, _name in VARBI:
+    SOURCES.append({"id": "varbi-" + _id, "name": _name, "home": f"https://{_id}.varbi.com/en/", "country": "Sweden",
+                    "url": f"https://{_id}.varbi.com/en/what:rssfeed/"})
+# Every vacancy at the University of Cambridge, PhD studentships included.
+SOURCES.append({"id": "cambridge", "name": "University of Cambridge Jobs", "home": "https://www.jobs.cam.ac.uk",
+                "country": "United Kingdom", "url": "https://www.jobs.cam.ac.uk/job/?format=rss"})
+for _q in JOBRXIV_SEARCHES:  # jobRxiv: research jobs posted by the labs themselves
+    SOURCES.append({"id": "jobrxiv-" + _q, "name": "jobRxiv", "home": "https://jobrxiv.org",
+                    "url": "https://jobrxiv.org/?feed=job_feed&search_keywords=" + Q(_q)})
 for _q in THE_SEARCHES:
     SOURCES.append({"id": "the-" + re.sub(r"[^a-z]+", "-", _q.lower()), "name": "Times Higher Education Jobs",
                     "home": "https://www.timeshighereducation.com/unijobs/",
@@ -109,7 +138,9 @@ SECURITY_RE = re.compile(
     r"cyber|\bsecur(e|ity|ing)\b|cryptograph|cryptolog|privacy|\bforensic|malware|intrusion|side[- ]channel|"
     r"adversarial|prompt injection|post[- ]quantum|homomorphic|zero[- ]knowledge|trustworthy (AI|ML|machine)|AI safety|"
     r"vulnerabilit|threat (detection|intelligence|model)|attack (detection|surface)|\bfuzz|penetration test|anonymi[sz]|"
-    r"authentication|access control|blockchain|digital trust|resilien(t|ce) (system|infrastructure)", re.I)
+    r"authentication|access control|blockchain|digital trust|resilien(t|ce) (system|infrastructure)|"
+    # Swedish and German, for the universities' own feeds
+    r"cybersäkerhet|informationssäkerhet|IT-säkerhet|datasäkerhet|kryptografi|IT-Sicherheit|Cybersicherheit|Kryptographie", re.I)
 # "Security" that isn't about computers, and openings that aren't for students or researchers.
 NOT_SECURITY_RE = re.compile(
     r"food security|social security|energy security|water security|job security|financial security|security guard|"
@@ -121,7 +152,7 @@ NOT_SECURITY_RE = re.compile(
 # Order matters: the first match wins (postdoc before PhD, so "Post-Doctoral" isn't read as "doctoral"). ids must match so_level_<id> in _data/strings.yml.
 LEVELS = [
     ("masters", r"\bmaster'?s?\b|\bM\.?Sc\b|\bMSc\b|\bMEng\b|\bM\.?S\.? (degree|program|in)\b|\bMRes\b|\bLL\.?M\b"),
-    ("postdoc", r"post[- ]?doc|postdoctoral|research fellow|research associate"),
+    ("postdoc", r"post[- ]?doc|postdoctoral|postdoktor|research fellow|research associate"),
     ("phd", r"\bPh\.?\s?D\b|doctoral|doctorate|\bDPhil\b|studentship|\bEngD\b|\bDoktorand|graduate research assistant"),
     ("fellowship", r"fellowship|\bfellows?\b"),
     ("scholarship", r"scholarship|bursary|bursaries|stipend|grant for|grants for|tuition (waiver|fee)|award for (student|stud)|funding for (student|stud)|funded (place|position)"),
@@ -158,7 +189,7 @@ COUNTRIES = {
     "africa": ["Africa", "African", "Nigeria", "Kenya", "Ghana", "South Africa", "Egypt", "Morocco", "Tunisia", "Ethiopia", "Rwanda", "Uganda", "Tanzania"],
     "latam": ["Brazil", "Mexico", "Chile", "Argentina", "Colombia", "Peru", "Latin America"],
 }
-COUNTRY_TO_REGION = {"United Kingdom": "uk", "Germany": "europe", "Netherlands": "europe", "United States": "usa"}
+COUNTRY_TO_REGION = {"United Kingdom": "uk", "Germany": "europe", "Netherlands": "europe", "Sweden": "europe", "United States": "usa"}
 # Countries and regions themselves; a posting that names one is filed there before any city or university is
 # looked at ("New York University Abu Dhabi ... United Arab Emirates" is in the Middle East, not the USA).
 COUNTRY_NAMES = {"United Kingdom", "UK", "England", "Scotland", "Wales", "Northern Ireland", "Germany", "Netherlands", "France", "Belgium",

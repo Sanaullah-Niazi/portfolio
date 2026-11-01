@@ -276,6 +276,7 @@ so_link_checked: Link geprüft am
 so_about_title: So entsteht diese Liste
 so_about_1: Jeden Tag liest ein kleines Programm dieser Website die öffentlichen Feeds der unten genannten Stellenbörsen und Stipendienseiten. Es behält nur Ausschreibungen zur Sicherheit, die eine PhD-, Master-, Stipendien-, Fellowship- oder Postdoc-Stelle sind, liest die Frist aus der Ausschreibung und entfernt alles, was abgelaufen ist. Ausschreibungen ohne Frist werden nach 45 Tagen entfernt.
 so_about_2: Es liest nur, was diese Seiten für alle zum Abonnieren veröffentlichen, und prüft vorher die Regeln jeder Seite für Bots (robots.txt). Nichts wird erfunden; jeder Eintrag verlinkt seine Originalausschreibung. Die Zahl in Klammern zeigt, wie viele offene Ausschreibungen aus jeder Quelle stammen.
+so_about_3: Bei jeder Ausschreibung steht, wann die Quelle sie zuletzt noch gelistet hat, und der Button führt direkt zur Originalausschreibung mit allen Details und der Bewerbung. Wenn eine Quelle alle offenen Stellen listet (wie IACR), verschwindet eine dort entfernte Ausschreibung hier am nächsten Tag.
 so_limits_title: Was sie nicht sieht
 so_limit_1: Ausschreibungen, die nur auf der Seite eines Professors, in einer Mailingliste oder in sozialen Medien stehen und nie eine Stellenbörse erreichen.
 so_limit_2: Seiten ohne Feed oder die Bots das Lesen untersagen, etwa EURAXESS, LinkedIn und die meisten nationalen Portale in China, Japan und Korea. Dafür die jährlichen Programme unten nutzen und selbst dort suchen.
