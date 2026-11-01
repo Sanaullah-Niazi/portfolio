@@ -22,9 +22,15 @@ for u in sys.argv[1:]:
         print(f"== {u}\n   robots={allowed} {s} {ct} items={items} final={final}")
         titles = re.findall(r"<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", t)[:6]
         print("   titles:", titles)
-        if "jobs.ac.uk/feeds" in u or "iacr.org/jobs" in u:
+        if "jobs.ac.uk" in u:
             print("   hrefs:", sorted(set(re.findall(r'href="([^"]*(?:rss|feed|xml)[^"]*)"', t, re.I)))[:40])
+        if "jobs.ac.uk/search" in u:
+            print("   sample:", re.sub(r"\s+", " ", t[t.find("j-search-result"):][:2500]))
         if "iacr.org/jobs" in u:
-            print("   sample:", re.sub(r"\s+", " ", t[t.find("<main"):][:3000]))
+            i = t.find('id="url-', 5000)
+            print("   iacr:", re.sub(r"\s+", " ", t[i-300:i+4000]))
+            print("   closing:", [re.sub(r"\s+"," ",t[m.start()-200:m.start()+200]) for m in re.finditer(r"[Cc]losing", t)][:3])
+        if "robots.txt" in u:
+            print(t[:1500])
     except Exception as e:
         print(f"== {u}\n   robots={rob.get(urllib.parse.urlsplit(u).scheme+'://'+urllib.parse.urlsplit(u).netloc) and ok(u)} ERROR {e}")

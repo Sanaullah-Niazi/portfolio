@@ -115,11 +115,11 @@ NOT_SECURITY_RE = re.compile(
     r"cyberball|cybernetic", re.I)
 
 # --- What kind of opening ------------------------------------------------------------------------------
-# Order matters: the first match wins. ids must match so_level_<id> in _data/strings.yml.
+# Order matters: the first match wins (postdoc before PhD, so "Post-Doctoral" isn't read as "doctoral"). ids must match so_level_<id> in _data/strings.yml.
 LEVELS = [
     ("masters", r"\bmaster'?s?\b|\bM\.?Sc\b|\bMSc\b|\bMEng\b|\bM\.?S\.? (degree|program|in)\b|\bMRes\b|\bLL\.?M\b"),
-    ("phd", r"\bPh\.?\s?D\b|doctoral|doctorate|\bDPhil\b|studentship|\bEngD\b|\bDoktorand|graduate research assistant"),
     ("postdoc", r"post[- ]?doc|postdoctoral|research fellow|research associate"),
+    ("phd", r"\bPh\.?\s?D\b|doctoral|doctorate|\bDPhil\b|studentship|\bEngD\b|\bDoktorand|graduate research assistant"),
     ("fellowship", r"fellowship|\bfellows?\b"),
     ("scholarship", r"scholarship|bursary|bursaries|stipend|grant for|grants for|tuition (waiver|fee)|award for (student|stud)|funding for (student|stud)|funded (place|position)"),
 ]
@@ -155,7 +155,24 @@ COUNTRIES = {
     "latam": ["Brazil", "Mexico", "Chile", "Argentina", "Colombia", "Peru", "Latin America"],
 }
 COUNTRY_TO_REGION = {"United Kingdom": "uk", "Germany": "europe", "Netherlands": "europe"}
-REGION_RES = [(r, re.compile(r"(?<![\w-])(" + "|".join(re.escape(n) for n in names) + r")(?![\w-])")) for r, names in COUNTRIES.items()]
+# Countries and regions themselves; a posting that names one is filed there before any city or university is
+# looked at ("New York University Abu Dhabi ... United Arab Emirates" is in the Middle East, not the USA).
+COUNTRY_NAMES = {"United Kingdom", "UK", "England", "Scotland", "Wales", "Northern Ireland", "Germany", "Netherlands", "France", "Belgium",
+                 "Switzerland", "Austria", "Sweden", "Norway", "Denmark", "Finland", "Iceland", "Ireland", "Spain", "Portugal", "Italy", "Greece",
+                 "Cyprus", "Malta", "Luxembourg", "Poland", "Czech", "Czechia", "Slovakia", "Hungary", "Romania", "Bulgaria", "Croatia", "Slovenia",
+                 "Serbia", "Estonia", "Latvia", "Lithuania", "Ukraine", "United States", "USA", "Canada", "China", "Hong Kong", "Macau", "Taiwan",
+                 "Japan", "Korea", "Singapore", "India", "Pakistan", "Bangladesh", "Malaysia", "Indonesia", "Vietnam", "Thailand", "Philippines",
+                 "Sri Lanka", "Nepal", "United Arab Emirates", "UAE", "Saudi Arabia", "Qatar", "Israel", "Turkey", "Türkiye", "Oman", "Kuwait",
+                 "Bahrain", "Jordan", "Lebanon", "Iran", "Australia", "New Zealand", "Nigeria", "Kenya", "Ghana", "South Africa", "Egypt", "Morocco",
+                 "Tunisia", "Ethiopia", "Rwanda", "Uganda", "Tanzania", "Brazil", "Mexico", "Chile", "Argentina", "Colombia", "Peru"}
+
+
+def _rx(names):
+    return re.compile(r"(?<![\w-])(" + "|".join(re.escape(n) for n in sorted(names, key=len, reverse=True)) + r")(?![\w-])")
+
+
+REGION_RES = [(r, _rx([n for n in names if n in COUNTRY_NAMES])) for r, names in COUNTRIES.items()]
+PLACE_RES = [(r, _rx([n for n in names if n not in COUNTRY_NAMES])) for r, names in COUNTRIES.items()]
 # Words that look like places but usually aren't, in these postings.
 PLACE_NOISE_RE = re.compile(r"\bMIT License|Cambridge University Press|New England|Kent State", re.I)
 
@@ -244,7 +261,8 @@ def classify(title, body, source):
         fields = ["general"]
     places = PLACE_NOISE_RE.sub(" ", text)
     region, country = "", source.get("country", "")
-    hits = [(m.start(), r) for r, rx in REGION_RES for m in [rx.search(places)] if m]
+    hits = [(m.start(), r) for r, rx in REGION_RES for m in [rx.search(places)] if m] or \
+           [(m.start(), r) for r, rx in PLACE_RES for m in [rx.search(places)] if m]
     if hits:
         region = min(hits)[1]
     elif country:
@@ -435,8 +453,8 @@ def load_programs():
 
 
 def check_programs(old, now, report):
-    """Opens each programme link once a day. A link that fails is retried on later days; the page hides a
-    programme only after its link has failed three days running, so a short outage doesn't remove it."""
+    """Opens each programme link once a day. The page hides a programme only after its link has answered
+    "not found" three days running, so a short outage or a bot check doesn't remove it."""
     out = {}
     for p in load_programs():
         prev = old.get(p["id"], {})
@@ -448,19 +466,16 @@ def check_programs(old, now, report):
             if report:
                 log(f"   ok {status} {p['id']}: {plain(title.group(1).decode('utf-8', 'replace'))[:90] if title else '(no title)'} <{final}>")
         except urllib.error.HTTPError as e:
-            # 401/403/429 means a bot check, not a dead page: a person can still open it.
-            if e.code in (401, 403, 429, 503):
-                rec.update(ok=prev.get("ok", True))
-                if report:
-                    log(f"   ?? {e.code} {p['id']} (bot check, kept) <{p['url']}>")
-            else:
+            # Only "not found" or "gone" means the page is dead. 401/403/429/5xx is a bot check or an outage:
+            # a person can usually still open it, so it doesn't count.
+            if e.code in (404, 410):
                 rec["fails"] = rec["fails"] + 1
-                if report:
-                    log(f"   XX {e.code} {p['id']} <{p['url']}>")
-        except Exception as e:
-            rec["fails"] = rec["fails"] + 1
             if report:
-                log(f"   XX {e.__class__.__name__} {p['id']} <{p['url']}>")
+                log(f"   {'XX' if e.code in (404, 410) else '??'} {e.code} {p['id']} <{p['url']}>")
+        except Exception as e:
+            # Timeouts and connection errors are often the site blocking cloud servers, not a dead page.
+            if report:
+                log(f"   ?? {e.__class__.__name__} {p['id']} (not counted) <{p['url']}>")
         if rec["fails"] >= 3:
             rec["ok"] = False
         out[p["id"]] = rec

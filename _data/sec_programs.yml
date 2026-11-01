@@ -76,14 +76,6 @@
   security: true
   note: Runs scholarships, conference grants and training for women in cybersecurity.
 
-- id: otf-icf
-  url: https://www.opentech.fund/funds/information-controls-fellowship/
-  name: Information Controls Fellowship
-  by: Open Technology Fund
-  where: global
-  levels: [fellowship]
-  security: true
-  note: Paid research fellowships on internet censorship, surveillance and digital security, hosted by a partner organisation.
 
 # --- AI and computing (security research fits) ---
 - id: google-phd
@@ -123,7 +115,7 @@
   note: PhD fellowship for machine learning research, including privacy-preserving ML.
 
 - id: ellis-phd
-  url: https://ellis.eu/phd-postdoc
+  url: https://ellis.eu/research/phd-postdoc
   name: ELLIS PhD and Postdoc Program
   by: European Laboratory for Learning and Intelligent Systems
   where: europe
@@ -159,7 +151,7 @@
   note: AI university in Abu Dhabi. Its master's and PhD students get a full scholarship and a monthly allowance, according to the university.
 
 - id: kaust
-  url: https://www.kaust.edu.sa/
+  url: https://www.kaust.edu.sa/en/
   name: KAUST graduate fellowship
   by: King Abdullah University of Science and Technology
   where: middleeast
@@ -223,7 +215,7 @@
   note: Every Erasmus Mundus joint master's with EU scholarships; search it for cybersecurity, privacy and AI programmes.
 
 - id: swiss-excellence
-  url: https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html
+  url: https://www.sbfi.admin.ch/en/swiss-government-excellence-scholarships
   name: Swiss Government Excellence Scholarships
   by: Swiss State Secretariat for Education, Research and Innovation
   where: europe
@@ -241,8 +233,8 @@
   note: Covers living and study costs for excellent master's students at ETH Zurich, including its cyber security master's.
 
 - id: eiffel
-  url: https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence
-  name: Eiffel Excellence Scholarship
+  url: https://www.campusfrance.org/en/france-excellence-eiffel-scholarship-program
+  name: France Excellence Eiffel Scholarship
   by: French Ministry for Europe and Foreign Affairs
   where: europe
   levels: [masters, phd, scholarship]
