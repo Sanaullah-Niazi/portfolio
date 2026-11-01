@@ -62,19 +62,22 @@
     {% if items.size > 0 %}
     <ol class="so-list" data-so-list>
       {%- for it in items %}
+      {%- assign target = it.url %}{% if it.official and it.official != "" %}{% assign target = it.official %}{% endif %}
       <li data-level="{{ it.level }}" data-region="{{ it.region }}" data-country="{{ it.country }}" data-fields="{{ it.fields | join: '|' }}" data-deadline="{{ it.deadline }}" data-posted="{{ it.posted }}">
         <p class="so-meta"><span class="so-level so-level-{{ it.level }}">{% assign k = 'so_level_' | append: it.level %}{{ S[k] }}</span>
           {% if it.country and it.country != "" %}<span data-cc="{{ it.country }}">{{ it.country }}</span>{% else %}{% assign k = 'so_region_' | append: it.region %}<span>{{ S[k] }}</span>{% endif %} · <span class="so-src">{{ it.source | escape }}</span> · {{ S.so_posted }} <time datetime="{{ it.posted }}">{% include date.html date=it.posted %}</time></p>
-        <h3{{ en_attr }}><a href="{{ it.url | escape }}" rel="noopener nofollow">{{ it.title | escape }}</a></h3>
+        <h3{{ en_attr }}><a href="{{ target | escape }}" rel="noopener nofollow">{{ it.title | escape }}</a></h3>
         <p class="so-deadline">
           {%- if it.deadline != "" %}{% include icon.html name="clock" px=16 %}{{ S.so_deadline }}: <time datetime="{{ it.deadline }}">{% include date.html date=it.deadline long=true %}</time> <span class="so-left" data-left></span>
           {%- elsif it.rolling %}{% include icon.html name="refresh" px=16 %}{{ S.so_rolling }}
           {%- else %}{% include icon.html name="alert" px=16 %}{{ S.so_no_deadline }}{% endif %}</p>
         {% if it.excerpt != "" %}<p class="so-excerpt"{{ en_attr }}>{{ it.excerpt | escape }}</p>{% endif %}
         <ul class="tags" aria-label="{{ S.so_f_field }}">{% for f in it.fields %}{% assign k = 'so_field_' | append: f %}<li>{{ S[k] | default: f }}</li>{% endfor %}</ul>
-        {%- assign host = it.url | split: "/" %}{% assign host = host[2] | remove_first: "www." %}
-        <p class="so-actions"><a class="btn btn-primary so-apply" href="{{ it.url | escape }}" rel="noopener nofollow" title="{{ S.so_opens_original }}">{{ S.so_apply }} {% include icon.html name="arrow" px=16 %}</a>
-          <span class="so-host"{{ en_attr }}>{% include icon.html name="link" px=14 %}{{ host | escape }}</span>
+        {%- assign host = target | split: "/" %}{% assign host = host[2] | remove_first: "www." %}
+        <p class="so-actions">{% if target != it.url %}<a class="btn btn-primary so-apply" href="{{ target | escape }}" rel="noopener nofollow" title="{{ S.so_opens_original }}">{{ S.so_apply }} {% include icon.html name="arrow" px=16 %}</a>
+          <span class="so-host"><span{{ en_attr }}>{% include icon.html name="link" px=14 %}{{ host | escape }}</span> · {{ S.so_is_official }}</span>
+          {%- else %}<a class="btn btn-primary so-apply" href="{{ target | escape }}" rel="noopener nofollow" title="{{ S.so_opens_original }}">{% if it.official == target %}{{ S.so_apply }}{% else %}{{ S.so_view_posting }}{% endif %} {% include icon.html name="arrow" px=16 %}</a>
+          <span class="so-host"><span{{ en_attr }}>{% include icon.html name="link" px=14 %}{{ host | escape }}</span>{% if it.official == target %} · {{ S.so_is_official }}{% elsif it.page_checked %} · {{ S.so_is_listing }}{% endif %}</span>{% endif %}
           {%- if it.seen %} <span class="so-seen">{% include icon.html name="check" px=14 %}{{ S.so_seen }} <time datetime="{{ it.seen }}">{% include date.html date=it.seen long=true %}</time></span>{% endif %}</p>
       </li>
       {%- endfor %}
@@ -101,6 +104,48 @@
       </li>
       {%- endfor %}
     </ul>
+  </section>
+
+  <section class="so-section" aria-labelledby="so-dir-title">
+    <h2 id="so-dir-title">{{ S.so_dir_title }}</h2>
+    <p class="muted">{{ S.so_dir_lede }}</p>
+    {%- assign dir = site.data.sec_directory %}
+    {%- assign groups = "databases,countries,security,pakistan" | split: "," %}
+    {%- for g in groups %}
+    {%- assign links = dir | where: "group", g %}
+    {%- assign k = 'so_dir_' | append: g %}
+    <h3 class="so-dir-head">{{ S[k] }}</h3>
+    <ul class="so-dir">
+      {%- for d in links %}
+      {%- assign chk = data.programs[d.id] %}{% if chk and chk.ok == false %}{% continue %}{% endif %}
+      {%- assign host = d.url | split: "/" %}{% assign host = host[2] | remove_first: "www." %}
+      <li>
+        <p class="so-dir-name"><a href="{{ d.url }}" rel="noopener"{{ en_attr }}>{{ d.name }}</a>
+          {% if d.official %}<span class="so-badge so-badge-official">{% include icon.html name="check" px=12 %}{{ S.so_badge_official }}</span>{% else %}<span class="so-badge">{{ S.so_badge_listing }}</span>{% endif %}</p>
+        <p class="so-dir-note"{{ en_attr }}>{{ d.note }}</p>
+        <p class="so-host"{{ en_attr }}>{% include icon.html name="link" px=14 %}{{ host }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endfor %}
+
+    <div class="so-guide">
+      <div class="card">
+        <h3>{{ S.so_verify_title }}</h3>
+        <ol class="so-verify">
+          <li>{{ S.so_verify_1 }}</li><li>{{ S.so_verify_2 }}</li><li>{{ S.so_verify_3 }}</li>
+          <li>{{ S.so_verify_4 }}</li><li>{{ S.so_verify_5 }}</li><li>{{ S.so_verify_6 }}</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>{{ S.so_terms_title }}</h3>
+        <p>{{ S.so_terms_text }}</p>
+        <ul class="tags so-terms" lang="en" dir="ltr">
+          {%- assign terms = "fully funded PhD|PhD studentship|doctoral researcher|PhD fellowship|graduate research assistantship (GRA)|graduate teaching assistantship (GTA)|research assistantship|tuition waiver|stipend|funded master's|MPhil scholarship|postdoctoral fellowship" | split: "|" %}
+          {%- for t in terms %}<li>{{ t }}</li>{% endfor %}
+        </ul>
+      </div>
+    </div>
   </section>
 
   <section class="so-section so-about" aria-labelledby="so-about-title">

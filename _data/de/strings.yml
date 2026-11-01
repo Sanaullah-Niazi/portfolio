@@ -219,6 +219,9 @@ so_f_region: Wo
 so_f_country: Land
 so_apply: Details und Bewerbung
 so_on: auf
+so_view_posting: "Ausschreibung öffnen"
+so_is_official: "offizielle Seite"
+so_is_listing: "Stellenportal (kein offizieller Link gefunden)"
 so_seen: Noch bei der Quelle gelistet am
 so_opens_original: Öffnet die Originalausschreibung
 so_f_field: Gebiet
@@ -273,6 +276,23 @@ so_prog_lede: Bekannte Stipendien und Fellowships, die jedes Jahr wiederkommen. 
 so_security_only: Nur Sicherheit
 so_official: Offizielle Seite
 so_link_checked: Link geprüft am
+so_dir_title: "Selbst suchen"
+so_dir_lede: "Keine einzelne Website listet alle finanzierten Stellen. Das sind die offiziellen Seiten und größten Datenbanken zum selbst Durchsuchen. Einige erlauben kein automatisches Auslesen, deshalb erscheinen ihre Ausschreibungen nicht in der täglichen Liste oben."
+so_dir_pakistan: "Aus Pakistan"
+so_dir_databases: "Datenbanken für Promotionen, Forschungsstellen und Stipendien"
+so_dir_countries: "Offizielle Länderportale"
+so_dir_security: "Sicherheit und Kryptographie"
+so_badge_official: "Offiziell"
+so_badge_listing: "Stellenportal"
+so_terms_title: "Suchbegriffe"
+so_terms_text: "Finanzierte Stellen heißen sehr unterschiedlich. Suche diese Begriffe zusammen mit „security“, „cyber“, „privacy“ oder „cryptography“:"
+so_verify_title: "Vor der Bewerbung: Ist sie echt?"
+so_verify_1: "Finde dieselbe Stelle auf der Website der Universität, des Labors oder des Geldgebers. Ein LinkedIn-Post oder ein Portal ist nicht die Quelle."
+so_verify_2: "Bewirb dich nur über das Bewerbungs- oder Stellenportal der Universität selbst."
+so_verify_3: "Prüfe, was bezahlt wird: Studiengebühren, monatliches Stipendium oder Gehalt, Versicherung, Reise. Ein Platz ohne Finanzierung ist kein Stipendium."
+so_verify_4: "Prüfe, ob deine Staatsangehörigkeit und dein Abschluss zugelassen sind. Manche Förderungen gibt es nur für Staatsbürger."
+so_verify_5: "Prüfe die Frist auf der Originalseite, nicht auf einer Kopie."
+so_verify_6: "Zahle nie jemandem Geld, um ein Stipendium, eine Zulassung oder eine Auswahl zu „garantieren“. Echte Geldgeber verlangen das nicht."
 so_about_title: So entsteht diese Liste
 so_about_1: Jeden Tag liest ein kleines Programm dieser Website die öffentlichen Feeds der unten genannten Stellenbörsen und Stipendienseiten. Es behält nur Ausschreibungen zur Sicherheit, die eine PhD-, Master-, Stipendien-, Fellowship- oder Postdoc-Stelle sind, liest die Frist aus der Ausschreibung und entfernt alles, was abgelaufen ist. Ausschreibungen ohne Frist werden nach 45 Tagen entfernt.
 so_about_2: Es liest nur, was diese Seiten für alle zum Abonnieren veröffentlichen, und prüft vorher die Regeln jeder Seite für Bots (robots.txt). Nichts wird erfunden; jeder Eintrag verlinkt seine Originalausschreibung. Die Zahl in Klammern zeigt, wie viele offene Ausschreibungen aus jeder Quelle stammen.

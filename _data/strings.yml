@@ -221,6 +221,9 @@ so_f_region: Where
 so_f_country: Country
 so_apply: Details and apply
 so_on: on
+so_view_posting: "Open the posting"
+so_is_official: "official page"
+so_is_listing: "listing site (no official link found)"
 so_seen: Still listed by the source on
 so_opens_original: Opens the original posting
 so_f_field: Area
@@ -275,6 +278,23 @@ so_prog_lede: Well-known scholarships and fellowships that come back each year. 
 so_security_only: Security only
 so_official: Official page
 so_link_checked: link checked
+so_dir_title: "Where to look yourself"
+so_dir_lede: "No single website lists every funded position. These are the official sites and the biggest databases to check by hand. Some of them don't allow automatic reading, so their postings can't appear in the daily list above."
+so_dir_pakistan: "From Pakistan"
+so_dir_databases: "PhD, research job and scholarship databases"
+so_dir_countries: "Official country portals"
+so_dir_security: "Security and cryptography"
+so_badge_official: "Official"
+so_badge_listing: "Listing site"
+so_terms_title: "Words to search for"
+so_terms_text: "Funded positions are called many things. Search for these together with \"security\", \"cyber\", \"privacy\" or \"cryptography\":"
+so_verify_title: "Before you apply: is it real?"
+so_verify_1: "Find the same opening on the university's, lab's or funder's own website. A LinkedIn post or a listing site is not the source."
+so_verify_2: "Apply only through the university's own admissions or job portal."
+so_verify_3: "Check what is paid: tuition, a monthly stipend or salary, insurance, travel. A place without funding is not a scholarship."
+so_verify_4: "Check that your nationality and degree are accepted. Some awards are only for citizens."
+so_verify_5: "Check the deadline on the original page, not on a copy."
+so_verify_6: "Never pay anyone to \"guarantee\" a scholarship, admission or selection. Real funders don't ask for that."
 so_about_title: How this list works
 so_about_1: Every day a small program on this site reads the public feeds of the job boards and scholarship sites below. It keeps only postings that are about security and are a PhD, master's, scholarship, fellowship or postdoc, reads the deadline from the posting, and removes anything that has closed. Postings with no deadline are removed after 45 days.
 so_about_2: It only reads what these sites publish for anyone to subscribe to, and it checks each site's rules for bots (robots.txt) first. Nothing is invented; every entry links to its original posting. Numbers in brackets are how many open postings came from each source.

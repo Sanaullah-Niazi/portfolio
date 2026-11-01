@@ -41,6 +41,7 @@ from security_news import plain, shorten, safe_url, parse_date, text_of, unescap
 ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "_data" / "security_opportunities.json"
 PROGRAMS_FILE = ROOT / "_data" / "sec_programs.yml"
+DIRECTORY_FILE = ROOT / "_data" / "sec_directory.yml"  # "Where to look yourself" links, checked the same way
 
 UA = "Mozilla/5.0 (compatible; sanaullahniazi.com scholarships bot; +https://sanaullahniazi.com/scholarships/)"
 
@@ -114,7 +115,8 @@ EXCERPT_CHARS = 280         # a short teaser only; the full posting stays on the
 DEADLINELESS_DAYS = 45      # a posting with no closing date found is kept this long after it was posted
 MAX_AGE_DAYS = 240          # nothing older than this, even with a far-off deadline
 MAX_ITEMS = 600
-PAGE_LOOKUPS = 40           # posting pages opened per run to find a missing closing date
+PAGE_LOOKUPS = 120          # posting pages opened per run (missing closing date, official link)
+PAGE_TIME = 9 * 60          # and at most this many seconds on them
 PAGE_DELAY = 1.5            # seconds between page requests to the same site
 
 # --- What counts as "security" -------------------------------------------------------------------------
@@ -517,8 +519,12 @@ def merge(found, old_items, now, complete=()):
     earlier = {key_url(o["url"]): o for o in old_items}
     for it in found:
         o = earlier.get(key_url(it["url"]))
-        if o and not it["deadline"] and o.get("page_checked"):
-            it["deadline"], it["page_checked"] = o["deadline"], o["page_checked"]
+        if o and o.get("page_checked"):  # what yesterday's look at the posting page found
+            it["page_checked"] = o["page_checked"]
+            if not it["deadline"]:
+                it["deadline"] = o["deadline"]
+            if "official" in o:
+                it["official"] = o["official"]
     for it in found + [o for o in old_items if o["source"] not in complete]:
         ku, kt, tw = key_url(it["url"]), key_title(it["title"]), title_words(it["title"])
         if ku in seen_u or kt in seen_t or any(same_posting(tw, w) for w in seen_w):
@@ -539,36 +545,108 @@ def merge(found, old_items, now, complete=()):
     return items[:MAX_ITEMS]
 
 
-def fill_deadlines(items, now, budget):
-    """Opens up to `budget` posting pages (newest first, robots.txt permitting) to find a closing date the feed left out."""
-    today, last = now.date(), {}
-    todo = [i for i in items if not i["deadline"] and not i.get("page_checked")]
+# Sites that list other people's openings. A posting found on one of them gets its "official" link (the
+# university's, lab's or funder's own page) from the posting page, so the Apply button skips the middleman.
+LISTING_HOSTS = ("iacr.org", "timeshighereducation.com", "jobs.chronicle.com", "careers.insidehighered.com",
+                 "jobs.sciencecareers.org", "hercjobs.org", "jobrxiv.org", "scholars4dev.com", "opportunitydesk.org",
+                 "findaphd.com", "findamasters.com", "euraxess.ec.europa.eu", "academicpositions.com", "linkedin.com",
+                 "scholarshipportal.com", "phdportal.com", "jobs.ac.uk", "academictransfer.com", "indeed.com", "glassdoor.com")
+# Links on a posting page that are never the official page: sharing buttons, maps, app stores, trackers.
+SKIP_HOSTS = ("facebook.com", "twitter.com", "x.com", "instagram.com", "youtube.com", "tiktok.com", "whatsapp.com",
+              "pinterest.com", "reddit.com", "t.me", "telegram.me", "google.com", "goo.gl", "apple.com", "microsoft.com",
+              "addtoany.com", "addthis.com", "sharethis.com", "doubleclick.net", "cookiebot.com", "onetrust.com", "madgex.com",
+              "wordpress.org", "wordpress.com", "gravatar.com", "w3.org", "schema.org", "creativecommons.org", "bit.ly",
+              "cloudflare.com", "jsdelivr.net", "gstatic.com", "googletagmanager.com", "feedburner.com", "mailchimp.com",
+              "timeshighereducation.com", "thewire.com")
+APPLY_TEXT_RE = re.compile(r"\bappl(y|ication)|more (info|details)|further (details|information|particulars)|"
+                           r"job (ad|advert|description|posting|details)|official|vacancy|position details|full (ad|advert|details)|"
+                           r"original (ad|advert|posting)|website|read more|details|here\b", re.I)
+ACADEMIC_HOST_RE = re.compile(r"\.edu(\.[a-z]{2})?$|\.ac\.[a-z]{2}$|\.edu\.|univ|\buni-|\.uni\.|college|institut|"
+                              r"\.gov(\.[a-z]{2})?$|\.gouv\.|cnrs|inria|mpg\.de|fraunhofer|helmholtz|ethz|epfl|cispa|"
+                              r"varbi\.com|jobs\.cam\.ac\.uk|oraclecloud\.com|workday|successfactors|myworkdayjobs|taleo|"
+                              r"emply|jobbnorge|recruitee|smartrecruiters|lever\.co|greenhouse\.io|bamboohr|personio|softgarden|"
+                              r"umantis|rexx|interamt|\.tu-|tudelft|tue\.nl|kuleuven|ugent|\.dtu\.dk|aalto|kth\.se|cwi\.nl|"
+                              r"\.ens\.|polytechnique|imdea|bsc\.es|nus\.edu|ntu\.edu|a-star|kaust|mbzuai", re.I)
+
+
+def host_of(url):
+    return urllib.parse.urlsplit(url).netloc.lower().split(":")[0].removeprefix("www.")
+
+
+def is_listing(url):
+    h = host_of(url)
+    return any(h == d or h.endswith("." + d) for d in LISTING_HOSTS)
+
+
+def find_official_link(raw, page_url):
+    """The best link on a listing site's posting page to the employer's own page, or "" if there is none
+    (some postings only give an email address)."""
+    page = raw.decode("utf-8", "replace")
+    page = re.sub(r"(?is)<(script|style|nav|footer|header)\b.*?</\1>", " ", page)
+    own = host_of(page_url)
+    best, best_score = "", 0
+    for n, m in enumerate(re.finditer(r'(?is)<a\s[^>]*?href\s*=\s*["\']([^"\'#]+)["\'][^>]*>(.*?)</a>', page)):
+        href = urllib.parse.urljoin(page_url, html.unescape(m.group(1)).strip())
+        if not href.startswith(("http://", "https://")):
+            continue
+        h = host_of(href)
+        if not h or h == own or h.endswith("." + own) or is_listing(href) or any(h == d or h.endswith("." + d) for d in SKIP_HOSTS):
+            continue
+        text = plain(m.group(2))
+        score = (3 if APPLY_TEXT_RE.search(text) else 0) + (2 if ACADEMIC_HOST_RE.search(h) else 0)
+        if score >= 2 and score > best_score:
+            best, best_score = href, score
+    return safe_url(best) if best else ""
+
+
+def check_pages(items, now, budget, report=False):
+    """Opens up to `budget` posting pages (robots.txt and crawl-delay permitting) to find a closing date the feed
+    left out and, for postings on listing sites, the link to the official page. Each page is opened once."""
+    today, last, started = now.date(), {}, time.monotonic()
+    for it in items:
+        if "official" not in it and not is_listing(it["url"]):
+            it["official"] = it["url"]  # already the university's or lab's own page
+    todo = [i for i in items if (not i["deadline"] or "official" not in i) and not i.get("page_checked")]
     todo.sort(key=lambda i: i["posted"], reverse=True)
     for it in todo[:budget]:
+        if time.monotonic() - started > PAGE_TIME:
+            log("   page checks stopped for today (time limit)")
+            break
         it["page_checked"] = today.isoformat()
         host = urllib.parse.urlsplit(it["url"]).netloc
         try:
             if not allowed(it["url"]):
+                it.setdefault("official", "")
                 continue
-            wait = PAGE_DELAY - (time.monotonic() - last.get(host, 0))
+            rp = _robots.get("{0.scheme}://{0.netloc}".format(urllib.parse.urlsplit(it["url"])))
+            delay = max(PAGE_DELAY, float((rp.crawl_delay(UA) if rp else 0) or 0))
+            wait = delay - (time.monotonic() - last.get(host, 0))
             if wait > 0:
                 time.sleep(wait)
-            raw, _, _ = fetch(it["url"], timeout=20)
+            raw, _, final = fetch(it["url"], timeout=20)
             last[host] = time.monotonic()
-            d = find_deadline(plain(raw.decode("utf-8", "replace"))[:60_000], today)
-            if d:
-                it["deadline"] = d.isoformat()
-                log(f"   deadline {d} from the page: {it['title'][:80]}")
+            if not it["deadline"]:
+                d = find_deadline(plain(raw.decode("utf-8", "replace"))[:60_000], today)
+                if d:
+                    it["deadline"] = d.isoformat()
+                    log(f"   deadline {d} from the page: {it['title'][:80]}")
+            if "official" not in it:
+                it["official"] = final if final and not is_listing(final) else find_official_link(raw, final or it["url"])
+                if report:
+                    log(f"   official: {it['official'] or '(none found)'} <- {it['title'][:70]}")
         except Exception as e:
             log(f"   page skipped ({e.__class__.__name__}): {it['url']}")
 
 
 def load_programs():
-    """Reads the id and url of each programme in _data/sec_programs.yml (a simple list; no YAML library needed)."""
-    if not PROGRAMS_FILE.exists():
-        return []
+    """Reads the id and url of each entry in _data/sec_programs.yml and _data/sec_directory.yml (simple lists; no
+    YAML library needed)."""
     progs, cur = [], None
-    for line in PROGRAMS_FILE.read_text(encoding="utf-8").splitlines():
+    lines = []
+    for f in (PROGRAMS_FILE, DIRECTORY_FILE):
+        if f.exists():
+            lines += f.read_text(encoding="utf-8").splitlines()
+    for line in lines:
         m = re.match(r"^- id:\s*(\S+)", line)
         if m:
             cur = {"id": m.group(1)}
@@ -628,7 +706,7 @@ def main():
                 and not status[s["id"]].startswith("0 read")}  # an empty page means it changed, not that all closed
     items = merge(found, old.get("items", []), now, complete)
     if not args.no_pages and not args.feed_dir:
-        fill_deadlines(items, now, PAGE_LOOKUPS)
+        check_pages(items, now, PAGE_LOOKUPS, args.report)
         items = merge(items, [], now)
     programs = old.get("programs", {}) if args.no_pages or args.feed_dir else check_programs(old.get("programs", {}), now, args.report)
 

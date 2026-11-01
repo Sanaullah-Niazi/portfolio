@@ -219,6 +219,9 @@ so_f_region: 地区
 so_f_country: 国家/地区
 so_apply: 详情与申请
 so_on: 于
+so_view_posting: "打开招聘信息"
+so_is_official: "官方页面"
+so_is_listing: "汇总网站（未找到官方链接）"
 so_seen: 来源最近一次仍列出于
 so_opens_original: 打开原始招聘页面
 so_f_field: 方向
@@ -273,6 +276,23 @@ so_prog_lede: 每年都会重新开放的知名奖学金和研究员项目。有
 so_security_only: 仅限安全方向
 so_official: 官方页面
 so_link_checked: 链接检查于
+so_dir_title: "自己去哪里找"
+so_dir_lede: "没有一个网站能列出所有有资助的职位。以下是可以自己查找的官方网站和最大的数据库。其中一些不允许自动读取，所以它们的职位无法出现在上面的每日列表中。"
+so_dir_pakistan: "巴基斯坦"
+so_dir_databases: "博士、科研职位和奖学金数据库"
+so_dir_countries: "各国官方门户"
+so_dir_security: "安全与密码学"
+so_badge_official: "官方"
+so_badge_listing: "信息汇总网站"
+so_terms_title: "搜索关键词"
+so_terms_text: "有资助的职位叫法很多。把下面的词和 “security”、“cyber”、“privacy” 或 “cryptography” 一起搜索："
+so_verify_title: "申请之前：它是真的吗？"
+so_verify_1: "在大学、实验室或资助方自己的网站上找到同一个职位。LinkedIn 帖子或汇总网站不是来源。"
+so_verify_2: "只通过大学自己的招生或招聘系统申请。"
+so_verify_3: "看清资助内容：学费、每月津贴或工资、保险、旅费。没有资助的录取不是奖学金。"
+so_verify_4: "确认你的国籍和学历符合要求。有些奖项只面向本国公民。"
+so_verify_5: "在原始页面上核对截止日期，而不是在转载的副本上。"
+so_verify_6: "永远不要付钱给任何人来“保证”奖学金、录取或入选。真正的资助方不会这样要求。"
 so_about_title: 这个列表是怎么来的
 so_about_1: 本网站上的一个小程序每天读取下列招聘网站和奖学金网站的公开订阅源（RSS），只保留与安全相关、且属于博士、硕士、奖学金、研究员项目或博士后的信息，从招聘信息中读取截止日期，并移除已经截止的条目。没有截止日期的条目会在 45 天后移除。
 so_about_2: 它只读取这些网站公开提供给所有人订阅的内容，并先检查每个网站对机器人的规定（robots.txt）。不会编造任何内容；每一条都链接到原始招聘信息。括号里的数字是每个来源当前开放的条目数量。

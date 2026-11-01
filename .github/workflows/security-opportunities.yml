@@ -10,7 +10,7 @@ on:
     - cron: "41 3 * * *"   # every day at 03:41 UTC (08:41 in Pakistan)
   workflow_dispatch:
   pull_request:
-    paths: ["scripts/security_opportunities.py", "_data/sec_programs.yml", ".github/workflows/security-opportunities.yml"]
+    paths: ["scripts/security_opportunities.py", "_data/sec_programs.yml", "_data/sec_directory.yml", ".github/workflows/security-opportunities.yml"]
 
 permissions:
   contents: write
@@ -22,7 +22,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
@@ -32,6 +32,10 @@ jobs:
 
       - name: Collect the openings
         run: python3 scripts/security_opportunities.py ${{ github.event_name == 'pull_request' && '--report' || '' }}
+
+      - name: Show the data (temporary)
+        if: github.event_name == 'pull_request'
+        run: python3 -c "import json,base64,zlib;print('DATA:'+base64.b64encode(zlib.compress(open('_data/security_opportunities.json','rb').read(),9)).decode())"
 
       - name: Commit the update
         if: github.event_name != 'pull_request'

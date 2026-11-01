@@ -1,0 +1,181 @@
+# "Where to look yourself" on /scholarships/: websites people can search by hand, grouped. Some of them don't
+# allow automatic reading (EURAXESS, FindAPhD), so the daily list can't include their postings; linking to them is fine.
+# scripts/security_opportunities.py opens every link once a day together with _data/sec_programs.yml, and a link that
+# answers "not found" three days running is hidden.
+#
+#   id:       unique, starts with dir-
+#   url:      the site's own page (keep it the first key after id)
+#   name:     the site's name
+#   group:    pakistan, databases, countries or security (headings are so_dir_<group> in _data/strings.yml)
+#   official: true for a government, university or funder's own site; false for a site that collects postings
+#   note:     what you find there (English)
+
+# --- Pakistan ---
+- id: dir-hec
+  url: https://www.hec.gov.pk/english/scholarshipsgrants/pages/default.aspx
+  name: HEC Pakistan, Scholarships and Grants
+  group: pakistan
+  official: true
+  note: Overseas and local MS, MPhil and PhD scholarships, with the rules, eligibility and deadlines for each call.
+- id: dir-hec-portal
+  url: https://scholarship.hec.gov.pk/
+  name: HEC Scholarship Portal
+  group: pakistan
+  official: true
+  note: Where HEC scholarship applications are made online.
+- id: dir-daad-pk
+  url: https://www.daad.pk/en/find-funding/
+  name: DAAD Pakistan
+  group: pakistan
+  official: true
+  note: German master's, PhD and research funding for applicants from Pakistan.
+- id: dir-usefp
+  url: https://www.usefp.org/
+  name: USEFP (Fulbright Pakistan)
+  group: pakistan
+  official: true
+  note: Fulbright master's and PhD scholarships to the USA for Pakistani students.
+- id: dir-peef
+  url: https://www.peef.org.pk/
+  name: PEEF (Punjab Educational Endowment Fund)
+  group: pakistan
+  official: true
+  note: Punjab government scholarships, mostly for students studying in Pakistan.
+
+# --- Vacancy and scholarship databases ---
+- id: dir-euraxess
+  url: https://euraxess.ec.europa.eu/jobs/search
+  name: EURAXESS
+  group: databases
+  official: true
+  note: The European Commission's database of PhD, postdoc and research jobs in Europe. Search "security" or "cryptography".
+- id: dir-msca
+  url: https://marie-sklodowska-curie-actions.ec.europa.eu/jobs
+  name: Marie Skłodowska-Curie Actions jobs
+  group: databases
+  official: true
+  note: EU-funded doctoral network PhD positions, open to every nationality.
+- id: dir-daad-db
+  url: https://www.daad.de/en/studying-in-germany/scholarships/scholarship-database/
+  name: DAAD scholarship database
+  group: databases
+  official: true
+  note: Every DAAD scholarship for study and research in Germany, searchable by country and level.
+- id: dir-jobsacuk
+  url: https://www.jobs.ac.uk/
+  name: jobs.ac.uk
+  group: databases
+  official: false
+  note: UK university PhD studentships and research jobs.
+- id: dir-findaphd
+  url: https://www.findaphd.com/
+  name: FindAPhD
+  group: databases
+  official: false
+  note: Funded PhD projects and studentships, mostly UK and Europe.
+- id: dir-findamasters
+  url: https://www.findamasters.com/
+  name: FindAMasters
+  group: databases
+  official: false
+  note: Master's programmes and their funding.
+- id: dir-academictransfer
+  url: https://www.academictransfer.com/en/
+  name: AcademicTransfer
+  group: databases
+  official: false
+  note: Paid PhD positions and research jobs at Dutch universities.
+- id: dir-academicpositions
+  url: https://academicpositions.com/
+  name: Academic Positions
+  group: databases
+  official: false
+  note: PhD, postdoc and academic jobs, mostly in Europe.
+- id: dir-universitypositions
+  url: https://www.universitypositions.eu/
+  name: University Positions
+  group: databases
+  official: false
+  note: European PhD and research vacancies.
+- id: dir-scholarshipportal
+  url: https://www.scholarshipportal.com/
+  name: ScholarshipPortal
+  group: databases
+  official: false
+  note: Scholarships for international students, searchable by country and level.
+
+# --- Official country portals ---
+- id: dir-research-germany
+  url: https://www.research-in-germany.org/
+  name: Research in Germany
+  group: countries
+  official: true
+  note: Doctoral and research positions and funding in Germany.
+- id: dir-studyinnl
+  url: https://www.studyinnl.org/
+  name: Study in NL
+  group: countries
+  official: true
+  note: Study and scholarship information for the Netherlands.
+- id: dir-studyinfinland
+  url: https://www.studyinfinland.fi/
+  name: Study in Finland
+  group: countries
+  official: true
+  note: Admissions and doctoral funding in Finland. Finland has no general government scholarship for master's study; universities give their own.
+- id: dir-studyinsweden
+  url: https://studyinsweden.se/
+  name: Study in Sweden
+  group: countries
+  official: true
+  note: Programmes and admissions in Sweden. Swedish PhD students are paid employees.
+- id: dir-campusfrance
+  url: https://www.campusfrance.org/en
+  name: Campus France
+  group: countries
+  official: true
+  note: Programmes and scholarships in France.
+- id: dir-canada
+  url: https://www.canada.ca/en/services/finance/educationfunding/scholarships.html
+  name: Government of Canada scholarships
+  group: countries
+  official: true
+  note: Master's, doctoral and postdoctoral awards from the Canadian government.
+- id: dir-manaaki
+  url: https://www.nzscholarships.govt.nz/
+  name: Manaaki New Zealand Scholarships
+  group: countries
+  official: true
+  note: New Zealand government scholarships for students from eligible countries.
+- id: dir-studyinjapan
+  url: https://www.studyinjapan.go.jp/en/
+  name: Study in Japan
+  group: countries
+  official: true
+  note: Japanese government portal for study and scholarships, including MEXT.
+- id: dir-studyinkorea
+  url: https://www.studyinkorea.go.kr/
+  name: Study in Korea
+  group: countries
+  official: true
+  note: Korean government portal for graduate study and the GKS scholarship.
+- id: dir-campuschina
+  url: https://www.campuschina.org/
+  name: Campus China
+  group: countries
+  official: true
+  note: Official portal of the Chinese Government Scholarship.
+- id: dir-worldbank
+  url: https://www.worldbank.org/en/programs/scholarships
+  name: World Bank scholarships
+  group: countries
+  official: true
+  note: World Bank graduate scholarship programmes for students from developing countries.
+
+# --- Security ---
+- id: dir-iacr
+  url: https://iacr.org/jobs/
+  name: IACR Jobs
+  group: security
+  official: false
+  note: Every open position in cryptology and security posted to the International Association for Cryptologic Research. Its postings are in the daily list above.
