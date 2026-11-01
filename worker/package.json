@@ -9,6 +9,6 @@
     "vulndb": "node scripts/update-vulndb.mjs"
   },
   "devDependencies": {
-    "wrangler": "^4.0.0"
+    "wrangler": "^4.155.0"
   }
 }
