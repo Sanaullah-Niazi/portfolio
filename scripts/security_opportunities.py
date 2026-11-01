@@ -606,7 +606,7 @@ def check_pages(items, now, budget, report=False):
     for it in items:
         if "official" not in it and not is_listing(it["url"]):
             it["official"] = it["url"]  # already the university's or lab's own page
-    todo = [i for i in items if (not i["deadline"] or "official" not in i) and not i.get("page_checked")]
+    todo = [i for i in items if (not i["deadline"] and not i.get("page_checked")) or "official" not in i]
     todo.sort(key=lambda i: i["posted"], reverse=True)
     for it in todo[:budget]:
         if time.monotonic() - started > PAGE_TIME:
