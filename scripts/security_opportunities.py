@@ -135,19 +135,20 @@ STAFF_RE = re.compile(r"\b(lecturer|professor|professorship|chair in|head of|dir
 COUNTRIES = {
     "uk": ["United Kingdom", "UK", "England", "Scotland", "Wales", "Northern Ireland", "London", "Manchester", "Edinburgh", "Glasgow", "Birmingham",
            "Oxford", "Cambridge", "Bristol", "Leeds", "Sheffield", "Nottingham", "Southampton", "Belfast", "Cardiff", "Newcastle", "Liverpool",
-           "Lancaster", "Surrey", "Kent", "Warwick", "Durham", "York", "Bath", "Exeter", "Royal Holloway", "Imperial College", "UCL", "King's College London"],
+           "Lancaster", "Surrey", "Kent", "Warwick", "Durham", "York", "Bath", "Exeter", "Royal Holloway", "Imperial College", "UCL", "King's College London", "Coventry"],
     "europe": ["Germany", "Netherlands", "France", "Belgium", "Switzerland", "Austria", "Sweden", "Norway", "Denmark", "Finland", "Iceland",
                "Ireland", "Spain", "Portugal", "Italy", "Greece", "Cyprus", "Malta", "Luxembourg", "Poland", "Czech", "Czechia", "Slovakia",
                "Hungary", "Romania", "Bulgaria", "Croatia", "Slovenia", "Serbia", "Estonia", "Latvia", "Lithuania", "Ukraine", "Europe", "European",
                "Berlin", "Munich", "München", "Darmstadt", "Saarbrücken", "Bochum", "Karlsruhe", "Aachen", "Amsterdam", "Delft", "Eindhoven",
-               "Twente", "Leiden", "Utrecht", "Groningen", "Nijmegen", "Paris", "Grenoble", "Rennes", "Zurich", "Zürich", "ETH", "EPFL",
+               "Twente", "Leiden", "Utrecht", "Groningen", "Nijmegen", "Paris", "Grenoble", "Rennes", "Lyon", "Saclay", "Zurich", "Zürich", "ETH", "EPFL",
                "Lausanne", "Geneva", "Vienna", "Graz", "Stockholm", "KTH", "Chalmers", "Copenhagen", "DTU", "Aarhus", "Oslo", "NTNU",
                "Helsinki", "Aalto", "Dublin", "Madrid", "Barcelona", "Lisbon", "Milan", "Rome", "Turin", "Leuven", "KU Leuven", "Ghent", "Brussels"],
     "usa": ["United States", "USA", "U.S.", "California", "New York", "Texas", "Massachusetts", "Washington, DC", "Pennsylvania", "Illinois",
-            "Georgia Tech", "MIT", "Harvard", "Princeton", "Columbia University", "Cornell", "Stanford", "Berkeley", "Carnegie Mellon", "Purdue", "Virginia", "Maryland", "Florida", "Arizona", "Michigan"],
-    "canada": ["Canada", "Ontario", "Quebec", "Québec", "British Columbia", "Alberta", "Toronto", "Montreal", "Montréal", "Vancouver", "Waterloo", "Ottawa"],
+            "Georgia Tech", "MIT", "Harvard", "Princeton", "Columbia University", "Cornell", "Stanford", "Berkeley", "Carnegie Mellon", "Purdue", "Virginia", "Maryland", "Florida", "Arizona", "Michigan", "New Jersey", "Boston"],
+    "canada": ["Canada", "Ontario", "Quebec", "Québec", "British Columbia", "Alberta", "Toronto", "Montreal", "Montréal", "Vancouver", "Waterloo", "Ottawa",
+               "Canadian", "New Brunswick", "Nova Scotia", "Manitoba", "Saskatchewan"],
     "china": ["China", "Chinese", "Beijing", "Shanghai", "Shenzhen", "Hangzhou", "Nanjing", "Wuhan", "Guangzhou", "Hefei", "Tsinghua", "Zhejiang",
-              "Hong Kong", "Macau", "Taiwan", "Taipei"],
+              "Hong Kong", "Macau", "Taiwan", "Taipei", "Hsinchu", "Kaohsiung"],
     "asia": ["Japan", "Tokyo", "Korea", "Seoul", "KAIST", "Singapore", "NUS", "NTU Singapore", "India", "IIT", "Pakistan", "Bangladesh", "Malaysia",
              "Indonesia", "Vietnam", "Thailand", "Philippines", "Sri Lanka", "Nepal"],
     "middleeast": ["United Arab Emirates", "UAE", "Abu Dhabi", "Dubai", "Saudi Arabia", "KAUST", "Qatar", "Doha", "Israel", "Turkey", "Türkiye",
@@ -168,6 +169,35 @@ COUNTRY_NAMES = {"United Kingdom", "UK", "England", "Scotland", "Wales", "Northe
                  "Bahrain", "Jordan", "Lebanon", "Iran", "Australia", "New Zealand", "Nigeria", "Kenya", "Ghana", "South Africa", "Egypt", "Morocco",
                  "Tunisia", "Ethiopia", "Rwanda", "Uganda", "Tanzania", "Brazil", "Mexico", "Chile", "Argentina", "Colombia", "Peru"}
 
+# Which country each place name above is in (ISO 3166 code; the page shows the name in the visitor's language).
+# Names of whole regions ("Europe", "Africa", "Latin America") have no country.
+_ISO_GROUPS = {
+    "GB": "United Kingdom|UK|England|Scotland|Wales|Northern Ireland|London|Manchester|Edinburgh|Glasgow|Birmingham|Oxford|Cambridge|Bristol|"
+          "Leeds|Sheffield|Nottingham|Southampton|Belfast|Cardiff|Newcastle|Liverpool|Lancaster|Surrey|Kent|Warwick|Durham|York|Bath|Exeter|"
+          "Royal Holloway|Imperial College|UCL|King's College London|Coventry",
+    "DE": "Germany|Berlin|Munich|München|Darmstadt|Saarbrücken|Bochum|Karlsruhe|Aachen",
+    "NL": "Netherlands|Amsterdam|Delft|Eindhoven|Twente|Leiden|Utrecht|Groningen|Nijmegen",
+    "FR": "France|Paris|Grenoble|Rennes|Lyon|Saclay", "BE": "Belgium|Leuven|KU Leuven|Ghent|Brussels",
+    "CH": "Switzerland|Zurich|Zürich|ETH|EPFL|Lausanne|Geneva", "AT": "Austria|Vienna|Graz", "SE": "Sweden|Stockholm|KTH|Chalmers",
+    "NO": "Norway|Oslo|NTNU", "DK": "Denmark|Copenhagen|DTU|Aarhus", "FI": "Finland|Helsinki|Aalto", "IS": "Iceland", "IE": "Ireland|Dublin",
+    "ES": "Spain|Madrid|Barcelona", "PT": "Portugal|Lisbon", "IT": "Italy|Milan|Rome|Turin", "GR": "Greece", "CY": "Cyprus", "MT": "Malta",
+    "LU": "Luxembourg", "PL": "Poland", "CZ": "Czech|Czechia", "SK": "Slovakia", "HU": "Hungary", "RO": "Romania", "BG": "Bulgaria",
+    "HR": "Croatia", "SI": "Slovenia", "RS": "Serbia", "EE": "Estonia", "LV": "Latvia", "LT": "Lithuania", "UA": "Ukraine",
+    "US": "United States|USA|U.S.|California|New York|Texas|Massachusetts|Washington, DC|Pennsylvania|Illinois|Georgia Tech|MIT|Harvard|"
+          "Princeton|Columbia University|Cornell|Stanford|Berkeley|Carnegie Mellon|Purdue|Virginia|Maryland|Florida|Arizona|Michigan|New Jersey|Boston",
+    "CA": "Canada|Ontario|Quebec|Québec|British Columbia|Alberta|Toronto|Montreal|Montréal|Vancouver|Waterloo|Ottawa|Canadian|New Brunswick|Nova Scotia|Manitoba|Saskatchewan",
+    "CN": "China|Chinese|Beijing|Shanghai|Shenzhen|Hangzhou|Nanjing|Wuhan|Guangzhou|Hefei|Tsinghua|Zhejiang",
+    "HK": "Hong Kong", "MO": "Macau", "TW": "Taiwan|Taipei|Hsinchu|Kaohsiung", "JP": "Japan|Tokyo", "KR": "Korea|Seoul|KAIST",
+    "SG": "Singapore|NUS|NTU Singapore", "IN": "India|IIT", "PK": "Pakistan", "BD": "Bangladesh", "MY": "Malaysia", "ID": "Indonesia",
+    "VN": "Vietnam", "TH": "Thailand", "PH": "Philippines", "LK": "Sri Lanka", "NP": "Nepal",
+    "AE": "United Arab Emirates|UAE|Abu Dhabi|Dubai|MBZUAI", "SA": "Saudi Arabia|KAUST", "QA": "Qatar|Doha", "IL": "Israel",
+    "TR": "Turkey|Türkiye", "OM": "Oman", "KW": "Kuwait", "BH": "Bahrain", "JO": "Jordan", "LB": "Lebanon", "IR": "Iran",
+    "AU": "Australia|Sydney|Melbourne|Brisbane|Canberra|Adelaide|Perth", "NZ": "New Zealand|Auckland|Wellington",
+    "NG": "Nigeria", "KE": "Kenya", "GH": "Ghana", "ZA": "South Africa", "EG": "Egypt", "MA": "Morocco", "TN": "Tunisia",
+    "ET": "Ethiopia", "RW": "Rwanda", "UG": "Uganda", "TZ": "Tanzania",
+    "BR": "Brazil", "MX": "Mexico", "CL": "Chile", "AR": "Argentina", "CO": "Colombia", "PE": "Peru",
+}
+ISO_OF = {name: code for code, names in _ISO_GROUPS.items() for name in names.split("|")}
 
 def _rx(names):
     return re.compile(r"(?<![\w-])(" + "|".join(re.escape(n) for n in sorted(names, key=len, reverse=True)) + r")(?![\w-])")
@@ -267,12 +297,13 @@ def classify(title, body, source):
     region, country = "", source.get("country", "")
     # A country named in the posting wins; then the job board's own country (HERC is American, so its "Cambridge"
     # is in Massachusetts); then a city or university named in the posting.
-    hits = [(m.start(), r) for r, rx in REGION_RES for m in [rx.search(places)] if m]
+    hits = [(m.start(), r, m.group(1)) for r, rx in REGION_RES for m in [rx.search(places)] if m]
     if not hits and country:
-        hits = [(0, COUNTRY_TO_REGION.get(country, ""))]
-    hits = hits or [(m.start(), r) for r, rx in PLACE_RES for m in [rx.search(places)] if m]
+        hits = [(0, COUNTRY_TO_REGION.get(country, ""), country)]
+    hits = hits or [(m.start(), r, m.group(1)) for r, rx in PLACE_RES for m in [rx.search(places)] if m]
     if hits:
-        region = min(hits)[1]
+        _, region, name = min(hits)
+        country = ISO_OF.get(name, "")
     return level, fields, region or "global", country
 
 
@@ -418,6 +449,7 @@ def collect(feed_dir, now, report):
                 "level": level,
                 "fields": fields,
                 "region": region,
+                "country": country,
                 "posted": posted.strftime("%Y-%m-%d"),
                 "deadline": deadline.isoformat() if deadline else "",
                 "rolling": bool(not deadline and ROLLING_RE.search(body)),
@@ -565,7 +597,7 @@ def main():
             by[it["level"]] += 1
         log("By level: " + json.dumps(by))
         for it in items[:400]:
-            log(f"   [{it['level']}/{it['region']}/{','.join(it['fields'])}] {it['deadline'] or '----------'} {it['source']}: {it['title'][:100]}")
+            log(f"   [{it['level']}/{it['region']}:{it.get('country') or '-'}/{','.join(it['fields'])}] {it['deadline'] or '----------'} {it['source']}: {it['title'][:100]}")
     return 0
 
 
