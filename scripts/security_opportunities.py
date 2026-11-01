@@ -584,19 +584,22 @@ def find_official_link(raw, page_url):
     page = raw.decode("utf-8", "replace")
     page = re.sub(r"(?is)<(script|style|nav|footer|header)\b.*?</\1>", " ", page)
     own = host_of(page_url)
-    best, best_score = "", 0
-    for n, m in enumerate(re.finditer(r'(?is)<a\s[^>]*?href\s*=\s*["\']([^"\'#]+)["\'][^>]*>(.*?)</a>', page)):
+    for m in (re.finditer(r'(?is)<a\s[^>]*?href\s*=\s*["\']([^"\'#]+)["\'][^>]*>(.*?)</a>', page)):
         href = urllib.parse.urljoin(page_url, html.unescape(m.group(1)).strip())
         if not href.startswith(("http://", "https://")):
             continue
         h = host_of(href)
         if not h or h == own or h.endswith("." + own) or is_listing(href) or any(h == d or h.endswith("." + d) for d in SKIP_HOSTS):
             continue
+        path = urllib.parse.urlsplit(href).path.lower()
+        if path in ("", "/") or path.endswith((".pdf", ".doc", ".docx", ".jpg", ".png")):
+            continue  # a home page or a document is not the posting
         text = plain(m.group(2))
-        score = (3 if APPLY_TEXT_RE.search(text) else 0) + (2 if ACADEMIC_HOST_RE.search(h) else 0)
-        if score >= 2 and score > best_score:
-            best, best_score = href, score
-    return safe_url(best) if best else ""
+        # Only a link that both says it is the posting/application and goes to a university, institute or
+        # recruiting system counts. A wrong "official" link is worse than none, so when in doubt there is none.
+        if APPLY_TEXT_RE.search(text) and ACADEMIC_HOST_RE.search(h):
+            return safe_url(href)
+    return ""
 
 
 def check_pages(items, now, budget, report=False):
