@@ -31,6 +31,7 @@
       </ul>
     </nav>
   </div>
+  <p class="wrap footer-mark" aria-hidden="true"><span>{{ me.name }}</span></p>
   <div class="wrap footer-base">
     <span>© {{ site.time | date: '%Y' }} {{ me.name }}. {{ S.footer_rights }}</span>
 {%- assign _pv = site.data.privacy[lang] | default: site.data.privacy.en %}

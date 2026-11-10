@@ -326,3 +326,16 @@ footer_explore: Entdecken
 footer_resources: Kostenlose Ressourcen
 not_found_title: Diese Seite gibt es nicht
 not_found_home: Zur Startseite
+
+# Redesign (2026-11): hero dot portrait and the "little world" island on the home page.
+btn_explore: "Meine Welt entdecken"
+hero_morph: "Sag Hallo"
+hero_morph_face: "Mein Porträt"
+hero_hint: "Fahr durch die Punkte"
+highlights_label: "In Zahlen"
+island_eyebrow: "Entdecken"
+island_title: "Willkommen in meiner kleinen Welt"
+island_lede: "Jedes Gebäude ist ein Teil meiner Arbeit. Wähle eins und tritt ein."
+island_research: "Meine Masterarbeit, Veröffentlichungen und aktuelle Forschung."
+island_projects: "Apps und Systeme, die ich baue, zum Beispiel AquaPulse."
+island_games: "Kurze Spiele, die dein Gespür für Sicherheit testen."

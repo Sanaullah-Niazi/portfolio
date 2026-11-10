@@ -328,3 +328,16 @@ footer_explore: Explore
 footer_resources: Free resources
 not_found_title: This page doesn't exist
 not_found_home: Go to the home page
+
+# Redesign (2026-11): hero dot portrait and the "little world" island on the home page.
+btn_explore: "Explore my world"
+hero_morph: "Say hello"
+hero_morph_face: "My portrait"
+hero_hint: "Move through the dots"
+highlights_label: "In numbers"
+island_eyebrow: "Explore"
+island_title: "Welcome to my little world"
+island_lede: "Every building is a part of my work. Pick one and walk in."
+island_research: "My thesis, papers and the research I'm doing now."
+island_projects: "Apps and systems I'm building, like AquaPulse."
+island_games: "Quick games that test your security instincts."
