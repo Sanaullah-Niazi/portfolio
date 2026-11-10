@@ -1,0 +1,40 @@
+{%- comment -%}
+  "My little world": the home page's map of the site. The list on the left is the real menu (links, read by screen
+  readers); the 3D island on the right draws the same places as buildings and is decoration with clickable shortcuts.
+  It is built from plain elements and CSS 3D (main.css, "Little world"); at night (dark mode) the windows light up.
+  Needs main_tools from the page that includes it.
+{%- endcomment -%}
+{%- assign isle = "research|nav_research|flask|island_research|lab,projects|nav_projects|briefcase|island_projects|studio,tools|nav_tools|tools|start_tools|workshop,games|nav_games|gamepad|island_games|arcade,roadmaps|nav_roadmaps|map|start_rm_text|library,scholarships|nav_scholarships|cap|start_so_text|tower,security-news|nav_news|radar|start_sn_text|kiosk" | split: "," %}
+<section class="island-band" id="explore" aria-labelledby="explore-title">
+  <div class="wrap island-grid">
+    <div class="island-text">
+      <p class="eyebrow">{{ S.island_eyebrow }}</p>
+      <h2 id="explore-title">{{ S.island_title }}</h2>
+      <p class="section-lede">{{ S.island_lede }}</p>
+      <ul class="island-legend">
+        {%- for item in isle %}{% assign q = item | split: "|" %}{% assign q_icon = q[2] %}{% assign q_name = q[1] %}{% assign q_text = q[3] %}
+        <li><a href="{{ L }}/{{ q[0] }}/" data-isle="{{ q[4] }}">
+          <span class="icon-tile sm">{% include icon.html name=q_icon px=18 %}</span>
+          <strong>{{ S[q_name] }}</strong>
+          <span>{{ S[q_text] | replace: "%n", main_tools.size }}</span>
+        </a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <div class="island" aria-hidden="true">
+      <div class="isle-world">
+        <span class="isle-water"></span>
+        <span class="isle-box isle-ground"><i class="f t"><i class="road r-v"></i><i class="road r-h"></i><i class="pk pk-1"></i><i class="pk pk-2"></i><i class="pk pk-3"></i></i><i class="f s"></i><i class="f e"></i></span>
+        {%- for item in isle %}{% assign q = item | split: "|" %}{% assign q_name = q[1] %}
+        <a class="isle-box bld b-{{ q[4] }}" href="{{ L }}/{{ q[0] }}/" tabindex="-1"><i class="f t"></i><i class="f s"></i><i class="f e"></i><span class="lbl"><span>{{ S[q_name] }}</span></span></a>
+        {%- endfor %}
+        <span class="isle-box tree tr-1"><i class="f t"></i><i class="f s"></i><i class="f e"></i></span>
+        <span class="isle-box tree tr-2"><i class="f t"></i><i class="f s"></i><i class="f e"></i></span>
+        <span class="isle-box tree tr-3"><i class="f t"></i><i class="f s"></i><i class="f e"></i></span>
+        <span class="isle-box tree tr-4"><i class="f t"></i><i class="f s"></i><i class="f e"></i></span>
+        <span class="isle-box tree tr-5"><i class="f t"></i><i class="f s"></i><i class="f e"></i></span>
+      </div>
+      <span class="cloud c-1"></span><span class="cloud c-2"></span>
+    </div>
+  </div>
+</section>

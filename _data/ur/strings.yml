@@ -325,3 +325,16 @@ footer_explore: صفحات
 footer_resources: مفت وسائل
 not_found_title: یہ صفحہ موجود نہیں
 not_found_home: ہوم پیج پر جائیں
+
+# Redesign (2026-11): hero dot portrait and the "little world" island on the home page.
+btn_explore: "میری دنیا دیکھیں"
+hero_morph: "سلام کہیں"
+hero_morph_face: "میری تصویر"
+hero_hint: "نقطوں میں ماؤس چلائیں"
+highlights_label: "اعداد و شمار"
+island_eyebrow: "سیر کریں"
+island_title: "میری چھوٹی سی دنیا میں خوش آمدید"
+island_lede: "ہر عمارت میرے کام کا ایک حصہ ہے۔ کوئی ایک چنیں اور اندر چلیں۔"
+island_research: "میرا تھیسس، مقالے اور موجودہ تحقیق۔"
+island_projects: "ایپس اور سسٹم جو میں بنا رہا ہوں، جیسے AquaPulse۔"
+island_games: "مختصر کھیل جو آپ کی سیکیورٹی سمجھ کو پرکھتے ہیں۔"

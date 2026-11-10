@@ -325,3 +325,16 @@ footer_explore: 浏览
 footer_resources: 免费资源
 not_found_title: 这个页面不存在
 not_found_home: 返回首页
+
+# Redesign (2026-11): hero dot portrait and the "little world" island on the home page.
+btn_explore: "探索我的世界"
+hero_morph: "打个招呼"
+hero_morph_face: "我的肖像"
+hero_hint: "用鼠标划过这些点"
+highlights_label: "数据一览"
+island_eyebrow: "探索"
+island_title: "欢迎来到我的小世界"
+island_lede: "每座建筑都是我工作的一部分。选一座，走进去看看。"
+island_research: "我的硕士论文、发表的论文和正在进行的研究。"
+island_projects: "我正在开发的应用和系统，例如 AquaPulse。"
+island_games: "几个小游戏，测试你的安全直觉。"
