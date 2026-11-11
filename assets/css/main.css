@@ -158,9 +158,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .site-header.is-scrolled .scroll-progress { opacity: 1; }
 .header-inner { position: relative; display: flex; align-items: center; gap: 16px; height: calc(var(--header-h) - 10px); }
 .header-inner::before { content: ""; position: absolute; z-index: -1; inset: 0 max(8px, calc(env(safe-area-inset-right, 0px) - 12px)) 0 max(8px, calc(env(safe-area-inset-left, 0px) - 12px)); border-radius: 999px;
-  background: rgba(16, 18, 30, .55); border: 1px solid rgba(255, 255, 255, .08); transition: background-color .3s, box-shadow .3s;
+  background: rgba(16, 18, 30, .92); border: 1px solid rgba(255, 255, 255, .08); transition: background-color .3s, box-shadow .3s;
   -webkit-backdrop-filter: saturate(1.4) blur(16px); backdrop-filter: saturate(1.4) blur(16px); }
-.site-header.is-scrolled .header-inner::before { background: rgba(12, 13, 22, .78); box-shadow: 0 18px 40px -20px rgba(0, 0, 0, .55); }
+.site-header.is-scrolled .header-inner::before { background: rgba(12, 13, 22, .96); box-shadow: 0 18px 40px -20px rgba(0, 0, 0, .55); }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; white-space: nowrap; }
 .brand-name { font: 700 18px/1 var(--display); letter-spacing: -.01em; }
 .brand-mark { transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
@@ -540,6 +540,8 @@ main:focus { outline: none; }
 .lang-btn:hover, .lang-menu[open] .lang-btn { border-color: var(--accent); }
 .lang-list { position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 60; min-width: 150px; padding: 6px; display: grid; gap: 2px;
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg); }
+/* In the header the surface token is a faint see-through tint, so the open language list gets a solid night panel. */
+.site-header .lang-list { background: #121422; border-color: rgba(255, 255, 255, .12); }
 .lang-list a { display: block; padding: 9px 12px; border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 15px; }
 .lang-list a:hover { background: var(--bg-2); }
 .lang-list a[aria-current] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
@@ -1495,9 +1497,12 @@ a.mp-node:focus-visible, .mp-stage-node:focus-visible { outline: 3px solid var(-
 /* Below that the menu folds into the menu button. */
 @media (max-width: 1160px) {
   .js .menu-toggle { display: grid; }
-  .js .nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 2px; margin: 0;
-    padding: 10px max(16px, env(safe-area-inset-left, 0px)) 18px; background: var(--surface); border-bottom: 1px solid var(--line); box-shadow: var(--shadow-lg);
-    visibility: hidden; opacity: 0; transform: translateY(-8px); transition: opacity .25s, transform .25s, visibility 0s .25s; max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
+  /* The open menu is a solid night sheet that covers the page below the header, so nothing shows through it. */
+  .js .nav { position: absolute; top: 100%; left: calc(50% - 50vw); right: calc(50% - 50vw); flex-direction: column; align-items: stretch; gap: 2px; margin: 0;
+    padding: 14px max(20px, env(safe-area-inset-left, 0px)) max(24px, env(safe-area-inset-bottom, 0px)); background: var(--navy); border-top: 1px solid var(--line); box-shadow: var(--shadow-lg);
+    height: calc(100vh - var(--header-h)); height: calc(100dvh - var(--header-h)); overscroll-behavior: contain;
+    visibility: hidden; opacity: 0; transform: translateY(-8px); transition: opacity .25s, transform .25s, visibility 0s .25s; overflow-y: auto; }
+  html.menu-open { overflow: hidden; }
   .js .nav.is-open { visibility: visible; opacity: 1; transform: none; transition: opacity .25s, transform .25s; }
   .js .nav a { padding: 13px 14px; font-size: 16.5px; }
   .js .nav a.is-active::after { left: 0; right: auto; top: 12px; bottom: 12px; width: 3px; height: auto; }

@@ -32,6 +32,7 @@
   function setMenu(open) {
     if (!nav || !menuBtn) return;
     nav.classList.toggle("is-open", open);
+    document.documentElement.classList.toggle("menu-open", open);
     menuBtn.setAttribute("aria-expanded", String(open));
     menuBtn.setAttribute("aria-label", menuBtn.getAttribute(open ? "data-label-close" : "data-label-open") || (open ? "Close menu" : "Open menu"));
   }
@@ -44,7 +45,7 @@
     document.addEventListener("click", function (e) {
       if (nav.classList.contains("is-open") && !e.target.closest(".site-header")) setMenu(false);
     });
-    window.matchMedia("(min-width: 1101px)").addEventListener("change", function () { setMenu(false); });
+    window.matchMedia("(min-width: 1161px)").addEventListener("change", function () { setMenu(false); });
   }
 
   // Header shadow, reading-progress bar and back-to-top button, updated once per frame at most.
