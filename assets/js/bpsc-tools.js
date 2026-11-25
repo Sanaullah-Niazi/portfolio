@@ -180,6 +180,11 @@
       form.querySelector(".bp-qid").hidden = false;
       var prefix = { gen: "general", isl: "islamiat", tec: "technical", his: "pakistan-history", bal: "balochistan", cur: "current-affairs" }[id.split("-")[0]];
       if (prefix) form.elements.bank.value = prefix;
+      // Fill in the question's text, so the visitor only writes the better answer or the correction.
+      fetch("/bpsc-interview/index.json").then(function (r) { return r.json(); }).then(function (d) {
+        var it = (d.items || []).filter(function (x) { return x.i === id; })[0];
+        if (it && !form.elements.question.value) form.elements.question.value = (document.documentElement.lang === "ur" && it.qu) || it.q;
+      }).catch(function () {});
     }
     form.addEventListener("submit", function (e) {
       e.preventDefault();
