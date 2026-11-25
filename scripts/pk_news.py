@@ -49,8 +49,6 @@ SOURCES = [
                "https://www.dawn.com/feeds/world", "https://www.dawn.com/feeds/business"]},
     {"id": "tribune", "name": "The Express Tribune", "home": "https://tribune.com.pk",
      "feeds": ["https://tribune.com.pk/feed/home", "https://tribune.com.pk/feed/pakistan"]},
-    {"id": "thenews", "name": "The News International", "home": "https://www.thenews.com.pk",
-     "feeds": ["https://www.thenews.com.pk/rss/1/1"]},
     {"id": "app", "name": "Associated Press of Pakistan", "home": "https://www.app.com.pk",
      "feeds": ["https://www.app.com.pk/feed/"]},
     {"id": "brecorder", "name": "Business Recorder", "home": "https://www.brecorder.com",
@@ -58,16 +56,10 @@ SOURCES = [
 ]
 
 # Feed addresses still being tried (--check only prints them, nothing reads them for the page). When one shows
-# fresh stories in the PR check, move it into SOURCES. Radio Pakistan's /rss and /feed answer 404 (2026-11-25),
-# and The News' /rss/1/1 only had stories from 2025.
-PROBE = [
-    {"id": "thenews", "name": "The News (try)", "home": "https://www.thenews.com.pk",
-     "feeds": ["https://www.thenews.com.pk/rss/1/8", "https://www.thenews.com.pk/rss/1/10",
-               "https://www.thenews.com.pk/rss/2/14", "https://www.thenews.com.pk/feed"]},
-    {"id": "radio", "name": "Radio Pakistan (try)", "home": "https://www.radio.gov.pk",
-     "feeds": ["https://www.radio.gov.pk/rss.xml", "https://www.radio.gov.pk/feeds", "https://www.radio.gov.pk/en/rss",
-               "https://www.radio.gov.pk/latest-stories/rss"]},
-]
+# fresh stories in the PR check, move it into SOURCES. Tried on 2026-11-25 and left out: Radio Pakistan (/rss, /feed,
+# /rss.xml, /feeds, /en/rss: all 404) and The News (/rss/1/1 only had 2025 stories, /rss/1/8 May 2026,
+# /rss/1/10 is showbiz, /rss/2/14 is not a feed).
+PROBE = []
 FRESH_DAYS = 4          # a feed whose newest story is older than this counts as not working
 
 KEEP_DAYS = 60          # panels ask about the last one or two months
