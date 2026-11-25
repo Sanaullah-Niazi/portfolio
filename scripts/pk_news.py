@@ -55,9 +55,20 @@ SOURCES = [
      "feeds": ["https://www.app.com.pk/feed/"]},
     {"id": "brecorder", "name": "Business Recorder", "home": "https://www.brecorder.com",
      "feeds": ["https://www.brecorder.com/feeds/latest-news"]},
-    {"id": "radio", "name": "Radio Pakistan", "home": "https://www.radio.gov.pk",
-     "feeds": ["https://www.radio.gov.pk/rss", "https://www.radio.gov.pk/feed"]},
 ]
+
+# Feed addresses still being tried (--check only prints them, nothing reads them for the page). When one shows
+# fresh stories in the PR check, move it into SOURCES. Radio Pakistan's /rss and /feed answer 404 (2026-11-25),
+# and The News' /rss/1/1 only had stories from 2025.
+PROBE = [
+    {"id": "thenews", "name": "The News (try)", "home": "https://www.thenews.com.pk",
+     "feeds": ["https://www.thenews.com.pk/rss/1/8", "https://www.thenews.com.pk/rss/1/10",
+               "https://www.thenews.com.pk/rss/2/14", "https://www.thenews.com.pk/feed"]},
+    {"id": "radio", "name": "Radio Pakistan (try)", "home": "https://www.radio.gov.pk",
+     "feeds": ["https://www.radio.gov.pk/rss.xml", "https://www.radio.gov.pk/feeds", "https://www.radio.gov.pk/en/rss",
+               "https://www.radio.gov.pk/latest-stories/rss"]},
+]
+FRESH_DAYS = 4          # a feed whose newest story is older than this counts as not working
 
 KEEP_DAYS = 60          # panels ask about the last one or two months
 MAX_ITEMS = 2500
@@ -368,7 +379,9 @@ def check():
     """Tests every feed and a few story links, and prints a table. Returns 1 if fewer than 4 sources work."""
     working = 0
     robots = {}
-    for s in SOURCES:
+    now = dt.datetime.now(dt.timezone.utc)
+    for s in SOURCES + PROBE:
+        trial = s in PROBE
         stories = []
         for url in s["feeds"]:
             host = "{0.scheme}://{0.netloc}".format(urlsplit(url))
@@ -390,9 +403,14 @@ def check():
                 print(f"FAIL  {s['name']:30} {url}  HTTP {e.code}")
             except Exception as e:
                 print(f"FAIL  {s['name']:30} {url}  {e.__class__.__name__}: {e}")
+        when = lambda i: sn.parse_date(i["published"]) or dt.datetime(1970, 1, 1, tzinfo=dt.timezone.utc)
+        stories.sort(key=when, reverse=True)
+        if stories and now - when(stories[0]) > dt.timedelta(days=FRESH_DAYS):
+            print(f"STALE {s['name']:30} newest story is from {stories[0]['published']}")
+            stories = []
         if not stories:
             continue
-        working += 1
+        working += not trial
         bad = 0
         for it in stories[:3]:
             try:
