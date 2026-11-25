@@ -1,7 +1,4 @@
 {%- comment -%} The Research page, in every language. {%- endcomment -%}
-{% assign cv_path = '/' | append: P.cv %}
-{% assign has_cv = false %}
-{% for f in site.static_files %}{% if f.path == cv_path %}{% assign has_cv = true %}{% endif %}{% endfor %}
 <div class="wrap page">
   <header class="page-head">
     {% include page-badge.html %}
@@ -12,7 +9,6 @@
       <a class="btn" href="{{ me.scholar }}">{% include icon.html name="scholar" px=18 %}Google Scholar</a>
       {% if me.orcid and me.orcid != '' %}<a class="btn" href="{{ me.orcid }}">{% include icon.html name="orcid" px=18 %}ORCID</a>{% endif %}
       <a class="btn" href="{{ me.linkedin }}">{% include icon.html name="linkedin" px=18 %}LinkedIn</a>
-      {% if has_cv %}<a class="btn" href="{{ P.cv | relative_url }}" download>{% include icon.html name="download" px=18 %}{{ S.cv_short }}</a>{% endif %}
     </div>
   </header>
 

@@ -63,7 +63,6 @@ Every page exists in four languages. English is at the normal address (`/`, `/re
 - **Text:** each language has a folder in `_data/` (`_data/ur/`, `_data/de/`, `_data/zh/`) with the same file names as the English files in `_data/` (`profile.yml`, `news.yml`, `experience.yml` …). When you change something in English, make the same change in those three folders. `strings.yml` holds the menu, headings and buttons; change the text after the colon, never the key before it. `papers.yml` holds the translated summary and keywords of each paper.
 - **Pages:** the small files in the `ur/`, `de/` and `zh/` folders only say which language a page is in. The page layouts themselves are shared and live in `_includes/pages/`.
 - **A translated project or note:** copy an existing one from `de/projects/` or `de/blog/2026/`, keep `layout`, `lang`, `locale` and `ref` (`ref` is the English file name without `.md`, or the English post's file name without the date and `.md`), change `permalink` to match, and translate the title, summary or description, tags and text. Links, tech stack and status always come from the English project file. A project or note without a translation is still listed, in English.
-- **Translated CVs:** `assets/cv/Sana_Ullah_Khan_CV_de.pdf`, `_zh.pdf` and `_ur.pdf`. Their text is in `_cv_source/cv_de.yml`, `cv_zh.yml` and `cv_ur.yml`. After changing one, rebuild the PDFs on a computer with Python and Playwright: `python3 _cv_source/build_cv.py de zh ur`.
 
 ## Link previews
 
@@ -143,10 +142,6 @@ Always edit here: changes made directly in a tool repository are overwritten by 
 It needs a repository secret named `SYNC_TOKEN`: a fine-grained personal access token with
 **Contents: Read and write** on the four tool repositories. To sync right away, open **Actions**, pick
 **Sync tool repos** and press **Run workflow**.
-
-## Add your CV
-
-Save a public version of your CV as `assets/cv/Sana_Ullah_Khan_CV.pdf` (on github.com: open the `assets/cv` folder, **Add file → Upload files**). The "Download CV" button appears automatically once the file is there. Each language points to its own CV through the `cv:` line in its `profile.yml`. Remove your phone number, address, date of birth, school results and referees' contact details from that version first, because anyone can download it.
 
 ## Turn on the contact form
 

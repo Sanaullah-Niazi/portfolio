@@ -1,7 +1,4 @@
 {%- comment -%} The About me page (/about/ and /ur/, /de/, /zh/about/): the full profile that used to fill the home page. {%- endcomment -%}
-{% assign cv_path = '/' | append: P.cv %}
-{% assign has_cv = false %}
-{% for f in site.static_files %}{% if f.path == cv_path %}{% assign has_cv = true %}{% endif %}{% endfor %}
 {% assign t = D.research.thesis | default: site.data.research.thesis %}
 {% assign projects = site.projects | sort: 'order' %}
 <div class="wrap page about-page">
@@ -10,7 +7,7 @@
     <p class="eyebrow">{{ S.m_overview }}</p>
     <h1>{{ S.abp_title }}</h1>
     <p class="lede">{{ S.abp_lede }}</p>
-    <div class="btn-row">{% if has_cv %}<a class="btn btn-primary" href="{{ P.cv | relative_url }}" download>{% include icon.html name="download" px=18 %}{{ S.btn_cv }}</a>{% endif %}<a class="btn" href="{{ L }}/#contact">{% include icon.html name="mail" px=18 %}{{ S.btn_contact }}</a></div>
+    <div class="btn-row"><a class="btn btn-primary" href="{{ L }}/#contact">{% include icon.html name="mail" px=18 %}{{ S.btn_contact }}</a></div>
   </header>
 </div>
 {% assign news = D.news | default: site.data.news %}

@@ -165,7 +165,6 @@ exclude:
   - README.md
   - worker/
   - cloudflare/
-  - assets/cv/README.md
   - assets/img/certificates/README.md
   - Gemfile
   - Gemfile.lock

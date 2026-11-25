@@ -33,10 +33,8 @@ nav_news: 安全新闻
 nav_scholarships: 奖学金
 nav_contact: 联系
 
-btn_cv: 下载简历
 btn_research: 研究
 btn_contact: 联系我
-cv_short: 简历
 terminal_label: 终端风格的简介
 scroll_next: 滚动到下一部分
 
@@ -355,8 +353,6 @@ m_overview_d: "我是谁、经历和技能"
 m_research_d: "硕士论文和已发表论文"
 m_projects_d: "AquaPulse、诈骗和 AI 文本检测"
 m_notes_d: "关于 AI 安全的短文"
-m_cv: "简历"
-m_cv_d: "下载 PDF"
 m_contact_d: "给我留言"
 m_start: "从这里开始"
 m_start_d: "每个安全职业都需要的基础"
