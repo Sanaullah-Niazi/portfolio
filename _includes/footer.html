@@ -1,41 +1,40 @@
 {%- assign home = L | append: '/' %}
 {%- if page.url == home %}{% assign base = '' %}{% else %}{% assign base = home %}{% endif %}
+{%- comment -%} The footer repeats the menu's groups (_data/menu.yml), so every page can reach every other one. {%- endcomment %}
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div class="footer-brand">
-      <p class="brand-name">{{ me.name }}</p>
+      <a class="brand" href="{{ home }}"><svg class="brand-mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9"/><rect class="bm-in" x="8" y="8" width="16" height="16" rx="5"/></svg><span class="brand-name">{{ me.name }}</span></a>
       <p class="muted">{{ P.tagline }} · AI × Cybersecurity</p>
       {% include social.html no_mail=true %}
       {%- unless page.bpsc %}
       <p class="footer-email">{% include icon.html name="mail" px=16 %}<a href="mailto:{{ me.email }}">{{ me.email }}</a></p>
       {%- endunless %}
     </div>
-    {%- comment -%} A short map of the site, so every page can reach every other one. {%- endcomment %}
-    <nav class="footer-nav footer-explore" aria-label="{{ S.footer_explore }}">
-      <p class="footer-title">{{ S.footer_explore }}</p>
+    {%- for g in site.data.menu %}
+    <nav class="footer-nav" aria-label="{{ S[g.title] }}">
+      <p class="footer-title">{{ S[g.title] }}</p>
       <ul>
-        <li><a href="{{ base }}#about">{{ S.nav_about }}</a></li>
-        <li><a href="{{ L }}/research/">{{ S.nav_research }}</a></li>
-        <li><a href="{{ L }}/projects/">{{ S.nav_projects }}</a></li>
-        <li><a href="{{ base }}#experience">{{ S.nav_experience }}</a></li>
-        <li><a href="{{ base }}#skills">{{ S.nav_skills }}</a></li>
-        <li><a href="{{ L }}/blog/">{{ S.nav_notes }}</a></li>
-        <li><a href="{{ base }}#contact">{{ S.nav_contact }}</a></li>
+        {%- for it in g.items %}
+        <li><a href="{{ L }}{{ it.url }}">{{ S[it.t] }}</a></li>
+        {%- endfor %}
+        {%- if g.key == 'about' %}
+        <li><a href="{{ base }}#contact">{{ S.nav_contact }}</a></li>{% endif %}
       </ul>
     </nav>
-    <nav class="footer-nav" aria-label="{{ S.footer_resources }}">
-      <p class="footer-title">{{ S.footer_resources }}</p>
+    {%- endfor %}
+    {%- if lang == 'en' or lang == 'ur' %}
+    <nav class="footer-nav" aria-label="{{ S.nav_bpsc }}">
+      <p class="footer-title">{{ S.nav_bpsc }}</p>
       <ul>
-        <li><a href="{{ L }}/tools/">{{ S.nav_tools }}</a></li>
-        <li><a href="{{ L }}/games/">{{ S.nav_games }}</a></li>
-        <li><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a></li>
-        <li><a href="{{ L }}/security-news/">{{ S.nav_news }}</a></li>
-        {%- if lang == 'en' or lang == 'ur' %}
-        <li><a href="{{ L }}/bpsc-interview/">{{ S.nav_bpsc }}</a></li>{% endif %}
+        <li><a href="{{ L }}/bpsc-interview/">{{ S.bp_title }}</a></li>
+        <li><a href="{{ L }}/bpsc-interview/practice/">{{ S.bp_practice }}</a></li>
+        <li><a href="{{ L }}/bpsc-interview/news/">{{ S.nav_bpsc_news }}</a></li>
+        <li><a href="{{ L }}/bpsc-interview/my-list/">{{ S.bp_mylist }}</a></li>
       </ul>
     </nav>
+    {%- endif %}
   </div>
-  <p class="wrap footer-mark" aria-hidden="true"><span>{{ me.name }}</span></p>
   <div class="wrap footer-base">
     <span>© {{ site.time | date: '%Y' }} {{ me.name }}. {{ S.footer_rights }}</span>
 {%- assign _pv = site.data.privacy[lang] | default: site.data.privacy.en %}

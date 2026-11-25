@@ -1,0 +1,15 @@
+{%- comment -%}
+  The ring badge at the top of every inner page (Layers design): two thin rings, one turning slowly, around the icon
+  of the page's section. It replaces the old floating shape and is only decoration.
+{%- endcomment -%}
+{%- assign _bp = page.url -%}
+{%- if lang != 'en' %}{% assign _bpre = '/' | append: lang %}{% assign _bp = page.url | remove_first: _bpre %}{% endif -%}
+{%- assign _bs = _bp | split: '/' -%}{%- assign _bs = _bs[1] | default: '' -%}
+{%- case _bs -%}
+{%- when 'about' %}{% assign _bi = 'user' %}{% when 'research' %}{% assign _bi = 'book' %}{% when 'projects' %}{% assign _bi = 'cube' %}
+{%- when 'blog' %}{% assign _bi = 'pen' %}{% when 'roadmaps' %}{% assign _bi = 'map' %}{% when 'games' %}{% assign _bi = 'gamepad' %}
+{%- when 'tools' %}{% assign _bi = 'tools' %}{% when 'security-news' %}{% assign _bi = 'megaphone' %}{% when 'scholarships' %}{% assign _bi = 'cap' %}
+{%- when 'bpsc-interview' %}{% assign _bi = 'clipboard' %}{% when 'privacy' %}{% assign _bi = 'lock' %}{% else %}{% assign _bi = 'layers' %}
+{%- endcase -%}
+{%- if include.icon %}{% assign _bi = include.icon %}{% endif -%}
+<div class="page-badge" aria-hidden="true"><span class="pb-ring pb-outer"></span><span class="pb-ring pb-inner"></span><span class="pb-core">{% include icon.html name=_bi px=40 %}</span></div>

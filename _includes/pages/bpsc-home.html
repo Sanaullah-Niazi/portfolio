@@ -8,6 +8,7 @@
 {%- if iv.to %}{% capture _to %}{% include date.html date=iv.to long=true %}{% endcapture %}{% endif -%}
 <div class="wrap page bp">
   <header class="page-head bp-head">
+    {% include page-badge.html %}
     <p class="eyebrow">{{ S.bp_eyebrow }}</p>
     <h1>{{ S.bp_title }}</h1>
     <p class="lede">{{ S.bp_lede }}</p>

@@ -7,6 +7,7 @@
 {%- capture email_link %}<a href="mailto:{{ me.email }}">{{ me.email }}</a>{% endcapture -%}
 <div class="wrap page">
   <header class="page-head">
+    {% include page-badge.html %}
     <h1>{{ PV.title }}</h1>
     <p class="lede">{{ PV.lede }}</p>
     <p class="muted">{{ PV.updated }}: {% include date.html date=site.data.privacy.updated long=true %}</p>

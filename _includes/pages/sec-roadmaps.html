@@ -10,6 +10,7 @@
 {% include rm-bar.html active="security" %}
 <div class="wrap page roadmaps-page sr-index">
   <header class="page-head">
+    {% include page-badge.html %}
     <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> {{ T.eyebrow | default: R.eyebrow }}</p>
     <h1>{{ T.title | default: R.title }}</h1>
     <p class="lede">{{ T.lede | default: R.lede }}</p>

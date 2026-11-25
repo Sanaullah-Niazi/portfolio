@@ -9,6 +9,7 @@
 <article class="wrap page bp bp-single">
   <p class="eyebrow crumbs"><a href="{{ L }}/bpsc-interview/{{ page.bank }}/#{{ it.id }}"><span class="back-arrow" aria-hidden="true">←</span> {{ page.bank_name }}</a></p>
   <header class="page-head bp-head">
+    {% include page-badge.html %}
     <p class="eyebrow"{{ en_attr }}>{{ it.category }}</p>
     <h1>{% if lang == 'ur' and it.question_ur %}{{ it.question_ur | escape }}{% else %}<span{{ en_attr }}>{{ it.question | escape }}</span>{% endif %}</h1>
     <p class="bp-q-meta">{% include bpsc/meta.html it=it %}</p>

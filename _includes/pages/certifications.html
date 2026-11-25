@@ -7,6 +7,7 @@
 {% include rm-bar.html active="certs" %}
 <div class="wrap page roadmaps-page certs-page">
   <header class="page-head">
+    {% include page-badge.html %}
     <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a> <span aria-hidden="true">/</span> {{ T.eyebrow | default: C.eyebrow }}</p>
     <h1>{{ T.title | default: C.title }}</h1>
     <p class="lede">{{ T.lede | default: C.lede }}</p>

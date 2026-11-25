@@ -34,6 +34,7 @@
 {% include rm-bar.html active="paths" %}
 <div class="wrap page roadmaps-page rm-doc-page">
   <header class="page-head">
+    {% include page-badge.html %}
     <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ T.lib_title | default: R.lib_title }}</a> <span aria-hidden="true">/</span> <a href="{{ L }}/roadmaps/#learning-paths">{{ T.tier_paths_title | default: R.tier_paths_title }}</a>{% if g %} <span aria-hidden="true">/</span> {{ T.groups[g.id] | default: g.title }}{% endif %}</p>
     <h1>{{ tp.title | default: p.title }}</h1>
     <p class="lede">{{ tp.summary | default: p.summary }}</p>
