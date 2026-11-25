@@ -1,280 +1,163 @@
-{%- comment -%} The home page. index.html (English) and ur/, de/, zh/index.html all show this, each in its own language. {%- endcomment -%}
-{% assign cv_path = '/' | append: P.cv %}
-{% assign has_cv = false %}
-{% for f in site.static_files %}{% if f.path == cv_path %}{% assign has_cv = true %}{% endif %}{% endfor %}
-{% assign t = D.research.thesis | default: site.data.research.thesis %}
-{% assign projects = site.projects | sort: 'order' %}
+{%- comment -%}
+  The home page (Layers design). index.html (English) and ur/, de/, zh/index.html all show this, each in its own language.
+  A welcome, the site's doors (the menu groups of _data/menu.yml), what is new today, a short About, and the contact form.
+  The full profile (research, projects, experience, skills) is on the About me page (pages/about.html).
+{%- endcomment -%}
+{%- assign tool_count = site.data.tool_list.size -%}
+{%- assign rm_count = site.data.sec_domains.size -%}
+{%- assign bp_count = 0 -%}{%- for b in site.data.bpsc.banks %}{% assign _items = site.data.bpsc[b.slug] %}{% assign bp_count = bp_count | plus: _items.size %}{% endfor -%}
+{%- assign show_bpsc = false -%}{%- if lang == 'en' or lang == 'ur' %}{% assign show_bpsc = true %}{% endif -%}
+{%- capture title_html %}{{ S.home_title | escape | replace: '[', '<em>' | replace: ']', '</em>' }}{% endcapture -%}
 
-<section class="hero" aria-labelledby="hero-title">
-  {%- comment -%} The portrait in dots: assets/js/hero.js reads the photo below and draws it with small dots on the canvas. {%- endcomment %}
-  <div class="hero-band" data-particles data-photo="{{ '/assets/img/profile/sana-640.webp' | relative_url }}">
-    <div class="hero-art">
-      <canvas aria-hidden="true"></canvas>
-      {% if me.photo %}<picture class="hero-photo">
-        <source type="image/webp" srcset="{{ '/assets/img/profile/sana-640.webp' | relative_url }} 640w, {{ '/assets/img/profile/sana-800.webp' | relative_url }} 800w" sizes="(max-width: 980px) 100vw, 46vw">
-        <img src="{{ me.photo | relative_url }}" alt="{{ S.photo_alt }}" width="800" height="800" fetchpriority="high" decoding="async">
-      </picture>{% endif %}
-    </div>
-    <div class="wrap hero-grid">
-      <div class="hero-text">
-        <p class="hero-kicker">{{ P.hero_kicker }}</p>
-        <h1 id="hero-title"><span class="sr-only">{{ me.name }}: </span>{{ P.hero_title | escape | replace: '[', '<em>' | replace: ']', '</em>' }}</h1>
-        <p class="hero-who"><strong>{{ me.name }}</strong> · {{ P.tagline }}</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#explore">{% include icon.html name="map" px=18 %}{{ S.btn_explore }}</a>
-          {% if has_cv %}<a class="btn" href="{{ P.cv | relative_url }}" download>{% include icon.html name="download" px=18 %}{{ S.btn_cv }}</a>{% endif %}
-          <a class="btn" href="#contact">{% include icon.html name="mail" px=18 %}{{ S.btn_contact }}</a>
-        </div>
-        <div class="morph" role="group" aria-label="{{ S.hero_morph }}">
-          <span class="morph-label" aria-hidden="true">{{ S.hero_morph }}</span>
-          <button type="button" data-morph="face" aria-pressed="true" aria-label="{{ S.hero_morph_face }}">{% include icon.html name="user" px=18 %}</button>
-          <button type="button" data-morph="en" data-word="Sana" lang="en" aria-pressed="false">Sana</button>
-          <button type="button" data-morph="ur" data-word="ثناء" lang="ur" aria-pressed="false">ثناء</button>
-          <button type="button" data-morph="zh" data-word="你好" lang="zh" aria-pressed="false">你好</button>
-          <button type="button" data-morph="de" data-word="Hallo" lang="de" aria-pressed="false">Hallo</button>
-        </div>
-        {% include social.html no_mail=true %}
+<section class="home-hero" aria-labelledby="hero-title">
+  <div class="wrap home-hero-grid">
+    <div class="home-hero-text">
+      <p class="hero-kicker">{{ S.home_kicker }}</p>
+      <h1 id="hero-title">{{ title_html }}</h1>
+      <p class="home-lead">{{ S.home_lead }}</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="{{ L }}/tools/">{{ S.home_cta1 }} {% include icon.html name="arrow" px=17 %}</a>
+        <a class="btn" href="{{ L }}/roadmaps/">{{ S.home_cta2 }}</a>
       </div>
-    </div>
-    <p class="hero-hint" aria-hidden="true">{{ S.hero_hint }}</p>
-  </div>
-</section>
-
-{% assign news = D.news | default: site.data.news %}
-{% if news.size > 0 %}
-<section class="news-band" id="updates" aria-labelledby="news-title">
-  <div class="wrap news-inner">
-    <div class="news-head">
-      <p class="eyebrow">{% include icon.html name="megaphone" px=16 %}{{ S.news_eyebrow }}</p>
-      <h2 id="news-title" class="sr-only">{{ S.news_title }}</h2>
-      <a class="link-arrow" href="{{ L }}/research/#updates">{{ S.news_all }} {% include icon.html name="arrow" px=16 %}</a>
-    </div>
-    {% include news-list.html limit=4 strip=true %}
-  </div>
-</section>
-{% endif %}
-
-{%- comment -%} "%n security and developer tools" counts those two groups; the YouTube tools have their own hub. {%- endcomment %}
-{%- assign main_tools = site.data.tool_list | where_exp: "t", "t.group != 'youtube'" %}
-{% include island.html %}
-
-<section class="section" id="focus" aria-labelledby="focus-title">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">01</span>{{ S.focus_eyebrow }}</p>
-      <h2 id="focus-title">{{ S.focus_title }}</h2>
-      <p class="section-lede">{{ S.focus_lede }}</p>
-    </header>
-    <ol class="focus-grid">
-      {% assign focus = D.focus | default: site.data.focus %}
-      {% for f in focus %}
-      <li class="card focus-card reveal spot">
-        <span class="icon-tile">{% include icon.html name=f.icon px=22 %}</span>
-        <h3>{{ f.area }}</h3>
-        <span class="level-chip">{{ f.level }}</span>
-        <p>{{ f.evidence }}</p>
-      </li>
-      {% endfor %}
-    </ol>
-  </div>
-</section>
-
-{% assign about = D.about | default: site.data.about %}
-<section class="section" id="about" aria-labelledby="about-title">
-  <div class="wrap two-col">
-    <div class="about-side reveal">
-      <header class="section-head">
-        <p class="eyebrow"><span class="num">02</span>{{ S.about_eyebrow }}</p>
-        <h2 id="about-title">{{ S.about_title }}</h2>
-      </header>
-      <ol class="journey" aria-label="{{ S.journey_label }}">
-        {% for j in about.journey %}
-        <li{% if forloop.last %} class="j-now"{% endif %}><span class="j-dot" aria-hidden="true"></span><strong>{{ j.title }}</strong>{% if j.dates %}<span class="j-dates">{{ j.dates }}</span>{% endif %}<span>{{ j.note }}</span></li>
-        {% endfor %}
-      </ol>
-    </div>
-    <div class="prose reveal">
-      {% for para in about.story %}<p>{{ para }}</p>
-      {% endfor %}
-      {% if about.aka %}<p class="aka muted">{{ about.aka }}</p>{% endif %}
-      <dl class="facts">
-        {% for f in about.facts %}<div><dt>{% include icon.html name=f.icon px=18 %}{{ f.label }}</dt><dd>{{ f.text }}</dd></div>{% endfor %}
-      </dl>
-      <ul class="highlights" aria-label="{{ S.highlights_label }}">
-        {% for h in P.highlights %}<li><strong>{{ h.value }}</strong><span>{{ h.label }}</span></li>{% endfor %}
+      <ul class="hero-stats">
+        <li><strong>{{ tool_count }}</strong><span>{{ S.home_n_tools }}</span></li>
+        {%- if rm_count > 0 %}<li><strong>{{ rm_count }}</strong><span>{{ S.home_n_roadmaps }}</span></li>{% endif %}
+        {%- if show_bpsc and bp_count > 0 %}{%- capture bp_fmt %}{% if bp_count >= 1000 %}{{ bp_count | divided_by: 1000 }},{{ bp_count | modulo: 1000 | prepend: '00' | slice: -3, 3 }}{% else %}{{ bp_count }}{% endif %}{% endcapture %}<li><strong>{{ bp_fmt }}</strong><span>{{ S.home_n_bpsc }}</span></li>{% endif %}
+        <li><strong>{{ site.languages.size }}</strong><span>{{ S.home_n_langs }}</span></li>
       </ul>
     </div>
-  </div>
-</section>
-
-<section class="section" id="research" aria-labelledby="research-title">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">03</span>{{ S.research_eyebrow }}</p>
-      <h2 id="research-title">{{ S.research_title }}</h2>
-    </header>
-
-    {% include thesis.html %}
-    {% include ongoing.html %}
-
-    <h3 class="sub reveal">{{ S.pubs_title }}</h3>
-    <ol class="pubs">
-      {% for p in site.data.publications %}
-      {% assign role_key = 'role_' | append: p.role | replace: ' ', '_' %}
-      <li class="card pub reveal spot">
-        <div class="pub-top"><span class="pub-num" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span><span class="role{% if p.role == 'First author' %} role-first{% endif %}">{{ S[role_key] | default: p.role }}</span>{% include sep.html %}<span class="pub-year">{{ p.year }}</span></div>
-        <p class="pub-title" lang="en">{{ p.title }}</p>
-        <p class="meta" lang="en">{{ p.authors }} ({{ p.year }}). <em>{{ p.journal }}{% if p.volume %}, {{ p.volume }}{% if p.issue %}({{ p.issue }}){% endif %}{% endif %}{% if p.pages %}, {{ p.pages }}{% endif %}</em>.</p>
-        <div class="pub-links">
-          <a class="pub-link" href="https://doi.org/{{ p.doi }}">{% include icon.html name="book" px=16 %}doi:{{ p.doi }}</a>
-          {% if p.pdf and p.pdf != '' %}<a class="pub-link" href="{{ p.pdf | relative_url }}">{% include icon.html name="file" px=16 %}{{ S.pdf }}<span class="sr-only">: {{ p.title }}</span></a>{% endif %}
-        </div>
-      </li>
-      {% endfor %}
-    </ol>
-    <p class="more reveal more-row">
-      <a class="link-arrow" href="{{ L }}/research/">{{ S.research_more }} {% include icon.html name="arrow" px=16 %}</a>
-      <a class="link-arrow" href="{{ me.scholar }}">{{ S.scholar_all }} {% include icon.html name="arrow" px=16 %}</a>
-    </p>
-
-    <h3 class="sub reveal">{{ S.interests_title }}</h3>
-    {% include interests.html %}
-  </div>
-</section>
-
-<section class="section" id="projects" aria-labelledby="projects-title">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">04</span>{{ S.projects_eyebrow }}</p>
-      <h2 id="projects-title">{{ S.projects_title }}</h2>
-    </header>
-    {% include project-filter.html projects=projects id="home" %}
-    <div class="grid projects-grid" data-filterable data-shown-one="{{ S.filter_shown_one }}" data-shown-many="{{ S.filter_shown_many }}">
-      {% for p in projects limit: 6 %}{% include project-card.html project=p %}{% endfor %}
-    </div>
-    {% if projects.size > 6 %}<p class="more"><a class="link-arrow" href="{{ L }}/projects/">{{ S.projects_all }} ({{ projects.size }}) {% include icon.html name="arrow" px=16 %}</a></p>{% endif %}
-  </div>
-</section>
-
-{%- assign T = D.tools | default: site.data.tools %}{% assign featured = "pw,leak,ph,look,exif,hid" | split: "," %}
-<section class="section tools-band" id="tools" aria-labelledby="tools-title">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">05</span>{{ S.tools_eyebrow }}</p>
-      <h2 id="tools-title">{{ S.tools_title }}</h2>
-      <p class="section-lede">{{ S.tools_lede }}</p>
-    </header>
-    <ul class="tool-cards">
-    {%- for key in featured %}{% assign t = site.data.tool_list | where: "key", key | first %}{% assign tk = key | append: "_title" %}{% assign ck = key | append: "_card" %}
-      <li class="card spot tool-card reveal">
-        <span class="icon-tile">{% include icon.html name=t.icon px=22 %}</span>
-        <h3><a href="{{ L }}/tools/{{ t.slug }}/">{{ T[tk] }}</a></h3>
-        <p>{{ T[ck] }}</p>
-      </li>
-    {%- endfor %}
-    </ul>
-    <p class="more"><a class="link-arrow" href="{{ L }}/tools/">{{ S.tools_all | replace: "%n", main_tools.size }} {% include icon.html name="arrow" px=16 %}</a></p>
-  </div>
-</section>
-
-<section class="section" id="experience" aria-labelledby="experience-title">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">06</span>{{ S.experience_eyebrow }}</p>
-      <h2 id="experience-title">{{ S.experience_title }}</h2>
-    </header>
-    <ol class="timeline">
-      {% assign experience = D.experience | default: site.data.experience %}
-      {% for e in experience %}
-      <li class="reveal">
-        <span class="t-node" aria-hidden="true">{% include icon.html name="briefcase" px=18 %}</span>
-        <div class="card t-card">
-          <p class="dates">{{ e.dates }}</p>
-          <h3>{{ e.role }}</h3>
-          <p class="meta">{{ e.org }}</p>
-          <ul>{% for pt in e.points %}<li>{{ pt }}</li>{% endfor %}</ul>
-        </div>
-      </li>
-      {% endfor %}
-    </ol>
-  </div>
-</section>
-
-{% include service.html num="07" %}
-
-<section class="section" id="education" aria-labelledby="education-title">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">08</span>{{ S.education_eyebrow }}</p>
-      <h2 id="education-title">{{ S.education_title }}</h2>
-    </header>
-    <ol class="timeline">
-      {% assign education = D.education | default: site.data.education %}
-      {% for e in education %}
-      <li class="reveal">
-        <span class="t-node" aria-hidden="true">{% include icon.html name="cap" px=18 %}</span>
-        <div class="card t-card">
-          <p class="dates">{{ e.dates }}</p>
-          <h3>{{ e.degree }}</h3>
-          <p class="meta">{{ e.school }}</p>
-          <p>{{ e.detail }}</p>
-        </div>
-      </li>
-      {% endfor %}
-    </ol>
-  </div>
-</section>
-
-<section class="section" id="skills" aria-labelledby="skills-title">
-  <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">09</span>{{ S.skills_eyebrow }}</p>
-      <h2 id="skills-title">{{ S.skills_title }}</h2>
-    </header>
-    {% include skills-chart.html %}
-    <div class="grid grid-3">
-      {% assign skills = D.skills | default: site.data.skills %}
-      {% for g in skills %}
-      <div class="card skill-group reveal spot">
-        <div class="skill-head"><span class="icon-tile">{% include icon.html name=g.icon px=22 %}</span><div><h3>{{ g.group }}</h3>{% if g.note %}<p class="level">{{ g.note }}</p>{% endif %}</div></div>
-        <ul class="tags">{% for s in g.items %}<li>{{ s }}</li>{% endfor %}</ul>
-      </div>
-      {% endfor %}
-      {%- comment -%} Hands-on labs: appears once a TryHackMe or Hack The Box profile is filled in in _data/profile.yml. {%- endcomment %}
-      {%- if me.tryhackme != '' or me.hackthebox != '' %}
-      <div class="card skill-group reveal spot" id="labs">
-        <div class="skill-head"><span class="icon-tile">{% include icon.html name="flag" px=22 %}</span><div><h3>{{ S.labs_title }}</h3><p class="level">{{ S.labs_note }}</p></div></div>
-        <ul class="tags">
-          {%- if me.tryhackme != '' %}<li><a href="{{ me.tryhackme }}" rel="noopener">{{ S.labs_thm }}</a></li>{% endif %}
-          {%- if me.hackthebox != '' %}<li><a href="{{ me.hackthebox }}" rel="noopener">{{ S.labs_htb }}</a></li>{% endif %}
-          <li><a href="{{ L }}/blog/">{{ S.writeups_title }}</a></li>
-        </ul>
-      </div>
+    {%- comment -%} The rings: slowly turning "layers of defence" around the photo, with the site's doors riding on them. Pure CSS. {%- endcomment %}
+    <div class="rings" aria-hidden="false">
+      <svg class="rings-svg" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+        <g class="ring-a"><circle cx="300" cy="300" r="282" class="r-line"/><path d="M300 18 A282 282 0 0 1 582 300" class="r-arc"/></g>
+        <g class="ring-b"><circle cx="300" cy="300" r="222" class="r-dash"/><path d="M78 300 A222 222 0 0 1 300 78" class="r-arc r-arc-soft"/></g>
+        <g class="ring-c"><circle cx="300" cy="300" r="166" class="r-line"/><circle cx="466" cy="300" r="5" class="r-dot"/></g>
+      </svg>
+      {%- if me.photo %}
+      <picture class="rings-photo">
+        <source srcset="{{ '/assets/img/profile/sana-640.webp' | relative_url }}" type="image/webp">
+        <img src="{{ me.photo | relative_url }}" alt="{{ me.name }}" width="320" height="320" fetchpriority="high">
+      </picture>
+      {%- endif %}
+      <a class="ring-chip chip-1" href="{{ L }}/roadmaps/">{% include icon.html name="map" px=16 %}{{ S.mg_learn }}</a>
+      <a class="ring-chip chip-2" href="{{ L }}/tools/">{% include icon.html name="tools" px=16 %}{{ S.mg_tools }}</a>
+      <a class="ring-chip chip-3" href="{{ L }}/security-news/">{% include icon.html name="megaphone" px=16 %}{{ S.mg_updates }}</a>
+      {%- if show_bpsc %}
+      <a class="ring-chip chip-4" href="{{ L }}/bpsc-interview/">{% include icon.html name="cap" px=16 %}{{ S.nav_bpsc }}</a>
+      {%- else %}
+      <a class="ring-chip chip-4" href="{{ L }}/about/">{% include icon.html name="user" px=16 %}{{ S.mg_about }}</a>
       {%- endif %}
     </div>
   </div>
 </section>
 
-{% include certificates.html num="10" %}
-
-{% if site.posts.size > 0 %}
-<section class="section" id="notes" aria-labelledby="notes-title">
+<section class="section home-doors" id="explore" aria-labelledby="doors-title">
   <div class="wrap">
-    <header class="section-head reveal">
-      <p class="eyebrow"><span class="num">11</span>{{ S.notes_eyebrow }}</p>
-      <h2 id="notes-title">{{ S.notes_title }}</h2>
+    <header class="section-head">
+      <h2 id="doors-title">{{ S.home_doors }}</h2>
+      <p class="section-lede">{{ S.home_doors_d }}</p>
     </header>
-    <ul class="post-list">
-      {% for post in site.posts limit: 3 %}{% include translated.html item=post %}
-      <li><a href="{{ tr.url | relative_url }}"{% if tr.lang != lang and lang != 'en' %} lang="en"{% endif %}>{{ tr.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{% include date.html date=post.date %}</time></li>
-      {% endfor %}
-    </ul>
-    <p class="more"><a class="link-arrow" href="{{ L }}/blog/">{{ S.notes_all }} {% include icon.html name="arrow" px=16 %}</a></p>
+    <div class="doors">
+      {%- for g in site.data.menu %}{% if g.key == 'about' %}{% continue %}{% endif %}
+      <article class="door card spot reveal">
+        <span class="icon-tile lg">{% include icon.html name=g.icon px=24 %}</span>
+        <h3><a class="door-link" href="{{ L }}{{ g.url }}">{{ S[g.title] }}</a></h3>
+        <p class="muted">{{ S[g.desc] }}</p>
+        <ul class="door-list">
+          {%- for it in g.items limit: 3 %}
+          <li><a href="{{ L }}{{ it.url }}">{{ S[it.t] }}{% include icon.html name="arrow" px=15 %}</a></li>
+          {%- endfor %}
+        </ul>
+      </article>
+      {%- endfor %}
+      {%- if show_bpsc %}
+      <article class="door card spot reveal">
+        <span class="icon-tile lg">{% include icon.html name="cap" px=24 %}</span>
+        <h3><a class="door-link" href="{{ L }}/bpsc-interview/">{{ S.nav_bpsc }}</a></h3>
+        <p class="muted">{{ S.mg_bpsc_d }}</p>
+        <ul class="door-list">
+          <li><a href="{{ L }}/bpsc-interview/">{{ S.bp_title }}{% include icon.html name="arrow" px=15 %}</a></li>
+          <li><a href="{{ L }}/bpsc-interview/practice/">{{ S.bp_practice }}{% include icon.html name="arrow" px=15 %}</a></li>
+          <li><a href="{{ L }}/bpsc-interview/news/">{{ S.nav_bpsc_news }}{% include icon.html name="arrow" px=15 %}</a></li>
+        </ul>
+      </article>
+      {%- else %}
+      {%- assign g = site.data.menu | where: 'key', 'about' | first %}
+      <article class="door card spot reveal">
+        <span class="icon-tile lg">{% include icon.html name=g.icon px=24 %}</span>
+        <h3><a class="door-link" href="{{ L }}{{ g.url }}">{{ S[g.title] }}</a></h3>
+        <p class="muted">{{ S[g.desc] }}</p>
+        <ul class="door-list">
+          {%- for it in g.items limit: 3 %}
+          <li><a href="{{ L }}{{ it.url }}">{{ S[it.t] }}{% include icon.html name="arrow" px=15 %}</a></li>
+          {%- endfor %}
+        </ul>
+      </article>
+      {%- endif %}
+    </div>
   </div>
 </section>
-{% endif %}
 
-<section class="section contact prism-host" id="contact" aria-labelledby="contact-title">
+{%- assign brief = site.briefs | sort: 'date' | last -%}
+{%- assign today = site.time | date: '%Y-%m-%d' -%}
+{%- assign opp = nil -%}
+{%- for o in site.data.security_opportunities.items %}{% if o.deadline and o.deadline >= today %}{% assign opp = o %}{% break %}{% endif %}{% endfor %}
+<section class="section home-new" aria-labelledby="new-title">
+  <div class="wrap">
+    <header class="section-head section-head-row">
+      <div>
+        <h2 id="new-title">{{ S.home_new }}</h2>
+        <p class="section-lede">{{ S.home_new_d }}</p>
+      </div>
+      <a class="link-arrow" href="{{ L }}/security-news/">{{ S.home_new_all }} {% include icon.html name="arrow" px=16 %}</a>
+    </header>
+    <div class="new-grid">
+      {%- if brief %}
+      <a class="new-card card spot reveal" href="{{ brief.url | relative_url }}"{% if lang != 'en' %} hreflang="en"{% endif %}>
+        <span class="new-k">{% include icon.html name="megaphone" px=15 %}{{ S.home_k_brief }} · {% include date.html date=brief.date long=true %}</span>
+        <strong lang="en">{{ brief.title | escape }}</strong>
+      </a>
+      {%- endif %}
+      {%- if opp %}
+      {%- assign lvk = 'so_level_' | append: opp.level %}
+      <a class="new-card card spot reveal" href="{{ L }}/scholarships/">
+        <span class="new-k">{% include icon.html name="cap" px=15 %}{{ S[lvk] | default: S.home_k_sch }} · {{ S.home_k_closes }} {% include date.html date=opp.deadline long=true %}</span>
+        <strong lang="en">{{ opp.title | escape | truncate: 110 }}</strong>
+      </a>
+      {%- endif %}
+      <a class="new-card card spot reveal" href="{{ L }}/games/daily-hack/">
+        <span class="new-k">{% include icon.html name="gamepad" px=15 %}{{ S.home_k_hack }}</span>
+        <strong>{{ S.home_hack_t }}</strong>
+      </a>
+    </div>
+  </div>
+</section>
+
+{%- assign t = D.research.thesis | default: site.data.research.thesis %}
+<section class="section home-about" aria-labelledby="home-about-title">
+  <div class="wrap">
+    <div class="about-strip card">
+      <div class="about-strip-text">
+        <p class="eyebrow">{{ S.mg_about }}</p>
+        <h2 id="home-about-title">{{ S.home_about_t }}</h2>
+        <p class="muted">{{ P.tagline }}. {{ P.open_to }}</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="{{ L }}/about/">{{ S.home_about_more }} {% include icon.html name="arrow" px=17 %}</a>
+          <a class="btn" href="{{ L }}/research/">{{ S.nav_research }}</a>
+          <a class="btn" href="{{ L }}/projects/">{{ S.nav_projects }}</a>
+        </div>
+      </div>
+      <ul class="about-stats">
+        <li class="reveal"><strong data-count="99.65%">99.65%</strong><span>{{ S.home_s_acc }}</span></li>
+        <li class="reveal"><strong data-count="{{ site.data.publications.size }}">{{ site.data.publications.size }}</strong><span>{{ S.home_s_papers }}</span></li>
+        <li class="reveal"><strong data-count="2+">2+</strong><span>{{ S.home_s_teach }}</span></li>
+        <li class="reveal"><strong data-count="{{ tool_count }}">{{ tool_count }}</strong><span>{{ S.home_s_tools }}</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact" aria-labelledby="contact-title">
   <div class="wrap">
     <div class="contact-panel reveal">
       <div class="contact-intro">

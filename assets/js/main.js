@@ -26,6 +26,23 @@
     });
   }
 
+  // Menu groups: each is a <details>. Only one is open at a time; Esc or a click outside closes it.
+  var groups = document.querySelectorAll(".nav-g");
+  groups.forEach(function (g) {
+    g.addEventListener("toggle", function () {
+      if (g.open) groups.forEach(function (o) { if (o !== g) o.open = false; });
+    });
+  });
+  if (groups.length) {
+    document.addEventListener("click", function (e) {
+      groups.forEach(function (g) { if (g.open && !g.contains(e.target) && window.matchMedia("(min-width: 1025px)").matches) g.open = false; });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      groups.forEach(function (g) { if (g.open) { g.open = false; g.querySelector("summary").focus(); } });
+    });
+  }
+
   // Mobile menu.
   var nav = document.getElementById("site-nav");
   var menuBtn = document.querySelector(".menu-toggle");
@@ -45,7 +62,7 @@
     document.addEventListener("click", function (e) {
       if (nav.classList.contains("is-open") && !e.target.closest(".site-header")) setMenu(false);
     });
-    window.matchMedia("(min-width: 1161px)").addEventListener("change", function () { setMenu(false); });
+    window.matchMedia("(min-width: 1025px)").addEventListener("change", function () { setMenu(false); groups.forEach(function (g) { g.open = false; }); });
   }
 
   // Header shadow, reading-progress bar and back-to-top button, updated once per frame at most.
@@ -71,7 +88,7 @@
   // Highlight the menu link of the section on screen.
   if (nav && hasIO) {
     var links = {};
-    nav.querySelectorAll('a[href*="#"]').forEach(function (a) {
+    nav.querySelectorAll(':scope > a[href*="#"]').forEach(function (a) {
       var id = a.getAttribute("href").split("#")[1];
       if (document.getElementById(id)) links[id] = a;
     });

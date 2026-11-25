@@ -11,6 +11,7 @@
   {%- if yt_hub %}
   <nav class="crumbs" aria-label="{{ T.crumbs }}"><a href="{{ L }}/tools/">{{ T.title }}</a> <span aria-hidden="true">/</span> <span aria-current="page">{{ T.yt_hub_title }}</span></nav>
   <header class="page-head">
+    {% include page-badge.html %}
     <p class="eyebrow">{{ T.yt_hub_eyebrow }}</p>
     <h1>{{ T.yt_hub_title }}</h1>
     <p class="lede">{{ T.yt_hub_lede }}</p>
@@ -18,6 +19,7 @@
   </header>
   {%- else %}
   <header class="page-head">
+    {% include page-badge.html %}
     <p class="eyebrow">{{ T.eyebrow }}</p>
     <h1>{{ T.title }}</h1>
     <p class="lede">{{ T.lede }}</p>

@@ -1,0 +1,46 @@
+# The main menu and the footer (Layers design, 2026-11): five groups, like folders.
+# Every text is a key in _data/strings.yml (and the translations). url starts after the language prefix ("" or "/de").
+# "section" is the first part of the address that marks a group as the current one (e.g. a tool page lights up Tools).
+- key: about
+  icon: user
+  title: mg_about
+  desc: mg_about_d
+  url: /about/
+  sections: [about, research, projects, blog]
+  items:
+    - { t: m_overview, d: m_overview_d, url: /about/, icon: user }
+    - { t: nav_research, d: m_research_d, url: /research/, icon: book }
+    - { t: nav_projects, d: m_projects_d, url: /projects/, icon: cube }
+    - { t: nav_notes, d: m_notes_d, url: /blog/, icon: pen }
+- key: learn
+  icon: map
+  title: mg_learn
+  desc: mg_learn_d
+  url: /roadmaps/
+  sections: [roadmaps, games]
+  items:
+    - { t: m_start, d: m_start_d, url: "/roadmaps/#learning-paths", icon: flag }
+    - { t: m_careers, d: m_careers_d, url: "/roadmaps/#security-roadmaps", icon: map }
+    - { t: m_certs, d: m_certs_d, url: /roadmaps/certifications/, icon: award }
+    - { t: nav_games, d: m_games_d, url: /games/, icon: gamepad }
+- key: tools
+  icon: tools
+  title: mg_tools
+  desc: mg_tools_d
+  url: /tools/
+  sections: [tools]
+  items:
+    - { t: m_sec, d: m_sec_d, url: "/tools/#group-security", icon: shield }
+    - { t: m_dev, d: m_dev_d, url: "/tools/#group-dev", icon: braces }
+    - { t: m_yt, d: m_yt_d, url: /tools/youtube/, icon: youtube }
+    - { t: m_pil, d: m_pil_d, url: /tools/prompt-injection-lab/, icon: flask }
+- key: updates
+  icon: megaphone
+  title: mg_updates
+  desc: mg_updates_d
+  url: /security-news/
+  sections: [security-news, scholarships]
+  items:
+    - { t: nav_news, d: m_news_d, url: /security-news/, icon: megaphone }
+    - { t: m_sch, d: m_sch_d, url: /scholarships/, icon: cap }
+    - { t: m_kev, d: m_kev_d, url: "/security-news/#sn-kev-title", icon: alert }

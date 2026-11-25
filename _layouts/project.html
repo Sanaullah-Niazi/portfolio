@@ -8,6 +8,7 @@ layout: default
 <article class="wrap page">
   <p class="eyebrow"><a href="{{ L }}/projects/"><span class="back-arrow" aria-hidden="true">←</span> {{ S.all_projects_back }}</a></p>
   <header class="page-head">
+    {% include page-badge.html %}
     {% assign sk = 'status_' | append: p.status | replace: ' ', '_' %}
     <span class="status {% if p.status == 'Completed' %}status-done{% else %}status-wip{% endif %}">{{ S[sk] | default: p.status }}</span>
     <h1>{{ page.title }}</h1>

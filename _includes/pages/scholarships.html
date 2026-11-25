@@ -22,6 +22,7 @@
      data-closes-today="{{ S.so_closes_today }}" data-closes-one="{{ S.so_closes_one }}" data-closes-many="{{ S.so_closes_many }}"
      data-shown-one="{{ S.so_shown_one }}" data-shown-many="{{ S.so_shown_many }}">
   <header class="page-head">
+    {% include page-badge.html %}
     <p class="eyebrow">{% include icon.html name="cap" px=16 %}{{ S.so_eyebrow }}</p>
     <h1>{{ S.so_page_title }}</h1>
     <p class="lede">{{ S.so_lede }}</p>
@@ -41,6 +42,8 @@
         <input type="search" name="q" placeholder="{{ S.so_search_ph }}" autocomplete="off"></label>
       <label><span>{{ S.so_f_level }}</span>
         <select name="level"><option value="">{{ S.so_any }}</option>{% for l in levels %}{% assign k = 'so_level_' | append: l %}<option value="{{ l }}">{{ S[k] }}</option>{% endfor %}</select></label>
+      {%- comment -%} The less used filters fold away, so the list starts right under the search. {%- endcomment %}
+      <details class="so-more"><summary class="btn btn-sm">{% include icon.html name="search" px=15 %}{{ S.so_more }}</summary><div class="so-more-in">
       <label><span>{{ S.so_f_region }}</span>
         <select name="region"><option value="">{{ S.so_any }}</option>{% for r in regions %}{% assign k = 'so_region_' | append: r %}<option value="{{ r }}">{{ S[k] }}</option>{% endfor %}</select></label>
       <label><span>{{ S.so_f_country }}</span>
@@ -57,6 +60,7 @@
       <label><span>{{ S.so_f_sort }}</span>
         <select name="sort"><option value="deadline">{{ S.so_sort_deadline }}</option><option value="new">{{ S.so_sort_new }}</option></select></label>
       <button type="reset" class="btn so-reset">{{ S.so_reset }}</button>
+      </div></details>
     </form>
     <p class="so-count" role="status" aria-live="polite"></p>
     {% if items.size > 0 %}

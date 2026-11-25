@@ -10,6 +10,7 @@
 <div class="wrap page bp">
   <p class="eyebrow crumbs"><a href="{{ L }}/bpsc-interview/"><span class="back-arrow" aria-hidden="true">←</span> {{ S.bp_all_banks }}</a></p>
   <header class="page-head bp-head">
+    {% include page-badge.html %}
     <p class="eyebrow">{{ S.bp_eyebrow }}</p>
     <h1>{% if lang == 'ur' %}{{ b.name_ur }}{% else %}{{ b.name }}{% endif %}</h1>
     <p class="lede">{% if lang == 'ur' %}{{ b.description_ur }}{% else %}{{ b.description }}{% endif %}</p>

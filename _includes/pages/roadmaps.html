@@ -21,6 +21,7 @@
 {% include rm-bar.html %}
 <div class="wrap page roadmaps-page rm-lib" data-paths="{{ path_ids | strip }}" data-base="{{ L }}/roadmaps/">
   <header class="page-head">
+    {% include page-badge.html %}
     <p class="eyebrow">{{ T.eyebrow | default: R.eyebrow }}</p>
     <h1>{{ T.lib_title | default: R.lib_title }}</h1>
     <p class="lede">{{ T.lib_lede | default: R.lib_lede }}</p>

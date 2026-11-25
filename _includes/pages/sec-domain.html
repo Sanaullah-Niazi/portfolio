@@ -35,6 +35,7 @@
 {% include rm-bar.html active="security" %}
 <div class="wrap page roadmaps-page sr-page rm-doc-page" lang="en" dir="ltr">
   <header class="page-head">
+    {% include page-badge.html %}
     <p class="eyebrow"><a href="{{ L }}/roadmaps/">{{ TM.lib_title | default: RM.lib_title }}</a> <span aria-hidden="true">/</span> <a href="{{ L }}/roadmaps/security/">{{ T.eyebrow | default: R.eyebrow }}</a> <span aria-hidden="true">/</span> {{ cat.title }}</p>
     <h1>{{ X.title }}</h1>
     <p class="lede">{{ X.summary }}</p>

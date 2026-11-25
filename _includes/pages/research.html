@@ -4,6 +4,7 @@
 {% for f in site.static_files %}{% if f.path == cv_path %}{% assign has_cv = true %}{% endif %}{% endfor %}
 <div class="wrap page">
   <header class="page-head">
+    {% include page-badge.html %}
     <p class="eyebrow">{{ S.research_eyebrow }}</p>
     <h1>{{ S.research_page_title }}</h1>
     <p class="lede">{{ S.research_page_lede }}</p>
