@@ -1,0 +1,36 @@
+# Settings of the BPSC interview prep section (/bpsc-interview/).
+# The interview window shown at the top of the landing page. Take the dates from the BPSC call letter.
+interviews:
+  post: "IT Teacher (BPS-17)"
+  zone: Quetta Zone
+  zone_ur: کوئٹہ زون
+  from: 2026-12-14
+  to: 2026-12-24
+  official: https://bpsc.gob.pk/
+# How many days an item counts as "New" after its added date.
+new_days: 7
+# Zones that the submission form and the "Asked in my zone" filter offer, besides any zone already in the banks.
+# [Check] against the BPSC call letter before launch.
+zones: [Quetta, Kalat, Makran, Naseerabad, Rakhshan, Sibi, Zhob, Loralai]
+# Spelling variants that search treats as the same word (FR-17). The first word in each list is the one used.
+# Words are matched without case and without hyphens or apostrophes, so "Quaid-e-Azam" is written quaideazam here.
+synonyms:
+  - [hazrat, hz, hazarat]
+  - [quaid, quaideazam, qaid, qaideazam, jinnah]
+  - [balochistan, baluchistan, bolochistan]
+  - [quran, quraan, koran, qur'an]
+  - [hadith, hadees, hadis, ahadith]
+  - [prophet, pbuh, nabi, rasool, rasul]
+  - [caliph, khalifa, khaleefa, caliphs, khulafa, caliphate, khilafat]
+  - [namaz, salah, salat, prayer]
+  - [roza, sawm, fasting]
+  - [zakat, zakah]
+  - [makran, mekran]
+  - [naseerabad, nasirabad]
+  - [kashmir, kashmiri]
+  - [afghanistan, afghan]
+  - [database, dbms, db]
+  - [os, operatingsystem]
+  - [oop, oops, objectoriented]
+  - [ai, artificialintelligence]
+  - [ml, machinelearning]

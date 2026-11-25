@@ -85,6 +85,41 @@ To update it right away, open the repository's **Actions** tab, pick **Security 
 
 **AI daily brief.** The job also writes a short daily brief in its own words from the day's headlines, using Google's Gemini on its free tier. To turn it on, get a free key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey) (sign in with a Google account, no card needed), then add it to the repository as a secret called `GEMINI_API_KEY` (Settings > Secrets and variables > Actions > New repository secret). Each brief is saved in `_briefs/` (one file per day, shown at `/security-news/<date>/`), says that it was written by AI, and links to every story it used. If a model is busy or retired, the job tries the next one, and on a bad day it simply skips the brief; the headlines still update. If you'd rather have Claude write the briefs (paid, a few cents a day), add an `ANTHROPIC_API_KEY` secret instead. To remove a brief, delete its file from `_briefs/`.
 
+## BPSC interview section
+
+`/bpsc-interview/` (and `/ur/bpsc-interview/`) is free prep for the BPSC IT Teacher (BPS-17) interviews: question banks with model answers, search, sharing on WhatsApp, and later daily Pakistan news, practice mode and a question form. It is in English and Urdu only, has no ads, and holds nothing personal about the site's owner.
+
+**Where the questions live.** One file per bank in `_data/bpsc/` (`general.yml`, `islamiat.yml`, `technical.yml`, `pakistan-history.yml`, `balochistan.yml`, `current-affairs.yml`). `banks.yml` lists the banks in order with their names, descriptions and categories, and `settings.yml` holds the interview dates shown at the top, the number of days a question counts as "New" and the spelling variants that search treats as the same word (Hazrat and Hz, Balochistan and Baluchistan...). Nothing is written into the pages by hand.
+
+**One question** looks like this. Only `published` items are built into the site.
+
+```yaml
+- id: isl-001                  # never change or reuse it: it is in every link to the question
+  bank: islamiat               # the file it is in
+  category: Khulafa-e-Rashideen and after   # one of the bank's categories in banks.yml
+  question: Who was the first Caliph of Islam?
+  answer: |                    # Markdown. Empty = "Answer coming soon"
+    Hazrat Abu Bakr Siddiq (RA), 632 to 634 CE...
+  personal: false              # true = a question about the candidate: the page says "Prepare your own answer"
+  frequency: 3                 # 1 to 3 stars; 3 = asked very often ("Most asked" on the landing page)
+  tags: [caliphs]
+  sources: ["https://..."]     # where the answer was checked
+  verified_on: 2026-11-24      # when it was last checked
+  check_again: false           # true = a fact that changes: shows "May have changed, check before your interview"
+  status: published            # or draft, to hide it
+  added: 2026-11-25            # shown as "New" for 7 days
+```
+
+Optional fields: `question_ur` and `answer_ur` (shown on the Urdu pages, otherwise the English text is used), `short_answer` (one or two lines for quick revision) and `asked_in` (zones or districts; adds an "Asked in my zone" filter).
+
+**How the pages are made.** GitHub Pages' Jekyll can't run plugins, so `scripts/bpsc_pages.rb` writes one small page file per bank and per question into `bpsc-gen/` (git ignores it) before each build; the deploy workflow runs it. The text comes from `_includes/pages/bpsc-home.html`, `bpsc-bank.html` and `bpsc-question.html`; the page code is `assets/js/bpsc.js`; the search index is built at `/bpsc-interview/index.json` and only downloaded when someone starts searching. Interface text is in `_data/strings.yml` and `_data/ur/strings.yml` (keys starting with `bp_`).
+
+**Checks.** Every pull request that changes `_data/bpsc/` runs `scripts/bpsc_validate.py` (workflow "BPSC banks check"). It fails on broken YAML, missing fields, unknown banks or categories, duplicate or removed ids, a published `[Check]` note, a new answer without sources, and any word from the private list in the `BPSC_BLOCKED_TERMS` repository secret (names and family details that must never be public; one per line). Run it yourself with `python3 scripts/bpsc_validate.py`.
+
+**From a spreadsheet.** `python3 scripts/bpsc_import.py questions.csv` adds or updates items from a CSV with the same column names (separate several tags, zones or sources with `|`).
+
+**Preview drafts on your own computer.** `ruby scripts/bpsc_pages.rb --drafts && bundle exec jekyll serve --config _config.yml,_config_bpsc_drafts.yml`. Without `--drafts`, run `ruby scripts/bpsc_pages.rb` once before `jekyll serve`.
+
 ## Tool repositories
 
 The tools also live in their own public repositories, so each one shows on the GitHub profile:
@@ -131,6 +166,7 @@ All content and code here is © Sana Ullah Khan, all rights reserved (see `LICEN
 
 ```
 bundle install
+ruby scripts/bpsc_pages.rb
 bundle exec jekyll serve
 ```
 Then open http://localhost:4000/.

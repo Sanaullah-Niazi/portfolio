@@ -1,0 +1,5 @@
+{%- comment -%} The few settings every BPSC page needs (load.html also loads all the items). {%- endcomment -%}
+{%- assign bp = site.data.bpsc.settings -%}
+{%- assign bp_now = site.time | date: '%s' | plus: 0 -%}
+{%- assign bp_new_after = bp.new_days | times: 86400 | minus: bp_now | times: -1 -%}
+{%- assign bp_q = L | append: '/bpsc-interview/q/' -%}

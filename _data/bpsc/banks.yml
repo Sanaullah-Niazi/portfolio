@@ -1,0 +1,130 @@
+# The banks of the BPSC interview prep section (/bpsc-interview/), in the order they are shown.
+# From the first import (BPSC_Interview_Banks.zip), plus the Urdu names. Each bank's questions are in
+# _data/bpsc/<slug>.yml, and every item's category must be one of its bank's categories (scripts/bpsc_validate.py
+# checks this). Never change a slug once it is live: it is part of every link to the bank.
+# The question counts are worked out from the files when the site is built.
+- slug: general
+  name: General viva
+  name_ur: عمومی سوالات
+  description: Introduction guides, teaching, classroom situations, education in Balochistan, the school system, IT in the classroom, national symbols and opinion questions.
+  description_ur: تعارف، تدریس، کلاس روم کی صورتحال، بلوچستان میں تعلیم، اسکول کا نظام، کلاس روم میں آئی ٹی، قومی علامات اور رائے کے سوالات۔
+  categories:
+  - About you (prepare your own answer)
+  - Identity and belonging (prepare your own answer)
+  - Opinion and scenario questions
+  - The school system and daily teaching
+  - IT classroom and school situations
+  - Closing questions
+  - Warm-up questions
+  - The national anthem
+  - 'Sensitive questions: Afghanistan, law and order, BLA, TTP, PTM'
+  - Thinking and values questions
+  - Teaching and pedagogy
+  - Reported in IT Teacher interviews, 23-24 Nov 2026
+  - 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+- slug: islamiat
+  name: Islamiat
+  name_ur: اسلامیات
+  description: Beliefs, prophets, Seerah, Khulafa-e-Rashideen, worship, the Quran and day-to-day issues.
+  description_ur: عقائد، انبیاء، سیرت، خلفائے راشدین، عبادات، قرآن اور روزمرہ مسائل۔
+  categories:
+  - Islamiat
+  - Seerah and the Prophet's ﷺ family
+  - Beliefs (Aqaid)
+  - Prophets before Muhammad (PBUH)
+  - 'Seerah: the Makkah period (571-622 CE)'
+  - 'Seerah: the Madina period (622-632 CE)'
+  - Khulafa-e-Rashideen and after
+  - Worship and fiqh (Hanafi view)
+  - The Quran
+  - 'Namaz: times, rakats and rules'
+  - More Quran questions
+  - Day-to-day issues as a Muslim
+  - More questions
+- slug: technical
+  name: Technical / IT
+  name_ur: تکنیکی / آئی ٹی
+  description: Computer basics, programming, OOP, DSA, OS, databases, networks, security, software engineering, AI and teaching IT.
+  description_ur: کمپیوٹر کی بنیادی باتیں، پروگرامنگ، او او پی، ڈیٹا اسٹرکچر، آپریٹنگ سسٹم، ڈیٹا بیس، نیٹ ورک، سیکیورٹی، سافٹ ویئر انجینئرنگ، اے آئی اور آئی ٹی کی تدریس۔
+  categories:
+  - IT and computer science
+  - Inventors and "fathers" of computing
+  - Teaching methods the panel may name
+  - Research and evaluation terms
+  - IoT and hardware
+  - AI, machine learning, deep learning and NLP
+  - Core AI concepts in more depth
+  - Generative AI, deepfakes and modern AI terms
+  - AI ethics, law and AI in education
+  - AI and data science subjects
+  - ChatGPT, GPT, Transformers and generative AI (asked often)
+  - Rapid-fire IT answers (from the Kalat interviews)
+  - Computer networks
+  - ICT and computer basics
+  - Cyber security
+  - Cloud computing
+  - Web development
+  - Content filters and child online safety
+  - More IT and AI subjects
+  - Work, freelancing and programming
+  - Office automation for a school
+  - Programming Fundamentals
+  - Object Oriented Programming
+  - Data Structures and Algorithms
+  - Discrete Structures
+  - Operating Systems
+  - Database Systems
+  - Software Engineering
+  - Computer Networks (extra)
+  - Information Security (extra)
+  - Teaching IT in schools
+  - Future plans (prepare your own answer)
+- slug: pakistan-history
+  name: Pakistan history
+  name_ur: تاریخِ پاکستان
+  description: 1857 to 1947, Pakistan since 1947, constitutions and quick-fire dates.
+  description_ur: 1857 سے 1947 تک، 1947 کے بعد کا پاکستان، آئین اور اہم تاریخیں۔
+  categories:
+  - Pakistan history and constitution
+  - Constitution and Pakistan Movement
+  - Pakistan, civics and law
+  - '1857 to 1906: from the war of independence to the partition of Bengal'
+  - '1906 to 1940: the Muslim League and the road to a separate homeland'
+  - '1940 to 1947: Lahore Resolution to independence'
+  - Pakistan from 1947 to today
+  - Quick-fire dates and firsts
+- slug: balochistan
+  name: Balochistan GK
+  name_ur: بلوچستان معلوماتِ عامہ
+  description: History, geography, districts, resources and government of Balochistan.
+  description_ur: بلوچستان کی تاریخ، جغرافیہ، اضلاع، وسائل اور حکومت۔
+  categories:
+  - Chaman
+  - Pakistan, Balochistan and law
+  - Balochistan
+  - Chaman district facts
+  - Chaman population and schools
+  - Balochistan's history
+  - Balochistan school education in 2026 (very likely in an education viva)
+- slug: current-affairs
+  name: International and current affairs
+  name_ur: بین الاقوامی اور حالاتِ حاضرہ
+  description: World hotspots, organisations, geography and the news of Sep to Nov 2026.
+  description_ur: دنیا کے اہم مسائل، بین الاقوامی تنظیمیں، جغرافیہ اور ستمبر سے نومبر 2026 کی خبریں۔
+  categories:
+  - World geography and current affairs
+  - Geography and world
+  - Current affairs
+  - Largest, longest, highest
+  - Current affairs (November 2026)
+  - Sports
+  - World quick facts
+  - Houthis and Yemen
+  - Afghanistan and the Taliban
+  - Palestine and Gaza
+  - Iran
+  - Russia-Ukraine
+  - Kashmir and India
+  - International organisations
+  - Pakistan
+  - World

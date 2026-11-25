@@ -1,0 +1,38 @@
+# Checks the BPSC question banks (_data/bpsc/) on every pull request that changes them: broken YAML, missing fields,
+# unknown banks or categories, duplicate or removed ids, missing sources, and the private word list kept in the
+# BPSC_BLOCKED_TERMS repository secret (Settings > Secrets and variables > Actions; one term per line).
+# The script is scripts/bpsc_validate.py.
+name: BPSC banks check
+
+on:
+  pull_request:
+    paths: ["_data/bpsc/**", "scripts/bpsc_validate.py", ".github/workflows/bpsc-check.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install --quiet "pyyaml>=6"
+
+      - name: Check the banks
+        env:
+          BPSC_BLOCKED_TERMS: ${{ secrets.BPSC_BLOCKED_TERMS }}
+          BASE: ${{ github.event.pull_request.base.ref || 'main' }}
+        run: |
+          git fetch --quiet origin "$BASE"
+          python3 scripts/bpsc_validate.py --base "origin/$BASE"

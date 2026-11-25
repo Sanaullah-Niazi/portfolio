@@ -1,0 +1,15 @@
+---
+layout: null
+sitemap: false
+permalink: /bpsc-interview/index.json
+---
+{%- comment -%}
+  The search index of the BPSC section (FR-16), read by assets/js/bpsc.js the first time someone searches.
+  One entry per built item: i id, b bank, c category, q question, qu Urdu question, s short answer, a answer as plain
+  text, t tags, z zones, f frequency, d added date, k check_again.
+{%- endcomment -%}
+{%- assign L = '' %}{% include bpsc/load.html -%}
+{"v":"{{ site.time | date: '%s' }}","items":[
+{%- for it in bp_all %}
+{"i":{{ it.id | jsonify }},"b":{{ it.bank | jsonify }},"c":{{ it.category | jsonify }},"q":{{ it.question | jsonify }}{% if it.question_ur %},"qu":{{ it.question_ur | jsonify }}{% endif %},"s":{{ it.short_answer | default: "" | jsonify }},"a":{{ it.answer | markdownify | strip_html | normalize_whitespace | jsonify }},"t":{{ it.tags | jsonify }},"z":{{ it.asked_in | jsonify }},"f":{{ it.frequency | default: 1 }},"d":"{{ it.added | date: '%Y-%m-%d' }}"{% if it.check_again %},"k":1{% endif %}}{% unless forloop.last %},{% endunless %}
+{%- endfor %}]}

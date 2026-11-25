@@ -1,0 +1,4028 @@
+# Islamiat: 309 questions. Generated 2026-11-25. Fields: see README.md
+- id: isl-001
+  bank: islamiat
+  category: Islamiat
+  question: Arkan-e-Islam; Arkan-e-Iman; Iman-e-Mujmal and Iman-e-Mufassal.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-002
+  bank: islamiat
+  category: Islamiat
+  question: Tauheed explained.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-003
+  bank: islamiat
+  category: Islamiat
+  question: Revealed books; to which prophet was the Injeel revealed?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-004
+  bank: islamiat
+  category: Islamiat
+  question: 'First wahi: when and where? Warqa bin Nofal.'
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-005
+  bank: islamiat
+  category: Islamiat
+  question: 'When were salah and fasting made obligatory? Roza in detail: how many, when kept, its main purpose.'
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-006
+  bank: islamiat
+  category: Islamiat
+  question: 'When was zakat made obligatory? Its recipients (masarif): who can and cannot receive it.'
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-007
+  bank: islamiat
+  category: Islamiat
+  question: Hajj faraiz, ihram, date of Arafah, Hajj in detail.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-008
+  bank: islamiat
+  category: Islamiat
+  question: 'Hijrat to Madina: when, and which companion was with the Prophet (PBUH)?'
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-009
+  bank: islamiat
+  category: Islamiat
+  question: 'Aam-ul-Feel: what is feel, and what happened that year?'
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-010
+  bank: islamiat
+  category: Islamiat
+  question: Namaz and wuzu faraiz; why we pray, and whom to follow (Quran).
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-011
+  bank: islamiat
+  category: Islamiat
+  question: Prove that you are a Muslim. What does Islam mean?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-012
+  bank: islamiat
+  category: Islamiat
+  question: Arkan-e-Islam
+  answer: ''
+  personal: false
+  frequency: 3
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-013
+  bank: islamiat
+  category: Islamiat
+  question: Arkan-e-Iman; Iman-e-Mujmal and Mufassal; revealed books and their prophets
+  answer: ''
+  personal: false
+  frequency: 3
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-014
+  bank: islamiat
+  category: Islamiat
+  question: 'First wahi: when, where, what happened; Hazrat Khadija took him to Warqa bin Nofal'
+  answer: ''
+  personal: false
+  frequency: 3
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-015
+  bank: islamiat
+  category: Islamiat
+  question: Faraiz of Hajj; Arafah, hateem, tawaf, Safa-Marwa, rami
+  answer: ''
+  personal: false
+  frequency: 3
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-016
+  bank: islamiat
+  category: Islamiat
+  question: 'Zakat: when obligatory, masarif, who cannot receive it, mosque and zakat, miskeen vs faqeer'
+  answer: ''
+  personal: false
+  frequency: 3
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-017
+  bank: islamiat
+  category: Islamiat
+  question: 'Roza: when obligatory, which ayah, kaffarah, what breaks a fast, days fasting is forbidden'
+  answer: ''
+  personal: false
+  frequency: 3
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-018
+  bank: islamiat
+  category: Islamiat
+  question: Bait-e-Aqaba (first and second); Bait-e-Rizwan
+  answer: ''
+  personal: false
+  frequency: 3
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-019
+  bank: islamiat
+  category: Islamiat
+  question: 'Hijrat to Madina: causes, why Madina, companion on the journey, Ghar-e-Saur'
+  answer: ''
+  personal: false
+  frequency: 3
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-020
+  bank: islamiat
+  category: Islamiat
+  question: 'Khulafa-e-Rashideen: who was first and last, longest tenure, how each was chosen'
+  answer: ''
+  personal: false
+  frequency: 3
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-021
+  bank: islamiat
+  category: Islamiat
+  question: 'Ghazwat: Badr (date, numbers), Uhud, Khandaq (who suggested the trench), Hunain, Mutah'
+  answer: ''
+  personal: false
+  frequency: 2
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-022
+  bank: islamiat
+  category: Islamiat
+  question: Tauheed; Zaat and Sifaat; types of shirk
+  answer: ''
+  personal: false
+  frequency: 2
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-023
+  bank: islamiat
+  category: Islamiat
+  question: Wuzu, namaz and ghusl faraiz; rakats of janaza and what is added to sana; Eid takbeers; namaz-e-istisqa
+  answer: ''
+  personal: false
+  frequency: 2
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-024
+  bank: islamiat
+  category: Islamiat
+  question: Half-ul-Fuzul; Dar-ul-Nadwa; Muakhat; Shaib Abi Talib and how long the boycott lasted
+  answer: ''
+  personal: false
+  frequency: 2
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-025
+  bank: islamiat
+  category: Islamiat
+  question: Aam-ul-Feel and Abraha; Aam-ul-Huzn (year of sorrow); year of the Prophet's (PBUH) birth
+  answer: ''
+  personal: false
+  frequency: 2
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-026
+  bank: islamiat
+  category: Islamiat
+  question: Meraj and Isra; Shaq-ul-Qamar; Shaq-e-Sadr
+  answer: ''
+  personal: false
+  frequency: 2
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-027
+  bank: islamiat
+  category: Islamiat
+  question: Farz, wajib, sunnat; farz-e-kifayah; Nabi vs Rasool; Shariat vs Fiqh; ijtihad
+  answer: ''
+  personal: false
+  frequency: 2
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-028
+  bank: islamiat
+  category: Islamiat
+  question: 'Recite with translation: Surah Ikhlas, Surah Kausar (and why revealed), Ayat-ul-Kursi, Kalimas'
+  answer: ''
+  personal: false
+  frequency: 2
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-029
+  bank: islamiat
+  category: Islamiat
+  question: 'Masjid-e-Zarar: why it was demolished; Treaty of Hudaybiyyah and its first envoy; Charter of Madina'
+  answer: ''
+  personal: false
+  frequency: 2
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-030
+  bank: islamiat
+  category: Islamiat
+  question: Wives of the Prophet (PBUH) in order; his children; his grandfather
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-031
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: How many wives did the Prophet ﷺ have?
+  answer: 'Eleven are called Ummahat-ul-Momineen: Khadija, Sauda, Aisha, Hafsa, Zainab bint Khuzaima, Umm Salama, Zainab bint Jahsh, Juwairiya, Umm Habiba, Safiyya and Maimuna (RA). Hazrat Maria Qibtiyya (RA) was the mother of his son Ibrahim.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-032
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: His children
+  answer: 'Sons: Qasim, Abdullah and Ibrahim (all died young). Daughters: Zainab, Ruqayya, Umm Kulthum and Fatima (RA).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-033
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: His childhood
+  answer: Born in the Year of the Elephant (about 570 CE). His father Abdullah died before his birth; his wet nurse was Halima Saadia; his mother Amina died at Abwa when he was 6; his grandfather Abdul Muttalib raised him till 8, then his uncle Abu Talib.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-034
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: What is Aam-ul-Huzn (the Year of Grief)?
+  answer: The 10th year of prophethood, when both Hazrat Khadija (RA) and Abu Talib died.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-035
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: First revelation
+  answer: 'At age 40, in the Cave of Hira, through Jibreel (AS): the first five verses of Surah Al-Alaq, "Iqra".'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-036
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: First to accept Islam
+  answer: 'Woman: Hazrat Khadija. Man: Hazrat Abu Bakr. Child: Hazrat Ali. Freed slave: Hazrat Zaid bin Haritha (RA).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-037
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: When were the five prayers made obligatory?
+  answer: On the night of Isra and Miraj, about a year before the Hijrat.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-038
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: When was the Hijrat, and why does it matter?
+  answer: 622 CE, from Makkah to Madina. Hazrat Umar (RA) made it the start of the Islamic (Hijri) calendar.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-039
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: Main battles
+  answer: Badr (2 AH, 313 Muslims against about 1,000), Uhud (3 AH), Khandaq or the Trench (5 AH, Hazrat Salman Farsi's idea), the Treaty of Hudaibiya (6 AH), Khyber (7 AH), the Conquest of Makkah (8 AH, with 10,000 companions), Hunain (8 AH) and Tabuk (9 AH).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-040
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: What was the Misaq-e-Madina?
+  answer: The Charter of Madina (622), an agreement between Muslims, Jews and other tribes of Madina, often called the first written constitution in the world.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-041
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: The Last Sermon
+  answer: Given at Arafat in 10 AH during the Farewell Hajj. It declared all humans equal, protected life, property and honour, ended riba and blood feuds, and gave rights to women.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-042
+  bank: islamiat
+  category: Seerah and the Prophet's ﷺ family
+  question: When did the Prophet ﷺ pass away?
+  answer: 11 AH (632 CE), at the age of 63, in Madina.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-043
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Arkan-e-Islam (pillars of Islam)
+  answer: 'Five: Shahadah (Kalima), Salah, Zakat, Sawm (Roza), Hajj. From Hadith-e-Jibreel and the hadith "Islam is built on five" (Bukhari).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-044
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Arkan-e-Iman (articles of faith)
+  answer: Belief in Allah, His angels, His books, His messengers, the Last Day, and Taqdeer (good and bad are from Allah). Some lists add life after death.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-045
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Iman-e-Mujmal
+  answer: '"Amantu billahi kama huwa bi-asma''ihi wa sifatihi wa qabiltu jami''a ahkamihi": I believe in Allah as He is, with His names and attributes, and accept all His commands.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-046
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Iman-e-Mufassal
+  answer: '"Amantu billahi wa mala''ikatihi wa kutubihi wa rusulihi wal-yawmil-akhiri wal-qadri khairihi wa sharrihi minallahi ta''ala wal-ba''thi ba''dal-mawt": the articles of faith in detail.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-047
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Six Kalimas
+  answer: Tayyab (purity), Shahadat (testimony), Tamjeed (glorification), Tauheed (oneness), Istighfar (repentance), Radd-e-Kufr (rejecting disbelief).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-048
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Difference between Arkan-e-Islam and Arkan-e-Iman
+  answer: Iman is what you believe in the heart. Islam is what you do in practice. Ihsan is to worship Allah as if you see Him. All three come in Hadith-e-Jibreel.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-049
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Hadith-e-Jibreel
+  answer: Jibreel (AS) came as a man in very white clothes and asked the Prophet (PBUH) about Islam, Iman, Ihsan and the Hour, then left. The Prophet said, "It was Jibreel, who came to teach you your religion" (Muslim).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-050
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: What is Tauheed?
+  answer: 'The oneness of Allah: one in His Being (Zaat), His attributes (Sifaat), His right to be worshipped, and His lordship. Its clearest statement is Surah Al-Ikhlas.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-051
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: 'Allah is one in Zaat and Sifaat": meaning'
+  answer: 'No one shares His Being, and no one has His attributes the way He has them: all-knowing, all-powerful, eternal.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-052
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: What is Shirk? Types
+  answer: Associating partners with Allah. Shirk-e-Akbar (worshipping others) takes a person out of Islam. Shirk-e-Asghar (riya, showing off in worship) is a major sin. Shirk fil-Zaat, fil-Sifaat and fil-Ibadat are the common divisions.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-053
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Risalat; Khatm-e-Nabuwwat
+  answer: Allah sent prophets to guide people. Muhammad (PBUH) is the last prophet (Al-Ahzab 33:40). Pakistan's Constitution defines a Muslim to include belief in the finality of prophethood (Article 260).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-054
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Nabi vs Rasool
+  answer: A Nabi receives revelation and follows an earlier shariah. A Rasool is given a new shariah or book. Every Rasool is a Nabi, but not every Nabi is a Rasool.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-055
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: How many prophets? How many named in the Quran?
+  answer: About 124,000 prophets, according to a narration. 25 are named in the Quran.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-056
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Ulul Azm prophets
+  answer: 'Five great prophets: Nuh, Ibrahim, Musa, Isa and Muhammad (peace be upon them).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-057
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Revealed books
+  answer: Tauraat to Musa (AS), Zaboor to Dawood (AS), Injeel to Isa (AS), Quran to Muhammad (PBUH). There were also suhuf (scrolls), including those of Ibrahim and Musa.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-058
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Can we follow earlier books today?
+  answer: We believe they were from Allah, but they were changed, and the Quran confirms and replaces them. We follow the Quran and Sunnah.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-059
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Four great angels
+  answer: Jibreel (brings revelation), Mikaeel (rain and provision), Israfeel (will blow the trumpet), Izraeel (Malak-ul-Maut, takes souls).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-060
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Kiraman Katibeen
+  answer: Two honoured angels on each shoulder who write a person's good and bad deeds.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-061
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Munkar and Nakeer
+  answer: The two angels who question the dead in the grave.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-062
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Taqdeer
+  answer: Allah knows and has written everything. A person still has the choice and responsibility to act, and will be judged on that choice.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-063
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: What does Islam mean? Muslim?
+  answer: Islam means submission to Allah, from "salm", peace. A Muslim is one who submits to Allah.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-064
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Prove you are a Muslim.
+  answer: 'I believe in the Kalima: there is no god but Allah, and Muhammad (PBUH) is His last messenger. I believe in all the articles of faith and try to practise the five pillars. By my belief and my actions, I am a Muslim.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-065
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Hadith Qudsi
+  answer: A hadith in which the Prophet (PBUH) narrates Allah's words in his own wording. It is not part of the Quran.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-066
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Sihah Sitta
+  answer: 'The six main hadith books: Bukhari, Muslim, Abu Dawood, Tirmidhi, Nasai, Ibn Majah.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-067
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Shariah vs Fiqh
+  answer: Shariah is Allah's law from the Quran and Sunnah. Fiqh is scholars' understanding of it, which turns it into detailed rules.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-068
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Ijtihad
+  answer: A qualified scholar's effort to find a ruling on a new issue from the Quran and Sunnah.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-069
+  bank: islamiat
+  category: Beliefs (Aqaid)
+  question: Four imams of fiqh
+  answer: Imam Abu Hanifa (Kufa), Imam Malik (Madina), Imam Shafi'i, Imam Ahmad bin Hanbal. Most Pakistanis follow the Hanafi school.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-070
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Who was the first human and first prophet?
+  answer: Hazrat Adam (AS), Abul Bashar, the father of mankind. Allah made him from clay and taught him the names of all things (Al-Baqarah 2:31).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-071
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Why did Iblees refuse to bow to Adam?
+  answer: 'He was proud and said, "I am better than him: You made me from fire and him from clay" (Al-A''raf 7:12). Iblees was a jinn, not an angel (Al-Kahf 18:50).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-072
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Why were Adam and Hawwa sent out of Jannah?
+  answer: Shaitan deceived them, and they ate from the tree Allah had forbidden. They repented with "Rabbana zalamna anfusana..." (7:23), and Allah forgave them. Allah had already said He would place a khalifa on earth (2:30), so life on earth was His plan.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-073
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Where did Adam (AS) land?
+  answer: According to traditional narrations, Adam (AS) came down in Sarandeep (Sri Lanka), where a mountain is called Adam's Peak, and Hawwa near Jeddah. They met at Arafat. Adam's Peak is in **Sri Lanka, not Nepal**. These narrations are not strongly authenticated, so say "according to narrations".
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-074
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Height of Adam (AS)
+  answer: 60 cubits (about 27-30 m), according to Sahih Bukhari.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-075
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: First murder in history
+  answer: Qabil killed his brother Habil out of jealousy (Al-Ma'idah 5:27-31).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-076
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Idrees (AS)
+  answer: Said to be the first to write with a pen. Allah "raised him to a high place" (Maryam 19:57).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-077
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Nuh (AS)
+  answer: Called people to Allah for 950 years (Al-Ankabut 29:14). Built the Ark. In the flood his disbelieving son drowned, and the Ark came to rest on Mount Judi (Hud 11:44). He is called Adam-e-Sani, the second father of mankind.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-078
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Hud (AS)
+  answer: Sent to the people of 'Aad (al-Ahqaf, southern Arabia), who were destroyed by a violent wind.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-079
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Salih (AS)
+  answer: Sent to Thamud (al-Hijr). They killed the she-camel Allah sent as a sign and were destroyed by a mighty blast.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-080
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Ibrahim (AS)
+  answer: Khalilullah, the friend of Allah, and Abul Anbiya, the father of the prophets. Born in Iraq. He broke the idols, and Namrood threw him into a fire that Allah made cool (Al-Anbiya 21:69). With Ismail he built the Kaaba (2:127). Eid-ul-Adha remembers his readiness to sacrifice his son.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-081
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Ibrahim's wives and sons
+  answer: Hazrat Hajra, mother of Ismail (AS), and Hazrat Sarah, mother of Ishaq (AS).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-082
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Zamzam and Sa'i
+  answer: Hajra ran seven times between Safa and Marwa looking for water for baby Ismail, and Allah brought out Zamzam. Pilgrims repeat her run as Sa'i.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-083
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Ismail (AS)
+  answer: Zabeehullah, the one offered for sacrifice. Ancestor of the Arabs and of the Prophet (PBUH).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-084
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Lut (AS)
+  answer: Sent to the people of Sodom, who were destroyed for their sin. The area is near the Dead Sea.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-085
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Yaqub (AS)
+  answer: Also called Israeel. His 12 sons are the origin of Bani Israel.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-086
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Yusuf (AS)
+  answer: His story is "Ahsan-ul-Qasas", the best of stories (Surah Yusuf). His brothers threw him in a well. In Egypt he was imprisoned, interpreted the king's dream, and became the minister of treasury.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-087
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Ayub (AS)
+  answer: Famous for patience (sabr) in long illness and loss.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-088
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Shuaib (AS)
+  answer: Sent to Madyan, who cheated in weights and measures. Called Khateeb-ul-Anbiya for his eloquence.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-089
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Musa (AS)
+  answer: 'Kaleemullah: Allah spoke to him. Received the Tauraat at Mount Tur (Sinai). Led Bani Israel out of Egypt from Firaun, and the sea parted. His brother Haroon (AS) was also a prophet. His journey with Khizr is in Surah Al-Kahf.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-090
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Dawood (AS)
+  answer: Received the Zaboor. Killed Jalut (Goliath). Allah made iron soft for him, and the mountains and birds joined his praise.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-091
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Sulaiman (AS)
+  answer: Son of Dawood. Allah gave him power over the wind, jinn and animals. The hoopoe (hudhud) told him of the Queen of Saba (Bilqees), and the story of the ant is in Surah An-Naml.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-092
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Yunus (AS)
+  answer: Zun-Noon. Swallowed by a big fish, he prayed "La ilaha illa anta subhanaka inni kuntu minaz-zalimeen" (21:87) and was saved. He was sent to Nineveh (Iraq).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-093
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Zakariya and Yahya (AS)
+  answer: Zakariya prayed in old age and was given Yahya (John), a prophet.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-094
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Isa (AS)
+  answer: 'Ruhullah. Born to Hazrat Maryam without a father. Received the Injeel. He was not crucified: Allah raised him up (An-Nisa 4:157-158), and he will return before the Last Day.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-095
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Only woman named in the Quran
+  answer: Hazrat Maryam (AS). A whole surah is named after her.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-096
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Ashab-e-Kahf
+  answer: Young believers who slept in a cave for 309 years (Al-Kahf 18:25).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-097
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Zulqarnain
+  answer: A just ruler in Surah Al-Kahf who built a barrier of iron and copper against Yajuj and Majuj.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-098
+  bank: islamiat
+  category: Prophets before Muhammad (PBUH)
+  question: Hazrat Luqman
+  answer: A wise man (most scholars say not a prophet). His advice to his son is in Surah Luqman.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-099
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Birth of the Prophet (PBUH)
+  answer: In Makkah, in Aam-ul-Feel, 571 CE. The most common date in Pakistan is 12 Rabi-ul-Awwal; many historians prefer 9 Rabi-ul-Awwal. Monday.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-100
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Aam-ul-Feel (Year of the Elephant)
+  answer: Abraha, the Abyssinian governor of Yemen, marched on Makkah with elephants to destroy the Kaaba. Allah sent flocks of birds (ababeel) with stones of baked clay (Surah Al-Feel).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-101
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Father and mother
+  answer: Father Abdullah died before his birth. Mother Hazrat Amina died at Abwa when he was 6.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-102
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Grandfather and uncle
+  answer: Grandfather Abdul Muttalib (real name Shaiba) raised him until he died, when the Prophet was 8. Then his uncle Abu Talib raised him.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-103
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Wet nurse
+  answer: Hazrat Haleema Sadia of Banu Saad. Her children were his foster brother and sisters, including Shaima.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-104
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Shaq-e-Sadr (opening of the chest)
+  answer: Angels opened and washed his chest. The first time was as a child with Haleema; narrations mention it again later, including before the Meraj.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-105
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Trade journey to Syria
+  answer: At about 12, with Abu Talib. The monk Bahira saw signs of prophethood in him.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-106
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Laqab before prophethood
+  answer: As-Sadiq (the truthful) and Al-Ameen (the trustworthy).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-107
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Half-ul-Fuzul
+  answer: A pact of Makkan chiefs, in his youth (about age 20), to help anyone who was wronged. He joined it and later praised it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-108
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Marriage to Hazrat Khadija (RA)
+  answer: At 25. She was a widowed trader, about 40 years old, and she proposed after he led her trade caravan honestly.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-109
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Rebuilding the Kaaba and the Black Stone
+  answer: At 35. The tribes quarrelled over who would put back the Hajr-e-Aswad. He placed it on a cloth, each chief lifted a corner, and he set it in place himself.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-110
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: 'First wahi: when and where?'
+  answer: At age 40, in Ramadan, 610 CE, in the Cave of Hira on Jabal-e-Noor near Makkah.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-111
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: First verses revealed
+  answer: 'Surah Al-Alaq, verses 1-5: "Iqra bismi Rabbikal-lazi khalaq".'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-112
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: What happened after the first wahi?
+  answer: He came home trembling and said "Zammiluni" (cover me). Hazrat Khadija comforted him and took him to her cousin Warqa bin Nofal.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-113
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Who was Warqa bin Nofal? What did he say?
+  answer: Hazrat Khadija's cousin, an old Christian scholar who knew the earlier scriptures. He said this was the same Namoos (Jibreel) who came to Musa (AS), and wished he could be alive when his people drove him out.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-114
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: First people to accept Islam
+  answer: Hazrat Khadija (first of all, first woman); Abu Bakr (first free man); Ali (first child); Zaid bin Haritha (first freed slave); Bilal (among the first slaves).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-115
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Secret preaching
+  answer: About 3 years. Dar-e-Arqam, the house of Arqam bin Abi Arqam near Safa, was the meeting place.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-116
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: First public call
+  answer: 'From Mount Safa: he asked the Quraish if they would believe him if he said an army was behind the hill, then warned them of Allah''s punishment. Abu Lahab cursed him, and Surah Al-Lahab was revealed.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-117
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: What did Walid bin Mughira say?
+  answer: When the Quraish chiefs met to decide what to call the Quran, Walid admitted its beauty but told them to call it "sihr" (magic) that divides families (Al-Muddathir 74:18-25).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-118
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Why did the Quraish reject him though they called him Sadiq and Ameen?
+  answer: Pride, fear of losing power and the income from idol worship and pilgrims, and loyalty to their forefathers' religion.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-119
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: First martyrs of Islam
+  answer: Hazrat Sumayya (RA), the first martyr, and her husband Yasir.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-120
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Hijrat to Abyssinia (Habsha)
+  answer: In 5 Nabawi (615 CE), Muslims went to the Christian king Najashi (Negus). The first group of about 11 men and 4 women included Hazrat Usman with Ruqayya. Hazrat Ja'far's speech before the Najashi won his protection.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-121
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Hamza and Umar accept Islam
+  answer: In 6 Nabawi, which strengthened the Muslims.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-122
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Shaib Abi Talib
+  answer: From 7 to 10 Nabawi, about 3 years. The Quraish boycotted Banu Hashim, who lived besieged in the valley of Abu Talib. The boycott document hung in the Kaaba was eaten by termites, except the words "Bismika Allahumma", as the Prophet foretold.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-123
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Aam-ul-Huzn (Year of Sorrow)
+  answer: '10 Nabawi (619 CE): Abu Talib and Hazrat Khadija both died.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-124
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Journey to Taif
+  answer: 10 Nabawi, with Zaid bin Haritha. The people stoned him until he bled. He refused to curse them and prayed for their guidance.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-125
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Isra and Meraj
+  answer: 'Isra: the night journey from Masjid-ul-Haram to Masjid-ul-Aqsa (Surah Bani Israel 17:1). Meraj: ascent through the heavens. The five daily prayers were made obligatory. Most commonly dated 27 Rajab, around 11-12 Nabawi.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-126
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Shaq-ul-Qamar
+  answer: The splitting of the moon in Makkah, when the Quraish asked for a sign (Al-Qamar 54:1).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-127
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Bait-e-Aqaba (first)
+  answer: '12 Nabawi: 12 men from Yathrib pledged at Aqaba, near Mina. The Prophet sent Mus''ab bin Umair with them as the first teacher and ambassador of Islam.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-128
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Bait-e-Aqaba (second)
+  answer: '13 Nabawi: 73 men and 2 women pledged to protect him. His uncle Abbas, not yet Muslim, came along to make sure his nephew would be safe.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-129
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Dar-ul-Nadwa
+  answer: The Quraish council house. There they planned to kill the Prophet, with one man from each tribe striking together.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-130
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Causes of Hijrat to Madina
+  answer: Persecution in Makkah, the plot to kill him, and the invitation and protection offered by the people of Yathrib at Aqaba. Madina was chosen by Allah's command; it had supporters ready and was a safe base for the Muslim community.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-131
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: The Hijrat journey
+  answer: 622 CE. Hazrat Ali slept in his bed. He left with Hazrat Abu Bakr and hid for 3 days in the Cave of Saur. He reached Quba, built the first mosque there, then entered Madina. Yathrib became Madinat-un-Nabi.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-132
+  bank: islamiat
+  category: 'Seerah: the Makkah period (571-622 CE)'
+  question: Hijri calendar
+  answer: Starts from the Hijrat (622 CE). Hazrat Umar (RA) began using it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-133
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: First mosque; first Friday prayer
+  answer: Masjid-e-Quba was the first mosque. The first Jumu'ah was prayed in the valley of Banu Salim on the way into Madina. Masjid-e-Nabawi was then built in Madina.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-134
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Muakhat (brotherhood)
+  answer: The Prophet paired each Muhajir (emigrant from Makkah) with an Ansari (helper of Madina) as brothers, who shared homes and wealth.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-135
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Mithaq-e-Madina (Charter of Madina)
+  answer: '1 AH: a written agreement between Muslims, Jews and other tribes of Madina. It made Madina one community under the Prophet''s leadership, with shared defence. It is often called the first written constitution.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-136
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Change of Qibla
+  answer: '2 AH: from Bait-ul-Maqdis to the Kaaba (Al-Baqarah 2:144). It happened during prayer at Masjid-e-Qiblatain.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-137
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: When were Roza and Zakat made obligatory?
+  answer: 'Fasting in Ramadan: 2 AH (Al-Baqarah 2:183). Zakat: 2 AH is the common answer; some scholars put its detailed rules later. Eid-ul-Fitr was first celebrated in 2 AH.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-138
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: When was salah made obligatory?
+  answer: On the night of Meraj, before the Hijrat.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-139
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: When was Hajj made obligatory?
+  answer: 9 AH is the common answer; Hazrat Abu Bakr led the Hajj that year.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-140
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Ghazwa vs Sariya
+  answer: 'Ghazwa: an expedition the Prophet (PBUH) joined himself. Sariya: one he sent without going. The common count is 27 ghazwat, with fighting in about 9.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-141
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Ghazwa-e-Badr
+  answer: 17 Ramadan, 2 AH. 313 Muslims against about 1,000 Quraish. 14 Muslims were martyred and 70 Quraish killed, including Abu Jahl. Allah sent angels to help (Aal-e-Imran 3:123-125). The Quran calls it Yaum-ul-Furqan.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-142
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Ghazwa-e-Uhud
+  answer: Shawwal, 3 AH. About 700 Muslims against 3,000 Quraish. The archers on Jabal-e-Rumat left their post, and Khalid bin Walid (not yet Muslim) attacked from behind. Hazrat Hamza was martyred. Abdullah bin Ubayy, the chief of the hypocrites, turned back with about 300 men before the battle.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-143
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Ghazwa-e-Khandaq (Ahzab)
+  answer: 5 AH. Hazrat Salman Farsi suggested digging a trench. About 3,000 Muslims against about 10,000 allied tribes. A storm and divisions broke the siege (Surah Al-Ahzab).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-144
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Sulh-e-Hudaybiyyah
+  answer: 6 AH. The Muslims were stopped on the way to Umrah. Hazrat Usman was sent as envoy, and a rumour of his death led to Bait-e-Rizwan, a pledge under a tree. The 10-year truce looked unfair, but Allah called it "Fath-e-Mubeen", a clear victory (Al-Fath 48:1), because peace let Islam spread fast.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-145
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: 'Bait-e-Rizwan: why the name?'
+  answer: Allah declared His pleasure (ridwan) with those who pledged (Al-Fath 48:18).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-146
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Letters to kings
+  answer: After Hudaybiyyah, letters inviting to Islam were sent to Heraclius (Rome), Khusro (Persia), Najashi, Muqawqis (Egypt) and others.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-147
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Ghazwa-e-Khaibar
+  answer: 7 AH, against the Jewish forts of Khaibar. Hazrat Ali conquered the fort of Qamoos.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-148
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Ghazwa-e-Mutah
+  answer: 8 AH, against the Byzantines in Syria. The commanders Zaid bin Haritha, Ja'far bin Abi Talib and Abdullah bin Rawaha were martyred one after another. Khalid bin Walid saved the army and was called Saifullah. It started after the Prophet's envoy was killed.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-149
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Fath-e-Makkah
+  answer: Ramadan, 8 AH, with 10,000 Muslims, after the Quraish broke the Hudaybiyyah truce. Almost no blood was shed. The Prophet forgave his enemies ("no blame on you today") and cleared 360 idols from the Kaaba. A few named individuals were excluded from the amnesty.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-150
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Ghazwa-e-Hunain
+  answer: Shawwal, 8 AH, against Hawazin and Saqeef. 12,000 Muslims were proud of their numbers and first fell back, then won (At-Tauba 9:25).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-151
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Ghazwa-e-Tabuk
+  answer: '9 AH, against the Byzantines: about 30,000 Muslims, his last expedition. No fighting took place. Hazrat Usman equipped a large part of the army.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-152
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Masjid-e-Zarar
+  answer: Built by hypocrites near Quba to divide the Muslims. On return from Tabuk the Prophet had it demolished on Allah's command (At-Tauba 9:107).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-153
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Hajjatul Wida (Farewell Hajj)
+  answer: 10 AH, the Prophet's only Hajj after the Hijrat (a Qiran Hajj, by the majority view). His sermon at Arafat declared all lives and property sacred, ended riba and blood feuds, gave rights to women, and said no Arab is better than a non-Arab except by taqwa. Al-Ma'idah 5:3, "Today I have perfected your religion", was revealed at Arafat.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-154
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: How many Umrahs?
+  answer: Four.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-155
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Death of the Prophet (PBUH)
+  answer: Rabi-ul-Awwal, 11 AH (632 CE), at age 63, in Hazrat Ayesha's room, where he is buried. His funeral prayer was offered by people in groups, without an imam.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-156
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Wives (Azwaj-e-Mutahharat)
+  answer: 'Eleven: Khadija, Sauda, Ayesha, Hafsa, Zainab bint Khuzaima, Umm Salama, Zainab bint Jahsh, Juwairiya, Umm Habiba, Safiyya, Maimuna. Hazrat Ayesha is usually counted third and Hafsa fourth.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-157
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Hazrat Hafsa
+  answer: Daughter of Hazrat Umar. Her first husband, Khunais bin Huzafa, died of wounds after Badr.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-158
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Hazrat Umm Habiba
+  answer: Daughter of Abu Sufyan. Her nikah was performed in Abyssinia by the Najashi.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-159
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Children of the Prophet (PBUH)
+  answer: 'Sons: Qasim (eldest, hence "Abul Qasim"), Abdullah (also called Tayyab and Tahir) and Ibrahim (from Hazrat Maria Qibtia). All died in childhood. Daughters: Zainab, Ruqayya, Umm Kulthum and Fatima.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-160
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Did daughters other than Fatima have children?
+  answer: Yes. Hazrat Zainab had Ali and Umama, but the Prophet's line continued through Hazrat Fatima's sons, Hassan and Hussain.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-161
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Prophet's grandfather; Hashim
+  answer: Abdul Muttalib, whose real name was Shaiba. Hashim, the great-grandfather, was named Amr.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-162
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Relation of Hazrat Ali and Hazrat Abbas
+  answer: Hazrat Abbas was the Prophet's uncle, and so also Hazrat Ali's uncle.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-163
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Hazrat Ali's relation to the Prophet
+  answer: Cousin (son of Abu Talib) and son-in-law (husband of Hazrat Fatima).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-164
+  bank: islamiat
+  category: 'Seerah: the Madina period (622-632 CE)'
+  question: Forms of wahi
+  answer: A dream; Jibreel coming in human form (often like Dihya Kalbi); a sound like a ringing bell, the hardest form; and words put into his heart.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-165
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Total period of Khilafat-e-Rashida
+  answer: About 30 years (632-661 CE). Some add Hazrat Hassan's six months to complete exactly 30 years, as in a hadith.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-166
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: 'Hazrat Abu Bakr Siddiq (RA): how chosen?'
+  answer: 632-634 (about 2 years 3 months). Chosen by the Muhajireen and Ansar at Saqifa Bani Sa'idah, where Hazrat Umar gave him the first pledge.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-167
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Abu Bakr's main work
+  answer: Fought the false prophets and those who refused zakat (the Riddah wars), sent Usama's army, and had the Quran compiled into one volume by Zaid bin Thabit after many huffaz were martyred at Yamama.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-168
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: 'Hazrat Umar Farooq (RA): how chosen?'
+  answer: 634-644 (about 10.5 years). Nominated by Hazrat Abu Bakr before his death, after consulting senior companions, and accepted by the people.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-169
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Umar's main work
+  answer: Conquered Persia, Syria, Egypt and Jerusalem. Started the Hijri calendar, Bait-ul-Maal, salaries, police, a postal system and new cities (Kufa, Basra). Martyred in 644 by Abu Lu'lu Feroz while leading Fajr.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-170
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: 'Hazrat Usman Ghani (RA): how chosen?'
+  answer: '644-656, about 12 years, the **longest tenure**. Hazrat Umar named a six-member shura: Usman, Ali, Talha, Zubair, Abdur Rahman bin Auf and Sa''d bin Abi Waqqas. Talha was away, and Abdur Rahman bin Auf, after consulting people, chose Usman.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-171
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Usman's main work
+  answer: Made one standard copy of the Quran in the Quraish dialect and sent copies to the provinces. Expanded the empire and built the first Muslim navy.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-172
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Problems at the end of Usman's rule; causes of martyrdom
+  answer: Rebels from Egypt, Kufa and Basra, stirred by propaganda (including Abdullah bin Saba), complained about governors. They besieged his house, and he refused to let blood be shed for him. He was martyred in 656 (35 AH) while reciting the Quran.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-173
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: 'Hazrat Ali (RA): how chosen?'
+  answer: 656-661 (about 4 years 9 months). After Usman's martyrdom, the people of Madina and the senior companions pledged to him in Masjid-e-Nabawi.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-174
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Events of Ali's rule
+  answer: Battle of Jamal (656) and Siffin (657); the Kharijites split away. He moved the capital to Kufa and was martyred there in 661 by the Kharijite Ibn Muljam.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-175
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Who had the longest and shortest tenure?
+  answer: 'Longest: Hazrat Usman (about 12 years). Shortest: Hazrat Abu Bakr (about 2 years 3 months).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-176
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Were all the Khulafa from Quraish?
+  answer: Yes. All four Rashideen, the Umayyads and the Abbasids were Quraish. The Abbasids descend from Hazrat Abbas, the Prophet's uncle (Banu Hashim).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-177
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Umayyad Khilafat
+  answer: 661-750, capital Damascus, founded by Ameer Muawiya. Hazrat Umar bin Abdul Aziz (717-720) is called the fifth rightly guided caliph for his justice.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-178
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Abbasid Khilafat
+  answer: 750-1258, capital Baghdad. Its golden age of science included Bait-ul-Hikmah. It ended when the Mongols under Halaku Khan sacked Baghdad in 1258.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-179
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Why did Banu Umayya oppose Banu Hashim?
+  answer: Old tribal rivalry for leadership and honour in Makkah, from before Islam, which continued after the Prophet's mission came from Banu Hashim.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-180
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Imam Baqir
+  answer: Muhammad al-Baqir (died about 733), great-grandson of Hazrat Ali, a great scholar of Madina and the fifth Imam in Shia belief.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-181
+  bank: islamiat
+  category: Khulafa-e-Rashideen and after
+  question: Karbala
+  answer: 10 Muharram 61 AH (680 CE). Imam Hussain and his family were martyred by Yazid's army.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-182
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Farz, wajib, sunnah, mustahab
+  answer: Farz is proven by certain evidence; leaving it is a major sin, and denying it is kufr. Wajib is proven by slightly less certain evidence and must still be done (for example, witr and Eid prayer). Sunnah is the Prophet's practice. Mustahab is recommended.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-183
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Farz-e-Ain vs Farz-e-Kifaya
+  answer: 'Farz-e-Ain is on every person (the five prayers). Farz-e-Kifaya is on the community: if some do it, the rest are free (for example, namaz-e-janaza and burial).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-184
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Faraiz of namaz (13)
+  answer: '7 outside (sharait): clean body, clean clothes, clean place, covering the satr, facing the qibla, the right time, and niyyah. 6 inside (arkan): takbeer-e-tahreema, qiyam, qirat, ruku, sajdah, and qa''da-e-akheera.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-185
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Names of the five prayers
+  answer: Fajr, Zuhr, Asr, Maghrib, Isha. 17 farz rakats a day (2 + 4 + 4 + 3 + 4).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-186
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Isha rakats in full
+  answer: '4 sunnah (ghair mu''akkadah), 4 farz, 2 sunnah, 2 nafl, 3 witr (wajib), 2 nafl: 17 in total.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-187
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Difference between farz and sunnah namaz
+  answer: Farz must be prayed and is prayed in congregation by men. Sunnah is the Prophet's extra practice, prayed alone. Mu'akkadah sunnah should not be missed.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-188
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Faraiz of wudu (4)
+  answer: Wash the face; wash both arms including the elbows; wipe (masah) at least a quarter of the head; wash both feet including the ankles (Al-Ma'idah 5:6).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-189
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Faraiz of ghusl (3)
+  answer: Rinse the mouth, rinse the nose, and wash the whole body.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-190
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Namaz-e-Janaza
+  answer: Farz-e-Kifaya, standing, with 4 takbeers and no ruku or sajdah. After the first takbeer comes the sana, with "wa jalla thana'uka" added. Then durood after the second, dua for the dead after the third, and salaam after the fourth.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-191
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Eid prayer
+  answer: Wajib, 2 rakats with 6 extra takbeers (Hanafi), without azan or iqamah, followed by a khutbah.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-192
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Namaz-e-Istisqa
+  answer: 'A prayer asking Allah for rain: 2 rakats in the open, with a dua and istighfar.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-193
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Tahajjud
+  answer: A voluntary night prayer after sleep, before Fajr (Bani Israel 17:79). It was obligatory for the Prophet (PBUH) in the early period.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-194
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: What breaks a fast?
+  answer: Eating or drinking on purpose, marital relations, and deliberate vomiting of a mouthful. Eating by forgetfulness does not break it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-195
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Qaza vs kaffarah of a fast
+  answer: 'A missed fast with a valid reason is made up later (qaza). Breaking a Ramadan fast deliberately needs qaza plus kaffarah: 60 continuous fasts, or, if a person truly cannot, feeding 60 poor people two meals. If they cannot do even that, it stays due until they can, along with sincere tawbah.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-196
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Fidya
+  answer: 'For someone who can never fast (very old or permanently ill): feed one poor person for each fast, about the amount of sadaqa-tul-fitr.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-197
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Days when fasting is haram
+  answer: 'Five: Eid-ul-Fitr, Eid-ul-Adha, and the three days of Tashreeq (11-13 Dhul Hijjah).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-198
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Purpose of Roza
+  answer: To gain taqwa (Al-Baqarah 2:183), self-control, gratitude, and feeling the hunger of the poor.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-199
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: 'Zakat: rate and nisab'
+  answer: '2.5% of savings held for one lunar year above the nisab: 7.5 tola (about 87.5 g) of gold or 52.5 tola (about 612 g) of silver.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-200
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Masarif-e-Zakat (8, At-Tauba 9:60)
+  answer: Fuqara (the poor), masakeen (the destitute), the collectors of zakat, those whose hearts are to be won, freeing slaves, debtors, fi sabilillah, and the stranded traveller.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-201
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Who cannot receive zakat?
+  answer: Your own parents and grandparents, children and grandchildren, husband or wife, Syeds (Banu Hashim), the rich, and non-Muslims (Hanafi).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-202
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Why can't zakat be given for a mosque?
+  answer: Zakat must be given into the ownership (tamleek) of a deserving person. A mosque or a building has no owner who can receive it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-203
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Faqeer vs miskeen
+  answer: In Hanafi fiqh, a faqeer has something but less than the nisab, and a miskeen has nothing at all. So the miskeen is worse off.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-204
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Ushr (zakat on crops)
+  answer: 10% if the land is watered by rain, 5% if irrigated by wells or other paid means.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-205
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Why is interest (riba) haram?
+  answer: Allah declares trade lawful and riba forbidden (Al-Baqarah 2:275-279). It is a fixed gain without risk or work, which exploits the needy and concentrates wealth.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-206
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Loan with extra repayment vs renting an item
+  answer: Taking extra on a loan is riba. Renting out an item (ijarah) is lawful, because the owner keeps the item and charges for its use.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-207
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: 'Hajj: faraiz (3)'
+  answer: Ihram, wuquf at Arafat on 9 Dhul Hijjah, and Tawaf-e-Ziarat.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-208
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: 'Hajj: main wajibat'
+  answer: Staying at Muzdalifa, rami of the jamarat, sa'i between Safa and Marwa, sacrifice (for tamattu and qiran), shaving or cutting the hair, and the farewell tawaf.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-209
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Types of Hajj
+  answer: Ifrad (Hajj only), Qiran (Hajj and Umrah in one ihram), Tamattu (Umrah, then a separate ihram for Hajj).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-210
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Ihram
+  answer: 'Two white unstitched sheets for men, put on at the miqat with the niyyah and talbiyah: "Labbaik Allahumma labbaik...".'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-211
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Hateem
+  answer: The semicircular area beside the Kaaba that is part of it. The Quraish left it out when rebuilding because they ran short of pure (halal) funds. Praying there is like praying inside the Kaaba.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-212
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Raml
+  answer: Walking briskly with short steps in the first three rounds of tawaf (for men).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-213
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Istilam
+  answer: Kissing, touching or pointing towards the Hajr-e-Aswad at the start of each round of tawaf.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-214
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Rami
+  answer: Throwing pebbles at the jamarat in Mina, in memory of Ibrahim (AS) rejecting Shaitan.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-215
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Halal and haram animals
+  answer: 'Haram: pork, blood, animals that die by themselves, and animals slaughtered for anyone other than Allah (Al-Ma''idah 5:3). The hadith adds animals with fangs and birds with talons. The markhor, a wild goat, is halal.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-216
+  bank: islamiat
+  category: Worship and fiqh (Hanafi view)
+  question: Qisas and diyat
+  answer: Qisas is equal retaliation for murder or injury (Al-Baqarah 2:178). The victim's family may forgive and accept diyat (blood money).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-217
+  bank: islamiat
+  category: The Quran
+  question: Surahs, paras, manzils
+  answer: 114 surahs, 30 paras (juz), 7 manzils.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-218
+  bank: islamiat
+  category: The Quran
+  question: Number of ayahs
+  answer: 6,236 in the standard (Kufi) count. The popular figure 6,666 is not an actual count.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-219
+  bank: islamiat
+  category: The Quran
+  question: Makki and Madani surahs
+  answer: 86 Makki, 28 Madani, in the most common count. Makki surahs focus on belief; Madani surahs on law and society.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-220
+  bank: islamiat
+  category: The Quran
+  question: Period of revelation
+  answer: 'About 23 years: 13 in Makkah, 10 in Madina.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-221
+  bank: islamiat
+  category: The Quran
+  question: First and last revelation
+  answer: 'First: Al-Alaq 1-5. Last complete surah: An-Nasr. Last verse, according to Ibn Abbas: Al-Baqarah 2:281. Al-Ma''idah 5:3 ("Today I have perfected your religion") came at the Farewell Hajj.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-222
+  bank: islamiat
+  category: The Quran
+  question: Longest and shortest surah
+  answer: 'Longest: Al-Baqarah (286 ayahs). Shortest: Al-Kausar (3 ayahs).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-223
+  bank: islamiat
+  category: The Quran
+  question: Longest ayah
+  answer: Ayat-ud-Dayn, the verse on debts (Al-Baqarah 2:282).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-224
+  bank: islamiat
+  category: The Quran
+  question: Heart of the Quran
+  answer: Surah Ya-Sin.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-225
+  bank: islamiat
+  category: The Quran
+  question: Greatest surah; greatest ayah
+  answer: Al-Fatiha (Umm-ul-Kitab, the greatest surah); Ayat-ul-Kursi (Al-Baqarah 2:255, the greatest ayah).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-226
+  bank: islamiat
+  category: The Quran
+  question: Surah equal to one-third of the Quran
+  answer: Al-Ikhlas, because it is entirely about Tauheed.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-227
+  bank: islamiat
+  category: The Quran
+  question: Surah in which Tauheed is described
+  answer: Surah Al-Ikhlas.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-228
+  bank: islamiat
+  category: The Quran
+  question: Surah without Bismillah; Bismillah twice
+  answer: At-Tauba begins without it. An-Naml has it twice (in Sulaiman's letter, 27:30).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-229
+  bank: islamiat
+  category: The Quran
+  question: Sajdahs of tilawat
+  answer: 14 (Hanafi).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-230
+  bank: islamiat
+  category: The Quran
+  question: Prophet's name in the Quran
+  answer: '"Muhammad" 4 times; "Ahmad" once (As-Saff 61:6). Surah Muhammad is named after him.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-231
+  bank: islamiat
+  category: The Quran
+  question: Only companion named in the Quran
+  answer: Hazrat Zaid bin Haritha (Al-Ahzab 33:37).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-232
+  bank: islamiat
+  category: The Quran
+  question: Compilation of the Quran
+  answer: Written down in the Prophet's lifetime. Compiled into one volume under Abu Bakr by Zaid bin Thabit, then standardised under Usman. Vowel marks began with Abu al-Aswad ad-Du'ali, and dots were completed in the Umayyad period under Hajjaj bin Yusuf.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-233
+  bank: islamiat
+  category: The Quran
+  question: 'Surah Al-Ikhlas: meaning'
+  answer: '"Say: He is Allah, the One. Allah, the Self-Sufficient (as-Samad). He neither begets nor is born, and there is none equal to Him." "Allah is Samad" (be-niaz) means He needs nothing, and everything needs Him.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-234
+  bank: islamiat
+  category: The Quran
+  question: 'Surah Al-Kausar: meaning and reason for revelation'
+  answer: '"We have given you al-Kausar. So pray to your Lord and sacrifice. Surely your enemy is the one cut off." When the Prophet''s son died, As bin Wa''il mocked him as "abtar" (one without descendants). Allah revealed this surah: his name lives on, and his enemy is forgotten.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-235
+  bank: islamiat
+  category: The Quran
+  question: 'Al-Fatiha: meaning'
+  answer: Praise to Allah, Lord of the worlds, Most Merciful, Master of the Day of Judgement. We worship You alone and ask You alone for help. Guide us to the straight path of those You blessed, not those who earned anger or went astray.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-236
+  bank: islamiat
+  category: The Quran
+  question: 'Ayat-ul-Kursi: meaning'
+  answer: Allah, there is no god but Him, the Ever-Living, the Sustainer. Neither drowsiness nor sleep overtakes Him. Everything in the heavens and earth is His. No one can intercede except with His permission. He knows what is before and behind them. His Kursi extends over the heavens and the earth, guarding them does not tire Him, and He is the Most High, the Greatest.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-237
+  bank: islamiat
+  category: The Quran
+  question: Surahs named after prophets
+  answer: Yunus, Hud, Yusuf, Ibrahim, Nuh, Muhammad (and Maryam for his mother; Luqman for the wise man).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-238
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: Rakats of the five prayers (Hanafi)
+  answer: 'Fajr: 2 sunnat + 2 farz. Zuhr: 4 sunnat + 4 farz + 2 sunnat + 2 nafl. Asr: 4 sunnat (ghair-muakkadah) + 4 farz. Maghrib: 3 farz + 2 sunnat + 2 nafl. Isha: 4 sunnat (ghair-muakkadah) + 4 farz + 2 sunnat + 2 nafl + 3 witr (wajib) + 2 nafl.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-239
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: Total farz rakats in a day
+  answer: '**17** (2 + 4 + 4 + 3 + 4).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-240
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: Jumu'ah prayer
+  answer: 4 sunnat + 2 farz (in place of Zuhr's 4) + 4 sunnat + 2 sunnat + 2 nafl. The khutbah is a condition.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-241
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: When were the five prayers made farz?
+  answer: On the night of **Mi'raj**, about one year before the Hijrah (around 621 CE). First 50 were ordered, reduced to 5, with the reward of 50.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-242
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: Which prayer is Salat-ul-Wusta (the middle prayer)?
+  answer: Asr, according to most scholars (Surah Al-Baqarah 2:238).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-243
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: Faraiz of namaz
+  answer: '**13 in total.** Outside (shara''it), 7: clean body, clean clothes, clean place, covering the satr, facing the Qibla, the right time, and niyyah. Inside (arkan), 6: takbir-e-tahreema, qiyam, qira''at, ruku, sajdah, and qa''da-e-akheera.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-244
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: Faraiz of wuzu
+  answer: 'Four: washing the face, washing both arms including the elbows, masah of a quarter of the head, washing both feet including the ankles.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-245
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: What breaks wuzu?
+  answer: Anything leaving the private parts, flowing blood or pus, vomiting a mouthful, sleeping lying down, fainting, and laughing loudly in namaz.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-246
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: What is Qasr?
+  answer: Shortening the 4-rakat farz to 2 while travelling 48 miles (about 77 km) or more, in the Hanafi view.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-247
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: Sajda-e-Sahw
+  answer: Two extra sajdas at the end to make up for missing a wajib by mistake.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-248
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: Who gave the first azan?
+  answer: Hazrat **Bilal** (RA), in Madina, 1 AH. The words of the azan were seen in a dream by Hazrat Abdullah bin Zaid (RA).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-249
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: First Qibla, change of Qibla
+  answer: Bait-ul-Muqaddas (Masjid-e-Aqsa), Jerusalem. Changed to the Kaaba in **2 AH**, during prayer in Masjid-e-Qiblatain, Madina (Surah Al-Baqarah 2:144).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-250
+  bank: islamiat
+  category: 'Namaz: times, rakats and rules'
+  question: Prayer for the dead
+  answer: 'Namaz-e-Janaza: 4 takbirs, no ruku or sajda; it is farz-e-kifaya.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-251
+  bank: islamiat
+  category: More Quran questions
+  question: First and last revealed verses
+  answer: 'First: Surah Al-Alaq 96:1-5, Cave Hira, 610 CE. Last (most scholars): Surah Al-Baqarah 2:281; "Al-yauma akmaltu lakum deenakum" (Al-Ma''idah 5:3) was revealed at Arafat on the Farewell Hajj (10 AH).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-252
+  bank: islamiat
+  category: More Quran questions
+  question: First and last complete surah revealed
+  answer: 'First complete: Al-Fatiha. Last complete: An-Nasr (most scholars).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-253
+  bank: islamiat
+  category: More Quran questions
+  question: Longest and shortest surahs
+  answer: 'Longest: Al-Baqarah (286 ayat). Shortest: Al-Kauthar (3 ayat).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-254
+  bank: islamiat
+  category: More Quran questions
+  question: Surah without Bismillah
+  answer: Surah At-Tawbah (9). Bismillah comes twice in Surah An-Naml (27:30).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-255
+  bank: islamiat
+  category: More Quran questions
+  question: Heart of the Quran; mother of the Quran
+  answer: Yaseen is the heart; Al-Fatiha is Umm-ul-Kitab, the mother of the Book. Surah Ar-Rahman is called the bride (Uroos) of the Quran.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-256
+  bank: islamiat
+  category: More Quran questions
+  question: Prophets named in the Quran
+  answer: '**25**. Prophet Muhammad (PBUH) is named 4 times as Muhammad and once as Ahmad. Hazrat Musa (AS) is mentioned most, about 136 times.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-257
+  bank: islamiat
+  category: More Quran questions
+  question: Sajdas of tilawat
+  answer: '**14** in the Hanafi view (15 with the second sajda of Surah Al-Hajj in other schools).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-258
+  bank: islamiat
+  category: More Quran questions
+  question: Who added the dots and harakat (diacritics)?
+  answer: Abul Aswad Ad-Du'ali started the vowel marks; Hajjaj bin Yusuf's era (around 75-86 AH) completed the dots and marks for non-Arabs.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-259
+  bank: islamiat
+  category: More Quran questions
+  question: Kaatib-e-Wahi (scribes)
+  answer: Hazrat Zaid bin Thabit (RA) is the most famous; also Hazrat Ali, Usman, Ubayy bin Ka'b and Muawiya (RA).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-260
+  bank: islamiat
+  category: More Quran questions
+  question: Other names of the Quran
+  answer: Al-Furqan (the criterion), Al-Kitab, Adh-Dhikr (the reminder), An-Noor (the light), Al-Huda (guidance).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-261
+  bank: islamiat
+  category: More Quran questions
+  question: Earlier divine books
+  answer: Taurat to Hazrat Musa (AS), Zaboor to Hazrat Dawood (AS), Injeel to Hazrat Isa (AS), and suhuf (scrolls) to Hazrat Ibrahim (AS) and others.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-262
+  bank: islamiat
+  category: More Quran questions
+  question: First Urdu translation of the Quran
+  answer: By Shah Rafiuddin and Shah Abdul Qadir (sons of Shah Waliullah) around 1790-1795. Shah Waliullah earlier translated it into Persian (Fath-ur-Rahman).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-263
+  bank: islamiat
+  category: More Quran questions
+  question: Laylat-ul-Qadr
+  answer: The Quran was sent down on this night (Surah Al-Qadr), better than a thousand months, sought in the odd nights of the last ten days of Ramazan.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-264
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What does Islam say about honesty at work?
+  answer: A Muslim must be trustworthy (amanah). The Prophet ﷺ was called Al-Sadiq and Al-Amin even before prophethood. For a teacher, honesty means coming on time, teaching the full period and marking papers fairly. Taking a salary without doing the work is not halal.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-265
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: Is bribery allowed?
+  answer: No. The Prophet ﷺ cursed both the one who gives a bribe and the one who takes it (Abu Dawud, Tirmidhi).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-266
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What is the Islamic view on cheating in exams?
+  answer: The Prophet ﷺ said, "Whoever cheats us is not one of us" (Sahih Muslim). It is dishonest to the student, to other students and to society.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-267
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What is riba, and why is it forbidden?
+  answer: Riba is interest, a fixed extra amount charged on a loan. The Quran forbids it (Surah Al-Baqarah 2:275–279) because it lets the rich grow richer from the needs of the poor. Islamic banking uses profit and loss sharing instead.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-268
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What are the rights of parents?
+  answer: 'The Quran tells us to be kind to parents and not even say "uff" to them (Surah Bani Israil 17:23–24). Serving them, obeying them in what is good, and praying for them: "Rabbir hamhuma kama rabbayani saghira."'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-269
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What are the rights of neighbours?
+  answer: The Prophet ﷺ said Jibreel kept advising him about the neighbour so much that he thought the neighbour would be made an heir (Bukhari, Muslim). We must not harm them, should share food and help them in need.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-270
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What does Islam say about seeking knowledge?
+  answer: The first word revealed was "Iqra" (Read). The Prophet ﷺ said seeking knowledge is an obligation on every Muslim (Ibn Majah). This is why teaching is such a noble job.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-271
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What is the status of a teacher in Islam?
+  answer: 'The Prophet ﷺ said, "I have been sent as a teacher" (Ibn Majah). Teaching is a sadaqah jariyah: when a student uses what you taught, you keep getting reward even after death.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-272
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What is sadaqah jariyah?
+  answer: 'Continuing charity whose reward continues after death: beneficial knowledge, a righteous child who prays for you, and lasting charity like a well, a mosque or a school (Sahih Muslim).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-273
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What does Islam say about cleanliness?
+  answer: '"Cleanliness is half of faith" (Sahih Muslim). Wudu, a clean body, clean clothes and clean surroundings. A teacher should keep the classroom and lab clean too.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-274
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What is the Islamic teaching on time?
+  answer: Surah Al-Asr says humans are in loss except those who believe, do good, and advise each other to truth and patience. Being punctual is part of amanah.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-275
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: How should a Muslim treat non-Muslims?
+  answer: With justice and kindness. The Quran says there is no compulsion in religion (2:256). In the Misaq-e-Madina the Prophet ﷺ gave the Jews of Madina equal rights. In my class every student, of any religion, gets equal respect. Pakistan's flag has a white part for minorities.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-276
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What does Islam say about backbiting (gheebat)?
+  answer: It is a major sin. The Quran compares it to eating your dead brother's flesh (Surah Al-Hujurat 49:12).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-277
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What does Islam say about lying and spreading rumours?
+  answer: The Quran says to verify news before spreading it (Al-Hujurat 49:6). That applies strongly to WhatsApp and social media today. I would teach students to check before forwarding.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-278
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What are the rights of women in Islam?
+  answer: The right to education, to own property and inherit, to agree to marriage, and to receive mahr. The Prophet ﷺ said the best of you are those best to their wives (Tirmidhi). Hazrat Khadija (RA) was a businesswoman and Hazrat Aisha (RA) a great teacher of Hadith.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-279
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What is the Islamic teaching on orphans?
+  answer: Look after them and protect their property. The Prophet ﷺ said he and the one who cares for an orphan will be in Jannah like two joined fingers (Bukhari).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-280
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What is halal and haram earning?
+  answer: Halal earning comes from honest work and trade. Haram earning includes bribery, theft, riba, gambling, cheating in weights and selling haram things. Dua is not accepted from someone whose food comes from haram (Sahih Muslim).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-281
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What does Islam say about smoking, naswar and drugs?
+  answer: Alcohol and every intoxicant are clearly haram (Surah Al-Ma'idah 5:90). Most scholars today also call harmful habits like smoking makruh or haram, because Islam forbids harming yourself (2:195). As a teacher I would warn students about naswar and drugs, which are a big problem in our schools.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-282
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What does Islam say about the environment and water?
+  answer: 'The Prophet ﷺ told us not to waste water even when doing wudu at a flowing river (Ibn Majah). He encouraged planting trees: even if the Day of Judgement comes and you have a sapling in your hand, plant it (Ahmad). This links to my water project.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-283
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: How should a Muslim deal with anger?
+  answer: The Prophet ﷺ said the strong one is not the one who wrestles, but the one who controls himself when angry (Bukhari). Sit down if standing, make wudu, and stay quiet. A teacher must never punish in anger.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-284
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What does Islam say about corporal punishment of children?
+  answer: The Prophet ﷺ never hit a child or a servant (Sahih Muslim, from Aisha RA). He taught with love. That supports the government's "maar nahi pyar" policy.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-285
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: Is music allowed?
+  answer: Scholars differ on this, so I follow what my elders and scholars teach and avoid anything that leads to wrong.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-286
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What is the Islamic view on using technology and the internet?
+  answer: Technology is a tool. Using it for learning, earning halal and spreading good is rewarded; using it for haram, wasting time or harming others is a sin. I would teach students to use it responsibly.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-287
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What should a Muslim do when someone does wrong to them?
+  answer: Forgive if possible. The Prophet ﷺ forgave the people of Taif who stoned him, and forgave the people of Makkah at its conquest, saying "no blame on you today".
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-288
+  bank: islamiat
+  category: Day-to-day issues as a Muslim
+  question: What is the dua before starting study or a lesson?
+  answer: '"Rabbi zidni ilma" (My Lord, increase me in knowledge), Surah Taha 20:114. Also "Rabbish rahli sadri wa yassirli amri" (20:25–26), the dua of Hazrat Musa (AS).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-289
+  bank: islamiat
+  category: More questions
+  question: Who was Waraqa bin Nawfal?
+  answer: Hazrat Khadija's (RA) cousin, an old Christian scholar of Makkah who knew the Taurat and Injeel. After the first wahi, Khadija took the Prophet ﷺ to him. He said this was the same Namoos (Jibreel) who came to Musa (AS), and he wished he would be alive when the Prophet's people drove him out. He died soon after.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-290
+  bank: islamiat
+  category: More questions
+  question: What is Fatrat-ul-Wahi?
+  answer: 'The pause in revelation after the first wahi in Cave Hira. Reports differ on how long it lasted. It ended with the first verses of Surah Al-Muddassir: "O you wrapped up, arise and warn."'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-291
+  bank: islamiat
+  category: More questions
+  question: When was fasting made obligatory?
+  answer: In 2 AH, in Madina, through Surah Al-Baqarah 2:183.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-292
+  bank: islamiat
+  category: More questions
+  question: When was Zakat made obligatory?
+  answer: Most scholars say 2 AH in Madina; its detailed rules and collection were set later.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-293
+  bank: islamiat
+  category: More questions
+  question: Who is exempt from fasting?
+  answer: The sick and travellers (they make up the fasts later), pregnant or nursing women who fear harm, the very old who cannot fast (they give fidya), and women during menses (they make up later). Fasting is not obligatory on children or the insane.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-294
+  bank: islamiat
+  category: More questions
+  question: What is Umrah?
+  answer: 'The lesser pilgrimage, which can be done at any time of year. Its acts: Ihram, Tawaf of the Ka''bah, Sa''i between Safa and Marwa, then shaving or cutting the hair.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-295
+  bank: islamiat
+  category: More questions
+  question: What is the talbiyah?
+  answer: '"Labbaik Allahumma labbaik, labbaik la sharika laka labbaik, innal hamda wan-ni''mata laka wal-mulk, la sharika lak." (Here I am, O Allah, here I am. You have no partner. All praise, blessings and kingdom are Yours.)'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-296
+  bank: islamiat
+  category: More questions
+  question: Why is the Day of Arafat so important?
+  answer: 9 Dhul Hijjah. Standing at Arafat (wuquf) is the main pillar of Hajj; the Prophet ﷺ said "Hajj is Arafah". For those not on Hajj, fasting that day is highly rewarded. The Last Sermon was given there.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-297
+  bank: islamiat
+  category: More questions
+  question: Name the 12 Islamic months
+  answer: Muharram, Safar, Rabi-ul-Awwal, Rabi-us-Sani, Jumada-al-Ula, Jumada-al-Ukhra, Rajab, Shaban, Ramadan, Shawwal, Zul-Qadah and Zul-Hijjah.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-298
+  bank: islamiat
+  category: More questions
+  question: Which are the four sacred months?
+  answer: Muharram, Rajab, Zul-Qadah and Zul-Hijjah (Surah At-Tauba 9:36). Fighting was forbidden in them.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-299
+  bank: islamiat
+  category: More questions
+  question: How did the Hijri calendar begin?
+  answer: Before Islam, Arabs dated years by big events, like the Year of the Elephant. Hazrat Umar (RA) started the Islamic calendar from the year of the Hijrat, on Hazrat Ali's (RA) advice, with Muharram as the first month.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-300
+  bank: islamiat
+  category: More questions
+  question: What are the three parts of Tauheed?
+  answer: 'Scholars explain it in three parts: Tauheed-ar-Rububiyyah (Allah alone is the Creator and Sustainer), Tauheed-al-Uluhiyyah (He alone is worshipped) and Tauheed-al-Asma was-Sifaat (His names and attributes are unique).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-301
+  bank: islamiat
+  category: More questions
+  question: Difference between a Muslim and a Mu'min
+  answer: A Muslim submits outwardly through words and deeds; a Mu'min also has firm faith in the heart. Surah Al-Hujurat 49:14 says the Bedouins should say "we have submitted", because faith had not yet entered their hearts. Every Mu'min is a Muslim.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-302
+  bank: islamiat
+  category: More questions
+  question: You are a Muslim? Prove it.
+  answer: 'Calmly: "Alhamdulillah. I testify La ilaha illallah Muhammadur Rasulullah. I believe in Allah, His angels, His books, His messengers, the Last Day and taqdeer, and I try to live by it: I pray, I fast and I try to be honest in my work." Then recite Iman-e-Mujmal if they want more.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-303
+  bank: islamiat
+  category: More questions
+  question: What do the names Muhammad and Ahmad mean?
+  answer: 'Muhammad: the one who is praised again and again. Ahmad: the one who praises Allah the most, or the most praiseworthy. The name Ahmad is in Surah As-Saff 61:6.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-304
+  bank: islamiat
+  category: More questions
+  question: What does "Islam" mean?
+  answer: Submission to Allah, and peace. It comes from the root s-l-m.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-305
+  bank: islamiat
+  category: More questions
+  question: Who was Hazrat Bilal (RA)?
+  answer: An Abyssinian slave who was tortured on hot sand by Umayya bin Khalaf for saying "Ahad, Ahad". Hazrat Abu Bakr (RA) bought and freed him. He became the first muezzin of Islam.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-306
+  bank: islamiat
+  category: More questions
+  question: Who built and rebuilt the Ka'bah?
+  answer: Hazrat Ibrahim (AS) and Hazrat Ismail (AS) built it. The Quraish rebuilt it when the Prophet ﷺ was 35; he settled the dispute over placing the Hajr-e-Aswad by putting it on a sheet so every clan could lift it together.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-307
+  bank: islamiat
+  category: More questions
+  question: Why do we pray five times a day?
+  answer: Because Allah commanded it, and the Prophet ﷺ received it on the night of Miraj. It keeps us connected to Allah through the day and protects us from evil (Surah Al-Ankabut 29:45).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-308
+  bank: islamiat
+  category: More questions
+  question: How much Quran should one read?
+  answer: Some every day, with understanding. The Prophet ﷺ advised completing it in about a month, and said the best among you are those who learn the Quran and teach it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: isl-309
+  bank: islamiat
+  category: More questions
+  question: What should a Muslim keep in mind when using AI like ChatGPT for religious questions?
+  answer: AI can make mistakes and invent references. Use it only as a starting point; check against the Quran, authentic Hadith and qualified scholars. A fatwa must come from a mufti, not a machine.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'

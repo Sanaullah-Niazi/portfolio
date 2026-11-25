@@ -89,6 +89,9 @@ collections:
   briefs:
     output: true
     permalink: /security-news/:name/
+  # The BPSC section's bank and question pages, written by scripts/bpsc_pages.rb before each build (git ignores _bpsc/).
+  bpsc:
+    output: true
 
 defaults:
   - scope: { path: "" }

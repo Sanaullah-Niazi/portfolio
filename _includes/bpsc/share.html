@@ -1,0 +1,7 @@
+{%- comment -%} WhatsApp and copy-link buttons for this page (FR-5, FR-12). include.text is the message before the link. {%- endcomment -%}
+{%- assign _url = page.url | absolute_url -%}
+{%- assign _msg = include.text | append: ' ' | append: _url | url_encode | replace: '+', '%20' -%}
+<div class="btn-row bp-share">
+  <a class="btn btn-primary bp-wa" href="https://wa.me/?text={{ _msg }}" rel="noopener">{% include icon.html name="message" px=18 %}{{ S.bp_share_whatsapp }}</a>
+  <button class="btn bp-copy" type="button" data-url="{{ _url }}" data-done="{{ S.bp_copied }}">{% include icon.html name="link" px=18 %}<span>{{ S.bp_copy_link }}</span></button>
+</div>

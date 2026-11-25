@@ -341,3 +341,88 @@ island_lede: "Every building is a part of my work. Pick one and walk in."
 island_research: "My thesis, papers and the research I'm doing now."
 island_projects: "Apps and systems I'm building, like AquaPulse."
 island_games: "Quick games that test your security instincts."
+
+# BPSC interview prep section (/bpsc-interview/). English and Urdu only, so these keys are not in de/ and zh/.
+nav_bpsc: BPSC prep
+bp_eyebrow: "BPSC IT Teacher (BPS-17)"
+bp_title: Interview prep
+bp_lede: "Question banks with model answers, search, quick revision and daily Pakistan news, free for every candidate. Open it on your phone and share it with your group."
+bp_window: "[zone] interviews: [from] to [to]"
+bp_days_left: "[n] days to go"
+bp_day_left: "1 day to go"
+bp_started: "Interviews are on now. Good luck!"
+bp_over: "This interview round has ended."
+bp_dates_note: "Dates are from the BPSC call letter. Always check your own letter and the official site,"
+bp_share_whatsapp: Share on WhatsApp
+bp_share_text: "Free BPSC IT Teacher interview prep, with questions, answers and daily news:"
+bp_copy_link: Copy link
+bp_copied: Link copied
+bp_banks_title: Question banks
+bp_q_one: question
+bp_q_many: questions
+bp_updated: Updated
+bp_most_asked: Most asked
+bp_most_asked_lede: "Questions that candidates report panels ask very often."
+bp_new_week: New this week
+bp_whats_new: What's new
+bp_change_added: Added
+bp_change_checked: Checked again
+bp_news_title: "Today's Pakistan headlines"
+bp_news_all: All current affairs
+bp_how_title: How to use it
+bp_how_1: "Start with the most asked questions, then go through one bank a day."
+bp_how_2: "Tap a question to see its answer. Say your answer out loud before you open it."
+bp_how_3: "Use search for any word, for example caliph or Gwadar, and share a question with its own link."
+bp_disclaimer: "Unofficial and free. Made by a candidate, not linked to the Balochistan Public Service Commission. Answers are checked against the listed sources but not guaranteed, so check anything important before your interview."
+bp_legal: "Unofficial study material made by a candidate. Not linked to or approved by the Balochistan Public Service Commission. News headlines belong to their publishers and link to the original reports."
+bp_search_label: Search all questions
+bp_search_ph: "For example caliph or Gwadar"
+bp_filters: Filters
+bp_f_bank: Bank
+bp_f_all_banks: All banks
+bp_f_cat: Category
+bp_f_all_cats: All categories
+bp_f_freq: How often asked
+bp_f_any: Any
+bp_f_freq3: Very often
+bp_f_freq2: Often or more
+bp_f_new: Only new questions
+bp_f_zone: Asked in my zone
+bp_f_all_zones: Any zone
+bp_f_clear: Clear search
+bp_res_one: question found
+bp_res_many: questions found
+bp_no_results: "No questions match. Try fewer words or another spelling."
+bp_loading: "Loading the questions…"
+bp_load_error: "Search could not load. Check your connection and try again."
+bp_show_more: Show more
+bp_expand_all: Expand all
+bp_collapse_all: Close all
+bp_print: Print or save as PDF
+bp_jump: Categories
+bp_freq_3: Asked very often
+bp_freq_2: Asked often
+bp_freq_1: Asked sometimes
+bp_new: New
+bp_check_again: "May have changed, check before your interview."
+bp_verified: Checked on
+bp_sources: Sources
+bp_zones: Asked in
+bp_open_q: Open as its own page
+bp_report: Report a mistake
+bp_back_bank: Back to the bank
+bp_all_banks: All question banks
+bp_short: Quick answer
+bp_answer: Answer
+bp_prev: Previous
+bp_next: Next
+bp_in_english: ""
+bp_empty_bank: "No questions here yet. They are being checked and will appear soon."
+bp_personal_badge: Your own answer
+bp_soon_badge: Answer coming soon
+bp_own_title: "Prepare your own answer: this depends on you."
+bp_own_1: "Keep it short and true, and make sure every fact matches your documents."
+bp_own_2: "Link it to teaching and to the students you will teach."
+bp_own_3: "Practise it out loud a few times, but don't recite it word for word."
+bp_soon: "Answer coming soon. This topic was reported from interviews and has no written answer yet."
+bp_soon_link: Suggest an answer

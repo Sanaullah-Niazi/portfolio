@@ -1,0 +1,71 @@
+{%- comment -%}
+  One bank of the BPSC section (/bpsc-interview/<bank>/), FR-7 to FR-14: its questions grouped by category, each closed
+  until tapped, with Expand all and a print view. The page file comes from scripts/bpsc_pages.rb (page.bank).
+{%- endcomment -%}
+{% include bpsc/load.html %}
+{%- assign b = bp_banks | where: "slug", page.bank | first -%}
+{%- assign items = bp_all | where: "bank", page.bank -%}
+{%- assign _last = items | sort: "verified_on" | last -%}
+{%- capture en_attr %}{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}{% endcapture -%}
+<div class="wrap page bp">
+  <p class="eyebrow crumbs"><a href="{{ L }}/bpsc-interview/"><span class="back-arrow" aria-hidden="true">←</span> {{ S.bp_all_banks }}</a></p>
+  <header class="page-head bp-head">
+    <p class="eyebrow">{{ S.bp_eyebrow }}</p>
+    <h1>{% if lang == 'ur' %}{{ b.name_ur }}{% else %}{{ b.name }}{% endif %}</h1>
+    <p class="lede">{% if lang == 'ur' %}{{ b.description_ur }}{% else %}{{ b.description }}{% endif %}</p>
+    <p class="meta">{{ items.size }} {% if items.size == 1 %}{{ S.bp_q_one }}{% else %}{{ S.bp_q_many }}{% endif %}
+      {%- if _last %} · {{ S.bp_updated }} <time datetime="{{ _last.verified_on | date: '%Y-%m-%d' }}">{% include date.html date=_last.verified_on long=true %}</time>{% endif %}</p>
+    {%- capture _share %}{% if lang == 'ur' %}{{ b.name_ur }}{% else %}{{ b.name }}{% endif %}: {{ S.bp_share_text }}{% endcapture %}
+    {% include bpsc/share.html text=_share %}
+  </header>
+
+  {% include bpsc/search.html %}
+
+  {%- if items.size > 0 %}
+  <nav class="bp-jump" aria-label="{{ S.bp_jump }}">
+    <ul>
+      {%- for c in b.categories %}{% assign _ci = items | where: "category", c %}{% if _ci.size > 0 %}
+      <li><a href="#{{ c | slugify }}"><span{{ en_attr }}>{{ c }}</span> <span class="muted">{{ _ci.size }}</span></a></li>
+      {%- endif %}{% endfor %}
+    </ul>
+  </nav>
+  <div class="btn-row bp-tools">
+    <button class="btn bp-expand" type="button" aria-pressed="false" data-open="{{ S.bp_expand_all }}" data-close="{{ S.bp_collapse_all }}">{{ S.bp_expand_all }}</button>
+    <button class="btn bp-print" type="button">{% include icon.html name="download" px=18 %}{{ S.bp_print }}</button>
+  </div>
+
+  {%- for c in b.categories %}
+  {%- assign _ci = items | where: "category", c %}{% if _ci.size == 0 %}{% continue %}{% endif %}
+  <section class="bp-cat" id="{{ c | slugify }}" aria-labelledby="h-{{ c | slugify }}">
+    <h2 id="h-{{ c | slugify }}"{{ en_attr }}>{{ c }}</h2>
+    <div class="bp-items">
+      {%- for it in _ci %}
+      <details class="bp-q" id="{{ it.id }}">
+        <summary>
+          <span class="bp-q-text">{% if lang == 'ur' and it.question_ur %}{{ it.question_ur | escape }}{% else %}<span{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}>{{ it.question | escape }}</span>{% endif %}</span>
+          <span class="bp-q-meta">{% include bpsc/meta.html it=it %}</span>
+        </summary>
+        <div class="bp-q-body">
+          {% include bpsc/item-body.html it=it %}
+          <p class="bp-q-links"><a href="{{ bp_q }}{{ it.id }}/">{{ S.bp_open_q }}</a><a href="{{ L }}/bpsc-interview/submit/?type=correction&amp;id={{ it.id }}">{{ S.bp_report }}</a></p>
+        </div>
+      </details>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endfor %}
+  {%- else %}
+  <p class="empty">{{ S.bp_empty_bank }}</p>
+  {%- endif %}
+  {% include bpsc/legal.html %}
+</div>
+{%- if items.size > 0 %}
+{%- comment -%} FAQPage structured data (NFR-9), from the question and its short answer, or the start of the answer. {%- endcomment %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"{{ S.html_lang }}","mainEntity":[
+{%- for it in items %}{% if lang == 'ur' and it.question_ur %}{% assign _qq = it.question_ur %}{% else %}{% assign _qq = it.question %}{% endif %}
+{%- if lang == 'ur' and it.answer_ur %}{% assign _aa = it.answer_ur | markdownify | strip_html | strip %}{% elsif it.short_answer %}{% assign _aa = it.short_answer %}{% else %}{% assign _aa = it.answer | markdownify | strip_html | strip %}{% endif %}
+{"@type":"Question","name":{{ _qq | jsonify }},"url":{{ bp_q | append: it.id | append: '/' | absolute_url | jsonify }},"acceptedAnswer":{"@type":"Answer","text":{{ _aa | truncate: 600 | jsonify }}}}{% unless forloop.last %},{% endunless %}
+{%- endfor %}]}
+</script>
+{%- endif %}

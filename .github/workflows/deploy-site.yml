@@ -61,6 +61,8 @@ jobs:
         env:
           JEKYLL_ENV: production
         run: |
+          # The BPSC section's bank and question pages are made from _data/bpsc/ first (see the script).
+          ruby scripts/bpsc_pages.rb
           bundle exec jekyll build
           # Lets the last step (and you) see which commit is live: open /version.txt on the site.
           git rev-parse HEAD > _site/version.txt

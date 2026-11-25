@@ -1,0 +1,109 @@
+{%- comment -%}
+  The landing page of the BPSC interview prep section (/bpsc-interview/ and /ur/bpsc-interview/), FR-1 to FR-6 and FR-30.
+  Everything comes from _data/bpsc/ (the banks and settings) and _data/pk_news.json (today's headlines, once it exists).
+{%- endcomment -%}
+{% include bpsc/load.html %}
+{%- assign iv = bp.interviews -%}
+{%- capture _from %}{% include date.html date=iv.from long=true %}{% endcapture -%}
+{%- capture _to %}{% include date.html date=iv.to long=true %}{% endcapture -%}
+{%- if lang == 'ur' %}{% assign _zone = iv.zone_ur %}{% else %}{% assign _zone = iv.zone %}{% endif -%}
+<div class="wrap page bp">
+  <header class="page-head bp-head">
+    <p class="eyebrow">{{ S.bp_eyebrow }}</p>
+    <h1>{{ S.bp_title }}</h1>
+    <p class="lede">{{ S.bp_lede }}</p>
+    <div class="bp-window" data-from="{{ iv.from | date: '%Y-%m-%d' }}" data-to="{{ iv.to | date: '%Y-%m-%d' }}"
+      data-left="{{ S.bp_days_left }}" data-left-one="{{ S.bp_day_left }}" data-on="{{ S.bp_started }}" data-over="{{ S.bp_over }}">
+      <p class="bp-window-dates">{% include icon.html name="clock" px=20 %}<strong>{{ S.bp_window | replace: '[zone]', _zone | replace: '[from]', _from | replace: '[to]', _to }}</strong> <span class="bp-countdown"></span></p>
+      <p class="bp-window-note">{{ S.bp_dates_note }} <a href="{{ iv.official }}" rel="noopener">bpsc.gob.pk</a>.</p>
+    </div>
+    {% include bpsc/share.html text=S.bp_share_text %}
+  </header>
+
+  {% include bpsc/search.html %}
+
+  <section class="bp-section" aria-labelledby="bp-banks-title">
+    <h2 id="bp-banks-title">{{ S.bp_banks_title }}</h2>
+    <ul class="bp-banks">
+      {%- for b in bp_banks %}
+      {%- assign _items = bp_all | where: "bank", b.slug %}
+      {%- assign _last = _items | sort: "verified_on" | last %}
+      <li class="card spot bp-bank-card">
+        <h3><a href="{{ L }}/bpsc-interview/{{ b.slug }}/">{% if lang == 'ur' %}{{ b.name_ur }}{% else %}{{ b.name }}{% endif %}</a></h3>
+        <p class="muted">{% if lang == 'ur' %}{{ b.description_ur }}{% else %}{{ b.description }}{% endif %}</p>
+        <p class="bp-bank-meta"><span class="bp-count">{{ _items.size }} {% if _items.size == 1 %}{{ S.bp_q_one }}{% else %}{{ S.bp_q_many }}{% endif %}</span>
+          {%- if _last %} · {{ S.bp_updated }} <time datetime="{{ _last.verified_on | date: '%Y-%m-%d' }}">{% include date.html date=_last.verified_on long=true %}</time>{% endif %}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  {%- assign _most = bp_all | where: "frequency", 3 %}
+  {%- assign _new = "" | split: "" %}
+  {%- for it in bp_all %}{% assign _a = it.added | date: '%s' | plus: 0 %}{% if _a >= bp_new_after %}{% assign _new = _new | push: it %}{% endif %}{% endfor %}
+  {%- if _most.size > 0 or _new.size > 0 %}
+  <div class="bp-two">
+    {%- if _most.size > 0 %}
+    <section class="bp-section" aria-labelledby="bp-most-title">
+      <h2 id="bp-most-title">{{ S.bp_most_asked }}</h2>
+      <p class="muted">{{ S.bp_most_asked_lede }}</p>
+      <ol class="bp-qlist">
+        {%- for it in _most limit: 12 %}
+        <li><a href="{{ bp_q }}{{ it.id }}/">{% if lang == 'ur' and it.question_ur %}{{ it.question_ur | escape }}{% else %}<span{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}>{{ it.question | escape }}</span>{% endif %}</a></li>
+        {%- endfor %}
+      </ol>
+    </section>
+    {%- endif %}
+    {%- if _new.size > 0 %}
+    <section class="bp-section" aria-labelledby="bp-new-title">
+      <h2 id="bp-new-title">{{ S.bp_new_week }}</h2>
+      <ol class="bp-qlist">
+        {%- assign _new = _new | sort: "added" | reverse %}
+        {%- for it in _new limit: 12 %}
+        <li><a href="{{ bp_q }}{{ it.id }}/">{% if lang == 'ur' and it.question_ur %}{{ it.question_ur | escape }}{% else %}<span{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}>{{ it.question | escape }}</span>{% endif %}</a></li>
+        {%- endfor %}
+      </ol>
+    </section>
+    {%- endif %}
+  </div>
+  {%- endif %}
+
+  {%- assign news = site.data.pk_news %}
+  {%- if news.items.size > 0 %}
+  <section class="bp-section" aria-labelledby="bp-news-title">
+    <h2 id="bp-news-title">{{ S.bp_news_title }}</h2>
+    <ul class="bp-news-mini">
+      {%- for n in news.items limit: 5 %}
+      <li><a href="{{ n.url | escape }}" rel="noopener"{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}>{{ n.title | escape }}</a> <span class="muted">{{ n.source | escape }}</span></li>
+      {%- endfor %}
+    </ul>
+    <p><a class="link-arrow" href="{{ L }}/bpsc-interview/news/">{{ S.bp_news_all }} {% include icon.html name="arrow" px=16 %}</a></p>
+  </section>
+  {%- endif %}
+
+  {%- if bp_all.size > 0 %}
+  <section class="bp-section" aria-labelledby="bp-changes-title">
+    <h2 id="bp-changes-title">{{ S.bp_whats_new }}</h2>
+    <ul class="bp-changes">
+      {%- assign _recent = bp_all | sort: "verified_on" | reverse %}
+      {%- for it in _recent limit: 10 %}
+      {%- assign _va = it.verified_on | date: '%Y-%m-%d' %}{% assign _aa = it.added | date: '%Y-%m-%d' %}
+      <li><time datetime="{{ _va }}">{% include date.html date=it.verified_on long=true %}</time>
+        <span class="bp-badge">{% if _va <= _aa %}{{ S.bp_change_added }}{% else %}{{ S.bp_change_checked }}{% endif %}</span>
+        <a href="{{ bp_q }}{{ it.id }}/">{% if lang == 'ur' and it.question_ur %}{{ it.question_ur | escape }}{% else %}<span{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}>{{ it.question | escape }}</span>{% endif %}</a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
+  <section class="bp-section bp-how" aria-labelledby="bp-how-title">
+    <h2 id="bp-how-title">{{ S.bp_how_title }}</h2>
+    <ol>
+      <li>{{ S.bp_how_1 }}</li>
+      <li>{{ S.bp_how_2 }}</li>
+      <li>{{ S.bp_how_3 }}</li>
+    </ol>
+    <p class="bp-disclaimer">{% include icon.html name="alert" px=18 %}<span>{{ S.bp_disclaimer }}</span></p>
+  </section>
+  {% include bpsc/legal.html %}
+</div>

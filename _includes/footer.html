@@ -28,6 +28,8 @@
         <li><a href="{{ L }}/games/">{{ S.nav_games }}</a></li>
         <li><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a></li>
         <li><a href="{{ L }}/security-news/">{{ S.nav_news }}</a></li>
+        {%- if lang == 'en' or lang == 'ur' %}
+        <li><a href="{{ L }}/bpsc-interview/">{{ S.nav_bpsc }}</a></li>{% endif %}
       </ul>
     </nav>
   </div>
