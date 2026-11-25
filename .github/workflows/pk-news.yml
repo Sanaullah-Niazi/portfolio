@@ -24,6 +24,8 @@ jobs:
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      # Optional: files the brief's viva questions as "ai-suggested" issues in the private review repository.
+      BPSC_SUBMISSIONS_TOKEN: ${{ secrets.BPSC_SUBMISSIONS_TOKEN }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 

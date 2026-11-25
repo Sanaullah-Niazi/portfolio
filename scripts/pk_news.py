@@ -11,6 +11,8 @@ It:
   5. writes a short daily brief in its own words, with 3 to 5 possible viva questions, in _pk_briefs/<date>.md
      (FR-40 to FR-42), using Gemini (free, GEMINI_API_KEY) or Claude (ANTHROPIC_API_KEY), like the security brief.
      With no key, the headlines still update and the brief is skipped (FR-44).
+  6. when BPSC_SUBMISSIONS_TOKEN is set, files each viva question as an issue labelled "ai-suggested" in the private
+     repository Sanaullah-Niazi/bpsc-submissions (FR-45, FR-58), so it only reaches the banks after sana approves it.
 A feed that fails is logged and skipped; if every feed fails, the file is left as it is (NFR-12).
 
 Only the Python standard library is needed, except for Claude (`pip install anthropic`).
@@ -307,8 +309,8 @@ def write_brief(items, now):
         "date": now.strftime("%Y-%m-%d %H:%M:%S +0000"),
         "model": model,
         "sources": [{"title": recent[n]["title"], "url": recent[n]["url"], "source": recent[n]["source"]} for n in used],
-        # Shown on the brief page (FR-41). They are not added to the banks; Phase 3's workflow sends them to the
-        # approval queue as "suggested by AI" (FR-45).
+        # Shown on the brief page (FR-41). They are not added to the banks; suggest() sends them to the
+        # private approval queue as "ai-suggested" issues (FR-45, FR-58).
         "viva": [{"q": sn.clean_text(q["question"], 200), "a": sn.clean_text(q.get("answer", ""), 300)} for q in qs],
     }
     lines = ["---"]
@@ -322,7 +324,42 @@ def write_brief(items, now):
     BRIEFS_DIR.mkdir(exist_ok=True)
     path.write_text("\n".join(lines), encoding="utf-8")
     log(f"Wrote {path.relative_to(ROOT)}")
+    suggest(front["viva"], day, front["sources"])
     return True
+
+
+def suggest(viva, day, sources):
+    """Files the brief's viva questions in the private review queue (FR-58). Never publishes anything itself."""
+    token = os.environ.get("BPSC_SUBMISSIONS_TOKEN", "").strip()
+    if not token or not viva:
+        return 0
+    repo = os.environ.get("BPSC_SUBMISSIONS_REPO", "Sanaullah-Niazi/bpsc-submissions")
+    links = "\n".join(f"> {s['source']}: {s['url']}" for s in sources[:5]) or "_(none)_"
+    made = 0
+    for q in viva:
+        quote = lambda t: "\n".join("> " + l.replace("@", "@\u200b").lstrip("#") for l in t.splitlines()) or "_(none)_"
+        body = "\n".join([
+            "**Type:** new question", "**Bank:** current-affairs", "**Credit:** AI daily brief",
+            f"**Reference:** brief {day}", "", "### Question", "", quote(q["q"]), "",
+            "### Suggested answer", "", quote(q["a"]) if q["a"] else "_(none)_", "", "### Source", "", links, "",
+            "---", "Suggested by AI from the daily news brief. Check the facts before approving: add the label "
+            "**approved** to open a pull request, or close the issue with **rejected**.",
+        ])
+        req = urllib.request.Request(
+            f"https://api.github.com/repos/{repo}/issues", method="POST",
+            data=json.dumps({"title": f"[AI suggested] {q['q'][:90]}", "body": body,
+                             "labels": ["ai-suggested", "type:question", "bank:current-affairs"]}).encode(),
+            headers={"authorization": f"Bearer {token}", "accept": "application/vnd.github+json",
+                     "content-type": "application/json", "user-agent": "sanaullahniazi.com-pk-news",
+                     "x-github-api-version": "2022-11-28"})
+        try:
+            with urllib.request.urlopen(req, timeout=20):
+                made += 1
+        except (urllib.error.URLError, OSError) as e:
+            log(f"Could not file a viva question ({e}); the brief is still published.")
+            break
+    log(f"Filed {made} viva questions for review.")
+    return made
 
 
 # ---------------------------------------------------------------- feed check (--check)

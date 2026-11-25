@@ -9,9 +9,9 @@ interviews:
   official: https://bpsc.gob.pk/
 # How many days an item counts as "New" after its added date.
 new_days: 7
-# Zones that the submission form and the "Asked in my zone" filter offer, besides any zone already in the banks.
+# Zones offered on the question form (/bpsc-interview/submit/). The "Asked in my zone" filter uses the zones in the banks.
 # [Check] against the BPSC call letter before launch.
-zones: [Quetta, Kalat, Makran, Naseerabad, Rakhshan, Sibi, Zhob, Loralai]
+zones: [Quetta, Pishin, Kalat, Makran, Naseerabad, Rakhshan, Sibi, Zhob, Loralai]
 # Spelling variants that search treats as the same word (FR-17). The first word in each list is the one used.
 # Words are matched without case and without hyphens or apostrophes, so "Quaid-e-Azam" is written quaideazam here.
 synonyms:

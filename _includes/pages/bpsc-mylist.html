@@ -1,0 +1,21 @@
+{%- comment -%} "My list" (/bpsc-interview/my-list/), FR-24 and FR-25: the questions saved with the star, kept in localStorage only. {%- endcomment -%}
+{% include bpsc/basics.html %}
+<div class="wrap page bp">
+  <p class="eyebrow crumbs"><a href="{{ L }}/bpsc-interview/"><span class="back-arrow" aria-hidden="true">←</span> {{ S.bp_all_banks }}</a></p>
+  <header class="page-head bp-head">
+    <p class="eyebrow">{{ S.bp_eyebrow }}</p>
+    <h1>{{ S.bp_mylist_title }}</h1>
+    <p class="lede">{{ S.bp_mylist_lede }}</p>
+  </header>
+  <p class="bp-warn bp-storage-off" hidden>{{ S.bp_storage_off }}</p>
+  <section class="bp-mylist" data-index="/bpsc-interview/index.json" data-q="{{ bp_q }}" data-lang="{{ lang }}" data-remove="{{ S.bp_remove }}"
+    data-loading="{{ S.bp_loading }}" data-error="{{ S.bp_load_error }}" data-own="{{ S.bp_own_title }}">
+    <p class="empty bp-list-empty">{{ S.bp_mylist_empty }}</p>
+    <div class="btn-row bp-tools bp-list-tools" hidden>
+      <button class="btn bp-print" type="button">{% include icon.html name="download" px=18 %}{{ S.bp_print }}</button>
+      <button class="btn bp-list-clear" type="button">{{ S.bp_mylist_clear }}</button>
+    </div>
+    <ol class="bp-list"></ol>
+  </section>
+  {% include bpsc/legal.html %}
+</div>

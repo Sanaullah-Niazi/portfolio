@@ -47,7 +47,7 @@
         </summary>
         <div class="bp-q-body">
           {% include bpsc/item-body.html it=it %}
-          <p class="bp-q-links"><a href="{{ bp_q }}{{ it.id }}/">{{ S.bp_open_q }}</a><a href="{{ L }}/bpsc-interview/submit/?type=correction&amp;id={{ it.id }}">{{ S.bp_report }}</a></p>
+          <p class="bp-q-links"><button class="bp-star" type="button" data-id="{{ it.id }}" aria-pressed="false" data-on="{{ S.bp_saved }}" data-off="{{ S.bp_save }}" hidden><span aria-hidden="true">☆</span> <span class="bp-star-label">{{ S.bp_save }}</span></button><a href="{{ bp_q }}{{ it.id }}/">{{ S.bp_open_q }}</a><a href="{{ L }}/bpsc-interview/submit/?type=correction&amp;id={{ it.id }}">{{ S.bp_report }}</a></p>
         </div>
       </details>
       {%- endfor %}

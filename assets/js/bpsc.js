@@ -5,6 +5,44 @@
   "use strict";
   var DAY = 86400000;
 
+  // The visitor's saved list and practice progress live in localStorage only (FR-23, FR-24). If the browser blocks
+  // storage, everything still works for this visit, from memory.
+  var memory = {}, storageOk = true;
+  try { var t = "__bp"; localStorage.setItem(t, t); localStorage.removeItem(t); } catch (e) { storageOk = false; }
+  var store = window.bpscStore = {
+    ok: storageOk,
+    get: function (k, dflt) {
+      try { if (storageOk) { var v = localStorage.getItem(k); return v ? JSON.parse(v) : dflt; } } catch (e) { /* fall through */ }
+      return k in memory ? memory[k] : dflt;
+    },
+    set: function (k, v) {
+      memory[k] = v;
+      try { if (storageOk) localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* memory only */ }
+    },
+  };
+  if (!storageOk) document.querySelectorAll(".bp-storage-off").forEach(function (p) { p.hidden = false; });
+
+  // "Save to my list" stars (FR-24).
+  function syncStars() {
+    var saved = store.get("bpsc-list", []);
+    document.querySelectorAll(".bp-star").forEach(function (b) {
+      var on = saved.indexOf(b.dataset.id) >= 0;
+      b.hidden = false;
+      b.setAttribute("aria-pressed", String(on));
+      b.firstElementChild.textContent = on ? "★" : "☆";
+      b.querySelector(".bp-star-label").textContent = on ? b.dataset.on : b.dataset.off;
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest(".bp-star");
+    if (!b) return;
+    var saved = store.get("bpsc-list", []), i = saved.indexOf(b.dataset.id);
+    if (i >= 0) saved.splice(i, 1); else saved.push(b.dataset.id);
+    store.set("bpsc-list", saved);
+    syncStars();
+  });
+  syncStars();
+
   function today() { var d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
   function parseDay(s) { var p = String(s).split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
 

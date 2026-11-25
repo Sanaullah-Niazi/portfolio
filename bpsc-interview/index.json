@@ -6,13 +6,13 @@ permalink: /bpsc-interview/index.json
 {%- comment -%}
   The search index of the BPSC section (FR-16), read by assets/js/bpsc.js the first time someone searches.
   One entry per built item: i id, b bank, c category, q question, qu Urdu question, s short answer, a answer as plain
-  text, t tags, z zones, f frequency, d added date, k check_again. "news" holds the newest Pakistan headlines
+  text, t tags, z zones, f frequency, d added date, k check_again, p personal. "news" holds the newest Pakistan headlines
   (t title, u link, s source, d date, g topics), so a search for "Gwadar" also finds the news.
 {%- endcomment -%}
 {%- assign L = '' %}{% include bpsc/load.html -%}
 {"v":"{{ site.time | date: '%s' }}","items":[
 {%- for it in bp_all %}
-{"i":{{ it.id | jsonify }},"b":{{ it.bank | jsonify }},"c":{{ it.category | jsonify }},"q":{{ it.question | jsonify }}{% if it.question_ur %},"qu":{{ it.question_ur | jsonify }}{% endif %},"s":{{ it.short_answer | default: "" | jsonify }},"a":{{ it.answer | markdownify | strip_html | normalize_whitespace | jsonify }},"t":{{ it.tags | jsonify }},"z":{{ it.asked_in | jsonify }},"f":{{ it.frequency | default: 1 }},"d":"{{ it.added | date: '%Y-%m-%d' }}"{% if it.check_again %},"k":1{% endif %}}{% unless forloop.last %},{% endunless %}
+{"i":{{ it.id | jsonify }},"b":{{ it.bank | jsonify }},"c":{{ it.category | jsonify }},"q":{{ it.question | jsonify }}{% if it.question_ur %},"qu":{{ it.question_ur | jsonify }}{% endif %},"s":{{ it.short_answer | default: "" | jsonify }},"a":{{ it.answer | markdownify | strip_html | normalize_whitespace | jsonify }},"t":{{ it.tags | jsonify }},"z":{{ it.asked_in | jsonify }},"f":{{ it.frequency | default: 1 }},"d":"{{ it.added | date: '%Y-%m-%d' }}"{% if it.check_again %},"k":1{% endif %}{% if it.personal %},"p":1{% endif %}}{% unless forloop.last %},{% endunless %}
 {%- endfor %}],"news":[
 {%- for n in site.data.pk_news.items limit: 800 %}
 {"t":{{ n.title | jsonify }},"u":{{ n.url | jsonify }},"s":{{ n.source | jsonify }},"d":"{{ n.published | slice: 0, 10 }}","g":{{ n.topics | jsonify }}}{% unless forloop.last %},{% endunless %}

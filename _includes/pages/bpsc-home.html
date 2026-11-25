@@ -20,6 +20,13 @@
     {% include bpsc/share.html text=S.bp_share_text %}
   </header>
 
+  <nav class="bp-quick" aria-label="{{ S.bp_title }}">
+    <a href="{{ L }}/bpsc-interview/practice/">{% include icon.html name="dice" px=22 %}<span>{{ S.bp_practice }}</span></a>
+    <a href="{{ L }}/bpsc-interview/news/">{% include icon.html name="megaphone" px=22 %}<span>{{ S.nav_bpsc_news }}</span></a>
+    <a href="{{ L }}/bpsc-interview/my-list/">{% include icon.html name="heart" px=22 %}<span>{{ S.bp_mylist }}</span></a>
+    <a href="{{ L }}/bpsc-interview/submit/">{% include icon.html name="pen" px=22 %}<span>{{ S.bp_form }}</span></a>
+  </nav>
+
   {% include bpsc/search.html %}
 
   <section class="bp-section" aria-labelledby="bp-banks-title">

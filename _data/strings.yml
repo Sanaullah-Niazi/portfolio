@@ -456,3 +456,62 @@ bp_brief_note: "Written by AI from news headlines. Check the original reports."
 bp_brief_viva: Possible viva questions
 bp_brief_sources: Headlines this brief is based on
 bp_brief_all: All current affairs
+bp_save: Save to my list
+bp_saved: Saved to my list
+bp_mylist: My list
+bp_mylist_title: My saved questions
+bp_mylist_lede: "Questions you saved with the star. They are kept only in this browser, on this phone or computer, with no account."
+bp_mylist_empty: "Nothing saved yet. Tap \"Save to my list\" under any answer."
+bp_mylist_clear: Remove all
+bp_remove: Remove
+bp_storage_off: "This browser is not letting the site save anything, so your list and progress last only until you close the page."
+bp_practice: Practice
+bp_practice_title: Practice
+bp_practice_lede: "Flashcards to revise answers, and a mock interview with ten random questions in the usual panel mix. Your progress stays in this browser only."
+bp_pr_cards: Flashcards
+bp_pr_mock: Mock interview
+bp_pr_banks: Banks to practise
+bp_pr_only_review: Only my "review again" cards
+bp_pr_start: Start
+bp_pr_reveal: Show answer
+bp_pr_knew: I knew it
+bp_pr_again: Review again
+bp_pr_next: Next question
+bp_pr_full: Open the full answer
+bp_pr_progress: "[k] known, [r] to review"
+bp_pr_reset: Reset my progress
+bp_pr_done: "That's all the cards for now. Well done!"
+bp_pr_mock_lede: "10 questions like a real panel: 3 about you, 2 Islamiat, 2 Pakistan or Balochistan, 2 IT and 1 current affairs. Answer each one out loud before you open the answer."
+bp_pr_timer: "60-second timer for each question"
+bp_pr_q_of: "Question [n] of [t]"
+bp_pr_time_up: "Time's up. Finish your sentence and move on."
+bp_pr_mock_done: "Mock interview finished. Try another one, or practise the questions you found hard with the flashcards."
+bp_pr_again_mock: New mock interview
+bp_form: Send a question
+bp_form_title: Send a question or a correction
+bp_form_lede: "Asked something in your interview? Know a better answer, or found a mistake? Send it here. Nothing appears on the site until it has been checked and approved."
+bp_f_type: What are you sending?
+bp_f_type_question: A new question
+bp_f_type_answer: A better answer
+bp_f_type_correction: A correction
+bp_f_type_report: What a panel asked me
+bp_f_bank_lbl: Which bank?
+bp_f_not_sure: Not sure
+bp_f_question: Question
+bp_f_answer: Suggested answer (optional)
+bp_f_qid: Question id
+bp_f_zone_lbl: Zone where it was asked (optional)
+bp_f_date: Date asked (optional)
+bp_f_source: Source, a link or a book name (optional)
+bp_f_name: First name to credit (optional, empty means Anonymous)
+bp_f_consent: "I agree this may be edited and published on this site."
+bp_f_privacy: "Please don't write your phone number, email, CNIC or roll number. Any that are pasted are removed before saving."
+bp_f_send: Send
+bp_f_sending: "Sending…"
+bp_f_thanks: "Thank you, it will appear after review. Your reference number is [ref]."
+bp_f_err_captcha: "The check that you're a person didn't work. Please try again."
+bp_f_err_limit: "You've sent 5 today, the most for one day. Thank you! Please send more tomorrow."
+bp_f_err_long: "Something is too long. Please shorten it."
+bp_f_err_consent: "Please tick the box to agree."
+bp_f_err_other: "It couldn't be sent just now. Please try again in a few minutes."
+bp_f_off: "The form is not switched on yet. Please check again soon."

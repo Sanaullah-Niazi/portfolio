@@ -59,6 +59,9 @@ LAB_RUNS_PER_DAY = "700"
 YT_PER_HOUR = "60"
 YT_PER_DAY = "3000"
 YT_TRANSCRIPTS = "on"
+# BPSC question form (/bpsc-interview/submit/): submissions per visitor per day, and the private repository that gets them.
+BPSC_PER_DAY = "5"
+BPSC_REPO = "Sanaullah-Niazi/bpsc-submissions"
 
 # Secrets, set with `npx wrangler secret put NAME` (never commit them):
 #   PSI_KEY           Google PageSpeed Insights API key
@@ -66,3 +69,5 @@ YT_TRANSCRIPTS = "on"
 #   SSL_LABS_EMAIL    (optional) the email you registered with SSL Labs; leave unset to turn SSL Labs off
 #   HASH_SALT         (optional) any long random text, used to hash IP addresses for the rate limit
 #   YT_KEY            YouTube Data API v3 key, for the YouTube tools (thumbnails work without it)
+#   BPSC_GITHUB_TOKEN fine-grained GitHub token for the BPSC question form: repository Sanaullah-Niazi/bpsc-submissions
+#                     only, permission Issues: read and write, nothing else

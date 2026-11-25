@@ -8,6 +8,9 @@
 //   POST /lab/session          {token}                     checks the CAPTCHA, returns {key, runs, expires}
 //   POST /lab/run              header X-Lab-Key, {text, mode, level}   one attack on the demo bot
 //
+// And the BPSC interview prep question form (/bpsc-interview/submit/, the route is in bpsc.js):
+//   POST /bpsc/submit          {type, bank, question, ..., token}   opens an issue in the private bpsc-submissions repo
+//
 // And the YouTube creator tools (/tools/youtube/, the routes are in yt.js):
 //   GET  /yt/video, /yt/channel, /yt/outliers, /yt/report, /yt/suggest, /yt/categories, /yt/trending, /yt/transcript, /yt/thumb
 //
@@ -21,6 +24,7 @@ import { runSsl } from "./ssl.js";
 import { buildReport } from "./report.js";
 import { attack, LEVELS } from "./lab.js";
 import { handleYt } from "./yt.js";
+import { submit as bpscSubmit } from "./bpsc.js";
 import { allowedOrigins, originAllowed, clientIp, withinBurst, daySpent, markDaySpent } from "./guard.js";
 
 const PARTS = {
@@ -54,6 +58,7 @@ export default {
       else if (request.method === "GET" && parts[0] === "report" && parts.length === 2) body = await getReport(env, parts[1]);
       else if (request.method === "POST" && parts[0] === "lab" && parts[1] === "session" && parts.length === 2) body = await startLab(request, env);
       else if (request.method === "POST" && parts[0] === "lab" && parts[1] === "run" && parts.length === 2) body = await runLab(request, env);
+      else if (request.method === "POST" && parts[0] === "bpsc" && parts[1] === "submit" && parts.length === 2) body = await submitBpsc(request, env, who);
       else if (request.method === "GET" && parts.length === 0) body = { ok: true, ssl: !!env.SSL_LABS_EMAIL, psi: !!env.PSI_KEY, lab: !!env.AI, yt: !!env.YT_KEY };
       else throw codeError("not_found", 404);
       return json(body, 200, cors);
@@ -284,6 +289,22 @@ async function rateLimit(env, ip, now) {
   ]);
   if (a.results[0].n > num(env.SCANS_PER_HOUR, 5)) throw codeError("rate_limited", 429);
   if (b.results[0].n > num(env.SCANS_PER_DAY, 300)) { markDaySpent("scan", day); throw codeError("daily_limit", 429); }
+}
+
+// BPSC question form: 5 submissions per visitor per day (FR-49).
+async function submitBpsc(request, env, who) {
+  const input = await readJson(request);
+  const ip = request.headers.get("cf-connecting-ip") || "unknown";
+  return bpscSubmit(input, env, {
+    verify: (token) => verifyTurnstile(env, token, ip),
+    limit: async () => {
+      const day = Math.floor(Date.now() / 86400_000);
+      const k = `bp:${await sha256(who + (env.HASH_SALT || env.TURNSTILE_SECRET || ""))}:${day}`;
+      const r = await env.DB.prepare("INSERT INTO hits (k, n, reset) VALUES (?, 1, ?) ON CONFLICT(k) DO UPDATE SET n = n + 1 RETURNING n")
+        .bind(k, (day + 1) * 86400_000).first();
+      if (r.n > num(env.BPSC_PER_DAY, 5)) throw codeError("rate_limited", 429);
+    },
+  });
 }
 
 // The YouTube tools: lookups per visitor per hour, and for everyone per day (keeps inside the free API quota).

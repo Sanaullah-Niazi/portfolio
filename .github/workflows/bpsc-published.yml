@@ -1,0 +1,33 @@
+# After a pull request made from an approved BPSC submission is merged (branch bpsc/submission-<issue>), comments
+# "Published" with the question's link on that issue in the private bpsc-submissions repository and closes it (FR-57).
+# Needs the BPSC_SUBMISSIONS_TOKEN secret (fine-grained, bpsc-submissions only, Issues: read and write).
+name: BPSC published
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  close:
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'bpsc/submission-')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Comment and close the submission
+        env:
+          GH_TOKEN: ${{ secrets.BPSC_SUBMISSIONS_TOKEN }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then echo "::warning::BPSC_SUBMISSIONS_TOKEN is not set."; exit 0; fi
+          number="${BRANCH#bpsc/submission-}"
+          case "$number" in ''|*[!0-9]*) echo "::error::Not a submission branch."; exit 1;; esac
+          item=$(printf '%s' "$BODY" | sed -n 's/.*<!-- bpsc-item: \([a-z]\{2,5\}-[0-9]\{3,\}\) -->.*/\1/p' | head -1)
+          link="https://sanaullahniazi.com/bpsc-interview/"
+          [ -n "$item" ] && link="https://sanaullahniazi.com/bpsc-interview/q/$item/"
+          gh issue comment "$number" --repo Sanaullah-Niazi/bpsc-submissions --body "Published: $link (live within a few minutes of the merge)."
+          gh issue close "$number" --repo Sanaullah-Niazi/bpsc-submissions --reason completed
