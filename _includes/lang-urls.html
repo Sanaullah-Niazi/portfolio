@@ -8,6 +8,7 @@
 {%- comment -%} The BPSC section exists in English and Urdu for every page, and nowhere else: no lookup needed. {%- endcomment -%}
 {%- if page.bpsc -%}
   {%- if include.code == 'en' -%}{%- assign alt_url = _base -%}
+  {%- elsif include.code == 'ur' and page.bpsc_en_only -%}{%- assign alt_url = '/ur/bpsc-interview/news/' -%}{%- assign alt_exists = false -%}
   {%- elsif include.code == 'ur' -%}{%- assign alt_url = '/ur' | append: _base -%}
   {%- else -%}{%- assign alt_url = '/' | append: include.code | append: '/' -%}{%- assign alt_exists = false -%}{%- endif -%}
 {%- elsif include.code == 'en' -%}

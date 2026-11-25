@@ -10,7 +10,7 @@
   data-synonyms="{{ bp.synonyms | jsonify | escape }}" data-new-days="{{ bp.new_days }}"
   data-res-one="{{ S.bp_res_one }}" data-res-many="{{ S.bp_res_many }}" data-none="{{ S.bp_no_results }}" data-loading="{{ S.bp_loading }}"
   data-error="{{ S.bp_load_error }}" data-more="{{ S.bp_show_more }}" data-new="{{ S.bp_new }}"
-  data-freq1="{{ S.bp_freq_1 }}" data-freq2="{{ S.bp_freq_2 }}" data-freq3="{{ S.bp_freq_3 }}">
+  data-news="{{ S.bp_news_in_search }}" data-freq1="{{ S.bp_freq_1 }}" data-freq2="{{ S.bp_freq_2 }}" data-freq3="{{ S.bp_freq_3 }}">
   <form class="bp-search-form" role="search" action="{{ L }}/bpsc-interview/">
     <label class="bp-search-label" id="bp-search-label" for="bp-q">{{ S.bp_search_label }}</label>
     <div class="bp-search-row">
@@ -50,4 +50,5 @@
   <p class="bp-res-status" id="bp-res-status" role="status" aria-live="polite"></p>
   <ol class="bp-results" hidden></ol>
   <button class="btn bp-more" type="button" hidden>{{ S.bp_show_more }}</button>
+  <div class="bp-news-res" hidden><h3>{{ S.bp_news_in_search }}</h3><ul></ul></div>
 </section>

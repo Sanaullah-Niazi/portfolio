@@ -1,0 +1,35 @@
+---
+layout: default
+---
+{% include i18n.html %}
+{%- comment -%} A daily Pakistan current affairs brief, written by scripts/pk_news.py. AI-written, so the page says so (FR-42) and lists every source. {%- endcomment -%}
+<article class="wrap page bp">
+  <p class="eyebrow crumbs"><a href="{{ L }}/bpsc-interview/news/"><span class="back-arrow" aria-hidden="true">←</span> {{ S.bp_brief_all }}</a></p>
+  <header class="page-head bp-head">
+    <p class="eyebrow">{{ S.bp_news_brief }}</p>
+    <h1>{{ page.title | escape }}</h1>
+    <p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date long=true %}</time></p>
+    <p class="sn-note">{{ S.bp_brief_note }}</p>
+  </header>
+  <div class="prose">
+    {{ content }}
+    {% if page.viva.size > 0 %}
+    <h2>{{ S.bp_brief_viva }}</h2>
+    <ol class="bp-viva">
+      {%- for v in page.viva %}
+      <li><strong>{{ v.q | escape }}</strong>{% if v.a != "" %}<br>{{ v.a | escape }}{% endif %}</li>
+      {%- endfor %}
+    </ol>
+    {% endif %}
+    {% if page.sources.size > 0 %}
+    <h2>{{ S.bp_brief_sources }}</h2>
+    <ul>
+      {%- for s in page.sources %}
+      <li><a href="{{ s.url | escape }}" rel="noopener">{{ s.title | escape }}</a> <span class="muted">({{ s.source | escape }})</span></li>
+      {%- endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  {% include bpsc/share.html text=page.title %}
+  {% include bpsc/legal.html %}
+</article>

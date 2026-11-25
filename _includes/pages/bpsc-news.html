@@ -1,0 +1,76 @@
+{%- comment -%}
+  Pakistan and Balochistan current affairs (/bpsc-interview/news/), FR-34 to FR-46. Headlines from _data/pk_news.json
+  and daily briefs from _pk_briefs/, both written by scripts/pk_news.py (run each morning by .github/workflows/pk-news.yml).
+  The news stays in English, so it carries lang="en" on the Urdu page. The page itself is noindex (other sites' text).
+{%- endcomment -%}
+{%- assign news = site.data.pk_news -%}
+{%- assign briefs = site.pk_briefs | sort: 'date' | reverse -%}
+{%- capture en_attr %}{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}{% endcapture -%}
+<div class="wrap page bp sn">
+  <p class="eyebrow crumbs"><a href="{{ L }}/bpsc-interview/"><span class="back-arrow" aria-hidden="true">←</span> {{ S.bp_all_banks }}</a></p>
+  <header class="page-head bp-head">
+    <p class="eyebrow">{{ S.bp_news_eyebrow }}</p>
+    <h1>{{ S.bp_news_page_title }}</h1>
+    <p class="lede">{{ S.bp_news_lede }}</p>
+    {% if news.updated and news.updated != '' %}<p class="meta">{{ S.bp_news_updated }}: <time datetime="{{ news.updated }}">{% include date.html date=news.updated long=true %}, {{ news.updated | date: '%H:%M' }} UTC</time></p>{% endif %}
+    {% include bpsc/share.html text=S.bp_news_page_title %}
+  </header>
+
+  {% if briefs.size > 0 %}{% assign b = briefs.first %}
+  <section class="sn-brief" aria-labelledby="bp-brief-title">
+    <p class="eyebrow">{{ S.bp_news_brief }} · <time datetime="{{ b.date | date_to_xmlschema }}">{% include date.html date=b.date long=true %}</time></p>
+    <h2 id="bp-brief-title"{{ en_attr }}><a href="{{ b.url | relative_url }}">{{ b.title | escape }}</a></h2>
+    {% if b.description %}<p{{ en_attr }}>{{ b.description | escape }}</p>{% endif %}
+    <p><a class="link-arrow" href="{{ b.url | relative_url }}">{{ S.bp_news_brief_read }} {% include icon.html name="arrow" px=16 %}</a></p>
+    {% if briefs.size > 1 %}
+    <details class="sn-older">
+      <summary>{{ S.bp_news_briefs_older }}</summary>
+      <ul>
+        {%- for o in briefs offset:1 limit:60 %}
+        <li><time datetime="{{ o.date | date_to_xmlschema }}">{% include date.html date=o.date long=true %}</time> <a href="{{ o.url | relative_url }}"{{ en_attr }}>{{ o.title | escape }}</a></li>
+        {%- endfor %}
+      </ul>
+    </details>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  <section class="sn-section" aria-labelledby="bp-latest-title">
+    <h2 id="bp-latest-title">{{ S.bp_news_latest }}</h2>
+    {% if news.items.size > 0 %}
+    {%- assign topics = "balochistan,politics,economy,foreign,afghanistan,education,days,international,sports" | split: "," %}
+    <div class="filter" role="group" aria-labelledby="filter-label-pk">
+      <span class="filter-label" id="filter-label-pk">{{ S.filter_label }}</span>
+      <button type="button" class="chip-btn" aria-pressed="true" data-topic="">{{ S.filter_all }}</button>
+      {%- for t in topics %}{% assign tk = 'bp_topic_' | append: t %}
+      <button type="button" class="chip-btn{% if t == 'balochistan' %} bp-pin{% endif %}" aria-pressed="false" data-topic="{{ t }}">{{ S[tk] }}</button>
+      {%- endfor %}
+      <p class="filter-status sr-only" role="status" aria-live="polite"></p>
+    </div>
+    <ol class="sn-list" data-filterable data-shown-one="{{ S.bp_news_shown_one }}" data-shown-many="{{ S.bp_news_shown_many }}">
+      {%- for it in news.items limit: 400 %}
+      <li data-topics="{{ it.topics | join: '|' | escape }}">
+        <p class="sn-meta"><span class="sn-source">{{ it.source | escape }}</span> · <time datetime="{{ it.published | escape }}">{% include date.html date=it.published long=true %}</time></p>
+        <h3{{ en_attr }}><a href="{{ it.url | escape }}" rel="noopener">{{ it.title | escape }}</a></h3>
+        {% if it.excerpt != "" %}<p class="sn-excerpt"{{ en_attr }}>{{ it.excerpt | escape }}</p>{% endif %}
+        {% if it.also.size > 0 %}<p class="bp-also">{{ S.bp_news_also }}: {% for a in it.also %}<a href="{{ a.url | escape }}" rel="noopener">{{ a.source | escape }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>{% endif %}
+        {% if it.topics.size > 0 %}<ul class="tags" aria-label="{{ S.topics }}">{% for t in it.topics %}{% assign tk = 'bp_topic_' | append: t %}<li>{{ S[tk] | default: t | escape }}</li>{% endfor %}</ul>{% endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+    {% else %}
+    <p class="empty">{{ S.bp_news_empty }}</p>
+    {% endif %}
+  </section>
+
+  <section class="sn-section sn-about" aria-labelledby="bp-src-title">
+    <h2 id="bp-src-title">{{ S.bp_news_sources }}</h2>
+    <p>{{ S.bp_news_about }}</p>
+    <ul class="sn-sources">
+      {%- for s in news.sources %}
+      <li><a href="{{ s.home | escape }}" rel="noopener">{{ s.name | escape }}</a>{% unless s.ok %} <span class="muted">({{ S.bp_news_failed }})</span>{% endunless %}</li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {% include bpsc/legal.html %}
+</div>

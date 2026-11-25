@@ -100,7 +100,8 @@
     return out;
   }
 
-  var items = null, loading = null, shown = 30, results = [];
+  var items = null, news = [], loading = null, shown = 30, results = [];
+  var newsBox = box.querySelector(".bp-news-res");
   function load() {
     if (loading) return loading;
     status.textContent = box.dataset.loading;
@@ -113,6 +114,7 @@
         it.hay = it.qw + words([it.s, it.a, it.c, (it.t || []).join(" ")].join(" "), true).join(" ") + " ";
         return it;
       });
+      news = (data.news || []).map(function (n) { n.hay = " " + words(n.t, true).join(" ") + " "; return n; });
     }).catch(function () { loading = null; status.textContent = box.dataset.error; });
     return loading;
   }
@@ -145,7 +147,7 @@
   function run() {
     syncCats();
     syncUrl();
-    if (!active()) { list.hidden = true; more.hidden = true; status.textContent = ""; list.textContent = ""; return; }
+    if (!active()) { list.hidden = true; more.hidden = true; newsBox.hidden = true; status.textContent = ""; list.textContent = ""; return; }
     if (!items) { load().then(function () { if (items) run(); }); return; }
     var terms = words(input.value, false);
     var minF = +fFreq.value || 0, cutoff = new Date(today().getTime() - newDays * DAY);
@@ -169,6 +171,21 @@
     results.sort(function (a, b) { return b.score - a.score; });
     shown = 30;
     render(terms);
+    // Headlines that match too, when only words are searched (the filters are about questions).
+    var hits = [];
+    if (terms.length && !bank && !cat && !minF && !zone && !onlyNew) {
+      for (var k = 0; k < news.length && hits.length < 8; k++) {
+        var n = news[k], all = true;
+        for (var m = 0; m < terms.length; m++) if (n.hay.indexOf(" " + terms[m]) < 0) { all = false; break; }
+        if (all) hits.push(n);
+      }
+    }
+    var re = marker(terms);
+    newsBox.querySelector("ul").innerHTML = hits.map(function (n) {
+      return '<li><a href="' + esc(n.u) + '" rel="noopener" lang="en" dir="ltr">' + mark(n.t, re) + '</a> <span class="muted">' + esc(n.s) + " · " + esc(n.d) + "</span></li>";
+    }).join("");
+    newsBox.hidden = hits.length === 0;
+    if (!results.length && hits.length) status.textContent = box.dataset.none;
   }
 
   // Highlight the searched words (and their spelling variants) at the start of words in the text.

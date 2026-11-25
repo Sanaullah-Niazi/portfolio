@@ -92,6 +92,10 @@ collections:
   # The BPSC section's bank and question pages, written by scripts/bpsc_pages.rb before each build (git ignores _bpsc/).
   bpsc:
     output: true
+  # Daily Pakistan current affairs briefs for the BPSC section, written by scripts/pk_news.py (.github/workflows/pk-news.yml).
+  pk_briefs:
+    output: true
+    permalink: /bpsc-interview/news/:name/
 
 defaults:
   - scope: { path: "" }
@@ -109,6 +113,8 @@ defaults:
     values: { layout: post }
   - scope: { path: "", type: briefs }
     values: { layout: brief }
+  - scope: { path: "", type: pk_briefs }
+    values: { layout: pk-brief, bpsc: true, bpsc_en_only: true, scripts: [/assets/js/bpsc.js] }
   # Pages where ads may be shown later (see "ads" above). Nowhere else.
   - scope: { path: "tools" }
     values: { ads: true }

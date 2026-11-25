@@ -2406,3 +2406,11 @@ html[lang="ur"] .footer-mark span, html[lang="ur"] .brand-name { font-family: va
 .bp-soon-badge { background: var(--bg-2); color: var(--muted); }
 .bp-answer table { border-collapse: collapse; width: 100%; font-size: 15px; display: block; overflow-x: auto; }
 .bp-answer th, .bp-answer td { border: 1px solid var(--line); padding: 6px 10px; text-align: start; vertical-align: top; }
+.bp-news-res { display: grid; gap: 6px; padding-top: 6px; }
+.bp-news-res h3 { font-size: 17px; }
+.bp-news-res ul { list-style: none; margin: 0; padding: 0; display: grid; }
+.bp-news-res li { padding: 10px 0; border-top: 1px solid var(--line); }
+.bp-news-res a { font-weight: 500; text-decoration: none; }
+.bp-also { margin: 2px 0 0; font-size: 14.5px; color: var(--muted); }
+.bp-pin[aria-pressed="false"] { border-color: color-mix(in srgb, var(--accent-2) 60%, var(--line)); }
+.bp-viva { padding-left: 1.4em; display: grid; gap: 10px; }
