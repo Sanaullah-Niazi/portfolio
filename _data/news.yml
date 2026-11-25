@@ -1,10 +1,6 @@
 # Short news items for the "News" strip on the home page (newest first). Only the first 5 are shown there;
 # the Research page lists all of them.
 # kind: paper, talk, award, degree, course or other (sets the little icon). link is optional.
-- date: 2026-10-01
-  kind: other
-  text: Scored IELTS Academic 6.5 (B2) and started learning German.
-  link: ""
 - date: 2026-07-01
   kind: course
   text: Completed "IoT for Everyone" (UET Peshawar / HEC, Coursera).

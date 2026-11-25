@@ -1,7 +1,7 @@
 lang: de
 dir: ltr
 title: MS Künstliche Intelligenz | Cybersicherheit & KI-gestützte Bedrohungserkennung
-creds: Cisco Junior Cybersecurity Analyst · Cisco Ethical Hacker · NAVTTC Digitale Forensik · IELTS 6.5
+creds: Cisco Junior Cybersecurity Analyst · Cisco Ethical Hacker · NAVTTC Digitale Forensik
 location: Pakistan
 footer: Lebenslauf
 page: "Seite [n] von [t]"
@@ -9,7 +9,6 @@ stats:
   - [CGPA 3.66 / 4.00, MS Künstliche Intelligenz, IUB]
   - [3 Publikationen, Begutachtete Zeitschriften, 2026]
   - [2+ Jahre Lehre, Gastdozent, Fachbereich IT]
-  - [IELTS 6.5 (B2), Academic, Oktober 2026]
 h:
   profile: Profil
   education: Ausbildung
@@ -85,7 +84,7 @@ skills:
   - [KI / Daten, "Python, PyTorch, TensorFlow/Keras, Hugging Face Transformers, scikit-learn, LightGBM, NumPy, Pandas, Matplotlib; NLP und Textklassifikation"]
   - [Systeme & Web, "Rechnernetze, Linux (Ubuntu), Arduino und IoT-Sensoren, HTML, CSS, Web Scraping und Automatisierungsskripte, Git/GitHub, Jupyter, Kaggle"]
 languages:
-  - [Sprachen, "Englisch – fließend (IELTS Academic 6.5, B2; BS und MS auf Englisch unterrichtet) · Deutsch – Anfänger, seit Oktober 2026 · Paschtu und Saraiki – Muttersprachen · Urdu und Punjabi – fließend"]
+  - [Sprachen, "Englisch – fließend (BS und MS auf Englisch unterrichtet) · Paschtu und Saraiki – Muttersprachen · Urdu und Punjabi – fließend"]
   - [Interessen, "Fußball (Verteidiger) und Cricketturniere, Wandern in den Bergen, traditionelle Küche, UFC"]
 references: Auf Anfrage erhältlich.
 statement:

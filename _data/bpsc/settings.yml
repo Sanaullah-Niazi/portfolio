@@ -2,10 +2,9 @@
 # The interview window shown at the top of the landing page. Take the dates from the BPSC call letter.
 interviews:
   post: "IT Teacher (BPS-17)"
-  zone: Quetta Zone
-  zone_ur: کوئٹہ زون
-  from: 2026-12-14
-  to: 2026-12-24
+  # The interviews are for all candidates across Balochistan, not one zone: female candidates first, then male.
+  # Leave "to" out while BPSC has not announced the last day; the page then says "started" instead of a range.
+  from: 2026-11-22
   official: https://bpsc.gob.pk/
 # How many days an item counts as "New" after its added date.
 new_days: 7

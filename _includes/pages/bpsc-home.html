@@ -5,16 +5,15 @@
 {% include bpsc/load.html %}
 {%- assign iv = bp.interviews -%}
 {%- capture _from %}{% include date.html date=iv.from long=true %}{% endcapture -%}
-{%- capture _to %}{% include date.html date=iv.to long=true %}{% endcapture -%}
-{%- if lang == 'ur' %}{% assign _zone = iv.zone_ur %}{% else %}{% assign _zone = iv.zone %}{% endif -%}
+{%- if iv.to %}{% capture _to %}{% include date.html date=iv.to long=true %}{% endcapture %}{% endif -%}
 <div class="wrap page bp">
   <header class="page-head bp-head">
     <p class="eyebrow">{{ S.bp_eyebrow }}</p>
     <h1>{{ S.bp_title }}</h1>
     <p class="lede">{{ S.bp_lede }}</p>
-    <div class="bp-window" data-from="{{ iv.from | date: '%Y-%m-%d' }}" data-to="{{ iv.to | date: '%Y-%m-%d' }}"
+    <div class="bp-window" data-from="{{ iv.from | date: '%Y-%m-%d' }}" data-to="{% if iv.to %}{{ iv.to | date: '%Y-%m-%d' }}{% endif %}"
       data-left="{{ S.bp_days_left }}" data-left-one="{{ S.bp_day_left }}" data-on="{{ S.bp_started }}" data-over="{{ S.bp_over }}">
-      <p class="bp-window-dates">{% include icon.html name="clock" px=20 %}<strong>{{ S.bp_window | replace: '[zone]', _zone | replace: '[from]', _from | replace: '[to]', _to }}</strong> <span class="bp-countdown"></span></p>
+      <p class="bp-window-dates">{% include icon.html name="clock" px=20 %}<strong>{% if iv.to %}{{ S.bp_window | replace: '[from]', _from | replace: '[to]', _to }}{% else %}{{ S.bp_window_open | replace: '[from]', _from }}{% endif %}</strong> <span class="bp-countdown"></span></p>
       <p class="bp-window-note">{{ S.bp_dates_note }} <a href="{{ iv.official }}" rel="noopener">bpsc.gob.pk</a>.</p>
     </div>
     {% include bpsc/share.html text=S.bp_share_text %}
