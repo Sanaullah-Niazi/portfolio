@@ -48,6 +48,20 @@
   description: Computer basics, programming, OOP, DSA, OS, databases, networks, security, software engineering, AI and teaching IT.
   description_ur: کمپیوٹر کی بنیادی باتیں، پروگرامنگ، او او پی، ڈیٹا اسٹرکچر، آپریٹنگ سسٹم، ڈیٹا بیس، نیٹ ورک، سیکیورٹی، سافٹ ویئر انجینئرنگ، اے آئی اور آئی ٹی کی تدریس۔
   categories:
+  - "IT 1 · Computer fundamentals"
+  - "IT 2 · Operating systems"
+  - "IT 3 · MS Office and everyday computing"
+  - "IT 4 · Programming fundamentals (C++)"
+  - "IT 5 · Object-oriented programming"
+  - "IT 6 · Data structures and algorithms"
+  - "IT 7 · Databases and SQL"
+  - "IT 8 · Computer networks"
+  - "IT 9 · Internet and web development"
+  - "IT 10 · Information security and cyber security"
+  - "IT 11 · Software engineering"
+  - "IT 12 · Digital logic and computer architecture"
+  - "IT 13 · Artificial intelligence basics"
+  - "IT 14 · IT pedagogy (how to teach computer)"
   - IT and computer science
   - Inventors and "fathers" of computing
   - Teaching methods the panel may name
