@@ -35,10 +35,8 @@ nav_news: Security news
 nav_scholarships: Scholarships
 nav_contact: Contact
 
-btn_cv: Download CV
 btn_research: Research
 btn_contact: Contact
-cv_short: CV
 terminal_label: Summary in the style of a terminal
 scroll_next: Scroll to the next section
 
@@ -533,8 +531,6 @@ m_overview_d: "Who I am, experience and skills"
 m_research_d: "MS thesis and published papers"
 m_projects_d: "AquaPulse, scam and AI-text detectors"
 m_notes_d: "Short articles on AI security"
-m_cv: "CV"
-m_cv_d: "Download as PDF"
 m_contact_d: "Send me a message"
 m_start: "Start here"
 m_start_d: "Foundations every security career needs"

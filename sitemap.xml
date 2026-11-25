@@ -26,10 +26,4 @@ sitemap: false
 <lastmod>{{ p.last_modified_at | default: site.time | date_to_xmlschema }}</lastmod>{% unless p.last_modified_at %}<!--src:{{ p.path }}-->{% endunless %}
 </url>
 {%- endfor %}
-{%- for f in site.static_files %}{% if f.extname == '.pdf' and f.path contains '/assets/cv/' %}
-<url>
-<loc>{{ f.path | absolute_url | xml_escape }}</loc>
-<lastmod>{{ f.modified_time | date_to_xmlschema }}</lastmod><!--src:{{ f.relative_path | remove_first: '/' }}-->
-</url>
-{%- endif %}{% endfor %}
 </urlset>
