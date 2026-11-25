@@ -2,7 +2,7 @@ lang: zh
 dir: ltr
 comma: "，"
 title: 人工智能硕士 | 网络安全与 AI 威胁检测
-creds: Cisco Junior Cybersecurity Analyst · Cisco Ethical Hacker · NAVTTC 数字取证 · IELTS 6.5
+creds: Cisco Junior Cybersecurity Analyst · Cisco Ethical Hacker · NAVTTC 数字取证
 location: 巴基斯坦
 footer: 个人简历
 page: "第 [n] 页，共 [t] 页"
@@ -10,7 +10,6 @@ stats:
   - [CGPA 3.66 / 4.00, 人工智能硕士, 巴哈瓦尔布尔伊斯兰大学]
   - [3 篇论文, 同行评审期刊, 2026 年]
   - [2 年以上教学经验, 客座讲师, 信息技术系]
-  - [IELTS 6.5（B2）, 学术类, 2026 年 10 月]
 h:
   profile: 个人简介
   education: 教育背景
@@ -83,7 +82,7 @@ skills:
   - [AI / 数据, Python、PyTorch、TensorFlow/Keras、Hugging Face Transformers、scikit-learn、LightGBM、NumPy、Pandas、Matplotlib；自然语言处理与文本分类]
   - [系统与网页, 计算机网络、Linux（Ubuntu）、Arduino 与物联网传感器、HTML、CSS、网页抓取与自动化脚本、Git/GitHub、Jupyter、Kaggle]
 languages:
-  - [语言, 英语：流利（IELTS Academic 6.5，B2；本科和硕士均为英语授课）· 德语：初学，2026 年 10 月开始 · 普什图语和萨莱基语：母语 · 乌尔都语和旁遮普语：流利]
+  - [语言, 英语：流利（本科和硕士均为英语授课） · 普什图语和萨莱基语：母语 · 乌尔都语和旁遮普语：流利]
   - [兴趣, 足球（后卫）和板球比赛、登山徒步、烹饪传统美食、UFC]
 references: 可应要求提供。
 statement:

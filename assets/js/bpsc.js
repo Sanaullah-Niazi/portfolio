@@ -49,11 +49,11 @@
   // Countdown to the interview window (FR-1).
   var win = document.querySelector(".bp-window");
   if (win) {
-    var from = parseDay(win.dataset.from), to = parseDay(win.dataset.to), now = today();
+    var from = parseDay(win.dataset.from), to = win.dataset.to ? parseDay(win.dataset.to) : null, now = today();
     var left = Math.round((from - now) / DAY), out = win.querySelector(".bp-countdown");
     if (left > 1) out.textContent = win.dataset.left.replace("[n]", left);
     else if (left === 1) out.textContent = win.dataset.leftOne;
-    else if (now <= to) out.textContent = win.dataset.on;
+    else if (!to || now <= to) out.textContent = win.dataset.on;
     else out.textContent = win.dataset.over;
   }
 

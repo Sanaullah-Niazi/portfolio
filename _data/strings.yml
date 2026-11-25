@@ -347,12 +347,13 @@ nav_bpsc: BPSC prep
 bp_eyebrow: "BPSC IT Teacher (BPS-17)"
 bp_title: Interview prep
 bp_lede: "Question banks with model answers, search, quick revision and daily Pakistan news, free for every candidate. Open it on your phone and share it with your group."
-bp_window: "[zone] interviews: [from] to [to]"
+bp_window: "Interviews: [from] to [to]"
+bp_window_open: "Interviews started on [from], female candidates first, then male. They are for all candidates, not only one zone."
 bp_days_left: "[n] days to go"
 bp_day_left: "1 day to go"
 bp_started: "Interviews are on now. Good luck!"
 bp_over: "This interview round has ended."
-bp_dates_note: "Dates are from the BPSC call letter. Always check your own letter and the official site,"
+bp_dates_note: "Your own interview date is on your call letter. Always check it and the official site,"
 bp_share_whatsapp: Share on WhatsApp
 bp_share_text: "Free BPSC IT Teacher interview prep, with questions, answers and daily news:"
 bp_copy_link: Copy link

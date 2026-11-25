@@ -2,7 +2,7 @@ lang: ur
 dir: rtl
 comma: "، "
 title: ایم ایس مصنوعی ذہانت | سائبر سیکیورٹی اور مصنوعی ذہانت پر مبنی خطرات کی پہچان
-creds: Cisco Junior Cybersecurity Analyst · Cisco Ethical Hacker · NAVTTC ڈیجیٹل فرانزک · IELTS 6.5
+creds: Cisco Junior Cybersecurity Analyst · Cisco Ethical Hacker · NAVTTC ڈیجیٹل فرانزک
 location: پاکستان
 footer: سی وی
 page: "صفحہ [n] از [t]"
@@ -10,7 +10,6 @@ stats:
   - [CGPA 3.66 / 4.00, ایم ایس مصنوعی ذہانت, اسلامیہ یونیورسٹی بہاولپور]
   - [3 مقالے, ہم مرتبہ جائزہ شدہ جرائد, 2026]
   - [2+ سال تدریس, وزیٹنگ لیکچرر, شعبہ آئی ٹی]
-  - [IELTS 6.5 (B2), اکیڈمک, اکتوبر 2026]
 h:
   profile: تعارف
   education: تعلیم
@@ -85,7 +84,7 @@ skills:
   - [مصنوعی ذہانت / ڈیٹا, "Python، PyTorch، TensorFlow/Keras، Hugging Face Transformers، scikit-learn، LightGBM، NumPy، Pandas، Matplotlib؛ این ایل پی اور متن کی درجہ بندی"]
   - [سسٹمز اور ویب, "کمپیوٹر نیٹ ورکس، Linux (Ubuntu)، Arduino اور IoT سینسرز، HTML، CSS، ویب اسکریپنگ اور آٹومیشن اسکرپٹس، Git/GitHub، Jupyter، Kaggle"]
 languages:
-  - [زبانیں, "انگریزی – روانی سے (IELTS Academic 6.5، B2؛ بی ایس اور ایم ایس انگریزی میں پڑھائے گئے) · جرمن – ابتدائی، اکتوبر 2026 سے · پشتو اور سرائیکی – مادری زبانیں · اردو اور پنجابی – روانی سے"]
+  - [زبانیں, "انگریزی – روانی سے (بی ایس اور ایم ایس انگریزی میں پڑھائے گئے) · پشتو اور سرائیکی – مادری زبانیں · اردو اور پنجابی – روانی سے"]
   - [مشاغل, "فٹبال (ڈیفنڈر) اور کرکٹ ٹورنامنٹ، پہاڑوں میں ہائیکنگ، روایتی کھانے پکانا، UFC"]
 references: درخواست پر فراہم کیے جا سکتے ہیں۔
 statement:

@@ -21,7 +21,7 @@ story:
 facts:
   - icon: globe
     label: Languages
-    text: English (IELTS Academic 6.5), Urdu, Pashto, Saraiki and Punjabi; learning German
+    text: English, Urdu, Pashto, Saraiki and Punjabi
   - icon: user
     label: Outside work
     text: Football, cricket, hiking and cooking
