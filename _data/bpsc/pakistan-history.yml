@@ -359,6 +359,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -385,6 +387,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -398,6 +402,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false

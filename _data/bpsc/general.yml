@@ -1015,6 +1015,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1028,6 +1030,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1080,6 +1084,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1288,6 +1294,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1707,6 +1715,8 @@
   personal: true
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1720,6 +1730,8 @@
   personal: true
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1733,6 +1745,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1746,6 +1760,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1759,6 +1775,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1772,6 +1790,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1785,6 +1805,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1798,6 +1820,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1811,6 +1835,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1824,6 +1850,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: true
@@ -1837,6 +1865,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1850,6 +1880,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1863,6 +1895,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1876,6 +1910,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: true
@@ -1889,6 +1925,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: true
@@ -1902,6 +1940,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1915,6 +1955,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1928,6 +1970,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1941,6 +1985,8 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1954,8 +2000,475 @@
   personal: false
   frequency: 1
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-151
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What will you change in your district as an IT teacher?"
+  answer: ""
+  personal: true
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-152
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Does the situation in Balochistan affect its education system?"
+  answer: ""
+  personal: true
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-153
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Why is IT important in your area?"
+  answer: ""
+  personal: true
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-154
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "If you become successful, will you forget your father?"
+  answer: ""
+  personal: true
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-155
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Which is faster, dua or technology?"
+  answer: ""
+  personal: true
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-156
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What is the full form of SHO?"
+  answer: "**Your answer:** Station House Officer: the police officer in charge of a police station."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Station_house_officer"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-157
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Tell us about Khuzdar."
+  answer: "**Your answer:** Khuzdar is a district and city in Kalat Division, in central Balochistan, on the N-25 highway between Quetta and Karachi. It has the Balochistan University of Engineering and Technology (BUET Khuzdar), and the Moola river with the Moola Chotok gorge runs through the district."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Khuzdar", "https://en.wikipedia.org/wiki/Khuzdar_District"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-158
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Tell us about the courts in Khuzdar."
+  answer: ""
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-159
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "On which Prophet was the Zaboor revealed?"
+  answer: "**Your answer:** Hazrat Dawood (AS). \"And to Dawood We gave the Zaboor\" (An-Nisa 4:163, Al-Isra 17:55). The four revealed books are the Torah (Hazrat Musa AS), the Zaboor (Hazrat Dawood AS), the Injeel (Hazrat Isa AS) and the Quran (Hazrat Muhammad ﷺ)."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://quran.com/4/163", "https://quran.com/17/55"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-160
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What was Hazrat Dawood (AS) expert in? Did he earn from his own work?"
+  answer: "**Your answer:** Allah made iron soft for him, and he made coats of armour (Saba 34:10-11, Al-Anbiya 21:80). Yes: the Prophet ﷺ said that Dawood (AS) ate only from the earnings of his own hands (Sahih Bukhari 2072)."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://quran.com/34/10-11", "https://quran.com/21/80", "https://sunnah.com/bukhari:2072"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-161
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What are the basic beliefs (Bunyadi Aqaid) of Islam?"
+  answer: "**Your answer:** Three basic beliefs: Tauheed (Allah is One), Risalat (the prophets, ending with Hazrat Muhammad ﷺ, the last prophet) and Akhirat (life after death, the Day of Judgement). In Iman-e-Mufassal we also believe in the angels, the revealed books and Taqdeer."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://quran.com/2/285", "https://quran.com/4/136"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-162
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What is discussed in Surah Maryam?"
+  answer: "**Your answer:** Surah Maryam is the 19th surah, revealed in Makkah, with 98 ayat. It tells of Hazrat Zakariya (AS) and the birth of Hazrat Yahya (AS), Hazrat Maryam (AS) and the birth of Hazrat Isa (AS), who spoke from the cradle, and Hazrat Ibrahim (AS) inviting his father to Tauheed. It also mentions Hazrat Musa, Haroon, Ismail and Idrees (AS). It is the only surah named after a woman, and Maryam (AS) is the only woman named in the Quran."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://quran.com/19"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-163
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What is Islam?"
+  answer: "**Your answer:** Islam means submitting to the will of Allah, and it comes from the same root as salam, peace. It is the religion of all the prophets, completed with Hazrat Muhammad ﷺ: \"The religion with Allah is Islam\" (Aal-e-Imran 3:19). It rests on the five pillars and the six articles of faith."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://quran.com/3/19"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-164
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What is the role of the computer in our society, and why is it necessary?"
+  answer: "**Your answer:** Computers run almost every service we use: banking and mobile money, NADRA and other government records, hospitals, schools and exams, business, and communication. They make work faster and more accurate, store data safely, and connect a remote district to the same information and jobs as a big city. For students, computer skills are now basic skills, like reading and writing."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-165
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "In which software do we make a presentation, and a table?"
+  answer: "**Your answer:** A presentation is made in Microsoft PowerPoint (or Google Slides, LibreOffice Impress). A table is made in Microsoft Word with Insert > Table, or in a spreadsheet such as Microsoft Excel when it needs calculations."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-166
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What is firmware?"
+  answer: "**Your answer:** Firmware is software stored permanently in a device's chip (ROM or flash memory) that controls the hardware at a low level. Examples: the BIOS or UEFI of a computer, and the software inside a router, printer or washing machine. It is changed only with a firmware update."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Firmware"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-167
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What is the real purpose of AI?"
+  answer: "**Your answer:** Artificial intelligence means making computers do tasks that need human intelligence: understanding language, recognising images and speech, making predictions and decisions. Its purpose is to help people: do boring or difficult work faster, find patterns in large data (for example diseases in X-rays), and give help such as translation or tutoring. It should support human decisions, not replace them."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Artificial_intelligence"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-168
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Does AI have more advantages or disadvantages?"
+  answer: "**Your answer:** Used responsibly, more advantages. Advantages: faster work, help in health, farming and education, translation, and personal tutoring for students. Disadvantages: fake news and deepfakes, cheating, privacy risks, bias, and some jobs changing. So the answer is to teach students to use AI wisely, check its answers, and follow rules and ethics."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-169
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Why do you teach the computer to your students?"
+  answer: "**Your answer:** Because computer skills are now basic life skills. They help students learn other subjects, find information, communicate, and later get jobs or freelance online. Learning computing also builds problem-solving and logical thinking, and teaches safe and responsible use of the internet."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-170
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Why did Russia, China and the USA restrict children's phone use?"
+  answer: "**Your answer:** No country has banned phones for all children. China limits online gaming for minors to about three hours a week (2021). Russia banned phone use during school lessons from September 2024. Many US states ban or restrict phones in schools. The reasons are the same: phones distract from study, harm sleep and attention, and expose children to cyberbullying and harmful content."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Mobile_phone_use_in_schools"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-171
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "How do computers and phones affect children's health? Why and how?"
+  answer: "**Your answer:** Too much screen time strains the eyes and is linked to short sight, and late use harms sleep. Sitting for hours causes neck and back pain and less physical activity, which can lead to weight gain. It can also affect attention and mood and expose children to cyberbullying. The WHO advises no screen time for children under two, and no more than one hour a day for ages two to four. Breaks, time limits and outdoor play help."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://www.who.int/news/item/24-04-2019-to-grow-up-healthy-children-need-to-sit-less-and-play-more"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-172
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What is today's news about Iran?"
+  answer: "**Your answer:** This changes every day. Read the day's headlines on the Current affairs page before your interview."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-173
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Why is Iran trying to increase its population?"
+  answer: "**Your answer:** Iran's birth rate fell to below two children per woman, so its population is ageing. In 2021 Iran passed the \"Youthful Population and Protection of the Family\" law, which gives incentives such as loans, land and longer maternity leave to families with more children, and limits free contraception. The aim is a younger workforce and long-term economic and national strength."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Demographics_of_Iran"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-174
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Which is the largest glacier in the world?"
+  answer: "**Your answer:** The Lambert Glacier in Antarctica is the largest glacier in the world. Outside the polar regions, the longest is the Fedchenko Glacier in Tajikistan, about 77 km. Pakistan has some of the longest non-polar glaciers, such as Baltoro and Biafo in Gilgit-Baltistan."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Lambert_Glacier", "https://en.wikipedia.org/wiki/Fedchenko_Glacier"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-175
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Who were the main personalities of the Pakistan Movement?"
+  answer: "**Your answer:** Sir Syed Ahmad Khan (education and the two-nation idea), Allama Muhammad Iqbal (the 1930 Allahabad address), Quaid-e-Azam Muhammad Ali Jinnah, Liaquat Ali Khan, Fatima Jinnah, Sir Aga Khan III, Chaudhry Rahmat Ali (the name \"Pakistan\"), Maulana Muhammad Ali Jauhar, A. K. Fazlul Haq (moved the Lahore Resolution), Sardar Abdur Rab Nishtar, and from Balochistan, Qazi Muhammad Isa, who led the Muslim League there."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Pakistan_Movement"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-176
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Which special day is observed on 25 November?"
+  answer: "**Your answer:** The International Day for the Elimination of Violence against Women, set by the UN General Assembly in 1999. It starts 16 days of activism that end on 10 December, Human Rights Day."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://www.un.org/en/observances/ending-violence-against-women-day"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-177
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Tell us about the Caspian Sea."
+  answer: "**Your answer:** The Caspian Sea is the largest inland body of water in the world, about 371,000 km². It is called a sea because of its size and slightly salty water, but it is a lake with no outlet to the ocean. Five countries border it: Russia, Kazakhstan, Turkmenistan, Iran and Azerbaijan."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Caspian_Sea"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-178
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Tell us about the Kirthar mountain range."
+  answer: "**Your answer:** The Kirthar range runs north to south along the border of Sindh and Balochistan, west of the Indus plain. Gorakh Hill, a hill station near Dadu, is in this range, and Kirthar National Park (1974) in Sindh protects part of it."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Kirthar_Mountains"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-179
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "Tell us about the Sulaiman mountain range."
+  answer: "**Your answer:** The Sulaiman range lies west of the Indus, between Balochistan and the plains of Punjab, and runs south from the Gomal river area. Its highest peak is Takht-e-Sulaiman, about 3,487 m. Fort Munro, a hill station near Dera Ghazi Khan, is in this range."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Sulaiman_Mountains"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-180
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What are the Arabian Sea and the Indian Ocean, and what is the difference between a sea and an ocean?"
+  answer: "**Your answer:** The Indian Ocean is the third largest ocean. The Arabian Sea is its north-western part, between the Arabian Peninsula and India; Pakistan's coast in Sindh and Balochistan, with Karachi and Gwadar ports, is on it. An ocean is a huge, open body of salt water. A sea is smaller, usually part of an ocean, and partly enclosed by land."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Arabian_Sea", "https://en.wikipedia.org/wiki/Indian_Ocean"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-181
+  bank: general
+  category: "Reported: Kalat Zone, 25 Nov 2026"
+  question: "What is Article 25-A of the Constitution?"
+  answer: "**Your answer:** Article 25-A, added by the 18th Amendment in 2010, says the State shall provide free and compulsory education to all children aged 5 to 16 years. Balochistan made its own law for this, the Balochistan Compulsory Education Act 2014."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://www.pakistani.org/pakistan/constitution/part2.ch1.html"]
+  verified_on: '2026-11-25'
   check_again: false
   status: published
   added: '2026-11-25'

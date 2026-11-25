@@ -293,6 +293,8 @@
   personal: false
   frequency: 2
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
