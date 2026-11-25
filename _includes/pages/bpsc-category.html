@@ -1,0 +1,45 @@
+{%- comment -%}
+  One numbered category of a BPSC bank (/bpsc-interview/<bank>/<category>/), such as "A1 · Computer fundamentals":
+  its questions numbered 1, 2, 3 from basic to hard, each closed until tapped, so a candidate can share one link
+  per topic in a WhatsApp group. The page file and its items (page.items) come from scripts/bpsc_pages.rb.
+{%- endcomment -%}
+{% include bpsc/basics.html %}
+{%- capture en_attr %}{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}{% endcapture -%}
+{%- assign _base = L | append: '/bpsc-interview/' | append: page.bank | append: '/' -%}
+<div class="wrap page bp">
+  <p class="eyebrow crumbs"><a href="{{ _base }}"><span class="back-arrow" aria-hidden="true">←</span> {{ page.bank_name }}</a></p>
+  <header class="page-head bp-head">
+    {% include page-badge.html %}
+    <p class="eyebrow"{{ en_attr }}>{{ S.bp_eyebrow }} · {{ page.section_code }}</p>
+    <h1{{ en_attr }}>{{ page.section_title }}</h1>
+    <p class="meta">{{ page.items.size }} {% if page.items.size == 1 %}{{ S.bp_q_one }}{% else %}{{ S.bp_q_many }}{% endif %} · {{ S.bp_basic_to_hard }}</p>
+    {%- capture _share %}{{ page.section_code }} {{ page.section_title }} ({{ page.items.size }}): {{ S.bp_share_text }}{% endcapture %}
+    {% include bpsc/share.html text=_share %}
+  </header>
+  <div class="btn-row bp-tools">
+    <button class="btn bp-expand" type="button" aria-pressed="false" data-open="{{ S.bp_expand_all }}" data-close="{{ S.bp_collapse_all }}">{{ S.bp_expand_all }}</button>
+    <button class="btn bp-print" type="button">{% include icon.html name="download" px=18 %}{{ S.bp_print }}</button>
+  </div>
+  <ol class="bp-items bp-numbered">
+    {%- for it in page.items %}
+    <li>
+      <details class="bp-q" id="{{ it.id }}">
+        <summary>
+          <span class="bp-num" aria-hidden="true">{{ forloop.index }}</span>
+          <span class="bp-q-text">{% if lang == 'ur' and it.question_ur %}{{ it.question_ur | escape }}{% else %}<span{{ en_attr }}>{{ it.question | escape }}</span>{% endif %}</span>
+          {%- if it.personal or it.asked_in or it.check_again %}<span class="bp-q-meta">{% if it.personal %}<span class="bp-badge bp-guide-badge">{{ S.bp_personal_badge }}</span>{% endif %}{% if it.asked_in %} <span class="bp-badge">{{ it.asked_in | join: ', ' | escape }}</span>{% endif %}</span>{% endif %}
+        </summary>
+        <div class="bp-q-body">
+          {% include bpsc/item-body.html it=it %}
+          <p class="bp-q-links"><button class="bp-star" type="button" data-id="{{ it.id }}" aria-pressed="false" data-on="{{ S.bp_saved }}" data-off="{{ S.bp_save }}" hidden><span aria-hidden="true">☆</span> <span class="bp-star-label">{{ S.bp_save }}</span></button><a href="#{{ it.id }}">{{ S.bp_link_q }}</a><a href="{{ L }}/bpsc-interview/submit/?type=correction&amp;id={{ it.id }}">{{ S.bp_report }}</a></p>
+        </div>
+      </details>
+    </li>
+    {%- endfor %}
+  </ol>
+  <nav class="bp-pager" aria-label="{{ S.bp_prev }} / {{ S.bp_next }}">
+    {%- if page.s_prev %}<a class="bp-prev" href="{{ _base }}{{ page.s_prev.slug }}/"><span class="muted">{{ S.bp_prev }}</span><span{{ en_attr }}>{{ page.s_prev.name }}</span></a>{% else %}<span></span>{% endif %}
+    {%- if page.s_next %}<a class="bp-next" href="{{ _base }}{{ page.s_next.slug }}/"><span class="muted">{{ S.bp_next }}</span><span{{ en_attr }}>{{ page.s_next.name }}</span></a>{% endif %}
+  </nav>
+  {% include bpsc/legal.html %}
+</div>

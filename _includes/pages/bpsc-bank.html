@@ -22,10 +22,22 @@
 
   {% include bpsc/search.html %}
 
+  {%- if page.sections.size > 0 %}
+  <section class="bp-section" aria-labelledby="bp-sections-title">
+    <h2 id="bp-sections-title">{{ S.bp_sections }}</h2>
+    <ol class="bp-sections">
+      {%- for s in page.sections %}{% assign _p = s.name | split: ' · ' %}
+      <li><a href="{{ L }}/bpsc-interview/{{ page.bank }}/{{ s.slug }}/"><span class="bp-code">{{ _p[0] }}</span><span class="bp-sec-name"{{ en_attr }}>{{ _p[1] }}</span><span class="muted bp-sec-count">{{ s.count }}</span></a></li>
+      {%- endfor %}
+    </ol>
+  </section>
+  {%- endif %}
+
   {%- if items.size > 0 %}
+  {%- if page.sections.size > 0 %}<h2>{{ S.bp_more_questions }}</h2>{% endif %}
   <nav class="bp-jump" aria-label="{{ S.bp_jump }}">
     <ul>
-      {%- for c in b.categories %}{% assign _ci = items | where: "category", c %}{% if _ci.size > 0 %}
+      {%- for c in b.categories %}{% if c contains ' · ' %}{% continue %}{% endif %}{% assign _ci = items | where: "category", c %}{% if _ci.size > 0 %}
       <li><a href="#{{ c | slugify }}"><span{{ en_attr }}>{{ c }}</span> <span class="muted">{{ _ci.size }}</span></a></li>
       {%- endif %}{% endfor %}
     </ul>
@@ -35,7 +47,7 @@
     <button class="btn bp-print" type="button">{% include icon.html name="download" px=18 %}{{ S.bp_print }}</button>
   </div>
 
-  {%- for c in b.categories %}
+  {%- for c in b.categories %}{% if c contains ' · ' %}{% continue %}{% endif %}
   {%- assign _ci = items | where: "category", c %}{% if _ci.size == 0 %}{% continue %}{% endif %}
   <section class="bp-cat" id="{{ c | slugify }}" aria-labelledby="h-{{ c | slugify }}">
     <h2 id="h-{{ c | slugify }}"{{ en_attr }}>{{ c }}</h2>

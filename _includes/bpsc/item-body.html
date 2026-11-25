@@ -11,6 +11,9 @@
 <div class="bp-own">
   <p class="bp-own-title">{{ S.bp_own_title }}</p>
   <ul><li>{{ S.bp_own_1 }}</li><li>{{ S.bp_own_2 }}</li><li>{{ S.bp_own_3 }}</li></ul>
+  {%- if it.tips and it.tips != "" %}
+  <p class="bp-own-tips"{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}><strong>{{ S.bp_tips }}:</strong> {{ it.tips | escape }}</p>
+  {%- endif %}
 </div>
 {%- elsif _ans == '' or _ans == nil %}
 <p class="bp-soon">{{ S.bp_soon }} <a href="{{ L }}/bpsc-interview/submit/?type=answer&amp;id={{ it.id }}">{{ S.bp_soon_link }}</a></p>

@@ -2313,6 +2313,19 @@ html[lang="ur"] .hero-kicker { letter-spacing: 0; text-transform: none; font-siz
 .bp-q-links { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; font-size: 15px; }
 .bp-q-links a { display: inline-flex; align-items: center; min-height: 44px; }
 .bp-single .page-head .bp-q-meta { color: var(--muted); }
+/* Numbered sections (A1 to G88) on a bank page, and the numbered questions of one section. */
+.bp-sections { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.bp-sections a { display: grid; grid-template-columns: 3.2em minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 52px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.bp-sections a:hover { border-color: var(--accent); }
+.bp-code { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.bp-sec-name { font-weight: 600; line-height: 1.35; }
+.bp-sec-count { font-variant-numeric: tabular-nums; font-size: 14px; }
+.bp-numbered { list-style: none; margin: 0; padding: 0; }
+.bp-numbered > li { margin: 0; }
+.bp-numbered summary { display: grid; grid-template-columns: 2.4em minmax(0, 1fr); column-gap: 8px; }
+.bp-numbered summary .bp-q-meta { grid-column: 2; }
+.bp-num { font-weight: 700; color: var(--muted, inherit); font-variant-numeric: tabular-nums; font-size: 16px; line-height: 1.6; }
+.bp-own-tips { margin: 10px 0 0; }
 .bp-pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .bp-pager a { display: grid; gap: 2px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); text-decoration: none; color: var(--ink); min-width: 0; }
 .bp-pager a:hover { border-color: var(--accent); }

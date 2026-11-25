@@ -9,6 +9,23 @@
   description: Introduction guides, teaching, classroom situations, education in Balochistan, the school system, IT in the classroom, national symbols and opinion questions.
   description_ur: تعارف، تدریس، کلاس روم کی صورتحال، بلوچستان میں تعلیم، اسکول کا نظام، کلاس روم میں آئی ٹی، قومی علامات اور رائے کے سوالات۔
   categories:
+  - "F74 · IT pedagogy and teaching methods"
+  - "F75 · Lesson planning"
+  - "F76 · Classroom management"
+  - "F77 · Assessment and evaluation"
+  - "F78 · Child psychology and learning theories"
+  - "F79 · ICT tools for teaching"
+  - "F80 · Computer lab management"
+  - "F81 · Education policy"
+  - "F82 · Teacher roles, ethics and duties"
+  - "G83 · Introduction and personal questions"
+  - "G84 · Opinion and situational questions"
+  - "G85 · Why teaching, and why this post"
+  - "G86 · English language and grammar"
+  - "G87 · Urdu and Pakistani literature basics"
+  - "G88 · Real interview questions: 23-24 Nov 2026"
+  - "G88 · Real interview questions: Kalat zone (Hub), 24 Nov 2026"
+  - "G88 · Real interview questions: Kalat zone, 25 Nov 2026"
   - About you (prepare your own answer)
   - Identity and belonging (prepare your own answer)
   - Opinion and scenario questions
@@ -20,15 +37,25 @@
   - 'Sensitive questions: Afghanistan, law and order, BLA, TTP, PTM'
   - Thinking and values questions
   - Teaching and pedagogy
-  - Reported in IT Teacher interviews, 23-24 Nov 2026
-  - 'Reported: Kalat Zone, Hub, 24 Nov 2026'
-  - "Reported: Kalat Zone, 25 Nov 2026"
 - slug: islamiat
   name: Islamiat
   name_ur: اسلامیات
   description: Beliefs, prophets, Seerah, Khulafa-e-Rashideen, worship, the Quran and day-to-day issues.
   description_ur: عقائد، انبیاء، سیرت، خلفائے راشدین، عبادات، قرآن اور روزمرہ مسائل۔
   categories:
+  - "B35 · Quran"
+  - "B36 · Seerah of the Prophet ﷺ"
+  - "B37 · Prophets (AS)"
+  - "B38 · Khulafa-e-Rashideen and Sahaba (RA)"
+  - "B39 · Wives and family of the Prophet ﷺ"
+  - "B40 · Pillars of Islam"
+  - "B41 · Iman, Tauheed, Risalat and Akhirat"
+  - "B42 · Hadith and Fiqh basics"
+  - "B43 · Islamic history and ghazwat"
+  - "B44 · Islamic months, festivals and important days"
+  - "B45 · Daily life issues (masail)"
+  - "B46 · Islamic ethics and huqooq ul ibad"
+  - "B47 · Famous Muslim scientists and scholars"
   - Islamiat
   - Seerah and the Prophet's ﷺ family
   - Beliefs (Aqaid)
@@ -48,20 +75,40 @@
   description: Computer basics, programming, OOP, DSA, OS, databases, networks, security, software engineering, AI and teaching IT.
   description_ur: کمپیوٹر کی بنیادی باتیں، پروگرامنگ، او او پی، ڈیٹا اسٹرکچر، آپریٹنگ سسٹم، ڈیٹا بیس، نیٹ ورک، سیکیورٹی، سافٹ ویئر انجینئرنگ، اے آئی اور آئی ٹی کی تدریس۔
   categories:
-  - "IT 1 · Computer fundamentals"
-  - "IT 2 · Operating systems"
-  - "IT 3 · MS Office and everyday computing"
-  - "IT 4 · Programming fundamentals (C++)"
-  - "IT 5 · Object-oriented programming"
-  - "IT 6 · Data structures and algorithms"
-  - "IT 7 · Databases and SQL"
-  - "IT 8 · Computer networks"
-  - "IT 9 · Internet and web development"
-  - "IT 10 · Information security and cyber security"
-  - "IT 11 · Software engineering"
-  - "IT 12 · Digital logic and computer architecture"
-  - "IT 13 · Artificial intelligence basics"
-  - "IT 14 · IT pedagogy (how to teach computer)"
+  - "A1 · Computer fundamentals"
+  - "A2 · Number systems and data representation"
+  - "A3 · Operating systems"
+  - "A4 · MS Office"
+  - "A5 · Programming in C++"
+  - "A6 · Python programming"
+  - "A7 · Object oriented programming"
+  - "A8 · Data structures and algorithms"
+  - "A9 · Databases and SQL"
+  - "A10 · Computer networks"
+  - "A11 · Data communication"
+  - "A12 · Internet, email and the World Wide Web"
+  - "A13 · Web development"
+  - "A14 · Information and cyber security"
+  - "A15 · Cyber laws and computer ethics"
+  - "A16 · Software engineering"
+  - "A17 · Project management"
+  - "A18 · Digital logic and computer architecture"
+  - "A19 · Theory of automata and compiler basics"
+  - "A20 · Discrete mathematics"
+  - "A21 · Computer graphics and multimedia"
+  - "A22 · Artificial intelligence basics"
+  - "A23 · Machine learning and deep learning"
+  - "A24 · Generative AI, LLMs and deepfakes"
+  - "A25 · Data science and big data"
+  - "A26 · Cloud computing and virtualization"
+  - "A27 · Internet of Things and embedded systems"
+  - "A28 · Mobile computing and apps"
+  - "A29 · Emerging technology"
+  - "A30 · Management information systems and e-commerce"
+  - "A31 · E-governance and Digital Pakistan"
+  - "A32 · Inventions and inventors in computing"
+  - "A33 · Computer abbreviations and full forms"
+  - "A34 · Matric and intermediate IT textbook topics"
   - IT and computer science
   - Inventors and "fathers" of computing
   - Teaching methods the panel may name
@@ -100,6 +147,17 @@
   description: 1857 to 1947, Pakistan since 1947, constitutions and quick-fire dates.
   description_ur: 1857 سے 1947 تک، 1947 کے بعد کا پاکستان، آئین اور اہم تاریخیں۔
   categories:
+  - "C48 · Freedom movement (1857 to 1947)"
+  - "C49 · Leaders of the Pakistan movement"
+  - "C50 · Pakistan history (1947 to today)"
+  - "C51 · Constitutions and amendments"
+  - "C52 · Government structure and institutions"
+  - "C53 · Heads of state and government"
+  - "C54 · Geography"
+  - "C55 · Economy, CPEC and natural resources"
+  - "C56 · Culture, languages and national symbols"
+  - "C57 · Wars and defence of Pakistan"
+  - "C58 · Foreign policy and relations with neighbours"
   - Pakistan history and constitution
   - Constitution and Pakistan Movement
   - Pakistan, civics and law
@@ -114,6 +172,12 @@
   description: History, geography, districts, resources and government of Balochistan.
   description_ur: بلوچستان کی تاریخ، جغرافیہ، اضلاع، وسائل اور حکومت۔
   categories:
+  - "D59 · Balochistan history"
+  - "D60 · Balochistan geography and resources"
+  - "D61 · Divisions, districts and culture"
+  - "D62 · Balochistan government and leaders"
+  - "D63 · Balochistan education system and challenges"
+  - "D64 · Balochistan current affairs"
   - Chaman
   - Pakistan, Balochistan and law
   - Balochistan
@@ -127,6 +191,15 @@
   description: World hotspots, organisations, geography and the news of Sep to Nov 2026.
   description_ur: دنیا کے اہم مسائل، بین الاقوامی تنظیمیں، جغرافیہ اور ستمبر سے نومبر 2026 کی خبریں۔
   categories:
+  - "E65 · World general knowledge"
+  - "E66 · Countries, capitals and currencies"
+  - "E67 · International organizations"
+  - "E68 · International affairs"
+  - "E69 · Pakistan current affairs (last 3 months)"
+  - "E70 · Famous books and authors"
+  - "E71 · Everyday science"
+  - "E72 · Sports"
+  - "E73 · Important days and years"
   - World geography and current affairs
   - Geography and world
   - Current affairs
