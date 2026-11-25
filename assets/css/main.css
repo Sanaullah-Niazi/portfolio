@@ -508,6 +508,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* Inner pages (Layers): every page opens on the same light band: eyebrow, title, one line, then its controls. On the
    other side sits the section's ring badge (_includes/page-badge.html). */
 .page { padding-block: 0 88px; display: grid; gap: 28px; }
+/* Grid items default to min-width: auto, so one wide child (a nowrap chip row) would stretch the whole page past the screen. */
+.page > * { min-width: 0; }
+.sn-section > *, .sn-list > li, .sn-list > li > *, .rm-doc > *, .rm-main > * { min-width: 0; }
+/* Long links and code-like words (URLs, tool names) wrap instead of pushing the page wider than a phone. */
+.sn-list, .rm-main { overflow-wrap: anywhere; }
+.page-head > *, .card > *, .tool-head > *, .ct-picks > *, .ct-cert > *, .rm-stage > * { min-width: 0; }
+h1, h2, h3, p { overflow-wrap: break-word; }
 .page > :first-child:not(.page-head) { margin-top: 28px; }
 .page-head { position: relative; isolation: isolate; display: grid; gap: 14px; justify-items: start; padding-block: 44px 40px; margin-bottom: 4px; }
 .page-head::before { content: ""; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: linear-gradient(180deg, var(--surface), var(--bg)); border-bottom: 1px solid var(--line); }
@@ -533,7 +540,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .site-footer { padding-block: 56px 24px; margin-top: 24px; color: var(--night-dim); font-size: 14.5px; background: var(--navy);
   --line: rgba(255, 255, 255, .1); --muted: var(--night-dim); --ink: #fff; --accent: #9db0ff; --accent-ink: #b7c5ff; --surface: rgba(255, 255, 255, .06); --bg-2: rgba(255, 255, 255, .08); }
 .site-footer a { color: var(--accent-ink); }
-.footer-inner { display: grid; grid-template-columns: minmax(0, 1.7fr) repeat(auto-fit, minmax(130px, 1fr)); align-items: start; gap: 32px 32px; }
+.footer-inner { display: grid; grid-template-columns: minmax(250px, 1.5fr) repeat(auto-fit, minmax(120px, 1fr)); align-items: start; gap: 32px 32px; }
+/* Below 1180px the five link columns need the full width, so the brand gets a row of its own. */
+@media (max-width: 1180px) { .footer-inner { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); } .footer-brand { grid-column: 1 / -1; } }
 .footer-brand { display: grid; gap: 10px; justify-items: start; }
 .footer-brand .brand-name { color: var(--ink); }
 .footer-brand .brand-mark rect:first-child { fill: #4f6dff; }
@@ -544,7 +553,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .footer-nav ul { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
 .footer-nav a { color: var(--muted); text-decoration: none; }
 .footer-nav a:hover { color: #fff; text-decoration: underline; }
-.footer-base { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 20px; }
+.footer-base { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 20px; padding-inline-end: 64px; }
 .footer-base::before { content: ""; position: absolute; top: 0; left: max(20px, env(safe-area-inset-left, 0px)); right: max(20px, env(safe-area-inset-right, 0px)); height: 1px; background: var(--line); }
 .footer-links { display: flex; flex-wrap: wrap; gap: 16px; }
 .footer-links a { color: var(--muted); }
@@ -2221,6 +2230,7 @@ html[lang="ur"] .hero-kicker { letter-spacing: 0; text-transform: none; font-siz
 
 .bp-search { display: grid; gap: 10px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
 .bp-search-form { display: grid; gap: 10px; }
+.bp-search > *, .bp-search-form > * { min-width: 0; }
 .bp-search-label { font-weight: 600; }
 .bp-search-row { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); }
 .bp-search-row:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
@@ -2228,7 +2238,7 @@ html[lang="ur"] .hero-kicker { letter-spacing: 0; text-transform: none; font-siz
 .bp-search-row input { flex: 1; min-width: 0; min-height: 50px; border: 0; background: transparent; color: var(--ink); font: 17px var(--sans); }
 .bp-search-row input:focus { outline: none; }
 .bp-filters > summary { cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; font-weight: 500; color: var(--accent); }
-.bp-filter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; padding-top: 6px; align-items: end; }
+.bp-filter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 12px; padding-top: 6px; align-items: end; }
 .bp-filter-grid label { display: grid; gap: 4px; font-size: 15px; color: var(--muted); }
 .bp-filter-grid select { min-height: 46px; padding: 0 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); font: 16px var(--sans); width: 100%; }
 .bp-filter-grid .bp-check { display: flex; align-items: center; gap: 10px; min-height: 46px; color: var(--ink); }
@@ -2388,4 +2398,12 @@ html[lang="ur"] .hero-kicker { letter-spacing: 0; text-transform: none; font-siz
 @media print {
   body:has(.bp-mylist) :is(.bp-list-tools, .bp-list-remove, .bp-storage-off) { display: none !important; }
   .bp-list-item { border: 0; border-bottom: 1px solid #ccc; border-radius: 0; break-inside: avoid; }
+}
+
+/* Very small phones (under 360px): tighten the header so the menu button stays on screen. */
+@media (max-width: 359px) {
+  .header-inner { gap: 8px; }
+  .brand-name { font-size: 15.5px; }
+  .header-actions { gap: 6px; }
+  .header-actions .icon-btn, .header-actions .lang-btn { width: 36px; height: 36px; }
 }
