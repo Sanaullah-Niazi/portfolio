@@ -6,7 +6,9 @@
       <p class="brand-name">{{ me.name }}</p>
       <p class="muted">{{ P.tagline }} · AI × Cybersecurity</p>
       {% include social.html no_mail=true %}
+      {%- unless page.bpsc %}
       <p class="footer-email">{% include icon.html name="mail" px=16 %}<a href="mailto:{{ me.email }}">{{ me.email }}</a></p>
+      {%- endunless %}
     </div>
     {%- comment -%} A short map of the site, so every page can reach every other one. {%- endcomment %}
     <nav class="footer-nav footer-explore" aria-label="{{ S.footer_explore }}">
@@ -28,6 +30,8 @@
         <li><a href="{{ L }}/games/">{{ S.nav_games }}</a></li>
         <li><a href="{{ L }}/roadmaps/">{{ S.nav_roadmaps }}</a></li>
         <li><a href="{{ L }}/security-news/">{{ S.nav_news }}</a></li>
+        {%- if lang == 'en' or lang == 'ur' %}
+        <li><a href="{{ L }}/bpsc-interview/">{{ S.nav_bpsc }}</a></li>{% endif %}
       </ul>
     </nav>
   </div>

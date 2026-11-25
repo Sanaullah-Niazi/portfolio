@@ -1,0 +1,1961 @@
+# General viva: 150 questions. Generated 2026-11-25. Fields: see README.md
+- id: gen-001
+  bank: general
+  category: About you (prepare your own answer)
+  question: Introduce yourself. (about 60 seconds)
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-002
+  bank: general
+  category: About you (prepare your own answer)
+  question: What is your tribe? Where is your family from?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-003
+  bank: general
+  category: About you (prepare your own answer)
+  question: What does your father do? Tell us about your family.
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-004
+  bank: general
+  category: About you (prepare your own answer)
+  question: What are you doing these days?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-005
+  bank: general
+  category: About you (prepare your own answer)
+  question: Which party do you support? Whom did you vote for?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-006
+  bank: general
+  category: About you (prepare your own answer)
+  question: What are the problems of your district? / What is wrong with education there?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-007
+  bank: general
+  category: About you (prepare your own answer)
+  question: Who is responsible for this?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-008
+  bank: general
+  category: About you (prepare your own answer)
+  question: What are your hobbies?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-009
+  bank: general
+  category: Identity and belonging (prepare your own answer)
+  question: Is there discrimination against Balochistan in Pakistan? (a common general question)
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-010
+  bank: general
+  category: Identity and belonging (prepare your own answer)
+  question: Which languages do you speak? Do you know Balochi or Brahui?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-011
+  bank: general
+  category: Opinion and scenario questions
+  question: You can earn more freelancing. Why a government school job?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-012
+  bank: general
+  category: Opinion and scenario questions
+  question: What is your biggest weakness?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-013
+  bank: general
+  category: Opinion and scenario questions
+  question: Who is your role model?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-014
+  bank: general
+  category: Opinion and scenario questions
+  question: What was the last book you read?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-015
+  bank: general
+  category: Opinion and scenario questions
+  question: You are posted to a remote school with no computer lab and no electricity. What will you do in your first month?
+  answer: 'First I will meet the head teacher and see what the school has. Then I will write to the education department and contact NGOs and the community for computers and a solar system, because many NGOs and donors now support schools in Balochistan. But I will not wait for the lab to start teaching. In the first month I will teach without computers: charts of computer parts, binary with cards, writing algorithms for daily tasks like making tea, and drawing flowcharts. If I have a phone or laptop, I will show it to small groups.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-016
+  bank: general
+  category: Opinion and scenario questions
+  question: A father says IT is useless and you should only teach Islamiat and Maths. What do you say?
+  answer: 'I will respect him and say: we teach Islamiat and Maths too, and they are very important. But look around our towns. Everyone has a mobile. People send money, run their business and trade with other cities and even other countries, as far as Japan, through their phones and the internet. With the border closed, trade is down, so these skills are now a way to earn. If your son learns IT, he can do any business better, or earn online from home. IT also helps him in Maths and every other subject.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-017
+  bank: general
+  category: Opinion and scenario questions
+  question: A colleague asks you to help pass students who failed. What will you do?
+  answer: 'I will not pass a student who has clearly failed. I will tell my colleague respectfully: "Brother, if these children don''t know this year''s basics, how will they manage in the next class? We pass them this year, and then what next year, pass them again? It will damage their future, not help it." Passing them only hides the problem, and it is unfair to the students who worked hard. But I understand some students go through hard times. So I will suggest we give them extra classes and a fair re-test, and talk to their parents. If they still need help, we follow the school''s official rules, not a personal favour. *Why this answer:* panels use this question to test integrity. Saying "I would pass them" can cost you the job, even if your intention is kindness. Show the kindness through remedial help instead.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-018
+  bank: general
+  category: Opinion and scenario questions
+  question: What are the three biggest problems in Balochistan's schools? How would you fix one?
+  answer: 'First, teacher absence. Outside Quetta, some teachers live in the city and their schools run on substitutes, or don''t run at all. Second, facilities. Many schools have weak buildings and no electricity, clean water, toilets or boundary walls, and many primary schools have only one or two teachers. NGOs are helping, but the gap is big. Third, children out of school, especially girls. Balochistan has the highest share of out-of-school children of any province. Where children do attend, cheating in exams hurts the honest students most. The one I would fix first is teacher presence, because a school with a teacher present can solve the other problems step by step. Recruiting teachers through BPSC on merit and posting them to their own districts, as this recruitment does, is the right start. Add regular monitoring visits and attendance checks, and give the parents'' committees a role so the community can report an absent teacher. **Follow-up: "Tell us more. What else is wrong?"**
+    (the longer list; pick two or three, never read out all of them) - **Too few teachers, no specialists.** In many primary schools one teacher teaches every subject to several classes. - **Untrained teachers.** The curriculum has been updated, with IT now from Class 6, but many teachers have not been trained on the new books or methods. - **No resources.** No labs, equipment, libraries or even proper furniture in many schools. - **Weak buildings.** Some schools have damaged rooms or no boundary wall, which especially keeps girls away. - **Dropouts.** Poor families often take children out halfway to work or help in the family business. - **Weak community support.** Every school has a Parent Teacher School Management Committee (PTSMC). When it is active, it helps the teachers and the school a lot. In many places it needs to be strengthened, so that the community supports teachers instead of putting pressure on them.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-019
+  bank: general
+  category: Opinion and scenario questions
+  question: How would you fix these problems?
+  answer: 'Sir, I would start with three things. First, the right teacher for the right subject. In some high schools there is a physics teacher teaching chemistry, or a maths teacher teaching computer science, because there is no specialist. Every subject needs a trained teacher of its own, and that is exactly why BPSC is now recruiting IT teachers. Second, proper facilities. Many schools still need safe buildings, electricity, furniture and equipment. In many classrooms children still sit on a taat, a floor mat, and teachers use chalk and blackboard. With solar power, desks, whiteboards and a few computers, the same teacher can do much more. Third, clear roles. Checking teachers and schools is the job of the education officers, like the DEO, the SDO and learning coordinators, and they should visit regularly. The community has an equally important role: making sure every child, especially every girl, in the village comes to school. If the community and the school committee take on that
+    job, teachers can focus on teaching. *Tone:* say "many schools" and "some schools", not "all". Don''t compare Balochistan with KP or Sindh in front of the panel; it can sound like you''re putting your own province down. Say the community "has a role", not that it "interferes".'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-020
+  bank: general
+  category: The school system and daily teaching
+  question: What are the levels of government schools?
+  answer: Primary school is Kachi (pre-primary) to Class 5. Middle school is Classes 6 to 8; primary and middle together are called elementary. High school is Classes 9 and 10, ending with the matric exam of the Balochistan Board (BBISE, Quetta). Higher secondary is Classes 11 and 12, in higher secondary schools or intermediate colleges.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-021
+  bank: general
+  category: The school system and daily teaching
+  question: Who runs a government school?
+  answer: 'The head teacher (or headmaster) runs the school day to day: timetable, attendance, discipline and records. At district level the District Education Officer (DEO) manages all schools, with deputy and sub-divisional officers who visit schools. At province level the School Education Department, headed by the Secretary, makes policy, and the Directorate of Education carries it out. The Balochistan Textbook Board prints the books, and BBISE takes the matric and intermediate exams. Every school also has a Parent Teacher School Management Committee (PTSMC) of parents and teachers.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-022
+  bank: general
+  category: The school system and daily teaching
+  question: What is a JVT, JET, EST or SST?
+  answer: JVT is Junior Vernacular Teacher, mainly for primary classes, teaching Urdu, maths, Islamiat and general subjects. JET is Junior English Teacher. EST is Elementary School Teacher, for the elementary classes up to Class 8. SST is Secondary School Teacher, a subject specialist for Classes 9 and 10. The IT Teacher I am applying for is BPS-17, a specialist post for IT from Class 6 upward. (See the cadre table earlier in this section for grades.)
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-023
+  bank: general
+  category: The school system and daily teaching
+  question: What does a normal school day look like?
+  answer: 'It starts with the morning assembly: recitation, the national anthem and a short talk on cleanliness or discipline. Then attendance, and classes of about 35 to 40 minutes, with a break in the middle. A teacher teaches several periods, checks copies and homework, and keeps the attendance and result registers. At the end of the day I would note what each class finished and plan the next day.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-024
+  bank: general
+  category: The school system and daily teaching
+  question: How do you teach a class where children are at very different levels, or several classes in one room?
+  answer: 'I would divide them into small groups by level. While I teach one group directly, the others do written or practice work. I would pair a strong student with a weak one so both learn. I give the same topic at two levels: basic for those who are behind, and an extra challenge for the quick ones. This is normal in multi-grade primary classes in Balochistan.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-025
+  bank: general
+  category: The school system and daily teaching
+  question: Do you make lesson plans? What is in a lesson plan?
+  answer: Yes. A lesson plan has the topic, the learning objective (what students will be able to do by the end), the materials, how I will start and get attention, the explanation and activity, a quick check of understanding, and homework. Even a simple plan in a diary keeps the lesson focused and saves time.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-026
+  bank: general
+  category: The school system and daily teaching
+  question: How will you deal with a weak student, an absent student, or an orphan?
+  answer: For a weak student, I would find the exact gap, give extra time and simple practice, sit him with a helpful classmate, and praise small progress. For a student who is often absent, I would find out why, through classmates or by contacting the parents, because it is often poverty or work at home, and help him catch up. For an orphan or a child in a difficult family situation, I would be kind and patient, never embarrass him in front of others, connect him with stipend or welfare support such as the Edhi Foundation or Bait-ul-Maal if he needs it, and make sure he feels he belongs in class.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-027
+  bank: general
+  category: The school system and daily teaching
+  question: Why are so many girls in Balochistan out of school?
+  answer: 'The first reason is poverty. Education in government schools is free, but families still have to pay for uniforms, transport and copies, and many need the children''s help at home. The second is early marriage: many girls are married young and leave school. Then there are practical reasons. There are few girls'' schools, especially middle and high schools; in Chaman district, for example, only 34 of the 246 government schools are girls'' primary schools. Schools are far away, and many parents won''t let a daughter travel alone. Some schools have no female teacher, no boundary wall and no toilet. And in some families there is still a feeling that girls don''t need much education. Girls are also kept at home for housework: cooking, cleaning, ironing and looking after younger brothers and sisters. Many parents think a girl will be married anyway, so education is not needed. She tells parents: "Your daughter can become a doctor. Our women need female doctors. She can become a teacher
+    and earn well." She talks to the fathers too, and sometimes she has to be firm and insist that the girl must come to school. Slowly girls are coming back. NGOs help with books, notebooks, uniforms and bags. Solutions: more girls'' middle and high schools close to home, more female teachers, stipends that keep girls in school, and awareness through religious scholars and elders, because Islam makes seeking knowledge a duty for every Muslim, man and woman. *If they follow up:* "Talab ul ilmi farizatun ala kulli Muslim" (seeking knowledge is an obligation on every Muslim; Sunan Ibn Majah).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-028
+  bank: general
+  category: The school system and daily teaching
+  question: What challenges did you face as a student?
+  answer: My biggest challenge was language. So I understand students in Balochistan who find English hard, and as an IT teacher I will explain terms in Urdu or Pashto first and then give the English word.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-029
+  bank: general
+  category: The school system and daily teaching
+  question: How have government schools changed in recent years?
+  answer: 'They have improved a lot. Not long ago, most children sat on a taat on the floor. Now many schools have desks, and some have computer labs and libraries. Teachers are better trained; NGOs and the department give training in computers, now even AI, and in child psychology. The biggest change is in discipline. Earlier, beating students was common. Now the approach is "maar nahi, pyar": teach with love, not punishment. Corporal punishment is now against the law, and I fully agree with it, because a child who is afraid cannot learn.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-030
+  bank: general
+  category: The school system and daily teaching
+  question: Who supports schools in Balochistan besides the government?
+  answer: NGOs and donors give books, notebooks, uniforms and bags, and train teachers. The FC, the Frontier Corps Balochistan, which is a federal paramilitary force under the Interior Ministry, also runs and supports schools in many areas, including repair of buildings. Parent Teacher School Management Committees (PTSMCs) get funds for small repairs and are meant to link parents with the school. They work best when members are trained and roles are clear, so that they help the teachers rather than add pressure.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-031
+  bank: general
+  category: The school system and daily teaching
+  question: What advice would you give a new teacher? (also asked as "What makes a good teacher?")
+  answer: 'First, be punctual and disciplined. Come on time, leave on time, and respect every period. Students learn discipline by watching the teacher. Second, remember you are teaching more than a subject. Today children spend most of their day with teachers: school in the morning, madrasa in the afternoon, then tuition. So a teacher shapes their manners, their ethics and their goals, not just their marks in maths or computer science. Talk to them about careers and their future too. Third, don''t give up on any student. Some will ignore you completely. Don''t get angry and don''t stop. Study each child, understand his psychology, and keep changing your method until it reaches him." I believe that is the real test of a teacher.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-032
+  bank: general
+  category: IT classroom and school situations
+  question: Should mobile phones be allowed in schools?
+  answer: No, not for students up to matric. Phones distract children, and they lead to cheating and unsafe content. For emergencies, especially for children who come from far away, the school should keep every parent's number, and parents should have the class teacher's number. For digital learning, the school can use a multimedia projector or the computer lab under the teacher's supervision.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-033
+  bank: general
+  category: IT classroom and school situations
+  question: Explain the internet to a Class 6 child in five minutes.
+  answer: 'I would say: "In this class, you and your friends have each other''s phone numbers, so you are connected. That is a small network. Now imagine millions of computers and phones all over the world connected with each other, through cables, WiFi and mobile signals. That is the internet: a network of networks. That''s why you can watch a cartoon on YouTube at home, and your friend can watch the same cartoon in Quetta at the same time." Then I would ask them to name things they use the internet for.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-034
+  bank: general
+  category: IT classroom and school situations
+  question: A student is found viewing inappropriate content on the lab computer. What will you do?
+  answer: 'I will stay calm and not shame him in front of the class. I will close it, then talk to him privately and explain, including from our religious values, why it is harmful. I will keep it confidential, because in our society, if the matter spreads, the child could be pulled out of school or face harsh punishment at home, and then he loses his education. I will quietly try to understand his background, and if he needs more guidance, I will involve someone he trusts, like an elder brother, and inform the head teacher. Then I will fix the cause: install a content filter, keep screens facing the teacher, and supervise the lab properly. I will also teach the whole class about online safety, without naming him.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-035
+  bank: general
+  category: IT classroom and school situations
+  question: Three of the ten lab computers are broken and nobody fixes them.
+  answer: I will first check them myself. Often it is a simple fault like a cable, RAM or Windows, and as an IT person I can fix that. If a part is needed, I will write to the head teacher with the exact fault and cost, and follow up with the department or an NGO. Meanwhile I will put students in groups so no one misses practice, and teach them to care for the equipment.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-036
+  bank: general
+  category: IT classroom and school situations
+  question: There is no Maths or English teacher. Will you teach it?
+  answer: Yes sir, the children shouldn't suffer because of a shortage; it's my duty. Maths I can teach well after preparing each lesson. English I would also teach, and I would prepare carefully and improve myself. Meanwhile I would request the department to post a specialist.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-037
+  bank: general
+  category: IT classroom and school situations
+  question: An influential man asks you to increase his son's marks.
+  answer: 'I will listen respectfully and calmly explain: "Brother, if I raise his marks, I would have to do the same for every other child, and that is unfair to them. And it won''t help your son: he will stop working hard, and in the board exam and university no one will raise his marks. Let me give him extra time and help instead, so he earns the marks himself." I will not change the marks, and if the pressure continues I will inform the head teacher.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-038
+  bank: general
+  category: IT classroom and school situations
+  question: If you are posted to a remote area far from your district, will you go?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-039
+  bank: general
+  category: IT classroom and school situations
+  question: Is social media good or bad for young people?
+  answer: 'Both. YouTube has excellent free lessons; many students learn programming there. Used well, it is a free university. But apps like TikTok can waste hours on short, useless videos, and they bring fake news and online bullying. So the answer is not banning but teaching digital literacy: how to choose good content, limit screen time and check facts.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-040
+  bank: general
+  category: IT classroom and school situations
+  question: If you were Education Minister of Balochistan for one day, what would you do?
+  answer: I would order the recruitment of subject specialist teachers for every middle and high school, on merit through BPSC, and post them to their own districts with a firm attendance check. Buildings and funds matter, but a school with a present, trained teacher can work even under a tree. A school without one cannot work even in a palace.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-041
+  bank: general
+  category: IT classroom and school situations
+  question: Where do you see yourself in 10 years?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-042
+  bank: general
+  category: Closing questions
+  question: Will AI replace teachers?
+  answer: 'No sir, I don''t think so. AI is very good at automation: marking quizzes, making notes, answering simple questions. But teaching is more than giving information. A teacher asks questions, listens, notices which child is confused or upset, motivates, and builds character and values. AI will change teaching: teachers who use AI will replace teachers who don''t. That''s why I want to train both students and teachers to use it well.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-043
+  bank: general
+  category: Closing questions
+  question: What is your biggest achievement?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-044
+  bank: general
+  category: Closing questions
+  question: Why should we select you over other candidates with the same degree?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-045
+  bank: general
+  category: Warm-up questions
+  question: What does your name mean?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-046
+  bank: general
+  category: Warm-up questions
+  question: Who is your favourite poet?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-047
+  bank: general
+  category: Warm-up questions
+  question: Can a person make his own taqdeer (destiny)?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-048
+  bank: general
+  category: Warm-up questions
+  question: Why do leaves change colour in autumn, and why is it getting cold now? (a science warm-up)
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-049
+  bank: general
+  category: Warm-up questions
+  question: Why was the Quaid shifted to Ziarat?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-050
+  bank: general
+  category: The national anthem
+  question: Who wrote it? Who composed the music?
+  answer: 'Words: **Hafeez Jalandhari**. Music: **Ahmed Ghulam Ali Chagla** (composed in 1949).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-051
+  bank: general
+  category: The national anthem
+  question: When was it approved?
+  answer: Approved by the government in August 1954; first broadcast on Radio Pakistan on 13 August 1954.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-052
+  bank: general
+  category: The national anthem
+  question: Length and language
+  answer: Three stanzas, about 80 seconds. Written in highly Persianised Urdu; almost every word is also used in Persian, except "ka".
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-053
+  bank: general
+  category: The national anthem
+  question: Stanza 1, meaning
+  answer: Blessed be the sacred land, happy be the generous realm; you are the symbol of high resolve, O land of Pakistan; blessed be you, the centre of faith.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-054
+  bank: general
+  category: The national anthem
+  question: Stanza 2, meaning
+  answer: The system of this sacred land is the might of the brotherhood of the people (*quwwat-e-akhuwwat-e-awaam*); may the nation, the country and the state shine forever; blessed be the goal of our ambition.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-055
+  bank: general
+  category: The national anthem
+  question: Stanza 3, meaning
+  answer: This flag of the crescent and star leads the way to progress and perfection; it reflects our past, the glory of our present and the hope of our future; it is the shadow of God the Almighty's protection.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-056
+  bank: general
+  category: The national anthem
+  question: The anthem speaks of the power of the people, so why doesn't democracy work properly in our country, our homes and our schools?
+  answer: The anthem says our system rests on *quwwat-e-akhuwwat-e-awaam*, the strength of the people's brotherhood. Democracy is more than voting. It is a habit of listening, tolerance and accepting the majority while protecting the minority. In our country, early leaders died soon after independence, and we had long periods without elected governments, so democratic habits did not grow deep. Low literacy and tribal and family traditions also mean that decisions are often made by one elder or one person. The place to change this is the school. If a teacher lets students elect class monitors, discuss in groups, give their opinion and respect others' views, they become democratic citizens. That is what I would do in my class.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-057
+  bank: general
+  category: 'Sensitive questions: Afghanistan, law and order, BLA, TTP, PTM'
+  question: What is the solution to the Pakistan-Afghanistan problem?
+  answer: '*Background:* After the Taliban returned to power in August 2021, attacks in Pakistan by the TTP rose sharply. Pakistan says TTP fighters operate from Afghan soil. In October 2025 there were heavy border clashes; Qatar and Turkey mediated a ceasefire and talks in Doha and Istanbul, but they did not settle the issue. Crossings including Chaman-Spin Boldak have been closed for long periods since. Pakistan has also been sending back undocumented Afghans since 2023. *Version A:* Pakistan wants peaceful, brotherly relations with Afghanistan; we share faith, culture and a long border. But no country can accept terrorists using a neighbour''s soil to attack it. The solution is that the Afghan interim government acts verifiably against the TTP and other groups, under the Doha understanding, while Pakistan keeps its border managed and fenced. Once security is assured, trade, transit and people-to-people links can grow again. *Version B:* Both countries need each other. For people in Chaman
+    the border is not a line on a map; families, trade and livelihoods are on both sides, and the closure has hurt ordinary people on both sides most. Security concerns are real and must be addressed through continuous dialogue, with regional friends like Qatar, Turkey and China helping. Alongside that, the border should reopen for trade and families under proper documentation, refugees should be returned with dignity, and youth on both sides need education and jobs so that extremist groups cannot recruit them.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: draft  # held back: see the PR (privacy rules, SRS 3.4)
+  added: '2026-11-25'
+- id: gen-058
+  bank: general
+  category: 'Sensitive questions: Afghanistan, law and order, BLA, TTP, PTM'
+  question: What is the BLA? Why is there an insurgency in Balochistan?
+  answer: '*Facts:* The Balochistan Liberation Army is a separatist armed group, banned in Pakistan since 2006 and designated a terrorist organisation by the US in 2025 and by the UK. It has carried out attacks on civilians, workers from other provinces, the security forces and Chinese nationals, including the hijacking of the Jaffar Express in March 2025. The government calls these groups "Fitna al-Hindustan" because it says they are backed by India. *Version A:* The BLA is a terrorist group that kills innocent people, including teachers, labourers and travellers, and it is supported by hostile foreign agencies who do not want CPEC and development in Balochistan to succeed. The Baloch people are patriotic Pakistanis and reject these groups. The state must deal firmly with terrorism while continuing development, jobs and education, as it is doing through the Balochistan development packages and quota jobs. *Version B:* Nothing justifies killing innocent people, and the BLA''s violence has
+    hurt the Baloch people most of all. But we should also understand why some young people get angry: poverty, unemployment, poor schools and hospitals in a province rich in gas and minerals, and the painful issue of missing persons. The answer is to separate the violent few from the many with real grievances: fair share of resources, local jobs, rule of law and courts for every case, and dialogue with elected and peaceful Baloch leaders. Education is the strongest weapon against extremism.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: draft  # held back: see the PR (privacy rules, SRS 3.4)
+  added: '2026-11-25'
+- id: gen-059
+  bank: general
+  category: 'Sensitive questions: Afghanistan, law and order, BLA, TTP, PTM'
+  question: What do the Baloch people want? What about protests like the Baloch Yakjehti Committee?
+  answer: '*Version A:* The vast majority of Baloch want peace, development, jobs and education within Pakistan. Peaceful protest is a constitutional right (Article 16), but it must stay within the law and must not be used by anyone to give cover to terrorists. The government is listening through elected representatives and the Balochistan Assembly. *Version B:* People want the same as everyone: security, dignity, jobs, and answers about their missing relatives. The Constitution gives every citizen the right to peaceful assembly and to a fair trial (Articles 10-A and 16). When peaceful voices are heard and the law is applied equally, the space for violence shrinks. Commissions on missing persons and the courts should work faster.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: draft  # held back: see the PR (privacy rules, SRS 3.4)
+  added: '2026-11-25'
+- id: gen-060
+  bank: general
+  category: 'Sensitive questions: Afghanistan, law and order, BLA, TTP, PTM'
+  question: What is the TTP? How should Pakistan deal with it?
+  answer: '*Facts:* Tehreek-e-Taliban Pakistan was formed in 2007 under Baitullah Mehsud and is banned. It carried out the Army Public School Peshawar massacre (16 December 2014; about 150 killed, mostly children), which led to the National Action Plan and Operation Zarb-e-Azb (2014). The government now calls the TTP "Fitna al-Khawarij". Its attacks rose again after 2021, mostly in Khyber Pakhtunkhwa and parts of Balochistan; Operation Azm-e-Istehkam was announced in 2024. *Version A:* The TTP are khawarij who misuse the name of Islam to kill Muslims, children and soldiers. Islam forbids killing innocents (Surah Al-Ma''idah 5:32). The state is right to follow zero tolerance, through military operations, the National Action Plan and pressure on Afghanistan to deny them sanctuary. *Version B:* Force is necessary against those who kill, but lasting peace also needs ulema to answer their false ideology, schools and jobs in the former tribal areas, and justice for people displaced by operations,
+    so young men are not recruited. The 2014-2017 period showed that firm action with public support works.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: draft  # held back: see the PR (privacy rules, SRS 3.4)
+  added: '2026-11-25'
+- id: gen-061
+  bank: general
+  category: 'Sensitive questions: Afghanistan, law and order, BLA, TTP, PTM'
+  question: What is the PTM? What do you think of it?
+  answer: '*Facts:* The Pashtun Tahaffuz Movement was founded in 2018 by Manzoor Pashteen after the killing of Naqeebullah Mehsud in Karachi. It demanded an end to extrajudicial killings, the clearing of landmines, and the release of missing persons. The federal government banned it in October 2024, saying its activities threatened peace. *Version A:* The PTM is now a banned organisation, and as a government servant I respect the government''s decision. Pashtun concerns are being addressed through elected representatives, development in the merged districts and the courts. Any movement that uses anti-state slogans or creates hatred between the people and the armed forces only helps the enemy. *Version B:* As a government servant I respect the ban. At the same time, the issues it raised in 2018, like Naqeebullah''s killing, landmines and missing persons, were real issues that many Pashtun families felt, and some of them were acknowledged by the state. The right way is to raise such issues
+    peacefully, through parliament and courts, without hatred against any institution.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: draft  # held back: see the PR (privacy rules, SRS 3.4)
+  added: '2026-11-25'
+- id: gen-062
+  bank: general
+  category: 'Sensitive questions: Afghanistan, law and order, BLA, TTP, PTM'
+  question: How can law and order improve in Balochistan?
+  answer: '*Both versions:* firm action against terrorists under the National Action Plan; well-trained and well-equipped police and Levies; intelligence-based operations; development that local people can see (roads, schools, hospitals, jobs for locals in CPEC and mining); dialogue with all peaceful stakeholders; and above all education, because an educated young person with a skill is the hardest to recruit. As an IT teacher, that is my contribution.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: draft  # held back: see the PR (privacy rules, SRS 3.4)
+  added: '2026-11-25'
+- id: gen-063
+  bank: general
+  category: Thinking and values questions
+  question: 'What is more important for a nation: education or the economy?'
+  answer: 'Both go together, but I believe education comes first, because it builds the economy. Japan after 1945 and South Korea after its war had few natural resources, but they invested in education and became economic powers. Countries like the USA grew through business and trade, but their universities and skilled people are what keep them ahead. Islam also started with education: the first word revealed was "Iqra", read. A nation needs money to run schools, yes, but without educated people the money is wasted. So education is the seed, and the economy is the fruit. *Why this version:* your point about business is valid, so it''s kept. But in a teacher''s interview, "economy first" can make the panel ask, "Then why become a teacher?"'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-064
+  bank: general
+  category: Thinking and values questions
+  question: Is it right to cheat if the system itself is unfair?
+  answer: No sir, never. A wrong system does not make another wrong right. If each of us stops cheating, the system changes from inside, slowly. Cheating also cheats the honest student sitting next to you.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-065
+  bank: general
+  category: Thinking and values questions
+  question: What is success, in your opinion?
+  answer: Money and position come and go, but if people remember you as someone who helped them, like they remember Edhi sahib, that is real success. For a teacher, success is a student who comes back years later and says, "Sir, you changed my life."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-066
+  bank: general
+  category: Thinking and values questions
+  question: You find a wallet with 50,000 rupees and an ID card. What will you do?
+  answer: 'I will return it to the owner, using the CNIC address or phone number, or through the police station if I cannot find him. It is their money; it was never mine. (If they ask the Fajr time in Quetta now: around 6 am in December. See the Islamiat bank, section 8.)'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-067
+  bank: general
+  category: Thinking and values questions
+  question: Is a good teacher born or made?
+  answer: Made. Some people are naturally good speakers, and that helps. But knowledge, patience, planning and understanding children are learned through training and experience.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-068
+  bank: general
+  category: Thinking and values questions
+  question: 'Which is more powerful: the pen or the sword?'
+  answer: 'The pen. You can escape a sword, or defeat it once, but you cannot escape an idea written with a pen; it reaches millions and lives for centuries. The sword rules bodies, but the pen rules minds. Pakistan itself was won by the pen: by Sir Syed''s education, Iqbal''s poetry and the Quaid''s legal arguments, not by war. The Quran even swears by the pen: "Noon. By the pen and what they write" (Surah Al-Qalam 68:1).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-069
+  bank: general
+  category: Thinking and values questions
+  question: If you could meet anyone from history, who would it be?
+  answer: Any of these three works; choose one and practise it. - **The Prophet Muhammad (PBUH):** every Muslim's greatest wish. I would ask him how he taught his companions so that ordinary people became the best generation, because that is the greatest example of teaching in history. - **Hazrat Musa (AS):** he lived among Pharaoh's magicians, and Allah's miracles defeated their magic. I would ask how he stayed firm in front of the most powerful ruler of his time. - **Hazrat Khizr (AS):** in Surah Al-Kahf, even Hazrat Musa (AS) travelled to learn from him. I would ask about patience, because that story teaches that a student must be patient, and that what looks wrong may have wisdom behind it. That is a lesson for every teacher and student.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-070
+  bank: general
+  category: Thinking and values questions
+  question: What is the biggest problem of Pakistani youth today?
+  answer: 'Unemployment, which comes from a gap between what we study and what the market needs. More than 60% of Pakistan''s population is under 30, and many have degrees but no skills. The answer is skills and direction: digital skills, freelancing, technical training and career guidance from school. As an IT teacher I can give that direction from Class 6.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-071
+  bank: general
+  category: Thinking and values questions
+  question: Is the joint family system good or bad?
+  answer: 'It has both sides. It is good because elders are cared for, children grow up with values and love, and the family supports each other in hard times. But when brothers marry, a big joint house can bring problems of privacy and purdah, since a brother''s wife is non-mahram for the other brothers, and disputes can arise. So I think the best is a middle way: separate homes for each couple, close to each other, while our parents always live with us, are cared for and respected, as Islam commands. *Tone:* don''t say "all Pakistani schools are bad" or "teachers are corrupt". Describe the problem and the fix, and show that you are part of the fix.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-072
+  bank: general
+  category: About you (prepare your own answer)
+  question: Introduce yourself. Family, caste or tribe, father's job, siblings and what they do, which one you are among them.
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-073
+  bank: general
+  category: About you (prepare your own answer)
+  question: Which part of your district are you from? How is farming done there when the area is so dry?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-074
+  bank: general
+  category: About you (prepare your own answer)
+  question: Can anyone survive today without education? Why is education necessary?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-075
+  bank: general
+  category: About you (prepare your own answer)
+  question: Importance of an IT teacher.
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-076
+  bank: general
+  category: Teaching and pedagogy
+  question: How do you prepare content as an IT teacher, and how do you teach?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-077
+  bank: general
+  category: Teaching and pedagogy
+  question: How would you explain to a beginner what a computer is?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-078
+  bank: general
+  category: Teaching and pedagogy
+  question: How would you teach maths if the maths teacher is absent?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-079
+  bank: general
+  category: Teaching and pedagogy
+  question: Technology pedagogy; IT pedagogy.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-080
+  bank: general
+  category: Teaching and pedagogy
+  question: Flipped classroom framework.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-081
+  bank: general
+  category: Teaching and pedagogy
+  question: Critical thinking; analytical thinking.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-082
+  bank: general
+  category: Teaching and pedagogy
+  question: Impact of computers on other subjects.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-083
+  bank: general
+  category: Teaching and pedagogy
+  question: Pakistan's education profile; Balochistan's education system; mismanagement in education.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-084
+  bank: general
+  category: Teaching and pedagogy
+  question: How is ICT changing the world? What are its social impacts, such as the authenticity of information?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-085
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Old name of Japan
+  answer: The Japanese call their country **Nippon** or Nihon, "origin of the sun", which is why it is called the Land of the Rising Sun. Its ancient name was **Yamato**. Marco Polo called it Cipangu.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-086
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Warqa bin Naufal
+  answer: Hazrat Khadija's (RA) cousin, an old Christian scholar in Makkah who knew the earlier scriptures. After the first wahi, Khadija took the Prophet (PBUH) to him, and he confirmed that the same angel (Namoos) who came to Musa (AS) had come to him, and said his people would drive him out.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-087
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Arkan-e-Islam
+  answer: 'Five: Shahadah (Kalima), Salah, Zakat, Sawm (fasting in Ramazan), Hajj.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-088
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Where and when was the first wahi revealed?
+  answer: In the cave of **Hira** on Jabal-un-Noor near Makkah, in **Ramazan, 610 CE**, when the Prophet (PBUH) was 40. The first verses were Surah Al-Alaq 1-5 ("Iqra bismi rabbik").
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-089
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: When was fasting made farz?
+  answer: In **2 AH** (Sha'ban), in Madina (Surah Al-Baqarah 2:183). Fasting is kept from dawn (Sehri) to sunset (Iftar) in Ramazan.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-090
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: When was Zakat made farz? Its recipients (masarif)
+  answer: 'Made farz in Madina, commonly dated **2 AH** (the detailed rules came later, around 8-9 AH). Recipients: eight categories in Surah At-Tawbah 9:60: the poor (fuqara), the needy (masakeen), zakat collectors, those whose hearts are to be won, freeing slaves, debtors, in the way of Allah, and travellers. It is not given to one''s parents, children, spouse or to Banu Hashim.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-091
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Aam-ul-Feel (Year of the Elephant)
+  answer: '**570 CE**: Abraha, the Abyssinian governor of Yemen, attacked the Kaaba with elephants. Allah destroyed his army with birds (ababeel) throwing stones (Surah Al-Feel). The Prophet (PBUH) was born that year. *Feel* means elephant.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-092
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Pakistan's longest coastline (by province)
+  answer: 'Pakistan''s coastline is about **1,046 km**: Balochistan about 770 km (the longest) and Sindh about 270 km. World''s longest coastline: **Canada**. Among countries with a coast, **Monaco** has one of the shortest (about 4 km).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-093
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Fundamental rights in the 1973 Constitution
+  answer: 'Part II, Chapter 1, **Articles 8 to 28**. Examples: security of person (9), fair trial (10-A), freedom of movement (15), assembly (16), association (17), speech (19), religion (20), education (25-A, free and compulsory for ages 5-16), equality (25).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-094
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Total articles in the Constitution
+  answer: '**280** articles in 12 parts, with 7 schedules. Amendments so far: 27 (the 27th in November 2025).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-095
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Components of a computer; inventors of WWW and mouse
+  answer: See the technical bank. Tim Berners-Lee (WWW, 1989); Douglas Engelbart (mouse, 1964).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-096
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Naval air base
+  answer: '**PNS Mehran**, Karachi, the Pakistan Navy''s main naval air station (attacked by terrorists on 22 May 2011).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-097
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: UNHCR
+  answer: '**United Nations High Commissioner for Refugees**, the UN Refugee Agency. Founded 1950, headquarters Geneva. Pakistan hosts one of the world''s largest Afghan refugee populations.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-098
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Bab-el-Mandeb
+  answer: A strait between Yemen (Arabia) and Djibouti and Eritrea (Africa). It joins the **Red Sea** to the **Gulf of Aden** and Arabian Sea. The name means "Gate of Tears". The Houthis have attacked ships there since late 2023.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-099
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Where is the Caribbean Sea?
+  answer: In the Atlantic Ocean, south of the Gulf of Mexico, between Central America and South America, with islands like Cuba, Jamaica and the West Indies.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-100
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Where does the monsoon come from?
+  answer: From the **Indian Ocean**. In summer the land heats up faster than the sea, so moist south-west winds blow from the Arabian Sea and Bay of Bengal onto the land, bringing rain from about July to September.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-101
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Who first went to the moon?
+  answer: '**Neil Armstrong**, Apollo 11 (USA), **20 July 1969**, followed by Buzz Aldrin. Michael Collins stayed in orbit.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-102
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Delta year
+  answer: '[Unclear in the report. If they ask about a delta: the Indus Delta is in Sindh where the Indus meets the Arabian Sea; the world''s largest is the Ganges-Brahmaputra Delta (Sundarbans) in Bangladesh and India.]'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-103
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: When was zakat made farz?
+  answer: In Madina, commonly dated **2 AH**.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-104
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: When did the Hijri calendar start? What was used before it?
+  answer: Hazrat **Umar** (RA) started it in about **17 AH (638 CE)**, on Hazrat Ali's (RA) suggestion, counting from the year of the Hijrah (622 CE), with Muharram as the first month. Before that the Arabs had no fixed era; they named years after big events, such as **Aam-ul-Feel** (the Year of the Elephant, 570 CE), and used lunar months.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-105
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: How many faraiz of namaz?
+  answer: '**13**: 7 outside (clean body, clothes and place, satr, Qibla, time, niyyah) and 6 inside (takbir-e-tahreema, qiyam, qira''at, ruku, sajdah, qa''da-e-akheera).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-106
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: What do we recite in namaz?
+  answer: Takbir (Allahu Akbar), Sana (Subhanakallahumma), Ta'awwuz and Tasmiya, Surah Al-Fatiha and another surah, "Subhana Rabbiyal Azeem" in ruku, "Sami Allahu liman hamidah" while rising, "Subhana Rabbiyal A'la" in sajdah, Attahiyyat (Tashahhud), Durood-e-Ibrahimi, a dua, then salam to both sides.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-107
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: HTTP, HTTPS, URL
+  answer: HTTP (HyperText Transfer Protocol) carries web pages; HTTPS is the secure, encrypted version (SSL/TLS, port 443), shown by a lock. A URL (Uniform Resource Locator) is the full address of a page, for example https://bpsc.gob.pk.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-108
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: System software vs application software
+  answer: System software runs the computer itself (the operating system like Windows, drivers, utilities). Application software does a job for the user (MS Word, Chrome, WhatsApp).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-109
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: What is cyber security? How can we control threats?
+  answer: 'Protecting systems, networks and data from attacks. Control: strong passwords and two-step verification, updates, antivirus and a firewall, backups, not clicking unknown links, and training users, because most attacks start with a human mistake.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-110
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: What is malware? How does it spread?
+  answer: 'Malicious software: viruses, worms, Trojans, ransomware and spyware. It spreads through infected USB drives, email attachments, fake links and downloads, pirated software, and unpatched network weaknesses (worms spread by themselves).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-111
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: What do you want to do as an IT teacher?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-112
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Why is the government bringing computer science into schools?
+  answer: Because the world now runs on technology. Every job, from banking to farming, uses it. Children who learn IT early can get jobs, freelance and compete with other provinces, and the digital divide shrinks. BPSC itself wrote that IT has been introduced from Class 6 onward, which is why these posts were created.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-113
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Which subject is it replacing?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-114
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: 'Your district: population, when formed, tribes'
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-115
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Which police stations are in your area? Who keeps law and order there?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-116
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: What is information? Technology? IT?
+  answer: '**Information** is data that has been processed and has meaning (marks are data; "Ali passed with 80%" is information). **Technology** is using scientific knowledge to make tools that solve problems. **Information Technology** is using computers, networks and software to store, process and share information.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-117
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: What benefits can you bring to the school as an IT teacher?
+  answer: Computer literacy and online safety for every student; a working lab; digital result sheets and records for the office; training for other teachers to use computers and AI; digital lessons that make other subjects easier; and career guidance about IT and freelancing for senior students.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-118
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: 'No Maths or Chemistry teacher: can you fill the gap with IT?'
+  answer: 'Yes. I would teach the basics myself where I can, and use free digital content: Khan Academy in Urdu, Sabaq.pk, Taleemabad, YouTube lessons, and PhET simulations, shown on a projector or the lab computers, with worksheets. Digital content can''t replace a teacher, but with a teacher guiding it, it fills the gap until a specialist is posted.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-119
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: How would you make Physics easier using IT?
+  answer: Use simulations like **PhET** (University of Colorado, free) for motion, circuits and waves, so students change values and see the result. Show short animations and videos, use Excel to draw graphs from experiment readings, and let students measure things with phone sensor apps. Seeing and doing makes abstract physics concrete.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-120
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: When did Balochistan become part of Pakistan?
+  answer: British Balochistan voted to join on **29 June 1947** (Shahi Jirga and Quetta Municipality). Kharan, Makran and Lasbela acceded on 17 March 1948, and Kalat on 27 March 1948. It became a full province on 1 July 1970.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-121
+  bank: general
+  category: Reported in IT Teacher interviews, 23-24 Nov 2026
+  question: Famous places in your district
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-122
+  bank: general
+  category: About you (prepare your own answer)
+  question: Introduce yourself (in Urdu or English)
+  answer: ''
+  personal: true
+  frequency: 3
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-123
+  bank: general
+  category: About you (prepare your own answer)
+  question: Father's name, its meaning and his occupation; siblings and what they do
+  answer: ''
+  personal: true
+  frequency: 3
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-124
+  bank: general
+  category: About you (prepare your own answer)
+  question: Education from matric onward, and your degree's main subjects
+  answer: ''
+  personal: true
+  frequency: 3
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-125
+  bank: general
+  category: About you (prepare your own answer)
+  question: Why this post with your degree? Why not a lecturer, or a higher post?
+  answer: ''
+  personal: true
+  frequency: 3
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-126
+  bank: general
+  category: About you (prepare your own answer)
+  question: Your tribe, its sardar or nawab, and your village
+  answer: ''
+  personal: true
+  frequency: 2
+  tags:
+  - asked-in-it-interview
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-127
+  bank: general
+  category: About you (prepare your own answer)
+  question: 'Issues of your district: education, youth, poverty, women'
+  answer: ''
+  personal: true
+  frequency: 2
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-128
+  bank: general
+  category: About you (prepare your own answer)
+  question: Why should we select you? What is your goal?
+  answer: ''
+  personal: true
+  frequency: 2
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-129
+  bank: general
+  category: About you (prepare your own answer)
+  question: Have you sat for CSS or PCS, or other commission exams?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-130
+  bank: general
+  category: About you (prepare your own answer)
+  question: If you are selected for two posts, which will you choose?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-131
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Introduce yourself, from matric onwards
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-132
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Your siblings and your father's job
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-133
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Who was the Prophet's ﷺ first wife, and what about him impressed her?
+  answer: '**Your answer:** Hazrat Khadija (RA). She was a respected trader of Makkah. When he took her trade caravan to Syria, her servant Maysarah told her about his honesty, trustworthiness and noble character, and the trade made a good profit. She was so impressed that she sent him a proposal of marriage. He was 25 and she was 40.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-134
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: What are the Arkan-e-Islam?
+  answer: '**Your answer:** Five: Shahadah (Kalima), Salah, Zakat, Sawm (fasting in Ramadan) and Hajj.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-135
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: What is Tauheed?
+  answer: '**Your answer:** Believing that Allah is One, with no partner: one in His being (zaat), one in His attributes (sifaat), and the only one worthy of worship. Surah Al-Ikhlas explains it: "Say, He is Allah, the One." Its opposite is shirk, the greatest sin.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-136
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Tell us about Mawakhat
+  answer: '**Your answer:** Mawakhat means brotherhood. After the Hijrat, the Prophet ﷺ made each Muhajir (emigrant from Makkah) the brother of an Ansari (helper of Madina). The Ansar shared their homes, land and wealth with them. A famous pair was Hazrat Abdur Rahman bin Auf (RA) and Hazrat Saad bin Rabi (RA); Abdur Rahman thanked him and asked only to be shown the market. There was also an earlier Mawakhat among the Muslims of Makkah.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-137
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Where did the Prophet ﷺ stay during the Hijrat?
+  answer: '**Your answer:** First three nights in the Cave of Thawr with Hazrat Abu Bakr (RA). In Quba he stayed at the house of Kulthum bin Hidm and built Masjid Quba, the first mosque. In Madina his camel sat near the house of Hazrat Abu Ayyub Ansari (RA), and he stayed there for about seven months until Masjid-e-Nabawi and his rooms were built.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-138
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: What is the largest lake?
+  answer: '**Your answer:** In the world: the Caspian Sea, a salt lake of about 371,000 km². The largest freshwater lake by area is Lake Superior (USA/Canada); the deepest and largest by volume is Lake Baikal (Russia). In Pakistan: Manchar Lake in Sindh is the largest freshwater lake. Keenjhar Lake supplies Karachi''s water. In Balochistan, Hanna Lake near Quetta is famous.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-139
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: How much of the world's oil trade passes through the Strait of Hormuz?
+  answer: '**Your answer:** About one fifth, roughly 20% of the world''s oil consumption (around 20 million barrels a day), plus about a fifth of the world''s LNG. It lies between Iran and Oman. In 2026 it was closed during the Iran war, and oil prices jumped worldwide, including in Pakistan.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-140
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Which is the largest national park, where is it, and why is it called a national park?
+  answer: '**Your answer:** In the world: Northeast Greenland National Park. In Pakistan: Hingol National Park in Balochistan, along the Makran coast (Lasbela, Awaran and Gwadar), about 6,100 km², declared in 1988. It has the Princess of Hope rock, the Sphinx-like rock, Kund Malir beach, mud volcanoes, the Hinglaj Mata temple, and animals like the ibex and marsh crocodile. It is called a national park because the government protects it by law, for wildlife, nature and natural beauty: hunting, cutting trees and building are restricted, and the public can visit to learn and enjoy it.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-141
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Which is the largest Islamic country?
+  answer: '**Your answer:** By population: Indonesia, with about 280 million people. By area: Kazakhstan is the largest Muslim-majority country; Algeria is the largest in Africa and the Arab world. Pakistan is the second-largest Muslim country by population.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-142
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Which is the largest democracy?
+  answer: '**Your answer:** India, by population. The USA is often called the oldest modern democracy, with its constitution from 1789.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-143
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: How many times has Pakistan made a constitution?
+  answer: '**Your answer:** Three permanent constitutions: 1956, 1962 and 1973. Until 1956 Pakistan was run under the Government of India Act 1935 with changes, and there was an interim constitution in 1972. The 1973 constitution is in force today.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-144
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Was the first constitution unilingual or bilingual?
+  answer: '**Your answer:** The 1956 constitution made two state languages, Urdu and Bengali (Article 214), so in that sense it was bilingual. This came after the Bengali language movement of 1952, and the Constituent Assembly accepted Bengali alongside Urdu in 1954.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-145
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Who gave the idea of two state languages?
+  answer: '**Your answer:** It came from the demand of the people of East Bengal in the language movement of 1952. The Constituent Assembly accepted it in May 1954, when Muhammad Ali Bogra was Prime Minister, and it entered the 1956 constitution.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: gen-146
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Who invented the computer mouse?
+  answer: '**Your answer:** Douglas Engelbart, in 1964. He showed it publicly in 1968. The first mouse was a wooden box with two wheels.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-147
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Who invented the World Wide Web?
+  answer: '**Your answer:** Tim Berners-Lee, a British scientist, in 1989 at CERN in Switzerland. The first website went live in 1991. The www is not the same as the internet: the internet is the network, and the web is the pages and links on it.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-148
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: When did the computer come?
+  answer: '**Your answer:** Charles Babbage designed the Analytical Engine in 1837, so he is called the father of the computer. The first electronic general-purpose computer was ENIAC in 1946. Personal computers came in the 1970s and 1980s, like the IBM PC in 1981.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-149
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: If you had to teach about the computer, how would you teach it?
+  answer: '**Your answer:** I would start with a question: "What machines do you use at home?" Then I would show a real computer and its parts (input, processing, output and storage) and explain the IPO cycle with a simple example, like typing a name and seeing it on screen. Then each student would touch the keyboard and mouse and type their name. At the end, a short quiz and a drawing of the parts.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: gen-150
+  bank: general
+  category: 'Reported: Kalat Zone, Hub, 24 Nov 2026'
+  question: Tell us about the Nehru Report
+  answer: '**Your answer:** In 1928 Lord Birkenhead challenged Indians to make an agreed constitution. An All Parties Conference made a committee under Motilal Nehru, and its report was the Nehru Report (August 1928). It asked for dominion status, rejected separate electorates for Muslims, and refused one third of seats for Muslims in the central legislature. Muslims saw it as a Hindu-majority plan. Quaid-e-Azam proposed amendments that were rejected, and he called it the "parting of the ways". In reply he gave his Fourteen Points in March 1929.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'

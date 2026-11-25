@@ -1,0 +1,1 @@
+bpsc_drafts: true   # used with: ruby scripts/bpsc_pages.rb --drafts (preview draft BPSC items locally; never on the live site)

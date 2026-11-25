@@ -1,0 +1,54 @@
+{%- comment -%}
+  Search box and filters over every bank (FR-15 to FR-20). The index (/bpsc-interview/index.json) is only downloaded
+  when the visitor starts using the search (NFR-2); assets/js/bpsc.js does the matching in the browser.
+  Needs bp, bp_banks and bp_all from load.html.
+{%- endcomment -%}
+{%- assign _zones = "" | split: "" -%}
+{%- for it in bp_all %}{% if it.asked_in %}{% assign _zones = _zones | concat: it.asked_in %}{% endif %}{% endfor -%}
+{%- assign _zones = _zones | compact | uniq | sort -%}
+<section class="bp-search" aria-labelledby="bp-search-label" data-index="/bpsc-interview/index.json" data-q="{{ bp_q }}" data-lang="{{ lang }}"
+  data-synonyms="{{ bp.synonyms | jsonify | escape }}" data-new-days="{{ bp.new_days }}"
+  data-res-one="{{ S.bp_res_one }}" data-res-many="{{ S.bp_res_many }}" data-none="{{ S.bp_no_results }}" data-loading="{{ S.bp_loading }}"
+  data-error="{{ S.bp_load_error }}" data-more="{{ S.bp_show_more }}" data-new="{{ S.bp_new }}"
+  data-news="{{ S.bp_news_in_search }}" data-freq1="{{ S.bp_freq_1 }}" data-freq2="{{ S.bp_freq_2 }}" data-freq3="{{ S.bp_freq_3 }}">
+  <form class="bp-search-form" role="search" action="{{ L }}/bpsc-interview/">
+    <label class="bp-search-label" id="bp-search-label" for="bp-q">{{ S.bp_search_label }}</label>
+    <div class="bp-search-row">
+      {% include icon.html name="search" px=20 %}
+      <input id="bp-q" name="q" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search" placeholder="{{ S.bp_search_ph }}" aria-describedby="bp-res-status">
+    </div>
+    <details class="bp-filters">
+      <summary>{{ S.bp_filters }}</summary>
+      <div class="bp-filter-grid">
+        <label>{{ S.bp_f_bank }}
+          <select name="bank"><option value="">{{ S.bp_f_all_banks }}</option>
+            {%- for b in bp_banks %}<option value="{{ b.slug }}">{% if lang == 'ur' %}{{ b.name_ur }}{% else %}{{ b.name }}{% endif %}</option>{% endfor %}
+          </select>
+        </label>
+        <label>{{ S.bp_f_cat }}
+          <select name="cat"><option value="">{{ S.bp_f_all_cats }}</option>
+            {%- for b in bp_banks %}<optgroup label="{% if lang == 'ur' %}{{ b.name_ur }}{% else %}{{ b.name }}{% endif %}" data-bank="{{ b.slug }}">
+              {%- for c in b.categories %}<option value="{{ c | escape }}">{{ c | escape }}</option>{% endfor %}
+            </optgroup>{% endfor %}
+          </select>
+        </label>
+        <label>{{ S.bp_f_freq }}
+          <select name="f"><option value="">{{ S.bp_f_any }}</option><option value="3">{{ S.bp_f_freq3 }}</option><option value="2">{{ S.bp_f_freq2 }}</option></select>
+        </label>
+        {%- if _zones.size > 0 %}
+        <label>{{ S.bp_f_zone }}
+          <select name="zone"><option value="">{{ S.bp_f_all_zones }}</option>
+            {%- for z in _zones %}<option value="{{ z | escape }}">{{ z | escape }}</option>{% endfor %}
+          </select>
+        </label>
+        {%- endif %}
+        <label class="bp-check"><input type="checkbox" name="new" value="1"> {{ S.bp_f_new }}</label>
+        <button class="btn bp-clear" type="reset">{{ S.bp_f_clear }}</button>
+      </div>
+    </details>
+  </form>
+  <p class="bp-res-status" id="bp-res-status" role="status" aria-live="polite"></p>
+  <ol class="bp-results" hidden></ol>
+  <button class="btn bp-more" type="button" hidden>{{ S.bp_show_more }}</button>
+  <div class="bp-news-res" hidden><h3>{{ S.bp_news_in_search }}</h3><ul></ul></div>
+</section>

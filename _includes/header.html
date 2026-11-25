@@ -14,6 +14,8 @@
     <nav class="nav" id="site-nav" aria-label="{{ S.nav_label }}">
       <a href="{{ base }}#about">{{ S.nav_about }}</a>
       {%- assign nav_items = "research|nav_research,projects|nav_projects,blog|nav_notes,tools|nav_tools,games|nav_games,roadmaps|nav_roadmaps,security-news|nav_news,scholarships|nav_scholarships" | split: "," %}
+      {%- comment -%} The BPSC interview section exists in English and Urdu only. {%- endcomment %}
+      {%- if lang == 'en' or lang == 'ur' %}{% assign nav_items = nav_items | push: "bpsc-interview|nav_bpsc" %}{% endif %}
       {%- for item in nav_items %}{% assign parts = item | split: "|" %}{% assign nav_key = parts[1] %}
       {%- assign nav_url = L | append: '/' | append: parts[0] | append: '/' %}{% assign url_start = page.url | slice: 0, nav_url.size %}
       <a href="{{ nav_url }}"{% if page.url == nav_url %} class="is-active" aria-current="page"{% elsif url_start == nav_url %} class="is-active"{% endif %}>{{ S[nav_key] }}</a>
@@ -24,7 +26,7 @@
       <details class="lang-menu">
         <summary class="lang-btn" aria-label="{{ S.language }}: {{ S.lang_name }}">{% include icon.html name="globe" px=17 %}<span class="lang-current">{{ S.lang_name }}</span></summary>
         <ul class="lang-list">
-          {%- for l in site.languages %}{% include lang-urls.html code=l.code %}
+          {%- for l in site.languages %}{% if page.bpsc and l.code != 'en' and l.code != 'ur' %}{% continue %}{% endif %}{% include lang-urls.html code=l.code %}
           <li><a href="{{ alt_url }}" lang="{{ l.tag }}" hreflang="{{ l.tag }}"{% if l.code == lang %} aria-current="true"{% endif %}>{{ l.name }}</a></li>
           {%- endfor %}
         </ul>

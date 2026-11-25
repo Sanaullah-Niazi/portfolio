@@ -1,0 +1,13 @@
+{%- comment -%}
+  Loads the BPSC banks. Sets: bp (settings), bp_banks (banks.yml), bp_all (every item that is built, in bank order),
+  bp_now / bp_new_after (seconds, for the "New" badge) and bp_q (link prefix for question pages).
+  Only items with status: published are built, unless the drafts preview config (_config_bpsc_drafts.yml) is used.
+{%- endcomment -%}
+{%- include bpsc/basics.html -%}
+{%- assign bp_banks = site.data.bpsc.banks -%}
+{%- assign bp_all = "" | split: "" -%}
+{%- for b in bp_banks -%}
+  {%- assign _items = site.data.bpsc[b.slug] -%}{%- if _items == nil -%}{%- continue -%}{%- endif -%}
+  {%- unless site.bpsc_drafts -%}{%- assign _items = _items | where: "status", "published" -%}{%- endunless -%}
+  {%- assign bp_all = bp_all | concat: _items -%}
+{%- endfor -%}

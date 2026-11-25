@@ -341,3 +341,177 @@ island_lede: "Every building is a part of my work. Pick one and walk in."
 island_research: "My thesis, papers and the research I'm doing now."
 island_projects: "Apps and systems I'm building, like AquaPulse."
 island_games: "Quick games that test your security instincts."
+
+# BPSC interview prep section (/bpsc-interview/). English and Urdu only, so these keys are not in de/ and zh/.
+nav_bpsc: BPSC prep
+bp_eyebrow: "BPSC IT Teacher (BPS-17)"
+bp_title: Interview prep
+bp_lede: "Question banks with model answers, search, quick revision and daily Pakistan news, free for every candidate. Open it on your phone and share it with your group."
+bp_window: "[zone] interviews: [from] to [to]"
+bp_days_left: "[n] days to go"
+bp_day_left: "1 day to go"
+bp_started: "Interviews are on now. Good luck!"
+bp_over: "This interview round has ended."
+bp_dates_note: "Dates are from the BPSC call letter. Always check your own letter and the official site,"
+bp_share_whatsapp: Share on WhatsApp
+bp_share_text: "Free BPSC IT Teacher interview prep, with questions, answers and daily news:"
+bp_copy_link: Copy link
+bp_copied: Link copied
+bp_banks_title: Question banks
+bp_q_one: question
+bp_q_many: questions
+bp_updated: Updated
+bp_most_asked: Most asked
+bp_most_asked_lede: "Questions that candidates report panels ask very often."
+bp_new_week: New this week
+bp_whats_new: What's new
+bp_change_added: Added
+bp_change_checked: Checked again
+bp_news_title: "Today's Pakistan headlines"
+bp_news_all: All current affairs
+bp_how_title: How to use it
+bp_how_1: "Start with the most asked questions, then go through one bank a day."
+bp_how_2: "Tap a question to see its answer. Say your answer out loud before you open it."
+bp_how_3: "Use search for any word, for example caliph or Gwadar, and share a question with its own link."
+bp_disclaimer: "Unofficial and free. Made by a candidate, not linked to the Balochistan Public Service Commission. Answers are checked against the listed sources but not guaranteed, so check anything important before your interview."
+bp_legal: "Unofficial study material made by a candidate. Not linked to or approved by the Balochistan Public Service Commission. News headlines belong to their publishers and link to the original reports."
+bp_search_label: Search all questions
+bp_search_ph: "For example caliph or Gwadar"
+bp_filters: Filters
+bp_f_bank: Bank
+bp_f_all_banks: All banks
+bp_f_cat: Category
+bp_f_all_cats: All categories
+bp_f_freq: How often asked
+bp_f_any: Any
+bp_f_freq3: Very often
+bp_f_freq2: Often or more
+bp_f_new: Only new questions
+bp_f_zone: Asked in my zone
+bp_f_all_zones: Any zone
+bp_f_clear: Clear search
+bp_res_one: question found
+bp_res_many: questions found
+bp_no_results: "No questions match. Try fewer words or another spelling."
+bp_loading: "Loading the questions…"
+bp_load_error: "Search could not load. Check your connection and try again."
+bp_show_more: Show more
+bp_expand_all: Expand all
+bp_collapse_all: Close all
+bp_print: Print or save as PDF
+bp_jump: Categories
+bp_freq_3: Asked very often
+bp_freq_2: Asked often
+bp_freq_1: Asked sometimes
+bp_new: New
+bp_check_again: "May have changed, check before your interview."
+bp_verified: Checked on
+bp_sources: Sources
+bp_zones: Asked in
+bp_open_q: Open as its own page
+bp_report: Report a mistake
+bp_back_bank: Back to the bank
+bp_all_banks: All question banks
+bp_short: Quick answer
+bp_answer: Answer
+bp_prev: Previous
+bp_next: Next
+bp_in_english: ""
+bp_empty_bank: "No questions here yet. They are being checked and will appear soon."
+bp_personal_badge: Your own answer
+bp_soon_badge: Answer coming soon
+bp_own_title: "Prepare your own answer: this depends on you."
+bp_own_1: "Keep it short and true, and make sure every fact matches your documents."
+bp_own_2: "Link it to teaching and to the students you will teach."
+bp_own_3: "Practise it out loud a few times, but don't recite it word for word."
+bp_soon: "Answer coming soon. This topic was reported from interviews and has no written answer yet."
+bp_soon_link: Suggest an answer
+nav_bpsc_news: Current affairs
+bp_news_eyebrow: "BPSC prep · current affairs"
+bp_news_page_title: Pakistan and Balochistan current affairs
+bp_news_lede: "Today's headlines from Pakistan's main papers, collected every morning, with a short daily brief and possible viva questions. Each headline links to the original report."
+bp_news_updated: Last updated
+bp_news_brief: "Today's brief"
+bp_news_brief_read: Read the brief
+bp_news_briefs_older: Earlier briefs
+bp_news_latest: Latest headlines
+bp_news_also: Also in
+bp_news_empty: "The first headlines will appear after tomorrow morning's update."
+bp_news_shown_one: story shown
+bp_news_shown_many: stories shown
+bp_news_sources: Where the news comes from
+bp_news_about: "Only what each paper publishes in its own news feed is used: the headline, a short excerpt and the link. The full story always stays on the paper's site. If a paper asks, its feed is removed the same day."
+bp_news_failed: "not available today"
+bp_news_in_search: In the news
+bp_topic_balochistan: Balochistan
+bp_topic_politics: Politics
+bp_topic_economy: Economy
+bp_topic_foreign: Foreign affairs
+bp_topic_afghanistan: Afghanistan and border
+bp_topic_education: Education
+bp_topic_days: Islamic and national days
+bp_topic_international: International
+bp_topic_sports: Sports
+bp_brief_note: "Written by AI from news headlines. Check the original reports."
+bp_brief_viva: Possible viva questions
+bp_brief_sources: Headlines this brief is based on
+bp_brief_all: All current affairs
+bp_save: Save to my list
+bp_saved: Saved to my list
+bp_mylist: My list
+bp_mylist_title: My saved questions
+bp_mylist_lede: "Questions you saved with the star. They are kept only in this browser, on this phone or computer, with no account."
+bp_mylist_empty: "Nothing saved yet. Tap \"Save to my list\" under any answer."
+bp_mylist_clear: Remove all
+bp_remove: Remove
+bp_storage_off: "This browser is not letting the site save anything, so your list and progress last only until you close the page."
+bp_practice: Practice
+bp_practice_title: Practice
+bp_practice_lede: "Flashcards to revise answers, and a mock interview with ten random questions in the usual panel mix. Your progress stays in this browser only."
+bp_pr_cards: Flashcards
+bp_pr_mock: Mock interview
+bp_pr_banks: Banks to practise
+bp_pr_only_review: Only my "review again" cards
+bp_pr_start: Start
+bp_pr_reveal: Show answer
+bp_pr_knew: I knew it
+bp_pr_again: Review again
+bp_pr_next: Next question
+bp_pr_full: Open the full answer
+bp_pr_progress: "[k] known, [r] to review"
+bp_pr_reset: Reset my progress
+bp_pr_done: "That's all the cards for now. Well done!"
+bp_pr_mock_lede: "10 questions like a real panel: 3 about you, 2 Islamiat, 2 Pakistan or Balochistan, 2 IT and 1 current affairs. Answer each one out loud before you open the answer."
+bp_pr_timer: "60-second timer for each question"
+bp_pr_q_of: "Question [n] of [t]"
+bp_pr_time_up: "Time's up. Finish your sentence and move on."
+bp_pr_mock_done: "Mock interview finished. Try another one, or practise the questions you found hard with the flashcards."
+bp_pr_again_mock: New mock interview
+bp_form: Send a question
+bp_form_title: Send a question or a correction
+bp_form_lede: "Asked something in your interview? Know a better answer, or found a mistake? Send it here. Nothing appears on the site until it has been checked and approved."
+bp_f_type: What are you sending?
+bp_f_type_question: A new question
+bp_f_type_answer: A better answer
+bp_f_type_correction: A correction
+bp_f_type_report: What a panel asked me
+bp_f_bank_lbl: Which bank?
+bp_f_not_sure: Not sure
+bp_f_question: Question
+bp_f_answer: Suggested answer (optional)
+bp_f_qid: Question id
+bp_f_zone_lbl: Zone where it was asked (optional)
+bp_f_date: Date asked (optional)
+bp_f_source: Source, a link or a book name (optional)
+bp_f_name: First name to credit (optional, empty means Anonymous)
+bp_f_consent: "I agree this may be edited and published on this site."
+bp_f_privacy: "Please don't write your phone number, email, CNIC or roll number. Any that are pasted are removed before saving."
+bp_f_send: Send
+bp_f_sending: "Sending…"
+bp_f_thanks: "Thank you, it will appear after review. Your reference number is [ref]."
+bp_f_err_captcha: "The check that you're a person didn't work. Please try again."
+bp_f_err_limit: "You've sent 5 today, the most for one day. Thank you! Please send more tomorrow."
+bp_f_err_long: "Something is too long. Please shorten it."
+bp_f_err_consent: "Please tick the box to agree."
+bp_f_err_other: "It couldn't be sent just now. Please try again in a few minutes."
+bp_f_off: "The form is not switched on yet. Please check again soon."

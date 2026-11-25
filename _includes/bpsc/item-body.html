@@ -1,0 +1,25 @@
+{%- comment -%}
+  The answer part of a question, used on the bank page (inside <details>) and on the question's own page.
+  Needs it (an item). On Urdu pages the Urdu question and answer are used when the item has them.
+{%- endcomment -%}
+{%- assign it = include.it -%}
+{%- if lang == 'ur' and it.answer_ur -%}{%- assign _ans = it.answer_ur -%}{%- assign _ans_attr = '' -%}
+{%- else -%}{%- assign _ans = it.answer -%}{%- capture _ans_attr %}{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}{% endcapture -%}{%- endif -%}
+{%- if it.check_again %}<p class="bp-warn">{{ S.bp_check_again }} {{ S.bp_verified }} <time datetime="{{ it.verified_on | date: '%Y-%m-%d' }}">{% include date.html date=it.verified_on long=true %}</time>.</p>{% endif %}
+{%- if it.short_answer and include.full %}<p class="bp-short"{{ _ans_attr }}><strong>{{ S.bp_short }}:</strong> {{ it.short_answer | escape }}</p>{% endif %}
+{%- if it.personal %}
+<div class="bp-own">
+  <p class="bp-own-title">{{ S.bp_own_title }}</p>
+  <ul><li>{{ S.bp_own_1 }}</li><li>{{ S.bp_own_2 }}</li><li>{{ S.bp_own_3 }}</li></ul>
+</div>
+{%- elsif _ans == '' or _ans == nil %}
+<p class="bp-soon">{{ S.bp_soon }} <a href="{{ L }}/bpsc-interview/submit/?type=answer&amp;id={{ it.id }}">{{ S.bp_soon_link }}</a></p>
+{%- else %}
+<div class="bp-answer prose"{{ _ans_attr }}>{{ _ans | markdownify }}</div>
+{%- if lang != 'en' and _ans_attr != '' and S.bp_in_english != '' %}<p class="muted bp-small">{{ S.bp_in_english }}</p>{% endif %}
+{%- endif %}
+<dl class="bp-facts">
+  {%- if it.asked_in.size > 0 %}<div><dt>{{ S.bp_zones }}</dt><dd>{{ it.asked_in | join: ', ' | escape }}</dd></div>{% endif %}
+  {%- if it.sources.size > 0 %}<div><dt>{{ S.bp_sources }}</dt><dd><ul class="bp-sources">{% for s in it.sources %}{% assign _host = s | split: '//' | last | split: '/' | first | remove_first: 'www.' %}<li><a href="{{ s | escape }}" rel="noopener">{{ _host | escape }}</a></li>{% endfor %}</ul></dd></div>{% endif %}
+  {%- if it.tags.size > 0 %}<div><dt class="sr-only">{{ S.topics }}</dt><dd><ul class="tags">{% for t in it.tags %}<li>{{ t | escape }}</li>{% endfor %}</ul></dd></div>{% endif %}
+</dl>

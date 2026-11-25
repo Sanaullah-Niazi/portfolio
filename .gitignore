@@ -4,3 +4,6 @@ _site/
 .bundle/
 vendor/
 __pycache__/
+
+# Pages of the BPSC section made from data by scripts/bpsc_pages.rb on every build.
+_bpsc/

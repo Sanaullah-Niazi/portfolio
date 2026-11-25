@@ -1,0 +1,70 @@
+{%- comment -%}
+  Practice mode (/bpsc-interview/practice/), FR-21 to FR-23: flashcards and a mock interview, run by
+  assets/js/bpsc-tools.js from the search index. Progress is kept in localStorage only, and the page still works
+  (for this visit) when the browser blocks storage.
+{%- endcomment -%}
+{% include bpsc/load.html %}
+<div class="wrap page bp">
+  <p class="eyebrow crumbs"><a href="{{ L }}/bpsc-interview/"><span class="back-arrow" aria-hidden="true">←</span> {{ S.bp_all_banks }}</a></p>
+  <header class="page-head bp-head">
+    <p class="eyebrow">{{ S.bp_eyebrow }}</p>
+    <h1>{{ S.bp_practice_title }}</h1>
+    <p class="lede">{{ S.bp_practice_lede }}</p>
+  </header>
+  <p class="bp-warn bp-storage-off" hidden>{{ S.bp_storage_off }}</p>
+  <section class="bp-practice" data-index="/bpsc-interview/index.json" data-q="{{ bp_q }}" data-lang="{{ lang }}"
+    data-progress="{{ S.bp_pr_progress }}" data-q-of="{{ S.bp_pr_q_of }}" data-done="{{ S.bp_pr_done }}" data-time-up="{{ S.bp_pr_time_up }}"
+    data-loading="{{ S.bp_loading }}" data-error="{{ S.bp_load_error }}" data-own="{{ S.bp_own_title }}" data-full="{{ S.bp_pr_full }}">
+    <div class="bp-tabs" role="tablist">
+      <button type="button" role="tab" id="tab-cards" aria-controls="pr-cards" aria-selected="true">{{ S.bp_pr_cards }}</button>
+      <button type="button" role="tab" id="tab-mock" aria-controls="pr-mock" aria-selected="false" tabindex="-1">{{ S.bp_pr_mock }}</button>
+    </div>
+
+    <div class="bp-panel" id="pr-cards" role="tabpanel" aria-labelledby="tab-cards">
+      <form class="bp-pr-setup">
+        <fieldset>
+          <legend>{{ S.bp_pr_banks }}</legend>
+          <div class="bp-pr-banks">
+            {%- for b in bp_banks %}
+            <label class="bp-check"><input type="checkbox" name="bank" value="{{ b.slug }}" checked> {% if lang == 'ur' %}{{ b.name_ur }}{% else %}{{ b.name }}{% endif %}</label>
+            {%- endfor %}
+          </div>
+        </fieldset>
+        <label class="bp-check"><input type="checkbox" name="review"> {{ S.bp_pr_only_review }}</label>
+        <div class="btn-row"><button class="btn btn-primary" type="submit">{{ S.bp_pr_start }}</button></div>
+        <p class="bp-pr-count muted" aria-live="polite"></p>
+      </form>
+      <div class="bp-card" hidden>
+        <p class="bp-card-meta muted"></p>
+        <h2 class="bp-card-q" tabindex="-1"></h2>
+        <div class="bp-card-a" hidden></div>
+        <div class="btn-row">
+          <button class="btn btn-primary bp-reveal" type="button">{{ S.bp_pr_reveal }}</button>
+          <button class="btn bp-knew" type="button" hidden>{{ S.bp_pr_knew }}</button>
+          <button class="btn bp-again" type="button" hidden>{{ S.bp_pr_again }}</button>
+        </div>
+      </div>
+      <p class="bp-pr-reset"><button class="btn" type="button">{{ S.bp_pr_reset }}</button></p>
+    </div>
+
+    <div class="bp-panel" id="pr-mock" role="tabpanel" aria-labelledby="tab-mock" hidden>
+      <p>{{ S.bp_pr_mock_lede }}</p>
+      <label class="bp-check"><input type="checkbox" name="timer" checked> {{ S.bp_pr_timer }}</label>
+      <div class="btn-row"><button class="btn btn-primary bp-mock-start" type="button">{{ S.bp_pr_start }}</button></div>
+      <div class="bp-card bp-mock" hidden>
+        <p class="bp-card-meta muted"></p>
+        <p class="bp-timer" aria-live="off"></p>
+        <h2 class="bp-card-q" tabindex="-1"></h2>
+        <div class="bp-card-a" hidden></div>
+        <div class="btn-row">
+          <button class="btn bp-reveal" type="button">{{ S.bp_pr_reveal }}</button>
+          <button class="btn btn-primary bp-mock-next" type="button">{{ S.bp_pr_next }}</button>
+        </div>
+      </div>
+      <p class="bp-mock-done" hidden>{{ S.bp_pr_mock_done }} <button class="btn bp-mock-start" type="button">{{ S.bp_pr_again_mock }}</button></p>
+    </div>
+    <p class="bp-sr-status sr-only" role="status" aria-live="polite"></p>
+  </section>
+  <p><a class="link-arrow" href="{{ L }}/bpsc-interview/my-list/">{{ S.bp_mylist }} {% include icon.html name="arrow" px=16 %}</a></p>
+  {% include bpsc/legal.html %}
+</div>

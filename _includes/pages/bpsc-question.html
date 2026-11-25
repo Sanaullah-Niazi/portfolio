@@ -1,0 +1,29 @@
+{%- comment -%}
+  One question of the BPSC section on its own page (/bpsc-interview/q/<id>/), FR-12, with share buttons and links to
+  the questions before and after it in its bank. The page file comes from scripts/bpsc_pages.rb, which puts the item
+  (page.item) and its neighbours (page.q_prev, page.q_next) in the front matter.
+{%- endcomment -%}
+{% include bpsc/basics.html %}
+{%- assign it = page.item -%}
+{%- capture en_attr %}{% if lang != 'en' %} lang="en" dir="ltr"{% endif %}{% endcapture -%}
+<article class="wrap page bp bp-single">
+  <p class="eyebrow crumbs"><a href="{{ L }}/bpsc-interview/{{ page.bank }}/#{{ it.id }}"><span class="back-arrow" aria-hidden="true">←</span> {{ page.bank_name }}</a></p>
+  <header class="page-head bp-head">
+    <p class="eyebrow"{{ en_attr }}>{{ it.category }}</p>
+    <h1>{% if lang == 'ur' and it.question_ur %}{{ it.question_ur | escape }}{% else %}<span{{ en_attr }}>{{ it.question | escape }}</span>{% endif %}</h1>
+    <p class="bp-q-meta">{% include bpsc/meta.html it=it %}</p>
+  </header>
+  <div class="bp-q-body bp-q-page">
+    {% include bpsc/item-body.html it=it full=true %}
+  </div>
+  {%- capture _share %}{% if lang == 'ur' and it.question_ur %}{{ it.question_ur }}{% else %}{{ it.question }}{% endif %} | {{ S.bp_eyebrow }} {{ S.bp_title }}:{% endcapture %}
+  {% include bpsc/share.html text=_share %}
+  <p class="bp-q-links"><button class="bp-star" type="button" data-id="{{ it.id }}" aria-pressed="false" data-on="{{ S.bp_saved }}" data-off="{{ S.bp_save }}" hidden><span aria-hidden="true">☆</span> <span class="bp-star-label">{{ S.bp_save }}</span></button><a href="{{ L }}/bpsc-interview/submit/?type=correction&amp;id={{ it.id }}">{{ S.bp_report }}</a></p>
+  <nav class="bp-pager" aria-label="{{ S.bp_prev }} / {{ S.bp_next }}">
+    {%- for _x in (1..2) %}{% if forloop.first %}{% assign _n = page.q_prev %}{% assign _cls = 'bp-prev' %}{% assign _lbl = S.bp_prev %}{% else %}{% assign _n = page.q_next %}{% assign _cls = 'bp-next' %}{% assign _lbl = S.bp_next %}{% endif %}
+    {%- if _n %}<a class="{{ _cls }}" href="{{ bp_q }}{{ _n.id }}/"><span class="muted">{{ _lbl }}</span>{% if lang == 'ur' and _n.question_ur %}<span>{{ _n.question_ur | escape }}</span>{% else %}<span{{ en_attr }}>{{ _n.question | escape }}</span>{% endif %}</a>{% elsif forloop.first %}<span></span>{% endif %}
+    {%- endfor %}
+  </nav>
+  <p><a class="link-arrow" href="{{ L }}/bpsc-interview/">{{ S.bp_all_banks }} {% include icon.html name="arrow" px=16 %}</a></p>
+  {% include bpsc/legal.html %}
+</article>

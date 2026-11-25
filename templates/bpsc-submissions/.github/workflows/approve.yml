@@ -1,0 +1,83 @@
+# Copy this file into the private repository Sanaullah-Niazi/bpsc-submissions (same path: .github/workflows/approve.yml).
+#
+# When sana adds the label "approved" to a submission (an issue opened by the website's question form), this writes the
+# item into the right _data/bpsc/<bank>.yml of the website repository and opens a pull request there (FR-54).
+# Nothing is published until that pull request is merged; the merge is the approval. Rejecting: close the issue with
+# the label "rejected"; nothing else happens (FR-53).
+#
+# Needs one secret in this repository (Settings > Secrets and variables > Actions):
+#   PORTFOLIO_TOKEN  a fine-grained token for Sanaullah-Niazi/portfolio only, with Contents: read and write and
+#                    Pull requests: read and write.
+name: Approve
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+
+concurrency:
+  group: approve
+  cancel-in-progress: false
+
+jobs:
+  pull-request:
+    if: github.event.label.name == 'approved' && github.event.issue.state == 'open'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Sanaullah-Niazi/portfolio
+          token: ${{ secrets.PORTFOLIO_TOKEN }}
+          path: site
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+
+      - name: Write the item
+        id: item
+        working-directory: site
+        env:
+          # The issue is visitor text: it goes to a file, never into the shell command itself.
+          ISSUE: ${{ toJSON(github.event.issue) }}
+        run: |
+          pip install --quiet "pyyaml>=6"
+          printf '%s' "$ISSUE" > "$RUNNER_TEMP/issue.json"
+          python3 scripts/bpsc_from_issue.py "$RUNNER_TEMP/issue.json" > "$RUNNER_TEMP/summary.md"
+          python3 scripts/bpsc_validate.py || echo "::warning::The check found problems; they show on the pull request."
+          echo "id=$(cat bpsc-item-id.txt)" >> "$GITHUB_OUTPUT"
+          rm bpsc-item-id.txt
+
+      - name: Open the pull request
+        working-directory: site
+        env:
+          GH_TOKEN: ${{ secrets.PORTFOLIO_TOKEN }}
+          NUMBER: ${{ github.event.issue.number }}
+          ITEM: ${{ steps.item.outputs.id }}
+        run: |
+          branch="bpsc/submission-$NUMBER"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add _data/bpsc
+          git commit -m "BPSC: add submission $NUMBER ($ITEM)"
+          git push --force -u origin "$branch"
+          {
+            echo "<!-- bpsc-submission: $NUMBER -->"
+            echo "<!-- bpsc-item: $ITEM -->"
+            echo "From an approved submission in the private bpsc-submissions repository (issue $NUMBER)."
+            echo
+            cat "$RUNNER_TEMP/summary.md"
+          } > "$RUNNER_TEMP/body.md"
+          url=$(gh pr create --repo Sanaullah-Niazi/portfolio --head "$branch" --base main \
+            --title "BPSC: submission $NUMBER ($ITEM)" --body-file "$RUNNER_TEMP/body.md")
+          echo "url=$url" >> "$GITHUB_ENV"
+
+      - name: Link the pull request on the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+        run: gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body "Pull request with the exact text: $url. Merging it publishes the question."

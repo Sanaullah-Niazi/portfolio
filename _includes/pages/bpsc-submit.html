@@ -1,0 +1,68 @@
+{%- comment -%}
+  The question form (/bpsc-interview/submit/), FR-26 to FR-28. It posts to the Worker (POST <api>/bpsc/submit), which
+  checks the Turnstile CAPTCHA and opens an issue in the private bpsc-submissions repository. Nothing is published
+  from here. A "Report a mistake" link fills in ?type=correction&id=<question id>.
+{%- endcomment -%}
+{% include bpsc/load.html %}
+{%- assign hc = site.health_checker -%}
+<div class="wrap page bp">
+  <p class="eyebrow crumbs"><a href="{{ L }}/bpsc-interview/"><span class="back-arrow" aria-hidden="true">←</span> {{ S.bp_all_banks }}</a></p>
+  <header class="page-head bp-head">
+    <p class="eyebrow">{{ S.bp_eyebrow }}</p>
+    <h1>{{ S.bp_form_title }}</h1>
+    <p class="lede">{{ S.bp_form_lede }}</p>
+  </header>
+  {%- if hc.api == "" or hc.turnstile_sitekey == "" %}
+  <p class="bp-warn">{{ S.bp_f_off }}</p>
+  {%- else %}
+  <form class="bp-form card" data-api="{{ hc.api }}/bpsc/submit" novalidate
+    data-sending="{{ S.bp_f_sending }}" data-thanks="{{ S.bp_f_thanks }}" data-err-captcha="{{ S.bp_f_err_captcha }}" data-err-limit="{{ S.bp_f_err_limit }}"
+    data-err-long="{{ S.bp_f_err_long }}" data-err-consent="{{ S.bp_f_err_consent }}" data-err-other="{{ S.bp_f_err_other }}" data-off="{{ S.bp_f_off }}">
+    <fieldset>
+      <legend>{{ S.bp_f_type }}</legend>
+      <div class="bp-radios">
+        {%- assign _types = "question,answer,correction,report" | split: "," %}
+        {%- for t in _types %}{% assign tk = 'bp_f_type_' | append: t %}
+        <label class="bp-check"><input type="radio" name="type" value="{{ t }}"{% if forloop.first %} checked{% endif %} required> {{ S[tk] }}</label>
+        {%- endfor %}
+      </div>
+    </fieldset>
+    <label>{{ S.bp_f_bank_lbl }}
+      <select name="bank" required>
+        {%- for b in bp_banks %}<option value="{{ b.slug }}">{% if lang == 'ur' %}{{ b.name_ur }}{% else %}{{ b.name }}{% endif %}</option>{% endfor %}
+        <option value="not-sure">{{ S.bp_f_not_sure }}</option>
+      </select>
+    </label>
+    <label>{{ S.bp_f_question }}
+      <textarea name="question" rows="3" maxlength="500" required></textarea>
+    </label>
+    <label>{{ S.bp_f_answer }}
+      <textarea name="answer" rows="6" maxlength="3000"></textarea>
+    </label>
+    <label class="bp-qid" hidden>{{ S.bp_f_qid }}
+      <input name="qid" type="text" maxlength="20" readonly>
+    </label>
+    <div class="bp-form-two">
+      <label>{{ S.bp_f_zone_lbl }}
+        <select name="zone"><option value=""></option>{% for z in bp.zones %}<option>{{ z | escape }}</option>{% endfor %}</select>
+      </label>
+      <label>{{ S.bp_f_date }}
+        <input name="date" type="date" min="2026-01-01" max="2027-12-31">
+      </label>
+    </div>
+    <label>{{ S.bp_f_source }}
+      <input name="source" type="text" maxlength="300" autocomplete="off">
+    </label>
+    <label>{{ S.bp_f_name }}
+      <input name="name" type="text" maxlength="40" autocomplete="given-name">
+    </label>
+    <p class="muted bp-small">{{ S.bp_f_privacy }}</p>
+    <label class="bp-check"><input type="checkbox" name="consent" required> {{ S.bp_f_consent }}</label>
+    <div class="cf-turnstile" data-sitekey="{{ hc.turnstile_sitekey }}" data-language="{{ lang }}"></div>
+    <div class="btn-row"><button class="btn btn-primary" type="submit">{{ S.bp_f_send }}</button></div>
+    <p class="bp-form-status" role="status" aria-live="polite"></p>
+  </form>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  {%- endif %}
+  {% include bpsc/legal.html %}
+</div>

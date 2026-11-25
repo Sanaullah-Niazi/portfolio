@@ -2,7 +2,7 @@
 # {email} is replaced with the email address in _data/profile.yml, {days} with health_checker.report_days in _config.yml,
 # {analytics} with the statistics service set in _config.yml (Cloudflare Web Analytics or GoatCounter).
 # A section with analytics: true shows p while a statistics service is set, and p_off when none is.
-updated: 2026-10-28
+updated: 2026-11-25
 
 en:
   title: "Privacy policy"
@@ -32,6 +32,9 @@ en:
     - h: "Contact form"
       p:
         - "The contact form sends your name, your email address and your message to Web3Forms, which delivers them to my inbox ({email}). Nothing else is sent. I use them only to reply and delete them when they're no longer needed. Web3Forms has its own privacy policy."
+    - h: "BPSC interview prep"
+      p:
+        - "The BPSC interview prep section keeps your saved questions and practice progress in your browser's local storage only; they are never sent anywhere. Searching runs in your browser too. When you send a question, answer or correction with its form, the text you type, the bank, an optional zone, date, source and first name are sent to my server on Cloudflare Workers, which checks Cloudflare Turnstile, removes phone numbers, email addresses and CNIC numbers, and files it in a private review list on GitHub. Nothing is published until I approve it, and only the question, answer and source are published; your name stays in the private list. The same one-way hash of your IP address limits how many submissions one visitor can send each day, and is deleted within a day. Please do not send personal details."
     - h: "Hosting, fonts and storage"
       p:
         - "The site is hosted on Cloudflare, and fonts are loaded from Google Fonts. Like any web server, they receive your IP address and browser details when you load a page. Your light or dark theme choice is saved in your browser's local storage and never sent anywhere."
@@ -76,6 +79,9 @@ ur:
     - h: "رابطہ فارم"
       p:
         - "رابطہ فارم آپ کا نام، ای میل ایڈریس اور پیغام Web3Forms کو بھیجتا ہے، جو انہیں میرے ان باکس ({email}) تک پہنچاتا ہے۔ اس کے علاوہ کچھ نہیں بھیجا جاتا۔ میں انہیں صرف جواب دینے کے لیے استعمال کرتا ہوں اور ضرورت ختم ہونے پر حذف کر دیتا ہوں۔ Web3Forms کی اپنی پرائیویسی پالیسی ہے۔"
+    - h: "بی پی ایس سی انٹرویو کی تیاری"
+      p:
+        - "بی پی ایس سی انٹرویو کی تیاری والے حصے میں آپ کے محفوظ کیے گئے سوالات اور مشق کی پیش رفت صرف آپ کے براؤزر کی لوکل اسٹوریج میں رہتی ہے اور کہیں نہیں بھیجی جاتی۔ تلاش بھی آپ کے براؤزر میں ہی ہوتی ہے۔ جب آپ فارم سے کوئی سوال، جواب یا درستی بھیجتے ہیں تو آپ کا لکھا ہوا متن، بینک، اور اختیاری زون، تاریخ، حوالہ اور نام میرے سرور (Cloudflare Workers) کو جاتے ہیں، جو Cloudflare Turnstile چیک کرتا ہے، فون نمبر، ای میل اور شناختی کارڈ نمبر ہٹا دیتا ہے اور اسے GitHub پر ایک نجی جائزہ فہرست میں رکھ دیتا ہے۔ میری منظوری کے بغیر کچھ شائع نہیں ہوتا، اور صرف سوال، جواب اور حوالہ شائع ہوتے ہیں؛ آپ کا نام نجی فہرست میں ہی رہتا ہے۔ روزانہ حد کے لیے آپ کے آئی پی ایڈریس کا یک طرفہ ہیش رکھا جاتا ہے جو ایک دن کے اندر مٹ جاتا ہے۔ براہ کرم ذاتی معلومات نہ بھیجیں۔"
     - h: "ہوسٹنگ، فونٹس اور اسٹوریج"
       p:
         - "سائٹ Cloudflare پر ہوسٹ ہے اور فونٹس Google Fonts سے لوڈ ہوتے ہیں۔ کسی بھی ویب سرور کی طرح، صفحہ کھولنے پر انہیں آپ کا IP ایڈریس اور براؤزر کی تفصیلات ملتی ہیں۔ لائٹ یا ڈارک تھیم کا انتخاب آپ کے براؤزر کی local storage میں محفوظ ہوتا ہے اور کہیں نہیں بھیجا جاتا۔"
@@ -120,6 +126,9 @@ de:
     - h: "Kontaktformular"
       p:
         - "Das Kontaktformular sendet Ihren Namen, Ihre E-Mail-Adresse und Ihre Nachricht an Web3Forms, das sie in mein Postfach ({email}) zustellt. Sonst wird nichts gesendet. Ich nutze sie nur, um zu antworten, und lösche sie, wenn sie nicht mehr nötig sind. Für Web3Forms gilt eine eigene Datenschutzerklärung."
+    - h: "BPSC-Interviewvorbereitung"
+      p:
+        - "Der Bereich zur BPSC-Interviewvorbereitung speichert gemerkte Fragen und den Übungsstand nur im lokalen Speicher Ihres Browsers; sie werden nirgendwohin gesendet. Wenn Sie über das Formular eine Frage, Antwort oder Korrektur senden, gehen Ihr Text, die Fragenbank und optional Zone, Datum, Quelle und Vorname an meinen Server auf Cloudflare Workers. Er prüft Cloudflare Turnstile, entfernt Telefonnummern, E-Mail-Adressen und Ausweisnummern und legt den Beitrag in einer privaten Prüfliste auf GitHub ab. Nichts wird ohne meine Freigabe veröffentlicht, und veröffentlicht werden nur Frage, Antwort und Quelle. Ein Einweg-Hash Ihrer IP-Adresse begrenzt die Einsendungen pro Tag und wird innerhalb eines Tages gelöscht."
     - h: "Hosting, Schriften und Speicher"
       p:
         - "Die Website liegt bei Cloudflare, Schriften kommen von Google Fonts. Wie jeder Webserver erhalten sie beim Laden einer Seite Ihre IP-Adresse und Browserdaten. Ihre Wahl zwischen hellem und dunklem Design wird im lokalen Speicher Ihres Browsers abgelegt und nirgendwohin gesendet."
@@ -164,6 +173,9 @@ zh:
     - h: "联系表单"
       p:
         - "联系表单会把你的姓名、邮箱地址和消息发送给 Web3Forms，再由它投递到我的邮箱（{email}）。除此之外不发送任何内容。我只用它们来回复，不再需要时就会删除。Web3Forms 有自己的隐私政策。"
+    - h: "BPSC 面试准备"
+      p:
+        - "BPSC 面试准备栏目只把你收藏的问题和练习进度保存在浏览器的本地存储中，不会发送到任何地方。通过表单提交问题、答案或更正时，你填写的文字、题库以及可选的地区、日期、来源和名字会发送到我在 Cloudflare Workers 上的服务器。服务器会进行 Cloudflare Turnstile 验证，删除电话号码、邮箱地址和身份证号，并把内容放入 GitHub 上的私有审核列表。未经我批准不会发布任何内容，发布时只包含问题、答案和来源。每日提交次数用你 IP 地址的单向哈希限制，一天内删除。"
     - h: "托管、字体与存储"
       p:
         - "本网站托管在 Cloudflare，字体来自 Google Fonts。和任何网络服务器一样，你打开页面时它们会收到你的 IP 地址和浏览器信息。你选择的浅色或深色主题保存在浏览器的本地存储中，不会发送到任何地方。"

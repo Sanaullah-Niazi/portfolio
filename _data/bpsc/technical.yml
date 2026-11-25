@@ -1,0 +1,5799 @@
+# Technical / IT: 446 questions. Generated 2026-11-25. Fields: see README.md
+- id: tec-001
+  bank: technical
+  category: IT and computer science
+  question: What is a computer? What does it need, and what does it depend on?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-002
+  bank: technical
+  category: IT and computer science
+  question: How do you manage a computer? Which components are essential?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-003
+  bank: technical
+  category: IT and computer science
+  question: Computer components; hardware devices and software.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-004
+  bank: technical
+  category: IT and computer science
+  question: Hardware vs software and their types; system software vs application software.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-005
+  bank: technical
+  category: IT and computer science
+  question: RAM and ROM; primary vs secondary memory.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-006
+  bank: technical
+  category: IT and computer science
+  question: BIOS (reported as "BIOD").
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-007
+  bank: technical
+  category: IT and computer science
+  question: Operating system and examples.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-008
+  bank: technical
+  category: IT and computer science
+  question: Database and its types.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-009
+  bank: technical
+  category: IT and computer science
+  question: Networking and its types; how a router works; LAN vs WAN. One candidate used a school computer lab as the example.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-010
+  bank: technical
+  category: IT and computer science
+  question: Internet vs WWW; HTTP vs HTTPS; URL and PDF.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-011
+  bank: technical
+  category: IT and computer science
+  question: Have you built a website? What is WordPress?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-012
+  bank: technical
+  category: IT and computer science
+  question: Do you prefer software or hardware?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-013
+  bank: technical
+  category: IT and computer science
+  question: What do we need to build software?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-014
+  bank: technical
+  category: IT and computer science
+  question: Algorithm.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-015
+  bank: technical
+  category: IT and computer science
+  question: Virus vs malicious software; antivirus; is a worm a virus?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-016
+  bank: technical
+  category: IT and computer science
+  question: Open source software.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-017
+  bank: technical
+  category: IT and computer science
+  question: 'Cloud computing: where and in what form is data stored? (deep discussion)'
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-018
+  bank: technical
+  category: IT and computer science
+  question: Cyber IT; space IT and satellites.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-019
+  bank: technical
+  category: IT and computer science
+  question: AI and ChatGPT; AI and the Quran.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-020
+  bank: technical
+  category: IT and computer science
+  question: Father of the computer; inventor of the mouse; inventor of the WWW; who founded Microsoft.
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-021
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: Father of the computer
+  answer: Charles Babbage, for his Analytical Engine (1837). Ada Lovelace is called the first programmer.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-022
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: Who invented the QWERTY keyboard?
+  answer: Christopher Latham Sholes, for the typewriter, in 1873.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-023
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: Father of the internet
+  answer: Vint Cerf and Bob Kahn, who made TCP/IP in 1974. The internet began as ARPANET in the USA in 1969.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-024
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: Who invented email?
+  answer: Ray Tomlinson, in 1971. He chose the @ sign.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-025
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: Who made the C language?
+  answer: 'Dennis Ritchie at Bell Labs, 1972. C++: Bjarne Stroustrup (1985). Java: James Gosling at Sun (1995). Python: Guido van Rossum (1991).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-026
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: Who made Linux?
+  answer: Linus Torvalds, in 1991. Windows 1.0 came in 1985.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-027
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: Who founded Microsoft, Apple, Google and Facebook?
+  answer: 'Microsoft: Bill Gates and Paul Allen (1975). Apple: Steve Jobs and Steve Wozniak (1976). Google: Larry Page and Sergey Brin (1998). Facebook: Mark Zuckerberg (2004).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-028
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: Who invented the transistor and the chip?
+  answer: 'The transistor: Bardeen, Brattain and Shockley at Bell Labs (1947). The integrated circuit (chip): Jack Kilby (1958) and Robert Noyce. The first microprocessor was the Intel 4004 (1971).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-029
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: Father of AI
+  answer: John McCarthy, who named AI in 1956. Alan Turing gave the Turing Test in 1950.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-030
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: First PC virus, and its Pakistan link
+  answer: '"Brain" (1986), made by two brothers from Lahore, Basit and Amjad Farooq Alvi. It is known as the first virus for IBM PCs.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-031
+  bank: technical
+  category: Inventors and "fathers" of computing
+  question: First calculating device
+  answer: The abacus. Blaise Pascal made a mechanical calculator in 1642.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-032
+  bank: technical
+  category: Teaching methods the panel may name
+  question: What is TPACK?
+  answer: 'Technological Pedagogical Content Knowledge (Mishra and Koehler, 2006): a good tech teacher combines three kinds of knowledge: the subject, how to teach, and the technology.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-033
+  bank: technical
+  category: Teaching methods the panel may name
+  question: What is the SAMR model?
+  answer: 'Four levels of using technology (Ruben Puentedura): Substitution (typing instead of writing), Augmentation (spell-check and formatting), Modification (students co-edit a document online) and Redefinition (students make a video or website for real viewers).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-034
+  bank: technical
+  category: Teaching methods the panel may name
+  question: What is a flipped classroom?
+  answer: Students watch the lesson video or read at home, and class time is used for practice, questions and projects. In Balochistan, where many homes have no internet, I would share the videos in the lab or on a USB.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-035
+  bank: technical
+  category: Teaching methods the panel may name
+  question: What is the digital divide, and how can it be reduced in Balochistan?
+  answer: The gap between people who have computers and internet and those who do not. Solar-powered labs, offline learning content, mobile classrooms, cheap internet for schools and training for teachers can reduce it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-036
+  bank: technical
+  category: Teaching methods the panel may name
+  question: What is information literacy? How do you check if information is authentic?
+  answer: Knowing how to find, judge and use information. Check who wrote it, whether it has a date and source, whether trusted sites like Dawn or official .gov.pk pages report it too, and whether a photo is old or edited.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-037
+  bank: technical
+  category: Teaching methods the panel may name
+  question: What is BODMAS?
+  answer: 'The order of solving maths: Brackets, Orders (powers), Division and Multiplication, then Addition and Subtraction, left to right. Example: 2 + 3 × 4 = 14, not 20. Programming languages follow the same rule.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-038
+  bank: technical
+  category: Teaching methods the panel may name
+  question: What if a panelist says your answer is wrong?
+  answer: 'Stay polite: "Thank you, sir, I will check it and correct myself." Do not argue. If you are sure, say gently: "Sir, according to what I read, it is ..., but I will confirm."'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-039
+  bank: technical
+  category: Teaching methods the panel may name
+  question: What if you do not know an answer?
+  answer: 'Be honest: "Sorry sir, I don''t know this one, but I will find out." Never guess wildly. Honesty earns more marks than a wrong answer said confidently.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-040
+  bank: technical
+  category: Teaching methods the panel may name
+  question: What will you do in your first three months if selected?
+  answer: Meet the head teacher and staff, check and repair the lab, make a list of what is needed, test students' level, make a simple lesson plan for each class, start a computer club, and meet parents to encourage attendance.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-041
+  bank: technical
+  category: Research and evaluation terms
+  question: Why remove duplicates? What is "data leakage"?
+  answer: If the same or almost the same essay is in both training and test data, the model just remembers it and the score looks better than it really is. That is leakage. Removing it gives an honest score.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-042
+  bank: technical
+  category: Research and evaluation terms
+  question: If a simple model is as good, why use deep learning?
+  answer: That was one of my findings. On this kind of data, the difference between AI and human style is easy to spot, so simple models are enough. Deep models cost more computing power and do not help much here. Choosing the simplest model that works is good engineering.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-043
+  bank: technical
+  category: Research and evaluation terms
+  question: What is F1 score?
+  answer: The balance of precision (of the texts the model called AI, how many really were) and recall (of all AI texts, how many it caught). It is better than accuracy when mistakes on one class matter.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-044
+  bank: technical
+  category: Research and evaluation terms
+  question: Where did the data come from?
+  answer: 'The public Kaggle corpus "AI vs Human Text": 487,235 essays, 305,797 human and 181,438 AI. The human essays are student essays on school prompts like car-free cities and the planet Venus.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-045
+  bank: technical
+  category: Research and evaluation terms
+  question: What is undersampling?
+  answer: Making the classes equal by randomly dropping some examples of the bigger class. I had more human essays, so I reduced them to match the AI essays (172,945 each).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: draft  # held back: see the PR (privacy rules, SRS 3.4)
+  added: '2026-11-25'
+- id: tec-046
+  bank: technical
+  category: Research and evaluation terms
+  question: Which model was best?
+  answer: 'The simplest one: TF-IDF with logistic regression, 99.67% F1 with only 0.14% false positives. McNemar''s test showed it was significantly better than the BiLSTM, the hybrid and the fusion model, and equal to BERT.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-047
+  bank: technical
+  category: Research and evaluation terms
+  question: What is shortcut learning?
+  answer: When a model learns an easy cue that happens to separate the classes in one dataset, instead of the real concept. My models learned topic words like "car" and "Venus" for human essays and phrases like "additionally" and "in conclusion" for AI ones.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-048
+  bank: technical
+  category: Research and evaluation terms
+  question: What is ROC-AUC?
+  answer: The area under the ROC curve, which plots the true-positive rate against the false-positive rate at every threshold. 1.0 is perfect and 0.5 is guessing. It measures ranking, independent of the threshold.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-049
+  bank: technical
+  category: IoT and hardware
+  question: What is IoT?
+  answer: 'Internet of Things: everyday devices with sensors that connect to the internet and share data, like a smart meter, a smart watch or our water tank.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-050
+  bank: technical
+  category: IoT and hardware
+  question: What is Arduino?
+  answer: A small, cheap, programmable microcontroller board. It reads sensors and controls devices like a pump through a relay. It is programmed in C/C++ in the Arduino IDE.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-051
+  bank: technical
+  category: IoT and hardware
+  question: Microcontroller vs microprocessor?
+  answer: A microcontroller has the CPU, memory and input/output on one chip for one fixed job (Arduino). A microprocessor is only the CPU and needs separate memory, used in general computers.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-052
+  bank: technical
+  category: IoT and hardware
+  question: How does the ultrasonic sensor work?
+  answer: It sends a sound pulse and times the echo off the water surface. Distance = (speed of sound x time) / 2. From the distance we know how full the tank is.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-053
+  bank: technical
+  category: IoT and hardware
+  question: What does the flow sensor do?
+  answer: Water turns a small wheel inside; each turn gives a pulse. Counting the pulses gives litres used, which we used for billing.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-054
+  bank: technical
+  category: IoT and hardware
+  question: What is pH? Safe range?
+  answer: pH tells if water is acidic or basic, on a scale of 0 to 14; 7 is neutral. Drinking water should be about 6.5 to 8.5.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-055
+  bank: technical
+  category: IoT and hardware
+  question: How is the pump controlled?
+  answer: Through a relay module. When the level falls below a set point, the Arduino turns the pump on; when the tank is full, it turns it off. This stops overflow.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-056
+  bank: technical
+  category: IoT and hardware
+  question: How did data reach the app?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-057
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is AI?
+  answer: Making computers do tasks that normally need human intelligence, like understanding language, recognising faces or making decisions.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-058
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: Who is the father of AI? When was the term made?
+  answer: John McCarthy, who named it at the Dartmouth conference in 1956. Alan Turing asked "Can machines think?" in 1950 and gave the Turing Test.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-059
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: AI vs machine learning vs deep learning
+  answer: AI is the big field. Machine learning is a part of AI where computers learn from data instead of fixed rules. Deep learning is a part of ML that uses neural networks with many layers.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-060
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: Types of machine learning
+  answer: Supervised (learns from labelled examples, like spam/not spam), unsupervised (finds groups in unlabelled data, like customer groups) and reinforcement learning (learns by reward and punishment, like a game-playing robot).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-061
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: Classification vs regression
+  answer: Classification predicts a category (pass/fail). Regression predicts a number (marks, price).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-062
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is a neural network?
+  answer: A model made of layers of connected "neurons". Each connection has a weight. During training the weights are adjusted to reduce errors, using backpropagation.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-063
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is overfitting? How to stop it?
+  answer: The model memorises the training data and fails on new data, like a student who memorises past papers. Fix it with more data, dropout, early stopping and testing on unseen data.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-064
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: Training, validation and test data
+  answer: Training data teaches the model, validation data tunes it, and test data is kept hidden to give the final honest score.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-065
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: Accuracy, precision, recall, F1
+  answer: 'Accuracy: share of all answers that are right. Precision: of those predicted positive, how many are right. Recall: of all real positives, how many were found. F1: the balance of precision and recall.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-066
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is a CNN?
+  answer: Convolutional Neural Network, mainly for images. Filters slide over the image to detect edges, shapes and then objects. Used in face recognition and medical scans.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-067
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is an RNN and LSTM?
+  answer: Networks for sequences like text and speech. LSTM (Long Short-Term Memory) adds gates so it can remember information for longer.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-068
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is a Transformer?
+  answer: A 2017 model design ("Attention Is All You Need", Google) that uses attention to look at all words at once. BERT and GPT are built on it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-069
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is NLP?
+  answer: 'Natural Language Processing: teaching computers to understand and produce human language. Examples: Google Translate, chatbots, spam filters, voice assistants.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-070
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: Steps of NLP preprocessing
+  answer: Tokenisation (split into words), lowercasing, removing stop words (is, the), stemming or lemmatisation (playing to play), then turning words into numbers (TF-IDF or embeddings).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-071
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is a word embedding?
+  answer: 'A list of numbers that represents a word''s meaning, so similar words (king, queen) get similar numbers. Examples: Word2Vec, GloVe, BERT embeddings.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-072
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is ChatGPT?
+  answer: 'An AI chatbot by OpenAI, launched in November 2022. GPT means Generative Pre-trained Transformer. It is a large language model trained on huge amounts of text to predict the next word. Similar tools: Google Gemini, Anthropic''s Claude, Microsoft Copilot.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-073
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is a large language model (LLM)?
+  answer: A very large Transformer model trained on internet-scale text. It can answer questions, write and summarise. It can also "hallucinate", meaning give wrong answers confidently.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-074
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is generative AI?
+  answer: 'AI that creates new content: text (ChatGPT), images (DALL-E, Midjourney), music or video.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-075
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is computer vision?
+  answer: 'Teaching computers to understand images and video: face unlock, number-plate reading, self-driving cars.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-076
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is information retrieval?
+  answer: Finding the most relevant documents for a query, as Google search does. Uses indexing and ranking, for example TF-IDF and PageRank.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-077
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: What is robotics?
+  answer: Designing machines that sense, decide and act. A robot uses sensors (input), a controller (processing) and motors (output).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-078
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: Is AI a danger to jobs?
+  answer: It will change jobs more than end them. Routine work will be automated, but people who know how to use AI will be in demand. That is why our students must learn it from school.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-079
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: How can AI help a teacher?
+  answer: Making quizzes and lesson plans faster, explaining a topic in simple words or in Urdu, and giving extra practice to weak students. The teacher must still check everything.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-080
+  bank: technical
+  category: AI, machine learning, deep learning and NLP
+  question: Pakistan's AI policy
+  answer: The federal cabinet approved the National Artificial Intelligence Policy 2025 in July 2025.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-081
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is the hierarchy of AI?
+  answer: Think of circles inside circles. AI is the biggest circle. Inside it is machine learning, inside that deep learning, and inside that generative AI and large language models like ChatGPT.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-082
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What are the types of AI by ability?
+  answer: Narrow AI does one job, like face unlock or Google Translate. All AI today is narrow. General AI (AGI) would think like a human in every area, and does not exist yet. Super AI, smarter than humans, is only an idea.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-083
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is an artificial neuron (perceptron)?
+  answer: A tiny unit that takes inputs, multiplies each by a weight, adds a bias, and passes the total through an activation function to give an output. The perceptron was made by Frank Rosenblatt in 1958.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-084
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What are the layers of a neural network?
+  answer: The input layer takes the data (for example the pixels of an image). Hidden layers in the middle learn patterns, from simple to complex. The output layer gives the answer (cat or dog). "Deep" learning means many hidden layers.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-085
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What are weights and bias?
+  answer: Weights show how important each input is. Bias shifts the result up or down. Training is just finding the best weights and biases.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-086
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is an activation function?
+  answer: It decides whether a neuron "fires", and it lets the network learn curved, non-linear patterns. ReLU (zero for negatives, the same value for positives) is used in hidden layers. Sigmoid gives 0 to 1 for yes or no. Softmax gives probabilities across many classes.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-087
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is a loss function?
+  answer: It measures how wrong the model's answer is. Cross-entropy is used for classification and mean squared error for regression. Training tries to make the loss as small as possible.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-088
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is gradient descent?
+  answer: The way a model lowers its loss step by step, like walking down a hill in fog by always stepping where the slope goes down. The learning rate is the size of each step.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-089
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is backpropagation?
+  answer: After each prediction, the error is sent backwards through the network to work out how much each weight caused it, and each weight is adjusted. It is how neural networks learn.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-090
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What are epoch, batch and learning rate?
+  answer: An epoch is one full pass over all the training data. A batch is a small group of examples processed together. The learning rate is how big each weight update is. Too big and the model jumps around; too small and it learns very slowly.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-091
+  bank: technical
+  category: Core AI concepts in more depth
+  question: Parameters vs hyperparameters
+  answer: Parameters (weights) are learned by the model. Hyperparameters are set by us before training, like the learning rate, the number of layers or the number of epochs.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-092
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is dropout?
+  answer: During training, some neurons are switched off at random, so the network cannot depend on just a few of them. It reduces overfitting.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-093
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What are underfitting and overfitting?
+  answer: 'Underfitting: the model is too simple and does badly even on training data. Overfitting: it memorises the training data and fails on new data. We want the balance in between.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-094
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is transfer learning and fine-tuning?
+  answer: Taking a model already trained on a huge dataset, like BERT, and training it a little more on our own smaller data. It saves time and needs less data.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-095
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is attention?
+  answer: A method that lets a model decide which words matter most for each word. In "the bank of the river", attention helps the model see that "bank" means riverside, not a money bank.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-096
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is a token and tokenisation?
+  answer: A token is a piece of text, a word or part of a word. A model first splits text into tokens and turns each into a number. ChatGPT reads and writes in tokens.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-097
+  bank: technical
+  category: Core AI concepts in more depth
+  question: BERT vs GPT
+  answer: Both are Transformers. BERT (Google, 2018) reads a sentence in both directions, so it is good at understanding and classifying text. GPT (OpenAI) reads left to right and predicts the next word, so it is good at generating text.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-098
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is TF-IDF?
+  answer: Term Frequency × Inverse Document Frequency. It gives a word a high score if it appears often in one document but rarely in others, so it picks out the important words.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-099
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is LightGBM?
+  answer: A fast gradient-boosting algorithm from Microsoft. It builds many small decision trees one after another, each fixing the mistakes of the last.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-100
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is a confusion matrix?
+  answer: A 2×2 table of true positives, false positives, true negatives and false negatives. Accuracy, precision, recall and F1 are all calculated from it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-101
+  bank: technical
+  category: Core AI concepts in more depth
+  question: Why is accuracy alone not enough?
+  answer: If 99 of 100 emails are normal, a model that says "normal" every time is 99% accurate but useless. On unbalanced data, precision, recall and F1 tell the real story.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-102
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is explainable AI (XAI)?
+  answer: AI that can show why it made a decision. Banks and hospitals need it so people can trust and check the result.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-103
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is adversarial machine learning?
+  answer: Attacking an AI model with inputs made to fool it, like changing a few letters so a spam filter misses a scam. My current research is in this area.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-104
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is a GPU and why does AI need it?
+  answer: A Graphics Processing Unit has thousands of small cores that do many calculations at once, which is exactly what training a neural network needs. I trained models on free Kaggle and Google Colab GPUs.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-105
+  bank: technical
+  category: Core AI concepts in more depth
+  question: What is the difference between AI and automation?
+  answer: Automation follows fixed rules that a person wrote (if this, then that). AI learns the rules from data and can handle new situations.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-106
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is a deepfake?
+  answer: Fake video, audio or images made with deep learning, where a person seems to say or do something they never did. They are used in scams (a fake voice of a relative asking for money), political propaganda and harassment.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-107
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: How are deepfakes made?
+  answer: With GANs, autoencoders that swap faces, or diffusion models. Voice clones need only a few seconds of someone's real voice.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-108
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: How can you spot a deepfake?
+  answer: 'Unnatural blinking, blurry edges around the face, lips not matching the words, odd lighting, and strange hands or teeth. Also check the source: is it from an official channel?'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-109
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: How would you protect students from deepfakes?
+  answer: Teach them to check the source before believing or forwarding, never to share their own photos publicly, and to report any fake image of themselves to a teacher or the FIA cybercrime cell. Pakistan's PECA law makes it a crime.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-110
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is a GAN?
+  answer: 'A Generative Adversarial Network (Ian Goodfellow, 2014). Two networks compete: a generator makes fake images, and a discriminator tries to catch them. Both keep improving until the fakes look real.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-111
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is a diffusion model?
+  answer: The method behind image tools like DALL-E, Midjourney and Stable Diffusion. It learns to remove noise step by step, so it can turn random noise into a new image that matches a text prompt.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-112
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is an autoencoder?
+  answer: A network that squeezes data into a small code (encoder) and rebuilds it (decoder). Used for compression, removing noise and finding anomalies.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-113
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is a foundation model?
+  answer: A very large model trained on huge general data that can be adapted to many tasks, like GPT, Gemini, Claude and Llama.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-114
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is prompt engineering?
+  answer: 'Writing clear instructions to an AI to get a better answer: give the role, the task, the context, examples and the format you want.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-115
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is an AI hallucination?
+  answer: When an AI confidently gives a false answer, like a fake reference or a wrong date. That is why every AI answer must be checked.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-116
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is RAG?
+  answer: 'Retrieval-Augmented Generation: the AI first searches trusted documents and then answers from them. It reduces hallucination.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-117
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is fine-tuning vs prompting?
+  answer: Prompting just gives instructions to an existing model. Fine-tuning trains the model further on your own data so it changes its behaviour.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-118
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is a context window?
+  answer: How much text a model can read at one time, measured in tokens.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-119
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is temperature in an LLM?
+  answer: A setting that controls randomness. Low temperature gives safe, repeatable answers; high temperature gives more creative ones.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-120
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is multimodal AI?
+  answer: AI that understands more than one type of input, like text, images and voice together. Modern ChatGPT and Gemini can see images and talk.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-121
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is an AI agent?
+  answer: An AI that does not just answer, but plans and takes actions with tools, like searching the web, running code or booking a ticket.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-122
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is AGI?
+  answer: 'Artificial General Intelligence: AI as capable as a human at nearly any task. It does not exist yet, and experts disagree on when it might.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-123
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is open-source vs closed AI?
+  answer: Open models (Llama, Mistral, DeepSeek) can be downloaded and run locally. Closed models (GPT, Gemini, Claude) are used through the company's app or API.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-124
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is DeepSeek?
+  answer: A Chinese AI company whose open model, released in January 2025, matched top US models at much lower training cost. It showed AI is not only for rich countries.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-125
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is edge AI?
+  answer: Running AI on the device itself, like a phone or an ESP32, instead of the cloud. It is faster and more private.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-126
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is federated learning?
+  answer: Training a model across many devices without collecting their private data in one place. Phone keyboards use it to learn typing habits.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-127
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is reinforcement learning from human feedback (RLHF)?
+  answer: People rank the AI's answers, and the model is trained to prefer the answers people liked. It is how chatbots were made more helpful and safer.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-128
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is a vector database and embedding search?
+  answer: Text is turned into number vectors, and the database finds the ones with the closest meaning, not just the same words. Used in RAG.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-129
+  bank: technical
+  category: Generative AI, deepfakes and modern AI terms
+  question: What is AI bias?
+  answer: When an AI treats some groups unfairly because its training data was unbalanced, like a face-recognition system that works worse on darker skin, or a detector that flags non-native English writers more.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-130
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: What are the main ethical issues in AI?
+  answer: Bias and fairness, privacy, transparency (can it explain itself?), accountability (who is responsible for a mistake?), misuse like deepfakes, and job loss.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-131
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: What is responsible AI?
+  answer: Building and using AI that is fair, safe, private, explainable and under human control.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-132
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: What is the EU AI Act?
+  answer: 'The first major AI law, passed in 2024. It sorts AI by risk: some uses are banned (like social scoring), high-risk uses (like exam grading or hiring) have strict rules, and chatbots must say they are AI.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-133
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: Does Pakistan have an AI policy?
+  answer: Yes, the National Artificial Intelligence Policy 2025, approved by the federal cabinet in July 2025. It aims to train many people in AI skills and promote AI in government and industry.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-134
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: Should students be allowed to use ChatGPT?
+  answer: Yes, but with rules. It can explain topics and give practice, but students must not copy it for homework. I would teach them to use it like a tutor, check its answers, and do their own thinking.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-135
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: How can a teacher tell if homework is AI-written?
+  answer: 'Better ways: ask the student to explain their answer orally, give work in class, ask for drafts, and know each student''s normal writing style.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-136
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: How will AI change schools?
+  answer: Personalised learning for each student, quick feedback, automatic marking of simple quizzes, translation into local languages and help for students with disabilities. The teacher's role moves from giving information to guiding and mentoring.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-137
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: Can AI replace teachers?
+  answer: No. AI can give information, but a teacher gives values, motivation, discipline and care. In Balochistan, many children need a teacher who understands their family and language. AI is a tool in the teacher's hand.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-138
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: How would you teach AI to class 8 students?
+  answer: 'Start with examples they know: face unlock, YouTube suggestions and Google Translate. Then a simple activity: they "train" a classifier by sorting pictures, or use Google''s free Teachable Machine on a lab computer. No heavy maths.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-139
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: What is AI literacy?
+  answer: Knowing what AI is, what it can and cannot do, how to use it safely, and how to check its answers. Every student today needs it, just like reading and writing.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-140
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: How can AI help Balochistan specifically?
+  answer: Translating lessons into Urdu, Pashto, Balochi and Brahui, remote tutoring where teachers are missing, monitoring teacher attendance, predicting droughts and water needs, and telemedicine in far areas.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-141
+  bank: technical
+  category: AI ethics, law and AI in education
+  question: What are the dangers of AI for children?
+  answer: Cheating instead of learning, wrong information, addiction to screens, deepfake bullying and sharing private data. The teacher and parents must guide them.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-142
+  bank: technical
+  category: AI and data science subjects
+  question: 'Computer vision: what are its main tasks?'
+  answer: Image classification (what is in the image), object detection (where it is, with a box, like YOLO), segmentation (the exact pixels of each object) and face recognition.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-143
+  bank: technical
+  category: AI and data science subjects
+  question: How does a computer see an image?
+  answer: As a grid of pixels. Each pixel is a number (0 to 255) for grey, or three numbers for red, green and blue. A CNN learns patterns in these numbers.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-144
+  bank: technical
+  category: AI and data science subjects
+  question: What are convolution and pooling?
+  answer: Convolution slides a small filter over the image to find features like edges. Pooling shrinks the image by keeping the strongest value in each small area, which makes the network faster.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-145
+  bank: technical
+  category: AI and data science subjects
+  question: Name famous CNN models
+  answer: LeNet (digits), AlexNet (2012, started the deep-learning boom), VGG, ResNet (with skip connections that allow very deep networks) and YOLO for real-time detection.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-146
+  bank: technical
+  category: AI and data science subjects
+  question: What is OpenCV?
+  answer: 'A free library for computer vision: reading images, detecting faces and edges and processing video.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-147
+  bank: technical
+  category: AI and data science subjects
+  question: 'Machine learning: name some classic algorithms'
+  answer: Linear and logistic regression, decision trees, random forest, support vector machines (SVM), k-nearest neighbours (KNN), Naive Bayes, k-means clustering and gradient boosting.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-148
+  bank: technical
+  category: AI and data science subjects
+  question: What is k-means clustering?
+  answer: 'An unsupervised method that groups data into k clusters by putting each point with its nearest centre and moving the centres until they settle. Example: grouping students by marks pattern.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-149
+  bank: technical
+  category: AI and data science subjects
+  question: What is a decision tree and random forest?
+  answer: A decision tree asks yes/no questions to reach an answer. A random forest builds many trees on random parts of the data and takes a vote, which is more accurate.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-150
+  bank: technical
+  category: AI and data science subjects
+  question: What is SVM?
+  answer: 'Support Vector Machine: finds the line or boundary that separates two classes with the widest gap.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-151
+  bank: technical
+  category: AI and data science subjects
+  question: What is cross-validation?
+  answer: Splitting the data into k parts, training on k minus 1 and testing on the rest, k times, to get a more reliable score.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-152
+  bank: technical
+  category: AI and data science subjects
+  question: What is feature engineering?
+  answer: Choosing or creating the input values that help a model, like word counts or average sentence length in a text classifier.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-153
+  bank: technical
+  category: AI and data science subjects
+  question: What is PCA?
+  answer: 'Principal Component Analysis: reduces many features to a few that keep most of the information.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-154
+  bank: technical
+  category: AI and data science subjects
+  question: 'Robotics: what are the parts of a robot?'
+  answer: Sensors to sense, a controller (the brain) to decide, actuators and motors to move, and a power supply.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-155
+  bank: technical
+  category: AI and data science subjects
+  question: What are the types of robots?
+  answer: Industrial arms, mobile robots, humanoids, drones, medical robots and service robots.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-156
+  bank: technical
+  category: AI and data science subjects
+  question: What are degrees of freedom?
+  answer: The number of independent ways a robot can move. A human arm has 7.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-157
+  bank: technical
+  category: AI and data science subjects
+  question: What is SLAM?
+  answer: 'Simultaneous Localisation and Mapping: a robot builds a map of a new place while also working out where it is on that map. Robot vacuum cleaners use it.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-158
+  bank: technical
+  category: AI and data science subjects
+  question: What is ROS?
+  answer: 'Robot Operating System: free software tools and libraries for building robots.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-159
+  bank: technical
+  category: AI and data science subjects
+  question: 'Information retrieval: how does a search engine work?'
+  answer: It crawls web pages, builds an inverted index (which words appear in which pages), and ranks results for each query using measures like TF-IDF, BM25 and PageRank.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-160
+  bank: technical
+  category: AI and data science subjects
+  question: What is an inverted index?
+  answer: 'Like the index at the back of a book: for each word, the list of documents that contain it. It makes search very fast.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-161
+  bank: technical
+  category: AI and data science subjects
+  question: Precision and recall in search
+  answer: 'Precision: of the results shown, how many are relevant. Recall: of all relevant documents, how many were found.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-162
+  bank: technical
+  category: AI and data science subjects
+  question: What is PageRank?
+  answer: 'Google''s original idea: a page is important if many important pages link to it.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-163
+  bank: technical
+  category: AI and data science subjects
+  question: 'Theory of computation: what is a finite automaton?'
+  answer: A simple machine with a fixed number of states that reads input one symbol at a time, like a vending machine or a traffic light. It recognises regular languages.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-164
+  bank: technical
+  category: AI and data science subjects
+  question: DFA vs NFA
+  answer: In a DFA each input has exactly one next state. In an NFA there can be several or none. They are equally powerful; every NFA can be turned into a DFA.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-165
+  bank: technical
+  category: AI and data science subjects
+  question: What is the Chomsky hierarchy?
+  answer: 'Four levels of languages: regular (finite automata), context-free (pushdown automata, used for programming language grammar), context-sensitive, and recursively enumerable (Turing machines).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-166
+  bank: technical
+  category: AI and data science subjects
+  question: What is the halting problem?
+  answer: Alan Turing proved no program can decide, for every program, whether it will stop or run forever. Some problems cannot be solved by any computer.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-167
+  bank: technical
+  category: AI and data science subjects
+  question: P vs NP
+  answer: P problems can be solved quickly. NP problems can be checked quickly when given an answer. Whether P equals NP is the most famous unsolved question in computer science.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-168
+  bank: technical
+  category: AI and data science subjects
+  question: 'Research methodology: what is a hypothesis?'
+  answer: A testable statement, like "AI adoption improves workplace safety". Research collects data to support or reject it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-169
+  bank: technical
+  category: AI and data science subjects
+  question: Primary vs secondary data
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-170
+  bank: technical
+  category: AI and data science subjects
+  question: What is a literature review?
+  answer: A summary and critique of what earlier research found, to show the gap your study fills. My gap was that earlier detectors were never tested for leakage or on new data.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-171
+  bank: technical
+  category: AI and data science subjects
+  question: What is plagiarism? How do you avoid it?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-172
+  bank: technical
+  category: AI and data science subjects
+  question: Sampling methods
+  answer: Probability (simple random, stratified, cluster) and non-probability (convenience, purposive). My papers used random and purposive sampling.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-173
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: What is ChatGPT? (the one-minute answer)
+  answer: 'ChatGPT is an AI chatbot made by OpenAI, an American company led by Sam Altman. It was released on 30 November 2022 and reached 100 million users in about two months, faster than any app before it. GPT stands for **Generative Pre-trained Transformer**: *generative* because it creates new text, *pre-trained* because it first learned from a huge amount of text from books and the internet, and *Transformer* because that is the type of neural network it uses. It works by predicting the next word again and again, which lets it answer questions, write, translate, summarise and write code. It can also make mistakes confidently, which we call hallucination, so its answers must be checked.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-174
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: What is attention? Simple example
+  answer: In "The student put the book on the table because it was heavy", attention helps the model link "it" to "book", not "table".
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-175
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: GPT vs BERT
+  answer: Both are Transformers. GPT (OpenAI) reads left to right and is built to **generate** text. BERT (Google, 2018) reads in both directions and is built to **understand** text, for example classification.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-176
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: What is a token?
+  answer: A piece of text the model reads, usually a word or part of a word. Models are limited by how many tokens they can read at once (the context window).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-177
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: How is ChatGPT trained?
+  answer: 'Step 1, pre-training: it reads huge amounts of text and learns to predict the next word. Step 2, fine-tuning: it is trained on example conversations. Step 3, RLHF (Reinforcement Learning from Human Feedback): people rate its answers, and it learns to give helpful, safe ones.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-178
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: What is a prompt? Prompt engineering?
+  answer: A prompt is the instruction you give the AI. Prompt engineering is writing clear prompts, with the role, the task, examples and the format you want, to get better answers.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-179
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: What is hallucination?
+  answer: When an AI gives a false answer that sounds correct, such as a fake reference. That is why students must verify AI answers.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-180
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: Other AI tools
+  answer: Google Gemini, Anthropic's Claude, Microsoft Copilot (uses OpenAI models), Meta AI, DeepSeek, Perplexity.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-181
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: Risks of generative AI
+  answer: Cheating and plagiarism, fake news and deepfakes, privacy, bias from training data, job changes, and over-dependence.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-182
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: How can ChatGPT help in a school?
+  answer: Making lesson plans, quizzes and simple explanations, translating difficult topics into Urdu, and giving extra practice. The teacher must check everything and teach students to use it honestly.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-183
+  bank: technical
+  category: ChatGPT, GPT, Transformers and generative AI (asked often)
+  question: Who are the key people?
+  answer: Alan Turing (Turing Test, 1950), John McCarthy (named AI, 1956), Geoffrey Hinton, Yann LeCun and Yoshua Bengio (deep learning pioneers, Turing Award 2018). Hinton and John Hopfield won the 2024 Nobel Prize in Physics for neural networks.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-184
+  bank: technical
+  category: Rapid-fire IT answers (from the Kalat interviews)
+  question: Internet vs intranet vs extranet
+  answer: The internet is the public global network. An intranet is a private network inside one organisation, like a school or bank, for its own staff. An extranet gives limited access to outside partners.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-185
+  bank: technical
+  category: Rapid-fire IT answers (from the Kalat interviews)
+  question: What is cyber security? A Chaman example
+  answer: 'Protecting computers, phones, networks and data from attacks and theft. Example: fake SMS or calls saying "you won a prize" or "your Easypaisa or JazzCash account is blocked, send the code". Never share an OTP or PIN.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-186
+  bank: technical
+  category: Rapid-fire IT answers (from the Kalat interviews)
+  question: What would you teach in Class 6 IT?
+  answer: Computer parts and safe use, typing, using MS Word and Paint, the internet and online safety, basic algorithms and flowcharts, and simple block coding in Scratch.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-187
+  bank: technical
+  category: Computer networks
+  question: What is a computer network?
+  answer: Two or more computers connected to share data and resources like files, printers and the internet.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-188
+  bank: technical
+  category: Computer networks
+  question: Types by size
+  answer: PAN (personal, like Bluetooth), LAN (one building, like a school lab), MAN (a city), WAN (countries; the internet is the biggest WAN).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-189
+  bank: technical
+  category: Computer networks
+  question: Topologies
+  answer: 'Bus, star, ring, mesh, tree and hybrid. Star is most common today: every computer connects to a central switch, so one broken cable affects only one computer.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-190
+  bank: technical
+  category: Computer networks
+  question: 'OSI model: 7 layers'
+  answer: 'Physical, Data Link, Network, Transport, Session, Presentation, Application. Memory trick from bottom: "Please Do Not Throw Sausage Pizza Away". Made by ISO.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-191
+  bank: technical
+  category: Computer networks
+  question: TCP/IP model
+  answer: '4 layers: Network Access (Link), Internet, Transport, Application. The internet actually runs on this model.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-192
+  bank: technical
+  category: Computer networks
+  question: TCP vs UDP
+  answer: 'TCP is reliable: it connects first, numbers the packets and resends lost ones (web, email). UDP is fast but does not check (video calls, live games, DNS).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-193
+  bank: technical
+  category: Computer networks
+  question: Hub, switch, router
+  answer: A hub sends data to every port. A switch sends it only to the right computer using MAC addresses (Layer 2). A router connects different networks and finds the path using IP addresses (Layer 3).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-194
+  bank: technical
+  category: Computer networks
+  question: Other devices
+  answer: Modem (converts digital and analog signals), access point (gives WiFi), repeater (boosts signal), bridge, gateway, firewall.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-195
+  bank: technical
+  category: Computer networks
+  question: IP address vs MAC address
+  answer: IP is a logical address that can change (like a postal address). MAC is a fixed 48-bit hardware address burned into the network card.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-196
+  bank: technical
+  category: Computer networks
+  question: IPv4 vs IPv6
+  answer: IPv4 is 32-bit, about 4.3 billion addresses, written like 192.168.1.1. IPv6 is 128-bit, written in hexadecimal, made because IPv4 addresses ran out.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-197
+  bank: technical
+  category: Computer networks
+  question: IPv4 classes
+  answer: Class A 1-126, B 128-191, C 192-223, D 224-239 (multicast), E 240-255 (research). 127 is loopback (127.0.0.1, "localhost").
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-198
+  bank: technical
+  category: Computer networks
+  question: Private IP ranges
+  answer: 10.0.0.0/8, 172.16.0.0 to 172.31.255.255, 192.168.0.0/16. Used inside homes and offices and translated by NAT to one public IP.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-199
+  bank: technical
+  category: Computer networks
+  question: What is subnetting?
+  answer: 'Dividing one network into smaller networks to save addresses and improve security and speed. Example: 192.168.1.0/24 has 254 usable hosts; /26 gives 4 subnets of 62 hosts each.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-200
+  bank: technical
+  category: Computer networks
+  question: What is a subnet mask?
+  answer: It shows which part of the IP is the network and which is the host. /24 = 255.255.255.0.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-201
+  bank: technical
+  category: Computer networks
+  question: DHCP
+  answer: Gives IP addresses to devices automatically when they join the network.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-202
+  bank: technical
+  category: Computer networks
+  question: DNS
+  answer: Converts names like google.com into IP addresses, like a phone book.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-203
+  bank: technical
+  category: Computer networks
+  question: Common ports
+  answer: HTTP 80, HTTPS 443, FTP 20/21, SSH 22, Telnet 23, SMTP 25, DNS 53, DHCP 67/68, POP3 110, IMAP 143, RDP 3389.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-204
+  bank: technical
+  category: Computer networks
+  question: HTTP vs HTTPS
+  answer: HTTPS is HTTP with encryption (SSL/TLS), shown by the lock icon. Always use it for passwords and banking.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-205
+  bank: technical
+  category: Computer networks
+  question: Transmission media
+  answer: 'Wired: twisted pair (Cat5e/Cat6, RJ-45 connector), coaxial, fibre optic (fastest, uses light). Wireless: radio (WiFi), microwave, satellite, infrared.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-206
+  bank: technical
+  category: Computer networks
+  question: Bandwidth vs latency
+  answer: Bandwidth is how much data can flow per second (Mbps). Latency is the delay for data to travel (ms).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-207
+  bank: technical
+  category: Computer networks
+  question: What is WiFi? Bluetooth?
+  answer: WiFi is wireless LAN based on IEEE 802.11. Bluetooth is short-range PAN (about 10 m) based on IEEE 802.15.1. Ethernet is IEEE 802.3.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-208
+  bank: technical
+  category: Computer networks
+  question: 4G vs 5G
+  answer: 5G is faster with very low latency, good for IoT and smart cities. In Pakistan, 5G spectrum auction plans have been announced.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-209
+  bank: technical
+  category: Computer networks
+  question: What is a VPN?
+  answer: 'Virtual Private Network: an encrypted tunnel over the internet, so your data stays private, often used to work from home.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-210
+  bank: technical
+  category: Computer networks
+  question: What is Cisco Packet Tracer?
+  answer: Cisco's free network simulator. Students design and test networks without buying real equipment.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-211
+  bank: technical
+  category: Computer networks
+  question: Who invented the internet?
+  answer: It grew from ARPANET (USA, 1969). Vint Cerf and Bob Kahn designed TCP/IP and are called fathers of the internet. Tim Berners-Lee invented the World Wide Web in 1989 at CERN.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-212
+  bank: technical
+  category: Computer networks
+  question: How would you set up a school computer lab network?
+  answer: Put a router from the ISP, connect a switch to it, run Cat6 cables in a star topology to each PC, add a WiFi access point, use DHCP, add a firewall and content filter for children, and label every cable.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-213
+  bank: technical
+  category: ICT and computer basics
+  question: How will you explain to a beginner what a computer is? (asked in Kalat, 23 Nov)
+  answer: 'I would compare it to the student. You see and hear (input), your brain thinks (processing), you remember (storage), and you speak or write (output). A computer does the same: the keyboard and mouse are its eyes and ears, the CPU is its brain, RAM and the hard disk are its memory, and the screen and printer are its mouth and hand. Then I would let each child touch and name each part.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-214
+  bank: technical
+  category: ICT and computer basics
+  question: What do we need to make software? (asked in Kalat)
+  answer: 'First a problem and the users'' requirements. Then a computer, a programming language like Python or Java, an editor or IDE like VS Code, and knowledge of logic and algorithms. Then we follow the software development life cycle: requirements, design, coding, testing, deployment and maintenance.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-215
+  bank: technical
+  category: ICT and computer basics
+  question: What does computer stand for? What is ICT?
+  answer: '"Computer" comes from "compute", to calculate. ICT is Information and Communication Technology: computers plus communication like the internet and mobile phones.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-216
+  bank: technical
+  category: ICT and computer basics
+  question: Components of a computer
+  answer: Input devices, CPU (ALU, Control Unit, registers), memory (RAM, ROM, cache), storage (HDD, SSD), output devices, and the motherboard connecting them.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-217
+  bank: technical
+  category: ICT and computer basics
+  question: What is RAM? (asked in Kalat)
+  answer: 'Random Access Memory: fast, temporary working memory. It holds what the computer is using right now and is erased when power goes off. More RAM lets you run more programs at once.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-218
+  bank: technical
+  category: ICT and computer basics
+  question: RAM vs ROM
+  answer: RAM is volatile and read/write. ROM is non-volatile and read-only, holding startup instructions like the BIOS.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-219
+  bank: technical
+  category: ICT and computer basics
+  question: What is cache memory?
+  answer: Very small, very fast memory inside or near the CPU that keeps the most-used data.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-220
+  bank: technical
+  category: ICT and computer basics
+  question: HDD vs SSD
+  answer: An HDD has spinning disks and is cheaper. An SSD has no moving parts, so it is much faster and stronger.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-221
+  bank: technical
+  category: ICT and computer basics
+  question: Units of memory
+  answer: Bit, nibble (4 bits), byte (8 bits), KB (1024 bytes), MB, GB, TB, PB.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-222
+  bank: technical
+  category: ICT and computer basics
+  question: Hardware vs software
+  answer: Hardware is what you can touch. Software is the set of instructions. Firmware is software stored in hardware.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-223
+  bank: technical
+  category: ICT and computer basics
+  question: System vs application software
+  answer: System software runs the computer (Windows, Linux, Android, drivers). Application software does a user's job (MS Word, Chrome, WhatsApp).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-224
+  bank: technical
+  category: ICT and computer basics
+  question: What is an operating system?
+  answer: 'Software that manages hardware and gives a platform for other programs. Examples: Windows (Microsoft), macOS (Apple), Linux (Linus Torvalds, 1991), Android (Google).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-225
+  bank: technical
+  category: ICT and computer basics
+  question: Compiler vs interpreter
+  answer: A compiler translates the whole program at once (C++). An interpreter runs it line by line (Python).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-226
+  bank: technical
+  category: ICT and computer basics
+  question: Generations of computers
+  answer: 1st vacuum tubes, 2nd transistors, 3rd integrated circuits, 4th microprocessors, 5th AI.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-227
+  bank: technical
+  category: ICT and computer basics
+  question: Inventor of the mouse (asked in Kalat)
+  answer: Douglas Engelbart, 1964.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-228
+  bank: technical
+  category: ICT and computer basics
+  question: Inventor of the WWW (asked in Kalat)
+  answer: Sir Tim Berners-Lee, 1989, at CERN.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-229
+  bank: technical
+  category: ICT and computer basics
+  question: Internet vs WWW
+  answer: The internet is the global network of networks. The WWW is a service on it, made of web pages linked by HTTP. Email is another service.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-230
+  bank: technical
+  category: ICT and computer basics
+  question: Number systems
+  answer: 'Binary (base 2), octal (8), decimal (10), hexadecimal (16). Example: decimal 10 = binary 1010 = hex A.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-231
+  bank: technical
+  category: ICT and computer basics
+  question: What is an algorithm? A flowchart?
+  answer: 'An algorithm is step-by-step instructions to solve a problem, like a recipe. A flowchart draws it with symbols: oval (start/end), rectangle (process), diamond (decision), parallelogram (input/output).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-232
+  bank: technical
+  category: ICT and computer basics
+  question: Impact of computers on other subjects (asked in Kalat)
+  answer: 'Maths: graphs and calculations in Excel or GeoGebra. Science: simulations and virtual labs. Languages: typing, spelling checks, e-books. Geography: Google Earth and maps. Everyone: research, presentations and online learning.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-233
+  bank: technical
+  category: ICT and computer basics
+  question: MS Office shortcuts
+  answer: Ctrl+C copy, Ctrl+V paste, Ctrl+X cut, Ctrl+Z undo, Ctrl+Y redo, Ctrl+S save, Ctrl+P print, Ctrl+A select all, Ctrl+F find.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-234
+  bank: technical
+  category: ICT and computer basics
+  question: Who founded Microsoft, Apple, Google?
+  answer: 'Microsoft: Bill Gates and Paul Allen (1975). Apple: Steve Jobs, Steve Wozniak and Ronald Wayne (1976). Google: Larry Page and Sergey Brin (1998).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-235
+  bank: technical
+  category: ICT and computer basics
+  question: Pakistan's first computer / IT bodies
+  answer: Pakistan's Ministry of IT and Telecom sets IT policy; PTA regulates telecom; NADRA runs the national database; HEC regulates universities. Balochistan's IT body is the Balochistan IT Board.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-236
+  bank: technical
+  category: Cyber security
+  question: CIA triad
+  answer: Confidentiality (only the right people see data), Integrity (data is not changed wrongly), Availability (data is there when needed).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-237
+  bank: technical
+  category: Cyber security
+  question: Virus, worm, Trojan, ransomware
+  answer: A virus attaches to a file and needs you to run it. A worm spreads by itself over a network. A Trojan pretends to be useful software. Ransomware locks your files and demands money.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-238
+  bank: technical
+  category: Cyber security
+  question: What is phishing?
+  answer: Fake messages or websites that trick you into giving passwords or bank details, for example a fake "Benazir Income Support" or "Jazz prize" SMS.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-239
+  bank: technical
+  category: Cyber security
+  question: Firewall
+  answer: Hardware or software that checks incoming and outgoing traffic and blocks what breaks the rules.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-240
+  bank: technical
+  category: Cyber security
+  question: Encryption
+  answer: Turning readable data into code that only the right key can open. Symmetric uses one key (AES); asymmetric uses a public and a private key (RSA).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-241
+  bank: technical
+  category: Cyber security
+  question: Two-factor authentication
+  answer: Something you know (password) plus something you have (a code on your phone). WhatsApp two-step verification is an example.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-242
+  bank: technical
+  category: Cyber security
+  question: DoS / DDoS
+  answer: Flooding a server with traffic so real users cannot reach it; DDoS uses many computers at once.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-243
+  bank: technical
+  category: Cyber security
+  question: Pakistan's cyber law
+  answer: Prevention of Electronic Crimes Act (PECA) 2016, amended in January 2025. The FIA cybercrime wing handled cases; the 2025 amendment created a new National Cyber Crime Investigation Agency (NCCIA).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-244
+  bank: technical
+  category: Cyber security
+  question: How will you keep children safe online?
+  answer: 'Teach them: never share passwords or photos with strangers, check before clicking links, use strong passwords, tell a teacher or parent about bullying, and use school filters.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-245
+  bank: technical
+  category: Cloud computing
+  question: What is cloud computing?
+  answer: Using computing services like storage, servers and software over the internet instead of your own machine, and paying only for what you use. Google Drive is a simple example.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-246
+  bank: technical
+  category: Cloud computing
+  question: Service models
+  answer: 'IaaS: you rent servers (AWS EC2). PaaS: you get a ready platform to deploy code (Google App Engine, Heroku). SaaS: ready software in the browser (Gmail, Google Classroom, Microsoft 365).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-247
+  bank: technical
+  category: Cloud computing
+  question: Deployment models
+  answer: Public cloud (AWS, Azure, Google Cloud), private cloud (one organisation), hybrid (both), community cloud.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-248
+  bank: technical
+  category: Cloud computing
+  question: Advantages and risks
+  answer: 'Advantages: low cost, access from anywhere, automatic backup, easy to scale. Risks: needs internet, data privacy, dependence on the provider.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-249
+  bank: technical
+  category: Cloud computing
+  question: What is virtualisation?
+  answer: Running several virtual computers on one physical machine using a hypervisor (VMware, VirtualBox, Hyper-V). Cloud is built on it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-250
+  bank: technical
+  category: Cloud computing
+  question: How can a school use the cloud?
+  answer: Google Classroom for assignments, Google Drive for shared files, Google Forms for quizzes, and online backups of student records.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-251
+  bank: technical
+  category: Cloud computing
+  question: How do you use cloud at work?
+  answer: ''
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-252
+  bank: technical
+  category: Web development
+  question: HTML, CSS, JavaScript
+  answer: HTML builds the structure of a page, CSS styles it (colours, layout), JavaScript makes it interactive.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-253
+  bank: technical
+  category: Web development
+  question: Front end vs back end
+  answer: 'The front end is what the user sees in the browser. The back end runs on the server: logic and database (PHP, Java, Python, Node.js with MySQL).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-254
+  bank: technical
+  category: Web development
+  question: What is PHP?
+  answer: A server-side scripting language for websites, made by Rasmus Lerdorf in 1994. WordPress and Facebook's early site were built with it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-255
+  bank: technical
+  category: Web development
+  question: Java vs JavaScript
+  answer: Different languages. Java is a compiled, object-oriented language for apps and Android (Sun Microsystems, 1995). JavaScript runs in the browser.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-256
+  bank: technical
+  category: Web development
+  question: What is a database? SQL?
+  answer: 'A database stores organised data in tables. SQL is the language to query it: SELECT, INSERT, UPDATE, DELETE. MySQL is a popular free database.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-257
+  bank: technical
+  category: Web development
+  question: Domain, hosting, URL
+  answer: A domain is the website's name (bpsc.gob.pk). Hosting is the server space where the files live. A URL is the full address of one page.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-258
+  bank: technical
+  category: Web development
+  question: OOP principles
+  answer: Encapsulation, inheritance, polymorphism and abstraction.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-259
+  bank: technical
+  category: Web development
+  question: What is Git and GitHub?
+  answer: Git tracks changes to code; GitHub stores Git projects online so teams can work together.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-260
+  bank: technical
+  category: Content filters and child online safety
+  question: How would you keep children safe on the school lab computers?
+  answer: I would use filters at three levels. On the network, I would set the router to use a family-safe DNS like CleanBrowsing Family or OpenDNS FamilyShield, so adult and harmful sites are blocked for every device. On each computer, I would make a standard (non-admin) student account and turn on Microsoft Family Safety and SafeSearch in Google and YouTube. In the lab, I would keep screens facing the teacher and supervise. Parents can do the same at home, so I know it works and it costs nothing.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-261
+  bank: technical
+  category: Content filters and child online safety
+  question: What is a content filter?
+  answer: Software or a setting that blocks websites or content by category (adult, gambling, violence) or by keywords, before it reaches the user.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-262
+  bank: technical
+  category: Content filters and child online safety
+  question: What are parental controls?
+  answer: 'Tools that let parents or teachers limit what a child can see, which apps they can use and for how long. Examples: Microsoft Family Safety, Google Family Link (Android), Apple Screen Time.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-263
+  bank: technical
+  category: Content filters and child online safety
+  question: How does a DNS filter work?
+  answer: When a computer asks DNS for a website's address, the filtering DNS server refuses to give the address of blocked sites, so they don't open. Set it once on the router and every device is protected.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-264
+  bank: technical
+  category: Content filters and child online safety
+  question: Free family DNS services
+  answer: OpenDNS FamilyShield (208.67.222.123 and 208.67.220.123), CleanBrowsing Family filter (185.228.168.168), Cloudflare for Families (1.1.1.3 and 1.0.0.3).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-265
+  bank: technical
+  category: Content filters and child online safety
+  question: What is SafeSearch?
+  answer: A Google setting that hides explicit images and results. YouTube's version is Restricted Mode. They can be locked for a child's account.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-266
+  bank: technical
+  category: Content filters and child online safety
+  question: Firewall vs content filter
+  answer: A firewall blocks traffic by rules such as ports and addresses. A content filter blocks by what the content is. Many routers and firewalls now do both.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-267
+  bank: technical
+  category: Content filters and child online safety
+  question: Can students bypass filters?
+  answer: Yes, with VPNs, proxies or by changing DNS settings. So use standard accounts without admin rights, block VPN apps and supervise. No filter replaces a teacher's attention.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-268
+  bank: technical
+  category: Content filters and child online safety
+  question: How do you protect children on phones at home?
+  answer: 'Google Family Link on Android: approve apps, set screen time, filter Chrome and YouTube, and see the location.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-269
+  bank: technical
+  category: Content filters and child online safety
+  question: What is cyberbullying? What would you do?
+  answer: Harassing someone online through messages, fake accounts or sharing photos. I would listen to the victim, save the evidence, inform the head teacher, deal with the bully, and teach the class about respect online. Serious cases can be reported to the National Cyber Crime Investigation Agency under PECA.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-270
+  bank: technical
+  category: Content filters and child online safety
+  question: What is a digital footprint?
+  answer: Everything you post or do online leaves a trace that stays, even if deleted. Teach children to think before posting.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-271
+  bank: technical
+  category: More IT and AI subjects
+  question: 'Programming Fundamentals: variable, loop, function'
+  answer: A variable stores a value. A loop repeats steps (for, while). A function is a named block of code you can reuse.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-272
+  bank: technical
+  category: More IT and AI subjects
+  question: What is OOP? Class vs object
+  answer: Object-Oriented Programming organises code around objects. A class is the blueprint (Car); an object is a real instance (my white Corolla).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-273
+  bank: technical
+  category: More IT and AI subjects
+  question: 'Data structures: array, stack, queue, linked list, tree'
+  answer: 'Array: items in a row with an index. Stack: last in, first out, like a pile of plates. Queue: first in, first out, like a bank line. Linked list: items connected by pointers. Tree: a hierarchy, like folders.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-274
+  bank: technical
+  category: More IT and AI subjects
+  question: Searching and sorting
+  answer: 'Linear search checks one by one; binary search halves a sorted list each time, so it is much faster (O(log n)). Sorting: bubble, selection, insertion, merge and quick sort.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-275
+  bank: technical
+  category: More IT and AI subjects
+  question: What is Big-O?
+  answer: 'It describes how the time an algorithm takes grows with input size: O(1) constant, O(n) linear, O(n log n), O(n²). (Advanced Algorithm Analysis.)'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-276
+  bank: technical
+  category: More IT and AI subjects
+  question: Operating system functions
+  answer: Process management, memory management, file management, device management and security.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-277
+  bank: technical
+  category: More IT and AI subjects
+  question: Process vs thread; deadlock
+  answer: A process is a running program; a thread is a smaller task inside it. Deadlock is when two processes each wait for the other's resource forever.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-278
+  bank: technical
+  category: More IT and AI subjects
+  question: 'DBMS: primary key, foreign key, normalisation'
+  answer: A primary key uniquely identifies a row (CNIC). A foreign key links to another table. Normalisation removes repeated data by splitting tables (1NF, 2NF, 3NF).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-279
+  bank: technical
+  category: More IT and AI subjects
+  question: SQL vs NoSQL
+  answer: SQL databases use tables and fixed schemas (MySQL). NoSQL stores flexible documents or key-values (MongoDB, Firebase).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-280
+  bank: technical
+  category: More IT and AI subjects
+  question: SDLC and models
+  answer: Requirements, design, coding, testing, deployment, maintenance. Waterfall goes step by step; Agile works in short cycles (sprints) with regular feedback.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-281
+  bank: technical
+  category: More IT and AI subjects
+  question: Software testing types
+  answer: Unit, integration, system and acceptance testing. Black-box tests what it does; white-box tests the code inside. (Software Quality Engineering.)
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-282
+  bank: technical
+  category: More IT and AI subjects
+  question: Functional vs non-functional requirements
+  answer: 'Functional: what the system does (login, print a report). Non-functional: how well (speed, security, usability). (Software Requirements Engineering.)'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-283
+  bank: technical
+  category: More IT and AI subjects
+  question: Mobile app development
+  answer: Android apps are made in Java or Kotlin with Android Studio; cross-platform apps with Flutter or React Native.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-284
+  bank: technical
+  category: More IT and AI subjects
+  question: Wireless communication generations
+  answer: 1G voice (analog), 2G SMS (GSM), 3G mobile internet, 4G fast data (LTE), 5G very fast and low latency for IoT.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-285
+  bank: technical
+  category: More IT and AI subjects
+  question: IT project management
+  answer: 'Plan scope, time, cost and quality. Tools: Gantt charts, Trello, Jira. Triple constraint: scope, time, cost.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-286
+  bank: technical
+  category: More IT and AI subjects
+  question: Enterprise systems
+  answer: ERP (Enterprise Resource Planning) joins finance, HR, inventory and sales in one system, such as SAP or Odoo.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-287
+  bank: technical
+  category: More IT and AI subjects
+  question: Theory of computation
+  answer: 'Studies what computers can solve: finite automata, regular expressions, context-free grammars, Turing machines. A Turing machine is the simple model of any computer (Alan Turing, 1936).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-288
+  bank: technical
+  category: More IT and AI subjects
+  question: Discrete structures
+  answer: 'The maths of computing: logic (AND, OR, NOT), sets, relations, graphs and counting. Logic gates come from Boolean algebra.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-289
+  bank: technical
+  category: More IT and AI subjects
+  question: Formal methods
+  answer: Using mathematics to prove that software is correct, mostly for safety-critical systems like aircraft and medical devices.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-290
+  bank: technical
+  category: More IT and AI subjects
+  question: What is a research methodology?
+  answer: Define the problem, review the literature, form a hypothesis, collect data, test, analyse and report. Quantitative uses numbers; qualitative uses interviews and observation.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-291
+  bank: technical
+  category: Work, freelancing and programming
+  question: What is freelancing? How can students start?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-292
+  bank: technical
+  category: Work, freelancing and programming
+  question: Can you teach freelancing in a school?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-293
+  bank: technical
+  category: Work, freelancing and programming
+  question: Which programming languages do you know? Which is your favourite?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-294
+  bank: technical
+  category: Work, freelancing and programming
+  question: Teach Class 8 what an algorithm is, in five minutes.
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-295
+  bank: technical
+  category: Work, freelancing and programming
+  question: Tell us about a project you are proud of. (generic, change it to a real one)
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-296
+  bank: technical
+  category: Work, freelancing and programming
+  question: Tell us about a difficult client or deadline. (generic)
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-297
+  bank: technical
+  category: Office automation for a school
+  question: The head teacher is not good with computers and asks you to do the school's computer work, like results and letters. Will you?
+  answer: Yes sir, happily. Teaching comes first, but an IT teacher usually has a few periods a day, so there is time. And this work is easy for me because I automate it. I would make an Excel result sheet that calculates totals, percentages, grades and positions automatically, use mail merge to print every student's result card and letters in minutes, and keep templates for common letters. I would also train the other teachers and the clerk, so the school doesn't depend on one person.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-298
+  bank: technical
+  category: Office automation for a school
+  question: What is automation?
+  answer: Letting a computer do repeated work automatically, so people save time and make fewer mistakes.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-299
+  bank: technical
+  category: Office automation for a school
+  question: How would you make a result sheet in Excel?
+  answer: One row per student, one column per subject. `=SUM()` for the total, total/max x 100 for the percentage, `=IF()` or `=IFS()` for the grade, `=RANK()` for the position, `=AVERAGE()` for the class average, and conditional formatting to mark fails in red.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-300
+  bank: technical
+  category: Office automation for a school
+  question: Useful Excel functions
+  answer: SUM, AVERAGE, MAX, MIN, COUNT, COUNTIF (for example, how many passed), IF, VLOOKUP or XLOOKUP (find a student's record by roll number), CONCAT, and Pivot Tables for summaries.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-301
+  bank: technical
+  category: Office automation for a school
+  question: Absolute vs relative reference
+  answer: A relative reference (`A1`) changes when you copy a formula; an absolute one (`$A$1`) stays fixed, for example for the total marks cell.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-302
+  bank: technical
+  category: Office automation for a school
+  question: What is mail merge?
+  answer: In MS Word, you join one letter or result-card template with an Excel list, and Word makes a personalised copy for every student automatically.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-303
+  bank: technical
+  category: Office automation for a school
+  question: How would you take attendance digitally?
+  answer: An Excel or Google Sheet with dates and a P/A dropdown, and COUNTIF to calculate each student's attendance percentage.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-304
+  bank: technical
+  category: Office automation for a school
+  question: How can Google Forms help a teacher?
+  answer: Make quizzes that mark themselves, collect parents' contact details, or run surveys. Answers go straight into Google Sheets.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-305
+  bank: technical
+  category: Office automation for a school
+  question: What is a macro?
+  answer: A recorded set of steps in Excel or Word that you can replay with one click. Advanced macros use VBA.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-306
+  bank: technical
+  category: Office automation for a school
+  question: How could Python help?
+  answer: A short Python script with pandas can read all the class sheets, calculate results, and generate PDF result cards or charts in one go.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-307
+  bank: technical
+  category: Office automation for a school
+  question: How would you keep school records safe?
+  answer: Keep backups on a USB and in Google Drive, password-protect the files, and give access only to the staff who need it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-308
+  bank: technical
+  category: Office automation for a school
+  question: Database vs spreadsheet
+  answer: A spreadsheet is good for small lists. A database (MS Access, MySQL) is better for large linked records like students, fees and results, with less repetition.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-309
+  bank: technical
+  category: Programming Fundamentals
+  question: What is a program? What is an algorithm?
+  answer: An algorithm is a step-by-step method to solve a problem. A program is that algorithm written in a programming language the computer can run.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-310
+  bank: technical
+  category: Programming Fundamentals
+  question: High-level vs low-level language
+  answer: 'High-level languages are close to English (Python, Java). Low-level languages are close to the machine: assembly and machine code (0s and 1s).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-311
+  bank: technical
+  category: Programming Fundamentals
+  question: What are data types?
+  answer: 'The kind of value a variable holds: int (whole numbers), float or double (decimals), char (one character), string (text) and bool (true or false).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-312
+  bank: technical
+  category: Programming Fundamentals
+  question: What is a constant?
+  answer: A value that cannot change while the program runs, like PI = 3.14159.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-313
+  bank: technical
+  category: Programming Fundamentals
+  question: What are operators?
+  answer: 'Symbols that do work on values: arithmetic (+ − * / %), relational (== != > <), logical (AND, OR, NOT) and assignment (=).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-314
+  bank: technical
+  category: Programming Fundamentals
+  question: Difference between = and ==
+  answer: = gives a value to a variable. == compares two values.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-315
+  bank: technical
+  category: Programming Fundamentals
+  question: What are the control structures?
+  answer: Sequence (one step after another), selection (if, if-else, switch) and repetition (for, while, do-while loops).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-316
+  bank: technical
+  category: Programming Fundamentals
+  question: while vs do-while
+  answer: A while loop checks the condition first, so it may never run. A do-while runs once first and then checks, so it always runs at least once.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-317
+  bank: technical
+  category: Programming Fundamentals
+  question: What is an array?
+  answer: A collection of items of the same type stored together, accessed by an index starting at 0. marks[0] is the first student's marks.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-318
+  bank: technical
+  category: Programming Fundamentals
+  question: What is a function? Why use it?
+  answer: A named block of code that does one job and can be reused. It avoids repeating code and makes programs easier to read and fix.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-319
+  bank: technical
+  category: Programming Fundamentals
+  question: Call by value vs call by reference
+  answer: 'By value: the function gets a copy, so the original does not change. By reference: it gets the address, so changes affect the original.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-320
+  bank: technical
+  category: Programming Fundamentals
+  question: What is recursion?
+  answer: 'A function that calls itself, with a stopping (base) case. Example: factorial(n) = n × factorial(n − 1), and factorial(0) = 1.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-321
+  bank: technical
+  category: Programming Fundamentals
+  question: What is a pointer?
+  answer: A variable that stores the memory address of another variable. Used heavily in C and C++.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-322
+  bank: technical
+  category: Programming Fundamentals
+  question: Syntax, runtime and logical errors
+  answer: 'Syntax error: breaking the language''s rules (a missing semicolon); the program will not compile. Runtime error: crashes while running (dividing by zero). Logical error: it runs but gives the wrong answer (using + instead of −).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-323
+  bank: technical
+  category: Programming Fundamentals
+  question: What is a flowchart and pseudocode?
+  answer: 'A flowchart draws an algorithm with shapes: oval for start and end, rectangle for a process, diamond for a decision, parallelogram for input and output. Pseudocode writes the steps in simple English-like lines. I teach both before any coding.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-324
+  bank: technical
+  category: Programming Fundamentals
+  question: Write the logic to find the largest of three numbers
+  answer: Read a, b, c. If a ≥ b and a ≥ c, a is largest; else if b ≥ c, b is largest; else c is largest.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-325
+  bank: technical
+  category: Programming Fundamentals
+  question: How do you check if a number is even or odd?
+  answer: 'Use the remainder operator: if n % 2 == 0, it is even; otherwise odd.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-326
+  bank: technical
+  category: Programming Fundamentals
+  question: How do you swap two numbers?
+  answer: 'With a third variable: temp = a; a = b; b = temp. In Python simply a, b = b, a.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-327
+  bank: technical
+  category: Programming Fundamentals
+  question: What is a prime number check?
+  answer: A number above 1 is prime if no number from 2 up to its square root divides it exactly.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-328
+  bank: technical
+  category: Object Oriented Programming
+  question: What are the four pillars of OOP?
+  answer: Encapsulation, abstraction, inheritance and polymorphism.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-329
+  bank: technical
+  category: Object Oriented Programming
+  question: Encapsulation
+  answer: Keeping the data and the functions that use it together in a class, and hiding the data (private) so it can only be changed through methods. A bank account's balance can only change through deposit() and withdraw().
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-330
+  bank: technical
+  category: Object Oriented Programming
+  question: Abstraction
+  answer: Showing only what is needed and hiding the details. You drive a car with a steering wheel and pedals without knowing how the engine works.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-331
+  bank: technical
+  category: Object Oriented Programming
+  question: Inheritance
+  answer: A new class gets the properties of an existing one. A Teacher class and a Student class can both inherit name and CNIC from a Person class. It allows code reuse.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-332
+  bank: technical
+  category: Object Oriented Programming
+  question: Types of inheritance
+  answer: Single, multiple (C++ allows it; Java uses interfaces instead), multilevel, hierarchical and hybrid.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-333
+  bank: technical
+  category: Object Oriented Programming
+  question: Polymorphism
+  answer: 'One name, many forms. Overloading: the same function name with different parameters (compile time). Overriding: a child class gives its own version of a parent''s method (run time).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-334
+  bank: technical
+  category: Object Oriented Programming
+  question: Overloading vs overriding
+  answer: Overloading is in the same class with different parameters. Overriding is in a child class with the same name and parameters.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-335
+  bank: technical
+  category: Object Oriented Programming
+  question: What is a constructor?
+  answer: A special method that runs automatically when an object is created, to set starting values. It has the same name as the class (in Python it is **init**). A destructor runs when the object is destroyed.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-336
+  bank: technical
+  category: Object Oriented Programming
+  question: Access specifiers
+  answer: 'Public: anyone can use it. Private: only inside the class. Protected: the class and its child classes.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-337
+  bank: technical
+  category: Object Oriented Programming
+  question: Abstract class vs interface
+  answer: An abstract class cannot be made into an object and can have some complete methods. An interface only lists the methods a class must have. A class can implement many interfaces.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-338
+  bank: technical
+  category: Object Oriented Programming
+  question: What is a static member?
+  answer: A variable or method that belongs to the class itself, shared by all objects, like a counter of how many students were created.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-339
+  bank: technical
+  category: Object Oriented Programming
+  question: What is "this" (or self)?
+  answer: A reference to the current object, used inside its own methods.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-340
+  bank: technical
+  category: Object Oriented Programming
+  question: Procedural vs object-oriented programming
+  answer: Procedural programming (C) is a list of functions working on data. OOP (Java, C++, Python) groups data and functions into objects, which is better for big programs.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-341
+  bank: technical
+  category: Object Oriented Programming
+  question: Give a real-life OOP example from school
+  answer: A School class has Classrooms; a Student class inherits from Person; each Student object has its own name and marks; a method calculateGrade() works out the grade.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-342
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Linear vs non-linear data structures
+  answer: 'Linear: items in a sequence (array, linked list, stack, queue). Non-linear: hierarchy or network (tree, graph).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-343
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Array vs linked list
+  answer: An array has a fixed size and fast access by index, but inserting in the middle is slow. A linked list grows easily and inserts quickly, but you must walk through it to find an item.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-344
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Stack operations and uses
+  answer: 'push (add on top), pop (remove from top), peek. Uses: the undo button, the browser back button, function calls and checking brackets.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-345
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Queue operations and uses
+  answer: 'enqueue (add at rear), dequeue (remove from front). Uses: printer jobs, CPU scheduling, a ticket line. A circular queue reuses empty space; a priority queue serves the most important first.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-346
+  bank: technical
+  category: Data Structures and Algorithms
+  question: What is a binary tree and a BST?
+  answer: 'A binary tree: each node has at most two children. A binary search tree keeps smaller values on the left and larger on the right, so searching is fast (O(log n) when balanced).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-347
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Tree traversals
+  answer: In-order (left, root, right; gives sorted output in a BST), pre-order (root, left, right) and post-order (left, right, root).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-348
+  bank: technical
+  category: Data Structures and Algorithms
+  question: What is a graph? BFS vs DFS
+  answer: A graph has nodes (vertices) joined by edges, like cities and roads. BFS visits level by level using a queue; DFS goes deep first using a stack.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-349
+  bank: technical
+  category: Data Structures and Algorithms
+  question: What is hashing?
+  answer: Using a hash function to turn a key into an index, so data is found almost instantly (O(1)). A collision is when two keys get the same index.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-350
+  bank: technical
+  category: Data Structures and Algorithms
+  question: What is a heap?
+  answer: A complete binary tree where each parent is larger (max-heap) or smaller (min-heap) than its children. Used in heap sort and priority queues.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-351
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Bubble sort
+  answer: 'Compare neighbours and swap if they are in the wrong order, again and again, until sorted. Simple but slow: O(n²).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-352
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Merge sort and quick sort
+  answer: 'Both divide and conquer. Merge sort splits the list in half, sorts each half and merges them: always O(n log n). Quick sort picks a pivot and puts smaller items on one side: O(n log n) on average, O(n²) at worst.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-353
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Time vs space complexity
+  answer: 'Time complexity: how the running time grows with input size. Space complexity: how much extra memory it needs.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-354
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Best, average and worst case
+  answer: For linear search, the best case is finding it first (O(1)), and the worst case is last or not there (O(n)).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-355
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Greedy vs dynamic programming
+  answer: Greedy picks the best choice at each step (like giving change with the biggest notes first). Dynamic programming solves small sub-problems once, saves the answers and reuses them (like Fibonacci with memory).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-356
+  bank: technical
+  category: Data Structures and Algorithms
+  question: Dijkstra's algorithm
+  answer: Finds the shortest path from one node to all others in a graph with positive weights. Google Maps uses ideas like it.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-357
+  bank: technical
+  category: Discrete Structures
+  question: What is a proposition?
+  answer: A statement that is either true or false, like "Quetta is in Balochistan".
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-358
+  bank: technical
+  category: Discrete Structures
+  question: Logical connectives
+  answer: AND (∧, true only if both are true), OR (∨, true if at least one is true), NOT (¬), implication (→, false only when true leads to false) and biconditional (↔, true when both are the same).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-359
+  bank: technical
+  category: Discrete Structures
+  question: What is a truth table?
+  answer: A table showing the result of a logical expression for every combination of true and false inputs. With n variables there are 2ⁿ rows.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-360
+  bank: technical
+  category: Discrete Structures
+  question: Tautology and contradiction
+  answer: A tautology is always true (p OR NOT p). A contradiction is always false (p AND NOT p).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-361
+  bank: technical
+  category: Discrete Structures
+  question: De Morgan's laws
+  answer: NOT (A AND B) = NOT A OR NOT B, and NOT (A OR B) = NOT A AND NOT B.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-362
+  bank: technical
+  category: Discrete Structures
+  question: 'Sets: union, intersection, difference'
+  answer: 'Union (A ∪ B): everything in either. Intersection (A ∩ B): only what is in both. Difference (A − B): in A but not B. The power set of a set with n items has 2ⁿ subsets.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-363
+  bank: technical
+  category: Discrete Structures
+  question: What is a relation? Its properties
+  answer: A relation links items of sets ("is the father of"). Reflexive, symmetric, transitive; if all three, it is an equivalence relation.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-364
+  bank: technical
+  category: Discrete Structures
+  question: What is a function in maths?
+  answer: A rule that gives each input exactly one output. One-to-one (injective), onto (surjective) and both (bijective).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-365
+  bank: technical
+  category: Discrete Structures
+  question: Permutation vs combination
+  answer: 'Permutation: order matters (arranging 3 students in a line: 3! = 6 ways). Combination: order does not matter (choosing 2 monitors from 5: 5C2 = 10).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-366
+  bank: technical
+  category: Discrete Structures
+  question: What is the pigeonhole principle?
+  answer: If you put more pigeons than holes, at least one hole gets two. With 13 students, at least two share a birth month.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-367
+  bank: technical
+  category: Discrete Structures
+  question: What is mathematical induction?
+  answer: Proving something true for 1, then showing that if it is true for k it is true for k + 1, so it is true for all numbers, like falling dominoes.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-368
+  bank: technical
+  category: Discrete Structures
+  question: Graph terms
+  answer: Degree of a vertex is the number of edges touching it. The sum of all degrees equals twice the number of edges (the handshaking lemma). A tree with n nodes has n − 1 edges.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-369
+  bank: technical
+  category: Discrete Structures
+  question: Why do computer scientists need discrete maths?
+  answer: Logic for programming conditions and circuits, sets for databases, graphs for networks and maps, counting for algorithms and passwords, and number theory for cryptography.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-370
+  bank: technical
+  category: Operating Systems
+  question: Types of operating systems
+  answer: Batch, time-sharing (multi-user), real-time (for machines and aircraft, where timing is critical), distributed, network, and mobile OS.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-371
+  bank: technical
+  category: Operating Systems
+  question: What is the kernel?
+  answer: The core of the OS that controls the CPU, memory and devices. The shell is the outer part the user talks to, like the command line.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-372
+  bank: technical
+  category: Operating Systems
+  question: Process states
+  answer: New, ready, running, waiting (blocked) and terminated. A Process Control Block (PCB) stores each process's details.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-373
+  bank: technical
+  category: Operating Systems
+  question: CPU scheduling algorithms
+  answer: FCFS (first come, first served), SJF (shortest job first, gives the least average waiting time), priority scheduling and Round Robin (each process gets a fixed time slice in turn, fair for time-sharing).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-374
+  bank: technical
+  category: Operating Systems
+  question: Preemptive vs non-preemptive scheduling
+  answer: 'Preemptive: the OS can stop a running process to give the CPU to another (Round Robin). Non-preemptive: a process keeps the CPU until it finishes or waits (FCFS).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-375
+  bank: technical
+  category: Operating Systems
+  question: Four conditions for deadlock
+  answer: Mutual exclusion, hold and wait, no preemption and circular wait. Break any one and deadlock cannot happen. The Banker's algorithm avoids deadlock.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-376
+  bank: technical
+  category: Operating Systems
+  question: What is a semaphore?
+  answer: A variable used to control access to a shared resource so two processes do not use it at the same time. It solves the critical-section problem.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-377
+  bank: technical
+  category: Operating Systems
+  question: What is virtual memory?
+  answer: Using part of the hard disk as if it were RAM, so bigger programs can run.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-378
+  bank: technical
+  category: Operating Systems
+  question: Paging vs segmentation
+  answer: Paging divides memory into fixed-size blocks (pages and frames). Segmentation divides it by logical parts of a program (code, data, stack) of different sizes.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-379
+  bank: technical
+  category: Operating Systems
+  question: What is a page fault and thrashing?
+  answer: A page fault is when a needed page is not in RAM and must be loaded from disk. Thrashing is when the system spends more time swapping pages than doing work.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-380
+  bank: technical
+  category: Operating Systems
+  question: Page replacement algorithms
+  answer: FIFO, LRU (least recently used) and Optimal. LRU is the most practical.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-381
+  bank: technical
+  category: Operating Systems
+  question: What is a file system?
+  answer: The way the OS stores and organises files on a disk, for example NTFS (Windows), ext4 (Linux) and FAT32 (USB drives).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-382
+  bank: technical
+  category: Operating Systems
+  question: What is booting?
+  answer: 'Starting the computer: the BIOS or UEFI runs a self-test (POST), then loads the OS from disk into memory. Cold boot is from power-off; warm boot is a restart.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-383
+  bank: technical
+  category: Operating Systems
+  question: Multiprogramming, multitasking, multiprocessing
+  answer: 'Multiprogramming: several programs in memory so the CPU is never idle. Multitasking: switching between tasks quickly so they seem to run together. Multiprocessing: more than one CPU working at the same time.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-384
+  bank: technical
+  category: Database Systems
+  question: What is a database and a DBMS?
+  answer: 'A database is an organised collection of related data. A DBMS is the software that stores, manages and retrieves it: MySQL, Oracle, SQL Server, PostgreSQL.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-385
+  bank: technical
+  category: Database Systems
+  question: Advantages of a DBMS over files
+  answer: Less repeated data, data consistency, security, sharing among many users, backup and recovery, and easy searching with SQL.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-386
+  bank: technical
+  category: Database Systems
+  question: What is an ER diagram?
+  answer: An Entity-Relationship diagram shows entities (Student, Course) as rectangles, attributes as ovals and relationships (enrols in) as diamonds. It is the plan before building tables.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-387
+  bank: technical
+  category: Database Systems
+  question: Types of relationships
+  answer: One-to-one (a person and a CNIC), one-to-many (a teacher teaches many classes) and many-to-many (students and courses).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-388
+  bank: technical
+  category: Database Systems
+  question: Types of keys
+  answer: Primary key (unique, not null), candidate key (any column that could be primary), foreign key (links to another table), composite key (two or more columns together) and unique key.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-389
+  bank: technical
+  category: Database Systems
+  question: Normal forms
+  answer: '1NF: each cell has a single value. 2NF: 1NF plus no partial dependency on part of a composite key. 3NF: 2NF plus no transitive dependency (non-key columns depend only on the key). BCNF is a stronger 3NF.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-390
+  bank: technical
+  category: Database Systems
+  question: DDL, DML, DCL and TCL
+  answer: DDL defines the structure (CREATE, ALTER, DROP). DML works with data (SELECT, INSERT, UPDATE, DELETE). DCL controls access (GRANT, REVOKE). TCL controls transactions (COMMIT, ROLLBACK).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-391
+  bank: technical
+  category: Database Systems
+  question: DELETE vs TRUNCATE vs DROP
+  answer: DELETE removes chosen rows and can be rolled back. TRUNCATE removes all rows quickly but keeps the table. DROP removes the whole table.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-392
+  bank: technical
+  category: Database Systems
+  question: What are joins?
+  answer: Combining rows from two tables. INNER JOIN gives only matching rows. LEFT JOIN gives all rows from the left table plus matches. RIGHT JOIN the opposite. FULL JOIN all rows from both.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-393
+  bank: technical
+  category: Database Systems
+  question: Write SQL to show students who scored above 80
+  answer: '`SELECT name, marks FROM students WHERE marks > 80 ORDER BY marks DESC;`'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-394
+  bank: technical
+  category: Database Systems
+  question: What do GROUP BY and HAVING do?
+  answer: 'GROUP BY groups rows to use functions like COUNT, SUM and AVG per group. HAVING filters those groups, while WHERE filters single rows. Example: average marks per class, only classes above 60.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-395
+  bank: technical
+  category: Database Systems
+  question: What is a transaction? ACID
+  answer: 'A group of operations done as one unit. ACID: Atomicity (all or nothing), Consistency (rules stay true), Isolation (transactions do not disturb each other) and Durability (once saved, it stays even after a crash). Moving money between bank accounts is the classic example.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-396
+  bank: technical
+  category: Database Systems
+  question: What is an index?
+  answer: A structure that makes searching a table much faster, like the index at the back of a book. It slows inserts a little.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-397
+  bank: technical
+  category: Database Systems
+  question: What is a view?
+  answer: A saved query that looks like a virtual table. It can hide sensitive columns from some users.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-398
+  bank: technical
+  category: Database Systems
+  question: What is SQL injection?
+  answer: An attack where a hacker types SQL code into a form to read or delete data. Prevent it with parameterised queries and input validation.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-399
+  bank: technical
+  category: Database Systems
+  question: Who proposed the relational model?
+  answer: E. F. Codd at IBM, in 1970.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-400
+  bank: technical
+  category: Software Engineering
+  question: What is software engineering?
+  answer: Using an organised, engineering approach to build reliable software on time and within budget, from requirements to maintenance.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-401
+  bank: technical
+  category: Software Engineering
+  question: 'Waterfall model: pros and cons'
+  answer: Each phase finishes before the next starts. Easy to manage and good when requirements are clear, but changes late in the project are costly and the client sees the product only at the end.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-402
+  bank: technical
+  category: Software Engineering
+  question: Other process models
+  answer: Prototype (build a quick sample first), Spiral (risk analysis in loops, good for large risky projects), V-model (a test phase for every development phase), Incremental, and Agile.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-403
+  bank: technical
+  category: Software Engineering
+  question: What is Agile and Scrum?
+  answer: 'Agile delivers working software in small pieces with constant customer feedback. Scrum is an Agile method: work in sprints of 1 to 4 weeks, with a daily stand-up meeting, a Product Owner, a Scrum Master and the team.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-404
+  bank: technical
+  category: Software Engineering
+  question: What is an SRS?
+  answer: 'A Software Requirements Specification: the document that describes everything the software must do.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-405
+  bank: technical
+  category: Software Engineering
+  question: What is UML? Main diagrams
+  answer: 'Unified Modelling Language: standard diagrams for designing software. Use case diagram (who does what), class diagram (classes and links), sequence diagram (the order of messages) and activity diagram (the flow of steps).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-406
+  bank: technical
+  category: Software Engineering
+  question: Verification vs validation
+  answer: 'Verification: are we building the product right (does it match the design)? Validation: are we building the right product (does it meet the user''s needs)?'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-407
+  bank: technical
+  category: Software Engineering
+  question: Alpha vs beta testing
+  answer: Alpha testing is done by the developers' own team. Beta testing is done by real users before the final release.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-408
+  bank: technical
+  category: Software Engineering
+  question: What is regression testing?
+  answer: Re-testing after a change to make sure old features still work. I use automatic tests in GitHub Actions for this.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-409
+  bank: technical
+  category: Software Engineering
+  question: Coupling and cohesion
+  answer: Good design has low coupling (modules depend little on each other) and high cohesion (each module does one clear job).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-410
+  bank: technical
+  category: Software Engineering
+  question: Types of maintenance
+  answer: Corrective (fixing bugs), adaptive (adjusting to a new OS or environment), perfective (adding features or improving speed) and preventive. Maintenance is often the biggest part of a software's cost.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-411
+  bank: technical
+  category: Software Engineering
+  question: What is version control?
+  answer: A system that keeps the history of every change to the code, so a team can work together and go back if something breaks. Git and GitHub are the most used.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-412
+  bank: technical
+  category: Software Engineering
+  question: How do you estimate cost?
+  answer: With models like COCOMO, based on lines of code, or function points. In practice teams also estimate from past similar projects.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-413
+  bank: technical
+  category: Software Engineering
+  question: What is a feasibility study?
+  answer: Checking before starting whether a project is technically possible, affordable, legal and worth it (technical, economic, legal and operational feasibility).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-414
+  bank: technical
+  category: Computer Networks (extra)
+  question: Name the 7 OSI layers in order
+  answer: 'Physical, Data Link, Network, Transport, Session, Presentation, Application. A memory trick: "Please Do Not Throw Sausage Pizza Away".'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-415
+  bank: technical
+  category: Computer Networks (extra)
+  question: Common port numbers
+  answer: HTTP 80, HTTPS 443, FTP 20 and 21, SSH 22, Telnet 23, SMTP 25, DNS 53, DHCP 67 and 68, POP3 110, IMAP 143, MQTT 1883 (8883 with TLS).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-416
+  bank: technical
+  category: Computer Networks (extra)
+  question: What does ARP do?
+  answer: It finds a device's MAC address from its IP address on a local network.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-417
+  bank: technical
+  category: Computer Networks (extra)
+  question: Circuit switching vs packet switching
+  answer: Circuit switching reserves a fixed path for the whole call (old telephones). Packet switching splits data into packets that can take different routes (the internet).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-418
+  bank: technical
+  category: Information Security (extra)
+  question: What is the CIA triad?
+  answer: Confidentiality (only the right people see data), Integrity (data is not changed wrongly) and Availability (systems work when needed). Every security control protects one of these.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-419
+  bank: technical
+  category: Information Security (extra)
+  question: Symmetric vs asymmetric encryption
+  answer: Symmetric uses one shared key for both locking and unlocking (AES), and is fast. Asymmetric uses a public key to encrypt and a private key to decrypt (RSA), and solves the problem of sharing the key. HTTPS uses both.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-420
+  bank: technical
+  category: Information Security (extra)
+  question: What is hashing in security?
+  answer: A one-way function that turns data into a fixed-length fingerprint (SHA-256). It cannot be reversed. Passwords are stored as hashes, with a salt, never as plain text.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-421
+  bank: technical
+  category: Information Security (extra)
+  question: What is a digital signature?
+  answer: It proves who sent a message and that it was not changed. The sender signs with their private key, and anyone can check it with the public key.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-422
+  bank: technical
+  category: Information Security (extra)
+  question: Authentication vs authorisation
+  answer: Authentication checks who you are (password, fingerprint). Authorisation checks what you are allowed to do (a teacher can enter marks; a student can only view them).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-423
+  bank: technical
+  category: Information Security (extra)
+  question: What is multi-factor authentication?
+  answer: 'Using two or more proofs: something you know (password), something you have (phone code) and something you are (fingerprint).'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-424
+  bank: technical
+  category: Information Security (extra)
+  question: Common attacks
+  answer: Phishing (fake messages that steal passwords), DoS and DDoS (flooding a server), man-in-the-middle (secretly reading traffic), SQL injection, brute force, and social engineering (tricking people, not computers).
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-425
+  bank: technical
+  category: Information Security (extra)
+  question: Virus vs worm vs Trojan vs ransomware
+  answer: A virus attaches to a file and needs a user to run it. A worm spreads by itself across a network. A Trojan pretends to be useful software. Ransomware locks your files and demands payment.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-426
+  bank: technical
+  category: Information Security (extra)
+  question: What is a firewall and an IDS?
+  answer: A firewall allows or blocks traffic by rules. An Intrusion Detection System watches traffic and warns about attacks; an IPS also blocks them.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-427
+  bank: technical
+  category: Information Security (extra)
+  question: Which law covers cybercrime in Pakistan?
+  answer: The Prevention of Electronic Crimes Act (PECA) 2016. The FIA's cybercrime wing handles complaints.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-428
+  bank: technical
+  category: Information Security (extra)
+  question: How would you teach students to stay safe online?
+  answer: Strong, different passwords; never share an OTP; check links before clicking; do not post personal details; and tell a teacher or parent about anything suspicious.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-429
+  bank: technical
+  category: Teaching IT in schools
+  question: What is pedagogy?
+  answer: 'The method and practice of teaching: how a teacher plans, explains, engages and assesses students.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-430
+  bank: technical
+  category: Teaching IT in schools
+  question: What is technology pedagogy, or TPACK?
+  answer: 'TPACK (Mishra and Koehler, 2006) says a good teacher combines three kinds of knowledge: Technology, Pedagogy and Content. Knowing computers is not enough; you must know how to teach with them.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-431
+  bank: technical
+  category: Teaching IT in schools
+  question: Can a flipped class work in your district?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-432
+  bank: technical
+  category: Teaching IT in schools
+  question: Bloom's taxonomy
+  answer: 'Six levels of thinking, from low to high: remember, understand, apply, analyse, evaluate, create. Good lessons move students up the levels.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-433
+  bank: technical
+  category: Teaching IT in schools
+  question: Formative vs summative assessment
+  answer: Formative checks learning during the lesson (quick questions, quizzes). Summative is the final test or exam.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-434
+  bank: technical
+  category: Teaching IT in schools
+  question: Student-centred learning
+  answer: 'Students do the work: projects, pair work, problem solving. The teacher guides instead of only lecturing.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-435
+  bank: technical
+  category: Teaching IT in schools
+  question: How would you teach a lab with only five computers for 40 students?
+  answer: Make groups of eight, give each group a role sheet and rotate. Groups without a computer do "unplugged" activities, like drawing flowcharts or binary cards, then swap.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-436
+  bank: technical
+  category: Teaching IT in schools
+  question: How would you teach without electricity or computers?
+  answer: 'CS Unplugged activities: binary counting with cards, writing algorithms for daily tasks like making tea, drawing flowcharts, and labelling diagrams of computer parts.'
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-437
+  bank: technical
+  category: Teaching IT in schools
+  question: How will you plan your first lesson for Class 6?
+  answer: Start with a short story about computers in daily life (mobile, ATM, NADRA card), show real parts, let students touch the keyboard and mouse, then a simple quiz. Keep it fun so they love the subject.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-438
+  bank: technical
+  category: Teaching IT in schools
+  question: How will you motivate girls and weak students?
+  answer: Use local examples, praise effort, give small achievable tasks, show successful women in IT like Arfa Karim, and tell them about freelancing they can do from home.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-439
+  bank: technical
+  category: Teaching IT in schools
+  question: What is digital literacy?
+  answer: The ability to find, use, create and share information safely with digital tools.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-440
+  bank: technical
+  category: Teaching IT in schools
+  question: Pakistan's education profile (asked in Kalat)
+  answer: Pakistan has one of the world's highest numbers of out-of-school children, about 26 million (Pakistan Education Statistics 2021-22). Balochistan has the highest out-of-school rate of any province.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: tec-441
+  bank: technical
+  category: Teaching IT in schools
+  question: What is STEM? STEAM?
+  answer: Science, Technology, Engineering and Mathematics; STEAM adds Arts. IT connects all of them.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-442
+  bank: technical
+  category: Teaching IT in schools
+  question: A student is addicted to mobile games. What will you do?
+  answer: Talk to the student privately, find out why, involve the parents, and turn the interest into learning, for example simple game-making in Scratch.
+  personal: false
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-443
+  bank: technical
+  category: Future plans (prepare your own answer)
+  question: Where do you see yourself in 5 or 10 years?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-444
+  bank: technical
+  category: Future plans (prepare your own answer)
+  question: What will you do if you are not selected?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-445
+  bank: technical
+  category: Future plans (prepare your own answer)
+  question: Apart from teaching, what are your other plans?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: tec-446
+  bank: technical
+  category: Future plans (prepare your own answer)
+  question: Will you leave this job if you get a better one?
+  answer: ''
+  personal: true
+  frequency: 1
+  tags: []
+  sources: []
+  verified_on: '2026-11-24'
+  check_again: false
+  status: published
+  added: '2026-11-25'
