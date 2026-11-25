@@ -398,6 +398,8 @@ def check():
                 raw = fetch(url)
                 got = parse(raw, s)
                 print(f"OK    {s['name']:30} {url}  {len(got)} stories  robots: {'allowed' if allowed else 'DISALLOWED'}")
+                for it in got[:2]:
+                    print(f"        e.g. {it['published'][:10]}  {it['title'][:80]}")
                 stories += got
             except urllib.error.HTTPError as e:
                 print(f"FAIL  {s['name']:30} {url}  HTTP {e.code}")
