@@ -2257,7 +2257,8 @@ html[lang="ur"] .hero-kicker { letter-spacing: 0; text-transform: none; font-siz
 .bp-banks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
 .bp-bank-card { display: grid; gap: 8px; align-content: start; padding: 20px; }
 .bp-bank-card h3 a { color: var(--ink); text-decoration: none; }
-.bp-bank-card h3 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.bp-bank-card > h3 { position: static; }
+.bp-bank-card h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
 .bp-bank-card p { margin: 0; }
 .bp-bank-meta { font-size: 14.5px; color: var(--muted); }
 .bp-count { font-weight: 600; color: var(--accent); }
