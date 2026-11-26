@@ -1,5 +1,7 @@
-# Writes the page files of the BPSC interview section that come from data: one page per bank and one per question,
-# in English and Urdu (FR-7, FR-12, FR-31). They go into _bpsc/, which git ignores, and Jekyll builds them (as the
+# Writes the page files of the BPSC interview section that come from data: one page per bank, one per numbered
+# category (the A1 to G88 sections, /bpsc-interview/<bank>/<category>/), and one per question, in English and Urdu
+# (FR-7, FR-12, FR-31). Questions in a numbered category are read on their category page, so their question
+# address (/bpsc-interview/q/<id>/) is only a tiny redirect there: thousands of full pages made the build too slow. They go into _bpsc/, which git ignores, and Jekyll builds them (as the
 # "bpsc" collection in _config.yml) at the addresses in their permalinks (/bpsc-interview/<bank>/, /bpsc-interview/q/<id>/ and the same under /ur/).
 # The pages hold only front matter; the text comes from _data/bpsc/ through _includes/pages/bpsc-*.html.
 #
@@ -29,6 +31,15 @@ def page(file, data, body)
   File.write(File.join(OUT, file), data.to_yaml + "---\n" + body + "\n")
 end
 
+# A numbered category looks like "A1 · Computer fundamentals"; its address is the slug of the whole name.
+CODED = /\A[A-G]\d+ · /
+def slug(s)
+  s.downcase.gsub(/[^a-z0-9]+/, "-").gsub(/\A-|-\z/, "")
+end
+def plain(it)
+  it.transform_values { |v| v.is_a?(Date) ? v.to_s : v }
+end
+
 FileUtils.rm_rf(OUT)
 FileUtils.mkdir_p(OUT)
 
@@ -50,15 +61,40 @@ banks.each do |b|
       "image" => { "path" => "/assets/img/bpsc-card.jpg", "width" => 1200, "height" => 630, "alt" => "BPSC IT Teacher Interview Prep" },
     }
     fm.merge!("lang" => "ur", "locale" => "ur_PK") if ur
+    coded = b["categories"].select { |c| c =~ CODED }.map { |c| [c, items.select { |i| i["category"] == c }] }.reject { |_, l| l.empty? }
+    fm["sections"] = coded.map { |c, l| { "name" => c, "slug" => slug(c), "count" => l.size } }
     page("#{lang}-#{slug}.html", fm, "{% include i18n.html %}{% include pages/bpsc-bank.html %}")
+    coded.each_with_index do |(c, l), n|
+      code, title = c.split(" · ", 2)
+      cfm = {
+        "layout" => "default", "bpsc" => true, "bank" => slug, "bank_name" => name,
+        "section" => c, "section_code" => code, "section_title" => title,
+        "items" => l.map { |it| plain(it) },
+        "s_prev" => n > 0 ? { "name" => coded[n - 1][0], "slug" => slug(coded[n - 1][0]) } : nil,
+        "s_next" => coded[n + 1] ? { "name" => coded[n + 1][0], "slug" => slug(coded[n + 1][0]) } : nil,
+        "permalink" => "#{pre}/bpsc-interview/#{slug}/#{slug(c)}/",
+        "title" => ur ? "#{title}: بی پی ایس سی آئی ٹی ٹیچر انٹرویو کے #{l.size} سوالات" : "#{title}: #{l.size} BPSC IT Teacher viva questions and answers",
+        "description" => clip("#{l.size} numbered questions with short answers, from basic to hard: " + l.first(4).map { |i| i["question"] }.join(" "), 160),
+        "scripts" => ["/assets/js/bpsc.js"],
+        "image" => { "path" => "/assets/img/bpsc-card.jpg", "width" => 1200, "height" => 630, "alt" => "BPSC IT Teacher Interview Prep" },
+      }
+      cfm.merge!("lang" => "ur", "locale" => "ur_PK") if ur
+      page("#{lang}-c-#{slug(c)}.html", cfm, "{% include i18n.html %}{% include pages/bpsc-category.html %}")
+    end
     items.each_with_index do |it, n|
+      if it["category"].to_s =~ CODED
+        to = "#{pre}/bpsc-interview/#{slug}/#{slug(it["category"])}/##{it["id"]}"
+        page("#{lang}-q-#{it["id"]}.html", { "layout" => "bpsc-redirect", "sitemap" => false, "to" => to, "permalink" => "#{pre}/bpsc-interview/q/#{it["id"]}/" }, "")
+        count += 1 if lang == "en"
+        next
+      end
       near = lambda { |x| x && { "id" => x["id"], "question" => x["question"], "question_ur" => x["question_ur"] }.compact }
       q = ur && it["question_ur"] ? it["question_ur"] : it["question"]
       a = ur && it["answer_ur"] ? it["answer_ur"] : (it["short_answer"] || it["answer"])
       fm = {
         "layout" => "default", "bpsc" => true, "bank" => slug, "qid" => it["id"],
         # The item itself and its neighbours, so the page doesn't have to search the banks (much faster builds).
-        "item" => it.transform_values { |v| v.is_a?(Date) ? v.to_s : v },
+        "item" => plain(it),
         "bank_name" => ur ? b["name_ur"] : b["name"],
         "q_prev" => n > 0 ? near.call(items[n - 1]) : nil, "q_next" => near.call(items[n + 1]),
         "permalink" => "#{pre}/bpsc-interview/q/#{it["id"]}/",

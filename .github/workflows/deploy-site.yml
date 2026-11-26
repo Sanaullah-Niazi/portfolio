@@ -31,7 +31,7 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       # The Cloudflare token is given only to the steps that need it, never to the build: installing gems and npm
       # packages runs their code, and none of it should be able to read the token.

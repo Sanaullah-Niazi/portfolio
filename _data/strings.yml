@@ -423,6 +423,11 @@ bp_own_title: "Prepare your own answer: this depends on you."
 bp_own_1: "Keep it short and true, and make sure every fact matches your documents."
 bp_own_2: "Link it to teaching and to the students you will teach."
 bp_own_3: "Practise it out loud a few times, but don't recite it word for word."
+bp_tips: "How to build your answer"
+bp_basic_to_hard: "from basic to hard"
+bp_link_q: "Link to this question"
+bp_sections: "Sections, in order"
+bp_more_questions: "More questions from the first bank"
 bp_soon: "Answer coming soon. This topic was reported from interviews and has no written answer yet."
 bp_soon_link: Suggest an answer
 nav_bpsc_news: Current affairs

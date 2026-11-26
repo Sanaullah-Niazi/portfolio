@@ -46,8 +46,8 @@
   </section>
 
   {%- assign _most = bp_all | where: "frequency", 3 %}
-  {%- assign _new = "" | split: "" %}
-  {%- for it in bp_all %}{% assign _a = it.added | date: '%s' | plus: 0 %}{% if _a >= bp_new_after %}{% assign _new = _new | push: it %}{% endif %}{% endfor %}
+  {%- assign _cut = bp_new_after | date: '%Y-%m-%d' %}
+  {%- assign _new = bp_all | where_exp: "it", "it.added >= _cut" %}
   {%- if _most.size > 0 or _new.size > 0 %}
   <div class="bp-two">
     {%- if _most.size > 0 %}

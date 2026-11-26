@@ -293,6 +293,8 @@
   personal: false
   frequency: 2
   tags: []
+  asked_in:
+  - Kalat
   sources: []
   verified_on: '2026-11-24'
   check_again: false
@@ -1063,5 +1065,2917 @@
   sources: []
   verified_on: '2026-11-24'
   check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-083
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What does the name Balochistan mean?"
+  answer: "Balochistan means \"the land of the Baloch\". The province takes its name from the Baloch people, though it is also home to Brahui, Pashtun, Hazara and other communities."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-084
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What is the capital of Balochistan?"
+  answer: "Quetta is the capital and largest city of Balochistan. The name is usually traced to the Pashto word \"kwatkot\", meaning a fort, because the city is surrounded by hills like a natural fortress."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Quetta"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-085
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who discovered Mehrgarh and when?"
+  answer: "Mehrgarh was discovered in 1974 by a French archaeological team led by Jean-Francois Jarrige, working with Catherine Jarrige and Pakistani archaeologists."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Mehrgarh"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-086
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Why is Mehrgarh important in world history?"
+  answer: "Mehrgarh shows some of the earliest evidence of farming (wheat and barley), herding of cattle, sheep and goats, and mud-brick houses in South Asia. Drilled human teeth found there are among the earliest evidence of dentistry, and it is seen as a forerunner of the Indus Valley Civilization."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Mehrgarh"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-087
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "In which district is Mehrgarh located?"
+  answer: "Mehrgarh lies in the Kachhi (Bolan) district of Balochistan, at the foot of the Bolan Pass, west of the Indus valley."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Mehrgarh"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-088
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What did the ancient Greeks call the Makran region?"
+  answer: "The Greeks called the southern coastal region of Balochistan \"Gedrosia\". Alexander the Great crossed the Gedrosian desert in 325 BCE on his return from India, and his army suffered heavy losses there."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Gedrosia"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-089
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "When did Islam reach the Makran region?"
+  answer: "Muslim armies reached Makran during the caliphate of Hazrat Umar (RA), and the Battle of Rasil was fought around 644 CE. Later, Muhammad bin Qasim marched through Makran on his way to Sindh in 711-712 CE."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Battle_of_Rasil", "https://en.wikipedia.org/wiki/Muhammad_ibn_al-Qasim"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-090
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who was Mir Chakar Rind?"
+  answer: "Mir Chakar Rind was a famous Baloch chief of the late 15th and early 16th century and a hero of Balochi folk poetry. He led the Rind tribe in the long Rind-Lashari war and later settled at Satgarah in Punjab, where his tomb is located."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Mir_Chakar_Khan_Rind"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-091
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What was the Khanate of Kalat?"
+  answer: "The Khanate of Kalat was a princely state of the Baloch and Brahui tribes with its capital at Kalat. It was the most powerful state in the region from the 17th century until it acceded to Pakistan in 1948."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Khanate_of_Kalat"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-092
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "When and by whom was the Khanate of Kalat founded?"
+  answer: "The Khanate of Kalat is generally dated to 1666, when Mir Ahmad Khan I of the Ahmadzai Brahui family established it as a state with Kalat as its capital."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Khanate_of_Kalat"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-093
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who was Mir Naseer Khan Noori?"
+  answer: "Mir Naseer Khan I, called Noori, was the greatest ruler of the Khanate of Kalat, ruling for about 45 years in the second half of the 18th century (around 1749 to 1794). He united the Baloch and Brahui tribes, organized a regular tribal army and administration, and extended the state's borders."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Nasir_Khan_I_Ahmadzai"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-094
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What was the relationship between Mir Naseer Khan Noori and Ahmad Shah Abdali?"
+  answer: "Kalat accepted the overlordship of Ahmad Shah Abdali of Afghanistan, and after a conflict in 1758 the two made a treaty. Mir Naseer Khan then fought alongside Abdali against the Marathas in the Third Battle of Panipat in 1761."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Nasir_Khan_I_Ahmadzai", "https://en.wikipedia.org/wiki/Third_Battle_of_Panipat"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-095
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Why is Mir Naseer Khan Noori remembered as a just and religious ruler?"
+  answer: "He is remembered for ruling according to Islamic law, building mosques, encouraging trade and agriculture, and treating the tribes fairly through consultation with their chiefs. His long, stable reign is often called the golden age of Kalat."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Nasir_Khan_I_Ahmadzai"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-096
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "When did the British first enter Balochistan?"
+  answer: "The British entered Balochistan during the First Anglo-Afghan War in 1839, when their Army of the Indus marched through the Bolan Pass. In November 1839 they stormed Kalat, and Khan Mehrab Khan was killed defending it."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/First_Anglo-Afghan_War", "https://en.wikipedia.org/wiki/Khanate_of_Kalat"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-097
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who was Sir Robert Sandeman?"
+  answer: "Sir Robert Sandeman was a British officer who became the first Agent to the Governor-General in Baluchistan in 1877. He brought much of the region under British influence through agreements with the Khan of Kalat and the tribal chiefs rather than through constant war."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Robert_Groves_Sandeman"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-098
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What was the Sandeman system?"
+  answer: "The Sandeman system was a method of indirect rule in which the British governed the tribes through their own sardars (chiefs). It used tribal levies paid by the government, regular allowances to chiefs, and jirgas to settle disputes under local custom."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Robert_Groves_Sandeman"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-099
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What is the present name of Fort Sandeman?"
+  answer: "Fort Sandeman is the old British name of Zhob, a town in northern Balochistan, named after Sir Robert Sandeman. It was renamed Zhob in 1976."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Zhob"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-100
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What treaty did Sandeman make with the Khan of Kalat in 1876?"
+  answer: "In 1876 Sandeman concluded a treaty with Khan Mir Khudadad Khan of Kalat. It confirmed the Khan's position but placed Kalat under British protection and allowed British troops to be stationed in his territory, including Quetta."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Khanate_of_Kalat", "https://en.wikipedia.org/wiki/Robert_Groves_Sandeman"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-101
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "When was British Baluchistan formally organized as a province?"
+  answer: "British Baluchistan was formally organized in 1887 as a Chief Commissioner's province. It included areas such as Pishin and Sibi that Afghanistan had handed over under the Treaty of Gandamak in 1879, with Quetta as its headquarters."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Baluchistan_(Chief_Commissioner%27s_Province)"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-102
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "When did the great Quetta earthquake happen?"
+  answer: "The Quetta earthquake struck on 31 May 1935. It destroyed most of the city and killed tens of thousands of people, usually estimated at 30,000 to 60,000."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/1935_Quetta_earthquake"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-103
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who was Mir Yousaf Aziz Magsi?"
+  answer: "Mir Yousaf Aziz Magsi was an early Baloch political leader and reformer of the 1930s who worked for education and political rights in Balochistan. He died in the Quetta earthquake of 1935."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Yousaf_Aziz_Magsi"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-104
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "How did the Quaid-e-Azam's Fourteen Points refer to Balochistan?"
+  answer: "In his Fourteen Points of 1929, Quaid-e-Azam Muhammad Ali Jinnah demanded that reforms be introduced in the North-West Frontier Province and Balochistan on the same footing as in other provinces."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Fourteen_Points_of_Jinnah"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-105
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What were the main political units of Balochistan in 1947?"
+  answer: "In 1947 Balochistan consisted of British Baluchistan (the Chief Commissioner's province with its leased areas) and four princely states: Kalat, Kharan, Makran and Las Bela."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Baluchistan_(Chief_Commissioner%27s_Province)", "https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-106
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What was the Shahi Jirga?"
+  answer: "The Shahi Jirga was the council of tribal elders of British Baluchistan, set up by the British. On 29 June 1947 the Shahi Jirga, together with the non-official members of the Quetta Municipality, voted unanimously to join Pakistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/History_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-107
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who led the Shahi Jirga in its decision to join Pakistan?"
+  answer: "Nawab Muhammad Khan Jogezai, a prominent tribal chief from Zhob, led the Shahi Jirga members who voted for Pakistan in June 1947."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/History_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-108
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Where did the Quaid-e-Azam spend his last days?"
+  answer: "The Quaid-e-Azam spent much of his last illness in 1948 at the Ziarat Residency in Balochistan, a wooden building from the British period built in 1892. He was moved to Quetta and then to Karachi, where he died on 11 September 1948."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Quaid-e-Azam_Residency"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-109
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What was the Sibi Darbar of February 1948?"
+  answer: "On 14 February 1948 the Quaid-e-Azam addressed the Sibi Darbar, a traditional gathering of tribal chiefs. He promised the people of Balochistan development and a share in the affairs of the new state."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Sibi"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-110
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "When did Kharan, Makran and Las Bela accede to Pakistan?"
+  answer: "The rulers of Kharan, Makran and Las Bela acceded to Pakistan on 17 March 1948."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Kharan_(princely_state)", "https://en.wikipedia.org/wiki/Princely_states_of_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-111
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "When did the State of Kalat accede to Pakistan?"
+  answer: "The Khan of Kalat, Mir Ahmad Yar Khan, signed the Instrument of Accession with Pakistan on 27 March 1948."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Khanate_of_Kalat"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-112
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What was the Balochistan States Union?"
+  answer: "The Balochistan States Union was formed in 1952 by joining the four former princely states of Kalat, Kharan, Makran and Las Bela under one administration. It ended in 1955 when it was merged into West Pakistan under the One Unit scheme."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Baluchistan_States_Union"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-113
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What was One Unit and how did it affect Balochistan?"
+  answer: "One Unit was the policy, started on 14 October 1955, that merged all provinces and states of the western wing into a single province of West Pakistan. Balochistan lost its separate identity until One Unit was dissolved."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/One_Unit"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-114
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "When did Balochistan become a full province of Pakistan?"
+  answer: "Balochistan became a full province on 1 July 1970, when General Yahya Khan's government dissolved One Unit. It was the first time Balochistan had provincial status."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/One_Unit"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-115
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "How did Gwadar become part of Pakistan?"
+  answer: "Gwadar had been under the Sultan of Muscat and Oman since the late 18th century. Pakistan bought it from Oman, and it was formally transferred on 8 September 1958."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Gwadar"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-116
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who was Mir Gul Khan Naseer?"
+  answer: "Mir Gul Khan Naseer was a famous Balochi poet and politician, honoured with the title Malik-ush-Shuara (king of poets). He served as Balochistan's first education minister in the 1972 provincial government."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Gul_Khan_Nasir"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-117
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who was the first Chief Minister of Balochistan?"
+  answer: "Sardar Ataullah Khan Mengal became the first Chief Minister of Balochistan in May 1972, after the first provincial elections of 1970. His government was dismissed in February 1973."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Ataullah_Mengal", "https://en.wikipedia.org/wiki/Chief_Minister_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-118
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who was the first civilian Governor of Balochistan?"
+  answer: "Mir Ghaus Bakhsh Bizenjo became the first civilian Governor of Balochistan in 1972, serving until 1973."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Ghaus_Bakhsh_Bizenjo", "https://en.wikipedia.org/wiki/Governor_of_Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-119
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Which historic event took place at Chagai in 1998?"
+  answer: "On 28 May 1998 Pakistan conducted its nuclear tests in the Ras Koh hills of Chagai district, becoming the first Muslim nuclear power. The day is observed as Youm-e-Takbeer."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Chagai-I"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-120
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "When was Gwadar Port inaugurated?"
+  answer: "Construction of Gwadar Port began in 2002 with Chinese assistance, and the first phase was inaugurated in March 2007. It later became a central part of the China-Pakistan Economic Corridor (CPEC)."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Gwadar_Port"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-121
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Who is the only Prime Minister of Pakistan from Balochistan?"
+  answer: "Mir Zafarullah Khan Jamali, from Dera Murad Jamali in Balochistan, served as Prime Minister of Pakistan from 2002 to 2004. He had also served as Chief Minister of Balochistan earlier."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Zafarullah_Khan_Jamali"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-122
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "How did the 7th NFC Award of 2009 help Balochistan?"
+  answer: "The 7th National Finance Commission Award gave Balochistan 9.09 percent of the provincial share of federal revenue, more than its population share, by using poverty, revenue and inverse population density along with population as criteria."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/National_Finance_Commission_Award"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-123
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "Why is the Khojak Tunnel historically important?"
+  answer: "The Khojak Tunnel was built by the British and opened in 1891 to carry the railway from Quetta towards Chaman and the Afghan border. At about 3.9 km, it was for long the longest railway tunnel in South Asia."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Khojak_Tunnel"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-124
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "What was the significance of the Treaty of Gandamak for Balochistan?"
+  answer: "Under the Treaty of Gandamak in 1879, Afghanistan handed over control of Pishin, Sibi and nearby areas to the British. These areas became part of British Baluchistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Treaty_of_Gandamak"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-125
+  bank: balochistan
+  category: "D59 · Balochistan history"
+  question: "How did the Khanate of Kalat's status change between 1955 and 1970?"
+  answer: "The Khanate, already part of the Balochistan States Union, was merged into West Pakistan under One Unit in 1955 and the Khan lost his ruling powers. When One Unit ended in 1970, the former states and British Baluchistan were combined into the new province of Balochistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Khanate_of_Kalat", "https://en.wikipedia.org/wiki/One_Unit"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-126
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Which is the largest province of Pakistan by area?"
+  answer: "Balochistan is the largest province of Pakistan by area. It covers about 347,190 square kilometres, which is roughly 44 percent of Pakistan's total land area."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-127
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is the population of Balochistan?"
+  answer: "According to the 2023 census, Balochistan has a population of about 14.89 million, the smallest of Pakistan's four provinces, so it is the most thinly populated."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://www.pbs.gov.pk/"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-128
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Which countries and provinces border Balochistan?"
+  answer: "Balochistan borders Iran to the west and Afghanistan to the north. To the north-east lies Khyber Pakhtunkhwa, to the east Punjab and Sindh, and to the south the Arabian Sea."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-129
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is the border line between Pakistan and Iran called?"
+  answer: "The Pakistan-Iran border is based on the Goldsmith Line, drawn by the British officer Sir Frederic Goldsmith in the early 1870s. The whole of Pakistan's border with Iran lies in Balochistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Iran%E2%80%93Pakistan_border"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-130
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is the border line between Pakistan and Afghanistan called?"
+  answer: "It is the Durand Line, agreed in 1893 between British India (Sir Mortimer Durand) and Amir Abdur Rahman Khan of Afghanistan. Its southern part forms Balochistan's northern border."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Durand_Line"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-131
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Which mountains surround Quetta?"
+  answer: "Quetta is surrounded by the Chiltan, Murdar, Takatu and Zarghun mountains. The city lies at an altitude of about 1,680 metres in a valley, which gives it cold winters."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Quetta"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-132
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is the highest peak in Balochistan?"
+  answer: "Zarghun Ghar, near Quetta, is generally given as the highest peak of Balochistan, at about 3,578 metres above sea level."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Koh-i-Zarghun"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-133
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Name the main mountain ranges of Balochistan."
+  answer: "The main ranges are the Sulaiman range in the north-east, the Toba Kakar range in the north, the Central Brahui range, the Kirthar range on the Sindh border, the Chagai and Ras Koh hills in the north-west, and the Makran Coastal Range in the south."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/Toba_Kakar_Range"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-134
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Where is the Bolan Pass and why is it important?"
+  answer: "The Bolan Pass runs through the Central Brahui range between Quetta and Sibi. It has been a historic route between South Asia and Afghanistan, and today the main railway line and road from Sibi to Quetta pass through it."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Bolan_Pass"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-135
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Where is the Khojak Pass?"
+  answer: "The Khojak Pass lies in the Toba Achakzai (Khwaja Amran) range on the road and railway from Quetta to Chaman near the Afghan border. The Khojak railway tunnel, about 3.9 km long, was opened under it in 1891."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Khojak_Pass", "https://en.wikipedia.org/wiki/Khojak_Tunnel"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-136
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Name two other passes of Balochistan apart from Bolan and Khojak."
+  answer: "The Lak Pass on the road between Quetta and Mastung, and the Mula Pass in the Kirthar hills near Khuzdar, are two other important passes. The Gomal Pass lies on the northern border with Khyber Pakhtunkhwa."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Central_Brahui_Range", "https://en.wikipedia.org/wiki/List_of_mountain_ranges_of_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-137
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Which is the longest river of Balochistan?"
+  answer: "The Hingol River is the longest river of Balochistan, about 560 km long. It flows through the Hingol National Park and falls into the Arabian Sea."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Hingol_River"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-138
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Name some other rivers of Balochistan."
+  answer: "Other rivers include the Dasht, Porali, Hub, Nari, Bolan, Mula, Zhob and Mashkel. Most are seasonal and carry water mainly after rain."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/Hub_River"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-139
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Where does the Zhob River go?"
+  answer: "The Zhob River flows north-east through Zhob district and joins the Gomal River, which then flows into the Indus. It is one of the few rivers of Balochistan in the Indus basin."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Zhob_River"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-140
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is Hingol National Park?"
+  answer: "Hingol National Park is the largest national park of Pakistan, declared in 1988 and spread over about 6,100 square kilometres in Lasbela, Awaran and Gwadar districts along the Makran coast. It is home to ibex, urial and many birds."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Hingol_National_Park"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-141
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What famous natural features are found in Hingol National Park?"
+  answer: "The park has rock formations called the Princess of Hope and the Sphinx (Lion of Balochistan), the Kund Malir beach, mud volcanoes such as Chandragup, and the Hindu pilgrimage site of Hinglaj Mata."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Hingol_National_Park", "https://en.wikipedia.org/wiki/Hinglaj_Mata"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-142
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is Hanna Lake?"
+  answer: "Hanna Lake is a reservoir lake near Quetta in the Urak valley, surrounded by hills. It was built in 1894 during the British period and is a popular picnic spot."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Hanna_Lake"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-143
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Name some other lakes of Balochistan."
+  answer: "Other lakes include Band Khushdil Khan in Pishin, Zangi Nawar in Chagai district, and Siranda Lake near the coast of Lasbela."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/List_of_wildlife_sanctuaries_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-144
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is Hazarganji-Chiltan National Park known for?"
+  answer: "Hazarganji-Chiltan National Park, near Quetta, was set up in 1980 to protect the rare Chiltan wild goat (Chiltan markhor), along with other wildlife and the area's natural vegetation."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Hazarganji-Chiltan_National_Park"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-145
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Why is Ziarat famous?"
+  answer: "Ziarat is a hill station famous for its juniper forest, one of the largest and oldest juniper forests in the world, and for the Quaid-e-Azam Residency. The forest was declared a UNESCO biosphere reserve in 2013."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Ziarat", "https://en.wikipedia.org/wiki/Biosphere_reserves_of_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-146
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "How long is Balochistan's coastline?"
+  answer: "Balochistan has a coastline of about 770 km on the Arabian Sea, roughly two-thirds of Pakistan's total coastline. The coastal belt is called Makran."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/Makran"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-147
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is the Makran Coastal Highway?"
+  answer: "The Makran Coastal Highway (N-10) runs about 650 km along the Arabian Sea from Karachi to Gwadar, passing Ormara and Pasni. It opened in 2004 and is famous for its scenic views."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/N-10_National_Highway"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-148
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Why is Gwadar important?"
+  answer: "Gwadar is a deep-sea port on the Arabian Sea, close to the Strait of Hormuz through which much of the world's oil passes. It is the gateway of the China-Pakistan Economic Corridor (CPEC) and offers a short trade route to China, Central Asia and the Gulf."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Gwadar_Port", "https://en.wikipedia.org/wiki/China%E2%80%93Pakistan_Economic_Corridor"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-149
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is New Gwadar International Airport?"
+  answer: "New Gwadar International Airport is a large new airport built with Chinese assistance under CPEC. It began commercial flights in January 2025 and is one of the biggest airports in Pakistan by area."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/New_Gwadar_International_Airport"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-150
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Name other ports and coastal towns of Balochistan."
+  answer: "Other coastal towns and ports include Pasni, Ormara (home of the Jinnah Naval Base), Jiwani near the Iranian border, and Sonmiani in Lasbela."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Ormara", "https://en.wikipedia.org/wiki/Pasni"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-151
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Why is Sonmiani famous?"
+  answer: "Sonmiani in Lasbela is the site of SUPARCO's rocket range. Pakistan's first rocket, Rehbar-I, was launched from there on 7 June 1962."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Sonmiani", "https://en.wikipedia.org/wiki/Rehbar-I"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-152
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Name the deserts of Balochistan."
+  answer: "The main deserts are the Kharan desert, with large sand dunes, and the Chagai desert in the north-west near the Afghan and Iranian borders. Much of Balochistan is arid or semi-arid."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Chagai_District", "https://en.wikipedia.org/wiki/Chagai-II"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-153
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is the climate of Balochistan like?"
+  answer: "Balochistan has a dry climate with low rainfall. The highlands around Quetta, Ziarat and Kalat have cold winters with snow, while the plains of Sibi and Kachhi are among the hottest places in Pakistan in summer."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/Sibi"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-154
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is a karez?"
+  answer: "A karez is a traditional underground water channel that brings groundwater from the foot of hills to fields and villages by gravity. Karez irrigation has been used for centuries in Balochistan, though many have dried up as water tables fell."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Qanat"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-155
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Which canals irrigate the Naseerabad area?"
+  answer: "The Pat Feeder and Kirthar canals, fed from the Indus through Guddu and Sukkur barrages, irrigate the Naseerabad plains, making it the main rice and wheat growing area of the province. The newer Kachhi Canal takes water from Taunsa Barrage."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Nasirabad_District", "https://en.wikipedia.org/wiki/List_of_canals_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-156
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "When and where was Sui gas discovered?"
+  answer: "Natural gas was discovered at Sui in Dera Bugti district in 1952, and supply began in 1955. Sui was for decades Pakistan's biggest gas field, and the name \"Sui gas\" became the common word for natural gas in Pakistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Sui_gas_field"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-157
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Name other gas fields of Balochistan."
+  answer: "Apart from Sui, gas fields in Balochistan include Uch, Pirkoh and Loti, all in the Dera Bugti area."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Sui_gas_field", "https://en.wikipedia.org/wiki/Economy_of_Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-158
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What is Balochistan's share in the Reko Diq project?"
+  answer: "Under the 2022 arrangement, Balochistan holds a 25 percent share in Reko Diq, while federal state-owned companies hold another 25 percent and Barrick holds 50 percent."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Reko_Diq"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-159
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What was the Reko Diq dispute?"
+  answer: "The earlier partner, Tethyan Copper Company, took Pakistan to international arbitration after its mining lease was refused in 2011. In 2019 an ICSID tribunal awarded it about 5.9 billion US dollars, and the matter was settled in 2022 with a new agreement under which Barrick took the project forward."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Reko_Diq"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-160
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Where is chromite found in Balochistan?"
+  answer: "Chromite is mainly mined at Muslim Bagh in Killa Saifullah district, one of Pakistan's chief chromite areas, and also in parts of Khuzdar and Lasbela."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Muslim_Bagh"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-161
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Where is coal mined in Balochistan?"
+  answer: "Coal is mined at Sor Range and Degari near Quetta, Mach in Kachhi, Duki and Chamalang in the north-east, and other areas. Balochistan's coal is mostly used in brick kilns and industry."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Coal_mining_in_Pakistan", "https://en.wikipedia.org/wiki/Chamalang_Coal_Mines"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-162
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Name some other minerals of Balochistan."
+  answer: "Balochistan also has lead and zinc at Duddar in Lasbela, onyx and marble in Chagai, barite in Khuzdar, sulphur at Koh-e-Sultan in Chagai, iron ore, and limestone. It is often called Pakistan's mineral-rich province."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Mining_in_Pakistan", "https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-163
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Why is Quetta called the fruit garden of Pakistan?"
+  answer: "Quetta and the surrounding valleys grow large quantities of fruit such as apples, grapes, apricots, peaches, plums, pomegranates and cherries, as well as almonds. The cool climate suits these temperate fruits."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Quetta"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-164
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Which areas of Balochistan are famous for dates?"
+  answer: "Panjgur and Kech (Turbat) in Makran are famous for dates. Panjgur's Begum Jangi date is regarded as one of the finest varieties in Pakistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Panjgur", "https://en.wikipedia.org/wiki/Turbat"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-165
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What are the main sources of livelihood in Balochistan?"
+  answer: "Most people depend on livestock rearing (sheep, goats and camels), agriculture and fruit farming, fishing on the coast, mining, and trade across the borders with Iran and Afghanistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Economy_of_Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-166
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "What wildlife is found in Balochistan?"
+  answer: "Wildlife includes the markhor and Chiltan wild goat, ibex, urial, the Balochistan black bear, houbara bustard, and marine life such as green turtles on the coast."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/Hazarganji-Chiltan_National_Park"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-167
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Where are Pakistan's main border crossings in Balochistan?"
+  answer: "The main crossing with Afghanistan is at Chaman, opposite Spin Boldak. With Iran the main crossing is at Taftan, and there is also a coastal crossing at Gabd near Jiwani."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Chaman", "https://en.wikipedia.org/wiki/Taftan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-168
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Where were Pakistan's 1998 nuclear tests held?"
+  answer: "The tests of 28 May 1998 (Chagai-I) were held in the Ras Koh hills of Chagai district, and the test of 30 May 1998 (Chagai-II) was held in the Kharan desert."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Chagai-I", "https://en.wikipedia.org/wiki/Chagai-II"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-169
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Why is the Makran coast at risk of earthquakes and tsunamis?"
+  answer: "The Makran coast lies on the Makran subduction zone, where the Arabian plate slides under the Eurasian plate. On 28 November 1945 a powerful earthquake there caused a tsunami that hit Pasni, Ormara and the wider Arabian Sea coast."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/1945_Balochistan_earthquake"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-170
+  bank: balochistan
+  category: "D60 · Balochistan geography and resources"
+  question: "Why is Balochistan's water situation a challenge?"
+  answer: "Balochistan gets little rain, most rivers are seasonal, and heavy pumping by tube wells has lowered groundwater levels, especially around Quetta. Small dams, efficient irrigation and recharge of karez and aquifers are seen as key solutions."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Quetta", "https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-171
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is a division in Pakistan's administrative system?"
+  answer: "A division is an administrative unit made up of several districts, headed by a Commissioner. Each district is headed by a Deputy Commissioner and is further divided into tehsils (sub-divisions)."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Divisions_of_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-172
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "How many divisions does Balochistan have?"
+  answer: "After the administrative reorganization notified by the Board of Revenue in July 2026, Balochistan has 11 divisions. Before that it had 8 divisions."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://arynews.tv/balochistan-divided-11-divisions-41-districts", "https://en.wikipedia.org/wiki/Divisions_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-173
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Name the divisions of Balochistan."
+  answer: "The 11 divisions are Quetta, Pishin, Khuzdar, Lasbela, Makran, Rakhshan, Naseerabad, Sibi, Koh-e-Sulaiman, Loralai and Zhob."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Divisions_of_Balochistan", "https://arynews.tv/balochistan-divided-11-divisions-41-districts"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-174
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "How many districts does Balochistan have?"
+  answer: "According to the July 2026 notification, Balochistan has 41 districts. The number has changed several times in recent years as new districts were created."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://arynews.tv/balochistan-divided-11-divisions-41-districts"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-175
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What were the main changes in the 2026 reorganization of Balochistan?"
+  answer: "Kalat division was dissolved and replaced by new Khuzdar and Lasbela divisions. New Pishin, Koh-e-Sulaiman divisions were also formed, Quetta district was split into Quetta East and Quetta West, and Sibi was renamed Siwi."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://arynews.tv/balochistan-divided-11-divisions-41-districts", "https://www.dawn.com/news/2014627"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-176
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Which districts make up Quetta division?"
+  answer: "Quetta division now consists of Quetta East, Quetta West and Mastung districts. Mastung was moved to Quetta division from the old Kalat division."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://arynews.tv/balochistan-divided-11-divisions-41-districts"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-177
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is the headquarters of Makran division?"
+  answer: "Turbat, in Kech district, is the headquarters of Makran division. The division includes Gwadar, Kech, Panjgur and Tump districts."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Divisions_of_Balochistan", "https://en.wikipedia.org/wiki/Turbat"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-178
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is the headquarters of Rakhshan division?"
+  answer: "Kharan is the headquarters of Rakhshan division, which covers the large north-western districts such as Chagai, Kharan, Nushki and Washuk."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Divisions_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-179
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is the headquarters of Naseerabad division?"
+  answer: "Dera Murad Jamali is the headquarters of Naseerabad division, the main irrigated farming region of Balochistan on the border with Sindh."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Divisions_of_Balochistan", "https://en.wikipedia.org/wiki/Dera_Murad_Jamali"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-180
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Name the headquarters of Zhob, Loralai and Sibi divisions."
+  answer: "Zhob division is headquartered at Zhob, Loralai division at Loralai, and Sibi division at Sibi. The new Koh-e-Sulaiman division is headquartered at Rakhni."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Divisions_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-181
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "When was Loralai division created?"
+  answer: "Loralai division was created in June 2021, taking Loralai, Barkhan, Musakhel, Duki and nearby districts from Zhob division."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://dawn.com/news/1632216/new-division-two-districts-created-in-balochistan", "https://en.wikipedia.org/wiki/Divisions_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-182
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is the old name of Zhob?"
+  answer: "Zhob was called Fort Sandeman in the British period, after Sir Robert Sandeman. It is the headquarters of Zhob division in northern Balochistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Zhob"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-183
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Which district is famous as the industrial hub of Balochistan?"
+  answer: "Hub, next to Karachi, is the main industrial area of Balochistan with many factories. It was made a separate district from Lasbela in 2022."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Hub_District"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-184
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What are the main languages spoken in Balochistan?"
+  answer: "The main languages are Balochi, Pashto and Brahui, followed by Sindhi and Saraiki. In the 2023 census about 40 percent reported Balochi, about 34 percent Pashto and about 17 percent Brahui as their mother tongue. Urdu is the common link language."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-185
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "To which language family does Balochi belong?"
+  answer: "Balochi belongs to the Iranian branch of the Indo-European language family. It is written in a Perso-Arabic script and has eastern, western (Rakhshani) and southern (Makrani) dialects."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_language"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-186
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Where is Pashto mainly spoken in Balochistan?"
+  answer: "Pashto is mainly spoken in the northern districts such as Quetta, Pishin, Killa Abdullah, Zhob, Killa Saifullah, Loralai and Ziarat."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Pashto", "https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-187
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Where are Sindhi and Saraiki spoken in Balochistan?"
+  answer: "Sindhi and its local forms are spoken in the Naseerabad plains and in Lasbela (where the Lasi dialect is used), while Saraiki is spoken in some eastern areas bordering Punjab."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Languages_of_Pakistan", "https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-188
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Which community in Quetta speaks Hazaragi?"
+  answer: "The Hazara community, living mainly in Hazara Town and Marriabad in Quetta, speaks Hazaragi, a dialect of Persian."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Hazaras", "https://en.wikipedia.org/wiki/Hazaragi_language"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-189
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "When is Balochi Culture Day celebrated?"
+  answer: "Balochi Culture Day is celebrated every year on 2 March. People wear traditional Balochi dress and turbans, and hold music, dance and cultural gatherings in Balochistan and Baloch areas elsewhere."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_culture"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-190
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "When is Pashtun Culture Day observed?"
+  answer: "Pashtun Culture Day is observed on 23 September each year, including in the Pashto-speaking districts of Balochistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Pashtun_culture"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-191
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Which festival does the Hazara community of Quetta celebrate on 21 March?"
+  answer: "The Hazara community celebrates Nowruz, the Persian New Year, on 21 March with family gatherings, special foods and visits to elders."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Nowruz"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-192
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Describe traditional Baloch dress for men."
+  answer: "Baloch men traditionally wear a long loose shirt (jamag) with very wide shalwar made from a large amount of cloth, a large turban (pag), and sometimes a waistcoat and a shawl."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_clothing"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-193
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Describe traditional Baloch dress for women."
+  answer: "Baloch women wear a long, loose dress richly decorated with hand embroidery and mirror work, often with a large embroidered pocket at the front, along with a shalwar and a large dupatta (chadar)."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_clothing"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-194
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is Balochi embroidery called?"
+  answer: "Balochi hand embroidery is called \"doch\". It uses fine geometric patterns in bright threads and is famous across Pakistan for women's dresses."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_clothing"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-195
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is Sajji?"
+  answer: "Sajji is a famous Balochi dish in which a whole lamb or chicken, lightly salted, is roasted slowly on skewers around an open fire. Quetta is especially known for it."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_cuisine"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-196
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What are Kaak and Landi?"
+  answer: "Kaak is a hard bread baked by wrapping dough around a hot stone in the fire. Landi is mutton that is salted and dried in winter so it can be stored and eaten for months."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_cuisine"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-197
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Name some other traditional dishes of Balochistan."
+  answer: "Other dishes include Khaddi kebab (a whole lamb cooked in a pit), Dampukht (meat cooked slowly in its own fat), Rosh, and Pashtun dishes like Chapli kebab and Kabuli pulao."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_cuisine"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-198
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is Baloch hospitality known as and why is it important?"
+  answer: "Hospitality (mehman nawazi) is one of the highest values in Baloch culture. A guest is honoured, fed and protected, and even an enemy who comes as a guest is treated with respect."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Baloch_people"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-199
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is Bahot in Baloch custom?"
+  answer: "Bahot means giving protection to a person who seeks refuge. Once someone is given bahot, the host is bound by honour to protect him, even at the cost of his own life."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Baloch_people"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-200
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is Baijar?"
+  answer: "Baijar is a Baloch tradition of collective help, in which relatives and the community contribute money or labour to help a person meet a big need, such as a marriage or rebuilding a home."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Baloch_people"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-201
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is Hal in Baloch culture?"
+  answer: "Hal is the custom of exchanging news when people meet. After greetings, the guest gives a detailed account of news and events, and the host listens and then shares his own."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Baloch_people"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-202
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is a jirga?"
+  answer: "A jirga is a traditional council of elders that settles disputes and makes community decisions according to local custom. It is common among Baloch, Brahui and Pashtun tribes."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Jirga"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-203
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Name some traditional musical instruments of Balochistan."
+  answer: "Famous instruments include the suroz (a bowed string instrument), the benju (a keyed zither), the dambura (a long-necked lute) and the nal (a type of flute)."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_music"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-204
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Name some folk dances of Balochistan."
+  answer: "The Chaap is the main Baloch circle dance performed at weddings and festivals. Lewa is a coastal dance of Makran, and the Attan is performed by Pashtuns in the north."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Chaap", "https://en.wikipedia.org/wiki/Attan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-205
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Name some famous folk romances of Balochistan."
+  answer: "Famous folk romances include Sassi Punnu, in which Punnu was a prince from Kech in Makran, and Hani and Sheh Mureed, linked with the age of Mir Chakar Rind."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Sassui_Punnhun"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-206
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Who was Jam Durrak?"
+  answer: "Jam Durrak was a celebrated 18th-century Balochi poet at the court of Mir Naseer Khan Noori of Kalat. He is famous for his romantic and lyrical poetry."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_literature"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-207
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Who was Mast Tawakali?"
+  answer: "Mast Tawakali was a 19th-century Balochi Sufi poet from the Marri area, known for his mystical and love poetry. He is one of the most respected classical poets of the Balochi language."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Mast_Tawakali"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-208
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Who was Atta Shad?"
+  answer: "Atta Shad was a leading modern Balochi and Urdu poet of the 20th century who brought new forms and themes into Balochi poetry."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Atta_Shad"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-209
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What is the Balochi Academy?"
+  answer: "The Balochi Academy, based in Quetta and founded in 1961, works to promote Balochi language and literature through research, dictionaries and the publication of books."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochi_literature"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-210
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Name some major tribes of Balochistan."
+  answer: "Major Baloch tribes include the Rind, Marri, Bugti, Magsi and Jamali. Major Brahui tribes include the Mengal, Raisani, Zehri and Shahwani. Pashtun tribes include the Kakar, Tareen, Mandokhail and Achakzai."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Baloch_people", "https://en.wikipedia.org/wiki/Brahui_people"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-211
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "What handicrafts is Balochistan known for?"
+  answer: "Balochistan is known for hand embroidery and mirror work, carpets and rugs, kilims, leather work and mats and baskets made from dwarf palm leaves."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Culture_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-212
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "Why is the turban important in Baloch culture?"
+  answer: "The turban (pag) is a symbol of honour and dignity for Baloch men. Placing one's turban before someone is a sign of a serious request, and it is worn proudly on Balochi Culture Day."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Baloch_people"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-213
+  bank: balochistan
+  category: "D61 · Divisions, districts and culture"
+  question: "How can a teacher use local culture in the classroom in Balochistan?"
+  answer: "A teacher can use local languages to explain difficult ideas, give examples from local life, celebrate days like Balochi Culture Day in school, and let students make digital projects on their own poets, crafts and places. This builds pride and makes learning meaningful."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unesco.org/en/languages-education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-214
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Who is the constitutional head of Balochistan?"
+  answer: "The Governor is the constitutional head of the province, while the Chief Minister is the executive head who runs the government with the provincial cabinet."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Governor_of_Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/Chief_Minister_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-215
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "How is the Governor of a province appointed?"
+  answer: "Under Article 101 of the Constitution, the President appoints the Governor of each province on the advice of the Prime Minister. The Governor holds office during the pleasure of the President."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Constitution_of_Pakistan", "https://na.gov.pk/uploads/documents/1333523681_951.pdf"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-216
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "How is the Chief Minister of a province elected?"
+  answer: "Under Article 130, the Chief Minister is elected by the Provincial Assembly. A candidate must win the votes of a majority of the total membership of the Assembly, otherwise a second round is held."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://na.gov.pk/uploads/documents/1333523681_951.pdf", "https://en.wikipedia.org/wiki/Chief_Minister_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-217
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Who is the current Chief Minister of Balochistan?"
+  answer: "Mir Sarfraz Bugti has been Chief Minister of Balochistan since 2 March 2024, when he was elected unopposed by the Provincial Assembly."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Chief_Minister_of_Balochistan", "https://www.dawn.com/news/1818349"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-218
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Who is the current Governor of Balochistan?"
+  answer: "Sheikh Jaffar Khan Mandokhail has been Governor of Balochistan since May 2024."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Governor_of_Balochistan,_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-219
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Who was the first Governor of Balochistan?"
+  answer: "Lieutenant General Riaz Hussain was the first Governor after Balochistan became a province in 1970. Mir Ghaus Bakhsh Bizenjo became the first civilian (political) Governor in 1972."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Governor_of_Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/Ghaus_Bakhsh_Bizenjo"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-220
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "How many seats does the Provincial Assembly of Balochistan have?"
+  answer: "The Provincial Assembly of Balochistan has 65 seats: 51 general seats, 11 reserved for women and 3 reserved for non-Muslims."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Provincial_Assembly_of_Balochistan", "https://www.pabalochistan.gov.pk/"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-221
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Where is the Balochistan Assembly located?"
+  answer: "The Provincial Assembly of Balochistan sits in its assembly building in Quetta, the provincial capital."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Provincial_Assembly_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-222
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What is the term of the Provincial Assembly?"
+  answer: "The Provincial Assembly is elected for five years from the date of its first meeting, unless it is dissolved earlier."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://na.gov.pk/uploads/documents/1333523681_951.pdf"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-223
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Who presides over the Provincial Assembly?"
+  answer: "The Speaker, elected by the members, presides over the sessions of the Provincial Assembly, and the Deputy Speaker acts in the Speaker's absence."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Provincial_Assembly_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-224
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "How many National Assembly seats does Balochistan have?"
+  answer: "Balochistan has 20 seats in the National Assembly: 16 general seats and 4 seats reserved for women."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://en.wikipedia.org/wiki/National_Assembly_of_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-225
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "How many Senate seats does Balochistan have?"
+  answer: "Like every province, Balochistan has 23 Senate seats: 14 general, 4 for women, 4 for technocrats including ulema, and 1 for non-Muslims. Equal representation in the Senate protects smaller provinces."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Senate_of_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-226
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What is the limit on the size of the provincial cabinet?"
+  answer: "Under Article 130(6), the provincial cabinet cannot be larger than 15 percent of the Assembly's total membership or eleven, whichever is higher."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://na.gov.pk/uploads/documents/1333523681_951.pdf"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-227
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Who is the head of the provincial bureaucracy?"
+  answer: "The Chief Secretary is the senior-most civil servant of the province. He heads the provincial secretariat in Quetta, coordinates all departments and implements government policy."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Civil_Service_of_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-228
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Which is the highest court of Balochistan?"
+  answer: "The Balochistan High Court in Quetta is the highest court of the province. It was set up as a separate high court in 1976, after the joint Sindh and Balochistan High Court was divided."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan_High_Court", "https://bhc.gov.pk/"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-229
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Where does the Balochistan High Court have benches?"
+  answer: "Besides its principal seat in Quetta, the Balochistan High Court has benches at Sibi and Turbat, and also sits at Khuzdar, so people in distant areas can reach the court."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://bhc.gov.pk/", "https://en.wikipedia.org/wiki/Balochistan_High_Court"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-230
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Who is the Chief Justice of the Balochistan High Court?"
+  answer: "Justice Muhammad Kamran Khan Mulakhail is the Chief Justice of the Balochistan High Court, according to the court's own website in 2026."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://bhc.gov.pk/news-announcements/events/bar-rep-metting-2026", "https://www.dawn.com/news/1950277"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-231
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "How are high court judges appointed?"
+  answer: "Under Article 175A, the Judicial Commission of Pakistan nominates persons for appointment as high court judges, and the President then makes the appointment."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://na.gov.pk/uploads/documents/1333523681_951.pdf", "https://en.wikipedia.org/wiki/Judicial_Commission_of_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-232
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What does Article 140A of the Constitution require?"
+  answer: "Article 140A requires every province to set up a local government system and devolve political, administrative and financial responsibility to elected local representatives."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://na.gov.pk/uploads/documents/1333523681_951.pdf"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-233
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What is Balochistan's share in the NFC Award?"
+  answer: "Under the 7th NFC Award, Balochistan receives 9.09 percent of the provinces' share of the federal divisible pool, much more than its population share."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/National_Finance_Commission_Award"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-234
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Who was the only Prime Minister of Pakistan from Balochistan?"
+  answer: "Mir Zafarullah Khan Jamali, who served from November 2002 to June 2004. He had earlier been Chief Minister of Balochistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Zafarullah_Khan_Jamali"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-235
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Which offices did Nawab Akbar Khan Bugti hold?"
+  answer: "Nawab Akbar Khan Bugti served as Governor of Balochistan in 1973-74 and as Chief Minister from 1989 to 1990."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Akbar_Bugti"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-236
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What change was made to policing in Balochistan in 2026?"
+  answer: "In July 2026 the Balochistan cabinet declared the whole province a \"police area\" after the Levies Force was merged into the police, ending the old division between \"A areas\" (police) and \"B areas\" (levies)."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://tribune.com.pk/story/2620943/balochistan-declared-regular-police-area-with-integration-of-levies-force"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-237
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What is the Balochistan Public Service Commission (BPSC)?"
+  answer: "The BPSC is the constitutional body that recruits officers for the Government of Balochistan on merit. It conducts written tests, examinations and interviews and recommends successful candidates for appointment."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://bpsc.gob.pk"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-238
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "When was the BPSC established?"
+  answer: "According to the Commission, the BPSC came into existence on 13 August 1973, after One Unit was dissolved and Balochistan became a separate province."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://bpsc.gob.pk"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-239
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Under which Article of the Constitution are public service commissions set up?"
+  answer: "Article 242 of the Constitution provides for public service commissions for the Federation and the provinces. For a province, the commission is set up by a law of the Provincial Assembly, and its chairman is appointed by the provincial government."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://na.gov.pk/uploads/documents/1333523681_951.pdf"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-240
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Which law governs the BPSC today?"
+  answer: "The BPSC works under the Balochistan Public Service Commission Act, 1989 and its Functions Rules of 1995. The Act has been amended since, including in 2026."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://bpsc.gob.pk", "https://pabalochistan.gov.pk/storage/9224/69f9f26ad7d8f_The-balochistan-Public-Service-Commission-(Amendment)-Act,-2026.pdf"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-241
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "For which posts does the BPSC recruit?"
+  answer: "The BPSC conducts tests, examinations and interviews for initial recruitment to provincial posts in grades BPS-16 to BPS-21, except posts excluded in its rules, and other posts the government refers to it."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://bpsc.gob.pk"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-242
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Who is the Chairman of the BPSC?"
+  answer: "Justice (Retd) Mehta Kailash Nath Kohli is Chairman of the BPSC. He was reappointed in February 2026 for a three-year term, having earlier chaired the Commission from 2015 to 2020."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://bpsc.gob.pk", "https://www.thenews.pk/print/1397921-justice-kailash-nath-kohli-appointed-bpsc-chairman"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-243
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What is the Combined Competitive Examination of the BPSC?"
+  answer: "The Combined Competitive Examination (CCE) is the BPSC's exam for officer posts such as the Balochistan Civil Service (Executive Branch) and the Balochistan Secretariat Service. It has written papers followed by an interview."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan_Public_Service_Commission", "https://bpsc.gob.pk"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-244
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What does BPS-17 mean?"
+  answer: "BPS stands for Basic Pay Scale, the grading system for government employees in Pakistan. BPS-17 is the entry grade for gazetted officers, such as lecturers and IT teachers recruited through the public service commission."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Civil_Service_of_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-245
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "Why does the BPSC hold interviews in addition to written tests?"
+  answer: "The interview checks qualities a written test cannot fully measure, such as communication, subject understanding, teaching attitude, general awareness and personality. It helps the Commission choose candidates suited for public service."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://bpsc.gob.pk"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-246
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What are the key qualities of a good public servant?"
+  answer: "A good public servant is honest, follows the law and rules, treats all citizens equally, keeps public money and information safe, works hard and stays politically neutral in official duties."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Civil_service"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-247
+  bank: balochistan
+  category: "D62 · Balochistan government and leaders"
+  question: "What is the role of the Mohtasib (Ombudsman) in Balochistan?"
+  answer: "The Provincial Ombudsman (Mohtasib) of Balochistan hears complaints from citizens against maladministration by provincial government departments and recommends remedies free of cost."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Ombudsman"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-248
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What are the stages of school education in Balochistan?"
+  answer: "School education follows the national pattern: early childhood (katchi or ECE), primary (grades 1 to 5), middle (grades 6 to 8), secondary or high (grades 9 and 10), and higher secondary or intermediate (grades 11 and 12)."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Education_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-249
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "Which article of the Constitution guarantees the right to education?"
+  answer: "Article 25-A, added by the 18th Amendment in 2010, says the State shall provide free and compulsory education to all children aged 5 to 16 years."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://na.gov.pk/uploads/documents/1333523681_951.pdf", "https://en.wikipedia.org/wiki/Education_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-250
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "Which provincial law makes education compulsory in Balochistan?"
+  answer: "The Balochistan Compulsory Education Act, 2014 makes education free and compulsory for children aged 5 to 16, putting Article 25-A into practice in the province."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://pabalochistan.gov.pk/", "https://en.wikipedia.org/wiki/Education_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-251
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is the literacy rate of Balochistan?"
+  answer: "According to the 2023 census, Balochistan's literacy rate is about 42 percent, with about 50.5 percent for males and about 32.8 percent for females. It is the lowest among Pakistan's provinces."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan,_Pakistan", "https://www.pbs.gov.pk/"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-252
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is the overall literacy rate of Pakistan?"
+  answer: "The 2023 census put Pakistan's literacy rate for people aged 10 and above at about 61 percent, so Balochistan is well below the national average."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.pbs.gov.pk/", "https://en.wikipedia.org/wiki/Literacy_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-253
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What share of children in Balochistan are out of school?"
+  answer: "Officials said in April 2026 that nearly 58 percent of the province's children were out of school, the highest share in Pakistan, and many of them are now older than normal school age."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://tribune.com.pk/story/2604054/balochistan-sees-revival-of-3700-closed-schools"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-254
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What progress was reported in 2026 about closed schools?"
+  answer: "In April 2026 the provincial government said more than 3,700 closed schools had been reopened, about 100,000 children enrolled in them, and over 12,000 teachers recruited on merit."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://tribune.com.pk/story/2604054/balochistan-sees-revival-of-3700-closed-schools"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-255
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is the Balochistan Non-Formal Education Act?"
+  answer: "In October 2026 the Balochistan cabinet approved the Non-Formal Education Act, which aims to bring about 1.6 million children aged 10 to 16, who are outside the formal school system, into education through non-formal and accelerated programmes."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://dawn.com/news/2036085"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-256
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is double-shift schooling and why did Balochistan approve it?"
+  answer: "Double-shift schooling means running two separate school sessions in the same building, usually morning and afternoon. The Balochistan cabinet approved it in October 2026 so that more children can study without waiting for new buildings."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://dawn.com/news/2036085"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-257
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What types of schools exist in Balochistan?"
+  answer: "Balochistan has government schools, community schools, private schools, religious madaris, and special institutions such as cadet colleges and residential colleges. There are also non-formal and accelerated learning centres for out-of-school children."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Education_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-258
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is the difference between formal and non-formal education?"
+  answer: "Formal education follows a fixed system of grades, syllabus and exams in schools. Non-formal education is flexible, organised outside the regular system, often for older children or adults, with shorter courses and flexible timings."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Nonformal_learning"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-259
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is an Accelerated Learning Programme (ALP)?"
+  answer: "An ALP is a condensed course that lets over-age, out-of-school children complete several grades in a shorter time, so they can join regular school at the right level or finish primary education."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unicef.org/pakistan/education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-260
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is BBISE?"
+  answer: "BBISE is the Balochistan Board of Intermediate and Secondary Education, based in Quetta. It conducts the Secondary School Certificate (matric) and Higher Secondary School Certificate (intermediate) examinations in the province and issues their certificates."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://bbise.edu.pk", "https://www.emis.gob.pk/website/BBISE.aspx"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-261
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is the role of the Balochistan Textbook Board?"
+  answer: "The Balochistan Textbook Board, in Quetta, prepares, publishes and arranges the printing and distribution of textbooks for government schools according to the approved curriculum. Government schools give these books to students free."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Education_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-262
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "Which departments manage education in Balochistan?"
+  answer: "School education is managed by the School (Secondary) Education Department, while colleges, universities and technical education come under the Colleges, Higher and Technical Education Department. Each is led by a minister and an administrative secretary."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://balochistan.gov.pk/"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-263
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is PITE Balochistan?"
+  answer: "PITE is the Provincial Institute for Teacher Education in Quetta. It trains in-service teachers and supports teacher development programmes in the province."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://balochistan.gov.pk/"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-264
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "Which is the oldest university of Balochistan?"
+  answer: "The University of Balochistan in Quetta, established in 1970, is the oldest and largest general university of the province."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/University_of_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-265
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is BUITEMS?"
+  answer: "BUITEMS is the Balochistan University of Information Technology, Engineering and Management Sciences in Quetta, established in 2002. It is the province's main university for IT, engineering and management."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Balochistan_University_of_Information_Technology,_Engineering_and_Management_Sciences"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-266
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "Which is the only women's university of Balochistan?"
+  answer: "Sardar Bahadur Khan Women's University in Quetta, established in 2004, is the province's only university exclusively for women."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Sardar_Bahadur_Khan_Women%27s_University"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-267
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "Name some other universities of Balochistan."
+  answer: "Others include the Balochistan University of Engineering and Technology in Khuzdar, Lasbela University of Agriculture, Water and Marine Sciences in Uthal (2005), University of Turbat (2012), Bolan University of Medical and Health Sciences in Quetta (2017), and universities at Loralai, Panjgur (Makran) and Gwadar."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/List_of_universities_in_Balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-268
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "Which is the oldest medical college of Balochistan?"
+  answer: "Bolan Medical College in Quetta, founded in 1972, is the oldest medical college of the province. It later became part of Bolan University of Medical and Health Sciences."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Bolan_Medical_College"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-269
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What are cadet colleges and residential colleges in Balochistan?"
+  answer: "Cadet colleges, such as Cadet College Mastung, and Balochistan Residential Colleges in places like Loralai, Turbat and Khuzdar are boarding institutions that give quality education to talented students from all districts, including remote areas."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Cadet_College_Mastung"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-270
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What was the Balochistan Education Sector Plan?"
+  answer: "The Balochistan Education Sector Plan (BESP) is the province's multi-year plan for education, setting targets for access, quality and governance. The plan for 2020 to 2025 focused on enrolment, girls' education, teacher quality and better data."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.globalpartnership.org/where-we-work/pakistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-271
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What are the main challenges of education in Balochistan?"
+  answer: "Major challenges are a scattered population over a huge area, long distances to school, poverty and child labour, shortage of teachers especially female teachers, many single-teacher and one-room schools, poor buildings and facilities, teacher absenteeism, and insecurity in some areas."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unicef.org/pakistan/education", "https://en.wikipedia.org/wiki/Education_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-272
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "Why is girls' education especially weak in Balochistan?"
+  answer: "Reasons include long distances to schools, lack of girls' middle and high schools, few female teachers, no boundary walls or toilets, early marriage, household duties and some cultural barriers. Safe transport, local female teachers and community support help solve this."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unicef.org/pakistan/education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-273
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is a ghost school?"
+  answer: "A ghost school is a school that exists on paper and may receive salaries and funds, but is not actually functioning. Ghost teachers are those who draw salaries without teaching. Biometric attendance and field monitoring help to stop them."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Education_in_Pakistan"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-274
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is a single-teacher school and why is it a problem?"
+  answer: "A single-teacher school has only one teacher for all primary classes. The teacher cannot give enough time to each grade, and if he or she is absent the school closes. Multigrade teaching skills and recruiting more teachers help."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unicef.org/pakistan/education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-275
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is multigrade teaching?"
+  answer: "Multigrade teaching means one teacher teaching students of two or more grades in the same classroom at the same time. It needs careful planning, group work, peer learning and self-study tasks."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Multi-age_classroom"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-276
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What solutions can improve education in Balochistan?"
+  answer: "Key solutions are merit-based recruitment of local teachers, more female teachers, upgrading primary schools to middle and high, double-shift schools, community and non-formal schools, regular teacher training, better monitoring, and use of technology for teaching and data."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unicef.org/pakistan/education", "https://dawn.com/news/2036085"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-277
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "How can technology help education in Balochistan?"
+  answer: "Technology can bring digital lessons and e-learning to remote schools, support teacher training online, track attendance and enrolment through education management systems, and build students' computer skills for jobs. Solar power can run computer labs where electricity is weak."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unesco.org/en/digital-education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-278
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What did the Balochistan government say in 2026 about IT hubs?"
+  answer: "In November 2026 Radio Pakistan reported that IT hubs set up in Balochistan are expected to train more than 8,000 young people every year in modern technology skills."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.radio.gov.pk/23-11-2026/development-projects-underway-across-balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-279
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What was the target of Balochistan's 2026 enrolment campaign?"
+  answer: "The province's Enrolment Campaign 2026 set a target of enrolling about 266,000 children in schools."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.app.com.pk/?p=1174454"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-280
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What decision did Balochistan take in 2026 about school uniforms?"
+  answer: "In June 2026 Balochistan decided to end the compulsory school uniform requirement at the primary level, so that the cost of uniforms does not keep poor children away from school."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://propakistani.pk/2026/06/04/balochistan-to-end-school-uniform-requirement-at-primary-level/"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-281
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is the role of an IT teacher in a government school of Balochistan?"
+  answer: "An IT teacher teaches computer science and digital skills, runs and maintains the computer lab, helps other teachers use technology, teaches safe and responsible internet use, and prepares students for board exams and future jobs."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unesco.org/en/digital-education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-282
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is the difference between GER and NER?"
+  answer: "The Gross Enrolment Rate (GER) counts all students in a level, of any age, against the official-age population. The Net Enrolment Rate (NER) counts only children of the official age for that level, so NER shows more exactly how many school-age children are actually enrolled."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://uis.unesco.org/en/glossary"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-283
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is the dropout rate and why is it high in Balochistan?"
+  answer: "The dropout rate is the share of students who leave school before finishing a level. It is high in Balochistan because of poverty, distance to middle schools, lack of teachers, child labour and early marriage, especially after primary."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unicef.org/pakistan/education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-284
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What is the National Curriculum of Pakistan?"
+  answer: "The National Curriculum of Pakistan, first introduced as the Single National Curriculum from 2020, sets common learning outcomes for schools across the country. Provinces adopt it and their textbook boards prepare books based on it."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://en.wikipedia.org/wiki/Single_National_Curriculum"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-285
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "Why is teaching in the mother tongue useful in early grades?"
+  answer: "Children understand concepts faster when first taught in a language they speak at home. Using Balochi, Brahui or Pashto alongside Urdu and English in early grades improves understanding and reduces dropout."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unesco.org/en/languages-education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-286
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "How can community participation improve schools?"
+  answer: "Parent-teacher school management committees can monitor teacher attendance, help with enrolment campaigns, look after school buildings and use small funds for repairs. Communities that own their school keep it running."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unicef.org/pakistan/education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-287
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "What should be done to reduce teacher absenteeism?"
+  answer: "Merit-based recruitment of local teachers, posting near home areas, biometric or digital attendance, regular visits by monitors, fair incentives for remote posts and strict action against absence can reduce it."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unicef.org/pakistan/education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-288
+  bank: balochistan
+  category: "D63 · Balochistan education system and challenges"
+  question: "How can girls' enrolment be increased in Balochistan?"
+  answer: "Recruit and post local female teachers, build or upgrade girls' middle and high schools, provide boundary walls, toilets and safe transport, give stipends, and run awareness campaigns with community and religious leaders."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.unicef.org/pakistan/education"]
+  verified_on: '2026-11-25'
+  check_again: false
+  status: published
+  added: '2026-11-25'
+- id: bal-289
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What was the Digital Balochistan Expo 2026?"
+  answer: "The first-ever Digital Balochistan Expo was inaugurated in Quetta by Chief Minister Mir Sarfraz Bugti on 25 November 2026. It was organized by the Balochistan Board of Investment and Trade with the Planning and Development Department."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.app.com.pk/photos-section/chief-minister-balochistan-mir-sarfraz-bugti-inaugurates-the-first-ever-digital-balochistan-expo-2026-organized-by-the-balochistan-board-of-investment-and-trade-in-collaboration-with-the-planning-and/"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-290
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What was BITE 2026?"
+  answer: "BITE 2026, the Balochistan Investment and Trade Expo, opened in Quetta on 18 November 2026. Organized by the Balochistan Board of Investment and Trade, it was described as the first government-led investment and trade exhibition in the province in 21 years."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.app.com.pk/?p=1310959", "https://www.dawn.com/pakistan/balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-291
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "Who inaugurated BITE 2026 and what did it showcase?"
+  answer: "Chief Minister Mir Sarfraz Bugti inaugurated it with former federal minister Saleem Mandviwalla. More than 100 companies and departments took part, and industrial zones at Bostan, Hub and Bela were promoted to investors."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.app.com.pk/?p=1310959"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-292
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "Which organizations supported BITE 2026?"
+  answer: "The expo was organized by the Balochistan Board of Investment and Trade (BBoIT) with the support of BUITEMS and the Quetta Chamber of Commerce and Industry."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.app.com.pk/?p=1310959"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-293
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What is the Balochistan Special Development Initiative?"
+  answer: "It is a development programme to provide basic facilities in the province. Radio Pakistan reported in November 2026 that 4,063 projects worth 56 billion rupees are included, covering education, health, agriculture, roads and infrastructure."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.radio.gov.pk/23-11-2026/development-projects-underway-across-balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-294
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "How many young people are Balochistan's IT hubs expected to train?"
+  answer: "According to a November 2026 report, the IT hubs set up in Balochistan are expected to train more than 8,000 young people each year in modern technology skills."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.radio.gov.pk/23-11-2026/development-projects-underway-across-balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-295
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What is the Jinnah Peoples Metro Train Service?"
+  answer: "It is a metro train service in Quetta, described as the first of its kind in Balochistan. It was inaugurated at the end of September 2026 by Chief Minister Sarfraz Bugti and Federal Railways Minister Hanif Abbasi."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://tribune.com.pk/story/2632203/metro-train-chugs-out-in-quetta"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-296
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What facilities were announced for passengers of the Quetta metro train?"
+  answer: "Senior citizens and persons with disabilities travel free, and fares for others are kept subsidised. Extensions towards Bostan Industrial Estate have started, and routes to Pishin and Mastung are under consideration."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://tribune.com.pk/story/2632203/metro-train-chugs-out-in-quetta"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-297
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What education decisions did the Balochistan cabinet take in October 2026?"
+  answer: "The cabinet approved the Balochistan Non-Formal Education Act to enrol about 1.6 million out-of-school children aged 10 to 16, and approved double-shift teaching in government schools to use existing buildings for more students."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://dawn.com/news/2036085"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-298
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What is the Balochistan Mineral Development Fund Policy?"
+  answer: "Approved by the provincial cabinet in October 2026, the policy directs revenue from the province's natural resources towards public welfare and provincial development."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://dawn.com/news/2036085"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-299
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What change did Balochistan make to public procurement in October 2026?"
+  answer: "The cabinet amended procurement rules to expand electronic bidding, making e-bidding compulsory for tenders above 500,000 rupees to improve transparency and competition."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://dawn.com/news/2036085"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-300
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "How did the Chief Minister say government jobs would be distributed?"
+  answer: "In November 2026 Chief Minister Sarfraz Bugti said available vacancies would be allocated across districts in proportion to their population."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.dawn.com/pakistan/balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-301
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What did the Balochistan Assembly demand about air travel in November 2026?"
+  answer: "On 21 November 2026 the Balochistan Assembly passed a resolution demanding direct flights between Quetta and Sukkur. It also passed resolutions on restoring closed TV offices and protecting media jobs."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.dawn.com/pakistan/balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-302
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What did the Balochistan High Court order about tube wells in Quetta?"
+  answer: "In November 2026 the Balochistan High Court ordered a survey of tube wells in Quetta and directed action against alleged illegal occupation of government-owned tube wells, an issue linked to the city's water shortage."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.dawn.com/pakistan/balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-303
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What did Chief Minister Bugti say about new provinces in September 2026?"
+  answer: "On 12 September 2026 he said he supported creating new provinces, but they should be drawn on administrative grounds rather than language, arguing the whole province cannot be governed effectively from Quetta."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://tribune.com.pk/story/2628928/administration-not-language-should-define-new-provinces-cm-bugti"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-304
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What did the federal Commerce Minister promise Balochistan's traders in November 2026?"
+  answer: "Federal Commerce Minister Jam Kamal said the federal government would work to remove obstacles to trade and business in Balochistan."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.dawn.com/pakistan/balochistan"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-305
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "What jobs plan for Balochistan's youth was mentioned at BITE 2026?"
+  answer: "At BITE 2026 it was stated that the federal government plans to create more than 25,000 job opportunities for the youth of Balochistan, and the Chief Minister asked universities to align courses with industry needs in IT and AI."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.app.com.pk/?p=1310959"]
+  verified_on: '2026-11-25'
+  check_again: true
+  status: published
+  added: '2026-11-25'
+- id: bal-306
+  bank: balochistan
+  category: "D64 · Balochistan current affairs"
+  question: "Which Pakistani made history in space in November 2026, and why does it matter for students in Balochistan?"
+  answer: "On 25 November 2026 Zeeshan Ali became Pakistan's first astronaut, flying on China's Shenzhou-24 to the Tiangong space station. It shows students across Pakistan, including Balochistan, the value of science and technology education."
+  personal: false
+  frequency: 1
+  tags: []
+  sources: ["https://www.dawn.com/news/2046753"]
+  verified_on: '2026-11-25'
+  check_again: true
   status: published
   added: '2026-11-25'

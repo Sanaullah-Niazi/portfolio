@@ -1,0 +1,4 @@
+<!doctype html>
+{%- comment -%} The old address of a BPSC question that now lives on its numbered category page (see scripts/bpsc_pages.rb). {%- endcomment %}
+<html lang="en"><head><meta charset="utf-8"><title>Opening the question…</title><meta name="robots" content="noindex"><link rel="canonical" href="{{ page.to | split: '#' | first | absolute_url }}"><meta http-equiv="refresh" content="0; url={{ page.to }}"><script>location.replace({{ page.to | jsonify }})</script></head>
+<body><p><a href="{{ page.to }}">Open the question</a></p></body></html>
