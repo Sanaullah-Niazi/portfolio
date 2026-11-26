@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T13:28:07Z",
+ "updated": "2026-11-26T13:06:22Z",
  "sources": [
   {
    "name": "IACR Jobs",
@@ -9,7 +9,7 @@
   {
    "name": "DAAD PhDGermany",
    "home": "https://www.daad.de/en/",
-   "count": 0
+   "count": 1
   },
   {
    "name": "Max Planck Society",
@@ -117,7 +117,7 @@
    "posted": "2026-11-04",
    "deadline": "2026-11-26",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "University of Tartu, Institute of Computer Science; Tartu, Estonia. This doctoral research will investigate post-quantum cryptographic primitives and develop lightweight protocols for real-time applications, using power-system communication as the primary application domain. It…",
    "official": "https://crypto.cs.ut.ee/Main/PQCPosition2026-2"
   },
@@ -135,7 +135,7 @@
    "posted": "2026-10-01",
    "deadline": "2026-11-30",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "TVöD Bund, pay category 13: Max Planck Institute for the Study of Crime, Security and Law: The Department of Public Law at the Max Planck Institute for the Study of Crime, Security and Law in Freiburg im Breisgau, Germany (Director: Prof... Freiburg im Breisgau, Baden-Württemberg",
    "page_checked": "2026-11-01",
    "official": ""
@@ -155,7 +155,7 @@
    "posted": "2026-10-21",
    "deadline": "2026-12-01",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Technical University of Darmstadt, Germany. The Cryptography and Privacy Engineering Group (ENCRYPTO) @CS Department @TU Darmstadt offers a full position for a Postdoctoral Researcher, available immediately and for 2 years.Our mission is to demonstrate that privacy can be…",
    "page_checked": "2026-11-10",
    "official": "https://encrypto.de/POSTDOC"
@@ -193,7 +193,7 @@
    "posted": "2026-11-23",
    "deadline": "2026-12-05",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "IT University of Copenhagen. We are hiring a 2-year postdoc at the IT University of Copenhagen. We are looking for a researcher to work on our new project on Efficient Internet Voting with Strong Coercion-Resistance. The position focuses on designing and analysing cryptographic…",
    "official": "https://candidate.hr-manager.net/ApplicationInit.aspx?cid=119&ProjectId=181923&DepartmentId=3439&MediaId=5"
   },
@@ -211,7 +211,7 @@
    "posted": "2026-11-23",
    "deadline": "2026-12-07",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Research Fellow – Pacific Cybersecurity Shape the future of digital resilience across the Pacific. Monash University's Faculty of Information Technology is seeking a driven, collaborative Research Fellow (Level B) to support the delivery of a high-impact research stream in…",
    "page_checked": "2026-11-24",
    "official": ""
@@ -230,9 +230,27 @@
    "posted": "2026-09-29",
    "deadline": "2026-12-15",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "National University of Singapore (NUS), School of Computing; Singapore. The ChocoLab at the National University of Singapore (NUS) is recruiting PhD students for the August 2027 intake. We study the security and correctness of the lower levels of computing. We find…",
    "official": "https://chocoresearch.com/openings/"
+  },
+  {
+   "id": "a2ca3b4f8c57",
+   "title": "International PhD Opportunities in Security and Privacy",
+   "url": "https://www.daad.de/en/studying-in-germany/phd-studies-research/phd-germany/detail/max-planck-institute-for-security-and-privacy-international-phd-opportunities-in-security-and-privacy-10526/?phd-id=10526",
+   "source": "DAAD PhDGermany",
+   "level": "phd",
+   "fields": [
+    "privacy"
+   ],
+   "region": "europe",
+   "country": "DE",
+   "posted": "2026-11-26",
+   "deadline": "2026-12-15",
+   "rolling": false,
+   "seen": "2026-11-26",
+   "excerpt": "International Max Planck Research School (IMPRS) for Privacy-Enhancing Technologies for the Digital Society Max Planck Institute for Security and Privacy (MPI-SP) & Ruhr University Bochum (RUB), Germany Shape the Future of Digital Security and Privacy The International Max…",
+   "official": "https://www.daad.de/en/studying-in-germany/phd-studies-research/phd-germany/detail/max-planck-institute-for-security-and-privacy-international-phd-opportunities-in-security-and-privacy-10526/?phd-id=10526"
   },
   {
    "id": "afeea0369267",
@@ -249,7 +267,7 @@
    "posted": "2026-10-30",
    "deadline": "2026-12-31",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "CWI (Centrum Wiskunde & Informatica), Computer Security group; Amsterdam, The Netherlands. CWI Amsterdam has an opening for a fully funded 4-year PhD position in the Computer Security group (headed by Prof. Marten van Dijk), supervised by Dr. Chenglu Jin. The position is part of…",
    "official": "https://www.cwi.nl/en/jobs/vacancies/1348025/"
   },
@@ -268,7 +286,7 @@
    "posted": "2026-10-30",
    "deadline": "2027-01-05",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Newcastle University, UK. PhD Studentship in Privacy-Preserving AI — Newcastle University, UK Applications are invited for a PhD project on “Privacy-Preserving AI for Assessing UK Data Centre Water Demand”, supervised by Dr Aydin Abadi at Newcastle University, with Dr Thomas…",
    "official": "https://iapetus.ac.uk/how-to-apply/"
   },
@@ -286,7 +304,7 @@
    "posted": "2026-11-23",
    "deadline": "2027-01-08",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Institute of Science and Technology Austria (ISTA). Fully Funded PhD Positions in Cryptography and Computer Science at ISTA, Austria The Institute of Science and Technology Austria (ISTA), an international research institute located just outside Vienna, invites applications for…",
    "official": "https://phd.pages.ista.ac.at/phd-application-admission/"
   },
@@ -305,7 +323,7 @@
    "posted": "2026-11-12",
    "deadline": "2027-01-10",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Postdoctoral Research Fellow in Privacy-Preserving Cryptography MathQuEST Postdoctoral Researcher on post-quantum cryptography This Postdoctoral position at Monash University is to undertake research on post-quantum cryptography as part of the ARC Centre of Excellence in…",
    "page_checked": "2026-11-12",
    "official": ""
@@ -324,7 +342,7 @@
    "posted": "2026-11-21",
    "deadline": "2027-01-15",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Deadline: January 15, 2027 Applications are open for the Clements-Archer National Security Policy Postdoctoral Fellowship 2027-2028. Through a partnership between the Clements Center for National Security and the Archer Center, The University of Texas System campus in…",
    "page_checked": "2026-11-22",
    "official": ""
@@ -343,7 +361,7 @@
    "posted": "2026-11-12",
    "deadline": "2027-02-15",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "University of Skövde Masters Degree Deadline: 15 Jan/15 Feb 2027 (annual) Study in: Sweden Course starts August 2027 Brief description: The University of Skövde Master’s Scholarships, funded by the Swedish Council for Higher Education, help citizens of countries outside the…",
    "page_checked": "2026-11-12",
    "official": ""
@@ -420,7 +438,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": true,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "The Canadian Institute for Cybersecurity (CIC) University of New Brunswick (UNB). Research Areas Post-quantum cryptography and quantum-safe migration Cryptographic protocol design, analysis, and implementation Public-key cryptography, digital signatures, and key establishment…",
    "page_checked": "2026-11-01",
    "official": ""
@@ -439,7 +457,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Hefei National Laboratory, Hefei, China. A full‑time postdoctoral fellowship in symmetric-key cryptography is available at Hefei National Laboratory, China. The research work will focus on the following topics: 1. Design and cryptanalysis of symmetric key primitives, covering…",
    "page_checked": "2026-11-01",
    "official": ""
@@ -458,7 +476,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Stevens Institute of Technology, Hoboken, New Jersey, USA. I’m recruiting PhD students to join my group at Stevens Institute of Technology in Hoboken, New Jersey, directly across the Hudson River from New York City. Full funding is available to support new students. My research…",
    "page_checked": "2026-11-01",
    "official": ""
@@ -477,7 +495,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "CEA-LIST, Paris-Saclay, France. We are looking for motivated Master's (M2) students with a strong background in mathematics, computer science, or cryptography for a internship on \"Homomorphic Authentication mechanisms for Encrypted Computation\". The topic will explore the…",
    "page_checked": "2026-11-01",
    "official": ""
@@ -496,7 +514,7 @@
    "posted": "2026-10-21",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "University of Warwick, Dept. of Computer Science; Coventry, UK. I (https://varun-maram.github.io/) am recruiting PhD students to work with me on post-quantum cryptography and related areas at the University of Warwick, with an expected start in October 2027. The research topics…",
    "page_checked": "2026-11-01",
    "official": ""
@@ -517,7 +535,7 @@
    "posted": "2026-10-28",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "$60,000 - $80,000 per annum: Old Dominion University: Conduct cutting-edge research on AI security and privacy-preserving systems, publish in top venues, and mentor students. Old Dominion University, Norfolk, Virginia",
    "page_checked": "2026-11-01",
    "official": "https://hera.odurf.odu.edu/careers/"
@@ -536,7 +554,7 @@
    "posted": "2026-11-02",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Competitive Salary: Mohamed bin Zayed University of Artificial Intelligence: Description The Computing and Mathematical Sciences Division at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) invites Abu Dhabi, United Arab Emirates",
    "page_checked": "2026-11-12",
    "official": ""
@@ -555,7 +573,7 @@
    "posted": "2026-11-04",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Arbetsuppgifter I takt med att kraftsystemen blir alltmer digitaliserade och i högre grad förlitar sig på synkroniserade mätningar blir skyddet av övervakningsdata och kommunikation avgörande för en tillförlitlig nätdrift. Forskningen kommer att fokusera på hot som…",
    "page_checked": "2026-11-09",
    "official": "https://kth.varbi.com/en/what:job/jobID:987716/"
@@ -575,7 +593,7 @@
    "posted": "2026-11-06",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "New Jersey Institute of Technology, Newark, New Jersey, USA. I am recruiting motivated Ph.D. students to join my new research group in the Department of Computer Science at NJIT, located in Newark, New Jersey. My research focuses on applied cryptography, particularly the design…",
    "page_checked": "2026-11-07",
    "official": ""
@@ -594,7 +612,7 @@
    "posted": "2026-11-06",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Postdoc in Cyber-Physical Security for Smart Grids As power systems become more digitalised and rely increasingly on synchronised measurements, protecting monitoring data and communications is essential for reliable grid operation. The research will focus on threats such as…",
    "page_checked": "2026-11-07",
    "official": ""
@@ -614,7 +632,7 @@
    "posted": "2026-11-06",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Researcher In Privacy-Preserving Ai The AICell Lab in the department of Applied Physics at KTH and Science for Life Laboratory is a new research group funded by the Data-driven Life Science Fellows program. The group, led by Wei Ouyang, focuses on building AI systems for…",
    "page_checked": "2026-11-08",
    "official": ""
@@ -639,28 +657,9 @@
    "official": ""
   },
   {
-   "id": "e9b85d22549e",
-   "title": "MOHAMMED VI POLYTECHNIC UNIVERSITY: COLCOM - Postdoctoral Positions in IA for Cybersecurity and Quantum Cryptography",
-   "url": "https://careers.insidehighered.com/job/3573070/colcom-postdoctoral-positions-in-ia-for-cybersecurity-and-quantum-cryptography/?TrackID=11&utm_source=rss&utm_medium=feed&utm_campaign=general",
-   "source": "Inside Higher Ed Careers",
-   "level": "postdoc",
-   "fields": [
-    "crypto"
-   ],
-   "region": "africa",
-   "country": "MA",
-   "posted": "2026-11-11",
-   "deadline": "",
-   "rolling": false,
-   "seen": "2026-11-25",
-   "excerpt": "The net salary per month is 2000 USD: MOHAMMED VI POLYTECHNIC UNIVERSITY: The Mohammed VI Polytechnic University (UM6P) invites applications for a postdoctoral fellow position in plant stress biology ... Benguerir, Morocco (MA)",
-   "page_checked": "2026-11-12",
-   "official": ""
-  },
-  {
-   "id": "61b2a970fe4d",
+   "id": "2270aa4ac23c",
    "title": "Research Fellow (Quantum Hacking and Practical Quantum Security Evaluation)",
-   "url": "https://jobrxiv.org/job/research-fellow-quantum-hacking-and-practical-quantum-security-evaluation-2/",
+   "url": "https://jobrxiv.org/job/research-fellow-quantum-hacking-and-practical-quantum-security-evaluation/",
    "source": "jobRxiv",
    "level": "postdoc",
    "fields": [
@@ -671,9 +670,9 @@
    "posted": "2026-11-11",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Research Fellow – Quantum Hacking and Practical Quantum Security Evaluation (Fraunhofer@NTU) The Fraunhofer Singapore Research Centre FSR@NTU is an independent research centre established at Nanyang Technological University (NTU). It forms part of the Fraunhofer-Gesellschaft…",
-   "page_checked": "2026-11-25",
+   "page_checked": "2026-11-26",
    "official": ""
   },
   {
@@ -690,7 +689,7 @@
    "posted": "2026-11-12",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Competitive Salary: Virginia Tech: Job Description With a presence in both Blacksburg and Washington D.C. metro areas, the Virginia Tech National Security Institute (VNTSI) serves Arlington, Virginia, United States",
    "page_checked": "2026-11-14",
    "official": ""
@@ -709,7 +708,7 @@
    "posted": "2026-11-17",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Salary Not specified: University of Rhode Island: Postdoctoral Fellow (Interdisciplinary / Cyber Security) Posting Number: SF02158 Position Type: Professional Staff Union: Non-Union Rhode Island, United States",
    "page_checked": "2026-11-18",
    "official": ""
@@ -728,7 +727,7 @@
    "posted": "2026-11-18",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Research Fellow Position Young and research-intensive, Nanyang Technological University, Singapore (NTU Singapore) is ranked among the world's top universities. NTU's College of Computing and Data Science (CCDS) is a leading college that is known for its excellent curriculum…",
    "page_checked": "2026-11-19",
    "official": ""
@@ -748,7 +747,7 @@
    "posted": "2026-11-23",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "King's College London, Department of Informatics; London, UK. We invite applications for a PhD studentship in the Department of Informatics at King's College London. The position focuses on cryptography in the real world, with possible research directions including…",
    "page_checked": "2026-11-24",
    "official": ""
@@ -767,7 +766,7 @@
    "posted": "2026-11-23",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "The University of Sheffield. Postdoctoral Research Associate / Research Associate / Hardware Engineer in Hardware Security Institution: The University of Sheffield Duration: 28 Months (Fixed-Term) Start Date: 1st December About the Role We are inviting applications for a…",
    "page_checked": "2026-11-24",
    "official": ""
@@ -786,7 +785,7 @@
    "posted": "2026-11-23",
    "deadline": "",
    "rolling": true,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Free University Brussels (ULB). The ULB Crypto Group is recruiting a postdoctoral researcher to work on the cryptanalysis of post-quantum cryptography protocols. The ideal candidate will have expertise on the classical and quantum cryptanalysis of multivariate and/or code-based…",
    "page_checked": "2026-11-24",
    "official": ""
@@ -806,9 +805,28 @@
    "posted": "2026-11-24",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "MOHAMMED VI POLYTECHNIC UNIVERSITY: UM6P college of Computing is looking for motivated and talented a Postdoctoral researcher in the area of Blockchain and IoT Security. Benguerir, Morocco (MA)",
    "page_checked": "2026-11-24",
+   "official": ""
+  },
+  {
+   "id": "1e9541def656",
+   "title": "MOHAMMED VI POLYTECHNIC UNIVERSITY: COLCOM - Postdoctoral Positions in IA for Cybersecurity and Quantum Cryptography",
+   "url": "https://careers.insidehighered.com/job/3580186/colcom-postdoctoral-positions-in-ia-for-cybersecurity-and-quantum-cryptography/?TrackID=11&utm_source=rss&utm_medium=feed&utm_campaign=general",
+   "source": "Inside Higher Ed Careers",
+   "level": "postdoc",
+   "fields": [
+    "crypto"
+   ],
+   "region": "africa",
+   "country": "MA",
+   "posted": "2026-11-26",
+   "deadline": "",
+   "rolling": false,
+   "seen": "2026-11-26",
+   "excerpt": "The net salary per month is 2000 USD: MOHAMMED VI POLYTECHNIC UNIVERSITY: The Mohammed VI Polytechnic University (UM6P) invites applications for a postdoctoral fellow position in plant stress biology ... Benguerir, Morocco (MA)",
+   "page_checked": "2026-11-26",
    "official": ""
   },
   {
@@ -822,10 +840,10 @@
    ],
    "region": "usa",
    "country": "US",
-   "posted": "2026-11-25",
+   "posted": "2026-11-26",
    "deadline": "",
    "rolling": true,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Houston, Texas, Department : INFO SCI TECHNOLOGY Salary : Commensurate with Experience/Education Description : Possesses, understands, and applies a comprehensive knowledge in area of specialization. Develops understanding and skills to allow for completion of assignments that…",
    "page_checked": "2026-11-01",
    "official": ""
@@ -841,10 +859,10 @@
    ],
    "region": "usa",
    "country": "US",
-   "posted": "2026-11-25",
+   "posted": "2026-11-26",
    "deadline": "",
    "rolling": false,
-   "seen": "2026-11-25",
+   "seen": "2026-11-26",
    "excerpt": "Albany, New York, Location: Albany, NY Category: Faculty Job Type: Full-time Posted On: Tue Oct 6 2026 Job Description: About CEHC : The mission of the College of Emergency Preparedness, Homeland Security, and Cybersecurity (CEHC) is to bring together people, technology and…",
    "page_checked": "2026-11-01",
    "official": ""
@@ -852,327 +870,327 @@
  ],
  "programs": {
   "sfs": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "cispa-phd": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "mpi-sp": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "cyberus": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "ncsc-ace": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "isc2-scholarships": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "wicys": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "google-phd": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "msr-phd": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "nvidia-fellowship": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "apple-aiml": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "ellis-phd": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "ercim": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "msca-dn": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "mbzuai": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "kaust": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "chevening": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "commonwealth": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "gates-cambridge": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "rhodes": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "daad": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "erasmus-mundus": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "swiss-excellence": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "eth-esop": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "eiffel": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "si-scholarship": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "stipendium-hungaricum": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "fulbright": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "nsf-grfp": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "knight-hennessy": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "csc": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "hkpfs": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "mext": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "gks": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "singa": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "hec": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "turkiye": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "australia-awards": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-hec": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-hec-portal": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-daad-pk": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-usefp": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-peef": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-euraxess": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-msca": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-daad-db": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": false,
-   "fails": 14
+   "fails": 15
   },
   "dir-jobsacuk": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-findaphd": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-findamasters": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-academictransfer": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-academicpositions": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-universitypositions": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-scholarshipportal": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-research-germany": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-studyinnl": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-studyinfinland": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-studyinsweden": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-campusfrance": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-canada": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-manaaki": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-studyinjapan": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-studyinkorea": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-campuschina": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-worldbank": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   },
   "dir-iacr": {
-   "checked": "2026-11-25",
+   "checked": "2026-11-26",
    "ok": true,
    "fails": 0
   }
