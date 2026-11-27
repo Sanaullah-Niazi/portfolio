@@ -10208,3 +10208,1567 @@
   check_again: false
   status: published
   added: '2026-11-25'
+- id: gen-771
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "Introduce yourself."
+  answer: ""
+  personal: true
+  tips: "Give your name, district, qualification and one line on your IT or teaching experience. Keep it under a minute and end with why you want to teach IT."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-772
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "Tell us about your family background."
+  answer: ""
+  personal: true
+  tips: "Two or three calm sentences: who is in your family and what they do, and how they supported your education. Do not give private details you are not comfortable sharing."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-773
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "In which year did the first revelation (wahi) come down?"
+  answer: "In 610 CE, in the month of Ramadan, in the cave of Hira near Makkah, when the Prophet ﷺ was 40 years old. The first ayaat were the opening verses of Surah Al-Alaq: \"Read in the name of your Lord who created\"."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://quran.com/96/1-5"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-774
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "After the first revelation, where did Hazrat Khadija (RA) take the Prophet ﷺ?"
+  answer: "She took him to her cousin Waraqa bin Nawfal, an elderly Christian scholar who knew the earlier scriptures. Waraqa said this was the same angel (Namus) that had come to Hazrat Musa (AS). The story is in Sahih al-Bukhari, hadith 3."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://sunnah.com/bukhari:3"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-775
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "When was the Battle of Badr fought?"
+  answer: "On 17 Ramadan, 2 AH (March 624 CE), near the wells of Badr, south-west of Madinah. 313 Muslims defeated a Makkan army of about 1,000. The Quran calls it Yawm al-Furqan, the day of criterion."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://en.wikipedia.org/wiki/Battle_of_Badr", "https://quran.com/8/41"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-776
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "Give an example of the brotherhood (Muakhat) made in Madinah by the Prophet ﷺ."
+  answer: "After the Hijrah, the Prophet ﷺ made each Muhajir (emigrant from Makkah) a brother of an Ansari (helper from Madinah). A famous pair is Hazrat Abdur Rahman bin Auf (RA) and Hazrat Saad bin Rabi (RA). Saad offered to share half his wealth, but Abdur Rahman thanked him and asked only to be shown the market."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://sunnah.com/bukhari:2048"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-777
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "What are Pakistan's biggest problems?"
+  answer: ""
+  personal: true
+  tips: "Name three or four problems in neutral terms, for example low literacy and out-of-school children, unemployment, population growth, energy shortages and climate change. Add one practical solution for each, and link at least one to education or IT."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-778
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "Which is the biggest country by population?"
+  answer: "India. It passed China in 2023 according to UN estimates, and both have over 1.4 billion people. By area, the biggest country is Russia."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population"]
+  verified_on: '2026-11-27'
+  check_again: true
+  status: published
+  added: '2026-11-27'
+- id: gen-779
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "Who recently went to space from Pakistan?"
+  answer: "Muhammad Zeeshan Ali, Pakistan's first astronaut. He flew to China's Tiangong space station on the Shenzhou-24 mission in November 2026 as a payload specialist. He was nominated through SUPARCO, Pakistan's space agency."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://en.wikipedia.org/wiki/Shenzhou_24", "https://www.aljazeera.com/news/2026/11/25/pakistan-rejoices-as-countrys-first-astronaut-enters-orbit"]
+  verified_on: '2026-11-27'
+  check_again: true
+  status: published
+  added: '2026-11-27'
+- id: gen-780
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "How old are the Earth and its water?"
+  answer: "The Earth is about 4.54 billion years old. Scientists think much of Earth's water is about as old as the planet, and part of it may be even older than the Sun, coming from the cloud of gas and ice that formed the solar system."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://en.wikipedia.org/wiki/Age_of_Earth", "https://en.wikipedia.org/wiki/Origin_of_water_on_Earth"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-781
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "What is the old name of Japan?"
+  answer: "In old Chinese records Japan was called \"Wa\", and in early Japanese history the country was called \"Yamato\". Today Japanese people call their country Nihon or Nippon, meaning \"origin of the sun\", which is why it is called the Land of the Rising Sun."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://en.wikipedia.org/wiki/Names_of_Japan"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-782
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "What was the old name of Ceylon, and what is it called now?"
+  answer: "Ceylon is itself the old name. The country was called Ceylon under British rule and was renamed Sri Lanka in 1972. Its capital is Sri Jayawardenepura Kotte, and Colombo is the largest city."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://en.wikipedia.org/wiki/Sri_Lanka"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-783
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "Explain the main components of a computer in detail."
+  answer: "A computer has input devices (keyboard, mouse) to take data, the CPU to process it (its ALU does calculations and its control unit directs the work), memory (RAM for running programs, ROM for start-up instructions), storage (hard disk, SSD) to keep data permanently, and output devices (monitor, printer) to show results. The motherboard connects them all and the power supply runs them."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://en.wikipedia.org/wiki/Computer_hardware"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-784
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "What is hardware? Explain in detail."
+  answer: "Hardware is every physical part of a computer that you can touch. It includes input devices, the CPU, memory, storage, output devices, the motherboard, the power supply and network cards. Hardware does the work, but it needs software to tell it what to do."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://en.wikipedia.org/wiki/Computer_hardware"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-785
+  bank: general
+  category: "G88 · Real interview questions: Naseerabad zone (Jhal Magsi), 26 Nov 2026"
+  question: "How is software made?"
+  answer: "Software is made through the software development life cycle: gather the requirements, design the system, write the code in a programming language, test it to find and fix bugs, deploy it to users, and then maintain and update it. Teams often work in short cycles (Agile) so users can give feedback early."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Naseerabad
+  sources: ["https://en.wikipedia.org/wiki/Software_development_process"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-786
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "Introduce yourself, and tell us about your siblings and parents."
+  answer: ""
+  personal: true
+  tips: "Start with your name, district and qualification, then one or two sentences about your family. Keep it short and positive, and bring the answer back to why you want to teach."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-787
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What are the Aqaid (basic beliefs) of Islam?"
+  answer: "The basic beliefs are Tauheed (oneness of Allah), Risalat (prophethood, ending with Hazrat Muhammad ﷺ) and Akhirat (life after death). In detail, a Muslim believes in Allah, His angels, His books, His messengers, the Last Day, Taqdeer, and life after death, as in Iman-e-Mufassal."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://quran.com/4/136", "https://sunnah.com/muslim:8a"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-788
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What are the Arkan (pillars) of Islam?"
+  answer: "Five: Shahadah (declaring faith), Salah (five daily prayers), Zakat (giving 2.5 percent of saved wealth), Sawm (fasting in Ramadan) and Hajj (pilgrimage to Makkah once in life for those who can afford it). They are listed in the hadith \"Islam is built on five\"."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://sunnah.com/bukhari:8"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-789
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "When were fasts made obligatory, and in which month are they kept?"
+  answer: "Fasting was made fard in 2 AH, after the Hijrah to Madinah. Fasts are kept in Ramadan, the ninth month of the Islamic calendar, the month in which the Quran was revealed (Al-Baqarah 2:183-185)."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://quran.com/2/183-185"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-790
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What is Hajj?"
+  answer: "Hajj is the pilgrimage to Makkah in the month of Dhul Hijjah (8 to 13). It is the fifth pillar of Islam and is fard once in a lifetime on every adult Muslim who is healthy and can afford it (Aal-e-Imran 3:97)."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://quran.com/3/97", "https://en.wikipedia.org/wiki/Hajj"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-791
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What are the fard acts of Hajj?"
+  answer: "In Hanafi fiqh there are three: wearing Ihram with the intention of Hajj, staying at Arafat (Wuquf-e-Arafat) on 9 Dhul Hijjah, and Tawaf-e-Ziyarat. Missing any of them makes the Hajj invalid. Other acts such as stoning and Sa'i are wajib."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Hajj"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-792
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "Why do we fast?"
+  answer: "Because Allah commanded it, so that we may gain taqwa (God-consciousness), as Al-Baqarah 2:183 says. Fasting teaches self-control and patience and makes us feel the hunger of the poor."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://quran.com/2/183"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-793
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What are the benefits of fasting?"
+  answer: "Spiritually it builds taqwa, patience and gratitude, and earns forgiveness of past sins (Bukhari 38). Socially it creates sympathy for the poor and unity among Muslims. For health, it gives the digestive system rest and builds discipline in eating."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://sunnah.com/bukhari:38", "https://quran.com/2/183"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-794
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What are the faraiz of Namaz?"
+  answer: "Commonly taught as 13. Seven conditions before prayer (shara'it): purity of body, clothes and place, covering the satr, facing the Qiblah, the right time, and intention (niyyah). Six inside prayer (arkan): Takbir-e-Tahrima, Qiyam, Qirat, Ruku, Sajdah, and the final sitting (Qada-e-Akhira)."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Salah"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-795
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What are the faraiz of Wudu?"
+  answer: "Four, from Al-Ma'idah 5:6: wash the whole face once, wash both arms including the elbows, wipe (masah) a quarter of the head, and wash both feet including the ankles."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://quran.com/5/6"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-796
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What do you know about the Constitution of Pakistan?"
+  answer: "The current constitution was passed by the National Assembly on 10 April 1973 and came into force on 14 August 1973, under Prime Minister Zulfikar Ali Bhutto. It is Pakistan's third constitution, after 1956 and 1962. It makes Pakistan an Islamic federal parliamentary republic with a bicameral parliament (Senate and National Assembly)."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Constitution_of_Pakistan"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-797
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What is open source software?"
+  answer: "Software whose source code is published so anyone can read, use, change and share it under a licence. Examples are Linux, Firefox, LibreOffice and Python. It is usually free, and schools can use it without licence costs."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://opensource.org/osd", "https://en.wikipedia.org/wiki/Open-source_software"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-798
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What is software?"
+  answer: "Software is a set of programs and instructions that tells the hardware what to do. It has two main types: system software (like Windows or Linux), which runs the computer, and application software (like MS Word or a browser), which does tasks for the user."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Software"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-799
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What is hardware?"
+  answer: "Hardware is all the physical parts of a computer that you can touch, such as the keyboard, mouse, CPU, RAM, hard disk, monitor and printer."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Computer_hardware"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-800
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What are input and output devices?"
+  answer: "Input devices send data into the computer, for example a keyboard, mouse, scanner, microphone and webcam. Output devices show or give results, for example a monitor, printer, speakers and projector. Some, like a touchscreen, do both."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Input/output"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-801
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What is cloud computing?"
+  answer: "Using computing services such as storage, software and servers over the internet instead of on your own computer. Examples are Google Drive, Gmail and Microsoft 365. You pay for or use only what you need and can reach your files from anywhere."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Cloud_computing"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-802
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What is artificial intelligence?"
+  answer: "Artificial intelligence is the ability of computers to do tasks that normally need human intelligence, such as understanding language, recognising images, making decisions and learning from data. Examples are chatbots, voice assistants and face recognition."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Artificial_intelligence"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-803
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What is the difference between system software and application software?"
+  answer: "System software runs and manages the computer itself, for example the operating system (Windows, Linux) and device drivers. Application software is used by people to do a task, for example MS Word, Excel or a web browser. Applications run on top of system software."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/System_software", "https://en.wikipedia.org/wiki/Application_software"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-804
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 26 Nov 2026"
+  question: "What is cyber security?"
+  answer: "Cyber security is protecting computers, networks and data from attacks, theft and damage. It uses strong passwords, updates, antivirus, firewalls, backups and user awareness against threats such as malware, phishing and hacking."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Computer_security"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-805
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Introduce yourself, and tell us about your family, siblings and father."
+  answer: ""
+  personal: true
+  tips: "Keep the introduction under a minute: name, district, degree and university, and why you want to teach IT. For family, give one or two plain sentences. If asked about your caste or tribe, answer simply and politely."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-806
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Your university is in Islamabad. When did Islamabad become the capital, and how is your university's name related to the first ayah of the Quran?"
+  answer: ""
+  personal: true
+  tips: "Know the history of the city where you studied. For the second part, think about whether your university's name has a link to knowledge or reading, the theme of the first revealed word \"Iqra\" (Read)."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-807
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "When did Islamabad become Pakistan's capital?"
+  answer: "In 1959 the government decided to build a new capital near Rawalpindi, which served as the temporary capital meanwhile. Construction started in the early 1960s to a master plan by the Greek planner Constantinos Doxiadis, and Islamabad formally became the capital in 1967. Before that, Karachi was the capital."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Islamabad"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-808
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What does the Battle of Badr teach us about education?"
+  answer: "After Badr, some Makkan prisoners who could read and write were told they could win their freedom by teaching ten Muslim children of Madinah to read and write. It shows how much the Prophet ﷺ valued literacy, even above ransom money."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Battle_of_Badr"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-809
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Who was Sain Kamal Khan Sherani?"
+  answer: "A Pashtun intellectual and political leader from the Sherani area of the Zhob region in Balochistan. He was born in 1924 and died in 2010, and was a founding member of the Pakhtunkhwa Milli Awami Party."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Sain_Kamal_Khan_Sherani"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-810
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What was the Allahabad Address (Khutba-e-Allahabad)?"
+  answer: "Allama Muhammad Iqbal's presidential address at the All-India Muslim League session in Allahabad on 29 December 1930. He proposed a separate Muslim state in north-west India (Punjab, NWFP, Sindh and Balochistan), an idea that later led to Pakistan."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Allahabad_Address"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-811
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What was the Objectives Resolution (Qarardad-e-Maqasid)?"
+  answer: "A resolution moved by Prime Minister Liaquat Ali Khan and passed by the Constituent Assembly on 12 March 1949. It declared that sovereignty belongs to Allah and that Pakistan's constitution would follow the principles of democracy, freedom, equality and social justice as taught by Islam. Since 1985 it is a working part of the Constitution (Article 2A)."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Objectives_Resolution"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-812
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is the difference between the internet and the World Wide Web (WWW)?"
+  answer: "The internet is the worldwide network of connected computers and cables, the infrastructure. The WWW is one service that runs on the internet: a collection of web pages linked by hyperlinks and opened in a browser through HTTP. Email and video calls also use the internet but are not the Web. Tim Berners-Lee invented the Web in 1989."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/World_Wide_Web", "https://en.wikipedia.org/wiki/Internet"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-813
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is scrolling?"
+  answer: "Moving the content on a screen up, down or sideways to see the parts that do not fit, using the mouse wheel, scroll bar, arrow keys or a finger swipe on a touchscreen."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Scrolling"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-814
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is the difference between a browser and a search engine?"
+  answer: "A browser is software on your device that opens web pages, for example Chrome, Firefox or Edge. A search engine is a website that finds pages for you, for example Google or Bing. You use a browser to open a search engine."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Web_browser", "https://en.wikipedia.org/wiki/Search_engine"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-815
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is a computer?"
+  answer: "A computer is an electronic machine that takes input, processes it according to instructions (programs), stores data, and gives output. It works fast and accurately. The word comes from \"compute\", to calculate. Be ready to defend your definition: the panel may challenge it."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Computer"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-816
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is the difference between HTTP and HTTPS?"
+  answer: "Both are protocols for moving web pages between a server and a browser. HTTPS is the secure version: it encrypts the data with TLS so others cannot read or change it, which is why banks and logins use it. HTTP uses port 80, HTTPS port 443, and browsers show a padlock for HTTPS."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://developer.mozilla.org/en-US/docs/Glossary/HTTPS"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-817
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Which is the hottest place in the world?"
+  answer: "Death Valley in California, USA, holds the record for the highest air temperature, 56.7 °C at Furnace Creek in 1913. In Pakistan, Jacobabad in Sindh and Sibi in Balochistan are among the hottest places."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Highest_temperature_recorded_on_Earth", "https://en.wikipedia.org/wiki/Jacobabad"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-818
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "When did the fall of Dhaka happen?"
+  answer: "On 16 December 1971, when Pakistan's forces surrendered in Dhaka at the end of the 1971 war, and East Pakistan became Bangladesh."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Fall_of_Dhaka"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-819
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "How many constitutions has Pakistan had?"
+  answer: "Three: 1956, 1962 and 1973. Before 1956 Pakistan was run under the Government of India Act 1935 as an interim constitution, so some books count four. The 1973 constitution is in force today."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Constitution_of_Pakistan"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-820
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is RAM? Is it hardware or software?"
+  answer: "RAM (Random Access Memory) is the computer's main working memory, where running programs and data are kept for fast access. It is hardware, a chip on the motherboard. It is volatile: its contents are lost when the power goes off."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Random-access_memory"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-821
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Which is the largest lake in the world?"
+  answer: "The Caspian Sea is the largest lake by area, though its water is salty. The largest freshwater lake by area is Lake Superior in North America, and the largest by volume and the deepest is Lake Baikal in Russia."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/List_of_lakes_by_area"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-822
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Name Pakistan's first astronaut and the department that sent him."
+  answer: "Muhammad Zeeshan Ali. He was nominated through SUPARCO (Space and Upper Atmosphere Research Commission), Pakistan's national space agency, and flew to China's Tiangong space station on Shenzhou-24 in November 2026."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Shenzhou_24", "https://www.aljazeera.com/news/2026/11/25/pakistan-rejoices-as-countrys-first-astronaut-enters-orbit"]
+  verified_on: '2026-11-27'
+  check_again: true
+  status: published
+  added: '2026-11-27'
+- id: gen-823
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Who was the first Chief Justice of Pakistan?"
+  answer: "Sir Abdul Rashid, who served from 1949 to 1954 as the first Chief Justice of the Federal Court of Pakistan."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Chief_Justice_of_Pakistan"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-824
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What were the Pledges of Aqabah (Bait-e-Aqabah)?"
+  answer: "Two pledges of allegiance given to the Prophet ﷺ by people of Yathrib (Madinah) at Aqabah near Mina. In the first, in 621 CE, 12 people pledged to worship only Allah and live morally. In the second, in 622 CE, about 73 men and 2 women pledged to protect him, which opened the way for the Hijrah."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Pledges_at_al-Aqabah"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-825
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is Aam-ul-Feel (the Year of the Elephant)?"
+  answer: "The year, about 570 CE, when Abraha, the ruler of Yemen, marched on Makkah with elephants to destroy the Kaaba. Allah destroyed his army with flocks of birds throwing stones, as told in Surah Al-Fil. The Prophet ﷺ was born in this year."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://quran.com/105", "https://en.wikipedia.org/wiki/Year_of_the_Elephant"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-826
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Who was paired in Muakhat (brotherhood)? Give names."
+  answer: "Each Muhajir was made the brother of an Ansari. Examples: Hazrat Abdur Rahman bin Auf (RA) with Hazrat Saad bin Rabi (RA), and Hazrat Salman Farsi (RA) with Hazrat Abu Darda (RA)."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://sunnah.com/bukhari:2048", "https://sunnah.com/bukhari:1968"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-827
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "When was the Battle of Uhud fought?"
+  answer: "In Shawwal 3 AH (March 625 CE), near Mount Uhud north of Madinah. The Muslims were winning until the archers left their post. Hazrat Hamza (RA) was martyred and the Prophet ﷺ was wounded."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Battle_of_Uhud"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-828
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Your degree is in marine sciences. Explain what \"marine\" and \"submarine\" mean."
+  answer: ""
+  personal: true
+  tips: "Questions often come from your own degree. Revise its basics: here \"marine\" means related to the sea, and a submarine is a vessel that can travel under water. Link your subject back to teaching IT."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-829
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Where do ships dock in Pakistan?"
+  answer: "At Pakistan's three main seaports: Karachi Port, Port Muhammad Bin Qasim (also in Karachi), and Gwadar Port in Balochistan."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Port_of_Karachi", "https://en.wikipedia.org/wiki/Gwadar_Port"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-830
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What do you know about Lasbela?"
+  answer: "Lasbela is a coastal district of Balochistan in Kalat division, with its headquarters at Uthal. Bela is its historic town. In 2022 Hub was separated from it as a new district. It is home to the Lasbela University of Agriculture, Water and Marine Sciences and to Hingol National Park nearby."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Lasbela_District"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-831
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is the area of Pakistan?"
+  answer: "About 796,096 square kilometres, not counting Azad Kashmir and Gilgit-Baltistan. Balochistan is the largest province by area, about 44 percent of the country."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Pakistan", "https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-832
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is the area of Punjab, and what percent of Pakistan is it?"
+  answer: "Punjab covers about 205,344 square kilometres, around 26 percent of Pakistan's area. It is the second-largest province by area and the largest by population."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Punjab,_Pakistan"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-833
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Where is Fort Munro, and what does \"fort\" mean?"
+  answer: "Fort Munro is a hill station in Dera Ghazi Khan district, Punjab, in the Sulaiman Mountains near the Balochistan border. It is named after Colonel Andrew Munro, a British officer. A \"fort\" is a strong building built for defence and to house soldiers."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Fort_Munro"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-834
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is the meaning of Hajj, and what are its faraiz?"
+  answer: "Hajj literally means \"to intend\" or set out for a place. In Islam it is the pilgrimage to the Kaaba in Dhul Hijjah. In Hanafi fiqh its three faraiz are Ihram, Wuquf-e-Arafat and Tawaf-e-Ziyarat."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://quran.com/3/97", "https://en.wikipedia.org/wiki/Hajj"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-835
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is science?"
+  answer: "Science is the organised study of the natural world through observation, experiment and evidence, to build knowledge that can be tested. The word comes from the Latin \"scientia\", meaning knowledge."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Science"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-836
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Why is the Kaaba called the Kaaba?"
+  answer: "\"Kaaba\" comes from the Arabic word for cube, because of its cube-like shape. It is also called Bait-ullah, the House of Allah, and was built by Hazrat Ibrahim (AS) and Hazrat Ismail (AS) (Al-Baqarah 2:127)."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Kaaba", "https://quran.com/2/127"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-837
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "Why do we perform Tawaf?"
+  answer: "Tawaf is walking seven times around the Kaaba, anti-clockwise, as an act of worship commanded by Allah (Al-Hajj 22:29), following the way of Hazrat Ibrahim (AS) and the Prophet ﷺ. It shows that a believer's life revolves around Allah."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://quran.com/22/29"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-838
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is Hajr-e-Aswad, and how did the Prophet ﷺ settle the dispute about it?"
+  answer: "Hajr-e-Aswad (the Black Stone) is set in the eastern corner of the Kaaba, where Tawaf begins. When the Quraysh rebuilt the Kaaba before prophethood, the tribes argued over who would place the stone. The Prophet ﷺ put it on a cloth, had a leader of each tribe lift a corner, then set it in place himself, ending the dispute peacefully."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Black_Stone"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-839
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What are MS Word, MS Excel and MS Access, and what is Microsoft?"
+  answer: "Microsoft is an American technology company founded in 1975 by Bill Gates and Paul Allen, known for Windows and Office. In Microsoft Office, Word is for typing documents, Excel is a spreadsheet for calculations and charts, and Access is a database program for storing and searching records."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Microsoft", "https://en.wikipedia.org/wiki/Microsoft_Office"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-840
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is phishing?"
+  answer: "A cyber attack where a fake email, SMS or website pretends to be a trusted source, like a bank, to trick people into giving passwords, card numbers or OTP codes. Check the sender and the link, and never share codes."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Phishing"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-841
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What is the difference between malware, a virus and ransomware?"
+  answer: "Malware is the general name for any harmful software. A virus is one type of malware that attaches to files and spreads when they are run. Ransomware is malware that locks or encrypts your files and demands payment to unlock them. Backups and updates are the best protection."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Malware", "https://en.wikipedia.org/wiki/Ransomware"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-842
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What was the Pakistan Resolution, and why was Minar-e-Pakistan built?"
+  answer: "The Lahore Resolution was passed on 23 March 1940 at the All-India Muslim League session in Minto Park (now Iqbal Park), Lahore. It demanded independent states for Muslims in the north-west and east of India. Minar-e-Pakistan was built on that spot between 1960 and 1968 to mark the resolution."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Lahore_Resolution", "https://en.wikipedia.org/wiki/Minar-e-Pakistan"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-843
+  bank: general
+  category: "G88 · Real interview questions: Zhob zone, 27 Nov 2026"
+  question: "What are rows, columns and a class?"
+  answer: "In a spreadsheet or database table, rows run across (horizontal) and hold one record each; columns run down (vertical) and hold one field, like Name. In Excel rows are numbered and columns lettered. In programming, a class is a blueprint that defines the data and functions of objects."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Zhob
+  sources: ["https://en.wikipedia.org/wiki/Table_(database)", "https://en.wikipedia.org/wiki/Class_(computer_programming)"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-844
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "What is a flipped classroom?"
+  answer: "A teaching model where students learn the new content at home, through short videos or readings, and class time is used for practice, discussion and problem solving with the teacher's help. It turns the usual \"lecture in class, homework at home\" around."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: ["https://en.wikipedia.org/wiki/Flipped_classroom"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-845
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "What are unemployment and IT literacy like in your district, and what opportunities can you give students as an IT teacher?"
+  answer: ""
+  personal: true
+  tips: "Find out the basic picture of your district before the interview. Then offer concrete ideas: computer basics for all, typing and office skills, safe internet use, and simple freelancing or coding clubs."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-846
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "How many model schools are there in your district, where are they, and up to which class do they teach?"
+  answer: ""
+  personal: true
+  tips: "Panels ask about schools in your own district. Check with your district education office before the interview and give the facts you are sure of."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-847
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "How can you develop the skills of 9th and 10th class students so they can create jobs for themselves?"
+  answer: "Teach practical skills along with the syllabus: typing, MS Office, internet research, basic graphic design, simple web pages and coding. Give small projects, show them freelancing platforms and online courses, and build habits of problem solving, teamwork and honest work so they can start earning after school."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: ["https://en.wikipedia.org/wiki/Digital_literacy"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-848
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "Should children play video games or learn to make them? How would you encourage students to become game developers?"
+  answer: ""
+  personal: true
+  tips: "Give a balanced view: limited play is fine, but making games builds logic and creativity. Mention easy tools like Scratch, then Python or a game engine, and small class projects."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-849
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "What important IT news or developments happened today?"
+  answer: ""
+  personal: true
+  tips: "Panels ask about the news of the interview day. Read a newspaper or the news section on this site each morning and remember two or three IT or science headlines."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-850
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "What are the major fields of IT, and what careers do they offer?"
+  answer: "Main fields are software development, web and mobile apps, networking, cyber security, databases and data science, artificial intelligence, cloud computing, graphic design and digital marketing. Careers include developer, network administrator, security analyst, data analyst, IT teacher and freelancer."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: ["https://en.wikipedia.org/wiki/Information_technology"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-851
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "How would you use IT tools, like simulations, to help students solve math problems?"
+  answer: "Use tools like GeoGebra to draw graphs and shapes, Excel to solve and chart equations, and PhET simulations to let students change values and see results. Seeing the math move makes abstract ideas clear, and students can check their own answers."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: ["https://www.geogebra.org", "https://phet.colorado.edu"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-852
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "Where is the Sulaiman Range?"
+  answer: "The Sulaiman Mountains run north to south along the border between Balochistan, Khyber Pakhtunkhwa and Punjab, west of the Indus. Its highest peak is Takht-e-Sulaiman (about 3,487 m). Fort Munro is on its Punjab side, and Balochistan districts such as Zhob, Sherani, Musakhel and Barkhan lie on its western side."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: ["https://en.wikipedia.org/wiki/Sulaiman_Mountains"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-853
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "Where is the Kirthar Range?"
+  answer: "The Kirthar Mountains run north to south along the border of Sindh and Balochistan, west of the Indus. Kirthar National Park lies on the Sindh side."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: ["https://en.wikipedia.org/wiki/Kirthar_Mountains"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-854
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "What is a tsunami, and how does it happen?"
+  answer: "A tsunami is a series of huge sea waves caused when a large amount of water is suddenly pushed, usually by an undersea earthquake, but also by volcanic eruptions or landslides. In deep water the waves are fast but low; near the shore they rise very high. Pakistan's Makran coast was hit by a tsunami in 1945."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: ["https://en.wikipedia.org/wiki/Tsunami", "https://en.wikipedia.org/wiki/1945_Balochistan_earthquake"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-855
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "What are the major ongoing mega projects in your district, and why is its main dam important?"
+  answer: ""
+  personal: true
+  tips: "Prepare the main development projects of your district, such as roads, dams, schools and power, and why each matters for water, farming or jobs. Give only facts you have checked."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-856
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "What are the major deserts of Balochistan?"
+  answer: "The Kharan Desert in Kharan district, known for its moving sand dunes, and the desert areas of Chagai district in the north-west near the Afghanistan and Iran borders. Pakistan's 1998 nuclear tests were in the Ras Koh hills of Chagai."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: ["https://en.wikipedia.org/wiki/Kharan_Desert", "https://en.wikipedia.org/wiki/Chagai_District"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-857
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "What recent developments have taken place in schools in your district?"
+  answer: ""
+  personal: true
+  tips: "Talk about what you know first-hand: new buildings, IT labs, solar power, teacher hiring or enrolment drives. Be positive and honest, and say what more you would like to see."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-858
+  bank: general
+  category: "G88 · Real interview questions: Rakhshan zone (Kharan), 26 Nov 2026"
+  question: "What is your opinion about online classes, and how would you run them well?"
+  answer: ""
+  personal: true
+  tips: "Give both sides: they reach students far away but need internet and devices. Then give a plan: short live sessions, recorded lessons, WhatsApp groups for low internet, regular quizzes and contact with parents."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Rakhshan
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-859
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "What have you done from 2022 until now?"
+  answer: ""
+  personal: true
+  tips: "Explain any gap since your degree honestly and positively: jobs, teaching, courses, freelancing or exam preparation. Show that you kept learning."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-860
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "Tell us about your district."
+  answer: ""
+  personal: true
+  tips: "Know its location, headquarters, population, main towns, languages, economy, famous places and education situation. Add one or two problems and how education can help."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-861
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "What is the Indian Ocean?"
+  answer: "The Indian Ocean is the third-largest ocean in the world, after the Pacific and Atlantic. It lies between Africa, Asia and Australia. The Arabian Sea and the Bay of Bengal are parts of it."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Indian_Ocean"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-862
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "What is the Arabian Sea?"
+  answer: "The Arabian Sea is the north-western part of the Indian Ocean, between the Arabian Peninsula and India. Pakistan's coast, including Karachi, Gwadar and the Makran coast of Balochistan, lies on it. It is a sea, not a separate ocean."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Arabian_Sea"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-863
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "What does the name Wikipedia mean?"
+  answer: "\"Wiki\" is a Hawaiian word for \"quick\", and \"pedia\" comes from encyclopedia. So Wikipedia means a quick encyclopedia that anyone can edit. The Urdu Wikipedia calls itself an \"azad daira-tul-maarif\", a free encyclopedia."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Wikipedia", "https://ur.wikipedia.org"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-864
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "Which districts lie on the Balochistan and Punjab sides of the Koh-e-Sulaiman?"
+  answer: "On the Balochistan side are districts like Zhob, Sherani, Musakhel, Barkhan and Loralai. On the Punjab side are Dera Ghazi Khan, with the Fort Munro hill station, and Rajanpur. The range also reaches Khyber Pakhtunkhwa in the north near Dera Ismail Khan."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Sulaiman_Mountains"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-865
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "What is IT pedagogy?"
+  answer: "IT pedagogy is the method and practice of teaching IT: how to plan lessons, explain concepts, give hands-on practice in the lab, use projects and real examples, and assess students' skills. It also means using technology itself to improve teaching in any subject."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Pedagogy"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-866
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "If you were made Education Minister, what would you do for your district?"
+  answer: ""
+  personal: true
+  tips: "Give three or four practical points: open closed schools, hire and train teachers, add IT labs with solar power, bring girls into school and improve attendance. Stay positive and non-political."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-867
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "What is the role of IT in agriculture?"
+  answer: "IT helps farmers with weather forecasts, market prices on mobile phones, soil and crop advice apps, drones and sensors for precision farming, online sale of produce, and digital records for loans and subsidies. It raises yields and cuts waste."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Precision_agriculture"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-868
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "What have you used IT for so far?"
+  answer: ""
+  personal: true
+  tips: "Give real examples from your own life: projects, office work, teaching, freelancing or helping others. Mention the tools you used and what result you got."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-869
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "Give an education profile of Pakistan."
+  answer: "Under Article 25-A, education is free and compulsory for children aged 5 to 16. Pakistan still has one of the largest numbers of out-of-school children in the world, about 25 million by many reports. The Economic Survey 2025-26 put the out-of-school rate at 28 percent in 2025. Education is mainly a provincial subject after the 18th Amendment."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://propakistani.pk/2026/06/11/population-of-out-of-school-children-in-pakistan-dropped-to-28-in-2025/", "https://en.wikipedia.org/wiki/Education_in_Pakistan"]
+  verified_on: '2026-11-27'
+  check_again: true
+  status: published
+  added: '2026-11-27'
+- id: gen-870
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "Give an education profile of Balochistan."
+  answer: "Balochistan has the lowest literacy and the highest share of out-of-school children of any province, because of its huge area, scattered population, poverty and a shortage of schools, teachers and female teachers. According to the Economic Survey 2025-26 its out-of-school rate fell from 69 to 45 percent, the biggest fall of any province. Many schools are single-teacher or lack buildings and electricity."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://propakistani.pk/2026/06/11/population-of-out-of-school-children-in-pakistan-dropped-to-28-in-2025/", "https://en.wikipedia.org/wiki/Balochistan,_Pakistan"]
+  verified_on: '2026-11-27'
+  check_again: true
+  status: published
+  added: '2026-11-27'
+- id: gen-871
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "Which important days fall on today's date?"
+  answer: ""
+  personal: true
+  tips: "Panels sometimes ask about the national or international day on the interview date. Check a calendar of days for the date of your interview the night before."
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: []
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-872
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "How would you teach IT to children?"
+  answer: "Start from what they know, use simple language and real examples, and give hands-on practice in every lesson. Use games, pictures and small projects, let them work in pairs, praise progress, and teach safe and responsible use of the internet. Check understanding with short questions."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Active_learning"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
+- id: gen-873
+  bank: general
+  category: "G88 · Real interview questions: Kalat zone, 27 Nov 2026"
+  question: "How would you teach children to earn through IT, such as freelancing?"
+  answer: "First build real skills such as typing, design, writing, web pages or coding. Then show them how freelancing platforms work: making a profile, a portfolio of small projects, honest communication and meeting deadlines. Remind them about online safety, scams and that payments need a parent's help until they are adults."
+  personal: false
+  frequency: 1
+  tags: []
+  asked_in:
+  - Kalat
+  sources: ["https://en.wikipedia.org/wiki/Freelancer"]
+  verified_on: '2026-11-27'
+  check_again: false
+  status: published
+  added: '2026-11-27'
